@@ -1,0 +1,16 @@
+{
+  "checked_at": "2026-11-03",
+  "pages": 18,
+  "links_checked": 1193,
+  "internal_broken": [],
+  "external_total": 778,
+  "external_non_https": [],
+  "external_unlisted": [],
+  "official_hosts": [
+    "kansspelautoriteit.nl",
+    "nextgenstats.nfl.com",
+    "www.ncpgambling.org",
+    "www.nfl.com"
+  ],
+  "status": "PASS"
+}

@@ -118,7 +118,7 @@
     {
       "id": "nfl-standings-tiebreak",
       "label": "NFL.com — Standings tie-breaking procedures",
-      "url": "http://www.nfl.com/standings/tiebreakingprocedures",
+      "url": "https://www.nfl.com/standings/tiebreakingprocedures",
       "official": true,
       "used_for": "Official tie-breaking procedure reference for standings"
     },
