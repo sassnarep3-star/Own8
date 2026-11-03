@@ -5,7 +5,7 @@ Originate, validate, and track NFL betting-line strategies (single bets, parlays
 ## Live site
 GitHub Pages: https://sassnarep3-star.github.io/Own8/ (enabled after merge to main — see COORDINATION.md for the PR/deploy record)
 
-## Site structure (static, repo root `site/`)
+## Site structure (static, repository root)
 - `index.html` — Dashboard landing page
 - `pages/executive-summary.html` — Executive summary
 - `pages/single-bets.html` — Single-bet strategies
@@ -16,6 +16,7 @@ GitHub Pages: https://sassnarep3-star.github.io/Own8/ (enabled after merge to ma
 - `pages/standings-data.html` — 32-team 2026 NFL regular-season standings (verified)
 - `pages/flagged-for-review.html` — Unverified items + irregularities
 - `pages/sources.html` — Official source register
+- `assets/css/style.css` — Shared styles
 
 ## Data (repository root)
 - `data/nfl-2026-standings.csv` — 32 teams, 2026 REG, source: https://www.nfl.com/standings/ (fetched 2026-11-03, verified cell-by-cell)
