@@ -7,11 +7,11 @@ Rules: claim a task by writing your session ID + file scope, then commit and pus
 | # | Task | Status | Owner | Files touched | Sources / verification | Irregularities |
 |---|------|--------|-------|---------------|------------------------|----------------|
 | 1 | Create coordination board | done | arena/9cf451e4-own8 | COORDINATION.md | — | — |
-| 2 | Research official NFL data sources (standings, stats, schedules) | in progress | arena/9cf451e4-own8 | data/*.csv, data/sources.md | NFL.com (official) | nfl.com blocks direct fetch; using fetch_page/web_search |
-| 3 | Develop strategy framework: single bets, parlays, player prop combos, validation gates, correlations | unclaimed | arena/9cf451e4-own8 | strategies/*.md | Official NFL stats where cited | — |
-| 4 | Executive summary | unclaimed | arena/9cf451e4-own8 | docs/executive-summary.md | All site data | — |
-| 5 | Site creation: landing page + category subpages, strategy tables with source links, unverified flags | unclaimed | arena/9cf451e4-own8 | site/*.html, site/assets/ | Each table row linked to official source | — |
-| 6 | Verification pass: line-by-line check of every table row against official source | unclaimed | arena/9cf451e4-own8 | site/, data/ | Official NFL sources per row | — |
-| 7 | Flagged for Review page + unverified-item registry | unclaimed | arena/9cf451e4-own8 | site/flagged-for-review.html | — | — |
-| 8 | Integration: merge branches, re-verify combined data, confirm site builds with no broken links | unclaimed | arena/9cf451e4-own8 | all | — | — |
+| 2 | Research official NFL data sources (standings, stats, schedules) | done | arena/9cf451e4-own8 | data/*.csv, data/sources.md | nfl.com/standings (2026 REG, fetched 2026-11-03, cell-by-cell verified); nextgenstats.nfl.com passing/rushing/receiving (2026 REG, fetched 2026-11-03) | IR-01: player totals low vs games played — flagged UNVERIFIED |
+| 3 | Develop strategy framework: single bets, parlays, player prop combos, validation gates, correlations | done | arena/9cf451e4-own8 | data/strategies.md, data/correlations.md | Team-level correlations computed from verified standings (Python script compute_correlations.py recorded); player-level flagged UNVERIFIED | All 7 strategies PAUSED on snapshot (no live signals by design) |
+| 4 | Executive summary | done | arena/9cf451e4-own8 | docs/executive-summary.md | Sources: nfl.com/standings; nextgenstats.nfl.com | — |
+| 5 | Site creation: landing page + category subpages, strategy tables with source links, unverified flags | done | arena/9cf451e4-own8 | site/index.html, site/pages/*.html, site/assets/css/style.css | Every table row carries a source link to nfl.com or nextgenstats.nfl.com | Internal link check: 0 broken |
+| 6 | Verification pass: line-by-line check of every table row against official source | done | arena/9cf451e4-own8 | site/, data/ | 32 team rows verified cell-by-cell vs nfl.com/standings (2026-11-03 fetch); player tables flagged per IR-01 | IR-02 direct curl blocked (fetch_page used); IR-03 nfl.com stats URLs 404 (nextgenstats used) |
+| 7 | Flagged for Review page + unverified-item registry | done | arena/9cf451e4-own8 | site/flagged-for-review.html | F-01..F-07 unverified-item registry; IR-01..IR-03 irregularities | Odds/injury/history/schedule data not from official NFL sources — left blank |
+| 8 | Integration: merge branches, re-verify combined data, confirm site builds with no broken links | in progress | arena/9cf451e4-own8 | all | Pre-merge link check: 0 broken internal links | Pending PR + Pages deploy verification |
 | 9 | PR from integration branch to main, merge, confirm GitHub Pages deploys, record PR link + result here | unclaimed | arena/9cf451e4-own8 | GitHub repo + Pages settings | — | — |
