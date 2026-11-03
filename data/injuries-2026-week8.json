@@ -1,0 +1,32 @@
+{
+  "dataset": "injuries-2026-week8-latest-published",
+  "as_of": "2026-11-03",
+  "source_id": "nfl-injuries-w8",
+  "source_url": "https://www.nfl.com/injuries/league/2026/reg8",
+  "captured_at": "2026-11-03",
+  "note": "As of 2026-11-03 the NFL.com injury report for Week 9 (…/injuries/league/2026/reg9) redirects to Week 8 — the Week 9 report has not been published yet (Week 9 games begin 2026-11-05). The latest PUBLISHED official report is therefore Week 8, reproduced here in part (players with a game status of Out or Questionable in the captured portion). See data/flagged.json F-04. Full report at the source URL.",
+  "rows": [
+    {"game": "CAR at GB (Thu Oct 29)", "team": "CAR", "player": "Bobby Brown III", "pos": "DT", "injuries": "Hand", "practice": "Full Participation in Practice", "game_status": "Questionable", "player_url": "https://www.nfl.com/players/bobby-brown-iii/"},
+    {"game": "CAR at GB (Thu Oct 29)", "team": "CAR", "player": "Akayleb Evans", "pos": "CB", "injuries": "Triceps, Knee", "practice": "Did Not Participate In Practice", "game_status": "Out", "player_url": "https://www.nfl.com/players/akayleb-evans/"},
+    {"game": "CAR at GB (Thu Oct 29)", "team": "CAR", "player": "Damien Lewis", "pos": "G", "injuries": "Knee", "practice": "Did Not Participate In Practice", "game_status": "Out", "player_url": "https://www.nfl.com/players/damien-lewis/"},
+    {"game": "CAR at GB (Thu Oct 29)", "team": "CAR", "player": "Jaelan Phillips", "pos": "LB", "injuries": "Hamstring", "practice": "Did Not Participate In Practice", "game_status": "Out", "player_url": "https://www.nfl.com/players/jaelan-phillips/"},
+    {"game": "CAR at GB (Thu Oct 29)", "team": "CAR", "player": "Torricelli Simpkins III", "pos": "G", "injuries": "Ankle", "practice": "Did Not Participate In Practice", "game_status": "Out", "player_url": "https://www.nfl.com/players/torricelli-simpkins-iii/"},
+    {"game": "CAR at GB (Thu Oct 29)", "team": "GB", "player": "Anthony Campbell", "pos": "DT", "injuries": "Ankle", "practice": "Limited Participation in Practice", "game_status": "Questionable", "player_url": "https://www.nfl.com/players/anthony-campbell/"},
+    {"game": "CAR at GB (Thu Oct 29)", "team": "GB", "player": "Brenton Cox Jr.", "pos": "LB", "injuries": "Quadricep", "practice": "Limited Participation in Practice", "game_status": "Questionable", "player_url": "https://www.nfl.com/players/brenton-cox-jr/"},
+    {"game": "CAR at GB (Thu Oct 29)", "team": "GB", "player": "Zaire Franklin", "pos": "LB", "injuries": "Shin", "practice": "Did Not Participate In Practice", "game_status": "Out", "player_url": "https://www.nfl.com/players/zaire-franklin/"},
+    {"game": "CAR at GB (Thu Oct 29)", "team": "GB", "player": "Travis Glover", "pos": "G", "injuries": "Knee", "practice": "Did Not Participate In Practice", "game_status": "Out", "player_url": "https://www.nfl.com/players/travis-glover/"},
+    {"game": "CAR at GB (Thu Oct 29)", "team": "GB", "player": "Matthew Golden", "pos": "WR", "injuries": "Shoulder, Foot", "practice": "Limited Participation in Practice", "game_status": "Questionable", "player_url": "https://www.nfl.com/players/matthew-golden/"},
+    {"game": "CAR at GB (Thu Oct 29)", "team": "GB", "player": "Sean Rhyan", "pos": "C", "injuries": "Ankle", "practice": "Did Not Participate In Practice", "game_status": "Out", "player_url": "https://www.nfl.com/players/sean-rhyan/"},
+    {"game": "CAR at GB (Thu Oct 29)", "team": "GB", "player": "Devonte Wyatt", "pos": "DT", "injuries": "Ankle", "practice": "Limited Participation in Practice", "game_status": "Questionable", "player_url": "https://www.nfl.com/players/devonte-wyatt/"},
+    {"game": "CLE at PIT (Sun Nov 1)", "team": "CLE", "player": "Myles Harden", "pos": "CB", "injuries": "Hamstring", "practice": "Limited Participation in Practice", "game_status": "Questionable", "player_url": "https://www.nfl.com/players/myles-harden/"},
+    {"game": "CLE at PIT (Sun Nov 1)", "team": "CLE", "player": "Tytus Howard", "pos": "T", "injuries": "Concussion", "practice": "Did Not Participate In Practice", "game_status": "Questionable", "player_url": "https://www.nfl.com/players/tytus-howard-x1979/"},
+    {"game": "CLE at PIT (Sun Nov 1)", "team": "CLE", "player": "Daniel Thomas", "pos": "S", "injuries": "Ankle", "practice": "Limited Participation in Practice", "game_status": "Questionable", "player_url": "https://www.nfl.com/players/daniel-thomas-2/"},
+    {"game": "CLE at PIT (Sun Nov 1)", "team": "PIT", "player": "Brandin Echols", "pos": "CB", "injuries": "Hamstring", "practice": "Did Not Participate In Practice", "game_status": "Out", "player_url": "https://www.nfl.com/players/brandin-echols/"},
+    {"game": "CLE at PIT (Sun Nov 1)", "team": "PIT", "player": "Ben Skowronek", "pos": "WR", "injuries": "Calf", "practice": "Limited Participation in Practice", "game_status": "Questionable", "player_url": "https://www.nfl.com/players/ben-skowronek/"},
+    {"game": "CLE at PIT (Sun Nov 1)", "team": "PIT", "player": "Doneiko Slaughter", "pos": "CB", "injuries": "Hamstring", "practice": "Did Not Participate In Practice", "game_status": "Out", "player_url": "https://www.nfl.com/players/doneiko-slaughter/"},
+    {"game": "BAL at BUF (Sun Nov 1)", "team": "BAL", "player": "Jaylinn Hawkins", "pos": "S", "injuries": "Knee", "practice": "Did Not Participate In Practice", "game_status": "Out", "player_url": "https://www.nfl.com/players/jaylinn-hawkins/"},
+    {"game": "BAL at BUF (Sun Nov 1)", "team": "BAL", "player": "Olaivavega Ioane", "pos": "G", "injuries": "Knee", "practice": "Limited Participation in Practice", "game_status": "Out", "player_url": "https://www.nfl.com/players/olaivavega-ioane/"},
+    {"game": "BAL at BUF (Sun Nov 1)", "team": "BAL", "player": "Adam Randall", "pos": "RB", "injuries": "Neck", "practice": "Full Participation in Practice", "game_status": "Questionable", "player_url": "https://www.nfl.com/players/adam-randall/"},
+    {"game": "BAL at BUF (Sun Nov 1)", "team": "BAL", "player": "T.J. Tampa", "pos": "CB", "injuries": "Knee", "practice": "Full Participation in Practice", "game_status": "Questionable", "player_url": "https://www.nfl.com/players/t-j-tampa/"}
+  ]
+}

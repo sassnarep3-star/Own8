@@ -1,0 +1,29 @@
+{
+  "dataset": "schedule-2026-week9",
+  "as_of": "2026-11-03 (Week 9 slate, games not yet played)",
+  "source_id": "nfl-schedule-w9",
+  "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+  "captured_at": "2026-11-03",
+  "times_note": "All kickoff times Eastern Time (ET), as rendered on NFL.com.",
+  "games": [
+    {"away": "JAX", "home": "BAL", "date": "2026-11-05", "day": "Thursday", "kickoff_et": "8:15 PM", "network": "Prime Video", "venue": "M&T Bank Stadium, Baltimore, MD", "game_url": "https://www.nfl.com/games/jaguars-at-ravens-2026-reg-9", "label": "Thursday Night Football"},
+    {"away": "CIN", "home": "ATL", "date": "2026-11-08", "day": "Sunday", "kickoff_et": "9:30 AM", "network": "NFL Network", "venue": "Santiago Bernabéu, Madrid, Spain", "game_url": "https://www.nfl.com/games/bengals-at-falcons-2026-reg-9", "label": "International Game (Madrid)"},
+    {"away": "DEN", "home": "CAR", "date": "2026-11-08", "day": "Sunday", "kickoff_et": "1:00 PM", "network": "CBS", "venue": "Bank of America Stadium, Charlotte, NC", "game_url": "https://www.nfl.com/games/broncos-at-panthers-2026-reg-9", "label": "NFL RedZone"},
+    {"away": "DAL", "home": "IND", "date": "2026-11-08", "day": "Sunday", "kickoff_et": "1:00 PM", "network": "FOX", "venue": "Lucas Oil Stadium, Indianapolis, IN", "game_url": "https://www.nfl.com/games/cowboys-at-colts-2026-reg-9", "label": ""},
+    {"away": "NYJ", "home": "KC", "date": "2026-11-08", "day": "Sunday", "kickoff_et": "1:00 PM", "network": "CBS", "venue": "GEHA Field at Arrowhead Stadium, Kansas City, MO", "game_url": "https://www.nfl.com/games/jets-at-chiefs-2026-reg-9", "label": ""},
+    {"away": "DET", "home": "MIA", "date": "2026-11-08", "day": "Sunday", "kickoff_et": "1:00 PM", "network": "CBS", "venue": "Hard Rock Stadium, Miami Gardens, FL", "game_url": "https://www.nfl.com/games/lions-at-dolphins-2026-reg-9", "label": ""},
+    {"away": "CLE", "home": "NO", "date": "2026-11-08", "day": "Sunday", "kickoff_et": "1:00 PM", "network": "CBS", "venue": "Caesars Superdome, New Orleans, LA", "game_url": "https://www.nfl.com/games/browns-at-saints-2026-reg-9", "label": ""},
+    {"away": "NYG", "home": "PHI", "date": "2026-11-08", "day": "Sunday", "kickoff_et": "1:00 PM", "network": "FOX", "venue": "Lincoln Financial Field, Philadelphia, PA", "game_url": "https://www.nfl.com/games/giants-at-eagles-2026-reg-9", "label": ""},
+    {"away": "LA", "home": "WAS", "date": "2026-11-08", "day": "Sunday", "kickoff_et": "1:00 PM", "network": "FOX", "venue": "FedEx Field, Landover, MD", "game_url": "https://www.nfl.com/games/rams-at-commanders-2026-reg-9", "label": ""},
+    {"away": "HOU", "home": "LAC", "date": "2026-11-08", "day": "Sunday", "kickoff_et": "4:05 PM", "network": "CBS", "venue": "SoFi Stadium, Inglewood, CA", "game_url": "https://www.nfl.com/games/texans-at-chargers-2026-reg-9", "label": ""},
+    {"away": "LV", "home": "SF", "date": "2026-11-08", "day": "Sunday", "kickoff_et": "4:25 PM", "network": "FOX", "venue": "Levi's Stadium, Santa Clara, CA", "game_url": "https://www.nfl.com/games/raiders-at-49ers-2026-reg-9", "label": ""},
+    {"away": "GB", "home": "NE", "date": "2026-11-08", "day": "Sunday", "kickoff_et": "4:25 PM", "network": "FOX", "venue": "Gillette Stadium, Foxborough, MA", "game_url": "https://www.nfl.com/games/packers-at-patriots-2026-reg-9", "label": ""},
+    {"away": "AZ", "home": "SEA", "date": "2026-11-08", "day": "Sunday", "kickoff_et": "4:25 PM", "network": "FOX", "venue": "Lumen Field, Seattle, WA", "game_url": "https://www.nfl.com/games/cardinals-at-seahawks-2026-reg-9", "label": ""},
+    {"away": "TB", "home": "CHI", "date": "2026-11-08", "day": "Sunday", "kickoff_et": "8:20 PM", "network": "NBC", "venue": "Soldier Field, Chicago, IL", "game_url": "https://www.nfl.com/games/buccaneers-at-bears-2026-reg-9", "label": "Sunday Night Football"},
+    {"away": "BUF", "home": "MIN", "date": "2026-11-09", "day": "Monday", "kickoff_et": "8:15 PM", "network": "ESPN", "venue": "U.S. Bank Stadium, Minneapolis, MN", "game_url": "https://www.nfl.com/games/bills-at-vikings-2026-reg-9", "label": "Monday Night Football"}
+  ],
+  "byes": [
+    {"abbr": "PIT", "name": "Pittsburgh Steelers", "record": "6-2"},
+    {"abbr": "TEN", "name": "Tennessee Titans", "record": "1-7"}
+  ]
+}
