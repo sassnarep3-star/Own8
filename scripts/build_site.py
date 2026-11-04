@@ -11,10 +11,11 @@ ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 AN = ROOT / "analysis"
 RES = ROOT / "research"
-DOCS = ROOT / "docs"
-ASSETS = DOCS / "assets"
-ASSETS.mkdir(parents=True, exist_ok=True)
-(DOCS / ".nojekyll").write_text("")
+PAGES = ROOT / "pages"
+ASSETS = ROOT / "assets"
+for _d in (PAGES, ASSETS):
+    _d.mkdir(parents=True, exist_ok=True)
+(ROOT / ".nojekyll").write_text("")
 
 def load(p):
     with open(p) as f:
@@ -82,29 +83,39 @@ def srclink(url, label="source"):
     return link(url, label)
 
 NAV = [
-    ("index.html", "Dashboard"),
-    ("executive-summary.html", "Executive Summary"),
-    ("standings.html", "Standings (W8)"),
-    ("schedule.html", "Week 9 Schedule"),
-    ("scores.html", "Week 8 Scores"),
-    ("team-stats.html", "Team Stats"),
-    ("player-stats.html", "Player Stats & NGS"),
-    ("injuries.html", "Injuries & News"),
-    ("model-lines.html", "Model Lines (W9)"),
-    ("prop-signals.html", "Prop Signals (W9)"),
-    ("strategies.html", "Strategies"),
-    ("validation-gates.html", "Validation Gates"),
-    ("correlations.html", "Correlations"),
-    ("leaderboard.html", "Leaderboard"),
-    ("methodology.html", "Methodology"),
-    ("sources.html", "Sources"),
-    ("flagged.html", "⚑ Flagged for Review"),
-    ("responsible-gambling.html", "Responsible Gambling"),
+    ("index.html", "Dashboard", False),
+    ("executive-summary.html", "Executive Summary", False),
+    ("standings.html", "Standings (W8)", False),
+    ("schedule.html", "Week 9 Schedule", False),
+    ("scores.html", "Week 8 Scores", False),
+    ("team-stats.html", "Team Stats", False),
+    ("player-stats.html", "Player Stats & NGS", False),
+    ("injuries.html", "Injuries & News", False),
+    ("model-lines.html", "Model Lines (W9)", False),
+    ("prop-signals.html", "Prop Signals (W9)", False),
+    ("strategies.html", "Strategies", False),
+    ("validation-gates.html", "Validation Gates", False),
+    ("correlations.html", "Correlations", False),
+    ("leaderboard.html", "Leaderboard", False),
+    ("methodology.html", "Methodology", False),
+    ("sources.html", "Sources", False),
+    ("flagged.html", "⚑ Flagged for Review", False),
+    ("responsible-gambling.html", "Responsible Gambling", False),
+    ("archive/session-9cf451e4-own8/index.html", "Archive (session 9cf451e4)", True),
 ]
 
-def page(title, body, active):
+def page(title, body, active, sub=False):
+    prefix = "" if sub else "pages/"
+    aprefix = "../" if sub else ""
+    def navhref(href, ispath):
+        if sub:
+            if href == "index.html":
+                return "../index.html"
+            return ("../" + href) if ispath else href
+        return href if href == "index.html" else (("" if ispath else "pages/") + href)
     nav = "".join(
-        f'<a href="{href}" class="{"active" if href == active else ""}">{esc(label)}</a>' for href, label in NAV
+        f'<a href="{navhref(href, ispath)}" class="{"active" if href == active else ""}">{esc(label)}</a>'
+        for href, label, ispath in NAV
     )
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -112,21 +123,21 @@ def page(title, body, active):
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{esc(title)} — Own8 NFL Lines</title>
-<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="{aprefix}assets/style.css">
 </head>
 <body>
 <div class="layout">
 <aside class="sidebar">
   <div class="brand">🏈 Own8 <span>NFL Line Lab</span></div>
   <nav>{nav}</nav>
-  <div class="sidefoot">Data as of 2026-11-03 · official sources only · <a href="flagged.html">Flagged for Review</a></div>
+  <div class="sidefoot">Data as of 2026-11-03 · official sources only · <a href="{prefix}flagged.html">Flagged for Review</a></div>
 </aside>
 <main class="main">
 <header class="topbar"><h1>{esc(title)}</h1><span class="asof">as of 2026-11-03 · 2026 NFL season, Week 9 slate</span></header>
 <div class="content">
 {body}
 </div>
-<footer class="footer">Own8 — research/analytics competition framework. Not gambling advice; no real-money wagering occurs here. Every table row links to its official source; unverifiable values are blank and <a href="flagged.html">flagged</a>. 18+ (NL) / 21+ where required — <a href="responsible-gambling.html">responsible gambling</a>.</footer>
+<footer class="footer">Own8 — research/analytics competition framework. Not gambling advice; no real-money wagering occurs here. Every table row links to its official source; unverifiable values are blank and <a href="{prefix}flagged.html">flagged</a>. 18+ (NL) / 21+ where required — <a href="{prefix}responsible-gambling.html">responsible gambling</a>.</footer>
 </main>
 </div>
 </body>
@@ -180,10 +191,16 @@ def render_inline(s):
 def md_page(name, title, active, intro=""):
     text = (RES / name).read_text()
     body = (f"<p class='muted'>{esc(intro)}</p>" if intro else "") + md(text)
-    write(active, page(title, body, active))
+    write(active, page(title, body, active, sub=True))
 
 def write(fname, content):
-    (DOCS / fname).write_text(content)
+    if fname == "index.html":
+        content = re.sub(r'href="([a-z0-9-]+\.html)"', r'href="pages/\1"', content)
+        content = content.replace('href="pages/index.html"', 'href="index.html"')
+        content = content.replace('href="pages/archive/', 'href="archive/')
+        (ROOT / fname).write_text(content)
+    else:
+        (PAGES / fname).write_text(content)
     print("wrote", fname)
 
 # ---------------- CSS ----------------
@@ -274,7 +291,7 @@ body = f"""
 <li>Market spreads/totals are sportsbook numbers, not official — captured ones are third-party and unverified (F-05). Verify at a licensed book; in NL check <a href="https://kansspelautoriteit.nl/kansspelwijzer" target="_blank" rel="noopener">Kansspelwijzer</a>.</li>
 </ul></div>
 """
-write("index.html", page("Dashboard", body, "index.html"))
+write("index.html", page("Dashboard", body, "index.html", sub=False))
 
 # ---------------- standings ----------------
 rows = []
@@ -285,24 +302,24 @@ for conf in ("AFC", "NFC"):
             continue
         rows.append([f"<strong>{conf} {div}</strong>", "", "", "", "", "", "", "", "", "", "", "", ""])
         for t in grp:
-            rows.append([link(team_link(t["abbr"]), f"{t['name']} ({t['abbr']})"), t["W"], t["L"], t["T"], t["PCT"], t["PF"], t["PA"], t["NET"], t["DIV"], t["CONF"], t["STRK"], srclink(standings["source_url"])])
+            rows.append([link(team_link(t["abbr"]), f"{t['name']} ({t['abbr']})"), t["W"], t["L"], t["T"], t["PCT"], t["PF"], t["PA"], t["NET"], t["HOME"], t["ROAD"], t["DIV"], t["DIVPCT"], t["CONF"], t["CONFPCT"], t["STRK"], srclink(standings["source_url"])])
 body = f"""<p class="muted">{esc(standings['as_of'])} · {esc(standings['columns_note'])} Dataset source: {link(standings['source_url'],'NFL.com Standings')}. Tie-breaking procedure: {link('https://www.nfl.com/standings/tiebreakingprocedures','NFL.com')}</p>
-<div class="wrap">{table(["Team","W","L","T","PCT","PF","PA","NET","DIV","CONF","STRK","Source"], rows)}</div>"""
-write("standings.html", page("Standings — 2026 through Week 8", body, "standings.html"))
+<div class="wrap">{table(["Team","W","L","T","PCT","PF","PA","NET","HOME","ROAD","DIV","DIV%","CONF","CONF%","STRK","Source"], rows)}</div>"""
+write("standings.html", page("Standings — 2026 through Week 8", body, "standings.html", sub=True))
 
 # ---------------- schedule ----------------
 rows = [[f"{g['away']} at {g['home']}", g["label"] or "—", g["date"], g["day"], g["kickoff_et"], g["network"], g["venue"], link(g["game_url"], "nfl.com game page"), srclink(sched["source_url"])] for g in sched["games"]]
 byes = ", ".join(f"{b['abbr']} ({b['record']})" for b in sched["byes"])
 body = f"""<p class="muted">{esc(sched['as_of'])} · {esc(sched['times_note'])} Byes: {esc(byes)}. Dataset source: {link(sched['source_url'],'NFL.com Week 9 schedule')}</p>
 <div class="wrap">{table(["Matchup","Note","Date","Day","Kickoff (ET)","TV","Venue","Game page","Source"], rows)}</div>"""
-write("schedule.html", page("Week 9 Schedule — 2026", body, "schedule.html"))
+write("schedule.html", page("Week 9 Schedule — 2026", body, "schedule.html", sub=True))
 
 # ---------------- scores ----------------
 rows = [[f"{g['away']} {g['away_score']} at {g['home']} {g['home_score']}", g["winner"], g["status"], g["date"], g["day"], link(g["game_url"], "nfl.com game page"), srclink(scores["source_url"])] for g in scores["games"]]
 byes = ", ".join(f"{b['abbr']} ({b['record']})" for b in scores["byes"])
 body = f"""<p class="muted">{esc(scores['as_of'])} · Byes: {esc(byes)}. Dataset source: {link(scores['source_url'],'NFL.com Week 8 scores')}</p>
 <div class="wrap">{table(["Final score","Winner","Status","Date","Day","Game page","Source"], rows)}</div>"""
-write("scores.html", page("Week 8 Scores — 2026", body, "scores.html"))
+write("scores.html", page("Week 8 Scores — 2026", body, "scores.html", sub=True))
 
 # ---------------- team stats ----------------
 def team_table(ds, cols, show):
@@ -313,7 +330,7 @@ body = f"""<p class="muted">Season totals through Week 8, as of {esc(tp_off['as_
 {team_table(tr_off, tr_off['columns'], tr_off['columns'])}
 {team_table(tp_def, tp_def['columns'], tp_def['columns'])}
 {team_table(tr_def, tr_def['columns'], tr_def['columns'])}"""
-write("team-stats.html", page("Team Stats — 2026 season", body, "team-stats.html"))
+write("team-stats.html", page("Team Stats — 2026 season", body, "team-stats.html", sub=True))
 
 # ---------------- player stats ----------------
 def player_table(ds, show, extra=None):
@@ -335,7 +352,7 @@ body = f"""<p class="muted">Season through Week 8 (top 25 rows per category as r
 {player_table(pint, pint['columns'])}
 <h3>{esc(ngs['dataset'])}</h3><p class="muted">{esc(ngs['columns_note'])} Glossary: {link('https://nextgenstats.nfl.com/glossary','Next Gen Stats glossary')}</p>
 <div class="wrap">{table(["Player","Team","TT","CAY","IAY","AYD","AGG%","LCAD","AYTS","ATT","YDS","TD","INT","RATE","COMP%","xCOMP%","CPOE (+/-)","Source"], ngs_rows)}</div>"""
-write("player-stats.html", page("Player Stats & Next Gen Stats — 2026", body, "player-stats.html"))
+write("player-stats.html", page("Player Stats & Next Gen Stats — 2026", body, "player-stats.html", sub=True))
 
 # ---------------- injuries & news ----------------
 rows = [[r["game"], r["team"], link(r["player_url"], r["player"]), r["pos"], r["injuries"], r["practice"], badge("PASS" if r["game_status"] == "" else ("FAIL" if r["game_status"] == "Out" else "CONDITIONAL")) + " " + esc(r["game_status"]), srclink(inj["source_url"])] for r in inj["rows"]]
@@ -345,7 +362,7 @@ body = f"""<div class="panel"><span class="badge cond">F-04</span> <strong>Week 
 <h3>Latest official injury report — Week 8 (partial capture)</h3>
 <p class="muted">{esc(inj['note'])}</p>
 <div class="wrap">{table(["Game","Team","Player","Pos","Injuries","Practice status","Game status","Source"], rows)}</div>"""
-write("injuries.html", page("Injuries & News", body, "injuries.html"))
+write("injuries.html", page("Injuries & News", body, "injuries.html", sub=True))
 
 # ---------------- model lines ----------------
 rows = []
@@ -365,7 +382,7 @@ body = f"""<p class="muted">Method: {esc(lines['method'])}</p>
 <h3>Gate details</h3>
 <div class="wrap">{table(["Game","Gate","Status","Detail"],
  [[f"{g['away']} at {g['home']}", k, badge(v['status']), esc(v['detail'])] for g in lines["games"] for k, v in g["gates"].items()])}</div>"""
-write("model-lines.html", page("Model Lines — Week 9 (originated from official data)", body, "model-lines.html"))
+write("model-lines.html", page("Model Lines — Week 9 (originated from official data)", body, "model-lines.html", sub=True))
 
 # ---------------- prop signals ----------------
 rows = [[p["game"], p["side"], p["team"], (esc(p["qb"]) if p["qb"] else '<span class="unverified">—</span>'),
@@ -376,7 +393,7 @@ rows = [[p["game"], p["side"], p["team"], (esc(p["qb"]) if p["qb"] else '<span c
 body = f"""<p class="muted">Method: {esc(props['method'])}</p>
 <div class="wrap">{table(["Game","Side","Team","QB","QB season YPG","QB proj pass YDS","Team rush proj YDS","Team pass proj YDS","Opp pass def YPG allowed","Opp rush def YPG allowed","Market prop line","Source"], rows)}</div>
 <p class="muted">Individual RB/WR allocation requires the official depth chart (player team affiliations are not rendered on the leaders page — F-02), so only team-level projections are published. Prop market lines are blank by rule: they are sportsbook-specific and not an official source.</p>"""
-write("prop-signals.html", page("Player Prop Signals — Week 9", body, "prop-signals.html"))
+write("prop-signals.html", page("Player Prop Signals — Week 9", body, "prop-signals.html", sub=True))
 
 # ---------------- strategies ----------------
 cards = []
@@ -390,7 +407,7 @@ for s in strats:
     <p>{esc(s['description'])}</p>{extra}<p class="muted">Status: {esc(s['status'])} · Gates: {gates}</p></div>""")
 body = f"""<p class="muted">Bet shapes: singles, player props, parlays. Every strategy must pass the <a href="validation-gates.html">validation gates</a>; multi-leg bets must satisfy the <a href="correlations.html">correlation policy</a>. As of 2026-11-03.</p>
 {''.join(cards)}"""
-write("strategies.html", page("Strategy Catalog", body, "strategies.html"))
+write("strategies.html", page("Strategy Catalog", body, "strategies.html", sub=True))
 
 # ---------------- correlations ----------------
 rows = [[c["pair"], c["type"], c["n"], f"{c['r']:+.4f}", esc(c["interpretation"]), link("https://www.nfl.com/stats/team-stats/", "nfl.com team stats"), link("https://www.nfl.com/standings/", "nfl.com standings")] for c in corr["correlations"]]
@@ -401,7 +418,7 @@ body = f"""<p class="muted">{esc(corr['method'])}</p>
 <div class="wrap">{table(["Pair","Statistic","n","r","Interpretation","Source 1","Source 2"], rows)}</div>
 <h3>Enforcement rules</h3>
 {md((RES / 'correlation-policy.md').read_text().split('## Rules', 1)[1])}"""
-write("correlations.html", page("Correlation Analysis (computed from official data)", body, "correlations.html"))
+write("correlations.html", page("Correlation Analysis (computed from official data)", body, "correlations.html", sub=True))
 
 # ---------------- leaderboard ----------------
 rows = [[b["rank"], b["strategy_id"], esc(b["name"]), esc(b["type"]),
@@ -413,20 +430,20 @@ body = f"""<p class="muted">{esc(board['note'])}</p>
 <div class="wrap">{table(["Rank","ID","Strategy","Type","W9 projected edge (pts)","Realized pts","Status","Source"], rows)}</div>
 <h3>Full rules</h3>
 {md((RES / 'leaderboard-rules.md').read_text())}"""
-write("leaderboard.html", page("Leaderboard Competition", body, "leaderboard.html"))
+write("leaderboard.html", page("Leaderboard Competition", body, "leaderboard.html", sub=True))
 
 # ---------------- sources ----------------
 rows = [[s["id"], esc(s["label"]), link(s["url"], s["url"]), badge("PASS") + " official" if s["official"] else badge("CONDITIONAL"), esc(s["used_for"])] for s in sources]
 body = f"""<p class="muted">{esc('Captured 2026-11-03 by session 95e9626f. Only official NFL / official regulator domains are used as sources for verified values. Third-party aggregator values are recorded only in data/market-lines.json and flagged (F-05), never as verified sources.')}</p>
 <div class="wrap">{table(["ID","Source","Link","Status","Used for"], rows)}</div>"""
-write("sources.html", page("Source Registry (official sources)", body, "sources.html"))
+write("sources.html", page("Source Registry (official sources)", body, "sources.html", sub=True))
 
 # ---------------- flagged ----------------
 rows = [[f["id"], badge("FAIL") if f["severity"] == "high" else (badge("CONDITIONAL") if f["severity"] == "medium" else badge("PASS")), esc(f["severity"]), esc(f["item"]), link(f["source_url"], f["source_url"]) if f["source_url"] else '<span class="unverified">— no external source (internal assumption)</span>'] for f in flagged]
 body = f"""<p class="muted">{esc(flagged and load(DATA / 'flagged.json')['note'])}</p>
 <div class="panel" style="border-left:4px solid var(--flag)"><strong>These items do not block the site or any strategy.</strong> They are published here so they can be reviewed after the site is live. Rule: if a value cannot be confirmed from an official source, it is left blank and flagged — never inferred or filled in.</div>
 <div class="wrap">{table(["ID","Severity badge","Severity","Item","Source link"], rows)}</div>"""
-write("flagged.html", page("⚑ Flagged for Review (unverified / irregularities)", body, "flagged.html"))
+write("flagged.html", page("⚑ Flagged for Review (unverified / irregularities)", body, "flagged.html", sub=True))
 
 # ---------------- markdown pages ----------------
 md_page("executive-summary.md", "Executive Summary", "executive-summary.html")
@@ -434,4 +451,4 @@ md_page("methodology.md", "Methodology", "methodology.html")
 md_page("validation-gates.md", "Validation Gates", "validation-gates.html")
 md_page("responsible-gambling.md", "Responsible Gambling & Legal Notes", "responsible-gambling.html")
 
-print("site build complete ->", DOCS)
+print("site build complete -> repo root + pages/")

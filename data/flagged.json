@@ -7,7 +7,7 @@
     {
       "id": "F-01",
       "severity": "low",
-      "item": "NFL.com standings 'detailed view' renders extra columns after CONF (home/road/L10-style fields) whose labels were not identifiable from the captured rendering. They were OMITTED from data/standings-2026-reg-w8.json rather than guessed. W/L/T/PCT/PF/PA/NET/DIV/CONF/STRK are captured as rendered.",
+      "item": "RESOLVED during cross-session re-verification: NFL.com's detailed standings tail columns were decoded and validated arithmetically for all 32 teams (HOME+ROAD = W-L-T record; DIV% and CONF% recompute exactly from DIV/CONF). data/standings-2026-reg-w8.json now carries W,L,T,PCT,PF,PA,NET,HOME,ROAD,DIV,DIV%,CONF,CONF%,STRK. Two remaining rendered tail columns (positions 14 and 16) could not be label-verified and are still omitted rather than guessed. An earlier in-session capture had mislabeled positions 8-9 as DIV/CONF; corrected and logged in COORDINATION.md.",
       "source_url": "https://www.nfl.com/standings/"
     },
     {
@@ -63,6 +63,24 @@
       "severity": "info",
       "item": "This project is a research/analytics competition framework. It does not place, facilitate, or intermediate any real-money wager. Leaderboard 'rewards' are points/trophies only. Gambling can be addictive — in the Netherlands only use Ksa-licensed providers (https://kansspelautoriteit.nl/), self-exclude via CRUKS (https://kansspelautoriteit.nl/uitsluitregister-cruks), and in the US call 1-800-GAMBLER (https://www.ncpgambling.org/). Strictly 18+ (NL) / 21+ where required by local law.",
       "source_url": "https://kansspelautoriteit.nl/"
+    },
+    {
+      "id": "F-11",
+      "severity": "medium",
+      "item": "Parallel session's capture data/nfl-2026-standings.csv (session 9cf451e4, source nfl.com/standings): its 'div' column actually matches the HOME record column and its 'conf' matches CONF — its div/home labels appear swapped. W,L,T,PCT,PF,PA,NET,streak match this session's JSON on all 32 teams (see analysis/verification.json). The CSV is retained for provenance; use data/standings-2026-reg-w8.json for labeled values.",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "id": "F-12",
+      "severity": "high",
+      "item": "Parallel session's player CSVs data/nfl-2026-{passing,rushing,receiving}.csv were sourced from Next Gen Stats REG/1 (Week 1) and self-flagged UNVERIFIED by that session (IR-01: totals inconsistent with games played). They are NOT used by this session's pipeline; this session uses season-through-Week-8 captures from nfl.com/stats/player-stats and nextgenstats.nfl.com .../REG/8 instead.",
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/1"
+    },
+    {
+      "id": "F-13",
+      "severity": "info",
+      "item": "Session 9cf451e4's original site tree (index.html, pages/, assets/, docs/executive-summary.md) was relocated verbatim to archive/session-9cf451e4-own8/ during final integration so this session's unified dashboard can serve from the repo root (GitHub Pages: main /). Relative links inside the archive were preserved (its data/ copies included). Their irregularities IR-02 (direct curl blocked; fetch_page used) and IR-03 (some nfl.com stats URLs 404 in their session; nextgenstats used) are recorded here for the record.",
+      "source_url": null
     }
   ]
 }

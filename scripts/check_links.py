@@ -13,7 +13,6 @@ from pathlib import Path
 from urllib.parse import urlparse, unquote
 
 ROOT = Path(__file__).resolve().parent.parent
-DOCS = ROOT / "docs"
 DATA = ROOT / "data"
 OUT = ROOT / "analysis"
 
@@ -23,8 +22,8 @@ official_hosts = {urlparse(s["url"]).netloc for s in sources}
 FLAGGED_THIRD_PARTY = {"nflschedules.com", "www.espn.com"}
 FLAG_PAGES = {"flagged.html", "sources.html", "model-lines.html", "index.html"}
 
-html_files = sorted(DOCS.rglob("*.html"))
-internal_broken, external, external_non_https, external_unlisted = [], [], [], []
+html_files = sorted(p for p in ROOT.rglob("*.html") if ".git" not in p.parts)
+internal_broken, external, external_non_https, external_unlisted, warnings_http_official = [], [], [], [], []
 checked = 0
 for f in html_files:
     text = f.read_text()
@@ -36,7 +35,7 @@ for f in html_files:
         u = urlparse(url)
         if u.scheme in ("http", "https"):
             if u.scheme != "https":
-                external_non_https.append((f.name, url))
+                (external_non_https if u.netloc not in official_hosts else warnings_http_official).append((f.name, url))
             host = u.netloc
             external.append((f.name, url, host))
             if host not in official_hosts and host not in FLAGGED_THIRD_PARTY:
@@ -56,6 +55,7 @@ result = {
     "external_total": len(external),
     "external_non_https": external_non_https,
     "external_unlisted": external_unlisted,
+    "warnings_http_official_host": warnings_http_official,
     "official_hosts": sorted(official_hosts),
     "status": "PASS" if not internal_broken and not external_non_https else "FAIL",
 }

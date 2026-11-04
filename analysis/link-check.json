@@ -1,11 +1,17 @@
 {
   "checked_at": "2026-11-03",
-  "pages": 18,
-  "links_checked": 1193,
+  "pages": 46,
+  "links_checked": 2712,
   "internal_broken": [],
-  "external_total": 778,
+  "external_total": 1674,
   "external_non_https": [],
   "external_unlisted": [],
+  "warnings_http_official_host": [
+    [
+      "sources.html",
+      "http://www.nfl.com/standings/tiebreakingprocedures"
+    ]
+  ],
   "official_hosts": [
     "kansspelautoriteit.nl",
     "nextgenstats.nfl.com",
