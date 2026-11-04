@@ -1,0 +1,247 @@
+{
+  "key_numbers": [
+    {
+      "margin": 3,
+      "games": 756,
+      "share": 0.1454
+    },
+    {
+      "margin": 7,
+      "games": 465,
+      "share": 0.0894
+    },
+    {
+      "margin": 6,
+      "games": 327,
+      "share": 0.0629
+    },
+    {
+      "margin": 10,
+      "games": 279,
+      "share": 0.0537
+    },
+    {
+      "margin": 4,
+      "games": 260,
+      "share": 0.05
+    },
+    {
+      "margin": 14,
+      "games": 257,
+      "share": 0.0494
+    },
+    {
+      "margin": 2,
+      "games": 223,
+      "share": 0.0429
+    },
+    {
+      "margin": 1,
+      "games": 217,
+      "share": 0.0417
+    },
+    {
+      "margin": 8,
+      "games": 205,
+      "share": 0.0394
+    },
+    {
+      "margin": 5,
+      "games": 192,
+      "share": 0.0369
+    }
+  ],
+  "league_scoring": [
+    {
+      "season": 2006,
+      "games": 256,
+      "avg_total": 41.32,
+      "avg_home_margin": 0.85
+    },
+    {
+      "season": 2007,
+      "games": 256,
+      "avg_total": 43.38,
+      "avg_home_margin": 2.87
+    },
+    {
+      "season": 2008,
+      "games": 256,
+      "avg_total": 44.06,
+      "avg_home_margin": 2.56
+    },
+    {
+      "season": 2009,
+      "games": 256,
+      "avg_total": 42.93,
+      "avg_home_margin": 2.21
+    },
+    {
+      "season": 2010,
+      "games": 256,
+      "avg_total": 44.07,
+      "avg_home_margin": 1.89
+    },
+    {
+      "season": 2011,
+      "games": 256,
+      "avg_total": 44.36,
+      "avg_home_margin": 3.27
+    },
+    {
+      "season": 2012,
+      "games": 256,
+      "avg_total": 45.51,
+      "avg_home_margin": 2.43
+    },
+    {
+      "season": 2013,
+      "games": 256,
+      "avg_total": 46.82,
+      "avg_home_margin": 3.11
+    },
+    {
+      "season": 2014,
+      "games": 256,
+      "avg_total": 45.18,
+      "avg_home_margin": 2.49
+    },
+    {
+      "season": 2015,
+      "games": 256,
+      "avg_total": 45.62,
+      "avg_home_margin": 1.56
+    },
+    {
+      "season": 2016,
+      "games": 256,
+      "avg_total": 45.55,
+      "avg_home_margin": 2.57
+    },
+    {
+      "season": 2017,
+      "games": 256,
+      "avg_total": 43.44,
+      "avg_home_margin": 2.48
+    },
+    {
+      "season": 2018,
+      "games": 256,
+      "avg_total": 46.69,
+      "avg_home_margin": 2.2
+    },
+    {
+      "season": 2019,
+      "games": 256,
+      "avg_total": 45.62,
+      "avg_home_margin": -0.14
+    },
+    {
+      "season": 2020,
+      "games": 256,
+      "avg_total": 49.58,
+      "avg_home_margin": 0.05
+    },
+    {
+      "season": 2021,
+      "games": 272,
+      "avg_total": 45.96,
+      "avg_home_margin": 1.71
+    },
+    {
+      "season": 2022,
+      "games": 271,
+      "avg_total": 43.76,
+      "avg_home_margin": 1.98
+    },
+    {
+      "season": 2023,
+      "games": 272,
+      "avg_total": 43.54,
+      "avg_home_margin": 2.68
+    },
+    {
+      "season": 2024,
+      "games": 272,
+      "avg_total": 45.82,
+      "avg_home_margin": 1.87
+    },
+    {
+      "season": 2025,
+      "games": 272,
+      "avg_total": 46.03,
+      "avg_home_margin": 2.07
+    }
+  ],
+  "market_calibration": [
+    {
+      "bucket": "(0.1, 0.2]",
+      "n": 105,
+      "market_prob": 0.1621,
+      "empirical_win": 0.1905,
+      "gap": 0.0284
+    },
+    {
+      "bucket": "(0.2, 0.3]",
+      "n": 381,
+      "market_prob": 0.2566,
+      "empirical_win": 0.252,
+      "gap": -0.0046
+    },
+    {
+      "bucket": "(0.3, 0.4]",
+      "n": 644,
+      "market_prob": 0.3528,
+      "empirical_win": 0.3478,
+      "gap": -0.005
+    },
+    {
+      "bucket": "(0.4, 0.5]",
+      "n": 722,
+      "market_prob": 0.4481,
+      "empirical_win": 0.4294,
+      "gap": -0.0188
+    },
+    {
+      "bucket": "(0.5, 0.6]",
+      "n": 801,
+      "market_prob": 0.5563,
+      "empirical_win": 0.5331,
+      "gap": -0.0232
+    },
+    {
+      "bucket": "(0.6, 0.7]",
+      "n": 1039,
+      "market_prob": 0.6482,
+      "empirical_win": 0.616,
+      "gap": -0.0323
+    },
+    {
+      "bucket": "(0.7, 0.8]",
+      "n": 893,
+      "market_prob": 0.7483,
+      "empirical_win": 0.7604,
+      "gap": 0.0121
+    },
+    {
+      "bucket": "(0.8, 0.9]",
+      "n": 432,
+      "market_prob": 0.843,
+      "empirical_win": 0.8634,
+      "gap": 0.0204
+    },
+    {
+      "bucket": "(0.9, 1.0]",
+      "n": 41,
+      "market_prob": 0.9173,
+      "empirical_win": 0.9512,
+      "gap": 0.0339
+    }
+  ],
+  "brier": {
+    "market_novig": 0.21105,
+    "model": 0.2247,
+    "n": 5065,
+    "window": "2006\u20132025"
+  }
+}

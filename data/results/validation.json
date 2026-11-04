@@ -1,0 +1,42 @@
+{
+  "A1_official_anchor": {
+    "description": "NFL-official Big Data Bowl 2017 game results vs games.csv mirror, line by line",
+    "official_source": "https://github.com/nfl-football-ops/Big-Data-Bowl/blob/master/Data/games.csv",
+    "n_official_games": 91,
+    "n_matched": 91,
+    "n_exact_score_matches": 91,
+    "mismatches": [],
+    "pass": true
+  },
+  "A2_line_crosscheck": {
+    "description": "games.csv closing lines vs median of book-level closing lines (independent mirror)",
+    "n_games_compared": 3964,
+    "spread_within_0.5": 0.9342,
+    "total_within_0.5": 0.9854,
+    "spread_mad": 0.182,
+    "total_mad": 0.152,
+    "pass": true,
+    "flag": "Independent mirrors agree within 0.5 pt on 93.4% of spreads / 98.5% of totals (MAD 0.18 / 0.15). Disagreements concentrate in 2006\u20132013 consensus snapshots; only 25 games (0.6%) differ by >1.5 pts. Tolerance documented; listed on Flagged for Review."
+  },
+  "A3_player_internal": {
+    "description": "Per team-game: summed passer yards vs summed receiver yards (must match)",
+    "n_team_games": 4608,
+    "exact_match_rate": 0.969,
+    "median_abs_diff": 0.0,
+    "pass": true,
+    "flag": "3.1% of team-games differ (lateral/sack attribution quirks in legacy nflscrapR aggregation); median diff 0. Listed on Flagged for Review."
+  },
+  "A4_player_schedule_coverage": {
+    "description": "Every player-stat game date exists in the schedule/results mirror",
+    "n_dates": 426,
+    "n_covered": 426,
+    "pass": true
+  },
+  "A5_fdp_coverage": {
+    "description": "2021 weekly fantasy sample: every team-week appears in the 2021 schedule",
+    "n_team_weeks": 544,
+    "n_valid": 544,
+    "pass": true
+  },
+  "all_pass": true
+}
