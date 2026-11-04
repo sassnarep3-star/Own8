@@ -42,7 +42,7 @@
         },
         "G4_injury_news_check": {
           "status": "CONDITIONAL",
-          "detail": "Latest official injury report is Week 8 (W9 report not yet published \u2014 flagged F-04); official nfl.com news applied where relevant (Hurts IR \u2014 PHI; McLaurin season out \u2014 WAS). Re-check official W9 report before acting."
+          "detail": "Official Week 9 injury report is published (https://www.nfl.com/injuries/league/2026/reg9, fetched 2026-11-04) but not yet transcribed into data/ (F-04). Official nfl.com news applied where relevant (Hurts IR \u2014 PHI; McLaurin season out \u2014 WAS). Transcribe and re-check the W9 report before acting."
         },
         "G5_correlation_check": {
           "status": "PASS",
@@ -118,7 +118,7 @@
         },
         "G4_injury_news_check": {
           "status": "CONDITIONAL",
-          "detail": "Latest official injury report is Week 8 (W9 report not yet published \u2014 flagged F-04); official nfl.com news applied where relevant (Hurts IR \u2014 PHI; McLaurin season out \u2014 WAS). Re-check official W9 report before acting."
+          "detail": "Official Week 9 injury report is published (https://www.nfl.com/injuries/league/2026/reg9, fetched 2026-11-04) but not yet transcribed into data/ (F-04). Official nfl.com news applied where relevant (Hurts IR \u2014 PHI; McLaurin season out \u2014 WAS). Transcribe and re-check the W9 report before acting."
         },
         "G5_correlation_check": {
           "status": "PASS",
@@ -194,7 +194,7 @@
         },
         "G4_injury_news_check": {
           "status": "CONDITIONAL",
-          "detail": "Latest official injury report is Week 8 (W9 report not yet published \u2014 flagged F-04); official nfl.com news applied where relevant (Hurts IR \u2014 PHI; McLaurin season out \u2014 WAS). Re-check official W9 report before acting."
+          "detail": "Official Week 9 injury report is published (https://www.nfl.com/injuries/league/2026/reg9, fetched 2026-11-04) but not yet transcribed into data/ (F-04). Official nfl.com news applied where relevant (Hurts IR \u2014 PHI; McLaurin season out \u2014 WAS). Transcribe and re-check the W9 report before acting."
         },
         "G5_correlation_check": {
           "status": "PASS",
@@ -270,7 +270,7 @@
         },
         "G4_injury_news_check": {
           "status": "CONDITIONAL",
-          "detail": "Latest official injury report is Week 8 (W9 report not yet published \u2014 flagged F-04); official nfl.com news applied where relevant (Hurts IR \u2014 PHI; McLaurin season out \u2014 WAS). Re-check official W9 report before acting."
+          "detail": "Official Week 9 injury report is published (https://www.nfl.com/injuries/league/2026/reg9, fetched 2026-11-04) but not yet transcribed into data/ (F-04). Official nfl.com news applied where relevant (Hurts IR \u2014 PHI; McLaurin season out \u2014 WAS). Transcribe and re-check the W9 report before acting."
         },
         "G5_correlation_check": {
           "status": "PASS",
@@ -346,7 +346,7 @@
         },
         "G4_injury_news_check": {
           "status": "CONDITIONAL",
-          "detail": "Latest official injury report is Week 8 (W9 report not yet published \u2014 flagged F-04); official nfl.com news applied where relevant (Hurts IR \u2014 PHI; McLaurin season out \u2014 WAS). Re-check official W9 report before acting."
+          "detail": "Official Week 9 injury report is published (https://www.nfl.com/injuries/league/2026/reg9, fetched 2026-11-04) but not yet transcribed into data/ (F-04). Official nfl.com news applied where relevant (Hurts IR \u2014 PHI; McLaurin season out \u2014 WAS). Transcribe and re-check the W9 report before acting."
         },
         "G5_correlation_check": {
           "status": "PASS",
@@ -422,7 +422,7 @@
         },
         "G4_injury_news_check": {
           "status": "CONDITIONAL",
-          "detail": "Latest official injury report is Week 8 (W9 report not yet published \u2014 flagged F-04); official nfl.com news applied where relevant (Hurts IR \u2014 PHI; McLaurin season out \u2014 WAS). Re-check official W9 report before acting."
+          "detail": "Official Week 9 injury report is published (https://www.nfl.com/injuries/league/2026/reg9, fetched 2026-11-04) but not yet transcribed into data/ (F-04). Official nfl.com news applied where relevant (Hurts IR \u2014 PHI; McLaurin season out \u2014 WAS). Transcribe and re-check the W9 report before acting."
         },
         "G5_correlation_check": {
           "status": "PASS",
@@ -498,7 +498,7 @@
         },
         "G4_injury_news_check": {
           "status": "CONDITIONAL",
-          "detail": "Latest official injury report is Week 8 (W9 report not yet published \u2014 flagged F-04); official nfl.com news applied where relevant (Hurts IR \u2014 PHI; McLaurin season out \u2014 WAS). Re-check official W9 report before acting."
+          "detail": "Official Week 9 injury report is published (https://www.nfl.com/injuries/league/2026/reg9, fetched 2026-11-04) but not yet transcribed into data/ (F-04). Official nfl.com news applied where relevant (Hurts IR \u2014 PHI; McLaurin season out \u2014 WAS). Transcribe and re-check the W9 report before acting."
         },
         "G5_correlation_check": {
           "status": "PASS",
@@ -574,7 +574,7 @@
         },
         "G4_injury_news_check": {
           "status": "CONDITIONAL",
-          "detail": "Latest official injury report is Week 8 (W9 report not yet published \u2014 flagged F-04); official nfl.com news applied where relevant (Hurts IR \u2014 PHI; McLaurin season out \u2014 WAS). Re-check official W9 report before acting."
+          "detail": "Official Week 9 injury report is published (https://www.nfl.com/injuries/league/2026/reg9, fetched 2026-11-04) but not yet transcribed into data/ (F-04). Official nfl.com news applied where relevant (Hurts IR \u2014 PHI; McLaurin season out \u2014 WAS). Transcribe and re-check the W9 report before acting."
         },
         "G5_correlation_check": {
           "status": "PASS",
@@ -650,7 +650,7 @@
         },
         "G4_injury_news_check": {
           "status": "CONDITIONAL",
-          "detail": "Latest official injury report is Week 8 (W9 report not yet published \u2014 flagged F-04); official nfl.com news applied where relevant (Hurts IR \u2014 PHI; McLaurin season out \u2014 WAS). Re-check official W9 report before acting."
+          "detail": "Official Week 9 injury report is published (https://www.nfl.com/injuries/league/2026/reg9, fetched 2026-11-04) but not yet transcribed into data/ (F-04). Official nfl.com news applied where relevant (Hurts IR \u2014 PHI; McLaurin season out \u2014 WAS). Transcribe and re-check the W9 report before acting."
         },
         "G5_correlation_check": {
           "status": "PASS",
@@ -726,7 +726,7 @@
         },
         "G4_injury_news_check": {
           "status": "CONDITIONAL",
-          "detail": "Latest official injury report is Week 8 (W9 report not yet published \u2014 flagged F-04); official nfl.com news applied where relevant (Hurts IR \u2014 PHI; McLaurin season out \u2014 WAS). Re-check official W9 report before acting."
+          "detail": "Official Week 9 injury report is published (https://www.nfl.com/injuries/league/2026/reg9, fetched 2026-11-04) but not yet transcribed into data/ (F-04). Official nfl.com news applied where relevant (Hurts IR \u2014 PHI; McLaurin season out \u2014 WAS). Transcribe and re-check the W9 report before acting."
         },
         "G5_correlation_check": {
           "status": "PASS",
@@ -802,7 +802,7 @@
         },
         "G4_injury_news_check": {
           "status": "CONDITIONAL",
-          "detail": "Latest official injury report is Week 8 (W9 report not yet published \u2014 flagged F-04); official nfl.com news applied where relevant (Hurts IR \u2014 PHI; McLaurin season out \u2014 WAS). Re-check official W9 report before acting."
+          "detail": "Official Week 9 injury report is published (https://www.nfl.com/injuries/league/2026/reg9, fetched 2026-11-04) but not yet transcribed into data/ (F-04). Official nfl.com news applied where relevant (Hurts IR \u2014 PHI; McLaurin season out \u2014 WAS). Transcribe and re-check the W9 report before acting."
         },
         "G5_correlation_check": {
           "status": "PASS",
@@ -878,7 +878,7 @@
         },
         "G4_injury_news_check": {
           "status": "CONDITIONAL",
-          "detail": "Latest official injury report is Week 8 (W9 report not yet published \u2014 flagged F-04); official nfl.com news applied where relevant (Hurts IR \u2014 PHI; McLaurin season out \u2014 WAS). Re-check official W9 report before acting."
+          "detail": "Official Week 9 injury report is published (https://www.nfl.com/injuries/league/2026/reg9, fetched 2026-11-04) but not yet transcribed into data/ (F-04). Official nfl.com news applied where relevant (Hurts IR \u2014 PHI; McLaurin season out \u2014 WAS). Transcribe and re-check the W9 report before acting."
         },
         "G5_correlation_check": {
           "status": "PASS",
@@ -954,7 +954,7 @@
         },
         "G4_injury_news_check": {
           "status": "CONDITIONAL",
-          "detail": "Latest official injury report is Week 8 (W9 report not yet published \u2014 flagged F-04); official nfl.com news applied where relevant (Hurts IR \u2014 PHI; McLaurin season out \u2014 WAS). Re-check official W9 report before acting."
+          "detail": "Official Week 9 injury report is published (https://www.nfl.com/injuries/league/2026/reg9, fetched 2026-11-04) but not yet transcribed into data/ (F-04). Official nfl.com news applied where relevant (Hurts IR \u2014 PHI; McLaurin season out \u2014 WAS). Transcribe and re-check the W9 report before acting."
         },
         "G5_correlation_check": {
           "status": "PASS",
@@ -1030,7 +1030,7 @@
         },
         "G4_injury_news_check": {
           "status": "CONDITIONAL",
-          "detail": "Latest official injury report is Week 8 (W9 report not yet published \u2014 flagged F-04); official nfl.com news applied where relevant (Hurts IR \u2014 PHI; McLaurin season out \u2014 WAS). Re-check official W9 report before acting."
+          "detail": "Official Week 9 injury report is published (https://www.nfl.com/injuries/league/2026/reg9, fetched 2026-11-04) but not yet transcribed into data/ (F-04). Official nfl.com news applied where relevant (Hurts IR \u2014 PHI; McLaurin season out \u2014 WAS). Transcribe and re-check the W9 report before acting."
         },
         "G5_correlation_check": {
           "status": "PASS",
@@ -1106,7 +1106,7 @@
         },
         "G4_injury_news_check": {
           "status": "CONDITIONAL",
-          "detail": "Latest official injury report is Week 8 (W9 report not yet published \u2014 flagged F-04); official nfl.com news applied where relevant (Hurts IR \u2014 PHI; McLaurin season out \u2014 WAS). Re-check official W9 report before acting."
+          "detail": "Official Week 9 injury report is published (https://www.nfl.com/injuries/league/2026/reg9, fetched 2026-11-04) but not yet transcribed into data/ (F-04). Official nfl.com news applied where relevant (Hurts IR \u2014 PHI; McLaurin season out \u2014 WAS). Transcribe and re-check the W9 report before acting."
         },
         "G5_correlation_check": {
           "status": "PASS",

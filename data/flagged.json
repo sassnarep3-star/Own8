@@ -25,8 +25,8 @@
     {
       "id": "F-04",
       "severity": "medium",
-      "item": "As of 2026-11-03, NFL.com has not yet published the Week 9 injury report (https://www.nfl.com/injuries/league/2026/reg9 redirects to Week 8). The latest official report is Week 8 (captured in data/injuries-2026-week8.json, partial: players with Out/Questionable status in the captured portion). Week 9 game statuses must be re-checked against the official report once published before any Week 9 selection is acted on.",
-      "source_url": "https://www.nfl.com/injuries/league/2026/reg8"
+      "item": "UPDATED 2026-11-04 (session 91f4f44e): the official NFL Week 9 injury report IS now published at https://www.nfl.com/injuries/league/2026/reg9 (fetched 2026-11-04; earlier F-04 text said unpublished and is stale). Its JAX/BAL and CIN/ATL and other Week 9 listings were checked at the top of the page only; the full game-by-game statuses are NOT yet transcribed into data/ (the per-player Injuries/Game Status columns were blank in the fetched text for JAX/BAL). The Week 8 capture (data/injuries-2026-week8.json) is superseded for Week 9 and must not be used for Week 9 decisions. G4 stays CONDITIONAL until the Week 9 report is transcribed and checked.",
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg9"
     },
     {
       "id": "F-05",
