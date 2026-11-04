@@ -1,66 +1,41 @@
-#!/usr/bin/env python3
-"""Own8 link checker (T6). Verifies the built site in docs/:
-  1. every internal href/src resolves to an existing file (no broken links)
-  2. every external link is https
-  3. every external link is either on the official-source allowlist (data/sources.json)
-     or is an explicitly flagged third-party link (flagged pages / market-lines references)
-Writes analysis/link-check.json and exits non-zero if any internal link is broken.
-
-Run: python3 scripts/check_links.py
+"""Check isolated artifact paths/fragments, HTTPS, allowlist and per-table-row references.
+This is NOT an external HTTP reachability or semantic fact checker.
 """
-import json, re, sys
+import json,sys
+from html.parser import HTMLParser
 from pathlib import Path
-from urllib.parse import urlparse, unquote
-
-ROOT = Path(__file__).resolve().parent.parent
-DATA = ROOT / "data"
-OUT = ROOT / "analysis"
-
-sources = json.load(open(DATA / "sources.json"))["sources"]
-official_hosts = {urlparse(s["url"]).netloc for s in sources}
-# flagged third-party hosts allowed ONLY on pages that explicitly discuss them
-FLAGGED_THIRD_PARTY = {"nflschedules.com", "www.espn.com"}
-FLAG_PAGES = {"flagged.html", "sources.html", "model-lines.html", "index.html"}
-
-html_files = sorted(p for p in ROOT.rglob("*.html") if ".git" not in p.parts)
-internal_broken, external, external_non_https, external_unlisted, warnings_http_official = [], [], [], [], []
-checked = 0
-for f in html_files:
-    text = f.read_text()
-    for m in re.finditer(r'(?:href|src)="([^"]+)"', text):
-        checked += 1
-        url = unquote(m.group(1))
-        if url.startswith("#"):
+from urllib.parse import unquote,urlsplit
+R=Path(__file__).resolve().parents[1]; SITE=R/'_site'
+OFFICIAL={'www.nfl.com','nextgenstats.nfl.com','www.itl.nist.gov','www.wsgc.wa.gov','docs.github.com'}
+class Page(HTMLParser):
+    def __init__(self):
+        super().__init__();self.urls=[];self.ids=set();self.row=False;self.in_body=False;self.row_sources=[];self.missing_rows=0
+    def handle_starttag(self,tag,attrs):
+        a=dict(attrs)
+        if 'id' in a:self.ids.add(a['id'])
+        for k in ('href','src'):
+            if k in a:self.urls.append(a[k])
+        if tag=='tbody':self.in_body=True
+        if tag=='tr' and self.in_body:self.row=True;self.row_sources=[]
+        if self.row and tag=='a' and urlsplit(a.get('href','')).hostname in OFFICIAL:self.row_sources.append(a['href'])
+    def handle_endtag(self,tag):
+        if tag=='tr' and self.row:
+            if not self.row_sources:self.missing_rows+=1
+            self.row=False
+        if tag=='tbody':self.in_body=False
+pages={}; errors=[];count=0
+for p in SITE.rglob('*.html'):
+    v=Page();v.feed(p.read_text());pages[p.resolve()]=v
+for p,v in pages.items():
+    if v.missing_rows:errors.append(f'{p.relative_to(SITE)}: {v.missing_rows} rows lack an official reference')
+    for raw in v.urls:
+        count+=1;u=urlsplit(raw)
+        if u.scheme:
+            if u.scheme!='https' or u.hostname not in OFFICIAL:errors.append(f'{p.name}: disallowed URL {raw}')
             continue
-        u = urlparse(url)
-        if u.scheme in ("http", "https"):
-            if u.scheme != "https":
-                (external_non_https if u.netloc not in official_hosts else warnings_http_official).append((f.name, url))
-            host = u.netloc
-            external.append((f.name, url, host))
-            if host not in official_hosts and host not in FLAGGED_THIRD_PARTY:
-                external_unlisted.append((f.name, url, host))
-            elif host in FLAGGED_THIRD_PARTY and f.name not in FLAG_PAGES:
-                external_unlisted.append((f.name, url, host + " (third-party host on non-flag page)"))
-        else:
-            target = (f.parent / url.split("#")[0]).resolve()
-            if not target.exists():
-                internal_broken.append((f.name, url))
-
-result = {
-    "checked_at": "2026-11-03",
-    "pages": len(html_files),
-    "links_checked": checked,
-    "internal_broken": internal_broken,
-    "external_total": len(external),
-    "external_non_https": external_non_https,
-    "external_unlisted": external_unlisted,
-    "warnings_http_official_host": warnings_http_official,
-    "official_hosts": sorted(official_hosts),
-    "status": "PASS" if not internal_broken and not external_non_https else "FAIL",
-}
-OUT.mkdir(exist_ok=True)
-json.dump(result, open(OUT / "link-check.json", "w"), indent=2)
-print(json.dumps({k: (v if not isinstance(v, list) else v[:10]) for k, v in result.items()}, indent=2))
-print("\nSTATUS:", result["status"])
-sys.exit(0 if result["status"] == "PASS" else 1)
+        target=(p.parent/unquote(u.path)).resolve() if u.path else p
+        if not target.is_relative_to(SITE.resolve()):errors.append(f'{p.name}: path escapes artifact {raw}');continue
+        if not target.exists():errors.append(f'{p.name}: missing {raw}');continue
+        if u.fragment and target in pages and unquote(u.fragment) not in pages[target].ids:errors.append(f'{p.name}: missing fragment {raw}')
+report=dict(checked_at='2026-11-04',pages=len(pages),links=count,errors=errors,status='PASS' if not errors else 'FAIL',scope='Isolated artifact internal files/fragments, official per-row reference presence and HTTPS/host policy. External HTTP reachability and semantic evidence support NOT certified.')
+(R/'analysis/link-check.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2));sys.exit(bool(errors))

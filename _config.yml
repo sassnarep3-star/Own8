@@ -1,0 +1,17 @@
+title: Own8 NFL Research Lab
+url: https://sassnarep3-star.github.io
+baseurl: /Own8
+exclude:
+  - archive
+  - docs
+  - data
+  - analysis
+  - research
+  - scripts
+  - tests
+  - README.md
+  - COORDINATION.md
+  - .github
+  - .gitignore
+  - _site
+  - vendor

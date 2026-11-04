@@ -1,0 +1,9 @@
+[
+ {"id":"NFL-S","label":"NFL standings","url":"https://www.nfl.com/standings/","checked_at":"2026-11-04","scope":"All 32 rows: abbreviation, W, L, T, displayed PCT, PF, PA, NET only. fetch_page chunks 0–1. Selected-field transcription retained."},
+ {"id":"NFL-W9","label":"NFL Week 9 schedule","url":"https://www.nfl.com/schedules/2026/by-week/week-9","checked_at":"2026-11-04","scope":"15 matchup/date pairs, Madrid international label, PIT/TEN byes. Chunks 0–2. Not kickoff timezone or venue."},
+ {"id":"NGS-W8","label":"Next Gen Stats Week 8 passing","url":"https://nextgenstats.nfl.com/stats/passing/2026/REG/8","checked_at":"2026-11-04","scope":"27 rendered rows: name/team/ATT/YDS/CPOE only. Chunk 0 contained all selected rows. Not season totals."},
+ {"id":"NGS-G","label":"Next Gen Stats glossary","url":"https://nextgenstats.nfl.com/glossary","checked_at":"2026-11-04","scope":"Definitions: time to throw excludes sacks; CPOE is actual minus expected completion percentage; xYAC uses tracking factors. Read in full."},
+ {"id":"NIST","label":"NIST statistical handbook — association","url":"https://www.itl.nist.gov/div898/handbook/eda/section3/scatterp.htm","checked_at":"2026-11-04","scope":"Relationships, outliers and association not proving causation. Does not endorse any project strategy or threshold."},
+ {"id":"WA","label":"Washington State Gambling Commission","url":"https://www.wsgc.wa.gov/tribal-partnerships/sports-wagering/sports-wagering-requirements-and-rules","checked_at":"2026-11-04","scope":"Chunk 0: limited tribal-casino framework and on-premises mobile geofencing; not personalized legal advice."},
+ {"id":"NEWS","label":"NFL Jalen Hurts report","url":"https://www.nfl.com/news/eagles-qb-jalen-hurts-out-2026-season-blood-clots","checked_at":"2026-11-04","scope":"Retrieved report says likely remainder of season, not certainty. Not a fresh pregame availability clearance; no quantitative adjustment inferred."}
+]

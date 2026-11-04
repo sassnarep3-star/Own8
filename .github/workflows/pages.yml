@@ -1,0 +1,36 @@
+name: Verify NFL research
+on:
+  push:
+    branches: [main, arena/566bc2e7-own8]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test research primitives
+        run: python3 -m unittest discover -s tests -v
+      - name: Inventory baseline and calculate snapshot
+        run: |
+          python3 scripts/audit.py
+          python3 scripts/analyze.py
+          python3 scripts/verify_snapshot.py
+      - name: Build isolated publication and check links
+        run: |
+          python3 scripts/build_site.py
+          python3 scripts/check_links.py
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site

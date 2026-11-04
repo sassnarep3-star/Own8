@@ -1,0 +1,106 @@
+[
+  {
+    "id": "A-01",
+    "severity": "critical",
+    "item": "Unverified third-party market prices were used in edges and candidate selection. Official links alone did not verify inputs.",
+    "location": "archive/pre-audit-2026-11-04/scripts/analyze.py:130–185",
+    "resolution": "All market prices, EV and eligible selections blank. Exact operator quote, timestamp and settlement rules required.",
+    "source_url": "https://www.nfl.com/standings/"
+  },
+  {
+    "id": "A-02",
+    "severity": "critical",
+    "item": "CONDITIONAL injury gate was accepted as PASS. Missing current availability cannot support a selection.",
+    "location": "archive/pre-audit-2026-11-04/scripts/analyze.py:163–173",
+    "resolution": "Strict PASS-only engine. Availability remains blocked; no candidate is recommended.",
+    "source_url": "https://www.nfl.com/injuries/"
+  },
+  {
+    "id": "A-03",
+    "severity": "high",
+    "item": "Cross-team passing/scoring correlation was used as same-game bet correlation. These are different observational units.",
+    "location": "archive/pre-audit-2026-11-04/scripts/analyze.py:103–105,168,262–268",
+    "resolution": "Bet-leg correlation blank. Require paired pregame residuals and threshold-specific joint outcome calibration.",
+    "source_url": "https://www.itl.nist.gov/div898/handbook/eda/section3/scatterp.htm"
+  },
+  {
+    "id": "A-04",
+    "severity": "high",
+    "item": "Model home winning margin and sportsbook home handicap used incompatible signs; model minus handicap was not a valid edge.",
+    "location": "archive/pre-audit-2026-11-04/scripts/analyze.py:151–159",
+    "resolution": "Use home handicap = negative projected home margin. Expected cover margin = predicted margin + quoted handicap. No price edge published.",
+    "source_url": "https://www.nfl.com/scores/"
+  },
+  {
+    "id": "A-05",
+    "severity": "high",
+    "item": "Blanket 2.5-point home advantage applied to the CIN–ATL Madrid international game.",
+    "location": "archive/pre-audit-2026-11-04/scripts/analyze.py:151–152",
+    "resolution": "Madrid label rechecked. Baseline uses zero home adjustment everywhere (design, not estimated fact); neutral game override tested.",
+    "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9"
+  },
+  {
+    "id": "A-06",
+    "severity": "high",
+    "item": "Leaderboard ranked strategies in array order and filled realized points with zero without a settled ledger. Claimed automated grading was not implemented.",
+    "location": "archive/pre-audit-2026-11-04/scripts/analyze.py:276–290",
+    "resolution": "Ranks, returns, scores, confidence intervals and rewards blank. Unit-tested settlement primitives exist; no claim of a live ingestion/grading service.",
+    "source_url": "https://www.nfl.com/scores/"
+  },
+  {
+    "id": "A-07",
+    "severity": "high",
+    "item": "Two matching session captures and arithmetic checks were described as source verification. No immutable original-page captures accompany legacy data.",
+    "location": "archive/pre-audit-2026-11-04/scripts/verify_combined.py; legacy data/",
+    "resolution": "Quarantine all legacy rows. Selected standings, schedule and NGS fields independently checked on 2026-11-04; transcribed excerpts and hashes retained, not raw HTML.",
+    "source_url": "https://www.nfl.com/standings/"
+  },
+  {
+    "id": "A-08",
+    "severity": "medium",
+    "item": "README/source registry assumed Netherlands jurisdiction without evidence. User context is approximately Seattle, not legal-residency proof.",
+    "location": "Baseline README.md and data/sources.json",
+    "resolution": "Replace legal claims with Washington regulator guidance; no assumption that remote mobile wagering is permitted.",
+    "source_url": "https://www.wsgc.wa.gov/tribal-partnerships/sports-wagering/sports-wagering-requirements-and-rules"
+  },
+  {
+    "id": "A-09",
+    "severity": "high",
+    "item": "No multi-season, time-stamped game/player training ledger, official operator quotes or untouched holdout dataset is available in the repo.",
+    "location": "data/ and analysis/",
+    "resolution": "All strategies remain research-only. No validated skill, profitable edge, cash reward or future autonomous collection is claimed.",
+    "source_url": "https://nextgenstats.nfl.com/glossary"
+  },
+  {
+    "id": "A-10",
+    "severity": "medium",
+    "item": "Legacy kickoff labels asserted ET although the retrieved schedule shows LOCAL; venue names were not independently confirmed here.",
+    "location": "data/schedule-2026-week9.json",
+    "resolution": "Verified schedule publishes matchups/dates only; kickoff timezone and venue blank. Legacy rows retained in audit inventory, not live facts.",
+    "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9"
+  },
+  {
+    "id": "A-11",
+    "severity": "medium",
+    "item": "External-host allowlisting was called link verification; it does not prove HTTP reachability or factual support. Multiple old HTML trees could expose stale assertions.",
+    "location": "archive/pre-audit-2026-11-04/scripts/check_links.py; docs/; archive/",
+    "resolution": "New deployment artifact excludes historical trees. Internal paths, fragments, official links per row and HTTPS are checked. External fetch results scoped separately; not every external destination was fetched.",
+    "source_url": "https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages"
+  },
+  {
+    "id": "A-12",
+    "severity": "high",
+    "item": "Single-season correlations and arbitrary edge/stake cutoffs cannot remove luck or establish selective skill.",
+    "location": "Baseline README.md and research/",
+    "resolution": "Replace claims with preregistered walk-forward, clustered uncertainty, multiple-testing correction and untouched holdout requirements. Thresholds are explicit project policy, not official facts.",
+    "source_url": "https://www.itl.nist.gov/div898/handbook/eda/section3/scatterp.htm"
+  },
+  {
+    "id": "A-13",
+    "severity": "medium",
+    "item": "GitHub integration returns HTTP 403 when changing Pages publishing mode; this session cannot enable custom-workflow deployment.",
+    "location": "GitHub Pages repository settings API (2026-11-04)",
+    "resolution": "Reuse existing main/root Pages deployment. Jekyll exclusion config keeps legacy trees out of publication; CI separately validates the isolated artifact. No user credentials or manual changes requested.",
+    "source_url": "https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages"
+  }
+]

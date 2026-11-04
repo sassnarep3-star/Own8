@@ -1,0 +1,9 @@
+{
+  "data/verified/passing.json": "d107e9d00d02469ba84ed195c757dabb00eefa44f825ed9801b05d48273132e9",
+  "data/verified/schedule.json": "3d8a97035393c6352b1b431cbd61022075c845c5e2a2a32841c5baf76c990959",
+  "data/verified/sources.json": "e48a6676aeeafef274475f80d85a0463a1a6a2f1aa72fd8c866d53089c0b9dd7",
+  "data/verified/standings.json": "682fd1cc4f73160fbe8b9e47570aa2bc47036ac888071eb60540bcc4b9bc74fb",
+  "data/evidence/passing-excerpt.txt": "1f6006d918e45288ccccedde9bd4de9f2bd227ec5dbd21648ccc2a990662401c",
+  "data/evidence/schedule-excerpt.txt": "7ae2f3b2391a465cc92dcc4e2dab5910b621ab50d57f9459a1fb93abe8ec1429",
+  "data/evidence/standings-excerpt.txt": "218f23518be322ae53c7a9ac96f1afcae914b40329b2425f5ffe408e6486b717"
+}
