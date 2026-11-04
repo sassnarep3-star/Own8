@@ -1,0 +1,140 @@
+{
+  "capture_method": "Matchups and dates compared against fetch_page chunks 0\u20132 on 2026-11-04. Kickoff times and venues deliberately omitted.",
+  "games": [
+    {
+      "away": "JAX",
+      "home": "BAL",
+      "date": "2026-11-05",
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "checked_at": "2026-11-04",
+      "neutral_site": false,
+      "note": "Matchup and calendar date observed; venue/kickoff omitted."
+    },
+    {
+      "away": "CIN",
+      "home": "ATL",
+      "date": "2026-11-08",
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "checked_at": "2026-11-04",
+      "neutral_site": true,
+      "note": "Madrid label observed; venue name and kickoff timezone not re-certified."
+    },
+    {
+      "away": "DEN",
+      "home": "CAR",
+      "date": "2026-11-08",
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "checked_at": "2026-11-04",
+      "neutral_site": false,
+      "note": "Matchup and calendar date observed; venue/kickoff omitted."
+    },
+    {
+      "away": "DAL",
+      "home": "IND",
+      "date": "2026-11-08",
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "checked_at": "2026-11-04",
+      "neutral_site": false,
+      "note": "Matchup and calendar date observed; venue/kickoff omitted."
+    },
+    {
+      "away": "NYJ",
+      "home": "KC",
+      "date": "2026-11-08",
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "checked_at": "2026-11-04",
+      "neutral_site": false,
+      "note": "Matchup and calendar date observed; venue/kickoff omitted."
+    },
+    {
+      "away": "DET",
+      "home": "MIA",
+      "date": "2026-11-08",
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "checked_at": "2026-11-04",
+      "neutral_site": false,
+      "note": "Matchup and calendar date observed; venue/kickoff omitted."
+    },
+    {
+      "away": "CLE",
+      "home": "NO",
+      "date": "2026-11-08",
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "checked_at": "2026-11-04",
+      "neutral_site": false,
+      "note": "Matchup and calendar date observed; venue/kickoff omitted."
+    },
+    {
+      "away": "NYG",
+      "home": "PHI",
+      "date": "2026-11-08",
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "checked_at": "2026-11-04",
+      "neutral_site": false,
+      "note": "Matchup and calendar date observed; venue/kickoff omitted."
+    },
+    {
+      "away": "LA",
+      "home": "WAS",
+      "date": "2026-11-08",
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "checked_at": "2026-11-04",
+      "neutral_site": false,
+      "note": "Matchup and calendar date observed; venue/kickoff omitted."
+    },
+    {
+      "away": "HOU",
+      "home": "LAC",
+      "date": "2026-11-08",
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "checked_at": "2026-11-04",
+      "neutral_site": false,
+      "note": "Matchup and calendar date observed; venue/kickoff omitted."
+    },
+    {
+      "away": "LV",
+      "home": "SF",
+      "date": "2026-11-08",
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "checked_at": "2026-11-04",
+      "neutral_site": false,
+      "note": "Matchup and calendar date observed; venue/kickoff omitted."
+    },
+    {
+      "away": "GB",
+      "home": "NE",
+      "date": "2026-11-08",
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "checked_at": "2026-11-04",
+      "neutral_site": false,
+      "note": "Matchup and calendar date observed; venue/kickoff omitted."
+    },
+    {
+      "away": "AZ",
+      "home": "SEA",
+      "date": "2026-11-08",
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "checked_at": "2026-11-04",
+      "neutral_site": false,
+      "note": "Matchup and calendar date observed; venue/kickoff omitted."
+    },
+    {
+      "away": "TB",
+      "home": "CHI",
+      "date": "2026-11-08",
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "checked_at": "2026-11-04",
+      "neutral_site": false,
+      "note": "Matchup and calendar date observed; venue/kickoff omitted."
+    },
+    {
+      "away": "BUF",
+      "home": "MIN",
+      "date": "2026-11-09",
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "checked_at": "2026-11-04",
+      "neutral_site": false,
+      "note": "Matchup and calendar date observed; venue/kickoff omitted."
+    }
+  ]
+}
