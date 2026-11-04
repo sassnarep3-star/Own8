@@ -138,7 +138,7 @@ def build():
  ['Washington regulator','Local official sports-wagering information','Retrieved 2026-11-04; legal eligibility not assessed.',source('https://wsgc.wa.gov/tribal-partnerships/sports-wagering')]
  ],'Web evidence ledger • snapshot date 2026-11-04')
  +table(['Immutable file','Bytes','SHA-256','Official source'],[[esc(m['file']),str(m['bytes']),'<code>'+esc(m['sha256'])+'</code>',source(m['source_url'])] for m in manifest],'NFL repository files • pinned commit 9ad0b4b2ea36697e29e44e2399512cc1ce70358c')
- +'<div class="downloads"><a href="../../results.json">Analysis JSON ↓</a><a href="../../../audit/index.html">Independent baseline audit ↗</a><a href="../../../verification/README.md">Independent PR #6 QA ↗</a><a href="../../flags.json">Review register ↓</a><a href="../../repository-inventory.json">File audit & digests ↓</a><a href="../../evidence/manifest.json">Evidence manifest ↓</a><a href="../../evidence/standings-observed.json">Standings observation ↓</a><a href="../../evidence/web-checks.json">Web-check log ↓</a><a href="../../evidence/games-2017.csv">Official historical CSV ↓</a></div>')
+ +'<div class="downloads"><a href="../../results.json">Analysis JSON ↓</a><a href="../../../audit/index.html">Independent baseline audit ↗</a><a href="../../flags.json">Review register ↓</a><a href="../../repository-inventory.json">File audit & digests ↓</a><a href="../../evidence/manifest.json">Evidence manifest ↓</a><a href="../../evidence/standings-observed.json">Standings observation ↓</a><a href="../../evidence/web-checks.json">Web-check log ↓</a><a href="../../evidence/games-2017.csv">Official historical CSV ↓</a></div>')
  legacy=json.loads((R/'strict/evidence/legacy-flags.json').read_text())['items']
  legacy_rows=[]
  for f in legacy:

@@ -5,8 +5,6 @@ exclude:
   - "archive"
   - "scripts"
   - "research"
-  - "verification"
-  - "README.md"
   - "COORDINATION.md"
   - "compute_correlations.py"
   - ".github"
