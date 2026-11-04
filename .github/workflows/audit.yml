@@ -25,6 +25,7 @@ jobs:
       - run: python -m unittest discover -s scripts -p 'test_audit.py' -v
       - run: python scripts/build_site.py
       - run: python scripts/check_links.py
+      - run: python scripts/audit_publication.py
       - name: Stage audited preview artifact
         run: |
           mkdir -p _site/data _site/analysis
@@ -34,6 +35,7 @@ jobs:
           cp analysis/audit-inventory.json analysis/repo-audit.json analysis/correlations.json analysis/model-lines-week9.json analysis/prop-signals-week9.json analysis/strategies.json analysis/leaderboard.json analysis/validation-gates.json analysis/link-check.json _site/analysis/
           if [ -d audit ]; then cp -r audit _site/; fi
           if [ -d strict ]; then cp -r strict _site/; fi
+          if [ -d verification ]; then cp -r verification _site/; fi
       - uses: actions/upload-artifact@v4
         with:
           name: audited-dashboard
