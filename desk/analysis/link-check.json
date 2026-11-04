@@ -1,0 +1,8 @@
+{
+  "checked_at": "2026-11-04",
+  "pages": 20,
+  "links": 1076,
+  "errors": [],
+  "status": "PASS",
+  "scope": "Isolated artifact internal files/fragments, official per-row reference presence and HTTPS/host policy. External HTTP reachability and semantic evidence support NOT certified."
+}

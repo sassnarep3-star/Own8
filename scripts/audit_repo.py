@@ -21,9 +21,7 @@ assert not diffs, diffs
 legacy=[]
 for p in sorted(D.glob('*.json')):
  if p.name.startswith('audit-') or p.name in ('flagged.json','sources.json'): continue
- d=json.loads(p.read_text())
- if not isinstance(d,dict): continue
- field=next((k for k in ('teams','games','players','items','lines') if isinstance(d.get(k),list)),None)
+ d=json.loads(p.read_text()); field=next((k for k in ('teams','games','players','items','lines') if isinstance(d.get(k),list)),None)
  if not field: continue
  # Audited fields are displayed separately; this inventory makes no claims about the remainder.
  for i,r in enumerate(d[field],1):

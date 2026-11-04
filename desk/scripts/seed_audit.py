@@ -47,7 +47,7 @@ for line in stand.splitlines():
 save('data/verified/standings.json',dict(checked_at='2026-11-04',season=2026,source_url=url,method='fetch_page chunks 0 and 1; selected columns transcribed row by row. No tail-column verification claimed.',rows=rows))
 (R/'data/evidence/standings-excerpt.txt').write_text('Source: '+url+'\nChecked: 2026-11-04 via fetch_page, chunks 0 and 1\nScope: selected numeric columns only; transcription, NOT raw HTML.\nColumns: abbr W L T PCT PF PA NET\n'+stand+'\n')
 # All 15 matchup/date pairs and international-game label checked against schedule chunks 0,1,2.
-sched=json.loads((R/'data/schedule-2026-week9.json').read_text())
+sched=json.loads((R.parent/'data/schedule-2026-week9.json').read_text())
 games=[]
 for g in sched['games']:
     games.append(dict(away=g['away'],home=g['home'],date=g['date'],neutral=g['away']=='CIN',neutral_status='verified Madrid international listing' if g['away']=='CIN' else 'not established; no home adjustment used',source_url=sched['source_url'],game_url=g['game_url'],kickoff_et=None,venue=None,status='matchup and date verified; time zone and venue withheld'))

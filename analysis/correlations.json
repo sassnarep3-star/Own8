@@ -1,0 +1,76 @@
+{
+  "as_of": "2026-11-04",
+  "method": "Team descriptive statistics only. Game-level correlations left null.",
+  "correlations": [
+    {
+      "pair": "Net points/game vs win fraction",
+      "type": "Pearson",
+      "r": 0.843142,
+      "n": 32,
+      "confidence_interval": null,
+      "classification": "DERIVED \u2014 DESCRIPTIVE",
+      "source_url": "https://www.nfl.com/standings/",
+      "interpretation": "Cross-sectional team aggregates sharing game outcomes. Not independent game observations, not causality, not forward skill or leg correlation. No IID confidence interval asserted."
+    },
+    {
+      "pair": "Net points/game rank vs win fraction rank",
+      "type": "Spearman (average ties)",
+      "r": 0.845063,
+      "n": 32,
+      "confidence_interval": null,
+      "classification": "DERIVED \u2014 DESCRIPTIVE",
+      "source_url": "https://www.nfl.com/standings/",
+      "interpretation": "Cross-sectional team aggregates sharing game outcomes. Not independent game observations, not causality, not forward skill or leg correlation. No IID confidence interval asserted."
+    },
+    {
+      "pair": "Points for/game vs win fraction",
+      "type": "Pearson",
+      "r": 0.61779,
+      "n": 32,
+      "confidence_interval": null,
+      "classification": "DERIVED \u2014 DESCRIPTIVE",
+      "source_url": "https://www.nfl.com/standings/",
+      "interpretation": "Cross-sectional team aggregates sharing game outcomes. Not independent game observations, not causality, not forward skill or leg correlation. No IID confidence interval asserted."
+    },
+    {
+      "pair": "QB passing over \u00d7 receiver yards over",
+      "type": "Bernoulli leg dependence",
+      "r": null,
+      "n": null,
+      "confidence_interval": null,
+      "classification": "UNVERIFIED",
+      "source_url": "https://www.nfl.com/scores/",
+      "interpretation": "Missing timestamp-aligned paired outcomes and market thresholds. Blocked; no independence assumption. Official reference is a retrieval target, not evidence for a value."
+    },
+    {
+      "pair": "QB passing over \u00d7 team total over",
+      "type": "Bernoulli leg dependence",
+      "r": null,
+      "n": null,
+      "confidence_interval": null,
+      "classification": "UNVERIFIED",
+      "source_url": "https://www.nfl.com/scores/",
+      "interpretation": "Missing timestamp-aligned paired outcomes and market thresholds. Blocked; no independence assumption. Official reference is a retrieval target, not evidence for a value."
+    },
+    {
+      "pair": "RB rushing over \u00d7 QB passing under",
+      "type": "Bernoulli leg dependence",
+      "r": null,
+      "n": null,
+      "confidence_interval": null,
+      "classification": "UNVERIFIED",
+      "source_url": "https://www.nfl.com/scores/",
+      "interpretation": "Missing timestamp-aligned paired outcomes and market thresholds. Blocked; no independence assumption. Official reference is a retrieval target, not evidence for a value."
+    },
+    {
+      "pair": "Cross-game parlay outcomes",
+      "type": "Bernoulli leg dependence",
+      "r": null,
+      "n": null,
+      "confidence_interval": null,
+      "classification": "UNVERIFIED",
+      "source_url": "https://www.nfl.com/scores/",
+      "interpretation": "Missing timestamp-aligned paired outcomes and market thresholds. Blocked; no independence assumption. Official reference is a retrieval target, not evidence for a value."
+    }
+  ]
+}

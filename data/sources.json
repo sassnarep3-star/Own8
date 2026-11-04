@@ -89,6 +89,14 @@
       "official": true,
       "checked_at": "2026-11-04",
       "used_for": "Official responsible gaming and self-exclusion resources. No personalized legal conclusion."
+    },
+    {
+      "id": "github-pages",
+      "label": "GitHub Docs: Pages publishing sources",
+      "url": "https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site",
+      "official": true,
+      "checked_at": "2026-11-04",
+      "used_for": "Branch/root publishing versus custom Actions; configuration requires admin/maintainer access. Actual permission errors are recorded in COORDINATION.md, not inferred from documentation."
     }
   ]
 }

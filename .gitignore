@@ -1,3 +1,6 @@
-_site/
+
 __pycache__/
 *.pyc
+_site/
+.playwright*/
+node_modules/

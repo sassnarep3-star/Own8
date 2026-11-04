@@ -6,7 +6,7 @@ from pathlib import Path
 R=Path(__file__).resolve().parents[1]
 def load(p):return json.loads((R/p).read_text())
 errors=[];count=0
-rows=load('data/verified/standings.json')['rows']; old={r['abbr']:r for r in load('data/standings-2026-reg-w8.json')['teams']}
+rows=load('data/verified/standings.json')['rows']; old={r['abbr']:r for r in json.loads((R.parent/'data/standings-2026-reg-w8.json').read_text())['teams']}
 lines=(R/'data/evidence/standings-excerpt.txt').read_text().split('Columns: abbr W L T PCT PF PA NET\n')[1].strip().splitlines()
 assert len(lines)==len(rows)==32
 for t,line in zip(rows,lines):

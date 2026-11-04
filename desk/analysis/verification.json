@@ -1,0 +1,7 @@
+{
+  "checked_at": "2026-11-04",
+  "status": "PASS",
+  "selected_cells_compared": 391,
+  "errors": [],
+  "scope": "Selected fields vs retained independent-review transcriptions, arithmetic, input hashes and fail-closed output invariants. Not a fresh HTTP source check or a certification of legacy data."
+}

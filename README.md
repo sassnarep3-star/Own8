@@ -1,63 +1,50 @@
-# Own8 · NFL Research Lab
+# Own8 · NFL research lab
 
-**Live dashboard:** https://sassnarep3-star.github.io/Own8/
+**Evidence before edge.** An official-source audit dashboard, transparent line-origination benchmark, and fail-closed strategy competition registry for singles, parlays and player-prop combinations.
 
-An evidence-first workspace for originating NFL lines and evaluating singles, parlays and player-prop combinations. **Research only: no validated betting edge, eligible strategy, placed wager, settled leaderboard or cash reward is claimed. Luck cannot be eliminated.**
+**Live:** https://sassnarep3-star.github.io/Own8/  
+**Executive brief:** https://sassnarep3-star.github.io/Own8/pages/executive-summary.html  
+**Flagged for Review:** https://sassnarep3-star.github.io/Own8/pages/flagged.html
 
-## Executive assessment · 2026-11-04
+## Executive summary · 2026-11-04
 
-- Independently retrieved selected official fields: **32** standings rows (W/L/T/PCT/PF/PA/NET), **15** Week 9 matchup/date pairs and **27** rendered Week 8 NGS passing rows (name/team/ATT/YDS/CPOE). Not full-season player totals or a live feed.
-- **15 experimental baseline lines**, clearly labeled project calculations. Untrained shrinkage model, zero assumed home advantage; Madrid is neutral. No calibrated probability, direct operator quote, EV or recommendation.
-- Three descriptive cross-team correlations, **not** bet-leg correlations or skill evidence. Actual parlay/prop-combo correlations remain blank.
-- **Eight blocked strategy hypotheses** and **eleven strict gates**. CONDITIONAL/missing is not PASS. The leaderboard has no ranks, ROI, scores or rewards until qualified, settled evidence exists.
-- All **104 baseline files / 7,901 text lines** inventoried by hash/line count; **502 legacy structured rows** enumerated. This is mechanical review coverage, **not a claim of independently verifying every historical sentence**. Unsupported legacy numeric values are withheld from published tables.
-- Fourteen material audit findings plus 34 concurrent review-register entries and prior F-01–F-13 IDs are published on **Flagged for Review**. Review flags do not block site publication; missing evidence blocks strategy eligibility.
+- Independently rechecked **32 standings core rows / 256 fields** against NFL.com; **15 Week 9 schedule entries**, **12 complete Week 8 scores**, **28 JAX/BAL practice entries**, and **two NFL news bodies**. Exact coverage: `data/sources.json` and `data/audit-snapshot.json`. Two score rows remain blank because their full source text was not observed. No claim of exhaustive external verification of all inherited files.
+- Originates **15 illustrative B0 scoring benchmarks** from audited points-for/against rates. All are **derived project calculations**, not official NFL lines, calibrated fair prices or recommendations. Home handicap = projected away score − projected home score. No fitted venue/roster adjustment; the Madrid game does not receive a home-field assumption.
+- Computes three **descriptive team correlations**, not betting-leg dependence. All parlay/player-prop correlation values remain blank.
+- Registers **eight research strategies**. **Zero eligible strategies, no established betting edge, no ranks or rewards.** Missing operator prices, chronological test evidence, final availability and aligned joint outcomes block promotion.
+- Removes unsupported claims that luck can be eliminated, unverified odds can yield verified candidates, or conditional gates count as passes. Statistical uncertainty cannot be eliminated.
+- Catalogs **471 inherited JSON/CSV entries**, withholding unverified values; records file-level review scope, source links and review flags. Every canonical table row has an official reference or explicitly labeled verification target.
 
-## Official references and scope
-
-- [NFL standings](https://www.nfl.com/standings/) — selected 32-team numeric fields checked 2026-11-04.
-- [NFL Week 9 schedule](https://www.nfl.com/schedules/2026/by-week/week-9) — matchups/dates and Madrid label checked; kickoff time zone and venue withheld.
-- [NFL Next Gen Stats Week 8 passing](https://nextgenstats.nfl.com/stats/passing/2026/REG/8) — selected fields of 27 rendered rows checked.
-- [NGS glossary](https://nextgenstats.nfl.com/glossary) — feature definitions, not endorsement of proposed signals.
-- [NIST on association](https://www.itl.nist.gov/div898/handbook/eda/section3/scatterp.htm) — association does not prove causation.
-- [Washington regulator requirements](https://www.wsgc.wa.gov/tribal-partnerships/sports-wagering/sports-wagering-requirements-and-rules) — jurisdiction context, not personalized legal advice.
-
-See `data/verified/sources.json` for exact checked scope and retrieval dates. `data/evidence/` contains selected-field **transcriptions, not raw original HTML**. A linked URL or matching captures alone is not verification.
-
-## Reproduce without manual input (Python standard library only)
+## Reproduce (Python 3.11+, standard library only)
 
 ```sh
-python3 scripts/strict_build_site.py
-python3 -m unittest discover -s tests -v
-python3 scripts/audit.py
+python3 scripts/audit_repo.py
 python3 scripts/analyze.py
-python3 scripts/verify_snapshot.py
+python3 -m unittest discover -s scripts -p 'test_audit.py' -v
 python3 scripts/build_site.py
 python3 scripts/check_links.py
-python3 -m http.server 8000 --bind 0.0.0.0 --directory _site
 ```
 
-The fixed-input pipeline is automated. It does **not** implement continuous official-data collection, quote refresh, real-time injury monitoring, a trained multi-season backtest, a live settled forecast ledger or full sportsbook-specific parlay settlement. Those gaps are explicit; no user credentials, purchase or manual entry is requested. The source snapshot remains dated instead of being silently relabeled current.
+`.github/workflows/audit.yml` runs these checks for pushes/PRs and daily, uploads an audited preview artifact. The existing legacy GitHub Pages main/root pipeline publishes the site; `_config.yml` excludes legacy archive/capture surfaces. It validates/rebuilds the **dated snapshot**; it does **not** implement unattended fresh official-data capture, sportsbook access, future settlement or a live odds feed. No user input was needed for this session. Unavailable inputs stay null; strategy eligibility fails closed. Build PASS is not evidence-gate PASS.
 
-The integrated PR #19 snapshot, math helpers and 18 inherited regression tests are retained alongside this session’s 12 tests. All 50 combined test methods must pass (12 engine + 18 inherited audit + 20 namespaced research). The current site does not promote every inherited observation as independently rechecked by this session.
+## Evidence boundary
 
-The complementary [historical benchmark workspace](https://sassnarep3-star.github.io/Own8/strict/site/index.html) from PR #22 is retained unchanged and linked from the root. Its official NFL Big Data Bowl game/schema/README file bytes were independently re-fetched and hashed against the immutable upstream commit. Its developmental predictions are not validated betting edges.
+`data/audit-snapshot.json` is the only numeric input to the canonical analysis. It is a structured audit transcription following official-page retrieval, **not raw HTTP capture**. Checked fields are bounded explicitly. Dynamic pages can change. `analysis/audit-inventory.json` lists all inherited entries; their labels are identifiers, not verified player/team facts. Local arithmetic and cross-capture agreement are not substitutes for official verification.
+
+Official sources checked: [NFL standings](https://www.nfl.com/standings/), [schedule](https://www.nfl.com/schedules/2026/by-week/week-9), [scores](https://www.nfl.com/scores/2026/week-8), [injuries](https://www.nfl.com/injuries/league/2026/reg9), [NGS glossary](https://nextgenstats.nfl.com/glossary), [NIST association](https://www.itl.nist.gov/div898/handbook/eda/section3/scatterp.htm), [confidence intervals](https://www.itl.nist.gov/div898/handbook/prc/section1/prc14.htm), [multiplicity](https://www.itl.nist.gov/div898/handbook/prc/section4/prc473.htm), [Washington resources](https://wsgc.wa.gov/responsible-gaming-self-exclusion). Registry contains news links and exact source scope. Statistical references do not endorse our model or proposed competition rules.
 
 ## Repository layout
 
-- `data/verified/` — independently checked selected fields; the only current analysis inputs.
-- `data/evidence/` — transcribed source excerpts. `data/review-findings.json` — current review findings.
-- `analysis/` — reproducible dashboard outputs, checks, hashes and baseline audit inventory.
-- `scripts/engine.py` + `tests/` — tested gate, probability, price, settlement and validation primitives.
-- `research/methodology.md` — full research protocol, proposed signal designs, holdout/multiplicity controls, ranking/reward rules and limitations.
-- `index.html`, `pages/`, `assets/`, `public-data/` — generated dashboard and reviewable downloads.
-- `_site/` — ignored, isolated deploy artifact. Historical HTML/raw unverified numeric datasets are excluded by `_config.yml` in the retained main/root Jekyll deployment. CI/preview validates this isolated artifact.
-- `.github/workflows/pages.yml` — tests/build checks on branch/PR. Existing legacy main/root Pages publishing is retained with Jekyll exclusions. Both sandbox and scoped workflow-token attempts to change publishing mode failed; those custom deploy attempts are disabled, not falsely reported successful.
-- `archive/pre-audit-2026-11-04/` — superseded scripts, analysis and research, **not authoritative**. Other legacy `data/` files remain for provenance only. Do not feed them to the current pipeline.
-- `COORDINATION.md` — task scope, verification limits and deployment record.
+- `index.html`, `pages/`, `assets/`: generated, responsive, searchable static dashboard; no CDN/dependencies.
+- `data/audit-snapshot.json`, `sources.json`, `flagged.json`: audited extract, source coverage, review register.
+- `scripts/audit_math.py`, `analyze.py`, `audit_repo.py`, `test_audit.py`, `check_links.py`, `build_site.py`: computation, bounded verification, regression tests and site generation.
+- `analysis/`: derived outputs and software-check reports, not official NFL publications.
+- `research/`: executive summary and proposed research/competition methods.
+- `COORDINATION.md`: task ownership, handoffs, conflicts, PR and deployment record.
+- `archive/`, old root data CSV/JSON/Markdown, `compute_correlations.py`: historical artifacts retained for audit, **not authoritative**. Excluded from publication by `_config.yml` in the legacy Pages build.
+- `docs/*.html`: redirects to audited canonical pages.
+- `audit/`: concurrent session 74efc1ec's independent baseline audit, preserved unchanged. Its findings refer to baseline commit 7c2f545, not the new canonical outputs.
 
-Every published table row includes an official-site review link. Project calculations and proposed policies are labeled as such; reference links do not imply official endorsement. Blank cells represent unavailable/unverified values, never invented zeroes. Link checks validate internal paths/fragments, HTTPS/allowlists and row references, **not universal external uptime or factual support**.
+## Responsible research
 
-## Safety
-
-Research only; no wagering, account integration, paid contest, cash/value prizes or profit guarantee. Proposed reward badges have no monetary value. See the [Washington State Gambling Commission](https://www.wsgc.wa.gov/tribal-partnerships/sports-wagering/sports-wagering-requirements-and-rules) and [official help/self-exclusion resources](https://www.wsgc.wa.gov/responsible-gaming-self-exclusion). Do not infer legal permission from approximate location.
+No real-money bets, stakes, cash rewards, automatic wagering or guarantees. Proposed rewards are paper points only and none are awarded. See [Washington State Gambling Commission resources](https://wsgc.wa.gov/responsible-gaming-self-exclusion). No personalized legal determination or unsupported jurisdiction assumption.
