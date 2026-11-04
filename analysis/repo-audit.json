@@ -24,8 +24,8 @@
     },
     {
       "path": "COORDINATION.md",
-      "lines": 174,
-      "sha256": "1c543444b81699204efec7cd80caf5d72e37e75f8e10e4ea1bf044810ae9dc65",
+      "lines": 177,
+      "sha256": "a762824b466caaed5cf16bf37ace7cf8490792dc80635208a7ab74b0a200e078",
       "review": "Executable/source or generated output \u2014 static checks; not official factual evidence",
       "source_url": "https://www.nfl.com/standings/"
     },
@@ -838,6 +838,13 @@
       "path": "scripts/audit_math.py",
       "lines": 88,
       "sha256": "b27bd5b93a1cdf3855e7e3fdf7176c9f32666962fc9bb87f94bce97f578a7d04",
+      "review": "Executable/source or generated output \u2014 static checks; not official factual evidence",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "path": "scripts/audit_publication.py",
+      "lines": 23,
+      "sha256": "f75acac606ed08be117c66478b62bf132d33348774af32db194aaa0416ebb133",
       "review": "Executable/source or generated output \u2014 static checks; not official factual evidence",
       "source_url": "https://www.nfl.com/standings/"
     },
