@@ -56,7 +56,7 @@ and note the handoff here.
 | R2 | Re-run committed verification pipeline | done | c03eba88 | (read-only) scripts/verify_combined.py, scripts/check_links.py, scripts/analyze.py | verify_combined PASS (32 teams, 0 mismatches); check_links PASS (46 pages, 2712 links, 0 broken); analyze.py re-run reproduces all committed analysis/*.json byte-identical | — |
 | R3 | Live re-verification vs official sources, 2026-11-04 | done | c03eba88 | scripts/live_verify_standings.py, analysis/live-verify-standings-2026-11-04.json, analysis/live-verify-2026-11-04.json | nfl.com/standings (32/32 teams, 0 mismatches, arithmetic PASS), nfl.com/schedules/2026/REG9 (15/15 games + byes PIT/TEN match), nfl.com/scores/2026/REG8 (14/14 games + byes HOU/NO/NYG/SF match) | IR-c03-01 (curl blocked; fetch_page used), IR-c03-02 (NFL tie-adjusted win% discovered and check corrected) |
 | R4 | Site + deploy check | done | c03eba88 | (read-only) | https://sassnarep3-star.github.io/Own8/ renders; /pages/flagged.html renders F-01..F-13 with source links; Pages API status "built" (main /), latest pages-build-deployment runs success | — |
-| R5 | PR to main + merge + Pages deploy record | in progress | c03eba88 | COORDINATION.md, scripts/live_verify_standings.py, analysis/live-verify-*.json | see log | PR link recorded in log below |
+| R5 | PR to main + merge + Pages deploy record | in progress | c03eba88 | COORDINATION.md, scripts/live_verify_standings.py, analysis/live-verify-*.json | see log | PR #12: https://github.com/sassnarep3-star/Own8/pull/12 |
 
 ## Cross-session requests
 
