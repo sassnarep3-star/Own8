@@ -1,1 +1,22 @@
-{"status": "RUNNING"}
+{
+  "status": "PASS",
+  "tests_run": 40,
+  "test_failures": 0,
+  "test_errors": 0,
+  "official_hash_matched_files": 3,
+  "official_fact_rows_checked": 91,
+  "displayed_direct_fact_cells_checked": 637,
+  "verification_table_rows_with_pinned_official_context": 193,
+  "eligible_strategies": 0,
+  "analysis_and_site_byte_reproducible": true,
+  "repository_html_pages_checked": 56,
+  "internal_links_checked": 739,
+  "external_urls_not_live_checked": 174,
+  "external_scope": "Static URL inspection only; external HTTP status not checked. Official evidence API blobs were actually retrieved by capture.py and their hashes rechecked locally.",
+  "repository_review": {
+    "tracked_files_inventoried_outside_package": 128,
+    "revision_bound_findings": 0,
+    "externally_verified_legacy_rows": 0
+  },
+  "errors": []
+}
