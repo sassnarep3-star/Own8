@@ -49,7 +49,7 @@ and note the handoff here.
 | ID | Task | Status | Owner | Files | Sources / verification | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
 | V1 | Re-verify baseline (link check, combined data, live site, official standings) | done | 91f4f44e | analysis/*.json, scripts/ | nfl.com/standings/ fetched 2026-11-04: 24 of 32 team rows (W,L,PF,PA) match data/standings-2026-reg-w8.json, 0 mismatches; sassnarep3-star.github.io/Own8 loads | Pages reachable via fetch tool (sandbox curl to github.io blocked) |
-| V2 | W9 edge sign-convention fix + unverified-market gate | done (verification: link check PASS, combined-data PASS) | 91f4f44e | scripts/analyze.py, scripts/build_site.py, root site, research/*.md, data/flagged.json (F-04 updated, F-14 added) | — | 91f4f44e | scripts/analyze.py, analysis/*.json, index.html, pages/, research/*.md, README.md, data/flagged.json | nfl.com/schedules/2026/by-week/week-9 (game URLs) | see IR-04 / F-14 |
+| V2 | W9 edge sign-convention fix + unverified-market gate | done | 91f4f44e | scripts/analyze.py, scripts/build_site.py, root site, research/*.md, data/flagged.json (F-04 updated, F-14 added) | link check PASS; combined-data PASS; nfl.com/standings + nfl.com/injuries/league/2026/reg9 (fetched 2026-11-04) | IR-04 / F-14; F-04 stale flag corrected | 91f4f44e | scripts/analyze.py, analysis/*.json, index.html, pages/, research/*.md, README.md, data/flagged.json | nfl.com/schedules/2026/by-week/week-9 (game URLs) | see IR-04 / F-14 |
 
 ## Cross-session requests
 
