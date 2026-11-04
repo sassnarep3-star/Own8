@@ -1,0 +1,128 @@
+{
+  "contribution_pr": "https://github.com/sassnarep3-star/Own8/pull/26",
+  "merge_commit": "ec1251f4e39f852b13fa8768fc1e28f33108d819",
+  "public_url": "https://sassnarep3-star.github.io/Own8/docs/evidence-lab/",
+  "deployment_run": {
+    "conclusion": "success",
+    "databaseId": 41906704467,
+    "headSha": "ec1251f4e39f852b13fa8768fc1e28f33108d819",
+    "jobs": [
+      {
+        "completedAt": "2026-11-04T20:27:34Z",
+        "conclusion": "success",
+        "databaseId": 126843183427,
+        "name": "build",
+        "startedAt": "2026-11-04T20:27:03Z",
+        "status": "completed",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Pull ghcr.io/actions/jekyll-build-pages:v1.0.13",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Checkout",
+            "number": 3,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Build with Jekyll",
+            "number": 4,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Upload artifact",
+            "number": 5,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Checkout",
+            "number": 10,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 11,
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/sassnarep3-star/Own8/actions/runs/41906704467/job/126843183427"
+      },
+      {
+        "completedAt": "2026-11-04T20:27:34Z",
+        "conclusion": "success",
+        "databaseId": 126843446153,
+        "name": "deploy",
+        "startedAt": "2026-11-04T20:27:33Z",
+        "status": "completed",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Deploy to GitHub Pages",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 3,
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/sassnarep3-star/Own8/actions/runs/41906704467/job/126843446153"
+      },
+      {
+        "completedAt": "2026-11-04T20:27:34Z",
+        "conclusion": "success",
+        "databaseId": 126843446358,
+        "name": "report-build-status",
+        "startedAt": "2026-11-04T20:27:31Z",
+        "status": "completed",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Report Build Status",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 3,
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/sassnarep3-star/Own8/actions/runs/41906704467/job/126843446358"
+      }
+    ],
+    "status": "completed",
+    "updatedAt": "2026-11-04T20:27:46Z",
+    "url": "https://github.com/sassnarep3-star/Own8/actions/runs/41906704467"
+  },
+  "verification_scope": "GitHub Actions API confirms build, deploy and report-build-status success for the PR #26 merge. Direct live-URL HTTP retrieval was not performed because outbound github.io is outside this sandbox allowlist. Later concurrent main deployments may supersede this run without changing our scoped files.",
+  "nonblocking_notice": "Run emitted platform deprecation/migration annotations; inspect linked run. No deployment failure."
+}

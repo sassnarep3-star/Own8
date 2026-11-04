@@ -9,12 +9,13 @@
   "verification_table_rows_with_pinned_official_context": 388,
   "eligible_strategies": 0,
   "analysis_and_site_byte_reproducible": true,
-  "repository_html_pages_checked": 85,
-  "internal_links_checked": 1343,
-  "external_urls_not_live_checked": 180,
+  "repository_html_pages_checked": 96,
+  "internal_links_checked": 1441,
+  "html_scope": "Publication-selected HTML; current Jekyll exclusions and scratch _site are omitted. Active links to excluded targets fail.",
+  "external_urls_not_live_checked": 149,
   "external_scope": "Static URL inspection only; external HTTP status not checked. Official evidence API blobs were actually retrieved by capture.py and their hashes rechecked locally.",
   "repository_review": {
-    "tracked_files_inventoried_outside_package": 176,
+    "tracked_files_inventoried_outside_package": 358,
     "revision_bound_findings": 0,
     "externally_verified_legacy_rows": 0
   },

@@ -127,7 +127,12 @@ def main():
     if any(r["official_market_handicap"] is not None or r["expected_return"] is not None or r["cover_probability"] is not None for r in data["models"]):
         errors.append("Unverified market or probability populated")
     publish()
-    parsed = {p: Page(p.read_text()) for p in REPO.rglob("*.html") if not any(part in (".git", "node_modules", ".venv") for part in p.parts)}
+    config = REPO / "_config.yml"
+    excluded = [json.loads(line.split("- ", 1)[1]) for line in config.read_text().splitlines() if line.startswith('  - "')] if config.exists() else []
+    def unpublished(path):
+        rel = str(path.relative_to(REPO))
+        return any(rel == x or rel.startswith(x + "/") for x in excluded)
+    parsed = {p: Page(p.read_text()) for p in REPO.rglob("*.html") if not unpublished(p) and not any(part in (".git", "node_modules", ".venv", "_site") for part in p.parts)}
     internal, external = 0, set()
     for path, page in parsed.items():
         for link in page.links:
@@ -140,7 +145,11 @@ def main():
             if target.is_dir():
                 target /= "index.html"
             internal += 1
-            if not target.is_file():
+            if not target.is_relative_to(REPO):
+                errors.append(f"Internal target escapes repository: {link}")
+            elif unpublished(target):
+                errors.append(f"Active page links to Jekyll-excluded target: {path.relative_to(REPO)} -> {link}")
+            elif not target.is_file():
                 errors.append(f"Broken internal target {path.relative_to(REPO)} -> {link}")
             elif url.fragment and target.suffix == ".html":
                 other = parsed.get(target)
@@ -173,6 +182,7 @@ def main():
               "eligible_strategies": sum(s["eligible"] for s in data["strategies"]),
               "analysis_and_site_byte_reproducible": before == after,
               "repository_html_pages_checked": len(parsed), "internal_links_checked": internal,
+              "html_scope": "Publication-selected HTML; current Jekyll exclusions and scratch _site are omitted. Active links to excluded targets fail.",
               "external_urls_not_live_checked": len(external),
               "external_scope": "Static URL inspection only; external HTTP status not checked. Official evidence API blobs were actually retrieved by capture.py and their hashes rechecked locally.",
               "repository_review": review, "errors": errors}
