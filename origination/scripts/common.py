@@ -3,7 +3,7 @@ import json, os
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # .../origination
 DATA = os.path.join(ROOT, "data")
-OUT = os.path.join(ROOT, "out")
+OUT = os.path.join(ROOT, "results")
 
 # nfl.com team URL slug -> abbreviation exactly as printed in the nfl.com scores text render
 # (e.g. "RAMSLos Angeles RamsLARLos Angeles Rams" -> LAR; Arizona is printed "AZ").

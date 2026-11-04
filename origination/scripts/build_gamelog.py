@@ -8,8 +8,8 @@ Inputs (verbatim transcriptions of official nfl.com pages, see headers in each f
 
 Outputs:
   data/games-2026-w1-w8.json            one row per game, each with its official source links
-  out/standings-reconciliation.json     per-team, per-column comparison (official vs recomputed from game log)
-  out/o1-checks.json                    every automated check with pass/fail + irregularities
+  results/standings-reconciliation.json   per-team, per-column comparison (official vs recomputed from game log)
+  results/o1-checks.json                every automated check with pass/fail + irregularities
 
 Fail-closed rule: a game row is marked verified only if ALL of its checks pass AND both teams reconcile
 on every standings column. Any failing value would be blanked and flagged (never guessed).
