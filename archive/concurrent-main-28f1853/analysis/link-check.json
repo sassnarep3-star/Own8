@@ -1,0 +1,28 @@
+{
+  "checked_at": "2026-11-03",
+  "pages": 47,
+  "links_checked": 2743,
+  "internal_broken": [],
+  "external_total": 1703,
+  "external_non_https": [],
+  "external_unlisted": [
+    [
+      "flagged.html",
+      "https://github.com/sassnarep3-star/Own8/pull/6",
+      "github.com"
+    ]
+  ],
+  "warnings_http_official_host": [
+    [
+      "sources.html",
+      "http://www.nfl.com/standings/tiebreakingprocedures"
+    ]
+  ],
+  "official_hosts": [
+    "kansspelautoriteit.nl",
+    "nextgenstats.nfl.com",
+    "www.ncpgambling.org",
+    "www.nfl.com"
+  ],
+  "status": "PASS"
+}

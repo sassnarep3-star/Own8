@@ -1,0 +1,103 @@
+{
+  "as_of": "2026-11-04",
+  "note": "No eligible strategies, no verified prospective forecasts or settled paper ledger. Unobserved performance is null, not zero. No ranks, tiers or rewards awarded.",
+  "scoring": "Proposed: reward 100 * positive family-adjusted lower bound of paired mean Brier improvement over a pre-registered baseline, only after all gates PASS. Use week/game blocks and a frozen trial count; no ROI-only ranking. No skill or luck-free claim.",
+  "standings": [
+    {
+      "strategy_id": "S1",
+      "name": "Single: spread baseline",
+      "type": "Single",
+      "rank": null,
+      "realized_pts": null,
+      "roi": null,
+      "brier": null,
+      "reward_points": null,
+      "status": "BLOCKED \u2014 research only",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "strategy_id": "S2",
+      "name": "Single: total / pace",
+      "type": "Single",
+      "rank": null,
+      "realized_pts": null,
+      "roi": null,
+      "brier": null,
+      "reward_points": null,
+      "status": "BLOCKED \u2014 research only",
+      "source_url": "https://www.nfl.com/stats/team-stats/"
+    },
+    {
+      "strategy_id": "S3",
+      "name": "Single: moneyline calibration",
+      "type": "Single",
+      "rank": null,
+      "realized_pts": null,
+      "roi": null,
+      "brier": null,
+      "reward_points": null,
+      "status": "BLOCKED \u2014 research only",
+      "source_url": "https://www.nfl.com/scores/"
+    },
+    {
+      "strategy_id": "S4",
+      "name": "Player: QB efficiency",
+      "type": "Player prop",
+      "rank": null,
+      "realized_pts": null,
+      "roi": null,
+      "brier": null,
+      "reward_points": null,
+      "status": "BLOCKED \u2014 research only",
+      "source_url": "https://nextgenstats.nfl.com/glossary"
+    },
+    {
+      "strategy_id": "S5",
+      "name": "Player: receiver opportunity",
+      "type": "Player prop",
+      "rank": null,
+      "realized_pts": null,
+      "roi": null,
+      "brier": null,
+      "reward_points": null,
+      "status": "BLOCKED \u2014 research only",
+      "source_url": "https://nextgenstats.nfl.com/glossary"
+    },
+    {
+      "strategy_id": "S6",
+      "name": "Player: RB workload",
+      "type": "Player prop",
+      "rank": null,
+      "realized_pts": null,
+      "roi": null,
+      "brier": null,
+      "reward_points": null,
+      "status": "BLOCKED \u2014 research only",
+      "source_url": "https://nextgenstats.nfl.com/glossary"
+    },
+    {
+      "strategy_id": "S7",
+      "name": "Cross-game joint value",
+      "type": "Parlay",
+      "rank": null,
+      "realized_pts": null,
+      "roi": null,
+      "brier": null,
+      "reward_points": null,
+      "status": "BLOCKED \u2014 research only",
+      "source_url": "https://www.nfl.com/scores/"
+    },
+    {
+      "strategy_id": "S8",
+      "name": "Same-game QB + receiver",
+      "type": "Player-prop combo",
+      "rank": null,
+      "realized_pts": null,
+      "roi": null,
+      "brier": null,
+      "reward_points": null,
+      "status": "BLOCKED \u2014 research only",
+      "source_url": "https://nextgenstats.nfl.com/glossary"
+    }
+  ]
+}

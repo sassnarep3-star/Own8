@@ -1,0 +1,24 @@
+{
+  "dataset": "injuries-2026-week9-candidate-games",
+  "as_of": "2026-11-04",
+  "captured_at": "2026-11-04",
+  "captured_by": "session d22c14b9",
+  "source_id": "nfl-injuries-w9",
+  "source_url": "https://www.nfl.com/injuries/league/2026/reg9",
+  "official": true,
+  "scope_note": "The official NFL.com Week 9 injury report was published by 2026-11-04 (previously unpublished as of 2026-11-03, flag F-04). This file records ONLY the two Week 9 games that are evaluated by the model (CIN at ATL, NYG at PHI). The remaining 13 games of the Week 9 report are not yet transcribed (flag F-22).",
+  "games": [
+    {
+      "game": "CIN at ATL",
+      "away": {"abbr": "CIN", "record_on_report": "5-2", "status_on_report": "No Injuries Reported"},
+      "home": {"abbr": "ATL", "record_on_report": "3-5", "status_on_report": "No Injuries Reported"},
+      "report_section": "SUNDAY, NOVEMBER 8TH - 9:30 AM EST - NFL NETWORK"
+    },
+    {
+      "game": "NYG at PHI",
+      "away": {"abbr": "NYG", "record_on_report": "4-2-1", "status_on_report": "No Injuries Reported"},
+      "home": {"abbr": "PHI", "record_on_report": "2-6", "status_on_report": "No Injuries Reported"},
+      "report_section": "SUNDAY, NOVEMBER 8TH - 1:00 PM EST - FOX"
+    }
+  ]
+}

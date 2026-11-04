@@ -1,0 +1,30 @@
+Source: https://nextgenstats.nfl.com/stats/passing/2026/REG/8
+Checked 2026-11-04 via fetch_page chunk 0. Selected-field transcription, NOT raw HTML.
+name|team|ATT|YDS|CPOE
+Joe Burrow|CIN|48|462|12.1
+Deshaun Watson|CLE|39|324|-2.3
+Patrick Mahomes|KC|41|321|3.8
+Cam Ward|TEN|40|304|-1.7
+Geno Smith|NYJ|32|290|7.2
+Josh Allen|BUF|34|289|-8.4
+Jordan Love|GB|41|288|8.4
+Justin Herbert|LAC|32|257|2.2
+Kirk Cousins|LV|26|247|16.1
+Caleb Williams|CHI|34|247|0.5
+Bo Nix|DEN|32|222|-5.6
+Jayden Daniels|WAS|29|217|-5.3
+Tanner McKee|PHI|34|212|-1.9
+Malik Willis|MIA|32|211|-2.8
+Kyler Murray|MIN|29|210|2
+Bryce Young|CAR|41|209|-3.1
+Drake Maye|NE|20|199|8.4
+Dak Prescott|DAL|29|195|-1.9
+Sam Darnold|SEA|34|188|-13.2
+Gardner Minshew|AZ|23|188|12
+Jared Goff|DET|25|176|-1.9
+Aaron Rodgers|PIT|25|172|-9.7
+Matthew Stafford|LAR|25|157|-5.8
+Daniel Jones|IND|28|144|-0.3
+Michael Penix Jr.|ATL|24|125|-22.6
+Jacoby Brissett|AZ|23|119|-6.1
+Joe Fagnano|BAL|21|91|-19

@@ -1,0 +1,341 @@
+{
+  "as_of": "2026-11-04",
+  "strategies": [
+    {
+      "id": "S1",
+      "name": "Single: spread baseline",
+      "type": "Single",
+      "description": "B0 scoring means as a benchmark; test opponent-adjusted and shrinkage alternatives chronologically.",
+      "status": "BLOCKED \u2014 research only",
+      "gates": {
+        "G1": {
+          "status": "PASS",
+          "rule": "Verified snapshot inputs, field-level sources; third-party prices excluded."
+        },
+        "G2": {
+          "status": "BLOCKED",
+          "rule": "Timestamped pre-kickoff inputs and prices, with complete as-of history. Current capture dates alone do not establish availability at each past decision."
+        },
+        "G3": {
+          "status": "BLOCKED",
+          "rule": "Chronological training / validation / untouched test; no in-sample standings used to prove predictive skill."
+        },
+        "G4": {
+          "status": "BLOCKED",
+          "rule": "Current final injuries, active roster and usage; No Injuries Reported is not clearance."
+        },
+        "G5": {
+          "status": "BLOCKED",
+          "rule": "Operator-native timestamped line, price, settlement and void rules. No assumed -110 pricing."
+        },
+        "G6": {
+          "status": "BLOCKED",
+          "rule": "Out-of-sample calibrated probabilities; aligned outcomes and joint distribution for combos. Team correlations cannot price bets."
+        },
+        "G7": {
+          "status": "BLOCKED",
+          "rule": "Positive conservative net EV after costs and pushes, robust across seasons; pre-registered family-wide uncertainty adjustment."
+        },
+        "G8": {
+          "status": "BLOCKED",
+          "rule": "Prospective immutable paper ledger, exposure caps, drawdown stress tests. No rewards before every applicable gate passes."
+        }
+      },
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "id": "S2",
+      "name": "Single: total / pace",
+      "type": "Single",
+      "description": "Research opponent-adjusted pace, drive efficiency and red-zone residuals; avoid fitting on future totals.",
+      "status": "BLOCKED \u2014 research only",
+      "gates": {
+        "G1": {
+          "status": "PASS",
+          "rule": "Verified snapshot inputs, field-level sources; third-party prices excluded."
+        },
+        "G2": {
+          "status": "BLOCKED",
+          "rule": "Timestamped pre-kickoff inputs and prices, with complete as-of history. Current capture dates alone do not establish availability at each past decision."
+        },
+        "G3": {
+          "status": "BLOCKED",
+          "rule": "Chronological training / validation / untouched test; no in-sample standings used to prove predictive skill."
+        },
+        "G4": {
+          "status": "BLOCKED",
+          "rule": "Current final injuries, active roster and usage; No Injuries Reported is not clearance."
+        },
+        "G5": {
+          "status": "BLOCKED",
+          "rule": "Operator-native timestamped line, price, settlement and void rules. No assumed -110 pricing."
+        },
+        "G6": {
+          "status": "BLOCKED",
+          "rule": "Out-of-sample calibrated probabilities; aligned outcomes and joint distribution for combos. Team correlations cannot price bets."
+        },
+        "G7": {
+          "status": "BLOCKED",
+          "rule": "Positive conservative net EV after costs and pushes, robust across seasons; pre-registered family-wide uncertainty adjustment."
+        },
+        "G8": {
+          "status": "BLOCKED",
+          "rule": "Prospective immutable paper ledger, exposure caps, drawdown stress tests. No rewards before every applicable gate passes."
+        }
+      },
+      "source_url": "https://www.nfl.com/stats/team-stats/"
+    },
+    {
+      "id": "S3",
+      "name": "Single: moneyline calibration",
+      "type": "Single",
+      "description": "Fit a discrete margin distribution on past games; account for ties. A mean margin alone is not a win probability.",
+      "status": "BLOCKED \u2014 research only",
+      "gates": {
+        "G1": {
+          "status": "PASS",
+          "rule": "Verified snapshot inputs, field-level sources; third-party prices excluded."
+        },
+        "G2": {
+          "status": "BLOCKED",
+          "rule": "Timestamped pre-kickoff inputs and prices, with complete as-of history. Current capture dates alone do not establish availability at each past decision."
+        },
+        "G3": {
+          "status": "BLOCKED",
+          "rule": "Chronological training / validation / untouched test; no in-sample standings used to prove predictive skill."
+        },
+        "G4": {
+          "status": "BLOCKED",
+          "rule": "Current final injuries, active roster and usage; No Injuries Reported is not clearance."
+        },
+        "G5": {
+          "status": "BLOCKED",
+          "rule": "Operator-native timestamped line, price, settlement and void rules. No assumed -110 pricing."
+        },
+        "G6": {
+          "status": "BLOCKED",
+          "rule": "Out-of-sample calibrated probabilities; aligned outcomes and joint distribution for combos. Team correlations cannot price bets."
+        },
+        "G7": {
+          "status": "BLOCKED",
+          "rule": "Positive conservative net EV after costs and pushes, robust across seasons; pre-registered family-wide uncertainty adjustment."
+        },
+        "G8": {
+          "status": "BLOCKED",
+          "rule": "Prospective immutable paper ledger, exposure caps, drawdown stress tests. No rewards before every applicable gate passes."
+        }
+      },
+      "source_url": "https://www.nfl.com/scores/"
+    },
+    {
+      "id": "S4",
+      "name": "Player: QB efficiency",
+      "type": "Player prop",
+      "description": "Test lagged completion percentage above expectation and intended air yards with dropback volume.",
+      "status": "BLOCKED \u2014 research only",
+      "gates": {
+        "G1": {
+          "status": "PASS",
+          "rule": "Verified snapshot inputs, field-level sources; third-party prices excluded."
+        },
+        "G2": {
+          "status": "BLOCKED",
+          "rule": "Timestamped pre-kickoff inputs and prices, with complete as-of history. Current capture dates alone do not establish availability at each past decision."
+        },
+        "G3": {
+          "status": "BLOCKED",
+          "rule": "Chronological training / validation / untouched test; no in-sample standings used to prove predictive skill."
+        },
+        "G4": {
+          "status": "BLOCKED",
+          "rule": "Current final injuries, active roster and usage; No Injuries Reported is not clearance."
+        },
+        "G5": {
+          "status": "BLOCKED",
+          "rule": "Operator-native timestamped line, price, settlement and void rules. No assumed -110 pricing."
+        },
+        "G6": {
+          "status": "BLOCKED",
+          "rule": "Out-of-sample calibrated probabilities; aligned outcomes and joint distribution for combos. Team correlations cannot price bets."
+        },
+        "G7": {
+          "status": "BLOCKED",
+          "rule": "Positive conservative net EV after costs and pushes, robust across seasons; pre-registered family-wide uncertainty adjustment."
+        },
+        "G8": {
+          "status": "BLOCKED",
+          "rule": "Prospective immutable paper ledger, exposure caps, drawdown stress tests. No rewards before every applicable gate passes."
+        }
+      },
+      "source_url": "https://nextgenstats.nfl.com/glossary"
+    },
+    {
+      "id": "S5",
+      "name": "Player: receiver opportunity",
+      "type": "Player prop",
+      "description": "Test lagged target share, routes and air-yards share with verified active status. Routes/targets not verified in this audit.",
+      "status": "BLOCKED \u2014 research only",
+      "gates": {
+        "G1": {
+          "status": "PASS",
+          "rule": "Verified snapshot inputs, field-level sources; third-party prices excluded."
+        },
+        "G2": {
+          "status": "BLOCKED",
+          "rule": "Timestamped pre-kickoff inputs and prices, with complete as-of history. Current capture dates alone do not establish availability at each past decision."
+        },
+        "G3": {
+          "status": "BLOCKED",
+          "rule": "Chronological training / validation / untouched test; no in-sample standings used to prove predictive skill."
+        },
+        "G4": {
+          "status": "BLOCKED",
+          "rule": "Current final injuries, active roster and usage; No Injuries Reported is not clearance."
+        },
+        "G5": {
+          "status": "BLOCKED",
+          "rule": "Operator-native timestamped line, price, settlement and void rules. No assumed -110 pricing."
+        },
+        "G6": {
+          "status": "BLOCKED",
+          "rule": "Out-of-sample calibrated probabilities; aligned outcomes and joint distribution for combos. Team correlations cannot price bets."
+        },
+        "G7": {
+          "status": "BLOCKED",
+          "rule": "Positive conservative net EV after costs and pushes, robust across seasons; pre-registered family-wide uncertainty adjustment."
+        },
+        "G8": {
+          "status": "BLOCKED",
+          "rule": "Prospective immutable paper ledger, exposure caps, drawdown stress tests. No rewards before every applicable gate passes."
+        }
+      },
+      "source_url": "https://nextgenstats.nfl.com/glossary"
+    },
+    {
+      "id": "S6",
+      "name": "Player: RB workload",
+      "type": "Player prop",
+      "description": "Test lagged carries, snap share and box counts; availability and game script uncertainty are mandatory.",
+      "status": "BLOCKED \u2014 research only",
+      "gates": {
+        "G1": {
+          "status": "PASS",
+          "rule": "Verified snapshot inputs, field-level sources; third-party prices excluded."
+        },
+        "G2": {
+          "status": "BLOCKED",
+          "rule": "Timestamped pre-kickoff inputs and prices, with complete as-of history. Current capture dates alone do not establish availability at each past decision."
+        },
+        "G3": {
+          "status": "BLOCKED",
+          "rule": "Chronological training / validation / untouched test; no in-sample standings used to prove predictive skill."
+        },
+        "G4": {
+          "status": "BLOCKED",
+          "rule": "Current final injuries, active roster and usage; No Injuries Reported is not clearance."
+        },
+        "G5": {
+          "status": "BLOCKED",
+          "rule": "Operator-native timestamped line, price, settlement and void rules. No assumed -110 pricing."
+        },
+        "G6": {
+          "status": "BLOCKED",
+          "rule": "Out-of-sample calibrated probabilities; aligned outcomes and joint distribution for combos. Team correlations cannot price bets."
+        },
+        "G7": {
+          "status": "BLOCKED",
+          "rule": "Positive conservative net EV after costs and pushes, robust across seasons; pre-registered family-wide uncertainty adjustment."
+        },
+        "G8": {
+          "status": "BLOCKED",
+          "rule": "Prospective immutable paper ledger, exposure caps, drawdown stress tests. No rewards before every applicable gate passes."
+        }
+      },
+      "source_url": "https://nextgenstats.nfl.com/glossary"
+    },
+    {
+      "id": "S7",
+      "name": "Cross-game joint value",
+      "type": "Parlay",
+      "description": "Use calibrated joint outcomes, not an automatic product. Demand operator combo price and common-shock stress tests.",
+      "status": "BLOCKED \u2014 research only",
+      "gates": {
+        "G1": {
+          "status": "PASS",
+          "rule": "Verified snapshot inputs, field-level sources; third-party prices excluded."
+        },
+        "G2": {
+          "status": "BLOCKED",
+          "rule": "Timestamped pre-kickoff inputs and prices, with complete as-of history. Current capture dates alone do not establish availability at each past decision."
+        },
+        "G3": {
+          "status": "BLOCKED",
+          "rule": "Chronological training / validation / untouched test; no in-sample standings used to prove predictive skill."
+        },
+        "G4": {
+          "status": "BLOCKED",
+          "rule": "Current final injuries, active roster and usage; No Injuries Reported is not clearance."
+        },
+        "G5": {
+          "status": "BLOCKED",
+          "rule": "Operator-native timestamped line, price, settlement and void rules. No assumed -110 pricing."
+        },
+        "G6": {
+          "status": "BLOCKED",
+          "rule": "Out-of-sample calibrated probabilities; aligned outcomes and joint distribution for combos. Team correlations cannot price bets."
+        },
+        "G7": {
+          "status": "BLOCKED",
+          "rule": "Positive conservative net EV after costs and pushes, robust across seasons; pre-registered family-wide uncertainty adjustment."
+        },
+        "G8": {
+          "status": "BLOCKED",
+          "rule": "Prospective immutable paper ledger, exposure caps, drawdown stress tests. No rewards before every applicable gate passes."
+        }
+      },
+      "source_url": "https://www.nfl.com/scores/"
+    },
+    {
+      "id": "S8",
+      "name": "Same-game QB + receiver",
+      "type": "Player-prop combo",
+      "description": "Jointly simulate attempts, completions and target allocation. Pairwise correlation alone cannot identify 3+ leg dependence.",
+      "status": "BLOCKED \u2014 research only",
+      "gates": {
+        "G1": {
+          "status": "PASS",
+          "rule": "Verified snapshot inputs, field-level sources; third-party prices excluded."
+        },
+        "G2": {
+          "status": "BLOCKED",
+          "rule": "Timestamped pre-kickoff inputs and prices, with complete as-of history. Current capture dates alone do not establish availability at each past decision."
+        },
+        "G3": {
+          "status": "BLOCKED",
+          "rule": "Chronological training / validation / untouched test; no in-sample standings used to prove predictive skill."
+        },
+        "G4": {
+          "status": "BLOCKED",
+          "rule": "Current final injuries, active roster and usage; No Injuries Reported is not clearance."
+        },
+        "G5": {
+          "status": "BLOCKED",
+          "rule": "Operator-native timestamped line, price, settlement and void rules. No assumed -110 pricing."
+        },
+        "G6": {
+          "status": "BLOCKED",
+          "rule": "Out-of-sample calibrated probabilities; aligned outcomes and joint distribution for combos. Team correlations cannot price bets."
+        },
+        "G7": {
+          "status": "BLOCKED",
+          "rule": "Positive conservative net EV after costs and pushes, robust across seasons; pre-registered family-wide uncertainty adjustment."
+        },
+        "G8": {
+          "status": "BLOCKED",
+          "rule": "Prospective immutable paper ledger, exposure caps, drawdown stress tests. No rewards before every applicable gate passes."
+        }
+      },
+      "source_url": "https://nextgenstats.nfl.com/glossary"
+    }
+  ]
+}

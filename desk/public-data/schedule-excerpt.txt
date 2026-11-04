@@ -1,0 +1,17 @@
+Source: https://www.nfl.com/schedules/2026/by-week/week-9
+Checked 2026-11-04 via fetch_page chunks 0,1,2. Selected-field transcription, NOT raw HTML.
+JAX at BAL 2026-11-05
+CIN at ATL 2026-11-08 Madrid international game
+DEN at CAR 2026-11-08
+DAL at IND 2026-11-08
+NYJ at KC 2026-11-08
+DET at MIA 2026-11-08
+CLE at NO 2026-11-08
+NYG at PHI 2026-11-08
+LA at WAS 2026-11-08
+HOU at LAC 2026-11-08
+LV at SF 2026-11-08
+GB at NE 2026-11-08
+AZ at SEA 2026-11-08
+TB at CHI 2026-11-08
+BUF at MIN 2026-11-09
