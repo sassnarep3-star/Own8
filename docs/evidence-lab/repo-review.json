@@ -4,9 +4,9 @@
   "inventory": [
     {
       "path": ".github/workflows/audit.yml",
-      "bytes": 1469,
-      "sha256": "5e295bfa049e6080e23bbdcb6ed58de45eb848dc6bc7cfab34ad68ee6af9bc77",
-      "line_count": 40,
+      "bytes": 1587,
+      "sha256": "d5c16893ead4654d403e6827c27f22fdf2e17bbf0ece1b7e4b239c558c935d61",
+      "line_count": 42,
       "verification": "Inventory only; factual contents not externally re-verified"
     },
     {
@@ -32,9 +32,9 @@
     },
     {
       "path": "COORDINATION.md",
-      "bytes": 44909,
-      "sha256": "db7ad0a576b1b25a552f5d2c511bd95c8d2c87093bb6b000d4cf69db17237614",
-      "line_count": 189,
+      "bytes": 45985,
+      "sha256": "ce77dc3fd866a47aaa3c1477d0a5f1027e6229cd139a84e70cc8534fda4b82ef",
+      "line_count": 192,
       "verification": "Inventory only; factual contents not externally re-verified"
     },
     {
@@ -46,9 +46,9 @@
     },
     {
       "path": "_config.yml",
-      "bytes": 1443,
-      "sha256": "c6976e5532edfa143b1d65f66e2d93a95ed4ac9658d64ce94ac7cd2386dcec94",
-      "line_count": 42,
+      "bytes": 1408,
+      "sha256": "d311fad3d7b8383f7864bed17c93bd8d5b7825ba4f01cc5503d12b8144accba2",
+      "line_count": 40,
       "verification": "Inventory only; factual contents not externally re-verified"
     },
     {
@@ -75,7 +75,7 @@
     {
       "path": "analysis/link-check.json",
       "bytes": 272,
-      "sha256": "2a93eddfeb7cb1a1fa5b9f1c6c76ca0c76df382fd5543aa5cdd424c93dcaafb8",
+      "sha256": "dd4ba8f65321fd955571a89d9e63060f2ced1135d31e45f39aa80abf788e60f6",
       "line_count": 9,
       "verification": "Inventory only; factual contents not externally re-verified"
     },
@@ -130,9 +130,9 @@
     },
     {
       "path": "analysis/repo-audit.json",
-      "bytes": 52459,
-      "sha256": "6eba9669c25dfed32d3626876e3d32464088f5ea34cee70c69eba6db6eb8c288",
-      "line_count": 1221,
+      "bytes": 52777,
+      "sha256": "f3f85f0712db7f68ca3a239ba0480a59a38db38a8975247f626c401b0a82c760",
+      "line_count": 1228,
       "verification": "Inventory only; factual contents not externally re-verified"
     },
     {
@@ -725,8 +725,8 @@
     },
     {
       "path": "pages/repo-review.html",
-      "bytes": 64129,
-      "sha256": "0dfcd9b3e00f583c3e18e84ec8d765169a656f4d1dc686961cf11b4e53238411",
+      "bytes": 64463,
+      "sha256": "5f814666d14b41a5c7fd3aafc35416f39740172e550972bc0bd04c02ed4f3e7a",
       "line_count": 1,
       "verification": "Inventory only; factual contents not externally re-verified"
     },
@@ -847,6 +847,13 @@
       "bytes": 3532,
       "sha256": "b27bd5b93a1cdf3855e7e3fdf7176c9f32666962fc9bb87f94bce97f578a7d04",
       "line_count": 88,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "scripts/audit_publication.py",
+      "bytes": 1308,
+      "sha256": "f75acac606ed08be117c66478b62bf132d33348774af32db194aaa0416ebb133",
+      "line_count": 23,
       "verification": "Inventory only; factual contents not externally re-verified"
     },
     {
