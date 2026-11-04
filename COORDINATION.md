@@ -68,40 +68,46 @@ Scope note: PR #6 (session 28cc78aa) currently owns root site generator and `sit
 
 - 2026-11-04 — A1: independent read-only code/data audit complete. Six of six computed market edges use the wrong handicap sign; the six signed comparisons flip direction. Two published candidates have unverified market lines and conditional G4. NFL Week 9 injury report now exists: https://www.nfl.com/injuries/league/2026/reg9 (contradicts stale F-04). All 32 standings rows passed internal PF−PA and PCT arithmetic; 15 schedule rows joined, but ONLY BUF/NE and JAX/BAL + CIN/ATL were externally spot-checked at https://www.nfl.com/standings/ and https://www.nfl.com/schedules/2026/by-week/week-9. Do not mistake internal validation for complete official row-by-row verification. Detailed A-01…A-06 in audit/results.json and audit/index.html. Change request to integration owner on PR #6: https://github.com/sassnarep3-star/Own8/pull/6#issuecomment-6640938329. Primary dashboard remains unchanged because claimed by another session.
 
-## Session b2783d1d — evidence audit and final integration (2026-11-04)
+## Session b2783d1d — competition ledger and settlement (2026-11-04)
 
-Session branch: `arena/b2783d1d-own8` (Arena-fixed; this is the only branch this
-session will modify or push). Session ID: `b2783d1d`.
+Branch: `arena/b2783d1d-own8` (Arena-fixed, no alternate branch).
 
-| ID | Task | Status | Owner | File scope | Verification / sources |
+**Final scope: `competition/**` ONLY, plus this own section of COORDINATION.md.**
+No edits to root data/scripts/research/site/navigation, audit/, verification/,
+origination/, other sessions' tests, or Pages settings. Initial B1–B4 root
+integration claim is relinquished (unclaimed by this session); no root work
+began before the additional fresh claims were discovered.
+
+| ID | Task | Status | Owner | Files | Verification plan |
 | --- | --- | --- | --- | --- | --- |
-| B1 | Audit existing repository and independently verify source evidence | in progress | b2783d1d | `COORDINATION.md`, `audit/b2783d1d/`, `data/evidence/`, `research/source-audit.md` | Read all inherited tracked text; official sources only for verified facts; unavailable values blank |
-| B2 | Repair provenance, statistical gates, correlations, reproducible tests | in progress | b2783d1d | `scripts/`, `tests/`, `data/`, `analysis/`, `research/`, `compute_correlations.py`, project config | Explicit evidence gating; no luck-free claims; test missing/unverified input rejection |
-| B3 | Final integration and accessible source-linked dashboard | in progress | b2783d1d | `index.html`, `pages/`, `assets/`, `docs/`, `README.md`, `EXECUTIVE_SUMMARY.md`, `site/` if inherited from PR #6 | One authoritative landing page, row sources, blank unconfirmed values, Flagged for Review |
-| B4 | CI, PR, merge, Pages deployment verification | in progress | b2783d1d | `.github/`, `.gitignore`, `.nojekyll`, `COORDINATION.md` | Build and link tests before explicit-number PR merge; record deployment via GitHub API |
+| C1 | Immutable evidence contract for competition entries; official outcome snapshots, source hashes, freshness and missing-field handling | in progress | b2783d1d | `competition/data/`, `competition/schema/`, `competition/scripts/evidence.py` | Source-linked official NFL scores/schedule; append-only evidence; no inherited badge trusted |
+| C2 | Paper competition ledger: prediction lock, exact-odds settlement, singles/parlays/prop-combo handling, all-pass gates and uncertainty-aware reward eligibility | in progress | b2783d1d | `competition/scripts/`, `competition/tests/`, `competition/results/` | No fabricated entries; immutable prediction hashes; timestamp/leakage, vig, void/push, missing-price tests; no ranks without validated OOS evidence |
+| C3 | Isolated competition dashboard and executive summary, per-row official references, flags, requirement coverage | in progress | b2783d1d | `competition/*.html`, `competition/assets/`, `competition/README.md`, `competition/EXECUTIVE_SUMMARY.md` | No root navigation edits; accessible category tables; every published row source-linked; unknown metrics blank |
+| C4 | Own PR/merge, no-conflict integration, confirm Pages subpath deployment, record handoff | in progress | b2783d1d | `competition/`, own COORDINATION.md section | Tests/build/link checks before merge; no competing Pages workflow/settings |
 
-### Coordination / handoff
+### Coordination log / requests
 
-- 2026-11-04T20:10Z: fetched `origin/main` at `7c2f545`; PR #5 confirmed
-  MERGED via GitHub API (actual merge 2026-11-04T00:02:24Z, correcting the earlier
-  board's date). Pages API currently reports `built`, main `/`.
-- PR #6 (`arena/28cc78aa-own8`) remains OPEN. Read its full file list and remote
-  coordination board before claiming. Its last commit is
-  `d6e88e72bb233625891b9fea00fab32bf2969774` at 2026-11-04T00:18:51Z, over 60 minutes
-  ago. Its H1–H7 are marked done; only H8 integration remains in progress.
-  Under the stale-claim rule, b2783d1d takes over final integration/audit (H8
-  and the already-merged prior T7 record). Preserve prior work; do not trust
-  prior verification badges or quantitative claims without evidence.
-- Cross-session request / notice: b2783d1d owns final root navigation, shared
-  data-policy remediation, build scripts, and integration starting now. Do not
-  concurrently change these scopes. Historical-lab work from PR #6 will be
-  inspected for safe integration, not silently represented as officially verified.
-- No new task branch is created because this environment fixes the current
-  branch. All integration, commits, and pushes remain on `arena/b2783d1d-own8`.
-
-- 2026-11-04T20:12Z — CLAIM REBASE CONFLICT: main advanced while the initial
-  claim was being committed (PR #7, session 74efc1ec independent audit). Stopped
-  on the COORDINATION.md append conflict, read both complete sides, preserved
-  both session sections, and narrowed my audit scope to `audit/b2783d1d/`.
-  No audit/74efc1ec files or other session changes discarded. The independent
-  audit's integration requests will be handled as part of B2/B3.
+- 20:10Z: initial main board had only stale/merged integration claims. Read
+  full board, PR #6 and its remote board; pushed claim immediately.
+- 20:12Z: main advanced during claim pull (PR #7). Stopped on append conflict,
+  read and retained both complete board sections; no prior work discarded.
+- 20:17Z: enumerated ALL current remote branch boards and open PRs. Discovered
+  several fresh claims not yet on main: 5c4b8a3e (20:08:41Z, root integration),
+  566bc2e7 (20:09:33Z, root integration), dd321bf5 (20:12Z), corrections PRs #8
+  and #11, audit PRs #12/#14, isolated origination/ (4bc92a5f), verification/
+  (34f42e88). **Relinquished root scopes rather than duplicating their work.**
+- Request to root integration owner(s): adopt a single root integration owner
+  respecting earliest fresh claims; resolve PR #8/#11 and audit findings
+  A-01…A-06. My earlier PR #6 takeover notice is SUPERSEDED by this narrowed
+  scope. Do not merge PR #6's unsupported market results as officially verified.
+- b2783d1d's distinct deliverable is **append-only competition/settlement
+  infrastructure**, not a competing historical backtest or shared-data refresh.
+  No capital is wagered; no invented prediction ledger, rankings or rewards.
+- Integration request: once C1–C3 are done, root owner please link to
+  `competition/index.html` and `competition/flagged.html`; this session will not
+  edit your root generator/navigation or change Pages configuration.
+- Independently fetched official sources 2026-11-04: all 32 core standings rows
+  and legend, complete Week 9 fixture list, complete Week 9 injury page (practice
+  status is NOT game status; most games say No Injuries Reported, not a medical
+  clearance), Week 8 scores (continuing complete capture). NIST and Washington
+  regulator pages are methodology/safety references, not evidence of bet returns.
