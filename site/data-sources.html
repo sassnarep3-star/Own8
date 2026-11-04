@@ -36,7 +36,7 @@ publisher, exact fetch location, SHA-256 (in <code>data/raw/manifest.json</code>
 </tr>
 <tr>
 <td><code>DERIVED</code></td>
-<td>Statistic computed by this project's scripts from a named primary dataset. Reproducible via <code>scripts/analyze.py</code>. The underlying dataset's own tier applies to the inputs.</td>
+<td>Statistic computed by this project's scripts from a named primary dataset. Reproducible via <code>scripts/own8_analyze.py</code>. The underlying dataset's own tier applies to the inputs.</td>
 </tr>
 <tr>
 <td><code>PRIMARY (non-NFL)</code></td>
@@ -122,8 +122,8 @@ publisher, exact fetch location, SHA-256 (in <code>data/raw/manifest.json</code>
 </table>
 <h2 id="reproducibility">Reproducibility</h2>
 <pre><code class="language-bash">python3 scripts/fetch_data.py   # re-download all raw data + sha256 manifest
-python3 scripts/analyze.py      # recompute every DERIVED number in data/results/
-python3 scripts/build_site.py   # regenerate the dashboard from data/results/
+python3 scripts/own8_analyze.py      # recompute every DERIVED number in data/results/
+python3 scripts/own8_build_site.py   # regenerate the dashboard from data/results/
 </code></pre></section><section class="panel doc"><h1 id="sources-registry">Sources Registry</h1>
 <p>Every factual claim published by this project links to one of the sources below.
 Tier definitions: see <code>docs/DATA_PROVENANCE.md</code>. Verification date for all OFFICIAL

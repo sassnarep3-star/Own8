@@ -1,0 +1,22 @@
+{
+  "as_of": "2026-11-03",
+  "csv_source": "https://www.nfl.com/standings/ (session 9cf451e4 capture)",
+  "json_source": "https://www.nfl.com/standings/ (session 95e9626f capture)",
+  "rows_compared": 32,
+  "mismatches": [],
+  "column_notes": [
+    "MIA: csv div column != HOME (ok, just noted)",
+    "PIT: csv div column != HOME (ok, just noted)",
+    "CLE: csv div column != HOME (ok, just noted)",
+    "DEN: csv div column != HOME (ok, just noted)",
+    "LV: csv div column != HOME (ok, just noted)",
+    "DAL: csv div column != HOME (ok, just noted)",
+    "PHI: csv div column != HOME (ok, just noted)",
+    "DET: csv div column != HOME (ok, just noted)",
+    "GB: csv div column != HOME (ok, just noted)",
+    "SF: csv div column != HOME (ok, just noted)",
+    "LA: csv div column != HOME (ok, just noted)"
+  ],
+  "status": "PASS",
+  "summary": "32 teams compared across W,L,T,PCT,PF,PA,NET,streak,GP: 0 mismatches; decoded HOME/ROAD/DIV/CONF columns arithmetic-validated on all 32 teams. Note: the other session's CSV 'div'/'conf' columns align with HOME/ROAD and CONF respectively \u2014 see flagged F-11; its player CSVs remain UNVERIFIED per their IR-01 (flagged F-12)."
+}

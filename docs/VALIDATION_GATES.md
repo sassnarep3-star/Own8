@@ -1,7 +1,7 @@
 # Validation Gates & Leaderboard Rules
 
 Session `28cc78aa` · 2026-11-03. Every strategy must pass these gates to earn a reward tier.
-Gates are computed in `scripts/analyze.py::apply_gates` and published per-strategy on the site.
+Gates are computed in `scripts/own8_analyze.py::apply_gates` and published per-strategy on the site.
 Flagged irregularities and unverified items do **not** block publication or merge; they are
 listed on the Flagged for Review page.
 

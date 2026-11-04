@@ -1,6 +1,6 @@
 # Strategy Research — NFL Line Origination & Signal Design
 
-Session `28cc78aa` · 2026-11-03. All numbers below are **DERIVED** by `scripts/analyze.py`
+Session `28cc78aa` · 2026-11-03. All numbers below are **DERIVED** by `scripts/own8_analyze.py`
 from the primary datasets in `docs/DATA_PROVENANCE.md` (reproducible, seed 20261103).
 Market data is **PRIMARY (non-NFL)** — the NFL does not publish betting lines — and is
 flagged as such. Method references are in `docs/SOURCES.md` (R1–R4).

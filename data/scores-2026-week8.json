@@ -1,0 +1,29 @@
+{
+  "dataset": "scores-2026-week8",
+  "as_of": "2026-11-03 (Week 8 complete)",
+  "source_id": "nfl-scores-w8",
+  "source_url": "https://www.nfl.com/scores/2026/week-8",
+  "captured_at": "2026-11-03",
+  "games": [
+    {"away": "CAR", "away_score": 19, "home": "GB", "home_score": 27, "winner": "GB", "date": "2026-10-29", "day": "Thursday", "game_url": "https://www.nfl.com/games/panthers-at-packers-2026-reg-8", "status": "Final"},
+    {"away": "BAL", "away_score": 10, "home": "BUF", "home_score": 36, "winner": "BUF", "date": "2026-11-01", "day": "Sunday", "game_url": "https://www.nfl.com/games/ravens-at-bills-2026-reg-8", "status": "Final"},
+    {"away": "TEN", "away_score": 36, "home": "CIN", "home_score": 43, "winner": "CIN", "date": "2026-11-01", "day": "Sunday", "game_url": "https://www.nfl.com/games/titans-at-bengals-2026-reg-8", "status": "Final"},
+    {"away": "AZ", "away_score": 33, "home": "DAL", "home_score": 30, "winner": "AZ", "date": "2026-11-01", "day": "Sunday", "game_url": "https://www.nfl.com/games/cardinals-at-cowboys-2026-reg-8", "status": "Final"},
+    {"away": "MIN", "away_score": 15, "home": "DET", "home_score": 19, "winner": "DET", "date": "2026-11-01", "day": "Sunday", "game_url": "https://www.nfl.com/games/vikings-at-lions-2026-reg-8", "status": "Final"},
+    {"away": "IND", "away_score": 7, "home": "JAX", "home_score": 42, "winner": "JAX", "date": "2026-11-01", "day": "Sunday", "game_url": "https://www.nfl.com/games/colts-at-jaguars-2026-reg-8", "status": "Final"},
+    {"away": "LV", "away_score": 38, "home": "NYJ", "home_score": 33, "winner": "LV", "date": "2026-11-01", "day": "Sunday", "game_url": "https://www.nfl.com/games/raiders-at-jets-2026-reg-8", "status": "Final"},
+    {"away": "CLE", "away_score": 6, "home": "PIT", "home_score": 27, "winner": "PIT", "date": "2026-11-01", "day": "Sunday", "game_url": "https://www.nfl.com/games/browns-at-steelers-2026-reg-8", "status": "Final"},
+    {"away": "ATL", "away_score": 0, "home": "TB", "home_score": 16, "winner": "TB", "date": "2026-11-01", "day": "Sunday", "game_url": "https://www.nfl.com/games/falcons-at-buccaneers-2026-reg-8", "status": "Final"},
+    {"away": "LAC", "away_score": 9, "home": "LA", "home_score": 24, "winner": "LA", "date": "2026-11-01", "day": "Sunday", "game_url": "https://www.nfl.com/games/chargers-at-rams-2026-reg-8", "status": "Final"},
+    {"away": "KC", "away_score": 24, "home": "DEN", "home_score": 28, "winner": "DEN", "date": "2026-11-01", "day": "Sunday", "game_url": "https://www.nfl.com/games/chiefs-at-broncos-2026-reg-8", "status": "Final"},
+    {"away": "NE", "away_score": 24, "home": "MIA", "home_score": 19, "winner": "NE", "date": "2026-11-01", "day": "Sunday", "game_url": "https://www.nfl.com/games/patriots-at-dolphins-2026-reg-8", "status": "Final"},
+    {"away": "PHI", "away_score": 10, "home": "WAS", "home_score": 27, "winner": "WAS", "date": "2026-11-01", "day": "Sunday", "game_url": "https://www.nfl.com/games/eagles-at-commanders-2026-reg-8", "status": "Final"},
+    {"away": "CHI", "away_score": 34, "home": "SEA", "home_score": 17, "winner": "CHI", "date": "2026-11-02", "day": "Monday", "game_url": "https://www.nfl.com/games/bears-at-seahawks-2026-reg-8", "status": "Final", "label": "Monday Night Football"}
+  ],
+  "byes": [
+    {"abbr": "HOU", "name": "Houston Texans", "record": "2-5"},
+    {"abbr": "NO", "name": "New Orleans Saints", "record": "2-5"},
+    {"abbr": "NYG", "name": "New York Giants", "record": "4-2-1"},
+    {"abbr": "SF", "name": "San Francisco 49ers", "record": "6-1"}
+  ]
+}

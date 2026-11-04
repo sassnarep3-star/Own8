@@ -9,7 +9,7 @@ publisher, exact fetch location, SHA-256 (in `data/raw/manifest.json` after runn
 | Tier | Meaning |
 |---|---|
 | `OFFICIAL` | Value confirmed against an NFL-owned source (nfl.com, operations.nfl.com, media.nfl.com, static.www.nfl.com, or the NFL's own GitHub org `nfl-football-ops`). |
-| `DERIVED` | Statistic computed by this project's scripts from a named primary dataset. Reproducible via `scripts/analyze.py`. The underlying dataset's own tier applies to the inputs. |
+| `DERIVED` | Statistic computed by this project's scripts from a named primary dataset. Reproducible via `scripts/own8_analyze.py`. The underlying dataset's own tier applies to the inputs. |
 | `PRIMARY (non-NFL)` | Value taken from a widely-used public primary-data mirror that is **not** NFL-owned. Flagged on the Flagged for Review page because no NFL-official source publishes it. |
 | `UNVERIFIED` | Could not be confirmed from an official source → value left blank in tables and flagged. |
 
@@ -62,6 +62,6 @@ publisher, exact fetch location, SHA-256 (in `data/raw/manifest.json` after runn
 
 ```bash
 python3 scripts/fetch_data.py   # re-download all raw data + sha256 manifest
-python3 scripts/analyze.py      # recompute every DERIVED number in data/results/
-python3 scripts/build_site.py   # regenerate the dashboard from data/results/
+python3 scripts/own8_analyze.py      # recompute every DERIVED number in data/results/
+python3 scripts/own8_build_site.py   # regenerate the dashboard from data/results/
 ```

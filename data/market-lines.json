@@ -1,0 +1,15 @@
+{
+  "dataset": "market-lines-week9-THIRD-PARTY-UNVERIFIED",
+  "as_of": "2026-11-03",
+  "captured_at": "2026-11-03",
+  "warning": "NOT AN OFFICIAL SOURCE. These pregame spreads were rendered by the third-party aggregator nflschedules.com, which attributes them to FanDuel ('Pregame spread · FanDuel · Updated Nov 3 at 11:31 AM ET'). The NFL does not publish betting lines, and sportsbook lines move constantly. These values are recorded here ONLY for reference and are flagged as unverified (see data/flagged.json F-05). To verify a live line, use a licensed sportsbook's own site (in the Netherlands, check the Kansspelautoriteit licence register first: https://kansspelautoriteit.nl/kansspelwijzer). Never treat these as official values.",
+  "source_url": "https://nflschedules.com/weeks/2026/week-9/",
+  "lines": [
+    {"game": "JAX at BAL (Thu Nov 5)", "spread_rendered": "JAX -9.5 / BAL +9.5"},
+    {"game": "CIN at ATL (Madrid, Sun Nov 8)", "spread_rendered": "CIN -3 / ATL +3"},
+    {"game": "NYJ at KC (Sun Nov 8)", "spread_rendered": "NYJ +9.5 / KC -9.5"},
+    {"game": "NYG at PHI (Sun Nov 8)", "spread_rendered": "NYG -3 / PHI +3"},
+    {"game": "LV at SF (Sun Nov 8)", "spread_rendered": "LV +9.5 / SF -9.5 (aggregator also showed 'SF -10, Total 48.5' on an ESPN scoreboard capture)"},
+    {"game": "BUF at MIN (Mon Nov 9)", "spread_rendered": "BUF -3 / MIN +3"}
+  ]
+}

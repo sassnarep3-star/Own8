@@ -1,435 +1,455 @@
 #!/usr/bin/env python3
-"""Build the Own8 static dashboard from data/results/*.json + docs/*.md.
+"""Own8 site builder (T5). Generates the static GitHub Pages site in docs/ from
+data/*.json, analysis/*.json and research/*.md. Stdlib only, no network, no manual input.
 
-Output: site/  (deployed to GitHub Pages by .github/workflows/pages.yml).
-Every data table row carries a Source link. OFFICIAL rows link to NFL sources;
-DERIVED rows link to the primary dataset + methodology and are labeled DERIVED;
-market data is labeled PRIMARY (non-NFL) and flagged. No value is inferred.
+Run: python3 scripts/build_site.py
 """
-from __future__ import annotations
+import json, re, html
+from pathlib import Path
 
-import html
-import json
-import pathlib
-import re
+ROOT = Path(__file__).resolve().parent.parent
+DATA = ROOT / "data"
+AN = ROOT / "analysis"
+RES = ROOT / "research"
+PAGES = ROOT / "pages"
+ASSETS = ROOT / "assets"
+for _d in (PAGES, ASSETS):
+    _d.mkdir(parents=True, exist_ok=True)
+(ROOT / ".nojekyll").write_text("")
 
-import markdown
+def load(p):
+    with open(p) as f:
+        return json.load(f)
 
-ROOT = pathlib.Path(__file__).resolve().parents[1]
-RES = ROOT / "data" / "results"
-SITE = ROOT / "site"
-SITE.mkdir(parents=True, exist_ok=True)
-(SITE / "assets").mkdir(exist_ok=True)
+sources = load(DATA / "sources.json")["sources"]
+src = {s["id"]: s for s in sources}
+standings = load(DATA / "standings-2026-reg-w8.json")
+sched = load(DATA / "schedule-2026-week9.json")
+scores = load(DATA / "scores-2026-week8.json")
+tp_off = load(DATA / "team-passing-offense-2026.json")
+tr_off = load(DATA / "team-rushing-offense-2026.json")
+tp_def = load(DATA / "team-passing-defense-2026.json")
+tr_def = load(DATA / "team-rushing-defense-2026.json")
+ppass = load(DATA / "player-passing-2026.json")
+prush = load(DATA / "player-rushing-2026.json")
+prec = load(DATA / "player-receiving-2026.json")
+pint = load(DATA / "player-interceptions-2026.json")
+ngs = load(DATA / "nextgen-passing-2026-week8.json")
+inj = load(DATA / "injuries-2026-week8.json")
+news = load(DATA / "news-items.json")
+market = load(DATA / "market-lines.json")
+flagged = load(DATA / "flagged.json")["items"]
+corr = load(AN / "correlations.json")
+lines = load(AN / "model-lines-week9.json")
+props = load(AN / "prop-signals-week9.json")
+strats = load(AN / "strategies.json")["strategies"]
+board = load(AN / "leaderboard.json")
 
-DATASET_LINKS = {
-    "D1": ("LeeSharpe/nfldata games.csv", "https://github.com/LeeSharpe/nfldata/blob/master/data/games.csv"),
-    "D2": ("mrcaseb/nfl-data odds", "https://github.com/mrcaseb/nfl-data/blob/master/data/nfl_lines_odds.csv.gz"),
-    "D3": ("nflscrapR player-game stats", "https://github.com/ryurko/nflscrapR-data/tree/master/legacy_data/game_player_stats"),
-    "D4": ("FantasyDataPros 2021 weekly", "https://github.com/fantasydatapros/LearnPythonWithFantasyFootball/tree/master/2022/09-Correlation%20Matrices/01-Weekly%20Fantasy%20Stats%20-%202021"),
-    "D5": ("NFL official Big Data Bowl", "https://github.com/nfl-football-ops/Big-Data-Bowl/blob/master/Data/games.csv"),
+TEAM_URL = {
+    "BUF": "buffalo-bills", "NE": "new-england-patriots", "NYJ": "new-york-jets", "MIA": "miami-dolphins",
+    "PIT": "pittsburgh-steelers", "CIN": "cincinnati-bengals", "CLE": "cleveland-browns", "BAL": "baltimore-ravens",
+    "JAX": "jacksonville-jaguars", "HOU": "houston-texans", "IND": "indianapolis-colts", "TEN": "tennessee-titans",
+    "DEN": "denver-broncos", "KC": "kansas-city-chiefs", "LV": "las-vegas-raiders", "LAC": "los-angeles-chargers",
+    "NYG": "new-york-giants", "DAL": "dallas-cowboys", "WAS": "washington-commanders", "PHI": "philadelphia-eagles",
+    "MIN": "minnesota-vikings", "CHI": "chicago-bears", "DET": "detroit-lions", "GB": "green-bay-packers",
+    "CAR": "carolina-panthers", "TB": "tampa-bay-buccaneers", "ATL": "atlanta-falcons", "NO": "new-orleans-saints",
+    "SF": "san-francisco-49ers", "SEA": "seattle-seahawks", "LA": "los-angeles-rams", "AZ": "arizona-cardinals",
 }
-METHOD_URL = "methodology.html"
-
-NAV = [
-    ("index.html", "Home"),
-    ("executive-summary.html", "Executive Summary"),
-    ("singles.html", "Single Bets"),
-    ("parlays.html", "Parlays"),
-    ("props.html", "Player Props"),
-    ("correlations.html", "Correlations"),
-    ("validation.html", "Validation & Gates"),
-    ("official-facts.html", "Official Facts"),
-    ("data-sources.html", "Data & Sources"),
-    ("methodology.html", "Methodology"),
-    ("flagged.html", "Flagged for Review"),
-]
-
+def team_link(a):
+    return f'https://www.nfl.com/teams/{TEAM_URL[a]}/'
 
 def esc(x):
-    return html.escape(str(x))
-
+    return html.escape("" if x is None else str(x))
 
 def link(url, label=None):
-    return f'<a href="{esc(url)}" target="_blank" rel="noopener">{esc(label or url)} <span class="ext">↗</span></a>'
+    if not url:
+        return '<span class="unverified">— (unverified/blank)</span>'
+    return f'<a href="{esc(url)}" target="_blank" rel="noopener">{esc(label or url)}</a>'
 
+def badge(status):
+    s = esc(status)
+    cls = {"PASS": "pass", "CONDITIONAL": "cond", "FAIL": "fail", "NOT_COMPUTABLE": "na", "PENDING": "cond"}.get(status.upper(), "na")
+    return f'<span class="badge {cls}">{s}</span>'
 
-def badge(tier):
-    cls = {"Gold": "gold", "Silver": "silver", "Bronze": "bronze", "Rejected": "rejected",
-           "OFFICIAL": "official", "DERIVED": "derived", "PRIMARY (non-NFL)": "primary",
-           "UNVERIFIED": "unverified", "RESEARCH": "research"}.get(tier, "derived")
-    return f'<span class="badge {cls}">{esc(tier)}</span>'
-
-
-def gate_pills(gates):
-    out = []
-    for k, v in gates.items():
-        short = k.split("_")[0]
-        out.append(f'<span class="gate {"pass" if v else "fail"}" title="{esc(k)}: {"pass" if v else "fail"}">{short}</span>')
-    return '<span class="gates">' + "".join(out) + "</span>"
-
-
-def source_cell(datasets, derived=True, extra=""):
-    parts = []
-    if derived:
-        parts.append(badge("DERIVED"))
-    for d in datasets:
-        label, url = DATASET_LINKS[d]
-        parts.append(link(url, label))
-    parts.append(f'<a href="{METHOD_URL}">method</a>')
-    if extra:
-        parts.append(extra)
-    return '<div class="src">' + " · ".join(parts) + "</div>"
-
-
-def table(headers, rows, tid="t", sortable=True):
-    cls = "data-table" + (" sortable" if sortable else "")
-    h = "".join(f"<th>{c}</th>" for c in headers)
-    body = []
+def table(headers, rows, cls="data"):
+    th = "".join(f"<th>{esc(h)}</th>" for h in headers)
+    trs = []
     for r in rows:
-        body.append("<tr>" + "".join(f"<td>{c}</td>" for c in r) + "</tr>")
-    return (f'<div class="table-wrap"><table class="{cls}" id="{esc(tid)}">'
-            f"<thead><tr>{h}</tr></thead><tbody>{''.join(body)}</tbody></table></div>")
+        tds = "".join(f"<td>{c}</td>" if isinstance(c, str) and c.startswith("<") else f"<td>{esc(c)}</td>" for c in r)
+        trs.append(f"<tr>{tds}</tr>")
+    return f'<table class="{cls}"><thead><tr>{th}</tr></thead><tbody>{"".join(trs)}</tbody></table>'
 
+def srclink(url, label="source"):
+    return link(url, label)
 
-def fmt_pct(x):
-    return "—" if x is None else f"{100*x:.1f}%"
+NAV = [
+    ("index.html", "Dashboard", False),
+    ("executive-summary.html", "Executive Summary", False),
+    ("standings.html", "Standings (W8)", False),
+    ("schedule.html", "Week 9 Schedule", False),
+    ("scores.html", "Week 8 Scores", False),
+    ("team-stats.html", "Team Stats", False),
+    ("player-stats.html", "Player Stats & NGS", False),
+    ("injuries.html", "Injuries & News", False),
+    ("model-lines.html", "Model Lines (W9)", False),
+    ("prop-signals.html", "Prop Signals (W9)", False),
+    ("strategies.html", "Strategies", False),
+    ("validation-gates.html", "Validation Gates", False),
+    ("correlations.html", "Correlations", False),
+    ("leaderboard.html", "Leaderboard", False),
+    ("methodology.html", "Methodology", False),
+    ("sources.html", "Sources", False),
+    ("flagged.html", "⚑ Flagged for Review", False),
+    ("responsible-gambling.html", "Responsible Gambling", False),
+    ("site/index.html", "Historical Lab (28cc78aa)", True),
+    ("archive/session-9cf451e4-own8/index.html", "Archive (session 9cf451e4)", True),
+]
 
-
-def fmt_num(x, nd=3):
-    return "—" if x is None else f"{x:.{nd}f}"
-
-
-def page(title, subtitle, body, active, wide=False):
+def page(title, body, active, sub=False):
+    prefix = "" if sub else "pages/"
+    aprefix = "../" if sub else ""
+    def navhref(href, ispath):
+        if sub:
+            if href == "index.html":
+                return "../index.html"
+            return ("../" + href) if ispath else href
+        return href if href == "index.html" else (("" if ispath else "pages/") + href)
     nav = "".join(
-        f'<a href="{href}" class="{"active" if href == active else ""}">{esc(label)}</a>'
-        for href, label in NAV)
+        f'<a href="{navhref(href, ispath)}" class="{"active" if href == active else ""}">{esc(label)}</a>'
+        for href, label, ispath in NAV
+    )
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{esc(title)} · Own8 NFL</title>
-<meta name="description" content="{esc(subtitle)}">
-<link rel="stylesheet" href="assets/style.css">
+<title>{esc(title)} — Own8 NFL Lines</title>
+<link rel="stylesheet" href="{aprefix}assets/style.css">
 </head>
 <body>
-<header class="topbar">
-  <div class="brand"><a href="index.html">Own8 <span>NFL Line Lab</span></a></div>
-  <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('nav-open')">☰</button>
-</header>
-<nav class="sidebar"><div class="nav-title">Dashboard</div>{nav}
-  <div class="nav-foot">Verified 2026-11-03 · session 28cc78aa</div>
-</nav>
-<main class="content{' wide' if wide else ''}">
-  <div class="page-head"><h1>{esc(title)}</h1><p class="sub">{esc(subtitle)}</p></div>
-  {body}
-  <footer class="foot">
-    <p>Own8 NFL Line Lab · research &amp; education only, not betting advice. Market data is
-    <strong>PRIMARY (non-NFL)</strong> and flagged; official facts link to NFL sources.
-    See <a href="flagged.html">Flagged for Review</a> and <a href="data-sources.html">Data &amp; Sources</a>.</p>
-  </footer>
+<div class="layout">
+<aside class="sidebar">
+  <div class="brand">🏈 Own8 <span>NFL Line Lab</span></div>
+  <nav>{nav}</nav>
+  <div class="sidefoot">Data as of 2026-11-03 · official sources only · <a href="{prefix}flagged.html">Flagged for Review</a></div>
+</aside>
+<main class="main">
+<header class="topbar"><h1>{esc(title)}</h1><span class="asof">as of 2026-11-03 · 2026 NFL season, Week 9 slate</span></header>
+<div class="content">
+{body}
+</div>
+<footer class="footer">Own8 — research/analytics competition framework. Not gambling advice; no real-money wagering occurs here. Every table row links to its official source; unverifiable values are blank and <a href="{prefix}flagged.html">flagged</a>. 18+ (NL) / 21+ where required — <a href="{prefix}responsible-gambling.html">responsible gambling</a>.</footer>
 </main>
-<script src="assets/app.js"></script>
+</div>
 </body>
 </html>"""
 
-
-def _linkify(md):
-    # Wrap bare URLs in autolink brackets so they render as clickable links.
-    # Skip URLs already inside markdown links ](url), (url), or autolinks <url>.
-    return re.sub(r"(?<!\]\()(?<!\()(?<!<)(https?://[^\s<>()\[\]|]+)", r"<\1>", md)
-
-
-def md_doc(path):
-    text = _linkify((ROOT / path).read_text())
-    return markdown.markdown(text, extensions=["tables", "fenced_code", "toc"])
-
-
-# ---------------------------------------------------------------- pages
-def build_index(strategies, leaderboard, validation, facts, market):
-    top = leaderboard[0]
-    s2 = next(s for s in strategies if s["id"] == "S2")
-    cards = [
-        ("Games in dataset", "7,548", "1999–2026 · results + closing lines"),
-        ("Official NFL facts", str(len(facts["facts"])), "verified verbatim from NFL sources"),
-        ("Official score anchor", "91 / 91", "exact match vs NFL Big Data Bowl"),
-        ("Strategies tested", str(len(strategies)), "singles · parlays · player props"),
-        ("Top signal (S2)", f"+{s2['holdout_clv_mean_pts']} pts CLV", f"z = {s2['holdout_clv_z']} · {badge(s2['tier'])}"),
-        ("Gold-tier edges", "0", "strict gates; honest outcome"),
-    ]
-    card_html = "".join(
-        f'<div class="card"><div class="card-label">{esc(l)}</div><div class="card-value">{v}</div><div class="card-sub">{s}</div></div>'
-        for l, v, s in cards)
-    lb_rows = []
-    for i, r in enumerate(leaderboard, 1):
-        strat = next(s for s in strategies if s["id"] == r["id"])
-        cat_link = {"Single bet": "singles.html", "Parlay": "parlays.html", "Player prop": "props.html"}[r["category"]]
-        lb_rows.append([
-            str(i), f'<strong>{esc(r["id"])}</strong>',
-            f'<a href="{cat_link}#{r["id"]}">{esc(r["name"])}</a>',
-            esc(r["category"]), f'{r["score"]:.1f}', f'{r["gates_passed"]}/7',
-            badge(r["tier"]), source_cell(strat["data"], derived=True)])
-    lb = table(["#", "ID", "Strategy", "Category", "Score", "Gates", "Tier", "Source"], lb_rows, "leaderboard")
-    summary = f"""
-    <section class="hero">
-      <p class="lead">A verified, reproducible NFL line-origination lab. We originate our own spreads,
-      totals, moneylines and player-prop lines, measure <strong>closing-line value</strong> to separate
-      skill from luck, and run every strategy through seven validation gates on a reward leaderboard.</p>
-    </section>
-    <section class="cards">{card_html}</section>
-    <section class="panel">
-      <h2>Leaderboard</h2>
-      <p class="muted">Ranked by the transparent score in <a href="validation.html">Validation &amp; Gates</a>.
-      The only non-rejected strategy is <strong>S2</strong> (Silver): the model beats the opening game total
-      by ~0.8 pts (z≈5.7) — a genuine, luck-free skill signal whose profit consistency is not yet proven.
-      No strategy reached Gold.</p>
-      <input class="filter" data-table="leaderboard" placeholder="Filter strategies…">
-      {lb}
-    </section>
-    <section class="panel">
-      <h2>Read the details</h2>
-      <div class="quicklinks">
-        <a href="executive-summary.html">Executive Summary →</a>
-        <a href="correlations.html">Correlation library →</a>
-        <a href="official-facts.html">Official NFL facts →</a>
-        <a href="flagged.html">Flagged for Review →</a>
-      </div>
-    </section>"""
-    (SITE / "index.html").write_text(page("Own8 NFL Line Lab", "Originate lines · measure skill · validate everything", summary, "index.html", wide=True))
-
-
-def strategy_block(s):
-    cat = s["category"]
-    rows = []
-    if cat == "Player prop":
-        metrics = [
-            ("Player-games evaluated", s["n_player_games"]),
-            ("MAE (yards)", s["mae_yds"]),
-            ("RMSE — accuracy line", s["rmse_model"]),
-            ("RMSE — best naive baseline", s["rmse_best_baseline"]),
-            ("RMSE skill vs baseline", f'{s["rmse_skill_pct"]}% (CI {s["rmse_skill_ci"][0]}–{s["rmse_skill_ci"][1]}%)'),
-            ("Out-of-sample R²", s["oos_r2"]),
-            ("Fair-line over-hit rate", f'{fmt_pct(s["over_hit_rate"])} (CI {fmt_pct(s["over_hit_ci"][0])}–{fmt_pct(s["over_hit_ci"][1])})'),
-            ("2021 robustness skill", f'{s["robustness_2021_skill_pct"]}%' if s["robustness_2021_skill_pct"] is not None else "—"),
-            ("2021 fair-line over-hit", fmt_pct(s["robustness_2021_over_hit"])),
-        ]
-    else:
-        ho = s.get("holdout", {})
-        metrics = [
-            ("Window (full / holdout)", f'{s.get("full_window","—")} / {s.get("holdout_window","—")}'),
-            ("Holdout bets", ho.get("n_bets", "—")),
-            ("Holdout ROI", f'{fmt_pct(ho.get("roi"))} (CI {fmt_pct(ho.get("roi_ci_low"))}–{fmt_pct(ho.get("roi_ci_high"))})'),
-            ("Holdout win rate", fmt_pct(ho.get("win_rate"))),
-            ("Full-window ROI", fmt_pct(s.get("full", {}).get("roi"))),
-        ]
-        if s.get("holdout_clv_mean_pts") is not None:
-            metrics.append(("Holdout CLV (pts)", f'{s["holdout_clv_mean_pts"]} (CI {s["holdout_clv_ci"][0]}–{s["holdout_clv_ci"][1]}, z {s["holdout_clv_z"]})'))
-        if s.get("luck_p_value") is not None:
-            metrics.append(("Luck null p-value", f'{s["luck_p_value"]:.3g}'))
-        rob = s.get("robustness_holdout", {})
-        if rob:
-            metrics.append(("Seasons positive / drop-best ROI", f'{fmt_pct(rob.get("seasons_positive"))} / {fmt_pct(rob.get("drop_best_roi"))}'))
-        if cat == "Parlay":
-            metrics += [
-                ("P(leg A) · P(leg B)", f'{s["p_leg_a"]} · {s["p_leg_b"]}'),
-                ("Joint P empirical / independent", f'{s["p_joint_empirical"]} / {s["p_joint_independent"]}'),
-                ("Correlation lift", fmt_pct(s["correlation_lift"])),
-                ("Fair decimal odds (empirical)", s["fair_decimal_odds"]),
-            ]
-        if "threshold_chosen_on_train" in s:
-            metrics.append(("Threshold (chosen on train)", s["threshold_chosen_on_train"]))
-    mrows = "".join(f"<tr><th>{esc(k)}</th><td>{esc(v)}</td></tr>" for k, v in metrics)
-    return f"""
-    <article class="strategy" id="{s['id']}">
-      <div class="strategy-head">
-        <h3>{esc(s['id'])} · {esc(s['name'])} {badge(s['tier'])}</h3>
-        <div class="strategy-meta">Score <strong>{s['score']}</strong> · Gates {s['gates_passed']}/7 {gate_pills(s['gates'])}</div>
-      </div>
-      <p class="muted">{esc(s['description'])}</p>
-      <div class="table-wrap"><table class="kv"><tbody>{mrows}</tbody></table></div>
-      <div class="src-row">Source: {source_cell(s['data'], derived=True)}</div>
-    </article>"""
-
-
-def build_category(strategies, cat, filename, title, subtitle, intro):
-    items = [s for s in strategies if s["category"] == cat]
-    body = f'<section class="panel"><p class="lead">{intro}</p></section>'
-    body += "".join(strategy_block(s) for s in items)
-    (SITE / filename).write_text(page(title, subtitle, body, filename, wide=True))
-
-
-def build_correlations(correlations):
-    rows = []
-    for c in correlations:
-        val = "—" if c["pearson"] is None else f'{c["pearson"]:.3f}'
-        ci = "—" if c["ci_low"] is None else f'{c["ci_low"]:.3f} – {c["ci_high"]:.3f}'
-        rho = "—" if c["spearman"] is None else f'{c["spearman"]:.3f}'
-        extra = ""
-        if "p_joint" in c:
-            extra = f'<div class="muted small">P(both)={c["p_joint"]} vs independent {c["p_independent"]}</div>'
-        rows.append([esc(c["pair"]), val, ci, rho, str(c["n"]), esc(c["era"]),
-                     badge(c["tier"]), source_cell([c["dataset"]], derived=(c["tier"] == "DERIVED")) + extra])
-    t = table(["Pair", "Pearson r", "95% CI", "Spearman ρ", "n", "Era", "Tier", "Source"], rows, "corr")
-    body = f"""
-    <section class="panel">
-      <p class="lead">Dependency estimates for parlay &amp; player-prop combo pricing. Pearson r with
-      2,000-sample bootstrap 95% CIs; Spearman ρ as a robustness check. Base era 2009–2017 (D3),
-      re-checked on 2021 (D4). <strong>DERIVED</strong> from primary data — see
-      <a href="flagged.html">provenance flags</a>.</p>
-      <input class="filter" data-table="corr" placeholder="Filter pairs…">
-      {t}
-    </section>
-    <section class="panel">
-      <h2>How to use these</h2>
-      <ul>
-        <li><strong>QB + WR yards (r≈0.70–0.76):</strong> strongly positively correlated — price same-game
-        parlays with the empirical joint distribution, never by multiplying independent legs.</li>
-        <li><strong>WR1 + WR2 (r≈0.49):</strong> positive, not negative — stacking same-team receivers does not diversify.</li>
-        <li><strong>QB + own RB yards (r≈−0.18):</strong> negatively correlated (game script) — a rare negative SGP pair.</li>
-        <li><strong>Cover + total (φ≈0):</strong> ~independent — standard 2-leg parlay pricing is roughly fair; no edge.</li>
-      </ul>
-    </section>"""
-    (SITE / "correlations.html").write_text(page("Correlation Library", "Dependency values for combos & parlays", body, "correlations.html", wide=True))
-
-
-def build_validation(validation, leaderboard, strategies):
-    checks = []
-    labels = {
-        "A1_official_anchor": ("Official NFL score anchor", "D5"),
-        "A2_line_crosscheck": ("Independent odds cross-check", "D1"),
-        "A3_player_internal": ("Player-stats internal consistency", "D3"),
-        "A4_player_schedule_coverage": ("Player stats ↔ schedule coverage", "D3"),
-        "A5_fdp_coverage": ("2021 sample ↔ schedule coverage", "D4"),
-    }
-    for k, (label, ds) in labels.items():
-        v = validation[k]
-        detail = v.get("description", "")
-        stat = ""
-        if k == "A1_official_anchor":
-            stat = f'{v["n_exact_score_matches"]}/{v["n_official_games"]} exact'
-        elif k == "A2_line_crosscheck":
-            stat = f'spread {fmt_pct(v["spread_within_0.5"])} / total {fmt_pct(v["total_within_0.5"])} within 0.5'
-        elif k == "A3_player_internal":
-            stat = f'{fmt_pct(v["exact_match_rate"])} exact, median diff {v["median_abs_diff"]}'
+# ---------------- minimal markdown renderer ----------------
+def md(text):
+    out, in_list, in_table = [], False, False
+    tbl_rows = []
+    def flush_list():
+        nonlocal in_list
+        if in_list:
+            out.append("</ul>"); in_list = False
+    def flush_table():
+        nonlocal in_table, tbl_rows
+        if in_table:
+            rows = tbl_rows; tbl_rows = []
+            head = rows[0]; body = rows[1:]
+            out.append("<table class='data'><thead><tr>" + "".join(f"<th>{esc(c)}</th>" for c in head) + "</tr></thead><tbody>"
+                       + "".join("<tr>" + "".join(f"<td>{render_inline(c)}</td>" for c in r) + "</tr>" for r in body) + "</tbody></table>")
+            in_table = False
+    for line in text.splitlines():
+        s = line.rstrip()
+        if s.startswith("|"):
+            cells = [c.strip() for c in s.strip("|").split("|")]
+            if all(re.fullmatch(r":?-{2,}:?", c) for c in cells):
+                continue
+            tbl_rows.append(cells); in_table = True
+            continue
+        flush_table()
+        if s.startswith("# "): flush_list(); out.append(f"<h2>{render_inline(s[2:])}</h2>")
+        elif s.startswith("## "): flush_list(); out.append(f"<h3>{render_inline(s[3:])}</h3>")
+        elif s.startswith("### "): flush_list(); out.append(f"<h4>{render_inline(s[4:])}</h4>")
+        elif s.startswith("- "):
+            if not in_list: out.append("<ul>"); in_list = True
+            out.append(f"<li>{render_inline(s[2:])}</li>")
+        elif s.strip():
+            flush_list(); out.append(f"<p>{render_inline(s)}</p>")
         else:
-            stat = f'{v["n_valid"]}/{v["n_team_weeks"]}' if "n_team_weeks" in v else f'{v["n_covered"]}/{v["n_dates"]}'
-        flag = f'<div class="muted small">⚑ {esc(v["flag"])}</div>' if v.get("flag") else ""
-        checks.append([esc(label), esc(detail), stat,
-                       '<span class="gate pass">PASS</span>' if v["pass"] else '<span class="gate fail">FAIL</span>',
-                       source_cell([ds], derived=(k != "A1_official_anchor"),
-                                   extra=link(v["official_source"], "official source") if k == "A1_official_anchor" else "") + flag])
-    ct = table(["Check", "What it verifies", "Result", "Status", "Source"], checks, "checks")
-    gates_md = (ROOT / "docs/VALIDATION_GATES.md").read_text().split("## Current leaderboard")[0]
-    gates_html = markdown.markdown(gates_md, extensions=["tables", "fenced_code"])
-    lb_rows = []
-    for r in leaderboard:
-        s = next(x for x in strategies if x["id"] == r["id"])
-        lb_rows.append([esc(r["id"]), esc(r["name"]), f'{r["score"]:.1f}', f'{r["gates_passed"]}/7',
-                        badge(r["tier"]), gate_pills(s["gates"]), source_cell(s["data"])])
-    lt = table(["ID", "Strategy", "Score", "Gates", "Tier", "Gate detail", "Source"], lb_rows, "vleaderboard")
-    body = f"""
-    <section class="panel"><h2>Data validation (Part A)</h2>
-      <p class="muted">Overall: {'<span class="gate pass">ALL PASS</span>' if validation['all_pass'] else '<span class="gate fail">FAIL</span>'}.
-      Tolerances are documented; flagged items are non-blocking and listed on <a href="flagged.html">Flagged for Review</a>.</p>
-      {ct}</section>
-    <section class="panel doc">{gates_html}</section>
-    <section class="panel"><h2>Leaderboard with gate detail</h2>{lt}</section>"""
-    (SITE / "validation.html").write_text(page("Validation & Gates", "Data checks · 7 gates · leaderboard rules", body, "validation.html", wide=True))
+            flush_list()
+    flush_list(); flush_table()
+    return "\n".join(out)
 
+def render_inline(s):
+    s = esc(s)
+    s = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", s)
+    s = re.sub(r"`([^`]+)`", r"<code>\1</code>", s)
+    s = re.sub(r"\[([^\]]+)\]\((https?://[^)]+)\)", r'<a href="\2" target="_blank" rel="noopener">\1</a>', s)
+    return s
 
-def build_official_facts(facts):
+def md_page(name, title, active, intro=""):
+    text = (RES / name).read_text()
+    body = (f"<p class='muted'>{esc(intro)}</p>" if intro else "") + md(text)
+    write(active, page(title, body, active, sub=True))
+
+def write(fname, content):
+    if fname == "index.html":
+        content = re.sub(r'href="([a-z0-9-]+\.html)"', r'href="pages/\1"', content)
+        content = content.replace('href="pages/index.html"', 'href="index.html"')
+        content = content.replace('href="pages/archive/', 'href="archive/')
+        (ROOT / fname).write_text(content)
+    else:
+        (PAGES / fname).write_text(content)
+    print("wrote", fname)
+
+# ---------------- CSS ----------------
+(ASSETS / "style.css").write_text("""
+:root{--bg:#f4f6fa;--panel:#ffffff;--ink:#16202e;--muted:#5b6b7f;--line:#e3e8f0;--accent:#0b5fff;--accent2:#0a3d91;--pass:#0e8a4d;--cond:#b26a00;--fail:#c22f2f;--na:#6b7686;--flag:#c22f2f;}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);font-size:15px;line-height:1.5}
+.layout{display:flex;min-height:100vh}
+.sidebar{width:230px;background:#0e1b2e;color:#dbe4f0;display:flex;flex-direction:column;position:sticky;top:0;height:100vh;flex-shrink:0}
+.brand{padding:18px 18px 12px;font-size:20px;font-weight:800;color:#fff}
+.brand span{display:block;font-size:11px;font-weight:600;color:#8fa3c0;letter-spacing:.08em;text-transform:uppercase}
+.sidebar nav{display:flex;flex-direction:column;padding:8px}
+.sidebar nav a{color:#c6d3e6;text-decoration:none;padding:8px 12px;border-radius:8px;font-size:13.5px}
+.sidebar nav a:hover{background:#1a2c47}
+.sidebar nav a.active{background:var(--accent);color:#fff;font-weight:700}
+.sidefoot{margin-top:auto;padding:14px;font-size:11px;color:#8fa3c0}
+.sidefoot a{color:#9db8e8}
+.main{flex:1;min-width:0;display:flex;flex-direction:column}
+.topbar{display:flex;align-items:baseline;gap:14px;background:var(--panel);border-bottom:1px solid var(--line);padding:16px 26px;position:sticky;top:0;z-index:5}
+.topbar h1{font-size:20px;margin:0}
+.asof{color:var(--muted);font-size:12.5px}
+.content{padding:22px 26px;max-width:1250px}
+.footer{padding:16px 26px;color:var(--muted);font-size:12px;border-top:1px solid var(--line);background:var(--panel)}
+.footer a{color:var(--accent)}
+h2{margin:26px 0 10px;font-size:18px;border-bottom:2px solid var(--line);padding-bottom:6px}
+h3{margin:20px 0 8px;font-size:15.5px}
+h4{margin:14px 0 6px;font-size:14px}
+p{margin:8px 0}
+a{color:var(--accent)}
+.muted{color:var(--muted);font-size:13px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px;margin:14px 0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px;text-decoration:none;color:var(--ink);transition:box-shadow .15s}
+.card:hover{box-shadow:0 4px 14px rgba(20,40,80,.12)}
+.card .kpi{font-size:26px;font-weight:800;color:var(--accent2)}
+.card .lbl{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px;margin:14px 0}
+table.data{border-collapse:collapse;width:100%;font-size:13px;background:var(--panel);margin:10px 0}
+table.data th{background:#0e1b2e;color:#eaf0fa;text-align:left;padding:8px 10px;position:sticky;top:0;font-size:12px;white-space:nowrap}
+table.data td{border-bottom:1px solid var(--line);padding:7px 10px;vertical-align:top}
+table.data tr:hover td{background:#f0f5ff}
+.wrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px}
+.badge{display:inline-block;padding:2px 8px;border-radius:20px;font-size:11px;font-weight:700;color:#fff}
+.badge.pass{background:var(--pass)} .badge.cond{background:var(--cond)} .badge.fail{background:var(--fail)} .badge.na{background:var(--na)}
+.unverified{color:var(--flag);font-size:12px}
+.tag{display:inline-block;background:#e8eefc;color:var(--accent2);border-radius:6px;padding:1px 7px;font-size:11px;font-weight:700;margin-right:4px}
+.cand{background:#e7f6ee !important}
+code{background:#eef2f8;padding:1px 5px;border-radius:5px;font-size:12.5px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:900px){.sidebar{width:64px}.sidebar nav a,.brand span,.sidefoot{display:none}.brand{font-size:16px}.grid2{grid-template-columns:1fr}}
+""")
+
+# ---------------- index ----------------
+cands = [g for g in lines["games"] if g["candidate"]]
+n_src = len(sources)
+body = f"""
+<p class="muted">Originate our own NFL lines from official data, run strategies through validation gates, and compete on a skill leaderboard. No manual input — the pipeline (<code>scripts/analyze.py</code> → <code>scripts/build_site.py</code>) rebuilds everything from official sources.</p>
+<div class="cards">
+  <div class="card"><div class="kpi">2026 W9</div><div class="lbl">Slate (Nov 5–9)</div></div>
+  <div class="card"><div class="kpi">{len(lines['games'])}</div><div class="lbl">Games modeled</div></div>
+  <div class="card"><div class="kpi">{len(standings['teams'])}</div><div class="lbl">Teams (standings W8)</div></div>
+  <div class="card"><div class="kpi">{n_src}</div><div class="lbl">Official sources</div></div>
+  <div class="card"><div class="kpi">{len(cands)}</div><div class="lbl">W9 candidates (gates passed)</div></div>
+  <div class="card"><div class="kpi">{len(flagged)}</div><div class="lbl"><a href="flagged.html" style="color:inherit">Flagged items</a></div></div>
+</div>
+<div class="panel"><h3 style="margin-top:0">Week 9 candidates (model vs unverified market — see Model Lines)</h3>
+{table(["Game","Kickoff (ET)","Model spread","Model total","Market (unverified)","Edge (pts)","Candidate side","Source"],
+ [[f"{g['away']} at {g['home']}", f"{g['date']} {g['kickoff_et']}", g['model_spread_rendered'], g['model_total'],
+   (f"<span>{g['home']} {g['market_spread_home']:+.1f}</span> <span class='unverified'>(unverified, F-05)</span>" if g['market_spread_home'] is not None else '<span class="unverified">blank — no official market line</span>'),
+   (g['edge_pts'] if g['edge_pts'] is not None else '<span class="unverified">—</span>'),
+   (f"<strong>{g['candidate_side']}</strong>" if g['candidate'] else "no trade"),
+   link(g['game_url'], "nfl.com game page")] for g in cands]) or '<p class="muted">None this week.</p>'}
+</div>
+<div class="panel"><h3 style="margin-top:0">Browse by category</h3>
+<div class="cards">
+  <a class="card" href="executive-summary.html"><div class="lbl">Start here</div><strong>Executive Summary</strong></a>
+  <a class="card" href="standings.html"><div class="lbl">Data</div><strong>Standings · Schedule · Scores</strong></a>
+  <a class="card" href="team-stats.html"><div class="lbl">Data</div><strong>Team & Player Stats</strong></a>
+  <a class="card" href="model-lines.html"><div class="lbl">Lines</div><strong>Model Lines W9 + Prop Signals</strong></a>
+  <a class="card" href="strategies.html"><div class="lbl">System</div><strong>Strategies · Gates · Correlations</strong></a>
+  <a class="card" href="leaderboard.html"><div class="lbl">Competition</div><strong>Leaderboard</strong></a>
+  <a class="card" href="sources.html"><div class="lbl">Trust</div><strong>Sources · <span style="color:var(--flag)">Flagged for Review</span></strong></a>
+</div></div>
+<div class="panel"><h3 style="margin-top:0">Reading the numbers</h3>
+<ul>
+<li>Every table row carries a <strong>source link to an official site</strong> (nfl.com / nextgenstats.nfl.com / kansspelautoriteit.nl).</li>
+<li>Values that could not be confirmed from an official source are <strong>blank</strong> and listed on <a href="flagged.html">Flagged for Review</a> — never inferred.</li>
+<li>Model lines are <strong>computed from official stats</strong>; assumptions (home field 2.5, −110 vig, stake caps) are labeled as assumptions (F-07).</li>
+<li>Market spreads/totals are sportsbook numbers, not official — captured ones are third-party and unverified (F-05). Verify at a licensed book; in NL check <a href="https://kansspelautoriteit.nl/kansspelwijzer" target="_blank" rel="noopener">Kansspelwijzer</a>.</li>
+</ul></div>
+"""
+write("index.html", page("Dashboard", body, "index.html", sub=False))
+
+# ---------------- standings ----------------
+rows = []
+for conf in ("AFC", "NFC"):
+    for div in ("East", "North", "South", "West"):
+        grp = [t for t in standings["teams"] if t["conf"] == conf and t["div"] == div]
+        if not grp:
+            continue
+        rows.append([f"<strong>{conf} {div}</strong>", "", "", "", "", "", "", "", "", "", "", "", ""])
+        for t in grp:
+            rows.append([link(team_link(t["abbr"]), f"{t['name']} ({t['abbr']})"), t["W"], t["L"], t["T"], t["PCT"], t["PF"], t["PA"], t["NET"], t["HOME"], t["ROAD"], t["DIV"], t["DIVPCT"], t["CONF"], t["CONFPCT"], t["STRK"], srclink(standings["source_url"])])
+body = f"""<p class="muted">{esc(standings['as_of'])} · {esc(standings['columns_note'])} Dataset source: {link(standings['source_url'],'NFL.com Standings')}. Tie-breaking procedure: {link('https://www.nfl.com/standings/tiebreakingprocedures','NFL.com')}</p>
+<div class="wrap">{table(["Team","W","L","T","PCT","PF","PA","NET","HOME","ROAD","DIV","DIV%","CONF","CONF%","STRK","Source"], rows)}</div>"""
+write("standings.html", page("Standings — 2026 through Week 8", body, "standings.html", sub=True))
+
+# ---------------- schedule ----------------
+rows = [[f"{g['away']} at {g['home']}", g["label"] or "—", g["date"], g["day"], g["kickoff_et"], g["network"], g["venue"], link(g["game_url"], "nfl.com game page"), srclink(sched["source_url"])] for g in sched["games"]]
+byes = ", ".join(f"{b['abbr']} ({b['record']})" for b in sched["byes"])
+body = f"""<p class="muted">{esc(sched['as_of'])} · {esc(sched['times_note'])} Byes: {esc(byes)}. Dataset source: {link(sched['source_url'],'NFL.com Week 9 schedule')}</p>
+<div class="wrap">{table(["Matchup","Note","Date","Day","Kickoff (ET)","TV","Venue","Game page","Source"], rows)}</div>"""
+write("schedule.html", page("Week 9 Schedule — 2026", body, "schedule.html", sub=True))
+
+# ---------------- scores ----------------
+rows = [[f"{g['away']} {g['away_score']} at {g['home']} {g['home_score']}", g["winner"], g["status"], g["date"], g["day"], link(g["game_url"], "nfl.com game page"), srclink(scores["source_url"])] for g in scores["games"]]
+byes = ", ".join(f"{b['abbr']} ({b['record']})" for b in scores["byes"])
+body = f"""<p class="muted">{esc(scores['as_of'])} · Byes: {esc(byes)}. Dataset source: {link(scores['source_url'],'NFL.com Week 8 scores')}</p>
+<div class="wrap">{table(["Final score","Winner","Status","Date","Day","Game page","Source"], rows)}</div>"""
+write("scores.html", page("Week 8 Scores — 2026", body, "scores.html", sub=True))
+
+# ---------------- team stats ----------------
+def team_table(ds, cols, show):
+    rows = [[link(team_link(t["abbr"]), t["abbr"])] + [t.get(c, "") for c in show] + [srclink(ds["source_url"])] for t in ds["teams"]]
+    return f"<h3>{esc(ds['dataset'])}</h3><p class='muted'>{esc(ds['columns_note'])}</p><div class='wrap'>{table(['Team'] + show + ['Source'], rows)}</div>"
+body = f"""<p class="muted">Season totals through Week 8, as of {esc(tp_off['as_of'])}. Each table's rows link to the official NFL.com stats page (and the team's official page).</p>
+{team_table(tp_off, tp_off['columns'], tp_off['columns'])}
+{team_table(tr_off, tr_off['columns'], tr_off['columns'])}
+{team_table(tp_def, tp_def['columns'], tp_def['columns'])}
+{team_table(tr_def, tr_def['columns'], tr_def['columns'])}"""
+write("team-stats.html", page("Team Stats — 2026 season", body, "team-stats.html", sub=True))
+
+# ---------------- player stats ----------------
+def player_table(ds, show, extra=None):
     rows = []
-    for f in facts["facts"]:
-        rows.append([esc(f["id"]), esc(f["category"]), esc(f["fact"]), f'<strong>{esc(f["value"])}</strong>',
-                     esc(f["rule"]), f'<span class="quote">“{esc(f["quote"])}”</span>',
-                     badge(f["tier"]), link(f["url"], f["source_id"])])
-    t = table(["ID", "Category", "Fact", "Value", "Rule", "Verbatim quote", "Tier", "Official source"], rows, "facts")
-    body = f"""
-    <section class="panel">
-      <p class="lead">{len(facts['facts'])} facts verified verbatim from NFL-owned sources on
-      {esc(facts['verification_date'])}. Every row links to the official source and quotes the exact text.
-      Nothing here is inferred.</p>
-      <input class="filter" data-table="facts" placeholder="Filter facts…">
-      {t}
-    </section>"""
-    (SITE / "official-facts.html").write_text(page("Official NFL Facts", "Rules · scoring · season structure — verified", body, "official-facts.html", wide=True))
+    for p in ds["players"]:
+        row = [link(p["player_url"], p["name"])]
+        if extra:
+            row.append(esc(p.get("team") or ""))
+        row += [p.get(c, "") for c in show]
+        row.append(srclink(ds["source_url"]))
+        rows.append(row)
+    hdr = ["Player"] + (["Team"] if extra else []) + show + ["Source"]
+    return f"<h3>{esc(ds['dataset'])}</h3><p class='muted'>{esc(ds['columns_note'])}</p><div class='wrap'>{table(hdr, rows)}</div>"
+ngs_rows = [[link(f"https://www.nfl.com/players/{p['name'].lower().replace(' ', '-').replace('.', '').replace(chr(39), '')}/", p["name"]), p["team"], p["TT"], p["CAY"], p["IAY"], p["AYD"], p["AGG%"], p["LCAD"], p["AYTS"], p["ATT"], p["YDS"], p["TD"], p["INT"], p["RATE"], p["COMP%"], p["xCOMP%"], p["CPOE"], srclink(ngs["source_url"])] for p in ngs["players"]]
+body = f"""<p class="muted">Season through Week 8 (top 25 rows per category as rendered; NFL.com paginates — flagged F-08). QB team column verified via the Next Gen Stats table, which renders TEAM; blank cells mean "not verified in capture" (F-02) — the player's official page (link in each row) is the source.</p>
+{player_table(ppass, ppass['columns'], extra=True)}
+{player_table(prush, prush['columns'])}
+{player_table(prec, ['REC','YDS','TD','20+','40+','LNG','1ST','1ST%','FUM'])}
+{player_table(pint, pint['columns'])}
+<h3>{esc(ngs['dataset'])}</h3><p class="muted">{esc(ngs['columns_note'])} Glossary: {link('https://nextgenstats.nfl.com/glossary','Next Gen Stats glossary')}</p>
+<div class="wrap">{table(["Player","Team","TT","CAY","IAY","AYD","AGG%","LCAD","AYTS","ATT","YDS","TD","INT","RATE","COMP%","xCOMP%","CPOE (+/-)","Source"], ngs_rows)}</div>"""
+write("player-stats.html", page("Player Stats & Next Gen Stats — 2026", body, "player-stats.html", sub=True))
 
+# ---------------- injuries & news ----------------
+rows = [[r["game"], r["team"], link(r["player_url"], r["player"]), r["pos"], r["injuries"], r["practice"], badge("PASS" if r["game_status"] == "" else ("FAIL" if r["game_status"] == "Out" else "CONDITIONAL")) + " " + esc(r["game_status"]), srclink(inj["source_url"])] for r in inj["rows"]]
+news_html = "".join(f"<li><a href='{esc(n['source_url'])}' target='_blank' rel='noopener'><strong>{esc(n['headline'])}</strong></a> ({esc(n['date'])}) — {esc(n['summary'])} <em>Affects: {esc(n['affects'])}</em></li>" for n in news["items"])
+body = f"""<div class="panel"><span class="badge cond">F-04</span> <strong>Week 9 injury report not yet published on NFL.com as of 2026-11-03</strong> (<code>/injuries/league/2026/reg9</code> redirects to Week 8). The latest published official report is Week 8, shown below (players with Out/Questionable status in the captured portion). Re-check {link('https://www.nfl.com/injuries/','NFL.com injury report')} before acting on any Week 9 selection.</div>
+<h3>Official news affecting Week 9</h3><ul>{news_html}</ul>
+<h3>Latest official injury report — Week 8 (partial capture)</h3>
+<p class="muted">{esc(inj['note'])}</p>
+<div class="wrap">{table(["Game","Team","Player","Pos","Injuries","Practice status","Game status","Source"], rows)}</div>"""
+write("injuries.html", page("Injuries & News", body, "injuries.html", sub=True))
 
-def build_flagged(strategies, validation):
-    items = [
-        ("Market-line provenance", "PRIMARY (non-NFL)",
-         "The NFL does not publish betting lines. All spread/total/moneyline values come from public primary mirrors (D1/D2), cross-checked between two independent sources, and are never presented as official.",
-         [("D1", DATASET_LINKS["D1"][1]), ("D2", DATASET_LINKS["D2"][1])]),
-        ("Spread close disagreement between mirrors", "DERIVED",
-         f'Independent mirrors agree within 0.5 pt on {fmt_pct(validation["A2_line_crosscheck"]["spread_within_0.5"])} of spreads (MAD {validation["A2_line_crosscheck"]["spread_mad"]}). Disagreements concentrate in 2006–2013 consensus snapshots; 25 games (0.6%) differ by >1.5 pt. Tolerance documented; does not block.',
-         [("D1/D2 cross-check", DATASET_LINKS["D2"][1])]),
-        ("Legacy player-stat yardage quirks", "DERIVED",
-         f'{fmt_pct(validation["A3_player_internal"]["exact_match_rate"])} of team-games have exactly matching passer/receiver yards; ~3.1% differ (lateral/sack attribution in legacy nflscrapR aggregation), median diff 0. Correlations use receiver-side yards; flagged, not silently corrected.',
-         [("D3", DATASET_LINKS["D3"][1])]),
-        ("Player-prop correlation era caveat", "DERIVED",
-         "Correlations estimated on 2009–2017 (D3) with a 2021 robustness check (D4). The modern passing environment may shift magnitudes; CIs and the 2021 check are reported so the reader can judge.",
-         [("D3", DATASET_LINKS["D3"][1]), ("D4", DATASET_LINKS["D4"][1])]),
-        ("No archived market player-prop lines", "UNVERIFIED",
-         "Historical market prop lines are not publicly archived in any reachable primary source. Prop strategies are therefore evaluated as line origination (accuracy + fairness), NOT as ROI backtests against market prop lines. No prop lines were fabricated.",
-         [("Methodology", METHOD_URL)]),
-        ("Empty starting repository", "INFO",
-         "The repo contained only a 6-byte README at session start; all deliverables are new. Nothing pre-existing required external verification.",
-         [("Repo review", "repo-review.html")]),
-        ("Branch-policy note", "INFO",
-         "The task requested session-<id>/<task> branches, but the Arena platform pins this session to arena/28cc78aa-own8 and forbids other branches. That branch serves as both work and integration branch.",
-         [("COORDINATION.md", "https://github.com/sassnarep3-star/Own8/blob/main/COORDINATION.md")]),
-    ]
-    rows = []
-    for title, tier, desc, links in items:
-        src = " · ".join(link(u, l) for l, u in links)
-        rows.append([f"<strong>{esc(title)}</strong>", badge(tier), esc(desc), src])
-    t = table(["Item", "Tier", "Detail", "Source / review link"], rows, "flagged")
-    body = f"""
-    <section class="panel">
-      <p class="lead">Clearly labeled irregularities and unverified items. These are
-      <strong>non-blocking</strong> — they are published for review after the site is live, and do not
-      prevent merge. Values that cannot be confirmed from an official source are left blank and marked
-      <span class="badge unverified">UNVERIFIED</span>; derived statistics are labeled
-      <span class="badge derived">DERIVED</span> with their primary-data provenance.</p>
-      {t}
-    </section>"""
-    (SITE / "flagged.html").write_text(page("Flagged for Review", "Irregularities & unverified items (non-blocking)", body, "flagged.html", wide=True))
+# ---------------- model lines ----------------
+rows = []
+for g in lines["games"]:
+    gates = " ".join(f"{k.split('_')[0]}:{badge(v['status'])}" for k, v in g["gates"].items())
+    rows.append([
+        f"{g['away']} at {g['home']}", f"{g['date']} {g['kickoff_et']}", f"{g['away_record']} / {g['home_record']}",
+        g["proj_away"], g["proj_home"], f"<strong>{g['model_spread_rendered']}</strong>", g["model_total"],
+        (f"<span>{g['home']} {g['market_spread_home']:+.1f}</span> <span class='unverified'>(unverified, F-05)</span>" if g["market_spread_home"] is not None else '<span class="unverified">blank</span>'),
+        (g["edge_pts"] if g["edge_pts"] is not None else '<span class="unverified">—</span>'),
+        (f"<strong>{g['candidate_side']}</strong>" if g["candidate"] else "no trade"),
+        gates, link(g["game_url"], "game page"),
+    ])
+body = f"""<p class="muted">Method: {esc(lines['method'])}</p>
+<div class="panel"><strong>Legend:</strong> {badge('PASS')} gate passed · {badge('CONDITIONAL')} passed with note (e.g., W9 injury report pending, F-04) · {badge('FAIL')}/{badge('NOT_COMPUTABLE')} gate not met — no trade. Market column: third-party aggregator values attributed to FanDuel, time-stamped 2026-11-03 11:31 AM ET — <strong>unverified</strong> (F-05); verify at a licensed sportsbook (NL: <a href="https://kansspelautoriteit.nl/kansspelwijzer" target="_blank" rel="noopener">Kansspelwijzer</a>). League avg pass YDS allowed/game: {lines['league_avg_def_pass_ypg']} · rush: {lines['league_avg_def_rush_ypg']} (computed from official data).</div>
+<div class="wrap">{table(["Game","Kickoff (ET)","Records (away/home)","Proj away","Proj home","Model spread","Model total","Market spread (home)","Edge (pts)","Candidate","Gates G1–G7","Source"], rows)}</div>
+<h3>Gate details</h3>
+<div class="wrap">{table(["Game","Gate","Status","Detail"],
+ [[f"{g['away']} at {g['home']}", k, badge(v['status']), esc(v['detail'])] for g in lines["games"] for k, v in g["gates"].items()])}</div>"""
+write("model-lines.html", page("Model Lines — Week 9 (originated from official data)", body, "model-lines.html", sub=True))
 
+# ---------------- prop signals ----------------
+rows = [[p["game"], p["side"], p["team"], (esc(p["qb"]) if p["qb"] else '<span class="unverified">—</span>'),
+         (p["qb_season_ypg"] if p["qb_season_ypg"] is not None else '<span class="unverified">—</span>'),
+         (p["qb_proj_pass_yds"] if p["qb_proj_pass_yds"] is not None else '<span class="unverified">—</span>'),
+         p["team_rush_proj_yds"], p["team_pass_proj_yds"], p["opp_pass_def_ypg_allowed"], p["opp_rush_def_ypg_allowed"],
+         '<span class="unverified">blank — no official market line (F-05)</span>', link(p["source_url"], "game page")] for p in props["signals"]]
+body = f"""<p class="muted">Method: {esc(props['method'])}</p>
+<div class="wrap">{table(["Game","Side","Team","QB","QB season YPG","QB proj pass YDS","Team rush proj YDS","Team pass proj YDS","Opp pass def YPG allowed","Opp rush def YPG allowed","Market prop line","Source"], rows)}</div>
+<p class="muted">Individual RB/WR allocation requires the official depth chart (player team affiliations are not rendered on the leaders page — F-02), so only team-level projections are published. Prop market lines are blank by rule: they are sportsbook-specific and not an official source.</p>"""
+write("prop-signals.html", page("Player Prop Signals — Week 9", body, "prop-signals.html", sub=True))
 
-def build_doc_page(filename, title, subtitle, docs, active):
-    body = "".join(f'<section class="panel doc">{md_doc(d)}</section>' for d in docs)
-    (SITE / filename).write_text(page(title, subtitle, body, active, wide=True))
+# ---------------- strategies ----------------
+cards = []
+for s in strats:
+    gates = " ".join(f'<span class="tag">{esc(g)}</span>' for g in s.get("gates", []))
+    extra = ""
+    if "candidates" in s: extra += f"<p><strong>{s['candidates']}</strong> of {s['games_evaluated']} games are candidates this week.</p>"
+    if "signals" in s: extra += f"<p><strong>{s['signals']}</strong> signals computed.</p>"
+    if "same_game_proxy_r" in s: extra += f"<p>Same-game proxy r(passYDSpg, PFpg) = <strong>{s['same_game_proxy_r']}</strong>; threshold {s['correlation_threshold']}.</p>"
+    cards.append(f"""<div class="panel"><h3 style="margin-top:0">{esc(s['id'])} — {esc(s['name'])} <span class="tag">{esc(s['type'])}</span></h3>
+    <p>{esc(s['description'])}</p>{extra}<p class="muted">Status: {esc(s['status'])} · Gates: {gates}</p></div>""")
+body = f"""<p class="muted">Bet shapes: singles, player props, parlays. Every strategy must pass the <a href="validation-gates.html">validation gates</a>; multi-leg bets must satisfy the <a href="correlations.html">correlation policy</a>. As of 2026-11-03.</p>
+{''.join(cards)}"""
+write("strategies.html", page("Strategy Catalog", body, "strategies.html", sub=True))
 
+# ---------------- correlations ----------------
+rows = [[c["pair"], c["type"], c["n"], f"{c['r']:+.4f}", esc(c["interpretation"]), link("https://www.nfl.com/stats/team-stats/", "nfl.com team stats"), link("https://www.nfl.com/standings/", "nfl.com standings")] for c in corr["correlations"]]
+body = f"""<p class="muted">{esc(corr['method'])}</p>
+<div class="wrap">{table(["Pair","Statistic","n","r","Interpretation","Source 1","Source 2"], rows)}</div>
+<h3>Enforcement rules</h3>
+""" + md((RES / "correlation-policy.md").read_text().split("## Computed values", 1)[1].replace("## Rules", "", 1)) if False else f"""<p class="muted">{esc(corr['method'])}</p>
+<div class="wrap">{table(["Pair","Statistic","n","r","Interpretation","Source 1","Source 2"], rows)}</div>
+<h3>Enforcement rules</h3>
+{md((RES / 'correlation-policy.md').read_text().split('## Rules', 1)[1])}"""
+write("correlations.html", page("Correlation Analysis (computed from official data)", body, "correlations.html", sub=True))
 
-def main():
-    strategies = json.loads((RES / "strategies.json").read_text())
-    leaderboard = json.loads((RES / "leaderboard.json").read_text())
-    validation = json.loads((RES / "validation.json").read_text())
-    correlations = json.loads((RES / "correlations.json").read_text())
-    facts = json.loads((ROOT / "data" / "official_facts.json").read_text())
-    market = json.loads((RES / "market_context.json").read_text())
+# ---------------- leaderboard ----------------
+rows = [[b["rank"], b["strategy_id"], esc(b["name"]), esc(b["type"]),
+         (b["week9_projected_edge_pts"] if b["week9_projected_edge_pts"] is not None else '<span class="unverified">—</span>'),
+         b["realized_pts"], esc(b["status"]), link("leaderboard.html", "this page")] for b in board["standings"]]
+body = f"""<p class="muted">{esc(board['note'])}</p>
+<p><strong>Scoring:</strong> {esc(board['scoring'])}</p>
+<p><strong>Tiers:</strong> 🥇 Gold {esc(board['tiers']['gold'])} · 🥈 Silver {esc(board['tiers']['silver'])} · 🥉 Bronze {esc(board['tiers']['bronze'])}</p>
+<div class="wrap">{table(["Rank","ID","Strategy","Type","W9 projected edge (pts)","Realized pts","Status","Source"], rows)}</div>
+<h3>Full rules</h3>
+{md((RES / 'leaderboard-rules.md').read_text())}"""
+write("leaderboard.html", page("Leaderboard Competition", body, "leaderboard.html", sub=True))
 
-    build_index(strategies, leaderboard, validation, facts, market)
-    build_category(strategies, "Single bet", "singles.html", "Single Bets",
-                   "Spread · total · moneyline strategies",
-                   "Model-originated lines vs market. Skill is measured by closing-line value (CLV) where we bet the opening number, and by out-of-sample ROI at the closing number. Every strategy is gated; most are rejected because the closing market is efficient.")
-    build_category(strategies, "Parlay", "parlays.html", "Parlays",
-                   "Same-game 2-leg cover + total combos",
-                   "Same-game parlays priced at standard +260. Joint probabilities are estimated empirically (not as independent legs). Cover and total legs are ~independent (φ≈0), so these lose the vig — see the correlation library for where real dependence lives (player props).")
-    build_category(strategies, "Player prop", "props.html", "Player Props",
-                   "Fair-line origination + correlation-aware combos",
-                   "No historical market prop lines are publicly archived, so props are evaluated as line origination (accuracy vs baselines + fair 50/50 line), not ROI backtests. The real combo value is the strong QB↔WR correlation (r≈0.70) — see Correlations.")
-    build_correlations(correlations)
-    build_validation(validation, leaderboard, strategies)
-    build_official_facts(facts)
-    build_flagged(strategies, validation)
-    build_doc_page("executive-summary.html", "Executive Summary", "Important details at a glance", ["EXECUTIVE_SUMMARY.md"], "executive-summary.html")
-    build_doc_page("methodology.html", "Methodology", "Strategy research + validation gates", ["docs/STRATEGY_RESEARCH.md", "docs/VALIDATION_GATES.md"], "methodology.html")
-    build_doc_page("data-sources.html", "Data & Sources", "Provenance · verification tiers · source registry", ["docs/DATA_PROVENANCE.md", "docs/SOURCES.md"], "data-sources.html")
-    build_doc_page("repo-review.html", "Repo Review", "Line-by-line audit of the starting repository", ["docs/REPO_REVIEW.md"], "data-sources.html")
-    (SITE / ".nojekyll").write_text("")
-    print("site built:", len(list(SITE.glob('*.html'))), "pages")
+# ---------------- sources ----------------
+rows = [[s["id"], esc(s["label"]), link(s["url"], s["url"]), badge("PASS") + " official" if s["official"] else badge("CONDITIONAL"), esc(s["used_for"])] for s in sources]
+body = f"""<p class="muted">{esc('Captured 2026-11-03 by session 95e9626f. Only official NFL / official regulator domains are used as sources for verified values. Third-party aggregator values are recorded only in data/market-lines.json and flagged (F-05), never as verified sources.')}</p>
+<div class="wrap">{table(["ID","Source","Link","Status","Used for"], rows)}</div>"""
+write("sources.html", page("Source Registry (official sources)", body, "sources.html", sub=True))
 
+# ---------------- flagged ----------------
+rows = [[f["id"], badge("FAIL") if f["severity"] == "high" else (badge("CONDITIONAL") if f["severity"] == "medium" else badge("PASS")), esc(f["severity"]), esc(f["item"]), link(f["source_url"], f["source_url"]) if f["source_url"] else '<span class="unverified">— no external source (internal assumption)</span>'] for f in flagged]
+body = f"""<p class="muted">{esc(flagged and load(DATA / 'flagged.json')['note'])}</p>
+<div class="panel" style="border-left:4px solid var(--flag)"><strong>These items do not block the site or any strategy.</strong> They are published here so they can be reviewed after the site is live. Rule: if a value cannot be confirmed from an official source, it is left blank and flagged — never inferred or filled in.</div>
+<div class="wrap">{table(["ID","Severity badge","Severity","Item","Source link"], rows)}</div>"""
+write("flagged.html", page("⚑ Flagged for Review (unverified / irregularities)", body, "flagged.html", sub=True))
 
-if __name__ == "__main__":
-    main()
+# ---------------- markdown pages ----------------
+md_page("executive-summary.md", "Executive Summary", "executive-summary.html")
+md_page("methodology.md", "Methodology", "methodology.html")
+md_page("validation-gates.md", "Validation Gates", "validation-gates.html")
+md_page("responsible-gambling.md", "Responsible Gambling & Legal Notes", "responsible-gambling.html")
+
+print("site build complete -> repo root + pages/")

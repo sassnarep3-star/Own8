@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Parlays | Own8 NFL Lines</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<header>
+  <div class="container header-wrap">
+    <a class="brand" href="../index.html"><span class="mark">O8</span>Own8 NFL Lines</a>
+    <nav>
+      <ul>
+        <li><a href="../index.html">Dashboard</a></li>
+        <li><a href="executive-summary.html">Executive Summary</a></li>
+        <li><a href="single-bets.html">Single Bets</a></li>
+        <li><a class="active" href="parlays.html">Parlays</a></li>
+        <li><a href="player-props.html">Player Props</a></li>
+        <li><a href="validation-gates.html">Validation Gates</a></li>
+        <li><a href="correlations.html">Correlations</a></li>
+        <li><a href="standings-data.html">Standings Data</a></li>
+        <li><a href="flagged-for-review.html" style="color:var(--flag-border)">Flagged for Review</a></li>
+        <li><a href="sources.html">Sources</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main class="container" id="content">
+  <div class="hero">
+    <div>
+      <div class="kicker">Category B &bull; Parlays (2–3 legs)</div>
+      <h1>Parlay Strategies</h1>
+      <p>Multi-leg plays. Legs must be different games unless same-game correlation is explicitly documented. Correlation limit: |Pearson r| &le; 0.45 between legs unless documented and sized down.</p>
+    </div>
+  </div>
+
+  <div class="note"><span class="t">Status on this snapshot</span>
+  Both parlay strategies are <b>PAUSED</b>. P-02 is blocked by the correlation gate because same-game winner/total correlation requires game-by-game scoring data, which is not available from official NFL sources.</div>
+
+  <table>
+    <thead><tr><th>ID</th><th>Strategy</th><th>Rule</th><th>Leg correlation control</th><th>Qualified legs (verified standings)</th><th>Source link</th><th>Gate result</th><th>Live signal</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><b>P-01</b></td>
+        <td>Division Favorite Moneyline 2-Leg Parlay</td>
+        <td>Two moneyline favorites in division games, different games. Each leg: home division favorite with win% &ge; 0.600 and net points &gt; 0.</td>
+        <td>Different games &rarr; cross-game outcome correlation treated as ~0 (documented assumption; not computed from game-level data &rarr; blank/UNVERIFIED).</td>
+        <td class="blank">Candidate teams: BUF, PIT, MIN, CHI, SF (win% &ge; 0.600, net &gt; 0). Home/away schedule not available from official NFL sources &rarr; home status blank.</td>
+        <td class="src"><a href="https://www.nfl.com/standings/" target="_blank" rel="noopener">nfl.com/standings</a> (win%, net points)</td>
+        <td class="b-paused">PAUSED</td>
+        <td class="blank">No</td>
+      </tr>
+      <tr>
+        <td><b>P-02</b></td>
+        <td>Same-Game Winner + Total</td>
+        <td>Not released. Same-game parlay combining winner and over/under total.</td>
+        <td>Blocked: winner and total are positively correlated; \|rho\| requires game-by-game scoring data, unavailable from official sources &rarr; V3 FAIL (unknown).</td>
+        <td class="blank">blank — strategy blocked before candidate evaluation.</td>
+        <td class="src"><a href="https://www.nfl.com/standings/" target="_blank" rel="noopener">nfl.com/standings</a> (no game-level scoring data published)</td>
+        <td class="b-blocked">PAUSED (blocked)</td>
+        <td class="blank">No</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Gate detail — parlays</h2>
+  <table>
+    <thead><tr><th>Gate</th><th>P-01</th><th>P-02</th><th>Source / notes</th></tr></thead>
+    <tbody>
+      <tr><td>V1 Official-data completeness</td><td class="b-paused">partial</td><td class="blank">blank</td><td class="src">Standings verified; home/away schedule blank (not published on standings page)</td></tr>
+      <tr><td>V2 Sample size</td><td class="blank">blank</td><td class="blank">blank</td><td class="src">UNVERIFIED — game-by-game history unavailable from official sources</td></tr>
+      <tr><td>V3 Correlation limit</td><td class="b-paused">documented (~0, uncertified)</td><td class="b-blocked">FAIL — \|rho\| unknown</td><td class="src">Same-game legs require documented correlation; P-02 blocked</td></tr>
+      <tr><td>V4 Edge vs implied line</td><td class="blank">blank</td><td class="blank">blank</td><td class="src">UNVERIFIED — sportsbook odds not published by NFL.com</td></tr>
+      <tr><td>V5 Backtest pass rate</td><td class="blank">blank</td><td class="blank">blank</td><td class="src">UNVERIFIED — historical results unavailable from official sources</td></tr>
+      <tr><td>V6 Availability/injury check</td><td class="blank">blank</td><td class="blank">blank</td><td class="src">UNVERIFIED — official injury report not fetched</td></tr>
+    </tbody>
+  </table>
+
+  <p class="src">Full strategy definitions: <a href="../data/strategies.md" target="_blank" rel="noopener">data/strategies.md</a> (repository).</p>
+  <div class="disclaimer"><b>Not gambling advice.</b> Analytical framework only. No live signals are issued while any gate is blank or failed.</div>
+</main>
+<footer>
+  <div class="container">Own8 NFL Lines &bull; Data as of 2026-11-03 &bull; <a href="../pages/sources.html">Source register</a> &bull; <a href="../pages/flagged-for-review.html">Flagged for Review</a></div>
+</footer>
+</body>
+</html>

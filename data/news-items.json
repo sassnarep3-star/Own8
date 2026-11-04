@@ -1,0 +1,24 @@
+{
+  "dataset": "official-news-items-2026",
+  "as_of": "2026-11-03",
+  "captured_at": "2026-11-03",
+  "note": "Official NFL.com news items that materially affect Week 9 game context. Both are season-ending injuries reported on nfl.com.",
+  "items": [
+    {
+      "headline": "Commanders WR Terry McLaurin out for rest of season with torn patellar tendon",
+      "source_id": "nfl-news-mclaurin",
+      "source_url": "https://www.nfl.com/news/commanders-wr-terry-mclaurin-out-rest-of-season-torn-patellar-tendon",
+      "date": "2026-10-21",
+      "summary": "Per head coach Dan Quinn, tests showed a torn patellar tendon suffered in the Monday loss to the 49ers; McLaurin will undergo surgery and miss the remainder of the 2026 season.",
+      "affects": "WAS — Week 9 game LA at WAS (2026-11-08)"
+    },
+    {
+      "headline": "Eagles QB Jalen Hurts likely out for rest of 2026 season due to blood clots (placed on IR)",
+      "source_id": "nfl-news-hurts",
+      "source_url": "https://www.nfl.com/news/eagles-qb-jalen-hurts-out-2026-season-blood-clots",
+      "date": "2026-10-19",
+      "summary": "Eagles placed Hurts on injured reserve after doctors found a deep vein thrombosis and bilateral pulmonary emboli; he is expected to miss the remainder of the 2026 season. Tanner McKee is the backup per his official NFL.com player page (NGS Week 8: PHI).",
+      "affects": "PHI — Week 9 game NYG at PHI (2026-11-08)"
+    }
+  ]
+}

@@ -1,77 +1,66 @@
 #!/usr/bin/env python3
-"""Verify the built site has no broken internal links or anchors.
+"""Own8 link checker (T6). Verifies the built site in docs/:
+  1. every internal href/src resolves to an existing file (no broken links)
+  2. every external link is https
+  3. every external link is either on the official-source allowlist (data/sources.json)
+     or is an explicitly flagged third-party link (flagged pages / market-lines references)
+Writes analysis/link-check.json and exits non-zero if any internal link is broken.
 
-Checks every relative href and #anchor in site/*.html resolves to an existing
-file / element id. External links are validated for well-formedness and listed
-by host (official-source reachability was verified separately during research).
-Exits non-zero on any broken internal link. Run after build_site.py.
+Run: python3 scripts/check_links.py
 """
-import pathlib
-import re
-import sys
-from html.parser import HTMLParser
-from urllib.parse import urlparse
+import json, re, sys
+from pathlib import Path
+from urllib.parse import urlparse, unquote
 
-SITE = pathlib.Path(__file__).resolve().parents[1] / "site"
+ROOT = Path(__file__).resolve().parent.parent
+DATA = ROOT / "data"
+OUT = ROOT / "analysis"
 
+sources = json.load(open(DATA / "sources.json"))["sources"]
+official_hosts = {urlparse(s["url"]).netloc for s in sources}
+# flagged third-party hosts allowed ONLY on pages that explicitly discuss them
+FLAGGED_THIRD_PARTY = {"nflschedules.com", "www.espn.com"}
+FLAG_PAGES = {"flagged.html", "sources.html", "model-lines.html", "index.html"}
 
-class Collector(HTMLParser):
-    def __init__(self):
-        super().__init__()
-        self.hrefs = []
-        self.ids = set()
+html_files = sorted(p for p in ROOT.rglob("*.html") if ".git" not in p.parts)
+internal_broken, external, external_non_https, external_unlisted, warnings_http_official = [], [], [], [], []
+checked = 0
+for f in html_files:
+    text = f.read_text()
+    for m in re.finditer(r'(?:href|src)="([^"]+)"', text):
+        checked += 1
+        url = unquote(m.group(1))
+        if url.startswith("#"):
+            continue
+        u = urlparse(url)
+        if u.scheme in ("http", "https"):
+            if u.scheme != "https":
+                (external_non_https if u.netloc not in official_hosts else warnings_http_official).append((f.name, url))
+            host = u.netloc
+            external.append((f.name, url, host))
+            if host not in official_hosts and host not in FLAGGED_THIRD_PARTY:
+                external_unlisted.append((f.name, url, host))
+            elif host in FLAGGED_THIRD_PARTY and f.name not in FLAG_PAGES:
+                external_unlisted.append((f.name, url, host + " (third-party host on non-flag page)"))
+        else:
+            target = (f.parent / url.split("#")[0]).resolve()
+            if not target.exists():
+                internal_broken.append((f.name, url))
 
-    def handle_starttag(self, tag, attrs):
-        a = dict(attrs)
-        if "id" in a:
-            self.ids.add(a["id"])
-        if tag == "a" and "href" in a:
-            self.hrefs.append(a["href"])
-        if tag == "link" and a.get("rel") == "stylesheet" and "href" in a:
-            self.hrefs.append(a["href"])
-        if tag == "script" and "src" in a:
-            self.hrefs.append(a["src"])
-
-
-def main():
-    pages = {}
-    for f in sorted(SITE.glob("*.html")):
-        c = Collector()
-        c.feed(f.read_text())
-        pages[f.name] = c
-    broken = []
-    external = {}
-    for name, c in pages.items():
-        for href in c.hrefs:
-            u = urlparse(href)
-            if u.scheme in ("http", "https"):
-                external.setdefault(u.netloc, set()).add(href)
-                continue
-            if u.scheme == "mailto":
-                continue
-            path = u.path or name
-            frag = u.fragment
-            target = path if path else name
-            if target not in pages and not (SITE / target).exists():
-                broken.append(f"{name}: missing file '{target}'")
-                continue
-            if frag:
-                dest = pages.get(target)
-                if dest is None and (SITE / target).exists():
-                    dc = Collector(); dc.feed((SITE / target).read_text()); dest = dc
-                if dest is not None and frag not in dest.ids:
-                    broken.append(f"{name}: missing anchor '#{frag}' in {target}")
-    print(f"pages checked: {len(pages)}")
-    print("external link hosts:")
-    for host, urls in sorted(external.items()):
-        print(f"  {host}: {len(urls)} links")
-    if broken:
-        print("\nBROKEN INTERNAL LINKS:")
-        for b in broken:
-            print("  " + b)
-        sys.exit(1)
-    print("\nOK: no broken internal links or anchors.")
-
-
-if __name__ == "__main__":
-    main()
+result = {
+    "checked_at": "2026-11-03",
+    "pages": len(html_files),
+    "links_checked": checked,
+    "internal_broken": internal_broken,
+    "external_total": len(external),
+    "external_non_https": external_non_https,
+    "external_unlisted": external_unlisted,
+    "warnings_http_official_host": warnings_http_official,
+    "official_hosts": sorted(official_hosts),
+    "status": "PASS" if not internal_broken and not external_non_https else "FAIL",
+}
+OUT.mkdir(exist_ok=True)
+json.dump(result, open(OUT / "link-check.json", "w"), indent=2)
+print(json.dumps({k: (v if not isinstance(v, list) else v[:10]) for k, v in result.items()}, indent=2))
+print("\nSTATUS:", result["status"])
+sys.exit(0 if result["status"] == "PASS" else 1)
