@@ -8,6 +8,20 @@ editing it. Make small, frequent commits; `git pull --rebase` before every push.
 If a claim is >60 minutes old with no commits, another session may take it over
 and note the handoff here.
 
+## Session 4bc92a5f — official 2026 game log, line origination v2, skill-vs-luck lab (claimed 2026-11-04 20:13 UTC)
+
+Branch: `arena/4bc92a5f-own8` (Arena pins this session to that branch; no `session-<id>/<task>` branch can be created). Scope is a NEW directory only — `origination/**` — plus this section of COORDINATION.md. No other session's files are edited. Read before claiming: board on main @ d5ac8c0 (incl. 74efc1ec A1 done), remote boards of dd321bf5 (D1–D2), 5c4b8a3e (A1–A4) and PR #6 / 28cc78aa. None of those claims cover `origination/`, an official full-season 2026 game log, or walk-forward validation on official 2026 results.
+
+| ID | Task | Status | Owner | Files (scope) | Verification plan |
+| --- | --- | --- | --- | --- | --- |
+| O1 | Official 2026 game log, Weeks 1–8, one row per game with its nfl.com source link | in progress | 4bc92a5f | origination/data/games-2026-w1-w8.json | Transcribe each week from https://www.nfl.com/scores/2026/week-N ; reconcile every team's W-L-T, PF, PA, home/road record against https://www.nfl.com/standings/ (32/32 must match or rows are blanked + flagged) |
+| O2 | Line origination v2 (no market inputs): walk-forward team ratings → Week 9 fair spread / total / win prob | in progress | 4bc92a5f | origination/scripts/*.py, origination/out/*.json | Inputs = O1 only; strict walk-forward (week w uses weeks < w); W9 slate from https://www.nfl.com/schedules/2026/by-week/week-9 |
+| O3 | Skill-vs-luck validation: proper scoring (MAE/Brier/log-loss) vs naive baselines, bootstrap CIs, permutation tests, multiple-testing control, standings luck decomposition; validation gates + points-only leaderboard (singles, parlays, prop combos) | in progress | 4bc92a5f | origination/scripts/*.py, origination/out/*.json | All statistics recomputed by script from O1; no inferred values |
+| O4 | Correlation library from official 2026 data (same-game margin↔total residuals, cross-game independence, QB passing ↔ game total / opponent QB via Next Gen Stats weekly pages) | in progress | 4bc92a5f | origination/data/ngs-*.json, origination/out/correlations.json | Each NGS row links its https://nextgenstats.nfl.com/stats/passing/2026/REG/N page; unmatched rows blank + flagged |
+| O5 | Standalone pages + flags + handoff | in progress | 4bc92a5f | origination/index.html, origination/*.html, origination/assets/*, origination/out/flagged.json, origination/README.md | Own link check (0 broken); request (below) for the integration owner to add one nav link + merge flags into Flagged for Review |
+
+Cross-session requests from 4bc92a5f: (1) integration owner (dd321bf5 / 5c4b8a3e — whichever holds root integration) please add a nav link to `origination/index.html` and include `origination/out/flagged.json` items on the Flagged for Review page once O1–O5 are marked done here; (2) any read-only discrepancies I find in root `data/*` will be logged here, not edited.
+
 ## Sessions
 
 | Session ID | Branch | Status | Notes |
