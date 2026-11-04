@@ -1,0 +1,82 @@
+[
+  {
+    "game": "JAX at BAL",
+    "player": "Trevor Lawrence",
+    "market": "passing yards",
+    "line": null,
+    "odds": null,
+    "source_fragment": "230+237+240+\u2212104250+",
+    "status": "UNVERIFIED_NUMERIC_PAIRING",
+    "source_id": "DK-PROPS"
+  },
+  {
+    "game": "JAX at BAL",
+    "player": "Joe Fagnano",
+    "market": "passing yards",
+    "line": null,
+    "odds": null,
+    "source_fragment": "150+159+160+\u2212109170+",
+    "status": "UNVERIFIED_NUMERIC_PAIRING",
+    "source_id": "DK-PROPS"
+  },
+  {
+    "game": "CIN at ATL",
+    "player": "Joe Burrow",
+    "market": "passing yards",
+    "line": null,
+    "odds": null,
+    "source_fragment": "270+274+280++104290+",
+    "status": "UNVERIFIED_NUMERIC_PAIRING",
+    "source_id": "DK-PROPS"
+  },
+  {
+    "game": "CIN at ATL",
+    "player": "Michael Penix Jr.",
+    "market": "passing yards",
+    "line": null,
+    "odds": null,
+    "source_fragment": "210+219+220+\u2212111230+",
+    "status": "UNVERIFIED_NUMERIC_PAIRING",
+    "source_id": "DK-PROPS"
+  },
+  {
+    "game": "DET at MIA",
+    "player": "Jared Goff",
+    "market": "passing yards",
+    "line": null,
+    "odds": null,
+    "source_fragment": "250+259+260+\u2212109270+",
+    "status": "UNVERIFIED_NUMERIC_PAIRING",
+    "source_id": "DK-PROPS"
+  },
+  {
+    "game": "DET at MIA",
+    "player": "Malik Willis",
+    "market": "passing yards",
+    "line": null,
+    "odds": null,
+    "source_fragment": "200+208+210+\u2212107220+",
+    "status": "UNVERIFIED_NUMERIC_PAIRING",
+    "source_id": "DK-PROPS"
+  },
+  {
+    "game": "LA at WAS",
+    "player": "Matthew Stafford",
+    "market": "passing yards",
+    "line": null,
+    "odds": null,
+    "source_fragment": "250+253+260++105270+",
+    "status": "UNVERIFIED_NUMERIC_PAIRING",
+    "source_id": "DK-PROPS"
+  },
+  {
+    "game": "LA at WAS",
+    "player": "Jayden Daniels",
+    "market": "passing yards",
+    "line": null,
+    "odds": null,
+    "source_fragment": "210+212+220++108230+",
+    "status": "UNVERIFIED_NUMERIC_PAIRING",
+    "source_id": "DK-PROPS"
+  }
+]

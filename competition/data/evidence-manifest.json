@@ -1,0 +1,131 @@
+[
+  {
+    "path": "data/evidence/draftkings-2026-week9.csv",
+    "sha256": "d1f1e43c705ea0f8d4270b2e8a8c973518611d310ac67367c7a24536491697a3",
+    "rows": 15,
+    "source_ids": [
+      "DK-LINES"
+    ],
+    "confirmed_fields": [
+      "away",
+      "home",
+      "away_handicap",
+      "away_spread_odds",
+      "home_handicap",
+      "home_spread_odds",
+      "total",
+      "over_odds",
+      "under_odds",
+      "away_moneyline",
+      "home_moneyline",
+      "operator_kickoff_rendered",
+      "event_path"
+    ],
+    "checked_on_utc": "2026-11-04",
+    "observed_at_utc": null,
+    "observation_window_utc": [
+      "2026-11-04T20:10:25Z",
+      "2026-11-04T20:18:54.292560Z"
+    ],
+    "precision_note": "Exact per-page retrieval instant was not logged; no timestamp is invented. Provider quote update time and timezone are unconfirmed. Hash covers this transcription, not upstream HTML."
+  },
+  {
+    "path": "data/evidence/fixtures-2026-week9.csv",
+    "sha256": "6447b9acc8dc57523157844f2a6ad6cac242840b02f778fdde1fedc1b21c6e68",
+    "rows": 15,
+    "source_ids": [
+      "NFL-SCHEDULE",
+      "NFL-INJURIES"
+    ],
+    "confirmed_fields": [
+      "away",
+      "home",
+      "date",
+      "kickoff_est",
+      "network",
+      "game_slug",
+      "neutral_site (CIN at ATL only)",
+      "location_label (Madrid only)"
+    ],
+    "checked_on_utc": "2026-11-04",
+    "observed_at_utc": null,
+    "observation_window_utc": [
+      "2026-11-04T20:10:25Z",
+      "2026-11-04T20:18:54.292702Z"
+    ],
+    "precision_note": "Exact per-page retrieval instant was not logged; no timestamp is invented. Provider quote update time and timezone are unconfirmed. Hash covers this transcription, not upstream HTML."
+  },
+  {
+    "path": "data/evidence/injuries-2026-week9.csv",
+    "sha256": "369dd0609717aeccd1cd082a6a0d93185ccde164b8265a703ca6c5a47ea49fcf",
+    "rows": 28,
+    "source_ids": [
+      "NFL-INJURIES"
+    ],
+    "confirmed_fields": [
+      "team",
+      "player",
+      "position",
+      "practice",
+      "player_slug"
+    ],
+    "checked_on_utc": "2026-11-04",
+    "observed_at_utc": null,
+    "observation_window_utc": [
+      "2026-11-04T20:10:25Z",
+      "2026-11-04T20:18:54.292793Z"
+    ],
+    "precision_note": "Exact per-page retrieval instant was not logged; no timestamp is invented. Provider quote update time and timezone are unconfirmed. Hash covers this transcription, not upstream HTML."
+  },
+  {
+    "path": "data/evidence/scores-2026-week8.csv",
+    "sha256": "e2a0656dd54f1ce4aa24187b5bd14b1b0271f62eae8123706a3d6acc57d7dd52",
+    "rows": 14,
+    "source_ids": [
+      "NFL-SCORES"
+    ],
+    "confirmed_fields": [
+      "away",
+      "home",
+      "away_score",
+      "home_score",
+      "date",
+      "status",
+      "game_slug"
+    ],
+    "checked_on_utc": "2026-11-04",
+    "observed_at_utc": null,
+    "observation_window_utc": [
+      "2026-11-04T20:10:25Z",
+      "2026-11-04T20:18:54.292854Z"
+    ],
+    "precision_note": "Exact per-page retrieval instant was not logged; no timestamp is invented. Provider quote update time and timezone are unconfirmed. Hash covers this transcription, not upstream HTML."
+  },
+  {
+    "path": "data/evidence/standings-2026-11-04.csv",
+    "sha256": "7b150a26491b1e1a2fbec871003a1b7efcc3f3cb339e29ad33f3688c30d2982d",
+    "rows": 32,
+    "source_ids": [
+      "NFL-STANDINGS"
+    ],
+    "confirmed_fields": [
+      "W",
+      "L",
+      "T",
+      "PCT",
+      "PF",
+      "PA",
+      "NET",
+      "STRK",
+      "team",
+      "abbr"
+    ],
+    "checked_on_utc": "2026-11-04",
+    "observed_at_utc": null,
+    "observation_window_utc": [
+      "2026-11-04T20:10:25Z",
+      "2026-11-04T20:18:54.292942Z"
+    ],
+    "precision_note": "Exact per-page retrieval instant was not logged; no timestamp is invented. Provider quote update time and timezone are unconfirmed. Hash covers this transcription, not upstream HTML."
+  }
+]

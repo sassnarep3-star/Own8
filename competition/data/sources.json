@@ -1,0 +1,168 @@
+{
+  "checked_on_utc": "2026-11-04",
+  "method": "Official pages retrieved with fetch_page; selected-field transcriptions, NOT retained raw HTML. A link or file hash alone is not independent proof.",
+  "sources": [
+    {
+      "id": "NFL-STANDINGS",
+      "publisher": "NFL",
+      "authority": "league statistics",
+      "title": "2026 standings and field legend",
+      "url": "https://www.nfl.com/standings/",
+      "checked_on_utc": "2026-11-04",
+      "review_scope": "Both chunks checked. Only fields transcribed in standings CSV are verified here."
+    },
+    {
+      "id": "NFL-SCHEDULE",
+      "publisher": "NFL",
+      "authority": "league fixtures",
+      "title": "2026 Week 9 schedule",
+      "url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "checked_on_utc": "2026-11-04",
+      "review_scope": "All three chunks read; 15 fixtures and PIT/TEN byes. Madrid explicitly identified."
+    },
+    {
+      "id": "NFL-SCORES",
+      "publisher": "NFL",
+      "authority": "league results",
+      "title": "2026 Week 8 final scores",
+      "url": "https://www.nfl.com/scores/2026/week-8",
+      "checked_on_utc": "2026-11-04",
+      "review_scope": "Both chunks checked; 14 final game results. No pregame predictions or prices established."
+    },
+    {
+      "id": "NFL-INJURIES",
+      "publisher": "NFL",
+      "authority": "league reports",
+      "title": "2026 Week 9 injury report",
+      "url": "https://www.nfl.com/injuries/league/2026/reg9",
+      "checked_on_utc": "2026-11-04",
+      "review_scope": "All three chunks read. 28 JAX/BAL practice rows; blank injuries/game-status cells retained. Other 28 playing teams show No Injuries Reported."
+    },
+    {
+      "id": "NFL-NGS",
+      "publisher": "NFL Next Gen Stats",
+      "authority": "league definitions",
+      "title": "Next Gen Stats glossary",
+      "url": "https://nextgenstats.nfl.com/glossary",
+      "checked_on_utc": "2026-11-04",
+      "review_scope": "Read complete glossary: CPOE, time to throw, air yards and receiving/rushing definitions. No individual player value verified by the glossary."
+    },
+    {
+      "id": "DK-LINES",
+      "publisher": "DraftKings Sportsbook",
+      "authority": "primary operator prices",
+      "title": "NFL game-line snapshot",
+      "url": "https://sportsbook.draftkings.com/leagues/football/nfl",
+      "checked_on_utc": "2026-11-04",
+      "review_scope": "Chunks 0\u20134 checked. Exactly the first 15 (Week 9) fixtures transcribed; Week 10 rows excluded. Server Time shown: 11/04/2026 3:14:47 PM; timezone unspecified. Image URLs contain US-VA, not evidence of availability in Washington."
+    },
+    {
+      "id": "DK-ODDS",
+      "publisher": "DraftKings Sportsbook",
+      "authority": "primary operator explanation",
+      "title": "American and decimal odds",
+      "url": "https://sportsbook.draftkings.com/help/how-to-bet-reading-odds",
+      "checked_on_utc": "2026-11-04",
+      "review_scope": "Chunk 0 read for American payout and implied-probability formulae. Fractional-odds paragraph contains an inconsistent written numerator example; not used."
+    },
+    {
+      "id": "DK-FOOTBALL",
+      "publisher": "DraftKings Sportsbook",
+      "authority": "primary operator explanation",
+      "title": "Football market definitions",
+      "url": "https://sportsbook.draftkings.com/help/how-to-bet/football-betting-guide",
+      "checked_on_utc": "2026-11-04",
+      "review_scope": "Chunk 0 read: spread, total and parlay basics. Does not establish jurisdiction-specific 2026 settlement rules."
+    },
+    {
+      "id": "DK-PARLAY",
+      "publisher": "DraftKings Sportsbook",
+      "authority": "primary operator explanation",
+      "title": "Traditional parlay definitions",
+      "url": "https://sportsbook.draftkings.com/help/how-to-bet-parlay",
+      "checked_on_utc": "2026-11-04",
+      "review_scope": "Complete page read, updated 06-16-2026. Introductory examples are not executable combined-price quotes or a complete void/push rulebook."
+    },
+    {
+      "id": "DK-PROPS",
+      "publisher": "DraftKings Sportsbook",
+      "authority": "primary operator prices",
+      "title": "Passing-yards ladder rendering",
+      "url": "https://sportsbook.draftkings.com/leagues/football/nfl?category=games&subcategory=player-props&nav_1=pass-yards",
+      "checked_on_utc": "2026-11-04",
+      "review_scope": "Only chunk 0 reviewed (8 players). Animated digit strips and concatenated alternate thresholds prevent unambiguous line/price pairing: all numerical prop fields left null."
+    },
+    {
+      "id": "SCIPY-R",
+      "publisher": "SciPy",
+      "authority": "official method documentation",
+      "title": "Pearson correlation",
+      "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html",
+      "checked_on_utc": "2026-11-04",
+      "review_scope": "Chunks 0 and 1 read. Formula, constant-input caveat, Fisher/bootstrap confidence intervals. No support for parlay independence claims."
+    },
+    {
+      "id": "SCIPY-BOOT",
+      "publisher": "SciPy",
+      "authority": "official method documentation",
+      "title": "Bootstrap intervals",
+      "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.bootstrap.html",
+      "checked_on_utc": "2026-11-04",
+      "review_scope": "Chunks 0 and 1 read. Paired index resampling and percentile/BCa differences. Week-cluster resampling is this project's declared design choice, not a claim of guaranteed coverage."
+    },
+    {
+      "id": "NIST-CI",
+      "publisher": "NIST",
+      "authority": "official statistical handbook",
+      "title": "Confidence limits for the mean",
+      "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm",
+      "checked_on_utc": "2026-11-04",
+      "review_scope": "Complete page read. A confidence interval is not the probability that this particular interval contains the mean."
+    },
+    {
+      "id": "NIST-BOOT",
+      "publisher": "NIST",
+      "authority": "official statistical handbook",
+      "title": "Bootstrap uncertainty",
+      "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/bootplot.htm",
+      "checked_on_utc": "2026-11-04",
+      "review_scope": "Complete page read; resampling with replacement; warns bootstrap is not appropriate for every statistic/distribution."
+    },
+    {
+      "id": "NIST-TIME",
+      "publisher": "NIST",
+      "authority": "official statistical handbook",
+      "title": "Autocorrelation",
+      "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda35c.htm",
+      "checked_on_utc": "2026-11-04",
+      "review_scope": "Complete page read; motivates testing time dependence, not assuming independent outcomes."
+    },
+    {
+      "id": "SM-HOLM",
+      "publisher": "statsmodels",
+      "authority": "official method documentation",
+      "title": "Multiple-testing corrections",
+      "url": "https://www.statsmodels.org/stable/generated/statsmodels.stats.multitest.multipletests.html",
+      "checked_on_utc": "2026-11-04",
+      "review_scope": "Complete page read; Holm is the step-down Bonferroni procedure. All registered variants/looks count in this project's family."
+    },
+    {
+      "id": "WA-RULES",
+      "publisher": "Washington State Gambling Commission",
+      "authority": "state regulator",
+      "title": "Sports wagering requirements and rules",
+      "url": "https://wsgc.wa.gov/tribal-partnerships/sports-wagering/sports-wagering-requirements-and-rules",
+      "checked_on_utc": "2026-11-04",
+      "review_scope": "Chunk 0 checked: limited to tribal casinos with amended compacts; mobile sports wagers must be physically on premises. This project is free research, not a wagering service or legal advice."
+    },
+    {
+      "id": "NCPG-HELP",
+      "publisher": "National Council on Problem Gambling",
+      "authority": "official support organization",
+      "title": "Problem gambling help",
+      "url": "https://www.ncpgambling.org/help-treatment/",
+      "checked_on_utc": "2026-11-04",
+      "review_scope": "Complete page read. Current page lists call/text 1-800-MY-RESET (1-800-697-3738), not the inherited site's outdated default wording."
+    }
+  ]
+}

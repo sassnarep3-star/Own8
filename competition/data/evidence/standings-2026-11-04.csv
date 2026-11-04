@@ -1,0 +1,33 @@
+abbr,team,W,L,T,PCT,PF,PA,NET,STRK
+BUF,Buffalo Bills,6,1,0,0.857,233,181,52,3W
+NE,New England Patriots,5,3,0,0.625,184,162,22,1W
+NYJ,New York Jets,2,6,0,0.250,170,188,-18,3L
+MIA,Miami Dolphins,1,6,0,0.143,117,181,-64,1L
+PIT,Pittsburgh Steelers,6,2,0,0.750,180,144,36,4W
+CIN,Cincinnati Bengals,5,2,0,0.714,206,158,48,3W
+CLE,Cleveland Browns,5,3,0,0.625,139,173,-34,1L
+BAL,Baltimore Ravens,4,4,0,0.500,179,203,-24,3L
+JAX,Jacksonville Jaguars,5,2,0,0.714,196,111,85,1W
+HOU,Houston Texans,2,5,0,0.286,165,170,-5,1L
+IND,Indianapolis Colts,2,6,0,0.250,161,222,-61,4L
+TEN,Tennessee Titans,1,7,0,0.125,144,199,-55,2L
+DEN,Denver Broncos,6,2,0,0.750,172,165,7,4W
+KC,Kansas City Chiefs,5,2,0,0.714,167,131,36,2L
+LV,Las Vegas Raiders,4,4,0,0.500,221,230,-9,1W
+LAC,Los Angeles Chargers,0,7,0,0.000,99,175,-76,7L
+NYG,New York Giants,4,2,1,0.643,163,161,2,1W
+DAL,Dallas Cowboys,3,5,0,0.375,219,213,6,1L
+WAS,Washington Commanders,2,4,1,0.357,159,182,-23,1W
+PHI,Philadelphia Eagles,2,6,0,0.250,137,202,-65,6L
+MIN,Minnesota Vikings,6,1,0,0.857,140,93,47,1L
+CHI,Chicago Bears,6,2,0,0.750,214,160,54,3W
+DET,Detroit Lions,5,2,0,0.714,203,180,23,3W
+GB,Green Bay Packers,5,3,0,0.625,171,164,7,1W
+CAR,Carolina Panthers,3,4,0,0.429,178,193,-15,2L
+TB,Tampa Bay Buccaneers,3,5,0,0.375,178,151,27,2W
+ATL,Atlanta Falcons,3,5,0,0.375,171,189,-18,1L
+NO,New Orleans Saints,2,5,0,0.286,162,194,-32,1L
+SF,San Francisco 49ers,6,1,0,0.857,197,139,58,1L
+SEA,Seattle Seahawks,4,4,0,0.500,185,159,26,1L
+LA,Los Angeles Rams,4,4,0,0.500,194,168,26,2W
+AZ,Arizona Cardinals,3,5,0,0.375,175,238,-63,1W
