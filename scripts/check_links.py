@@ -7,7 +7,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlparse, unquote
 R=Path(__file__).resolve().parent.parent
-OFFICIAL={'www.nfl.com','nextgenstats.nfl.com','www.itl.nist.gov','wsgc.wa.gov','github.com'}
+OFFICIAL={'www.nfl.com','nextgenstats.nfl.com','www.itl.nist.gov','wsgc.wa.gov','github.com','docs.github.com'}
 class Doc(HTMLParser):
  def __init__(self,text):
   super().__init__(); self.links=[]; self.ids=set(); self.rows=[]; self.row=None; self.body=False; self.feed(text)
@@ -27,7 +27,7 @@ class Doc(HTMLParser):
 def official(u):
  p=urlparse(u)
  return p.scheme=='https' and p.hostname in OFFICIAL and (p.hostname!='github.com' or p.path.startswith('/nfl-football-ops/'))
-files=[R/'index.html',*sorted((R/'pages').glob('*.html')),*sorted((R/'docs').glob('*.html'))]
+files=[R/'index.html',*sorted((R/'pages').glob('*.html')),*sorted((R/'docs').glob('*.html')),*sorted((R/'audit').glob('*.html'))]
 docs={p.resolve():Doc(p.read_text()) for p in files}; errors=[]; rows=0; links=0
 for p,d in docs.items():
  for row in d.rows:
@@ -50,6 +50,6 @@ for g in lines:
  if g['candidate'] or g['gates_all_pass'] or any(g[k] is not None for k in ('market_spread_home','edge_pts','market_price','moneyline','win_probability')): errors.append(g['game']+': evidence boundary violated')
 for c in json.loads((R/'analysis/correlations.json').read_text())['correlations']:
  if c['type']=='Bernoulli leg dependence' and (c['r'] is not None or c['n'] is not None): errors.append('Unverified leg estimate populated')
-result=dict(checked_at='2026-11-04',scope='Canonical root + pages + docs redirects; external HTTP checks not performed by this checker',pages=len(files),links_checked=links,table_rows_checked=rows,errors=errors,status='PASS' if not errors else 'FAIL')
+result=dict(checked_at='2026-11-04',scope='Canonical root + pages + docs redirects + preserved baseline audit; external HTTP checks not performed by this checker',pages=len(files),links_checked=links,table_rows_checked=rows,errors=errors,status='PASS' if not errors else 'FAIL')
 (R/'analysis/link-check.json').write_text(json.dumps(result,indent=2)+'\n'); print(json.dumps(result,indent=2))
 raise SystemExit(bool(errors))
