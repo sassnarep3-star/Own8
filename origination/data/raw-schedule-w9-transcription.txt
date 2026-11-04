@@ -1,0 +1,20 @@
+# Verbatim transcription of https://www.nfl.com/schedules/2026/by-week/week-9 (3 chunks), fetched 2026-11-04 ~20:40 UTC by session 4bc92a5f.
+# Kickoff times are copied as rendered; the page labels them "LOCAL" (time zone of the render is not stated) — do not treat as verified ET.
+# section heading|away|home|day+date as rendered in link text|time as rendered|network as rendered|game_slug
+Thursday Night Football, November 5th|JAX|BAL|Thursday, November 5th|8:15 PM|PRIME|jaguars-at-ravens-2026-reg-9
+International Game, November 8th (Madrid)|CIN|ATL|Sunday, November 8th|9:30 AM|NFLN|bengals-at-falcons-2026-reg-9
+Sunday, November 8th|DEN|CAR|Sunday, November 8th|1:00 PM|CBS|broncos-at-panthers-2026-reg-9
+Sunday, November 8th|DAL|IND|Sunday, November 8th|1:00 PM|FOX|cowboys-at-colts-2026-reg-9
+Sunday, November 8th|NYJ|KC|Sunday, November 8th|1:00 PM|CBS|jets-at-chiefs-2026-reg-9
+Sunday, November 8th|DET|MIA|Sunday, November 8th|1:00 PM|CBS|lions-at-dolphins-2026-reg-9
+Sunday, November 8th|CLE|NO|Sunday, November 8th|1:00 PM|CBS|browns-at-saints-2026-reg-9
+Sunday, November 8th|NYG|PHI|Sunday, November 8th|1:00 PM|FOX|giants-at-eagles-2026-reg-9
+Sunday, November 8th|LAR|WAS|Sunday, November 8th|1:00 PM|FOX|rams-at-commanders-2026-reg-9
+Sunday, November 8th|HOU|LAC|Sunday, November 8th|4:05 PM|CBS|texans-at-chargers-2026-reg-9
+Sunday, November 8th|LV|SF|Sunday, November 8th|4:25 PM|FOX|raiders-at-49ers-2026-reg-9
+Sunday, November 8th|GB|NE|Sunday, November 8th|4:25 PM|FOX|packers-at-patriots-2026-reg-9
+Sunday, November 8th|AZ|SEA|Sunday, November 8th|4:25 PM|FOX|cardinals-at-seahawks-2026-reg-9
+Sunday Night Football, November 8th|TB|CHI|Sunday, November 8th|8:20 PM|NBC|buccaneers-at-bears-2026-reg-9
+Monday Night Football, November 9th|BUF|MIN|Monday, November 9th|8:15 PM|ESPN|bills-at-vikings-2026-reg-9
+BYE|PIT|6-2-0
+BYE|TEN|1-7-0
