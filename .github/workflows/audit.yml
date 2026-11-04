@@ -47,5 +47,12 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - name: Select audited workflow artifact as Pages source
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.request("PUT /repos/{owner}/{repo}/pages", {
+              owner: context.repo.owner, repo: context.repo.repo, build_type: "workflow"
+            });
       - uses: actions/deploy-pages@v4
         id: deployment

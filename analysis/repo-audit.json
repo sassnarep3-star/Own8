@@ -3,8 +3,8 @@
   "files": [
     {
       "path": ".github/workflows/audit.yml",
-      "lines": 51,
-      "sha256": "3b47c1b004b376081c8929c097ea170cb2c67397f7da7933be67262be9eb9cd6",
+      "lines": 58,
+      "sha256": "136cb07c3082487adfdf0926af79419d56e9495ddeb45f435efb8f856a71ed6a",
       "review": "Executable/source or generated output \u2014 static checks; not official factual evidence",
       "source_url": "https://www.nfl.com/standings/"
     },
@@ -24,8 +24,8 @@
     },
     {
       "path": "COORDINATION.md",
-      "lines": 129,
-      "sha256": "d436e03deb18b0bfa38319aaa5fbfb8e45e07b23b71365b0835dbfbdc98e26dc",
+      "lines": 131,
+      "sha256": "21d80745e3a5964dd441d78d33ea0f265658d41dbf6219fb0b01901c9b96e899",
       "review": "Executable/source or generated output \u2014 static checks; not official factual evidence",
       "source_url": "https://www.nfl.com/standings/"
     },
