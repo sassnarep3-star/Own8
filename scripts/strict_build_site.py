@@ -7,6 +7,7 @@ import html
 from pathlib import Path
 from strict_analyze import run, BDB, NGS, NIST, STANDINGS
 R=Path(__file__).resolve().parents[1]
+WEB=R/'strict/site'
 PAGES=[('index','Overview','01'),('executive-summary','Executive summary','02'),('standings','Official standings','03'),('schedule','Upcoming schedule','04'),('model-lines','Line origination','05'),('benchmark','Historical benchmark','06'),('strategies','Signal library','07'),('parlays','Parlays & combos','08'),('correlations','Correlations','09'),('validation-gates','Validation gates','10'),('leaderboard','Leaderboard','11'),('injuries','Availability','12'),('player-stats','Player props','13'),('methodology','Methodology','14'),('repo-review','Repository audit','15'),('sources','Sources & evidence','16'),('flagged','Flagged for Review','17'),('responsible-gambling','Research safeguards','18')]
 
 def esc(v):return html.escape(str(v))
@@ -20,7 +21,7 @@ def badge(s):return f'<span class="tag {"warn" if any(k in s for k in ["BLOCK","
 def note(t):return '<div class="notice">'+t+'</div>'
 def build():
  d=run(); flags=json.loads((R/'strict/flags.json').read_text()); inv=json.loads((R/'strict/repository-inventory.json').read_text())
- out=R/'pages'; out.mkdir(exist_ok=True)
+ out=WEB/'pages'; out.mkdir(parents=True,exist_ok=True)
  contents={}
  contents['index']=('The evidence comes first.','An NFL research workspace for originating lines, testing signals and rewarding demonstrated skill—not a lucky run.',
  '<div class="metric-grid"><article class="metric"><span>Official snapshot</span><strong>32 <small>teams</small></strong><p>Selected standings fields rechecked</p></article><article class="metric"><span>Historical evidence</span><strong>91 <small>games</small></strong><p>NFL-published • 2017 weeks 1–6</p></article><article class="metric"><span>Strategy proposals</span><strong>11 <small>ideas</small></strong><p>Singles, parlays and player combos</p></article><article class="metric caution"><span>Skill-qualified</span><strong>0 <small>strategies</small></strong><p>No ranks or rewards awarded</p></article></div>'
@@ -29,7 +30,7 @@ def build():
  ['Official facts','32 team rows / 15 upcoming matchups','Observed, dated snapshot',source(STANDINGS)],
  ['Predictive benchmark','60 rolling-week predictions, not a profitable betting claim','Derived / developmental',source(BDB)],
  ['Leaderboard','All strategies blocked pending independent validation','Own8 competition policy',source(NIST)],
- ['Review queue',f'{len(flags)} new audit findings + 13 legacy flags retained','Published, non-blocking for site release',source(NGS)]], 'Research status • 2026-11-04'))
+ ['Review queue',f'{len(flags)} new audit findings + inherited flags retained','Published, non-blocking for site release',source(NGS)]], 'Research status • 2026-11-04'))
  contents['executive-summary']=('Executive summary','What is established, what is proposed, and what still cannot be claimed.',
  note('<strong>Bottom line:</strong> the project has a verified, limited evidence foundation and a reproducible research pipeline. It does not yet establish a profitable or selectively skill-based betting strategy.')
  +table(['Area','Executive finding','Evidence / context'],[
@@ -137,8 +138,8 @@ def build():
  ['Washington regulator','Local official sports-wagering information','Retrieved 2026-11-04; legal eligibility not assessed.',source('https://wsgc.wa.gov/tribal-partnerships/sports-wagering')]
  ],'Web evidence ledger • snapshot date 2026-11-04')
  +table(['Immutable file','Bytes','SHA-256','Official source'],[[esc(m['file']),str(m['bytes']),'<code>'+esc(m['sha256'])+'</code>',source(m['source_url'])] for m in manifest],'NFL repository files • pinned commit 9ad0b4b2ea36697e29e44e2399512cc1ce70358c')
- +'<div class="downloads"><a href="../strict/results.json">Analysis JSON ↓</a><a href="../strict/flags.json">Review register ↓</a><a href="../strict/repository-inventory.json">File audit & digests ↓</a><a href="../strict/evidence/manifest.json">Evidence manifest ↓</a><a href="../strict/evidence/standings-observed.json">Standings observation ↓</a><a href="../strict/evidence/web-checks.json">Web-check log ↓</a><a href="../strict/evidence/games-2017.csv">Official historical CSV ↓</a></div>')
- legacy=json.loads((R/'data/flagged.json').read_text())['items']
+ +'<div class="downloads"><a href="../../results.json">Analysis JSON ↓</a><a href="../../../audit/index.html">Independent baseline audit ↗</a><a href="../../../verification/README.md">Independent PR #6 QA ↗</a><a href="../../flags.json">Review register ↓</a><a href="../../repository-inventory.json">File audit & digests ↓</a><a href="../../evidence/manifest.json">Evidence manifest ↓</a><a href="../../evidence/standings-observed.json">Standings observation ↓</a><a href="../../evidence/web-checks.json">Web-check log ↓</a><a href="../../evidence/games-2017.csv">Official historical CSV ↓</a></div>')
+ legacy=json.loads((R/'strict/evidence/legacy-flags.json').read_text())['items']
  legacy_rows=[]
  for f in legacy:
     url=f.get('source_url')
@@ -147,7 +148,7 @@ def build():
  contents['flagged']=('Flagged for Review','Published limitations do not block the site. They do block unsupported claims.',
  note('Any unconfirmed numerical value remains blank. Flags are not silently resolved by linking an official homepage. The legacy register below is historical testimony, <strong>not fresh verification</strong>; old candidate, jurisdiction and injury-availability statements are superseded by A01–A17.')
  +table(['ID','Severity','Finding','Resolution / current limit','Value','Official context'],[[f['id'],badge(f['severity']),esc(f['title']),esc(f['finding']),'',source(f['source_url'])] for f in flags],'Current audit register • 17 needs-review items')
- +table(['ID','Severity','Inherited claim (historical, not re-certified)','Confirmed value','Status','Official context'],legacy_rows,'All 13 inherited flags retained for manual review'))
+ +table(['ID','Severity','Inherited claim (historical, not re-certified)','Confirmed value','Status','Official context'],legacy_rows,f'All {len(legacy)} inherited flags retained for manual review'))
  contents['responsible-gambling']=('Research safeguards','A paper competition—not a sportsbook, prediction guarantee, or financial advice.',
  table(['Safeguard','Policy / resource','Official context'],[
  ['No wagering','This code places no bets and accepts no deposits. Rewards are proposed points/badges; no cash rewards funded or promised.',source('https://wsgc.wa.gov/tribal-partnerships/sports-wagering')],
@@ -166,18 +167,11 @@ def build():
         href=prefix+("index.html" if k=="index" else "pages/"+k+".html")
         nav+=f'<a class="{active}" {current} href="{href}"><span>{n}</span>{esc(l)}</a>'
     page=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="{esc(description)}"><title>{esc(label)} · Own8 NFL Research</title><link rel="stylesheet" href="{prefix}assets/style.css"><script src="{prefix}assets/app.js" defer></script></head><body><a class="skip" href="#main">Skip to content</a><aside class="sidebar"><a class="brand" href="{prefix}index.html"><b>O<span>8</span></b><div>OWN8<small>NFL RESEARCH LAB</small></div></a><div class="nav-label">WORKSPACE</div><nav aria-label="Primary">{nav}</nav><div class="sidebar-footer"><span class="dot"></span> Paper research only<br><small>No live picks. No wagers.</small></div></aside><div class="workspace"><header class="topbar"><span>NFL / <strong>{esc(label)}</strong></span><span class="snapshot">SNAPSHOT <b>04 NOV 2026</b></span></header><main id="main"><div class="page-heading"><div><span class="eyebrow">EVIDENCE-LED FOOTBALL ANALYTICS</span><h1>{esc(title)}</h1><p class="lead">{esc(description)}</p></div><span class="research-badge">RESEARCH MODE</span></div><div class="toolbar"><label for="row-search">Find an entry</label><input id="row-search" type="search" placeholder="Search tables on this page…" autocomplete="off"><span class="helper">Blank = unknown · sources on every row</span></div>{body}<footer><strong>Own8</strong> · Verified scope, not verified profits. <a href="{prefix}pages/sources.html">Evidence trail</a> · <a href="{prefix}pages/flagged.html">Flagged for Review</a><p>Observed facts · Derived analysis · Proposed methods · Unverified values. Updated 2026-11-04. Not a live data feed.</p></footer></main></div></body></html>'''
-    (R/'index.html' if slug=='index' else out/(slug+'.html')).write_text(page)
+    (WEB/'index.html' if slug=='index' else out/(slug+'.html')).write_text(page)
  # Canonical old category URLs remain navigable, without unsupported numbers.
  for old,new in {'scores':'benchmark','team-stats':'standings','prop-signals':'player-stats'}.items():
     (out/(old+'.html')).write_text(redirect(new+'.html'))
- # Duplicate public legacy trees are superseded. Raw data/docs stay in repo for provenance.
- for directory in [R/'docs',R/'archive']:
-    for p in directory.rglob('*.html'):
-        target=Path(__import__('os').path.relpath(out/'flagged.html',p.parent)).as_posix()
-        p.write_text(redirect(target))
- for filename,rows in [('model-lines-week9.json',{'games':d['current_lines']}),('correlations.json',{'correlations':d['correlations']}),('leaderboard.json',{'strategies':d['strategies'],'qualified_strategies':0}),('strategies.json',{'strategies':d['strategies']}),('prop-signals-week9.json',{'prop_signals':[]})]:
-    (R/'analysis'/filename).write_text(json.dumps({'as_of':d['as_of'],'status':'SUPERSEDES LEGACY — STRICT AUDIT','notice':'No current actionable values or skill-qualified entries; see strict/results.json.',**rows},indent=2)+'\n')
- print('Built',len(PAGES),'dashboard pages, compatibility redirects, quarantined duplicate HTML routes.')
+ print('Built',len(PAGES),'namespaced dashboard pages plus compatibility redirects; canonical root untouched.')
 
 def redirect(target):
  return '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="refresh" content="0;url='+esc(target)+'"><title>Own8 · Superseded evidence</title></head><body><h1>This snapshot has been superseded</h1><p>Old claims are not current verified recommendations.</p><a href="'+esc(target)+'">Continue to current audit and findings</a></body></html>'

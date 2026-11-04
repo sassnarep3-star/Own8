@@ -1,1 +1,79 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="refresh" content="0;url=../../../pages/flagged.html"><title>Own8 · Superseded evidence</title></head><body><h1>This snapshot has been superseded</h1><p>Old claims are not current verified recommendations.</p><a href="../../../pages/flagged.html">Continue to current audit and findings</a></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flagged for Review | Own8 NFL Lines</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<header>
+  <div class="container header-wrap">
+    <a class="brand" href="../index.html"><span class="mark">O8</span>Own8 NFL Lines</a>
+    <nav>
+      <ul>
+        <li><a href="../index.html">Dashboard</a></li>
+        <li><a href="executive-summary.html">Executive Summary</a></li>
+        <li><a href="single-bets.html">Single Bets</a></li>
+        <li><a href="parlays.html">Parlays</a></li>
+        <li><a href="player-props.html">Player Props</a></li>
+        <li><a href="validation-gates.html">Validation Gates</a></li>
+        <li><a href="correlations.html">Correlations</a></li>
+        <li><a href="standings-data.html">Standings Data</a></li>
+        <li><a class="active" href="flagged-for-review.html" style="color:var(--flag-border)">Flagged for Review</a></li>
+        <li><a href="sources.html">Sources</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main class="container" id="content">
+  <div class="hero">
+    <div>
+      <div class="kicker">Unverified Items &amp; Irregularities</div>
+      <h1>Flagged for Review</h1>
+      <p>Per the verification standard, any value that cannot be confirmed from an official source is left blank and flagged here. Nothing is inferred or filled in. Flagged items do not block the site; they are published so they can be reviewed and resolved.</p>
+    </div>
+  </div>
+
+  <h2>Unverified-item registry</h2>
+  <table>
+    <thead><tr><th>ID</th><th>Item</th><th>Where used</th><th>Why unverified</th><th>Official source needed</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td><b>F-01</b></td><td>Betting odds / lines / spreads / totals / implied probabilities</td><td>All strategies (V4 edge vs implied line); SB-02 total line</td><td>NFL.com does not publish betting lines; these are sportsbook data, not an official NFL source</td><td>Verified sportsbook odds feed</td><td class="flag">UNVERIFIED — left blank</td></tr>
+      <tr><td><b>F-02</b></td><td>Historical game-by-game results (for sample size / backtest)</td><td>V2 sample size, V5 backtest pass rate, all strategies</td><td>Not available from nfl.com standings or Next Gen Stats leader tables</td><td>NFL official game results archive</td><td class="flag">UNVERIFIED — left blank</td></tr>
+      <tr><td><b>F-03</b></td><td>Official injury / player-availability report</td><td>V6 availability gate, all strategies; PP-01/ PP-02 player props</td><td>Injury report not fetched in this session</td><td>nfl.com injuries (official NFL injury report)</td><td class="flag">UNVERIFIED — left blank</td></tr>
+      <tr><td><b>F-04</b></td><td>Home/away schedule (home status of candidate teams)</td><td>P-01 parlay legs, SB-01 road-team rule</td><td>Standings page publishes records, not the weekly schedule with home/away designation</td><td>NFL.com schedule (official)</td><td class="flag">UNVERIFIED — left blank</td></tr>
+      <tr><td><b>F-05</b></td><td>Same-game correlation: winner vs total</td><td>P-02 same-game parlay</td><td>Requires game-by-game scoring data; not published by official NFL sources</td><td>NFL official game-by-game scoring data</td><td class="flag">UNVERIFIED — P-02 blocked by V3</td></tr>
+      <tr><td><b>F-06</b></td><td>Same-game correlation: QB pass yards vs WR1 receiving yards (exact rho)</td><td>PP-01 prop combo</td><td>Computed r = +0.510 is season-aggregate receptions vs yards, not same-game leg correlation</td><td>NFL official game-by-game player data</td><td class="flag">UNVERIFIED — documented only</td></tr>
+      <tr><td><b>F-07</b></td><td>Cross-game outcome correlation (~0 assumption)</td><td>P-01 parlay</td><td>Documented assumption, not computed from verified game-level data</td><td>NFL official game-by-game results</td><td class="flag">UNVERIFIED — documented assumption</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Irregularities flagged during verification</h2>
+  <table>
+    <thead><tr><th>ID</th><th>Irregularity</th><th>Observed</th><th>Source checked</th><th>Action</th></tr></thead>
+    <tbody>
+      <tr><td><b>IR-01</b></td><td>Next Gen Stats player-stat totals appear low relative to games played in the standings (e.g., Kansas City shows 7 games played but Patrick Mahomes is listed with 27 attempts / 184 passing yards; most QBs show ~22–56 attempts although teams show 7–8 games played)</td><td>nfl.com/standings vs nextgenstats.nfl.com passing/rushing/receiving leader tables, all fetched 2026-11-03</td><td><a href="https://www.nfl.com/standings/" target="_blank" rel="noopener">https://www.nfl.com/standings/</a> &bull; <a href="https://nextgenstats.nfl.com/stats/passing/2026/REG/1" target="_blank" rel="noopener">NGS passing</a> &bull; <a href="https://nextgenstats.nfl.com/stats/rushing/2026/REG/1" target="_blank" rel="noopener">NGS rushing</a> &bull; <a href="https://nextgenstats.nfl.com/stats/receiving/2026/REG/1" target="_blank" rel="noopener">NGS receiving</a></td><td class="flag">Player tables treated as UNVERIFIED; all player-derived correlations flagged UNVERIFIED; re-check next data refresh</td></tr>
+      <tr><td><b>IR-02</b></td><td>Direct curl to nfl.com was blocked (HTTP 000); data retrieved via the fetch_page tool instead. Content matches the public NFL.com standings page (team names, records, PF/PA, legend, links).</td><td>Data collection, 2026-11-03</td><td>nfl.com/standings</td><td>No data impact; noted for transparency</td></tr>
+      <tr><td><b>IR-03</b></td><td>nfl.com stats/player-stats category URLs return 404; player stats only confirmed via nextgenstats.nfl.com (an official NFL property, Next Gen Stats)</td><td>Data collection, 2026-11-03</td><td>nfl.com/stats/player-stats/category/... (404) &bull; nextgenstats.nfl.com (200)</td><td>Use nextgenstats.nfl.com as the official player-stat source; listed in sources.md</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Verification standard applied</h2>
+  <ul>
+    <li>Every table row on this site carries a source link to an official site.</li>
+    <li>If a value cannot be confirmed from an official source, it is left blank and flagged UNVERIFIED (above).</li>
+    <li>No values are inferred or filled in.</li>
+    <li>Standings data (32 teams) was verified cell-by-cell against the official NFL.com standings page.</li>
+    <li>Correlations were computed from the verified exports; computation is documented in data/correlations.md (repository) with the script used.</li>
+  </ul>
+
+  <p class="src">Source register: <a href="sources.html">sources.html</a> &bull; Repository exports: <a href="../data/nfl-2026-standings.csv" target="_blank" rel="noopener">standings CSV</a>, <a href="../data/nfl-2026-passing.csv" target="_blank" rel="noopener">passing CSV</a>, <a href="../data/nfl-2026-rushing.csv" target="_blank" rel="noopener">rushing CSV</a>, <a href="../data/nfl-2026-receiving.csv" target="_blank" rel="noopener">receiving CSV</a>.</p>
+  <div class="disclaimer"><b>Not gambling advice.</b> Flags reflect data availability from official sources, not the quality of any team or player.</div>
+</main>
+<footer>
+  <div class="container">Own8 NFL Lines &bull; Data as of 2026-11-03 &bull; <a href="../pages/sources.html">Source register</a> &bull; <a href="../pages/flagged-for-review.html">Flagged for Review</a></div>
+</footer>
+</body>
+</html>

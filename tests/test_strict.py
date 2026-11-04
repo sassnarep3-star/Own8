@@ -76,6 +76,6 @@ class StrictTests(unittest.TestCase):
   for p in rows:self.assertIsNone(p['injury']);self.assertIsNone(p['game_status'])
  def test_every_link_and_row(self):self.assertEqual(c.check()['status'],'PASS')
  def test_current_text_no_legacy_picks(self):
-  text=(R/'index.html').read_text()
+  text=(R/'strict/site/index.html').read_text()
   self.assertNotIn('2 candidates',text);self.assertNotIn('luck-free',text)
 if __name__=='__main__':unittest.main()

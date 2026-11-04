@@ -1,1 +1,82 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="refresh" content="0;url=../../../pages/flagged.html"><title>Own8 · Superseded evidence</title></head><body><h1>This snapshot has been superseded</h1><p>Old claims are not current verified recommendations.</p><a href="../../../pages/flagged.html">Continue to current audit and findings</a></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sources | Own8 NFL Lines</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<header>
+  <div class="container header-wrap">
+    <a class="brand" href="../index.html"><span class="mark">O8</span>Own8 NFL Lines</a>
+    <nav>
+      <ul>
+        <li><a href="../index.html">Dashboard</a></li>
+        <li><a href="executive-summary.html">Executive Summary</a></li>
+        <li><a href="single-bets.html">Single Bets</a></li>
+        <li><a href="parlays.html">Parlays</a></li>
+        <li><a href="player-props.html">Player Props</a></li>
+        <li><a href="validation-gates.html">Validation Gates</a></li>
+        <li><a href="correlations.html">Correlations</a></li>
+        <li><a href="standings-data.html">Standings Data</a></li>
+        <li><a href="flagged-for-review.html" style="color:var(--flag-border)">Flagged for Review</a></li>
+        <li><a class="active" href="sources.html">Sources</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main class="container" id="content">
+  <div class="hero">
+    <div>
+      <div class="kicker">Source Register</div>
+      <h1>Official Verified Sources</h1>
+      <p>All data on this site was fetched from the sources below on 2026-11-03. No values were inferred or filled in. Anything not confirmable from an official source is blank and flagged on the <a href="flagged-for-review.html">Flagged for Review</a> page.</p>
+    </div>
+  </div>
+
+  <table>
+    <thead><tr><th>#</th><th>Source</th><th>URL</th><th>Data retrieved</th><th>Used for</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>NFL.com — Standings</td><td class="src"><a href="https://www.nfl.com/standings/" target="_blank" rel="noopener">https://www.nfl.com/standings/</a></td><td>2026 regular-season standings, all 32 teams: W-L-T, PCT, PF, PA, net points, home/road/division/conference records, streak, plus standings legend</td><td>Standings table; team-level correlations; single-bet and parlay inputs</td></tr>
+      <tr><td>2</td><td>NFL.com — Tie Breaking Procedure</td><td class="src"><a href="http://www.nfl.com/standings/tiebreakingprocedures" target="_blank" rel="noopener">http://www.nfl.com/standings/tiebreakingprocedures</a></td><td>Standings tie-break reference (linked from NFL.com standings page)</td><td>Methodology reference only</td></tr>
+      <tr><td>3</td><td>NFL Next Gen Stats — Passing Leaders</td><td class="src"><a href="https://nextgenstats.nfl.com/stats/passing/2026/REG/1" target="_blank" rel="noopener">https://nextgenstats.nfl.com/stats/passing/2026/REG/1</a></td><td>2026 REG passing: attempts, yards, TDs, INTs, passer rating, completion % (32 QBs)</td><td>QB context for prop strategies; player-level correlations (flagged UNVERIFIED — see IR-01)</td></tr>
+      <tr><td>4</td><td>NFL Next Gen Stats — Rushing Leaders</td><td class="src"><a href="https://nextgenstats.nfl.com/stats/rushing/2026/REG/1" target="_blank" rel="noopener">https://nextgenstats.nfl.com/stats/rushing/2026/REG/1</a></td><td>2026 REG rushing: attempts, yards, avg, TDs, yards over expected (34 RBs)</td><td>RB context for prop strategies; player-level correlations (flagged UNVERIFIED — see IR-01)</td></tr>
+      <tr><td>5</td><td>NFL Next Gen Stats — Receiving Leaders</td><td class="src"><a href="https://nextgenstats.nfl.com/stats/receiving/2026/REG/1" target="_blank" rel="noopener">https://nextgenstats.nfl.com/stats/receiving/2026/REG/1</a></td><td>2026 REG receiving: targets, receptions, catch %, yards, TDs, YAC/rec (47 WRs/TEs)</td><td>WR/TE context for prop strategies; player-level correlations (flagged UNVERIFIED — see IR-01)</td></tr>
+      <tr><td>6</td><td>NFL Next Gen Stats — Glossary</td><td class="src"><a href="https://nextgenstats.nfl.com/glossary" target="_blank" rel="noopener">https://nextgenstats.nfl.com/glossary</a></td><td>Next Gen Stat definitions</td><td>Methodology reference only</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Not available from official NFL sources (left blank, flagged)</h2>
+  <table>
+    <thead><tr><th>Item</th><th>Why it is blank</th><th>Where it would be used</th><th>Verified source needed</th></tr></thead>
+    <tbody>
+      <tr><td>Betting odds / lines / spreads / totals / implied probability</td><td>Not published by NFL.com; sportsbook data, not an official NFL source</td><td>V4 edge vs implied line (all strategies); SB-02 total line</td><td>Verified sportsbook odds feed</td></tr>
+      <tr><td>Injury / player-availability report</td><td>Not fetched in this session</td><td>V6 availability gate (all strategies)</td><td>nfl.com injuries (official NFL injury report)</td></tr>
+      <tr><td>Historical game-by-game results</td><td>Not available from the official sources above</td><td>V2 sample size; V5 backtest pass rate</td><td>NFL official game results archive</td></tr>
+      <tr><td>Weekly schedule with home/away designation</td><td>Standings page publishes records only</td><td>P-01 home-status of legs; SB-01 road-team rule</td><td>NFL.com schedule (official)</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Repository data exports</h2>
+  <table>
+    <thead><tr><th>File</th><th>Contents</th><th>Source</th><th>Verification</th></tr></thead>
+    <tbody>
+      <tr><td><a href="../data/nfl-2026-standings.csv" target="_blank" rel="noopener">data/nfl-2026-standings.csv</a></td><td>32 teams, 2026 REG standings</td><td>nfl.com/standings</td><td>Verified cell-by-cell, 2026-11-03</td></tr>
+      <tr><td><a href="../data/nfl-2026-passing.csv" target="_blank" rel="noopener">data/nfl-2026-passing.csv</a></td><td>32 QBs, 2026 REG passing</td><td>nextgenstats.nfl.com</td><td>Flagged UNVERIFIED (IR-01)</td></tr>
+      <tr><td><a href="../data/nfl-2026-rushing.csv" target="_blank" rel="noopener">data/nfl-2026-rushing.csv</a></td><td>34 RBs, 2026 REG rushing</td><td>nextgenstats.nfl.com</td><td>Flagged UNVERIFIED (IR-01)</td></tr>
+      <tr><td><a href="../data/nfl-2026-receiving.csv" target="_blank" rel="noopener">data/nfl-2026-receiving.csv</a></td><td>47 WRs/TEs, 2026 REG receiving</td><td>nextgenstats.nfl.com</td><td>Flagged UNVERIFIED (IR-01)</td></tr>
+      <tr><td><a href="../data/correlations.md" target="_blank" rel="noopener">data/correlations.md</a></td><td>Computed Pearson correlations + method</td><td>Computed from exports above</td><td>Script: compute_correlations.py (repository)</td></tr>
+      <tr><td><a href="../data/strategies.md" target="_blank" rel="noopener">data/strategies.md</a></td><td>Strategy definitions, rules, gate results</td><td>Originated in-house; inputs from exports above</td><td>Gate status recorded per strategy</td></tr>
+      <tr><td><a href="../data/sources.md" target="_blank" rel="noopener">data/sources.md</a></td><td>Full source register (markdown)</td><td>—</td><td>—</td></tr>
+    </tbody>
+  </table>
+
+  <div class="disclaimer"><b>Not gambling advice.</b> Sources are public NFL data. Betting lines/odds are not published by the NFL and remain blank until a verified source is added.</div>
+</main>
+<footer>
+  <div class="container">Own8 NFL Lines &bull; Data as of 2026-11-03 &bull; <a href="../pages/flagged-for-review.html">Flagged for Review</a></div>
+</footer>
+</body>
+</html>

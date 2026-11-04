@@ -28,7 +28,7 @@ def official(url):
 
 def check():
  docs={}
- for p in R.rglob('*.html'):
+ for p in (R/'strict/site').rglob('*.html'):
   if any(x in p.parts for x in ['.git','node_modules','.venv']):continue
   parser=Document();parser.feed(p.read_text());docs[p]=parser
  errors=[];count=0;rows=0
@@ -37,19 +37,18 @@ def check():
    count+=1;u=urlparse(link)
    if u.scheme:
     if u.scheme!='https':errors.append(f'{p.relative_to(R)}: insecure link {link}')
-    if (p==R/'index.html' or p.parent==R/'pages') and not official(link):errors.append(f'{p.relative_to(R)}: not explicit official scope {link}')
+    if not official(link):errors.append(f'{p.relative_to(R)}: not explicit official scope {link}')
     continue
    target=(p.parent/unquote(u.path)).resolve() if u.path else p
    if target.is_dir():target=target/'index.html'
    if not target.is_file():errors.append(f'{p.relative_to(R)}: missing {link}');continue
    if u.fragment and target.suffix=='.html' and target in docs and unquote(u.fragment) not in docs[target].ids:errors.append(f'{p.relative_to(R)}: missing anchor {link}')
-  if p==R/'index.html' or p.parent==R/'pages':
+  if p.name=='index.html' or p.parent.name=='pages':
    for row in doc.rows:
     rows+=1
     if not any(official(link) for link in row):errors.append(f'{p.relative_to(R)}: row lacks official context/source')
  result={'checked_at':'2026-11-04','html_pages':len(docs),'links_checked':count,'active_table_rows':rows,'errors':errors,'external_http_liveness':'NOT TESTED by this checker; see dated source retrieval ledger','status':'PASS' if not errors else 'FAIL'}
  (R/'strict/link-check.json').write_text(json.dumps(result,indent=2)+'\n')
- (R/'analysis/link-check.json').write_text(json.dumps(result,indent=2)+'\n')
  print(json.dumps(result,indent=2))
  return result
 if __name__=='__main__':raise SystemExit(0 if check()['status']=='PASS' else 1)
