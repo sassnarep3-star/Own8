@@ -57,3 +57,16 @@ None outstanding. (Resolved during integration: both sessions wrote COORDINATION
 - 2026-11-03 — Final link check after integration: PASS — 46 HTML pages, 2712 links, 0 broken internal, all external links https and on the official-source allowlist except one archived http://www.nfl.com link kept verbatim from session 9cf451e4 (recorded as warning, official host).
 - 2026-11-03 — PR #5 created: https://github.com/sassnarep3-star/Own8/pull/5 (arena/95e9626f-own8 → main). Merge + Pages deploy record: see below.
 - 2026-11-03 — PR #5 MERGED (see `gh pr view 5`); Pages re-deployed from main /; live URL verified: https://sassnarep3-star.github.io/Own8/ (see final entry below).
+
+## Session 5c4b8a3e — strict verification remediation (2026-11-04)
+
+Arena fixes this session to `arena/5c4b8a3e-own8`; it is the work/integration branch (no additional branches).
+
+| Task | Status | Owner | Files | Verification / irregularities |
+| --- | --- | --- | --- | --- |
+| A1 Repository/source audit | in progress | 5c4b8a3e | audit/, docs/AUDIT-2026-11-04.md | Read all tracked text; distinguish provenance from cross-file consistency. |
+| A2 Official historical evidence and safe analysis | in progress | 5c4b8a3e | audit/, scripts/strict_*.py, tests/ | Acquire immutable official NFL GitHub evidence; no unsupported current values. |
+| A3 Final integration and dashboard | in progress | 5c4b8a3e | index.html, pages/, assets/, README.md, scripts/analyze.py, scripts/build_site.py, research/, analysis/, .github/, .gitignore | Canonical scopes from merged sessions taken over; preserve legacy inputs, quarantine unsupported claims. |
+| A4 Tests, PR, merge, Pages confirmation | in progress | 5c4b8a3e | COORDINATION.md, audit/deployment.json | Merge only after local build/tests pass. |
+
+- 2026-11-04: Read local board and PR #6's remote board. Session 28cc78aa last committed 2026-11-04 00:18Z (>60 minutes); its complementary `site/`, `scripts/own8_*`, `data/results/`, and docs scope remains untouched. PR #6 is open, not part of this integration, and its claimed numerical findings are NOT verified by this session. No merge of that PR is implied. Root canonical scope belongs to previously merged sessions and is now claimed here. Existing sources assert verification without retained page evidence; this is being audited, not accepted on trust.
