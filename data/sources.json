@@ -1,147 +1,94 @@
 {
-  "captured_at": "2026-11-03",
-  "captured_by": "session 95e9626f",
-  "note": "Every dataset in data/ references one of these official sources. Only official NFL / official regulator domains are used as sources for verified values. Third-party aggregators are recorded in data/market-lines.json and data/flagged.json only, never as verified sources.",
+  "captured_at": "2026-11-04",
+  "method": "functions.fetch_page; bounded field audit, not raw HTTP archiving",
   "sources": [
     {
-      "id": "nfl-standings",
-      "label": "NFL.com — 2026 NFL Standings (regular season)",
+      "id": "standings",
+      "label": "NFL standings",
       "url": "https://www.nfl.com/standings/",
       "official": true,
-      "used_for": "Team W-L-T, PCT, PF, PA, net points, division/conference records, streak (through Week 8, 2026 season)"
+      "checked_at": "2026-11-04",
+      "used_for": "32 rows: W, L, T, PCT, PF, PA, NET, STRK; 256 field comparisons. Tail record labels withheld."
     },
     {
-      "id": "nfl-schedule-w9",
-      "label": "NFL.com — 2026 Schedule, Week 9 (by week)",
+      "id": "schedule",
+      "label": "NFL Week 9 schedule",
       "url": "https://www.nfl.com/schedules/2026/by-week/week-9",
       "official": true,
-      "used_for": "Week 9 matchups, dates, kickoff times (ET), TV networks, venues, bye teams"
+      "checked_at": "2026-11-04",
+      "used_for": "15 matchup/date/time/network entries. ET also supported by injury-page EST labels. Venues withheld. Madrid designation checked."
     },
     {
-      "id": "nfl-scores-w8",
-      "label": "NFL.com — 2026 Scores, Week 8",
+      "id": "scores",
+      "label": "NFL Week 8 scores",
       "url": "https://www.nfl.com/scores/2026/week-8",
       "official": true,
-      "used_for": "Week 8 final scores and winners, bye teams"
+      "checked_at": "2026-11-04",
+      "used_for": "12 complete score/date rows observed; 2 incomplete captures withheld."
     },
     {
-      "id": "nfl-team-passing-off",
-      "label": "NFL.com — 2026 Team Stats, Offense Passing (season)",
-      "url": "https://www.nfl.com/stats/team-stats/offense/passing/2026/reg/all",
+      "id": "injuries",
+      "label": "NFL Week 9 injuries",
+      "url": "https://www.nfl.com/injuries/league/2026/reg9",
       "official": true,
-      "used_for": "Team passing: ATT, CMP, CMP%, AVG, YDS, TD, INT, RTG, 1ST, 1ST%, 20+, 40+, LNG, SK, SYL"
+      "checked_at": "2026-11-04",
+      "used_for": "28 JAX/BAL practice rows; blank injury/game status preserved. Other teams show No Injuries Reported; not interpreted as clearance."
     },
     {
-      "id": "nfl-team-rushing-off",
-      "label": "NFL.com — 2026 Team Stats, Offense Rushing (season)",
-      "url": "https://www.nfl.com/stats/team-stats/offense/rushing/2026/reg/all",
-      "official": true,
-      "used_for": "Team rushing: ATT, YDS, AVG, TD, 20+, 40+, LNG, 1ST, 1ST%, FUM"
-    },
-    {
-      "id": "nfl-team-passing-def",
-      "label": "NFL.com — 2026 Team Stats, Defense Passing (season)",
-      "url": "https://www.nfl.com/stats/team-stats/defense/passing/2026/reg/all",
-      "official": true,
-      "used_for": "Opponent passing allowed: ATT, CMP, CMP%, AVG, YDS, TD, INT, RTG, 1ST, 1ST%, 20+, 40+, LNG, SK"
-    },
-    {
-      "id": "nfl-team-rushing-def",
-      "label": "NFL.com — 2026 Team Stats, Defense Rushing (season)",
-      "url": "https://www.nfl.com/stats/team-stats/defense/rushing/2026/reg/all",
-      "official": true,
-      "used_for": "Opponent rushing allowed: ATT, YDS, AVG, TD, 20+, 40+, LNG, 1ST, 1ST%, FUM"
-    },
-    {
-      "id": "nfl-player-passing",
-      "label": "NFL.com — 2026 Player Stats, Passing (sorted by passing yards, desc)",
-      "url": "https://www.nfl.com/stats/player-stats/category/passing/2026/reg/all/passingyards/desc",
-      "official": true,
-      "used_for": "QB season passing leaders: YDS, AVG, ATT, CMP, CMP%, TD, INT, RTG, 1ST, 1ST%, 20+, 40+, LNG, SK, SYL"
-    },
-    {
-      "id": "nfl-player-rushing",
-      "label": "NFL.com — 2026 Player Stats, Rushing (sorted by rushing yards, desc)",
-      "url": "https://www.nfl.com/stats/player-stats/category/rushing/2026/reg/all/rushingyards/desc",
-      "official": true,
-      "used_for": "RB season rushing leaders: YDS, ATT, TD, 20+, 40+, LNG, 1ST, 1ST%, FUM (column order validated arithmetically where possible; see flagged register)"
-    },
-    {
-      "id": "nfl-player-receiving",
-      "label": "NFL.com — 2026 Player Stats, Receiving (sorted by receiving yards, desc)",
-      "url": "https://www.nfl.com/stats/player-stats/category/receiving/2026/reg/all/receivingyards/desc",
-      "official": true,
-      "used_for": "WR/TE season receiving leaders: REC, YDS, TD, 20+, 40+, LNG, 1ST, 1ST%, FUM, YAC, YBC (column order validated arithmetically where possible; see flagged register)"
-    },
-    {
-      "id": "nfl-player-interceptions",
-      "label": "NFL.com — 2026 Player Stats, Interceptions (sorted by INT, desc)",
-      "url": "https://www.nfl.com/stats/player-stats/category/interceptions/2026/reg/all/defensiveinterceptions/desc",
-      "official": true,
-      "used_for": "Defensive interception leaders: INT, TD, YDS, LNG (as rendered)"
-    },
-    {
-      "id": "nfl-nextgen-passing-w8",
-      "label": "NFL Next Gen Stats — Passing Leaders, 2026 Week 8",
-      "url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8",
-      "official": true,
-      "used_for": "Week 8 QB Next Gen Stats: TT, CAY, IAY, AYD, AGG%, LCAD, AYTS, ATT, YDS, TD, INT, RATE, COMP%, xCOMP%, +/-"
-    },
-    {
-      "id": "nfl-nextgen-glossary",
-      "label": "NFL Next Gen Stats — Glossary (stat definitions)",
-      "url": "https://nextgenstats.nfl.com/glossary",
-      "official": true,
-      "used_for": "Definitions of Next Gen Stats metrics used in methodology"
-    },
-    {
-      "id": "nfl-injuries-w8",
-      "label": "NFL.com — Official NFL Injury Report, Week 8 of 2026 season",
-      "url": "https://www.nfl.com/injuries/league/2026/reg8",
-      "official": true,
-      "used_for": "Latest published official injury report (Week 9 report not yet published as of 2026-11-03 — see flagged register)"
-    },
-    {
-      "id": "nfl-news-mclaurin",
-      "label": "NFL.com News — Commanders WR Terry McLaurin out for rest of season with torn patellar tendon",
-      "url": "https://www.nfl.com/news/commanders-wr-terry-mclaurin-out-rest-of-season-torn-patellar-tendon",
-      "official": true,
-      "used_for": "WAS WR1 season-ending injury (affects LA at WAS, Week 9)"
-    },
-    {
-      "id": "nfl-news-hurts",
-      "label": "NFL.com News — Eagles QB Jalen Hurts likely out for rest of 2026 season due to blood clots (on IR)",
+      "id": "hurts",
+      "label": "NFL.com: Jalen Hurts",
       "url": "https://www.nfl.com/news/eagles-qb-jalen-hurts-out-2026-season-blood-clots",
       "official": true,
-      "used_for": "PHI QB season-ending injury (affects NYG at PHI, Week 9; backup Tanner McKee per NFL.com player page)"
+      "checked_at": "2026-11-04",
+      "used_for": "Article body checked; likely season absence and prior IR placement. Publication date unverified."
     },
     {
-      "id": "nfl-standings-tiebreak",
-      "label": "NFL.com — Standings tie-breaking procedures",
-      "url": "https://www.nfl.com/standings/tiebreakingprocedures",
+      "id": "mclaurin",
+      "label": "NFL.com: Terry McLaurin",
+      "url": "https://www.nfl.com/news/commanders-wr-terry-mclaurin-out-rest-of-season-torn-patellar-tendon",
       "official": true,
-      "used_for": "Official tie-breaking procedure reference for standings"
+      "checked_at": "2026-11-04",
+      "used_for": "Article body checked; season absence. Publication date unverified."
     },
     {
-      "id": "ksa",
-      "label": "Kansspelautoriteit (Ksa) — official Dutch gambling regulator",
-      "url": "https://kansspelautoriteit.nl/",
+      "id": "ngs",
+      "label": "NFL Next Gen Stats glossary",
+      "url": "https://nextgenstats.nfl.com/glossary",
       "official": true,
-      "used_for": "User is located in the Netherlands; Ksa supervises all licensed gambling in NL. Use Kansspelwijzer to check whether a provider holds a Dutch licence."
+      "checked_at": "2026-11-04",
+      "used_for": "Definitions of CPOE, intended air yards, separation, target air-yards share, 8+ defenders. No numeric player values promoted."
     },
     {
-      "id": "ksa-cruks",
-      "label": "Kansspelautoriteit — CRUKS self-exclusion register (Centraal Register Uitsluiting Kansspelen)",
-      "url": "https://kansspelautoriteit.nl/uitsluitregister-cruks",
+      "id": "nist-association",
+      "label": "NIST: Scatter plot",
+      "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/scatterp.htm",
       "official": true,
-      "used_for": "Official NL self-exclusion register, checked by every Ksa-licensed operator before login"
+      "checked_at": "2026-11-04",
+      "used_for": "Association does not imply causality. Does not endorse an NFL strategy."
     },
     {
-      "id": "ncpg",
-      "label": "National Council on Problem Gambling (NCPG) — official US responsible-gambling resource",
-      "url": "https://www.ncpgambling.org/",
+      "id": "nist-ci",
+      "label": "NIST: Confidence intervals",
+      "url": "https://www.itl.nist.gov/div898/handbook/prc/section1/prc14.htm",
       "official": true,
-      "used_for": "Responsible gambling helpline 1-800-GAMBLER and resources"
+      "checked_at": "2026-11-04",
+      "used_for": "Repeated-sampling meaning and uncertainty. Does not establish any strategy is profitable."
+    },
+    {
+      "id": "nist-multiple",
+      "label": "NIST: Bonferroni method",
+      "url": "https://www.itl.nist.gov/div898/handbook/prc/section4/prc473.htm",
+      "official": true,
+      "checked_at": "2026-11-04",
+      "used_for": "Family-wide coverage concept; our competition thresholds are project design, not NIST betting rules."
+    },
+    {
+      "id": "wsgc",
+      "label": "Washington State Gambling Commission",
+      "url": "https://wsgc.wa.gov/responsible-gaming-self-exclusion",
+      "official": true,
+      "checked_at": "2026-11-04",
+      "used_for": "Official responsible gaming and self-exclusion resources. No personalized legal conclusion."
     }
   ]
 }
