@@ -1,0 +1,34 @@
+{
+  "retrieved_at": "2026-11-04T20:12:49.444006+00:00",
+  "repository": "nfl-football-ops/Big-Data-Bowl",
+  "commit": "9ad0b4b2ea36697e29e44e2399512cc1ce70358c",
+  "authority_basis": "Publisher README identifies this as the NFL Big Data Bowl data homepage; repository metadata homepage links to ops.nfl.com/big-data-bowl. No independent website fetch was possible in this network environment.",
+  "scope": "Official publisher's 2017 Weeks 1\u20136 sample only. Not 2026 data, market odds, or player props.",
+  "files": [
+    {
+      "local": "games.csv",
+      "path": "Data/games.csv",
+      "bytes": 15825,
+      "git_blob_sha1": "3835c453e8c37342394267c384948b7d88fe55f1",
+      "sha256": "f5bbd13d9c711c07e3d4a5b674eb25c1f5f9ced099729337bfd366b5229199ed",
+      "source_url": "https://github.com/nfl-football-ops/Big-Data-Bowl/blob/9ad0b4b2ea36697e29e44e2399512cc1ce70358c/Data/games.csv",
+      "rows": 91
+    },
+    {
+      "local": "official-schema.md",
+      "path": "schema.md",
+      "bytes": 5816,
+      "git_blob_sha1": "d50ff5358998266dca3ec3944fbd1b67b89ac7ef",
+      "sha256": "b65a93f6daf67c879d73f8563dc5a32878bb7aee91a606883160dc9f7c274394",
+      "source_url": "https://github.com/nfl-football-ops/Big-Data-Bowl/blob/9ad0b4b2ea36697e29e44e2399512cc1ce70358c/schema.md"
+    },
+    {
+      "local": "official-readme.md",
+      "path": "README.md",
+      "bytes": 6225,
+      "git_blob_sha1": "0036fa5d3ddde54303218dff3765afbcf230ff99",
+      "sha256": "c8fa7443aa7cdbc4a17482c19b3df7fee91db7b6483428b061491e171c528690",
+      "source_url": "https://github.com/nfl-football-ops/Big-Data-Bowl/blob/9ad0b4b2ea36697e29e44e2399512cc1ce70358c/README.md"
+    }
+  ]
+}
