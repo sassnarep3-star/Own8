@@ -1,7 +1,7 @@
 # Verbatim subset of the official Next Gen Stats weekly passing table, https://nextgenstats.nfl.com/stats/passing/2026/REG/<week>
 # (fetched 2026-11-04 by session 4bc92a5f; the page renders the same table twice — the first rendering is transcribed).
 # Columns kept: week|PLAYER NAME|TEAM|ATT|YDS|TD|INT   (definitions: https://nextgenstats.nfl.com/glossary)
-# Week 2: https://nextgenstats.nfl.com/stats/passing/2026/REG/2 rendered only the NGS logo shell on 4 attempts (2026-11-04 ~20:45-20:55 UTC) -> NOT captured, left blank, flagged unverified.
+# Week 2: https://nextgenstats.nfl.com/stats/passing/2026/REG/2 rendered only the NGS logo shell on 4 attempts (2026-11-04, before commit 1410900 at 20:22 UTC) -> NOT captured, left blank, flagged unverified.
 # NGS lists only passers meeting its own attempt threshold, so some team-games have no row (e.g. TB W7, JAX/TB W8) -> missing, never inferred.
 1|Tyler Shough|NO|56|410|3|2
 1|Jordan Love|GB|42|387|2|1

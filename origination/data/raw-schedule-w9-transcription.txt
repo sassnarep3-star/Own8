@@ -1,4 +1,4 @@
-# Verbatim transcription of https://www.nfl.com/schedules/2026/by-week/week-9 (3 chunks), fetched 2026-11-04 ~20:40 UTC by session 4bc92a5f.
+# Verbatim transcription of https://www.nfl.com/schedules/2026/by-week/week-9 (3 chunks), fetched 2026-11-04 by session 4bc92a5f; first committed in 1410900 at 20:22 UTC.
 # Kickoff times are copied as rendered; the page labels them "LOCAL" (time zone of the render is not stated) — do not treat as verified ET.
 # section heading|away|home|day+date as rendered in link text|time as rendered|network as rendered|game_slug
 Thursday Night Football, November 5th|JAX|BAL|Thursday, November 5th|8:15 PM|PRIME|jaguars-at-ravens-2026-reg-9
