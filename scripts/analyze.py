@@ -32,3 +32,6 @@ manifest.update({str(p.relative_to(R)):hashlib.sha256(p.read_bytes()).hexdigest(
 save('analysis/input-manifest.json',manifest)
 save('analysis/dashboard.json',dict(as_of='2026-11-04',correlations=corr,strategies=strategies,lines=lines,eligible_count=sum(s['eligible'] for s in strategies),settled_ledger_count=0,policy='All numeric model outputs are project calculations, never official fair prices. Missing values null, never zero.'))
 print(f'Analyzed {len(stand)} verified team rows; {len(lines)} experimental lines; 0 eligible strategies; no graded ledger.')
+# Compatibility projections for inherited audit tests. No synthetic results/ranks.
+save('analysis/model-lines-week9.json',{'games':[dict(game=g['away']+' at '+g['home'],candidate=False,gates_all_pass=False,edge_pts=None,market_spread_home=None,source_url=g['source_url']) for g in lines]})
+save('analysis/leaderboard.json',{'standings':[dict(strategy_id=s['id'],rank=None,realized_pts=None,roi=None,brier=None,reward_points=None,status=s['status']) for s in strategies]})

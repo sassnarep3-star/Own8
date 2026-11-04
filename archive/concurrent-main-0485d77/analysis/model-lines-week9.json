@@ -1,0 +1,951 @@
+{
+  "as_of": "2026-11-04",
+  "method": "B0: away=(away PF/GP + home PA/GP)/2; home=(home PF/GP + away PA/GP)/2. No fitted venue adjustment (zero by design). Home handicap=away projection-home projection. No opponent, roster or uncertainty calibration. Illustrative benchmark only; not betting fair value.",
+  "games": [
+    {
+      "away": "JAX",
+      "home": "BAL",
+      "date": "2026-11-05",
+      "kickoff_et": "8:15 PM",
+      "network": "Prime Video",
+      "game_url": "https://www.nfl.com/games/jaguars-at-ravens-2026-reg-9",
+      "venue": null,
+      "neutral_site": null,
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "status": "VERIFIED",
+      "checked_at": "2026-11-04",
+      "proj_away": 26.6875,
+      "proj_home": 19.1161,
+      "home_margin": -7.5714,
+      "home_handicap": 7.5714,
+      "model_total": 45.8036,
+      "game": "JAX at BAL",
+      "classification": "DERIVED \u2014 B0 UNVALIDATED",
+      "market_spread_home": null,
+      "market_price": null,
+      "edge_pts": null,
+      "win_probability": null,
+      "moneyline": null,
+      "candidate": false,
+      "candidate_side": null,
+      "gates_all_pass": false,
+      "gates": {
+        "G1": {
+          "status": "PASS",
+          "rule": "Verified snapshot inputs, field-level sources; third-party prices excluded."
+        },
+        "G2": {
+          "status": "BLOCKED",
+          "rule": "Timestamped pre-kickoff inputs and prices, with complete as-of history. Current capture dates alone do not establish availability at each past decision."
+        },
+        "G3": {
+          "status": "BLOCKED",
+          "rule": "Chronological training / validation / untouched test; no in-sample standings used to prove predictive skill."
+        },
+        "G4": {
+          "status": "BLOCKED",
+          "rule": "Current final injuries, active roster and usage; No Injuries Reported is not clearance."
+        },
+        "G5": {
+          "status": "BLOCKED",
+          "rule": "Operator-native timestamped line, price, settlement and void rules. No assumed -110 pricing."
+        },
+        "G6": {
+          "status": "BLOCKED",
+          "rule": "Out-of-sample calibrated probabilities; aligned outcomes and joint distribution for combos. Team correlations cannot price bets."
+        },
+        "G7": {
+          "status": "BLOCKED",
+          "rule": "Positive conservative net EV after costs and pushes, robust across seasons; pre-registered family-wide uncertainty adjustment."
+        },
+        "G8": {
+          "status": "BLOCKED",
+          "rule": "Prospective immutable paper ledger, exposure caps, drawdown stress tests. No rewards before every applicable gate passes."
+        }
+      },
+      "inputs_source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "away": "CIN",
+      "home": "ATL",
+      "date": "2026-11-08",
+      "kickoff_et": "9:30 AM",
+      "network": "NFL Network",
+      "game_url": "https://www.nfl.com/games/bengals-at-falcons-2026-reg-9",
+      "venue": null,
+      "neutral_site": true,
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "status": "VERIFIED",
+      "checked_at": "2026-11-04",
+      "proj_away": 26.5268,
+      "proj_home": 21.9732,
+      "home_margin": -4.5536,
+      "home_handicap": 4.5536,
+      "model_total": 48.5,
+      "game": "CIN at ATL",
+      "classification": "DERIVED \u2014 B0 UNVALIDATED",
+      "market_spread_home": null,
+      "market_price": null,
+      "edge_pts": null,
+      "win_probability": null,
+      "moneyline": null,
+      "candidate": false,
+      "candidate_side": null,
+      "gates_all_pass": false,
+      "gates": {
+        "G1": {
+          "status": "PASS",
+          "rule": "Verified snapshot inputs, field-level sources; third-party prices excluded."
+        },
+        "G2": {
+          "status": "BLOCKED",
+          "rule": "Timestamped pre-kickoff inputs and prices, with complete as-of history. Current capture dates alone do not establish availability at each past decision."
+        },
+        "G3": {
+          "status": "BLOCKED",
+          "rule": "Chronological training / validation / untouched test; no in-sample standings used to prove predictive skill."
+        },
+        "G4": {
+          "status": "BLOCKED",
+          "rule": "Current final injuries, active roster and usage; No Injuries Reported is not clearance."
+        },
+        "G5": {
+          "status": "BLOCKED",
+          "rule": "Operator-native timestamped line, price, settlement and void rules. No assumed -110 pricing."
+        },
+        "G6": {
+          "status": "BLOCKED",
+          "rule": "Out-of-sample calibrated probabilities; aligned outcomes and joint distribution for combos. Team correlations cannot price bets."
+        },
+        "G7": {
+          "status": "BLOCKED",
+          "rule": "Positive conservative net EV after costs and pushes, robust across seasons; pre-registered family-wide uncertainty adjustment."
+        },
+        "G8": {
+          "status": "BLOCKED",
+          "rule": "Prospective immutable paper ledger, exposure caps, drawdown stress tests. No rewards before every applicable gate passes."
+        }
+      },
+      "inputs_source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "away": "DEN",
+      "home": "CAR",
+      "date": "2026-11-08",
+      "kickoff_et": "1:00 PM",
+      "network": "CBS",
+      "game_url": "https://www.nfl.com/games/broncos-at-panthers-2026-reg-9",
+      "venue": null,
+      "neutral_site": null,
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "status": "VERIFIED",
+      "checked_at": "2026-11-04",
+      "proj_away": 24.5357,
+      "proj_home": 23.0268,
+      "home_margin": -1.5089,
+      "home_handicap": 1.5089,
+      "model_total": 47.5625,
+      "game": "DEN at CAR",
+      "classification": "DERIVED \u2014 B0 UNVALIDATED",
+      "market_spread_home": null,
+      "market_price": null,
+      "edge_pts": null,
+      "win_probability": null,
+      "moneyline": null,
+      "candidate": false,
+      "candidate_side": null,
+      "gates_all_pass": false,
+      "gates": {
+        "G1": {
+          "status": "PASS",
+          "rule": "Verified snapshot inputs, field-level sources; third-party prices excluded."
+        },
+        "G2": {
+          "status": "BLOCKED",
+          "rule": "Timestamped pre-kickoff inputs and prices, with complete as-of history. Current capture dates alone do not establish availability at each past decision."
+        },
+        "G3": {
+          "status": "BLOCKED",
+          "rule": "Chronological training / validation / untouched test; no in-sample standings used to prove predictive skill."
+        },
+        "G4": {
+          "status": "BLOCKED",
+          "rule": "Current final injuries, active roster and usage; No Injuries Reported is not clearance."
+        },
+        "G5": {
+          "status": "BLOCKED",
+          "rule": "Operator-native timestamped line, price, settlement and void rules. No assumed -110 pricing."
+        },
+        "G6": {
+          "status": "BLOCKED",
+          "rule": "Out-of-sample calibrated probabilities; aligned outcomes and joint distribution for combos. Team correlations cannot price bets."
+        },
+        "G7": {
+          "status": "BLOCKED",
+          "rule": "Positive conservative net EV after costs and pushes, robust across seasons; pre-registered family-wide uncertainty adjustment."
+        },
+        "G8": {
+          "status": "BLOCKED",
+          "rule": "Prospective immutable paper ledger, exposure caps, drawdown stress tests. No rewards before every applicable gate passes."
+        }
+      },
+      "inputs_source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "away": "DAL",
+      "home": "IND",
+      "date": "2026-11-08",
+      "kickoff_et": "1:00 PM",
+      "network": "FOX",
+      "game_url": "https://www.nfl.com/games/cowboys-at-colts-2026-reg-9",
+      "venue": null,
+      "neutral_site": null,
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "status": "VERIFIED",
+      "checked_at": "2026-11-04",
+      "proj_away": 27.5625,
+      "proj_home": 23.375,
+      "home_margin": -4.1875,
+      "home_handicap": 4.1875,
+      "model_total": 50.9375,
+      "game": "DAL at IND",
+      "classification": "DERIVED \u2014 B0 UNVALIDATED",
+      "market_spread_home": null,
+      "market_price": null,
+      "edge_pts": null,
+      "win_probability": null,
+      "moneyline": null,
+      "candidate": false,
+      "candidate_side": null,
+      "gates_all_pass": false,
+      "gates": {
+        "G1": {
+          "status": "PASS",
+          "rule": "Verified snapshot inputs, field-level sources; third-party prices excluded."
+        },
+        "G2": {
+          "status": "BLOCKED",
+          "rule": "Timestamped pre-kickoff inputs and prices, with complete as-of history. Current capture dates alone do not establish availability at each past decision."
+        },
+        "G3": {
+          "status": "BLOCKED",
+          "rule": "Chronological training / validation / untouched test; no in-sample standings used to prove predictive skill."
+        },
+        "G4": {
+          "status": "BLOCKED",
+          "rule": "Current final injuries, active roster and usage; No Injuries Reported is not clearance."
+        },
+        "G5": {
+          "status": "BLOCKED",
+          "rule": "Operator-native timestamped line, price, settlement and void rules. No assumed -110 pricing."
+        },
+        "G6": {
+          "status": "BLOCKED",
+          "rule": "Out-of-sample calibrated probabilities; aligned outcomes and joint distribution for combos. Team correlations cannot price bets."
+        },
+        "G7": {
+          "status": "BLOCKED",
+          "rule": "Positive conservative net EV after costs and pushes, robust across seasons; pre-registered family-wide uncertainty adjustment."
+        },
+        "G8": {
+          "status": "BLOCKED",
+          "rule": "Prospective immutable paper ledger, exposure caps, drawdown stress tests. No rewards before every applicable gate passes."
+        }
+      },
+      "inputs_source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "away": "NYJ",
+      "home": "KC",
+      "date": "2026-11-08",
+      "kickoff_et": "1:00 PM",
+      "network": "CBS",
+      "game_url": "https://www.nfl.com/games/jets-at-chiefs-2026-reg-9",
+      "venue": null,
+      "neutral_site": null,
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "status": "VERIFIED",
+      "checked_at": "2026-11-04",
+      "proj_away": 19.9821,
+      "proj_home": 23.6786,
+      "home_margin": 3.6964,
+      "home_handicap": -3.6964,
+      "model_total": 43.6607,
+      "game": "NYJ at KC",
+      "classification": "DERIVED \u2014 B0 UNVALIDATED",
+      "market_spread_home": null,
+      "market_price": null,
+      "edge_pts": null,
+      "win_probability": null,
+      "moneyline": null,
+      "candidate": false,
+      "candidate_side": null,
+      "gates_all_pass": false,
+      "gates": {
+        "G1": {
+          "status": "PASS",
+          "rule": "Verified snapshot inputs, field-level sources; third-party prices excluded."
+        },
+        "G2": {
+          "status": "BLOCKED",
+          "rule": "Timestamped pre-kickoff inputs and prices, with complete as-of history. Current capture dates alone do not establish availability at each past decision."
+        },
+        "G3": {
+          "status": "BLOCKED",
+          "rule": "Chronological training / validation / untouched test; no in-sample standings used to prove predictive skill."
+        },
+        "G4": {
+          "status": "BLOCKED",
+          "rule": "Current final injuries, active roster and usage; No Injuries Reported is not clearance."
+        },
+        "G5": {
+          "status": "BLOCKED",
+          "rule": "Operator-native timestamped line, price, settlement and void rules. No assumed -110 pricing."
+        },
+        "G6": {
+          "status": "BLOCKED",
+          "rule": "Out-of-sample calibrated probabilities; aligned outcomes and joint distribution for combos. Team correlations cannot price bets."
+        },
+        "G7": {
+          "status": "BLOCKED",
+          "rule": "Positive conservative net EV after costs and pushes, robust across seasons; pre-registered family-wide uncertainty adjustment."
+        },
+        "G8": {
+          "status": "BLOCKED",
+          "rule": "Prospective immutable paper ledger, exposure caps, drawdown stress tests. No rewards before every applicable gate passes."
+        }
+      },
+      "inputs_source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "away": "DET",
+      "home": "MIA",
+      "date": "2026-11-08",
+      "kickoff_et": "1:00 PM",
+      "network": "CBS",
+      "game_url": "https://www.nfl.com/games/lions-at-dolphins-2026-reg-9",
+      "venue": null,
+      "neutral_site": null,
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "status": "VERIFIED",
+      "checked_at": "2026-11-04",
+      "proj_away": 27.4286,
+      "proj_home": 21.2143,
+      "home_margin": -6.2143,
+      "home_handicap": 6.2143,
+      "model_total": 48.6429,
+      "game": "DET at MIA",
+      "classification": "DERIVED \u2014 B0 UNVALIDATED",
+      "market_spread_home": null,
+      "market_price": null,
+      "edge_pts": null,
+      "win_probability": null,
+      "moneyline": null,
+      "candidate": false,
+      "candidate_side": null,
+      "gates_all_pass": false,
+      "gates": {
+        "G1": {
+          "status": "PASS",
+          "rule": "Verified snapshot inputs, field-level sources; third-party prices excluded."
+        },
+        "G2": {
+          "status": "BLOCKED",
+          "rule": "Timestamped pre-kickoff inputs and prices, with complete as-of history. Current capture dates alone do not establish availability at each past decision."
+        },
+        "G3": {
+          "status": "BLOCKED",
+          "rule": "Chronological training / validation / untouched test; no in-sample standings used to prove predictive skill."
+        },
+        "G4": {
+          "status": "BLOCKED",
+          "rule": "Current final injuries, active roster and usage; No Injuries Reported is not clearance."
+        },
+        "G5": {
+          "status": "BLOCKED",
+          "rule": "Operator-native timestamped line, price, settlement and void rules. No assumed -110 pricing."
+        },
+        "G6": {
+          "status": "BLOCKED",
+          "rule": "Out-of-sample calibrated probabilities; aligned outcomes and joint distribution for combos. Team correlations cannot price bets."
+        },
+        "G7": {
+          "status": "BLOCKED",
+          "rule": "Positive conservative net EV after costs and pushes, robust across seasons; pre-registered family-wide uncertainty adjustment."
+        },
+        "G8": {
+          "status": "BLOCKED",
+          "rule": "Prospective immutable paper ledger, exposure caps, drawdown stress tests. No rewards before every applicable gate passes."
+        }
+      },
+      "inputs_source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "away": "CLE",
+      "home": "NO",
+      "date": "2026-11-08",
+      "kickoff_et": "1:00 PM",
+      "network": "CBS",
+      "game_url": "https://www.nfl.com/games/browns-at-saints-2026-reg-9",
+      "venue": null,
+      "neutral_site": null,
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "status": "VERIFIED",
+      "checked_at": "2026-11-04",
+      "proj_away": 22.5446,
+      "proj_home": 22.3839,
+      "home_margin": -0.1607,
+      "home_handicap": 0.1607,
+      "model_total": 44.9286,
+      "game": "CLE at NO",
+      "classification": "DERIVED \u2014 B0 UNVALIDATED",
+      "market_spread_home": null,
+      "market_price": null,
+      "edge_pts": null,
+      "win_probability": null,
+      "moneyline": null,
+      "candidate": false,
+      "candidate_side": null,
+      "gates_all_pass": false,
+      "gates": {
+        "G1": {
+          "status": "PASS",
+          "rule": "Verified snapshot inputs, field-level sources; third-party prices excluded."
+        },
+        "G2": {
+          "status": "BLOCKED",
+          "rule": "Timestamped pre-kickoff inputs and prices, with complete as-of history. Current capture dates alone do not establish availability at each past decision."
+        },
+        "G3": {
+          "status": "BLOCKED",
+          "rule": "Chronological training / validation / untouched test; no in-sample standings used to prove predictive skill."
+        },
+        "G4": {
+          "status": "BLOCKED",
+          "rule": "Current final injuries, active roster and usage; No Injuries Reported is not clearance."
+        },
+        "G5": {
+          "status": "BLOCKED",
+          "rule": "Operator-native timestamped line, price, settlement and void rules. No assumed -110 pricing."
+        },
+        "G6": {
+          "status": "BLOCKED",
+          "rule": "Out-of-sample calibrated probabilities; aligned outcomes and joint distribution for combos. Team correlations cannot price bets."
+        },
+        "G7": {
+          "status": "BLOCKED",
+          "rule": "Positive conservative net EV after costs and pushes, robust across seasons; pre-registered family-wide uncertainty adjustment."
+        },
+        "G8": {
+          "status": "BLOCKED",
+          "rule": "Prospective immutable paper ledger, exposure caps, drawdown stress tests. No rewards before every applicable gate passes."
+        }
+      },
+      "inputs_source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "away": "NYG",
+      "home": "PHI",
+      "date": "2026-11-08",
+      "kickoff_et": "1:00 PM",
+      "network": "FOX",
+      "game_url": "https://www.nfl.com/games/giants-at-eagles-2026-reg-9",
+      "venue": null,
+      "neutral_site": null,
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "status": "VERIFIED",
+      "checked_at": "2026-11-04",
+      "proj_away": 24.2679,
+      "proj_home": 20.0625,
+      "home_margin": -4.2054,
+      "home_handicap": 4.2054,
+      "model_total": 44.3304,
+      "game": "NYG at PHI",
+      "classification": "DERIVED \u2014 B0 UNVALIDATED",
+      "market_spread_home": null,
+      "market_price": null,
+      "edge_pts": null,
+      "win_probability": null,
+      "moneyline": null,
+      "candidate": false,
+      "candidate_side": null,
+      "gates_all_pass": false,
+      "gates": {
+        "G1": {
+          "status": "PASS",
+          "rule": "Verified snapshot inputs, field-level sources; third-party prices excluded."
+        },
+        "G2": {
+          "status": "BLOCKED",
+          "rule": "Timestamped pre-kickoff inputs and prices, with complete as-of history. Current capture dates alone do not establish availability at each past decision."
+        },
+        "G3": {
+          "status": "BLOCKED",
+          "rule": "Chronological training / validation / untouched test; no in-sample standings used to prove predictive skill."
+        },
+        "G4": {
+          "status": "BLOCKED",
+          "rule": "Current final injuries, active roster and usage; No Injuries Reported is not clearance."
+        },
+        "G5": {
+          "status": "BLOCKED",
+          "rule": "Operator-native timestamped line, price, settlement and void rules. No assumed -110 pricing."
+        },
+        "G6": {
+          "status": "BLOCKED",
+          "rule": "Out-of-sample calibrated probabilities; aligned outcomes and joint distribution for combos. Team correlations cannot price bets."
+        },
+        "G7": {
+          "status": "BLOCKED",
+          "rule": "Positive conservative net EV after costs and pushes, robust across seasons; pre-registered family-wide uncertainty adjustment."
+        },
+        "G8": {
+          "status": "BLOCKED",
+          "rule": "Prospective immutable paper ledger, exposure caps, drawdown stress tests. No rewards before every applicable gate passes."
+        }
+      },
+      "inputs_source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "away": "LA",
+      "home": "WAS",
+      "date": "2026-11-08",
+      "kickoff_et": "1:00 PM",
+      "network": "FOX",
+      "game_url": "https://www.nfl.com/games/rams-at-commanders-2026-reg-9",
+      "venue": null,
+      "neutral_site": null,
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "status": "VERIFIED",
+      "checked_at": "2026-11-04",
+      "proj_away": 25.125,
+      "proj_home": 21.8571,
+      "home_margin": -3.2679,
+      "home_handicap": 3.2679,
+      "model_total": 46.9821,
+      "game": "LA at WAS",
+      "classification": "DERIVED \u2014 B0 UNVALIDATED",
+      "market_spread_home": null,
+      "market_price": null,
+      "edge_pts": null,
+      "win_probability": null,
+      "moneyline": null,
+      "candidate": false,
+      "candidate_side": null,
+      "gates_all_pass": false,
+      "gates": {
+        "G1": {
+          "status": "PASS",
+          "rule": "Verified snapshot inputs, field-level sources; third-party prices excluded."
+        },
+        "G2": {
+          "status": "BLOCKED",
+          "rule": "Timestamped pre-kickoff inputs and prices, with complete as-of history. Current capture dates alone do not establish availability at each past decision."
+        },
+        "G3": {
+          "status": "BLOCKED",
+          "rule": "Chronological training / validation / untouched test; no in-sample standings used to prove predictive skill."
+        },
+        "G4": {
+          "status": "BLOCKED",
+          "rule": "Current final injuries, active roster and usage; No Injuries Reported is not clearance."
+        },
+        "G5": {
+          "status": "BLOCKED",
+          "rule": "Operator-native timestamped line, price, settlement and void rules. No assumed -110 pricing."
+        },
+        "G6": {
+          "status": "BLOCKED",
+          "rule": "Out-of-sample calibrated probabilities; aligned outcomes and joint distribution for combos. Team correlations cannot price bets."
+        },
+        "G7": {
+          "status": "BLOCKED",
+          "rule": "Positive conservative net EV after costs and pushes, robust across seasons; pre-registered family-wide uncertainty adjustment."
+        },
+        "G8": {
+          "status": "BLOCKED",
+          "rule": "Prospective immutable paper ledger, exposure caps, drawdown stress tests. No rewards before every applicable gate passes."
+        }
+      },
+      "inputs_source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "away": "HOU",
+      "home": "LAC",
+      "date": "2026-11-08",
+      "kickoff_et": "4:05 PM",
+      "network": "CBS",
+      "game_url": "https://www.nfl.com/games/texans-at-chargers-2026-reg-9",
+      "venue": null,
+      "neutral_site": null,
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "status": "VERIFIED",
+      "checked_at": "2026-11-04",
+      "proj_away": 24.2857,
+      "proj_home": 19.2143,
+      "home_margin": -5.0714,
+      "home_handicap": 5.0714,
+      "model_total": 43.5,
+      "game": "HOU at LAC",
+      "classification": "DERIVED \u2014 B0 UNVALIDATED",
+      "market_spread_home": null,
+      "market_price": null,
+      "edge_pts": null,
+      "win_probability": null,
+      "moneyline": null,
+      "candidate": false,
+      "candidate_side": null,
+      "gates_all_pass": false,
+      "gates": {
+        "G1": {
+          "status": "PASS",
+          "rule": "Verified snapshot inputs, field-level sources; third-party prices excluded."
+        },
+        "G2": {
+          "status": "BLOCKED",
+          "rule": "Timestamped pre-kickoff inputs and prices, with complete as-of history. Current capture dates alone do not establish availability at each past decision."
+        },
+        "G3": {
+          "status": "BLOCKED",
+          "rule": "Chronological training / validation / untouched test; no in-sample standings used to prove predictive skill."
+        },
+        "G4": {
+          "status": "BLOCKED",
+          "rule": "Current final injuries, active roster and usage; No Injuries Reported is not clearance."
+        },
+        "G5": {
+          "status": "BLOCKED",
+          "rule": "Operator-native timestamped line, price, settlement and void rules. No assumed -110 pricing."
+        },
+        "G6": {
+          "status": "BLOCKED",
+          "rule": "Out-of-sample calibrated probabilities; aligned outcomes and joint distribution for combos. Team correlations cannot price bets."
+        },
+        "G7": {
+          "status": "BLOCKED",
+          "rule": "Positive conservative net EV after costs and pushes, robust across seasons; pre-registered family-wide uncertainty adjustment."
+        },
+        "G8": {
+          "status": "BLOCKED",
+          "rule": "Prospective immutable paper ledger, exposure caps, drawdown stress tests. No rewards before every applicable gate passes."
+        }
+      },
+      "inputs_source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "away": "LV",
+      "home": "SF",
+      "date": "2026-11-08",
+      "kickoff_et": "4:25 PM",
+      "network": "FOX",
+      "game_url": "https://www.nfl.com/games/raiders-at-49ers-2026-reg-9",
+      "venue": null,
+      "neutral_site": null,
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "status": "VERIFIED",
+      "checked_at": "2026-11-04",
+      "proj_away": 23.7411,
+      "proj_home": 28.4464,
+      "home_margin": 4.7054,
+      "home_handicap": -4.7054,
+      "model_total": 52.1875,
+      "game": "LV at SF",
+      "classification": "DERIVED \u2014 B0 UNVALIDATED",
+      "market_spread_home": null,
+      "market_price": null,
+      "edge_pts": null,
+      "win_probability": null,
+      "moneyline": null,
+      "candidate": false,
+      "candidate_side": null,
+      "gates_all_pass": false,
+      "gates": {
+        "G1": {
+          "status": "PASS",
+          "rule": "Verified snapshot inputs, field-level sources; third-party prices excluded."
+        },
+        "G2": {
+          "status": "BLOCKED",
+          "rule": "Timestamped pre-kickoff inputs and prices, with complete as-of history. Current capture dates alone do not establish availability at each past decision."
+        },
+        "G3": {
+          "status": "BLOCKED",
+          "rule": "Chronological training / validation / untouched test; no in-sample standings used to prove predictive skill."
+        },
+        "G4": {
+          "status": "BLOCKED",
+          "rule": "Current final injuries, active roster and usage; No Injuries Reported is not clearance."
+        },
+        "G5": {
+          "status": "BLOCKED",
+          "rule": "Operator-native timestamped line, price, settlement and void rules. No assumed -110 pricing."
+        },
+        "G6": {
+          "status": "BLOCKED",
+          "rule": "Out-of-sample calibrated probabilities; aligned outcomes and joint distribution for combos. Team correlations cannot price bets."
+        },
+        "G7": {
+          "status": "BLOCKED",
+          "rule": "Positive conservative net EV after costs and pushes, robust across seasons; pre-registered family-wide uncertainty adjustment."
+        },
+        "G8": {
+          "status": "BLOCKED",
+          "rule": "Prospective immutable paper ledger, exposure caps, drawdown stress tests. No rewards before every applicable gate passes."
+        }
+      },
+      "inputs_source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "away": "GB",
+      "home": "NE",
+      "date": "2026-11-08",
+      "kickoff_et": "4:25 PM",
+      "network": "FOX",
+      "game_url": "https://www.nfl.com/games/packers-at-patriots-2026-reg-9",
+      "venue": null,
+      "neutral_site": null,
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "status": "VERIFIED",
+      "checked_at": "2026-11-04",
+      "proj_away": 20.8125,
+      "proj_home": 21.75,
+      "home_margin": 0.9375,
+      "home_handicap": -0.9375,
+      "model_total": 42.5625,
+      "game": "GB at NE",
+      "classification": "DERIVED \u2014 B0 UNVALIDATED",
+      "market_spread_home": null,
+      "market_price": null,
+      "edge_pts": null,
+      "win_probability": null,
+      "moneyline": null,
+      "candidate": false,
+      "candidate_side": null,
+      "gates_all_pass": false,
+      "gates": {
+        "G1": {
+          "status": "PASS",
+          "rule": "Verified snapshot inputs, field-level sources; third-party prices excluded."
+        },
+        "G2": {
+          "status": "BLOCKED",
+          "rule": "Timestamped pre-kickoff inputs and prices, with complete as-of history. Current capture dates alone do not establish availability at each past decision."
+        },
+        "G3": {
+          "status": "BLOCKED",
+          "rule": "Chronological training / validation / untouched test; no in-sample standings used to prove predictive skill."
+        },
+        "G4": {
+          "status": "BLOCKED",
+          "rule": "Current final injuries, active roster and usage; No Injuries Reported is not clearance."
+        },
+        "G5": {
+          "status": "BLOCKED",
+          "rule": "Operator-native timestamped line, price, settlement and void rules. No assumed -110 pricing."
+        },
+        "G6": {
+          "status": "BLOCKED",
+          "rule": "Out-of-sample calibrated probabilities; aligned outcomes and joint distribution for combos. Team correlations cannot price bets."
+        },
+        "G7": {
+          "status": "BLOCKED",
+          "rule": "Positive conservative net EV after costs and pushes, robust across seasons; pre-registered family-wide uncertainty adjustment."
+        },
+        "G8": {
+          "status": "BLOCKED",
+          "rule": "Prospective immutable paper ledger, exposure caps, drawdown stress tests. No rewards before every applicable gate passes."
+        }
+      },
+      "inputs_source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "away": "AZ",
+      "home": "SEA",
+      "date": "2026-11-08",
+      "kickoff_et": "4:25 PM",
+      "network": "FOX",
+      "game_url": "https://www.nfl.com/games/cardinals-at-seahawks-2026-reg-9",
+      "venue": null,
+      "neutral_site": null,
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "status": "VERIFIED",
+      "checked_at": "2026-11-04",
+      "proj_away": 20.875,
+      "proj_home": 26.4375,
+      "home_margin": 5.5625,
+      "home_handicap": -5.5625,
+      "model_total": 47.3125,
+      "game": "AZ at SEA",
+      "classification": "DERIVED \u2014 B0 UNVALIDATED",
+      "market_spread_home": null,
+      "market_price": null,
+      "edge_pts": null,
+      "win_probability": null,
+      "moneyline": null,
+      "candidate": false,
+      "candidate_side": null,
+      "gates_all_pass": false,
+      "gates": {
+        "G1": {
+          "status": "PASS",
+          "rule": "Verified snapshot inputs, field-level sources; third-party prices excluded."
+        },
+        "G2": {
+          "status": "BLOCKED",
+          "rule": "Timestamped pre-kickoff inputs and prices, with complete as-of history. Current capture dates alone do not establish availability at each past decision."
+        },
+        "G3": {
+          "status": "BLOCKED",
+          "rule": "Chronological training / validation / untouched test; no in-sample standings used to prove predictive skill."
+        },
+        "G4": {
+          "status": "BLOCKED",
+          "rule": "Current final injuries, active roster and usage; No Injuries Reported is not clearance."
+        },
+        "G5": {
+          "status": "BLOCKED",
+          "rule": "Operator-native timestamped line, price, settlement and void rules. No assumed -110 pricing."
+        },
+        "G6": {
+          "status": "BLOCKED",
+          "rule": "Out-of-sample calibrated probabilities; aligned outcomes and joint distribution for combos. Team correlations cannot price bets."
+        },
+        "G7": {
+          "status": "BLOCKED",
+          "rule": "Positive conservative net EV after costs and pushes, robust across seasons; pre-registered family-wide uncertainty adjustment."
+        },
+        "G8": {
+          "status": "BLOCKED",
+          "rule": "Prospective immutable paper ledger, exposure caps, drawdown stress tests. No rewards before every applicable gate passes."
+        }
+      },
+      "inputs_source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "away": "TB",
+      "home": "CHI",
+      "date": "2026-11-08",
+      "kickoff_et": "8:20 PM",
+      "network": "NBC",
+      "game_url": "https://www.nfl.com/games/buccaneers-at-bears-2026-reg-9",
+      "venue": null,
+      "neutral_site": null,
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "status": "VERIFIED",
+      "checked_at": "2026-11-04",
+      "proj_away": 21.125,
+      "proj_home": 22.8125,
+      "home_margin": 1.6875,
+      "home_handicap": -1.6875,
+      "model_total": 43.9375,
+      "game": "TB at CHI",
+      "classification": "DERIVED \u2014 B0 UNVALIDATED",
+      "market_spread_home": null,
+      "market_price": null,
+      "edge_pts": null,
+      "win_probability": null,
+      "moneyline": null,
+      "candidate": false,
+      "candidate_side": null,
+      "gates_all_pass": false,
+      "gates": {
+        "G1": {
+          "status": "PASS",
+          "rule": "Verified snapshot inputs, field-level sources; third-party prices excluded."
+        },
+        "G2": {
+          "status": "BLOCKED",
+          "rule": "Timestamped pre-kickoff inputs and prices, with complete as-of history. Current capture dates alone do not establish availability at each past decision."
+        },
+        "G3": {
+          "status": "BLOCKED",
+          "rule": "Chronological training / validation / untouched test; no in-sample standings used to prove predictive skill."
+        },
+        "G4": {
+          "status": "BLOCKED",
+          "rule": "Current final injuries, active roster and usage; No Injuries Reported is not clearance."
+        },
+        "G5": {
+          "status": "BLOCKED",
+          "rule": "Operator-native timestamped line, price, settlement and void rules. No assumed -110 pricing."
+        },
+        "G6": {
+          "status": "BLOCKED",
+          "rule": "Out-of-sample calibrated probabilities; aligned outcomes and joint distribution for combos. Team correlations cannot price bets."
+        },
+        "G7": {
+          "status": "BLOCKED",
+          "rule": "Positive conservative net EV after costs and pushes, robust across seasons; pre-registered family-wide uncertainty adjustment."
+        },
+        "G8": {
+          "status": "BLOCKED",
+          "rule": "Prospective immutable paper ledger, exposure caps, drawdown stress tests. No rewards before every applicable gate passes."
+        }
+      },
+      "inputs_source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "away": "BUF",
+      "home": "MIN",
+      "date": "2026-11-09",
+      "kickoff_et": "8:15 PM",
+      "network": "ESPN",
+      "game_url": "https://www.nfl.com/games/bills-at-vikings-2026-reg-9",
+      "venue": null,
+      "neutral_site": null,
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "status": "VERIFIED",
+      "checked_at": "2026-11-04",
+      "proj_away": 23.2857,
+      "proj_home": 22.9286,
+      "home_margin": -0.3571,
+      "home_handicap": 0.3571,
+      "model_total": 46.2143,
+      "game": "BUF at MIN",
+      "classification": "DERIVED \u2014 B0 UNVALIDATED",
+      "market_spread_home": null,
+      "market_price": null,
+      "edge_pts": null,
+      "win_probability": null,
+      "moneyline": null,
+      "candidate": false,
+      "candidate_side": null,
+      "gates_all_pass": false,
+      "gates": {
+        "G1": {
+          "status": "PASS",
+          "rule": "Verified snapshot inputs, field-level sources; third-party prices excluded."
+        },
+        "G2": {
+          "status": "BLOCKED",
+          "rule": "Timestamped pre-kickoff inputs and prices, with complete as-of history. Current capture dates alone do not establish availability at each past decision."
+        },
+        "G3": {
+          "status": "BLOCKED",
+          "rule": "Chronological training / validation / untouched test; no in-sample standings used to prove predictive skill."
+        },
+        "G4": {
+          "status": "BLOCKED",
+          "rule": "Current final injuries, active roster and usage; No Injuries Reported is not clearance."
+        },
+        "G5": {
+          "status": "BLOCKED",
+          "rule": "Operator-native timestamped line, price, settlement and void rules. No assumed -110 pricing."
+        },
+        "G6": {
+          "status": "BLOCKED",
+          "rule": "Out-of-sample calibrated probabilities; aligned outcomes and joint distribution for combos. Team correlations cannot price bets."
+        },
+        "G7": {
+          "status": "BLOCKED",
+          "rule": "Positive conservative net EV after costs and pushes, robust across seasons; pre-registered family-wide uncertainty adjustment."
+        },
+        "G8": {
+          "status": "BLOCKED",
+          "rule": "Prospective immutable paper ledger, exposure caps, drawdown stress tests. No rewards before every applicable gate passes."
+        }
+      },
+      "inputs_source_url": "https://www.nfl.com/standings/"
+    }
+  ]
+}

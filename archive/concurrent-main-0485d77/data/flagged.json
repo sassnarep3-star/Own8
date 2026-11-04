@@ -1,0 +1,244 @@
+{
+  "as_of": "2026-11-04",
+  "items": [
+    {
+      "id": "A01",
+      "severity": "critical",
+      "item": "Unverified aggregator odds entered prior candidates. All market prices, edges and selections are now null/blocked.",
+      "source_url": "https://www.nfl.com/scores/",
+      "status": "needs review"
+    },
+    {
+      "id": "A02",
+      "severity": "critical",
+      "item": "Prior code counted CONDITIONAL as PASS. Strict PASS-only eligibility is now tested; no eligible strategy.",
+      "source_url": "https://www.itl.nist.gov/div898/handbook/prc/section1/prc14.htm",
+      "status": "needs review"
+    },
+    {
+      "id": "A03",
+      "severity": "critical",
+      "item": "Team-aggregate correlation was used as a parlay proxy. All bet-leg correlations are now blank. Unknown dependence is not independence.",
+      "source_url": "https://www.itl.nist.gov/div898/handbook/eda/section3/scatterp.htm",
+      "status": "needs review"
+    },
+    {
+      "id": "A04",
+      "severity": "high",
+      "item": "Luck cannot be removed or a strategy certified skill-only from this snapshot. No out-of-sample paper ledger, confidence-adjusted edge or rewards exist.",
+      "source_url": "https://www.itl.nist.gov/div898/handbook/prc/section1/prc14.htm",
+      "status": "needs review"
+    },
+    {
+      "id": "A05",
+      "severity": "high",
+      "item": "Week 9 injury report exists on 2026-11-04. Prior not-published claim retired. Practice-only rows and blank game statuses do not pass clearance.",
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg9",
+      "status": "needs review"
+    },
+    {
+      "id": "A06",
+      "severity": "high",
+      "item": "Prior spread margin and handicap sign conventions were mixed. B0 explicitly uses home handicap = away projected score minus home projected score. No price comparison without a verified operator quote.",
+      "source_url": "https://www.nfl.com/scores/",
+      "status": "needs review"
+    },
+    {
+      "id": "A07",
+      "severity": "high",
+      "item": "Prior claimed injury/news adjustments were not implemented in numerical projections. New B0 has no roster adjustment and is blocked. News publication dates not confirmed; left blank.",
+      "source_url": "https://www.nfl.com/news/eagles-qb-jalen-hurts-out-2026-season-blood-clots",
+      "status": "needs review"
+    },
+    {
+      "id": "A08",
+      "severity": "high",
+      "item": "No historical operator-native odds, settlement rules, player game logs or paired leg outcomes verified. Player/market values withheld, all strategies blocked. Official URLs on unverified rows are retrieval targets, not proof.",
+      "source_url": "https://nextgenstats.nfl.com/glossary",
+      "status": "needs review"
+    },
+    {
+      "id": "A09",
+      "severity": "medium",
+      "item": "Prior Netherlands location assumption unsupported. Replaced with Washington regulator resources; no claim about individual eligibility.",
+      "source_url": "https://wsgc.wa.gov/responsible-gaming-self-exclusion",
+      "status": "needs review"
+    },
+    {
+      "id": "A10",
+      "severity": "medium",
+      "item": "Statistical arithmetic and agreement between two local captures do not prove source accuracy. Only explicitly rechecked fields are promoted. Standings tail columns and venues withheld.",
+      "source_url": "https://www.nfl.com/standings/",
+      "status": "needs review"
+    },
+    {
+      "id": "A11",
+      "severity": "medium",
+      "item": "Two W8 scores not fully observed across retrieval chunks; both rows blank. Other legacy data entries cataloged with values withheld.",
+      "source_url": "https://www.nfl.com/scores/2026/week-8",
+      "status": "needs review"
+    },
+    {
+      "id": "A12",
+      "severity": "high",
+      "item": "No reliable unattended official data capture feed configured. Scheduled CI validates/rebuilds this dated snapshot; it does not claim to fetch fresh prices or grade future games. Staleness blocks eligibility.",
+      "source_url": "https://www.nfl.com/standings/",
+      "status": "needs review"
+    },
+    {
+      "id": "A13",
+      "severity": "medium",
+      "item": "Historical archive and duplicate docs include unverified statements. Retained in Git for audit, excluded from the published artifact; legacy docs URLs redirect to audited pages.",
+      "source_url": "https://www.nfl.com/standings/",
+      "status": "needs review"
+    },
+    {
+      "id": "A14",
+      "severity": "high",
+      "item": "Separate pending PR #6 uses non-NFL historical mirrors and claims luck-free skill. Not merged or endorsed; coordination comment posted. This session only publishes independently audited root integration.",
+      "source_url": "https://github.com/nfl-football-ops/Big-Data-Bowl",
+      "status": "needs review"
+    },
+    {
+      "id": "A15",
+      "severity": "medium",
+      "item": "Original F-01 through F-13 flags remain historical records in Git; their claims are not independently accepted. Each is retained by identifier on this review page.",
+      "source_url": "https://www.nfl.com/standings/",
+      "status": "needs review"
+    },
+    {
+      "id": "F-01",
+      "severity": "low",
+      "item": "Legacy flag retained by identifier. Original assertion not independently certified; see repository history at commit 7c2f545. Use A01\u2013A15 for current dispositions.",
+      "source_url": "https://www.nfl.com/standings/",
+      "status": "needs review"
+    },
+    {
+      "id": "F-02",
+      "severity": "medium",
+      "item": "Legacy flag retained by identifier. Original assertion not independently certified; see repository history at commit 7c2f545. Use A01\u2013A15 for current dispositions.",
+      "source_url": "https://www.nfl.com/stats/player-stats/",
+      "status": "needs review"
+    },
+    {
+      "id": "F-03",
+      "severity": "low",
+      "item": "Legacy flag retained by identifier. Original assertion not independently certified; see repository history at commit 7c2f545. Use A01\u2013A15 for current dispositions.",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/receiving/2026/reg/all/receivingyards/desc",
+      "status": "needs review"
+    },
+    {
+      "id": "F-04",
+      "severity": "medium",
+      "item": "Legacy flag retained by identifier. Original assertion not independently certified; see repository history at commit 7c2f545. Use A01\u2013A15 for current dispositions.",
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg8",
+      "status": "needs review"
+    },
+    {
+      "id": "F-05",
+      "severity": "high",
+      "item": "Legacy flag retained by identifier. Original assertion not independently certified; see repository history at commit 7c2f545. Use A01\u2013A15 for current dispositions.",
+      "source_url": "https://www.nfl.com/standings/",
+      "status": "needs review"
+    },
+    {
+      "id": "F-06",
+      "severity": "medium",
+      "item": "Legacy flag retained by identifier. Original assertion not independently certified; see repository history at commit 7c2f545. Use A01\u2013A15 for current dispositions.",
+      "source_url": "https://www.nfl.com/standings/",
+      "status": "needs review"
+    },
+    {
+      "id": "F-07",
+      "severity": "low",
+      "item": "Legacy flag retained by identifier. Original assertion not independently certified; see repository history at commit 7c2f545. Use A01\u2013A15 for current dispositions.",
+      "source_url": "https://www.nfl.com/standings/",
+      "status": "needs review"
+    },
+    {
+      "id": "F-08",
+      "severity": "medium",
+      "item": "Legacy flag retained by identifier. Original assertion not independently certified; see repository history at commit 7c2f545. Use A01\u2013A15 for current dispositions.",
+      "source_url": "https://www.nfl.com/stats/player-stats/",
+      "status": "needs review"
+    },
+    {
+      "id": "F-09",
+      "severity": "low",
+      "item": "Legacy flag retained by identifier. Original assertion not independently certified; see repository history at commit 7c2f545. Use A01\u2013A15 for current dispositions.",
+      "source_url": "https://www.nfl.com/stats/team-stats/",
+      "status": "needs review"
+    },
+    {
+      "id": "F-10",
+      "severity": "info",
+      "item": "Legacy flag retained by identifier. Original assertion not independently certified; see repository history at commit 7c2f545. Use A01\u2013A15 for current dispositions.",
+      "source_url": "https://www.nfl.com/standings/",
+      "status": "needs review"
+    },
+    {
+      "id": "F-11",
+      "severity": "medium",
+      "item": "Legacy flag retained by identifier. Original assertion not independently certified; see repository history at commit 7c2f545. Use A01\u2013A15 for current dispositions.",
+      "source_url": "https://www.nfl.com/standings/",
+      "status": "needs review"
+    },
+    {
+      "id": "F-12",
+      "severity": "high",
+      "item": "Legacy flag retained by identifier. Original assertion not independently certified; see repository history at commit 7c2f545. Use A01\u2013A15 for current dispositions.",
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/1",
+      "status": "needs review"
+    },
+    {
+      "id": "F-13",
+      "severity": "info",
+      "item": "Legacy flag retained by identifier. Original assertion not independently certified; see repository history at commit 7c2f545. Use A01\u2013A15 for current dispositions.",
+      "source_url": "https://www.nfl.com/standings/",
+      "status": "needs review"
+    },
+    {
+      "id": "F-20",
+      "severity": "medium",
+      "item": "Eagles QB Jalen Hurts: the nfl.com article headline reads 'likely out for rest of 2026 season', while the body also quotes the Eagles/agent statement that 'we expect a full recovery' with 'no long-term effects' and that the return this season is 'in doubt' (per insider reports). The site uses the article's own 'likely out' wording and does not state a definitive season-ending outcome. Article date 2026-10-19; status not re-confirmed after that date.",
+      "source_url": "https://www.nfl.com/news/eagles-qb-jalen-hurts-out-2026-season-blood-clots",
+      "status": "needs review \u2014 concurrent record preserved"
+    },
+    {
+      "id": "F-21",
+      "severity": "low",
+      "item": "Official news items affecting Week 9 (Hurts, McLaurin) are dated 2026-10-19 and 2026-10-21, i.e., more than two weeks before the 2026-11-04 check. The pages were fetched 2026-11-04 and their text is unchanged, but later roster moves (e.g., IR/practice-squad/roster changes) would not be captured in this project's data unless the news feed is re-captured.",
+      "source_url": "https://www.nfl.com/news/commanders-wr-terry-mclaurin-out-rest-of-season-torn-patellar-tendon",
+      "status": "needs review \u2014 concurrent record preserved"
+    },
+    {
+      "id": "F-22",
+      "severity": "medium",
+      "item": "Week 9 official injury report: only the two model-evaluated games (CIN at ATL, NYG at PHI) are transcribed. The other 13 Week 9 games (JAX at BAL, DEN at CAR, DAL at IND, NYJ at KC, DET at MIA, CLE at NO, LA at WAS, HOU at LAC, LV at SF, GB at NE, AZ at SEA, TB at CHI, BUF at MIN) remain uncaptured and their G4 gate stays CONDITIONAL.",
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg9",
+      "status": "needs review \u2014 concurrent record preserved"
+    },
+    {
+      "id": "F-23",
+      "severity": "high",
+      "item": "CORRECTION (session d22c14b9): the prior build listed CIN at ATL and NYG at PHI as 'candidates' with G6 = PASS. G6 used a third-party market value (FanDuel via nflschedules.com) that the project's own rules classify as unverified (F-05), so the PASS was not valid. analyze.py now sets G6 = NOT_COMPUTABLE for all games when the market input is unverified and candidate = false for every game. Model spreads are kept; the third-party market value and all edges are WITHHELD (not displayed) because they are unverified (blank-if-unconfirmed rule). The W9 verified candidate count is now 0. Strategy text in research/ and README was updated to match.",
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "status": "needs review \u2014 concurrent record preserved"
+    },
+    {
+      "id": "F-24",
+      "severity": "medium",
+      "item": "Coordination irregularity: open PR #6 (branch arena/28cc78aa-own8, 'Own8 NFL Line Lab: verified data, gated strategy leaderboard, correlation library, dashboard site') was created by a session (28cc78aa) that does not appear on the COORDINATION.md board. Its scope may overlap with the files on main. This session did not merge it. Board task T7 (session 95e9626f) was still marked 'in progress' although PR #5 was already merged on 2026-11-03; corrected to done in this session's log. Official link is context/verification target only; coordination record: https://github.com/sassnarep3-star/Own8/pull/6",
+      "source_url": "https://www.nfl.com/standings/",
+      "status": "needs review \u2014 concurrent record preserved",
+      "review_record_url": "https://github.com/sassnarep3-star/Own8/pull/6"
+    },
+    {
+      "id": "F-25",
+      "severity": "info",
+      "item": "Branch-name convention: COORDINATION.md specifies session-<id>/<task> branches, but this session's operating instructions require the single branch arena/d22c14b9-own8. The board entries use that branch name, and no other branch was created.",
+      "source_url": "https://www.nfl.com/standings/",
+      "status": "needs review \u2014 concurrent record preserved"
+    }
+  ]
+}

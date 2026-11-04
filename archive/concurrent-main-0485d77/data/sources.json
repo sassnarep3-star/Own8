@@ -1,0 +1,94 @@
+{
+  "captured_at": "2026-11-04",
+  "method": "functions.fetch_page; bounded field audit, not raw HTTP archiving",
+  "sources": [
+    {
+      "id": "standings",
+      "label": "NFL standings",
+      "url": "https://www.nfl.com/standings/",
+      "official": true,
+      "checked_at": "2026-11-04",
+      "used_for": "32 rows: W, L, T, PCT, PF, PA, NET, STRK; 256 field comparisons. Tail record labels withheld."
+    },
+    {
+      "id": "schedule",
+      "label": "NFL Week 9 schedule",
+      "url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "official": true,
+      "checked_at": "2026-11-04",
+      "used_for": "15 matchup/date/time/network entries. ET also supported by injury-page EST labels. Venues withheld. Madrid designation checked."
+    },
+    {
+      "id": "scores",
+      "label": "NFL Week 8 scores",
+      "url": "https://www.nfl.com/scores/2026/week-8",
+      "official": true,
+      "checked_at": "2026-11-04",
+      "used_for": "12 complete score/date rows observed; 2 incomplete captures withheld."
+    },
+    {
+      "id": "injuries",
+      "label": "NFL Week 9 injuries",
+      "url": "https://www.nfl.com/injuries/league/2026/reg9",
+      "official": true,
+      "checked_at": "2026-11-04",
+      "used_for": "28 JAX/BAL practice rows; blank injury/game status preserved. Other teams show No Injuries Reported; not interpreted as clearance."
+    },
+    {
+      "id": "hurts",
+      "label": "NFL.com: Jalen Hurts",
+      "url": "https://www.nfl.com/news/eagles-qb-jalen-hurts-out-2026-season-blood-clots",
+      "official": true,
+      "checked_at": "2026-11-04",
+      "used_for": "Article body checked; likely season absence and prior IR placement. Publication date unverified."
+    },
+    {
+      "id": "mclaurin",
+      "label": "NFL.com: Terry McLaurin",
+      "url": "https://www.nfl.com/news/commanders-wr-terry-mclaurin-out-rest-of-season-torn-patellar-tendon",
+      "official": true,
+      "checked_at": "2026-11-04",
+      "used_for": "Article body checked; season absence. Publication date unverified."
+    },
+    {
+      "id": "ngs",
+      "label": "NFL Next Gen Stats glossary",
+      "url": "https://nextgenstats.nfl.com/glossary",
+      "official": true,
+      "checked_at": "2026-11-04",
+      "used_for": "Definitions of CPOE, intended air yards, separation, target air-yards share, 8+ defenders. No numeric player values promoted."
+    },
+    {
+      "id": "nist-association",
+      "label": "NIST: Scatter plot",
+      "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/scatterp.htm",
+      "official": true,
+      "checked_at": "2026-11-04",
+      "used_for": "Association does not imply causality. Does not endorse an NFL strategy."
+    },
+    {
+      "id": "nist-ci",
+      "label": "NIST: Confidence intervals",
+      "url": "https://www.itl.nist.gov/div898/handbook/prc/section1/prc14.htm",
+      "official": true,
+      "checked_at": "2026-11-04",
+      "used_for": "Repeated-sampling meaning and uncertainty. Does not establish any strategy is profitable."
+    },
+    {
+      "id": "nist-multiple",
+      "label": "NIST: Bonferroni method",
+      "url": "https://www.itl.nist.gov/div898/handbook/prc/section4/prc473.htm",
+      "official": true,
+      "checked_at": "2026-11-04",
+      "used_for": "Family-wide coverage concept; our competition thresholds are project design, not NIST betting rules."
+    },
+    {
+      "id": "wsgc",
+      "label": "Washington State Gambling Commission",
+      "url": "https://wsgc.wa.gov/responsible-gaming-self-exclusion",
+      "official": true,
+      "checked_at": "2026-11-04",
+      "used_for": "Official responsible gaming and self-exclusion resources. No personalized legal conclusion."
+    }
+  ]
+}

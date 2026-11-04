@@ -77,7 +77,7 @@ Results and ranks remain blank. Randomness cannot be removed from football. Thes
 
 ## Automation boundaries
 
-`python3 scripts/audit.py`, `python3 scripts/analyze.py`, `python3 scripts/build_site.py`, `python3 scripts/check_links.py` and the unit tests run unattended on fixed verified inputs. GitHub Actions rebuilds/tests the isolated static artifact. The existing GitHub Pages main/root Jekyll build publishes main with `_config.yml` exclusions; changing publishing mode was denied (HTTP 403). It does not scrape authenticated sources, buy datasets, refresh sportsbook quotes, place wagers or continuously grade a live contest. The source allowlist is not an external uptime check. Stale snapshots stay dated and do not silently become current.
+`python3 scripts/audit.py`, `python3 scripts/analyze.py`, `python3 scripts/build_site.py`, `python3 scripts/check_links.py` and the unit tests run unattended on fixed verified inputs. GitHub Actions rebuilds/tests the isolated static artifact. The integrated deployment uses the workflow’s scoped pages:write token to select and publish that isolated artifact; the sandbox’s direct settings call was denied (HTTP 403). Jekyll exclusions remain as fallback. It does not scrape authenticated sources, buy datasets, refresh sportsbook quotes, place wagers or continuously grade a live contest. The source allowlist is not an external uptime check. Stale snapshots stay dated and do not silently become current.
 
 ## Safety and jurisdiction
 

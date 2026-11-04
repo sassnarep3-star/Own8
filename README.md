@@ -11,7 +11,7 @@ An evidence-first workspace for originating NFL lines and evaluating singles, pa
 - Three descriptive cross-team correlations, **not** bet-leg correlations or skill evidence. Actual parlay/prop-combo correlations remain blank.
 - **Eight blocked strategy hypotheses** and **eleven strict gates**. CONDITIONAL/missing is not PASS. The leaderboard has no ranks, ROI, scores or rewards until qualified, settled evidence exists.
 - All **104 baseline files / 7,901 text lines** inventoried by hash/line count; **502 legacy structured rows** enumerated. This is mechanical review coverage, **not a claim of independently verifying every historical sentence**. Unsupported legacy numeric values are withheld from published tables.
-- Fourteen material audit findings and prior F-01–F-13 IDs are published on **Flagged for Review**. Review flags do not block site publication; missing evidence blocks strategy eligibility.
+- Fourteen material audit findings plus 34 concurrent review-register entries and prior F-01–F-13 IDs are published on **Flagged for Review**. Review flags do not block site publication; missing evidence blocks strategy eligibility.
 
 ## Official references and scope
 
@@ -38,6 +38,8 @@ python3 -m http.server 8000 --bind 0.0.0.0 --directory _site
 
 The fixed-input pipeline is automated. It does **not** implement continuous official-data collection, quote refresh, real-time injury monitoring, a trained multi-season backtest, a live settled forecast ledger or full sportsbook-specific parlay settlement. Those gaps are explicit; no user credentials, purchase or manual entry is requested. The source snapshot remains dated instead of being silently relabeled current.
 
+The integrated PR #19 snapshot, math helpers and 18 inherited regression tests are retained alongside this session’s 12 tests. All 30 test methods must pass. The current site does not promote every inherited observation as independently rechecked by this session.
+
 ## Repository layout
 
 - `data/verified/` — independently checked selected fields; the only current analysis inputs.
@@ -46,8 +48,8 @@ The fixed-input pipeline is automated. It does **not** implement continuous offi
 - `scripts/engine.py` + `tests/` — tested gate, probability, price, settlement and validation primitives.
 - `research/methodology.md` — full research protocol, proposed signal designs, holdout/multiplicity controls, ranking/reward rules and limitations.
 - `index.html`, `pages/`, `assets/`, `public-data/` — generated dashboard and reviewable downloads.
-- `_site/` — ignored, isolated deploy artifact. Legacy HTML/raw unverified numeric datasets are excluded by `_config.yml` in the retained main/root Jekyll deployment; CI/preview uses this isolated artifact.
-- `.github/workflows/pages.yml` — tests/build checks on branch/PR. Existing GitHub Pages main/root publishing is retained because the integration cannot change publishing mode (HTTP 403).
+- `_site/` — ignored, isolated deploy artifact. No legacy HTML/raw unverified numeric datasets are included. `_config.yml` also excludes historical trees if legacy main/root publishing is used as fallback.
+- `.github/workflows/pages.yml` — tests/build checks on branch/PR and one artifact deployment on main. The direct sandbox settings call was denied HTTP 403; the deploy job uses the scoped pages:write workflow token, integrating PR #19’s publishing approach.
 - `archive/pre-audit-2026-11-04/` — superseded scripts, analysis and research, **not authoritative**. Other legacy `data/` files remain for provenance only. Do not feed them to the current pipeline.
 - `COORDINATION.md` — task scope, verification limits and deployment record.
 

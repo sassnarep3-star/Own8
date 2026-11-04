@@ -1,0 +1,124 @@
+{
+  "games": [
+    {
+      "game": "JAX at BAL",
+      "candidate": false,
+      "gates_all_pass": false,
+      "edge_pts": null,
+      "market_spread_home": null,
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9"
+    },
+    {
+      "game": "CIN at ATL",
+      "candidate": false,
+      "gates_all_pass": false,
+      "edge_pts": null,
+      "market_spread_home": null,
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9"
+    },
+    {
+      "game": "DEN at CAR",
+      "candidate": false,
+      "gates_all_pass": false,
+      "edge_pts": null,
+      "market_spread_home": null,
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9"
+    },
+    {
+      "game": "DAL at IND",
+      "candidate": false,
+      "gates_all_pass": false,
+      "edge_pts": null,
+      "market_spread_home": null,
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9"
+    },
+    {
+      "game": "NYJ at KC",
+      "candidate": false,
+      "gates_all_pass": false,
+      "edge_pts": null,
+      "market_spread_home": null,
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9"
+    },
+    {
+      "game": "DET at MIA",
+      "candidate": false,
+      "gates_all_pass": false,
+      "edge_pts": null,
+      "market_spread_home": null,
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9"
+    },
+    {
+      "game": "CLE at NO",
+      "candidate": false,
+      "gates_all_pass": false,
+      "edge_pts": null,
+      "market_spread_home": null,
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9"
+    },
+    {
+      "game": "NYG at PHI",
+      "candidate": false,
+      "gates_all_pass": false,
+      "edge_pts": null,
+      "market_spread_home": null,
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9"
+    },
+    {
+      "game": "LA at WAS",
+      "candidate": false,
+      "gates_all_pass": false,
+      "edge_pts": null,
+      "market_spread_home": null,
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9"
+    },
+    {
+      "game": "HOU at LAC",
+      "candidate": false,
+      "gates_all_pass": false,
+      "edge_pts": null,
+      "market_spread_home": null,
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9"
+    },
+    {
+      "game": "LV at SF",
+      "candidate": false,
+      "gates_all_pass": false,
+      "edge_pts": null,
+      "market_spread_home": null,
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9"
+    },
+    {
+      "game": "GB at NE",
+      "candidate": false,
+      "gates_all_pass": false,
+      "edge_pts": null,
+      "market_spread_home": null,
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9"
+    },
+    {
+      "game": "AZ at SEA",
+      "candidate": false,
+      "gates_all_pass": false,
+      "edge_pts": null,
+      "market_spread_home": null,
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9"
+    },
+    {
+      "game": "TB at CHI",
+      "candidate": false,
+      "gates_all_pass": false,
+      "edge_pts": null,
+      "market_spread_home": null,
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9"
+    },
+    {
+      "game": "BUF at MIN",
+      "candidate": false,
+      "gates_all_pass": false,
+      "edge_pts": null,
+      "market_spread_home": null,
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9"
+    }
+  ]
+}

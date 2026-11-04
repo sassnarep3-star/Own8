@@ -1,0 +1,76 @@
+{
+  "standings": [
+    {
+      "strategy_id": "S1",
+      "rank": null,
+      "realized_pts": null,
+      "roi": null,
+      "brier": null,
+      "reward_points": null,
+      "status": "BLOCKED \u2014 research only"
+    },
+    {
+      "strategy_id": "S2",
+      "rank": null,
+      "realized_pts": null,
+      "roi": null,
+      "brier": null,
+      "reward_points": null,
+      "status": "BLOCKED \u2014 research only"
+    },
+    {
+      "strategy_id": "S3",
+      "rank": null,
+      "realized_pts": null,
+      "roi": null,
+      "brier": null,
+      "reward_points": null,
+      "status": "BLOCKED \u2014 research only"
+    },
+    {
+      "strategy_id": "S4",
+      "rank": null,
+      "realized_pts": null,
+      "roi": null,
+      "brier": null,
+      "reward_points": null,
+      "status": "BLOCKED \u2014 research only"
+    },
+    {
+      "strategy_id": "S5",
+      "rank": null,
+      "realized_pts": null,
+      "roi": null,
+      "brier": null,
+      "reward_points": null,
+      "status": "BLOCKED \u2014 research only"
+    },
+    {
+      "strategy_id": "S6",
+      "rank": null,
+      "realized_pts": null,
+      "roi": null,
+      "brier": null,
+      "reward_points": null,
+      "status": "BLOCKED \u2014 research only"
+    },
+    {
+      "strategy_id": "S7",
+      "rank": null,
+      "realized_pts": null,
+      "roi": null,
+      "brier": null,
+      "reward_points": null,
+      "status": "BLOCKED \u2014 research only"
+    },
+    {
+      "strategy_id": "S8",
+      "rank": null,
+      "realized_pts": null,
+      "roi": null,
+      "brier": null,
+      "reward_points": null,
+      "status": "BLOCKED \u2014 research only"
+    }
+  ]
+}
