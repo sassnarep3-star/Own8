@@ -1,66 +1,55 @@
 #!/usr/bin/env python3
-"""Own8 link checker (T6). Verifies the built site in docs/:
-  1. every internal href/src resolves to an existing file (no broken links)
-  2. every external link is https
-  3. every external link is either on the official-source allowlist (data/sources.json)
-     or is an explicitly flagged third-party link (flagged pages / market-lines references)
-Writes analysis/link-check.json and exits non-zero if any internal link is broken.
-
-Run: python3 scripts/check_links.py
+"""Offline release checks: local URLs/anchors, per-row official links, null safety.
+Does NOT claim to test HTTP availability of external sites or their every claim.
 """
-import json, re, sys
+import json
+from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlparse, unquote
+R=Path(__file__).resolve().parent.parent
+OFFICIAL={'www.nfl.com','nextgenstats.nfl.com','www.itl.nist.gov','wsgc.wa.gov','github.com','docs.github.com'}
+class Doc(HTMLParser):
+ def __init__(self,text):
+  super().__init__(); self.links=[]; self.ids=set(); self.rows=[]; self.row=None; self.body=False; self.feed(text)
+ def handle_starttag(self,tag,attrs):
+  a=dict(attrs)
+  if 'id' in a: self.ids.add(a['id'])
+  if tag=='tbody': self.body=True
+  if tag=='tr' and self.body: self.row=[]
+  for k in ('href','src'):
+   if k in a:
+    self.links.append(a[k])
+    if self.row is not None: self.row.append(a[k])
+ def handle_endtag(self,tag):
+  if tag=='tr' and self.row is not None: self.rows.append(self.row); self.row=None
+  if tag=='tbody': self.body=False
 
-ROOT = Path(__file__).resolve().parent.parent
-DATA = ROOT / "data"
-OUT = ROOT / "analysis"
-
-sources = json.load(open(DATA / "sources.json"))["sources"]
-official_hosts = {urlparse(s["url"]).netloc for s in sources}
-# flagged third-party hosts allowed ONLY on pages that explicitly discuss them
-FLAGGED_THIRD_PARTY = {"nflschedules.com", "www.espn.com"}
-FLAG_PAGES = {"flagged.html", "sources.html", "model-lines.html", "index.html"}
-
-html_files = sorted(p for p in ROOT.rglob("*.html") if ".git" not in p.parts)
-internal_broken, external, external_non_https, external_unlisted, warnings_http_official = [], [], [], [], []
-checked = 0
-for f in html_files:
-    text = f.read_text()
-    for m in re.finditer(r'(?:href|src)="([^"]+)"', text):
-        checked += 1
-        url = unquote(m.group(1))
-        if url.startswith("#"):
-            continue
-        u = urlparse(url)
-        if u.scheme in ("http", "https"):
-            if u.scheme != "https":
-                (external_non_https if u.netloc not in official_hosts else warnings_http_official).append((f.name, url))
-            host = u.netloc
-            external.append((f.name, url, host))
-            if host not in official_hosts and host not in FLAGGED_THIRD_PARTY:
-                external_unlisted.append((f.name, url, host))
-            elif host in FLAGGED_THIRD_PARTY and f.name not in FLAG_PAGES:
-                external_unlisted.append((f.name, url, host + " (third-party host on non-flag page)"))
-        else:
-            target = (f.parent / url.split("#")[0]).resolve()
-            if not target.exists():
-                internal_broken.append((f.name, url))
-
-result = {
-    "checked_at": "2026-11-03",
-    "pages": len(html_files),
-    "links_checked": checked,
-    "internal_broken": internal_broken,
-    "external_total": len(external),
-    "external_non_https": external_non_https,
-    "external_unlisted": external_unlisted,
-    "warnings_http_official_host": warnings_http_official,
-    "official_hosts": sorted(official_hosts),
-    "status": "PASS" if not internal_broken and not external_non_https else "FAIL",
-}
-OUT.mkdir(exist_ok=True)
-json.dump(result, open(OUT / "link-check.json", "w"), indent=2)
-print(json.dumps({k: (v if not isinstance(v, list) else v[:10]) for k, v in result.items()}, indent=2))
-print("\nSTATUS:", result["status"])
-sys.exit(0 if result["status"] == "PASS" else 1)
+def official(u):
+ p=urlparse(u)
+ return p.scheme=='https' and p.hostname in OFFICIAL and (p.hostname!='github.com' or p.path.startswith('/nfl-football-ops/'))
+files=[R/'index.html',*sorted((R/'pages').glob('*.html')),*sorted((R/'docs').glob('*.html')),*sorted((R/'audit').glob('*.html'))]
+docs={p.resolve():Doc(p.read_text()) for p in files}; errors=[]; rows=0; links=0
+for p,d in docs.items():
+ for row in d.rows:
+  rows+=1
+  if not any(official(u) for u in row): errors.append(f'{p.relative_to(R)}: row missing official reference')
+ for url in d.links:
+  links+=1; u=urlparse(url)
+  if u.scheme:
+   if u.scheme!='https': errors.append(f'{p.name}: non-HTTPS URL {url}')
+   elif not official(url): errors.append(f'{p.name}: unapproved official host/path {url}')
+   continue
+  target=(p.parent/unquote(u.path)).resolve() if u.path else p
+  if R not in target.parents and target!=R: errors.append(f'{p.name}: escaped root {url}'); continue
+  if target.is_dir(): target=target/'index.html'
+  if not target.exists(): errors.append(f'{p.name}: missing {url}')
+  if u.fragment and (target not in docs or unquote(u.fragment) not in docs[target].ids): errors.append(f'{p.name}: missing anchor {url}')
+# Audit-independent canonical output assertions.
+lines=json.loads((R/'analysis/model-lines-week9.json').read_text())['games']
+for g in lines:
+ if g['candidate'] or g['gates_all_pass'] or any(g[k] is not None for k in ('market_spread_home','edge_pts','market_price','moneyline','win_probability')): errors.append(g['game']+': evidence boundary violated')
+for c in json.loads((R/'analysis/correlations.json').read_text())['correlations']:
+ if c['type']=='Bernoulli leg dependence' and (c['r'] is not None or c['n'] is not None): errors.append('Unverified leg estimate populated')
+result=dict(checked_at='2026-11-04',scope='Canonical root + pages + docs redirects + preserved baseline audit; external HTTP checks not performed by this checker',pages=len(files),links_checked=links,table_rows_checked=rows,errors=errors,status='PASS' if not errors else 'FAIL')
+(R/'analysis/link-check.json').write_text(json.dumps(result,indent=2)+'\n'); print(json.dumps(result,indent=2))
+raise SystemExit(bool(errors))

@@ -1,0 +1,9 @@
+{
+ "verified_at": "2026-11-04",
+ "live_source": "https://www.nfl.com/standings/ (fetched 2026-11-04 UTC via fetch_page; curl blocked in sandbox)",
+ "captured_file": "data/standings-2026-reg-w8.json (captured 2026-11-03)",
+ "teams_compared": 32,
+ "mismatches": [],
+ "arith": [],
+ "status": "PASS"
+}

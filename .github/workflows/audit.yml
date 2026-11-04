@@ -1,0 +1,42 @@
+name: Audit Own8 dashboard
+on:
+  push:
+    branches: [main, arena/dd321bf5-own8]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    - cron: '17 8 * * *'
+permissions:
+  contents: read
+concurrency:
+  group: own8-pages-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python scripts/audit_repo.py
+      - run: python scripts/analyze.py
+      - run: python -m unittest discover -s scripts -p 'test_audit.py' -v
+      - run: python scripts/build_site.py
+      - run: python scripts/check_links.py
+      - run: python scripts/audit_publication.py
+      - name: Stage audited preview artifact
+        run: |
+          mkdir -p _site/data _site/analysis
+          cp index.html _site/
+          cp -r pages assets docs _site/
+          cp data/audit-snapshot.json data/sources.json data/flagged.json _site/data/
+          cp analysis/audit-inventory.json analysis/repo-audit.json analysis/correlations.json analysis/model-lines-week9.json analysis/prop-signals-week9.json analysis/strategies.json analysis/leaderboard.json analysis/validation-gates.json analysis/link-check.json _site/analysis/
+          if [ -d audit ]; then cp -r audit _site/; fi
+          if [ -d strict ]; then cp -r strict _site/; fi
+          if [ -d verification ]; then cp -r verification _site/; fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: audited-dashboard
+          path: _site

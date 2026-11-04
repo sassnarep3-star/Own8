@@ -1,0 +1,250 @@
+{
+  "checked_at": "2026-11-04",
+  "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8",
+  "scope": "27 rendered Week 8 rows; not season totals or a complete player universe. ATT, YDS and CPOE only.",
+  "rows": [
+    {
+      "name": "Joe Burrow",
+      "team": "CIN",
+      "ATT": 48,
+      "YDS": 462,
+      "CPOE": 12.1,
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8",
+      "status": "verified Week 8 snapshot"
+    },
+    {
+      "name": "Deshaun Watson",
+      "team": "CLE",
+      "ATT": 39,
+      "YDS": 324,
+      "CPOE": -2.3,
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8",
+      "status": "verified Week 8 snapshot"
+    },
+    {
+      "name": "Patrick Mahomes",
+      "team": "KC",
+      "ATT": 41,
+      "YDS": 321,
+      "CPOE": 3.8,
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8",
+      "status": "verified Week 8 snapshot"
+    },
+    {
+      "name": "Cam Ward",
+      "team": "TEN",
+      "ATT": 40,
+      "YDS": 304,
+      "CPOE": -1.7,
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8",
+      "status": "verified Week 8 snapshot"
+    },
+    {
+      "name": "Geno Smith",
+      "team": "NYJ",
+      "ATT": 32,
+      "YDS": 290,
+      "CPOE": 7.2,
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8",
+      "status": "verified Week 8 snapshot"
+    },
+    {
+      "name": "Josh Allen",
+      "team": "BUF",
+      "ATT": 34,
+      "YDS": 289,
+      "CPOE": -8.4,
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8",
+      "status": "verified Week 8 snapshot"
+    },
+    {
+      "name": "Jordan Love",
+      "team": "GB",
+      "ATT": 41,
+      "YDS": 288,
+      "CPOE": 8.4,
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8",
+      "status": "verified Week 8 snapshot"
+    },
+    {
+      "name": "Justin Herbert",
+      "team": "LAC",
+      "ATT": 32,
+      "YDS": 257,
+      "CPOE": 2.2,
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8",
+      "status": "verified Week 8 snapshot"
+    },
+    {
+      "name": "Kirk Cousins",
+      "team": "LV",
+      "ATT": 26,
+      "YDS": 247,
+      "CPOE": 16.1,
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8",
+      "status": "verified Week 8 snapshot"
+    },
+    {
+      "name": "Caleb Williams",
+      "team": "CHI",
+      "ATT": 34,
+      "YDS": 247,
+      "CPOE": 0.5,
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8",
+      "status": "verified Week 8 snapshot"
+    },
+    {
+      "name": "Bo Nix",
+      "team": "DEN",
+      "ATT": 32,
+      "YDS": 222,
+      "CPOE": -5.6,
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8",
+      "status": "verified Week 8 snapshot"
+    },
+    {
+      "name": "Jayden Daniels",
+      "team": "WAS",
+      "ATT": 29,
+      "YDS": 217,
+      "CPOE": -5.3,
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8",
+      "status": "verified Week 8 snapshot"
+    },
+    {
+      "name": "Tanner McKee",
+      "team": "PHI",
+      "ATT": 34,
+      "YDS": 212,
+      "CPOE": -1.9,
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8",
+      "status": "verified Week 8 snapshot"
+    },
+    {
+      "name": "Malik Willis",
+      "team": "MIA",
+      "ATT": 32,
+      "YDS": 211,
+      "CPOE": -2.8,
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8",
+      "status": "verified Week 8 snapshot"
+    },
+    {
+      "name": "Kyler Murray",
+      "team": "MIN",
+      "ATT": 29,
+      "YDS": 210,
+      "CPOE": 2.0,
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8",
+      "status": "verified Week 8 snapshot"
+    },
+    {
+      "name": "Bryce Young",
+      "team": "CAR",
+      "ATT": 41,
+      "YDS": 209,
+      "CPOE": -3.1,
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8",
+      "status": "verified Week 8 snapshot"
+    },
+    {
+      "name": "Drake Maye",
+      "team": "NE",
+      "ATT": 20,
+      "YDS": 199,
+      "CPOE": 8.4,
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8",
+      "status": "verified Week 8 snapshot"
+    },
+    {
+      "name": "Dak Prescott",
+      "team": "DAL",
+      "ATT": 29,
+      "YDS": 195,
+      "CPOE": -1.9,
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8",
+      "status": "verified Week 8 snapshot"
+    },
+    {
+      "name": "Sam Darnold",
+      "team": "SEA",
+      "ATT": 34,
+      "YDS": 188,
+      "CPOE": -13.2,
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8",
+      "status": "verified Week 8 snapshot"
+    },
+    {
+      "name": "Gardner Minshew",
+      "team": "AZ",
+      "ATT": 23,
+      "YDS": 188,
+      "CPOE": 12.0,
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8",
+      "status": "verified Week 8 snapshot"
+    },
+    {
+      "name": "Jared Goff",
+      "team": "DET",
+      "ATT": 25,
+      "YDS": 176,
+      "CPOE": -1.9,
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8",
+      "status": "verified Week 8 snapshot"
+    },
+    {
+      "name": "Aaron Rodgers",
+      "team": "PIT",
+      "ATT": 25,
+      "YDS": 172,
+      "CPOE": -9.7,
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8",
+      "status": "verified Week 8 snapshot"
+    },
+    {
+      "name": "Matthew Stafford",
+      "team": "LAR",
+      "ATT": 25,
+      "YDS": 157,
+      "CPOE": -5.8,
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8",
+      "status": "verified Week 8 snapshot"
+    },
+    {
+      "name": "Daniel Jones",
+      "team": "IND",
+      "ATT": 28,
+      "YDS": 144,
+      "CPOE": -0.3,
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8",
+      "status": "verified Week 8 snapshot"
+    },
+    {
+      "name": "Michael Penix Jr.",
+      "team": "ATL",
+      "ATT": 24,
+      "YDS": 125,
+      "CPOE": -22.6,
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8",
+      "status": "verified Week 8 snapshot"
+    },
+    {
+      "name": "Jacoby Brissett",
+      "team": "AZ",
+      "ATT": 23,
+      "YDS": 119,
+      "CPOE": -6.1,
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8",
+      "status": "verified Week 8 snapshot"
+    },
+    {
+      "name": "Joe Fagnano",
+      "team": "BAL",
+      "ATT": 21,
+      "YDS": 91,
+      "CPOE": -19.0,
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8",
+      "status": "verified Week 8 snapshot"
+    }
+  ]
+}

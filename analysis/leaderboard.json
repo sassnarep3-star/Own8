@@ -1,84 +1,103 @@
 {
-  "as_of": "2026-11-03",
-  "note": "Leaderboard competition: strategies earn points when Week 9+ results grade (ROI at -110, stake-capped). No real-money wagering occurs here \u2014 rewards are points/trophies only (F-10). Grading is automated by re-running this pipeline after official scores post (nfl.com/scores) \u2014 no manual input.",
-  "scoring": "points = realized ROI% at -110 vig * 100, per strategy per week; season total = sum. Tiers: Gold >= +5.0 season ROI-pts, Silver >= 0, Bronze < 0. Tie-break: higher Sharpe-like ratio (mean weekly ROI / stdev).",
-  "tiers": {
-    "gold": ">= +5.0 pts",
-    "silver": ">= 0 pts",
-    "bronze": "< 0 pts"
-  },
+  "as_of": "2026-11-04",
+  "note": "No eligible strategies, no verified prospective forecasts or settled paper ledger. Unobserved performance is null, not zero. No ranks, tiers or rewards awarded.",
+  "scoring": "Proposed: reward 100 * positive family-adjusted lower bound of paired mean Brier improvement over a pre-registered baseline, only after all gates PASS. Use week/game blocks and a frozen trial count; no ROI-only ranking. No skill or luck-free claim.",
   "standings": [
     {
-      "rank": 1,
       "strategy_id": "S1",
-      "name": "Form Spread (single game)",
-      "type": "single bet \u2014 spread",
-      "week9_projected_edge_pts": 0,
-      "realized_pts": 0.0,
-      "status": "active \u2014 Week 9 model lines published; 0 verified candidates (G6 needs a verified market line, F-05)"
+      "name": "Single: spread baseline",
+      "type": "Single",
+      "rank": null,
+      "realized_pts": null,
+      "roi": null,
+      "brier": null,
+      "reward_points": null,
+      "status": "BLOCKED \u2014 research only",
+      "source_url": "https://www.nfl.com/standings/"
     },
     {
-      "rank": 2,
       "strategy_id": "S2",
-      "name": "Total Fishing (game totals)",
-      "type": "single bet \u2014 total",
-      "week9_projected_edge_pts": null,
-      "realized_pts": 0.0,
-      "status": "limited \u2014 only 1 third-party total captured (SF game, F-05); mostly NOT_COMPUTABLE this week"
+      "name": "Single: total / pace",
+      "type": "Single",
+      "rank": null,
+      "realized_pts": null,
+      "roi": null,
+      "brier": null,
+      "reward_points": null,
+      "status": "BLOCKED \u2014 research only",
+      "source_url": "https://www.nfl.com/stats/team-stats/"
     },
     {
-      "rank": 3,
       "strategy_id": "S3",
-      "name": "QB Prop Alignment",
-      "type": "player prop \u2014 QB passing yards",
-      "week9_projected_edge_pts": null,
-      "realized_pts": 0.0,
-      "status": "active \u2014 projections on Prop Signals page"
+      "name": "Single: moneyline calibration",
+      "type": "Single",
+      "rank": null,
+      "realized_pts": null,
+      "roi": null,
+      "brier": null,
+      "reward_points": null,
+      "status": "BLOCKED \u2014 research only",
+      "source_url": "https://www.nfl.com/scores/"
     },
     {
-      "rank": 4,
       "strategy_id": "S4",
-      "name": "RB Workload vs Run Defense",
-      "type": "player prop \u2014 RB rushing yards",
-      "week9_projected_edge_pts": null,
-      "realized_pts": 0.0,
-      "status": "active \u2014 team-level projections only (individual allocation unverified)"
+      "name": "Player: QB efficiency",
+      "type": "Player prop",
+      "rank": null,
+      "realized_pts": null,
+      "roi": null,
+      "brier": null,
+      "reward_points": null,
+      "status": "BLOCKED \u2014 research only",
+      "source_url": "https://nextgenstats.nfl.com/glossary"
     },
     {
-      "rank": 5,
       "strategy_id": "S5",
-      "name": "WR Matchup vs Pass Defense",
-      "type": "player prop \u2014 receiving yards/receptions",
-      "week9_projected_edge_pts": null,
-      "realized_pts": 0.0,
-      "status": "active"
+      "name": "Player: receiver opportunity",
+      "type": "Player prop",
+      "rank": null,
+      "realized_pts": null,
+      "roi": null,
+      "brier": null,
+      "reward_points": null,
+      "status": "BLOCKED \u2014 research only",
+      "source_url": "https://nextgenstats.nfl.com/glossary"
     },
     {
-      "rank": 6,
       "strategy_id": "S6",
-      "name": "De-correlated 2-leg Parlay",
-      "type": "parlay \u2014 2 legs, different games",
-      "week9_projected_edge_pts": null,
-      "realized_pts": 0.0,
-      "status": "active \u2014 build only from S1 candidate list"
+      "name": "Player: RB workload",
+      "type": "Player prop",
+      "rank": null,
+      "realized_pts": null,
+      "roi": null,
+      "brier": null,
+      "reward_points": null,
+      "status": "BLOCKED \u2014 research only",
+      "source_url": "https://nextgenstats.nfl.com/glossary"
     },
     {
-      "rank": 7,
       "strategy_id": "S7",
-      "name": "Same-Game Parlay (restricted)",
-      "type": "parlay \u2014 same game",
-      "week9_projected_edge_pts": null,
-      "realized_pts": 0.0,
-      "status": "restricted \u2014 correlated same-game combos BLOCKED; contrarian pairs reviewable; proxy r(passYDSpg,PFpg) = 0.67"
+      "name": "Cross-game joint value",
+      "type": "Parlay",
+      "rank": null,
+      "realized_pts": null,
+      "roi": null,
+      "brier": null,
+      "reward_points": null,
+      "status": "BLOCKED \u2014 research only",
+      "source_url": "https://www.nfl.com/scores/"
     },
     {
-      "rank": 8,
       "strategy_id": "S8",
-      "name": "Live / in-game",
-      "type": "live betting",
-      "week9_projected_edge_pts": null,
-      "realized_pts": 0.0,
-      "status": "not covered (no official live source captured)"
+      "name": "Same-game QB + receiver",
+      "type": "Player-prop combo",
+      "rank": null,
+      "realized_pts": null,
+      "roi": null,
+      "brier": null,
+      "reward_points": null,
+      "status": "BLOCKED \u2014 research only",
+      "source_url": "https://nextgenstats.nfl.com/glossary"
     }
   ]
 }

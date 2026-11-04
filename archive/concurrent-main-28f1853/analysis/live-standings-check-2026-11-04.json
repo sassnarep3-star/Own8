@@ -1,0 +1,23 @@
+{
+  "dataset": "live-standings-check-2026-11-04",
+  "checked_at": "2026-11-04",
+  "source_url": "https://www.nfl.com/standings/",
+  "source_method": "fetch_page of official page (2 chunks), values transcribed in analysis/live-standings-2026-11-04.txt",
+  "teams_compared": 32,
+  "fields_compared": [
+    "W",
+    "L",
+    "T",
+    "PF",
+    "PA",
+    "NET",
+    "HOME",
+    "ROAD",
+    "DIV",
+    "CONF",
+    "STRK"
+  ],
+  "mismatches": [],
+  "status": "PASS",
+  "note": "Live NFL.com standings are unchanged from the 2026-11-03 capture (after Week 8). Captured DIVPCT/CONFPCT/PCT not re-compared here; they were arithmetic-validated in verify_combined.py."
+}
