@@ -25,7 +25,8 @@
       "market_spread_home": 9.5,
       "market_verified": false,
       "edge_pts": -14.57,
-      "candidate_side": "JAX",
+      "candidate_side": null,
+      "reference_side": "JAX",
       "candidate": false,
       "gates": {
         "G1_official_sources_only": {
@@ -42,15 +43,15 @@
         },
         "G4_injury_news_check": {
           "status": "CONDITIONAL",
-          "detail": "Latest official injury report is Week 8 (W9 report not yet published \u2014 flagged F-04); official nfl.com news applied where relevant (Hurts IR \u2014 PHI; McLaurin season out \u2014 WAS). Re-check official W9 report before acting."
+          "detail": "Week 9 official injury report not transcribed for this game (F-16); Week 8 report is the latest transcribed. Re-check official report before acting."
         },
         "G5_correlation_check": {
           "status": "PASS",
           "detail": "Single-game play; no parlay legs. Same-game parlay correlation proxy r(pass YDSpg, PFpg) = 0.668 \u2014 same-game combos restricted (see correlation policy)."
         },
         "G6_edge_vs_market": {
-          "status": "FAIL_NO_TRADE",
-          "detail": "Model home spread -5.07 vs market +9.50 -> edge -14.57 pts. Market input is a THIRD-PARTY aggregator value attributed to FanDuel, time-stamped Nov 3 11:31 AM ET \u2014 UNVERIFIED (flagged F-05). Verify at a licensed sportsbook before any use."
+          "status": "NOT_COMPUTABLE",
+          "detail": "Reference only: model home spread -5.07 vs unverified third-party market +9.50 (edge -14.57 pts). Market input is a THIRD-PARTY aggregator value attributed to FanDuel, time-stamped Nov 3 11:31 AM ET \u2014 UNVERIFIED (flagged F-05). Verify at a licensed sportsbook before any use. Gate cannot pass on an unverified line (correction 2026-11-04, F-05/F-17)."
         },
         "G7_stake_cap": {
           "status": "PASS",
@@ -101,8 +102,9 @@
       "market_spread_home": 3.0,
       "market_verified": false,
       "edge_pts": -5.05,
-      "candidate_side": "CIN",
-      "candidate": true,
+      "candidate_side": null,
+      "reference_side": "CIN",
+      "candidate": false,
       "gates": {
         "G1_official_sources_only": {
           "status": "PASS",
@@ -117,23 +119,23 @@
           "detail": "CIN GP=7, ATL GP=8 (min required 4)."
         },
         "G4_injury_news_check": {
-          "status": "CONDITIONAL",
-          "detail": "Latest official injury report is Week 8 (W9 report not yet published \u2014 flagged F-04); official nfl.com news applied where relevant (Hurts IR \u2014 PHI; McLaurin season out \u2014 WAS). Re-check official W9 report before acting."
+          "status": "PASS",
+          "detail": "Official NFL.com Week 9 injury report (captured 2026-11-04, https://www.nfl.com/injuries/league/2026/reg9): CIN and ATL both 'No Injuries Reported'. Official nfl.com news still applied (Hurts IR \u2014 PHI; McLaurin season out \u2014 WAS)."
         },
         "G5_correlation_check": {
           "status": "PASS",
           "detail": "Single-game play; no parlay legs. Same-game parlay correlation proxy r(pass YDSpg, PFpg) = 0.668 \u2014 same-game combos restricted (see correlation policy)."
         },
         "G6_edge_vs_market": {
-          "status": "PASS",
-          "detail": "Model home spread -2.05 vs market +3.00 -> edge -5.05 pts. Market input is a THIRD-PARTY aggregator value attributed to FanDuel, time-stamped Nov 3 11:31 AM ET \u2014 UNVERIFIED (flagged F-05). Verify at a licensed sportsbook before any use."
+          "status": "NOT_COMPUTABLE",
+          "detail": "Reference only: model home spread -2.05 vs unverified third-party market +3.00 (edge -5.05 pts). Market input is a THIRD-PARTY aggregator value attributed to FanDuel, time-stamped Nov 3 11:31 AM ET \u2014 UNVERIFIED (flagged F-05). Verify at a licensed sportsbook before any use. Gate cannot pass on an unverified line (correction 2026-11-04, F-05/F-17)."
         },
         "G7_stake_cap": {
           "status": "PASS",
           "detail": "Kelly-style cap: max 2% of bankroll per single play (assumption, flagged F-07)."
         }
       },
-      "gates_all_pass": true,
+      "gates_all_pass": false,
       "inputs": {
         "away": {
           "PFpg": 29.43,
@@ -178,6 +180,7 @@
       "market_verified": false,
       "edge_pts": null,
       "candidate_side": null,
+      "reference_side": null,
       "candidate": false,
       "gates": {
         "G1_official_sources_only": {
@@ -194,7 +197,7 @@
         },
         "G4_injury_news_check": {
           "status": "CONDITIONAL",
-          "detail": "Latest official injury report is Week 8 (W9 report not yet published \u2014 flagged F-04); official nfl.com news applied where relevant (Hurts IR \u2014 PHI; McLaurin season out \u2014 WAS). Re-check official W9 report before acting."
+          "detail": "Week 9 official injury report not transcribed for this game (F-16); Week 8 report is the latest transcribed. Re-check official report before acting."
         },
         "G5_correlation_check": {
           "status": "PASS",
@@ -254,6 +257,7 @@
       "market_verified": false,
       "edge_pts": null,
       "candidate_side": null,
+      "reference_side": null,
       "candidate": false,
       "gates": {
         "G1_official_sources_only": {
@@ -270,7 +274,7 @@
         },
         "G4_injury_news_check": {
           "status": "CONDITIONAL",
-          "detail": "Latest official injury report is Week 8 (W9 report not yet published \u2014 flagged F-04); official nfl.com news applied where relevant (Hurts IR \u2014 PHI; McLaurin season out \u2014 WAS). Re-check official W9 report before acting."
+          "detail": "Week 9 official injury report not transcribed for this game (F-16); Week 8 report is the latest transcribed. Re-check official report before acting."
         },
         "G5_correlation_check": {
           "status": "PASS",
@@ -329,7 +333,8 @@
       "market_spread_home": -9.5,
       "market_verified": false,
       "edge_pts": 15.7,
-      "candidate_side": "KC",
+      "candidate_side": null,
+      "reference_side": "KC",
       "candidate": false,
       "gates": {
         "G1_official_sources_only": {
@@ -346,15 +351,15 @@
         },
         "G4_injury_news_check": {
           "status": "CONDITIONAL",
-          "detail": "Latest official injury report is Week 8 (W9 report not yet published \u2014 flagged F-04); official nfl.com news applied where relevant (Hurts IR \u2014 PHI; McLaurin season out \u2014 WAS). Re-check official W9 report before acting."
+          "detail": "Week 9 official injury report not transcribed for this game (F-16); Week 8 report is the latest transcribed. Re-check official report before acting."
         },
         "G5_correlation_check": {
           "status": "PASS",
           "detail": "Single-game play; no parlay legs. Same-game parlay correlation proxy r(pass YDSpg, PFpg) = 0.668 \u2014 same-game combos restricted (see correlation policy)."
         },
         "G6_edge_vs_market": {
-          "status": "FAIL_NO_TRADE",
-          "detail": "Model home spread +6.20 vs market -9.50 -> edge +15.70 pts. Market input is a THIRD-PARTY aggregator value attributed to FanDuel, time-stamped Nov 3 11:31 AM ET \u2014 UNVERIFIED (flagged F-05). Verify at a licensed sportsbook before any use."
+          "status": "NOT_COMPUTABLE",
+          "detail": "Reference only: model home spread +6.20 vs unverified third-party market -9.50 (edge +15.70 pts). Market input is a THIRD-PARTY aggregator value attributed to FanDuel, time-stamped Nov 3 11:31 AM ET \u2014 UNVERIFIED (flagged F-05). Verify at a licensed sportsbook before any use. Gate cannot pass on an unverified line (correction 2026-11-04, F-05/F-17)."
         },
         "G7_stake_cap": {
           "status": "PASS",
@@ -406,6 +411,7 @@
       "market_verified": false,
       "edge_pts": null,
       "candidate_side": null,
+      "reference_side": null,
       "candidate": false,
       "gates": {
         "G1_official_sources_only": {
@@ -422,7 +428,7 @@
         },
         "G4_injury_news_check": {
           "status": "CONDITIONAL",
-          "detail": "Latest official injury report is Week 8 (W9 report not yet published \u2014 flagged F-04); official nfl.com news applied where relevant (Hurts IR \u2014 PHI; McLaurin season out \u2014 WAS). Re-check official W9 report before acting."
+          "detail": "Week 9 official injury report not transcribed for this game (F-16); Week 8 report is the latest transcribed. Re-check official report before acting."
         },
         "G5_correlation_check": {
           "status": "PASS",
@@ -482,6 +488,7 @@
       "market_verified": false,
       "edge_pts": null,
       "candidate_side": null,
+      "reference_side": null,
       "candidate": false,
       "gates": {
         "G1_official_sources_only": {
@@ -498,7 +505,7 @@
         },
         "G4_injury_news_check": {
           "status": "CONDITIONAL",
-          "detail": "Latest official injury report is Week 8 (W9 report not yet published \u2014 flagged F-04); official nfl.com news applied where relevant (Hurts IR \u2014 PHI; McLaurin season out \u2014 WAS). Re-check official W9 report before acting."
+          "detail": "Week 9 official injury report not transcribed for this game (F-16); Week 8 report is the latest transcribed. Re-check official report before acting."
         },
         "G5_correlation_check": {
           "status": "PASS",
@@ -557,8 +564,9 @@
       "market_spread_home": 3.0,
       "market_verified": false,
       "edge_pts": -4.71,
-      "candidate_side": "NYG",
-      "candidate": true,
+      "candidate_side": null,
+      "reference_side": "NYG",
+      "candidate": false,
       "gates": {
         "G1_official_sources_only": {
           "status": "PASS",
@@ -573,23 +581,23 @@
           "detail": "NYG GP=7, PHI GP=8 (min required 4)."
         },
         "G4_injury_news_check": {
-          "status": "CONDITIONAL",
-          "detail": "Latest official injury report is Week 8 (W9 report not yet published \u2014 flagged F-04); official nfl.com news applied where relevant (Hurts IR \u2014 PHI; McLaurin season out \u2014 WAS). Re-check official W9 report before acting."
+          "status": "PASS",
+          "detail": "Official NFL.com Week 9 injury report (captured 2026-11-04, https://www.nfl.com/injuries/league/2026/reg9): NYG and PHI both 'No Injuries Reported'. Official nfl.com news still applied (Hurts IR \u2014 PHI; McLaurin season out \u2014 WAS)."
         },
         "G5_correlation_check": {
           "status": "PASS",
           "detail": "Single-game play; no parlay legs. Same-game parlay correlation proxy r(pass YDSpg, PFpg) = 0.668 \u2014 same-game combos restricted (see correlation policy)."
         },
         "G6_edge_vs_market": {
-          "status": "PASS",
-          "detail": "Model home spread -1.71 vs market +3.00 -> edge -4.71 pts. Market input is a THIRD-PARTY aggregator value attributed to FanDuel, time-stamped Nov 3 11:31 AM ET \u2014 UNVERIFIED (flagged F-05). Verify at a licensed sportsbook before any use."
+          "status": "NOT_COMPUTABLE",
+          "detail": "Reference only: model home spread -1.71 vs unverified third-party market +3.00 (edge -4.71 pts). Market input is a THIRD-PARTY aggregator value attributed to FanDuel, time-stamped Nov 3 11:31 AM ET \u2014 UNVERIFIED (flagged F-05). Verify at a licensed sportsbook before any use. Gate cannot pass on an unverified line (correction 2026-11-04, F-05/F-17)."
         },
         "G7_stake_cap": {
           "status": "PASS",
           "detail": "Kelly-style cap: max 2% of bankroll per single play (assumption, flagged F-07)."
         }
       },
-      "gates_all_pass": true,
+      "gates_all_pass": false,
       "inputs": {
         "away": {
           "PFpg": 23.29,
@@ -634,6 +642,7 @@
       "market_verified": false,
       "edge_pts": null,
       "candidate_side": null,
+      "reference_side": null,
       "candidate": false,
       "gates": {
         "G1_official_sources_only": {
@@ -650,7 +659,7 @@
         },
         "G4_injury_news_check": {
           "status": "CONDITIONAL",
-          "detail": "Latest official injury report is Week 8 (W9 report not yet published \u2014 flagged F-04); official nfl.com news applied where relevant (Hurts IR \u2014 PHI; McLaurin season out \u2014 WAS). Re-check official W9 report before acting."
+          "detail": "Week 9 official injury report not transcribed for this game (F-16); Week 8 report is the latest transcribed. Re-check official report before acting."
         },
         "G5_correlation_check": {
           "status": "PASS",
@@ -710,6 +719,7 @@
       "market_verified": false,
       "edge_pts": null,
       "candidate_side": null,
+      "reference_side": null,
       "candidate": false,
       "gates": {
         "G1_official_sources_only": {
@@ -726,7 +736,7 @@
         },
         "G4_injury_news_check": {
           "status": "CONDITIONAL",
-          "detail": "Latest official injury report is Week 8 (W9 report not yet published \u2014 flagged F-04); official nfl.com news applied where relevant (Hurts IR \u2014 PHI; McLaurin season out \u2014 WAS). Re-check official W9 report before acting."
+          "detail": "Week 9 official injury report not transcribed for this game (F-16); Week 8 report is the latest transcribed. Re-check official report before acting."
         },
         "G5_correlation_check": {
           "status": "PASS",
@@ -785,7 +795,8 @@
       "market_spread_home": -9.5,
       "market_verified": false,
       "edge_pts": 16.71,
-      "candidate_side": "SF",
+      "candidate_side": null,
+      "reference_side": "SF",
       "candidate": false,
       "gates": {
         "G1_official_sources_only": {
@@ -802,15 +813,15 @@
         },
         "G4_injury_news_check": {
           "status": "CONDITIONAL",
-          "detail": "Latest official injury report is Week 8 (W9 report not yet published \u2014 flagged F-04); official nfl.com news applied where relevant (Hurts IR \u2014 PHI; McLaurin season out \u2014 WAS). Re-check official W9 report before acting."
+          "detail": "Week 9 official injury report not transcribed for this game (F-16); Week 8 report is the latest transcribed. Re-check official report before acting."
         },
         "G5_correlation_check": {
           "status": "PASS",
           "detail": "Single-game play; no parlay legs. Same-game parlay correlation proxy r(pass YDSpg, PFpg) = 0.668 \u2014 same-game combos restricted (see correlation policy)."
         },
         "G6_edge_vs_market": {
-          "status": "FAIL_NO_TRADE",
-          "detail": "Model home spread +7.21 vs market -9.50 -> edge +16.71 pts. Market input is a THIRD-PARTY aggregator value attributed to FanDuel, time-stamped Nov 3 11:31 AM ET \u2014 UNVERIFIED (flagged F-05). Verify at a licensed sportsbook before any use."
+          "status": "NOT_COMPUTABLE",
+          "detail": "Reference only: model home spread +7.21 vs unverified third-party market -9.50 (edge +16.71 pts). Market input is a THIRD-PARTY aggregator value attributed to FanDuel, time-stamped Nov 3 11:31 AM ET \u2014 UNVERIFIED (flagged F-05). Verify at a licensed sportsbook before any use. Gate cannot pass on an unverified line (correction 2026-11-04, F-05/F-17)."
         },
         "G7_stake_cap": {
           "status": "PASS",
@@ -862,6 +873,7 @@
       "market_verified": false,
       "edge_pts": null,
       "candidate_side": null,
+      "reference_side": null,
       "candidate": false,
       "gates": {
         "G1_official_sources_only": {
@@ -878,7 +890,7 @@
         },
         "G4_injury_news_check": {
           "status": "CONDITIONAL",
-          "detail": "Latest official injury report is Week 8 (W9 report not yet published \u2014 flagged F-04); official nfl.com news applied where relevant (Hurts IR \u2014 PHI; McLaurin season out \u2014 WAS). Re-check official W9 report before acting."
+          "detail": "Week 9 official injury report not transcribed for this game (F-16); Week 8 report is the latest transcribed. Re-check official report before acting."
         },
         "G5_correlation_check": {
           "status": "PASS",
@@ -938,6 +950,7 @@
       "market_verified": false,
       "edge_pts": null,
       "candidate_side": null,
+      "reference_side": null,
       "candidate": false,
       "gates": {
         "G1_official_sources_only": {
@@ -954,7 +967,7 @@
         },
         "G4_injury_news_check": {
           "status": "CONDITIONAL",
-          "detail": "Latest official injury report is Week 8 (W9 report not yet published \u2014 flagged F-04); official nfl.com news applied where relevant (Hurts IR \u2014 PHI; McLaurin season out \u2014 WAS). Re-check official W9 report before acting."
+          "detail": "Week 9 official injury report not transcribed for this game (F-16); Week 8 report is the latest transcribed. Re-check official report before acting."
         },
         "G5_correlation_check": {
           "status": "PASS",
@@ -1014,6 +1027,7 @@
       "market_verified": false,
       "edge_pts": null,
       "candidate_side": null,
+      "reference_side": null,
       "candidate": false,
       "gates": {
         "G1_official_sources_only": {
@@ -1030,7 +1044,7 @@
         },
         "G4_injury_news_check": {
           "status": "CONDITIONAL",
-          "detail": "Latest official injury report is Week 8 (W9 report not yet published \u2014 flagged F-04); official nfl.com news applied where relevant (Hurts IR \u2014 PHI; McLaurin season out \u2014 WAS). Re-check official W9 report before acting."
+          "detail": "Week 9 official injury report not transcribed for this game (F-16); Week 8 report is the latest transcribed. Re-check official report before acting."
         },
         "G5_correlation_check": {
           "status": "PASS",
@@ -1089,7 +1103,8 @@
       "market_spread_home": 3.0,
       "market_verified": false,
       "edge_pts": -0.86,
-      "candidate_side": "BUF",
+      "candidate_side": null,
+      "reference_side": "BUF",
       "candidate": false,
       "gates": {
         "G1_official_sources_only": {
@@ -1106,15 +1121,15 @@
         },
         "G4_injury_news_check": {
           "status": "CONDITIONAL",
-          "detail": "Latest official injury report is Week 8 (W9 report not yet published \u2014 flagged F-04); official nfl.com news applied where relevant (Hurts IR \u2014 PHI; McLaurin season out \u2014 WAS). Re-check official W9 report before acting."
+          "detail": "Week 9 official injury report not transcribed for this game (F-16); Week 8 report is the latest transcribed. Re-check official report before acting."
         },
         "G5_correlation_check": {
           "status": "PASS",
           "detail": "Single-game play; no parlay legs. Same-game parlay correlation proxy r(pass YDSpg, PFpg) = 0.668 \u2014 same-game combos restricted (see correlation policy)."
         },
         "G6_edge_vs_market": {
-          "status": "FAIL_NO_TRADE",
-          "detail": "Model home spread +2.14 vs market +3.00 -> edge -0.86 pts. Market input is a THIRD-PARTY aggregator value attributed to FanDuel, time-stamped Nov 3 11:31 AM ET \u2014 UNVERIFIED (flagged F-05). Verify at a licensed sportsbook before any use."
+          "status": "NOT_COMPUTABLE",
+          "detail": "Reference only: model home spread +2.14 vs unverified third-party market +3.00 (edge -0.86 pts). Market input is a THIRD-PARTY aggregator value attributed to FanDuel, time-stamped Nov 3 11:31 AM ET \u2014 UNVERIFIED (flagged F-05). Verify at a licensed sportsbook before any use. Gate cannot pass on an unverified line (correction 2026-11-04, F-05/F-17)."
         },
         "G7_stake_cap": {
           "status": "PASS",

@@ -144,6 +144,26 @@ def market_spread_home(away, home):
                         return None, False
     return None, False
 
+INJ_W9 = load("injuries-2026-week9-candidates.json")
+MARKET_VERIFIED = False  # no official NFL source publishes betting lines (F-05); third-party values can never pass G6
+
+def g4_gate(away, home):
+    """G4 uses the official NFL.com Week 9 injury report captured 2026-11-04 (only the candidate games are transcribed; F-16)."""
+    for rec in INJ_W9.get("games", []):
+        if rec["game"] == f"{away} at {home}":
+            a, h = rec["away"]["status_on_report"], rec["home"]["status_on_report"]
+            if a == "No Injuries Reported" and h == "No Injuries Reported":
+                return {"status": "PASS", "detail": f"Official NFL.com Week 9 injury report (captured 2026-11-04, {INJ_W9['source_url']}): {away} and {home} both 'No Injuries Reported'. Official nfl.com news still applied (Hurts IR — PHI; McLaurin season out — WAS)."}
+    return {"status": "CONDITIONAL", "detail": "Week 9 official injury report not transcribed for this game (F-16); Week 8 report is the latest transcribed. Re-check official report before acting."}
+
+def g6_gate(model_spread_home, mkt, edge, edge_note):
+    """G6 can only PASS with a verified market line. Third-party lines are shown for reference and make the gate NOT_COMPUTABLE."""
+    if mkt is None:
+        return {"status": "NOT_COMPUTABLE", "detail": edge_note}
+    if not MARKET_VERIFIED:
+        return {"status": "NOT_COMPUTABLE", "detail": f"Reference only: model home spread {model_spread_home:+.2f} vs unverified third-party market {mkt:+.2f} (edge {edge:+.2f} pts). {edge_note} Gate cannot pass on an unverified line (correction 2026-11-04, F-05/F-17)."}
+    return {"status": ("PASS" if EDGE_MIN <= abs(edge) <= EDGE_MAX else "FAIL_NO_TRADE"), "detail": f"Model home spread {model_spread_home:+.2f} vs market {mkt:+.2f} -> edge {edge:+.2f} pts. {edge_note}"}
+
 games_out = []
 for g in sched:
     away, home = g["away"], g["home"]
@@ -164,10 +184,9 @@ for g in sched:
         "G1_official_sources_only": {"status": "PASS", "detail": "All model inputs from nfl.com / nextgenstats.nfl.com captures dated 2026-11-03."},
         "G2_data_freshness_le_7d": {"status": "PASS", "detail": "Standings/stats through Week 8 (final Nov 2); captured Nov 3."},
         "G3_sample_size_ge_4_games": {"status": "PASS", "detail": f"{away} GP={A['GP']}, {home} GP={H['GP']} (min required 4)."},
-        "G4_injury_news_check": {"status": "CONDITIONAL", "detail": "Latest official injury report is Week 8 (W9 report not yet published — flagged F-04); official nfl.com news applied where relevant (Hurts IR — PHI; McLaurin season out — WAS). Re-check official W9 report before acting."},
+        "G4_injury_news_check": g4_gate(away, home),
         "G5_correlation_check": {"status": "PASS", "detail": "Single-game play; no parlay legs. Same-game parlay correlation proxy r(pass YDSpg, PFpg) = " + str([c for c in correlations if 'same-game' in c['interpretation']][0]['r']) + " — same-game combos restricted (see correlation policy)."},
-        "G6_edge_vs_market": {"status": ("PASS" if (edge is not None and EDGE_MIN <= abs(edge) <= EDGE_MAX) else ("FAIL_NO_TRADE" if edge is not None else "NOT_COMPUTABLE")),
-                               "detail": (f"Model home spread {model_spread_home:+.2f} vs market {mkt:+.2f} -> edge {edge:+.2f} pts. {edge_note}" if mkt is not None else edge_note)},
+        "G6_edge_vs_market": g6_gate(model_spread_home, mkt, edge, edge_note),
         "G7_stake_cap": {"status": "PASS", "detail": "Kelly-style cap: max 2% of bankroll per single play (assumption, flagged F-07)."},
     }
     all_pass = all(v["status"] in ("PASS", "CONDITIONAL") for v in gates.values())
@@ -181,8 +200,9 @@ for g in sched:
         "model_total": round(model_total, 2),
         "market_spread_home": mkt, "market_verified": False,
         "edge_pts": (round(edge, 2) if edge is not None else None),
-        "candidate_side": (None if edge is None else (home if edge > 0 else away)),
-        "candidate": (edge is not None and EDGE_MIN <= abs(edge) <= EDGE_MAX),
+        "candidate_side": None,   # reference only: no candidate side while the market input is unverified (G6 = NOT_COMPUTABLE)
+        "reference_side": (None if edge is None else (home if edge > 0 else away)),
+        "candidate": (MARKET_VERIFIED and edge is not None and EDGE_MIN <= abs(edge) <= EDGE_MAX),
         "gates": gates, "gates_all_pass": all_pass,
         "inputs": {"away": {"PFpg": round(A["PFpg"],2), "PApg": round(A["PApg"],2), "passYDSpg": round(A["passYDSpg"],2), "rushYDSpg": round(A["rushYDSpg"],2)},
                    "home": {"PFpg": round(H["PFpg"],2), "PApg": round(H["PApg"],2), "passYDSpg": round(H["passYDSpg"],2), "rushYDSpg": round(H["rushYDSpg"],2)}},
@@ -244,7 +264,7 @@ strategies = [
     {"id": "S1", "name": "Form Spread (single game)", "type": "single bet — spread",
      "description": "Originate spread from offensive/defensive PPG matchup model; take the side only when |model - market| edge is within [1.0, 8.0] pts and all gates pass. Market input is unverified third-party (F-05) until checked at a licensed book.",
      "games_evaluated": len(games_out), "candidates": sum(1 for g in games_out if g["candidate"]),
-     "gates": ["G1", "G2", "G3", "G4", "G5", "G6", "G7"], "status": "active — Week 9 candidates listed on Model Lines page"},
+     "gates": ["G1", "G2", "G3", "G4", "G5", "G6", "G7"], "status": "active — Week 9 model lines published; 0 verified candidates (G6 needs a verified market line, F-05)"},
     {"id": "S2", "name": "Total Fishing (game totals)", "type": "single bet — total",
      "description": "Model total = sum of matchup projections. Trade only when model total differs from market total by >= 1.0 pt (totals from aggregators are unverified; most W9 totals were not captured — left blank by rule).",
      "games_evaluated": len(games_out), "candidates": 0,

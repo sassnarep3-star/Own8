@@ -1,0 +1,51 @@
+{
+  "dataset": "live-official-check-2026-11-04",
+  "checked_at": "2026-11-04",
+  "checked_by": "session d22c14b9",
+  "method": "fetch_page of official NFL.com URLs listed below on 2026-11-04; values compared to the stored captures in data/ and transcribed in analysis/live-standings-2026-11-04.txt",
+  "checks": [
+    {
+      "id": "C1",
+      "what": "Week 9 schedule: 15 games, matchups, kickoff day/time (ET), network",
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "result": "PASS",
+      "detail": "Live page lists 15 games; captured 15 games; matchup sets identical: True. Kickoff times and networks compared for all 15 games: PASS."
+    },
+    {
+      "id": "C2",
+      "what": "Week 9 teams on bye",
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "result": "PASS",
+      "detail": "Live: PIT 6-2, TEN 1-7. Captured: [('PIT', '6-2'), ('TEN', '1-7')]. Match: True."
+    },
+    {
+      "id": "C3",
+      "what": "Standings: 32 teams x 11 fields (W, L, T, PF, PA, NET, HOME, ROAD, DIV, CONF, STRK)",
+      "source_url": "https://www.nfl.com/standings/",
+      "result": "PASS",
+      "detail": "Full live page read in 2 chunks; field-by-field comparison: 0 mismatches. See analysis/live-standings-check-2026-11-04.json."
+    },
+    {
+      "id": "C4",
+      "what": "Week 9 official injury report — CIN at ATL and NYG at PHI",
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg9",
+      "result": "PASS (published; two games transcribed)",
+      "detail": "Published on 2026-11-04 (was unpublished 2026-11-03, F-04). CIN, ATL, NYG, PHI: 'No Injuries Reported' — data/injuries-2026-week9-candidates.json. Other 13 games not transcribed (F-16)."
+    },
+    {
+      "id": "C5",
+      "what": "Official news: Jalen Hurts (PHI) and Terry McLaurin (WAS)",
+      "source_url": "https://www.nfl.com/news/eagles-qb-jalen-hurts-out-2026-season-blood-clots",
+      "result": "PASS (text matches capture; wording nuance flagged F-14)",
+      "detail": "Hurts article: 'likely over', insider reports say miss remainder of 2026 season, return 'in doubt'; Eagles statement expects full recovery. McLaurin article (https://www.nfl.com/news/commanders-wr-terry-mclaurin-out-rest-of-season-torn-patellar-tendon): torn patellar tendon, out for remainder of 2026 season, per head coach Dan Quinn."
+    },
+    {
+      "id": "C6",
+      "what": "Betting market lines",
+      "source_url": null,
+      "result": "NOT VERIFIABLE (F-05)",
+      "detail": "No official NFL source publishes betting lines. Third-party values remain unverified and are not used to pass any gate."
+    }
+  ],
+  "summary": "4 official checks PASS, 1 wording flag (F-14), 1 not verifiable from an official source (market lines, F-05). Week 9 verified candidates: 0."
+}

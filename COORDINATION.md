@@ -14,6 +14,7 @@ and note the handoff here.
 | --- | --- | --- | --- |
 | 9cf451e4 | arena/9cf451e4-own8 | merged to main (PRs #1–#4) | First session: data CSVs, strategy framework docs, root site (now archived), Pages enabled (main /). |
 | 95e9626f | arena/95e9626f-own8 | active (integration) | This session: full JSON data pipeline, analysis, unified dashboard site, PR #5. |
+| d22c14b9 | arena/d22c14b9-own8 | active (verification + correction) | Live re-verification of official data as of 2026-11-04; W9 injury report now published; G6 candidate correction; flags F-04/F-05/F-14..F-19; PR to main. Branch name fixed by operator instructions (see F-19). |
 
 ## Task Board
 
@@ -41,13 +42,16 @@ and note the handoff here.
 | T4 | Research docs + exec summary | done | 95e9626f | research/*.md | official links; Ksa + NCPG | — |
 | T5 | Site build | done | 95e9626f | scripts/build_site.py → index.html + pages/ + assets/ | generated; no external CDN | unified dashboard, per-row source links |
 | T6 | Line-by-line verification + flags | done | 95e9626f | scripts/check_links.py, scripts/verify_combined.py, data/flagged.json, analysis/link-check.json, analysis/verification.json | link check PASS (46 pages, 2712 links, 0 broken); combined-data check PASS (32 teams, 0 mismatches) | F-01..F-13 on Flagged for Review page |
-| T7 | Final integration: merge origin/main, re-verify combined data, unify site at root, PR #5 to main, merge, confirm Pages deploy, record here | in progress | 95e9626f | COORDINATION.md, README.md, archive/ | see log | PR #5: https://github.com/sassnarep3-star/Own8/pull/5 |
+| T7 | Final integration: merge origin/main, re-verify combined data, unify site at root, PR #5 to main, merge, confirm Pages deploy, record here | done (corrected 2026-11-04 by d22c14b9; was still marked in progress after PR #5 merged) | 95e9626f | COORDINATION.md, README.md, archive/ | see log | PR #5 MERGED: https://github.com/sassnarep3-star/Own8/pull/5 |
+| T8 | Live official re-verification as of 2026-11-04 (standings 32x11 fields, W9 schedule 15 games + byes, W9 injury report CIN@ATL/NYG@PHI, news items), G6 gate correction, flag register update, site rebuild | in progress — claimed by d22c14b9 (claim written after first analysis had started; no other session claimed this) | d22c14b9 | data/injuries-2026-week9-candidates.json, data/flagged.json, scripts/analyze.py, scripts/build_site.py, analysis/*.json, research/*.md, README.md, COORDINATION.md | see log | — |
 
 ## Cross-session requests
 
 None outstanding. (Resolved during integration: both sessions wrote COORDINATION.md and README.md — merged below; session 9cf451e4's root site relocated to archive/ with links preserved.)
 
 ## Log
+
+- 2026-11-04 — Session d22c14b9 CLAIMED T8 (live re-verification + G6 correction). Note: its first analysis ran before this claim was written; no other session held T8. Open PR #6 (arena/28cc78aa-own8, session 28cc78aa not on this board) detected — not touched by this session; logged as F-18.
 
 - 2026-11-03 — Session 9cf451e4 (from their board): PR #1 https://github.com/sassnarep3-star/Own8/pull/1 MERGED (2c2e736); PR #2 …/pull/2 MERGED (2154181); PR #3 …/pull/3 MERGED (19760af); PR #4 …/pull/4 MERGED (30194ba). Pages source main /, https://sassnarep3-star.github.io/Own8/, status built.
 - 2026-11-03 — Session 95e9626f initialized its board; claimed T1–T2; captured official data (T2 done, commit 003d0cd); built analysis (T3, d668265); research+site+verification (T4–T6, b94389d); link check PASS (18 pages/1193 links at that point).
