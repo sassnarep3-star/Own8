@@ -1,69 +1,76 @@
 {
-  "as_of": "2026-11-03",
-  "method": "Pearson/Spearman across all 32 teams, computed from data/*.json (official NFL.com captures). n=32 teams, season through Week 8.",
+  "as_of": "2026-11-04",
+  "method": "Team descriptive statistics only. Game-level correlations left null.",
   "correlations": [
     {
-      "pair": "Team points-for per game (PFpg) vs win%",
-      "type": "pearson",
+      "pair": "Net points/game vs win fraction",
+      "type": "Pearson",
+      "r": 0.843142,
       "n": 32,
-      "r": 0.6178,
-      "interpretation": "Pythagorean sanity check: scoring rate should track winning. High r = standings points are skill-consistent, not luck-driven."
+      "confidence_interval": null,
+      "classification": "DERIVED \u2014 DESCRIPTIVE",
+      "source_url": "https://www.nfl.com/standings/",
+      "interpretation": "Cross-sectional team aggregates sharing game outcomes. Not independent game observations, not causality, not forward skill or leg correlation. No IID confidence interval asserted."
     },
     {
-      "pair": "Net points per game (NETpg) vs win%",
-      "type": "pearson",
+      "pair": "Net points/game rank vs win fraction rank",
+      "type": "Spearman (average ties)",
+      "r": 0.845063,
       "n": 32,
-      "r": 0.8431,
-      "interpretation": "Point differential vs record \u2014 the core 'remove luck' regression anchor."
+      "confidence_interval": null,
+      "classification": "DERIVED \u2014 DESCRIPTIVE",
+      "source_url": "https://www.nfl.com/standings/",
+      "interpretation": "Cross-sectional team aggregates sharing game outcomes. Not independent game observations, not causality, not forward skill or leg correlation. No IID confidence interval asserted."
     },
     {
-      "pair": "Net points per game (NETpg) rank vs win% rank",
-      "type": "spearman",
+      "pair": "Points for/game vs win fraction",
+      "type": "Pearson",
+      "r": 0.61779,
       "n": 32,
-      "r": 0.8451,
-      "interpretation": "Rank correlation: robust to outliers (e.g., blowouts)."
+      "confidence_interval": null,
+      "classification": "DERIVED \u2014 DESCRIPTIVE",
+      "source_url": "https://www.nfl.com/standings/",
+      "interpretation": "Cross-sectional team aggregates sharing game outcomes. Not independent game observations, not causality, not forward skill or leg correlation. No IID confidence interval asserted."
     },
     {
-      "pair": "Offensive pass YDS/game vs PFpg",
-      "type": "pearson",
-      "n": 32,
-      "r": 0.668,
-      "interpretation": "Passing volume explains scoring. Also used as the documented proxy for same-game QB-performance vs team-total correlation (parlay gate G5)."
+      "pair": "QB passing over \u00d7 receiver yards over",
+      "type": "Bernoulli leg dependence",
+      "r": null,
+      "n": null,
+      "confidence_interval": null,
+      "classification": "UNVERIFIED",
+      "source_url": "https://www.nfl.com/scores/",
+      "interpretation": "Missing timestamp-aligned paired outcomes and market thresholds. Blocked; no independence assumption. Official reference is a retrieval target, not evidence for a value."
     },
     {
-      "pair": "Defensive pass YDS allowed/game vs PApg",
-      "type": "pearson",
-      "n": 32,
-      "r": 0.3668,
-      "interpretation": "Pass defense quality explains points allowed \u2014 drives QB/WR prop matchup factors."
+      "pair": "QB passing over \u00d7 team total over",
+      "type": "Bernoulli leg dependence",
+      "r": null,
+      "n": null,
+      "confidence_interval": null,
+      "classification": "UNVERIFIED",
+      "source_url": "https://www.nfl.com/scores/",
+      "interpretation": "Missing timestamp-aligned paired outcomes and market thresholds. Blocked; no independence assumption. Official reference is a retrieval target, not evidence for a value."
     },
     {
-      "pair": "Offensive rush YDS/game vs PFpg",
-      "type": "pearson",
-      "n": 32,
-      "r": 0.1809,
-      "interpretation": "Rushing volume vs scoring."
+      "pair": "RB rushing over \u00d7 QB passing under",
+      "type": "Bernoulli leg dependence",
+      "r": null,
+      "n": null,
+      "confidence_interval": null,
+      "classification": "UNVERIFIED",
+      "source_url": "https://www.nfl.com/scores/",
+      "interpretation": "Missing timestamp-aligned paired outcomes and market thresholds. Blocked; no independence assumption. Official reference is a retrieval target, not evidence for a value."
     },
     {
-      "pair": "Defensive rush YDS allowed/game vs PApg",
-      "type": "pearson",
-      "n": 32,
-      "r": 0.5961,
-      "interpretation": "Run defense vs points allowed \u2014 drives RB prop matchup factors."
-    },
-    {
-      "pair": "Team pass RTG vs win%",
-      "type": "pearson",
-      "n": 32,
-      "r": 0.5782,
-      "interpretation": "QB efficiency vs winning."
-    },
-    {
-      "pair": "Offensive pass YDS/game vs offensive rush YDS/game (game script)",
-      "type": "pearson",
-      "n": 32,
-      "r": -0.3207,
-      "interpretation": "Teams that pass more tend to run less (negative expected) \u2014 relevant when pairing QB overs with RB unders in the same game (correlation gate)."
+      "pair": "Cross-game parlay outcomes",
+      "type": "Bernoulli leg dependence",
+      "r": null,
+      "n": null,
+      "confidence_interval": null,
+      "classification": "UNVERIFIED",
+      "source_url": "https://www.nfl.com/scores/",
+      "interpretation": "Missing timestamp-aligned paired outcomes and market thresholds. Blocked; no independence assumption. Official reference is a retrieval target, not evidence for a value."
     }
   ]
 }

@@ -1,13 +1,16 @@
-# Validation Gates — every strategy must pass before it can appear as a candidate
+# Evidence gates · strict PASS only
 
-| Gate | Rule | Data source | Week 9 status (as of 2026-11-03) |
-| --- | --- | --- | --- |
-| **G1 — Official sources only** | Every input row must link to an official source (nfl.com, nextgenstats.nfl.com, team sites, official regulator). Third-party values never enter a verified table. | `data/sources.json` | PASS — all inputs captured from official domains 2026-11-03 |
-| **G2 — Freshness ≤ 7 days** | Standings/stats must be from the most recent completed week (≤ 7 days old). | nfl.com standings/scores timestamps | PASS — through Week 8 (final 2026-11-02) |
-| **G3 — Sample size ≥ 4 games** | Both teams ≥ 4 games played (avoids tiny-sample noise). | nfl.com standings | PASS — all teams 7–8 GP |
-| **G4 — Injury & news check** | Check the latest **published** official injury report + official nfl.com news; adjust (e.g., QB change, WR out). Re-check when the next report publishes. | https://www.nfl.com/injuries/ · nfl.com news | CONDITIONAL — W9 report not yet published (F-04); W8 report + Hurts/McLaurin news applied |
-| **G5 — Correlation check** | Multi-leg bets: pair correlation must satisfy the correlation policy (see `correlation-policy.md`). Same-game correlated combos blocked by default. | `analysis/correlations.json` | PASS for singles; enforced for S6/S7 |
-| **G6 — Edge vs market, sanity band** | Candidate requires `1.0 ≤ |model − market| ≤ 8.0` points. Market input, where used, is unverified third-party (F-05) and must be re-verified at a licensed sportsbook. No market line → NOT_COMPUTABLE (blank), never estimated. | `data/market-lines.json` (unverified) | 6 games computable, 2 candidates (CIN@ATL, NYG@PHI); 3 computable no-trade (edge beyond cap); 9 not computable |
-| **G7 — Stake cap** | ≤ 2% of bankroll per single, ≤ 1% per parlay (Kelly-style; assumption F-07). | framework | PASS (rule enforced in grading) |
+These are Own8 research requirements, not official betting rules. `CONDITIONAL`, null, stale, missing and blocked statuses never count as PASS. Build success is distinct from eligibility.
 
-A strategy that fails any gate is **not published as a candidate** — it is logged with the failing gate instead. "Needs review" items are published on the Flagged for Review page and block nothing.
+- G1: field-level verified sources; no third-party values promoted. Current audited input scope passes only this gate.
+- G2: verified as-of timestamps and complete pre-kickoff information history. Blocked.
+- G3: chronological development and untouched out-of-sample test with frozen choices. Blocked.
+- G4: current final injury/active-status and player usage review. W9 practice rows are not clearance. Blocked.
+- G5: authenticated operator-native timestamped prices, thresholds, settlement/void rules. No assumed vig. Blocked.
+- G6: calibrated predictive distribution; combos additionally require aligned joint-event validation. Blocked.
+- G7: conservative net positive EV and season robustness after a pre-registered multiple-testing adjustment. Blocked.
+- G8: prospective immutable paper ledger, settlement, exposure and drawdown validation. Blocked.
+
+No eligible strategies or actionable selections. Review flags do not block publication, but a missing evidence gate blocks promotion.
+
+Official context: https://www.nfl.com/injuries/league/2026/reg9 ; https://www.itl.nist.gov/div898/handbook/prc/section1/prc14.htm ; https://www.itl.nist.gov/div898/handbook/prc/section4/prc473.htm .

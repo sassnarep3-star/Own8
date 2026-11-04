@@ -1,0 +1,3774 @@
+{
+  "as_of": "2026-11-04",
+  "rows": [
+    {
+      "file": "injuries-2026-week9-candidates.json",
+      "row": 1,
+      "label": "CIN at ATL",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg9"
+    },
+    {
+      "file": "injuries-2026-week9-candidates.json",
+      "row": 2,
+      "label": "NYG at PHI",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg9"
+    },
+    {
+      "file": "market-lines.json",
+      "row": 1,
+      "label": "Legacy market row 1",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/scores/"
+    },
+    {
+      "file": "market-lines.json",
+      "row": 2,
+      "label": "Legacy market row 2",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/scores/"
+    },
+    {
+      "file": "market-lines.json",
+      "row": 3,
+      "label": "Legacy market row 3",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/scores/"
+    },
+    {
+      "file": "market-lines.json",
+      "row": 4,
+      "label": "Legacy market row 4",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/scores/"
+    },
+    {
+      "file": "market-lines.json",
+      "row": 5,
+      "label": "Legacy market row 5",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/scores/"
+    },
+    {
+      "file": "market-lines.json",
+      "row": 6,
+      "label": "Legacy market row 6",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/scores/"
+    },
+    {
+      "file": "news-items.json",
+      "row": 1,
+      "label": "Commanders WR Terry McLaurin out for rest of season with torn patellar tendon",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/news/commanders-wr-terry-mclaurin-out-rest-of-season-torn-patellar-tendon"
+    },
+    {
+      "file": "news-items.json",
+      "row": 2,
+      "label": "Eagles QB Jalen Hurts likely out for rest of 2026 season due to blood clots (placed on IR)",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/news/eagles-qb-jalen-hurts-out-2026-season-blood-clots"
+    },
+    {
+      "file": "nextgen-passing-2026-week8.json",
+      "row": 1,
+      "label": "Joe Burrow",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8"
+    },
+    {
+      "file": "nextgen-passing-2026-week8.json",
+      "row": 2,
+      "label": "Deshaun Watson",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8"
+    },
+    {
+      "file": "nextgen-passing-2026-week8.json",
+      "row": 3,
+      "label": "Patrick Mahomes",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8"
+    },
+    {
+      "file": "nextgen-passing-2026-week8.json",
+      "row": 4,
+      "label": "Cam Ward",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8"
+    },
+    {
+      "file": "nextgen-passing-2026-week8.json",
+      "row": 5,
+      "label": "Geno Smith",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8"
+    },
+    {
+      "file": "nextgen-passing-2026-week8.json",
+      "row": 6,
+      "label": "Josh Allen",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8"
+    },
+    {
+      "file": "nextgen-passing-2026-week8.json",
+      "row": 7,
+      "label": "Jordan Love",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8"
+    },
+    {
+      "file": "nextgen-passing-2026-week8.json",
+      "row": 8,
+      "label": "Justin Herbert",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8"
+    },
+    {
+      "file": "nextgen-passing-2026-week8.json",
+      "row": 9,
+      "label": "Kirk Cousins",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8"
+    },
+    {
+      "file": "nextgen-passing-2026-week8.json",
+      "row": 10,
+      "label": "Caleb Williams",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8"
+    },
+    {
+      "file": "nextgen-passing-2026-week8.json",
+      "row": 11,
+      "label": "Bo Nix",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8"
+    },
+    {
+      "file": "nextgen-passing-2026-week8.json",
+      "row": 12,
+      "label": "Jayden Daniels",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8"
+    },
+    {
+      "file": "nextgen-passing-2026-week8.json",
+      "row": 13,
+      "label": "Tanner McKee",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8"
+    },
+    {
+      "file": "nextgen-passing-2026-week8.json",
+      "row": 14,
+      "label": "Malik Willis",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8"
+    },
+    {
+      "file": "nextgen-passing-2026-week8.json",
+      "row": 15,
+      "label": "Kyler Murray",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8"
+    },
+    {
+      "file": "nextgen-passing-2026-week8.json",
+      "row": 16,
+      "label": "Bryce Young",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8"
+    },
+    {
+      "file": "nextgen-passing-2026-week8.json",
+      "row": 17,
+      "label": "Drake Maye",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8"
+    },
+    {
+      "file": "nextgen-passing-2026-week8.json",
+      "row": 18,
+      "label": "Dak Prescott",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8"
+    },
+    {
+      "file": "nextgen-passing-2026-week8.json",
+      "row": 19,
+      "label": "Gardner Minshew",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8"
+    },
+    {
+      "file": "nextgen-passing-2026-week8.json",
+      "row": 20,
+      "label": "Sam Darnold",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8"
+    },
+    {
+      "file": "nextgen-passing-2026-week8.json",
+      "row": 21,
+      "label": "Jared Goff",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8"
+    },
+    {
+      "file": "nextgen-passing-2026-week8.json",
+      "row": 22,
+      "label": "Aaron Rodgers",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8"
+    },
+    {
+      "file": "nextgen-passing-2026-week8.json",
+      "row": 23,
+      "label": "Matthew Stafford",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8"
+    },
+    {
+      "file": "nextgen-passing-2026-week8.json",
+      "row": 24,
+      "label": "Daniel Jones",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8"
+    },
+    {
+      "file": "nextgen-passing-2026-week8.json",
+      "row": 25,
+      "label": "Michael Penix Jr.",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8"
+    },
+    {
+      "file": "nextgen-passing-2026-week8.json",
+      "row": 26,
+      "label": "Jacoby Brissett",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8"
+    },
+    {
+      "file": "nextgen-passing-2026-week8.json",
+      "row": 27,
+      "label": "Joe Fagnano",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8"
+    },
+    {
+      "file": "player-interceptions-2026.json",
+      "row": 1,
+      "label": "Amani Hooker",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/interceptions/2026/reg/all/defensiveinterceptions/desc"
+    },
+    {
+      "file": "player-interceptions-2026.json",
+      "row": 2,
+      "label": "Alex Anzalone",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/interceptions/2026/reg/all/defensiveinterceptions/desc"
+    },
+    {
+      "file": "player-interceptions-2026.json",
+      "row": 3,
+      "label": "Jordan Battle",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/interceptions/2026/reg/all/defensiveinterceptions/desc"
+    },
+    {
+      "file": "player-interceptions-2026.json",
+      "row": 4,
+      "label": "Renardo Green",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/interceptions/2026/reg/all/defensiveinterceptions/desc"
+    },
+    {
+      "file": "player-interceptions-2026.json",
+      "row": 5,
+      "label": "Jevon Holland",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/interceptions/2026/reg/all/defensiveinterceptions/desc"
+    },
+    {
+      "file": "player-interceptions-2026.json",
+      "row": 6,
+      "label": "Quentin Lake",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/interceptions/2026/reg/all/defensiveinterceptions/desc"
+    },
+    {
+      "file": "player-interceptions-2026.json",
+      "row": 7,
+      "label": "Hezekiah Masses",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/interceptions/2026/reg/all/defensiveinterceptions/desc"
+    },
+    {
+      "file": "player-interceptions-2026.json",
+      "row": 8,
+      "label": "Xavier McKinney",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/interceptions/2026/reg/all/defensiveinterceptions/desc"
+    },
+    {
+      "file": "player-interceptions-2026.json",
+      "row": 9,
+      "label": "Byron Murphy",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/interceptions/2026/reg/all/defensiveinterceptions/desc"
+    },
+    {
+      "file": "player-interceptions-2026.json",
+      "row": 10,
+      "label": "Denzel Ward",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/interceptions/2026/reg/all/defensiveinterceptions/desc"
+    },
+    {
+      "file": "player-interceptions-2026.json",
+      "row": 11,
+      "label": "Julian Blackmon",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/interceptions/2026/reg/all/defensiveinterceptions/desc"
+    },
+    {
+      "file": "player-interceptions-2026.json",
+      "row": 12,
+      "label": "Rasul Douglas",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/interceptions/2026/reg/all/defensiveinterceptions/desc"
+    },
+    {
+      "file": "player-interceptions-2026.json",
+      "row": 13,
+      "label": "Martin Emerson",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/interceptions/2026/reg/all/defensiveinterceptions/desc"
+    },
+    {
+      "file": "player-interceptions-2026.json",
+      "row": 14,
+      "label": "Cordale Flott",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/interceptions/2026/reg/all/defensiveinterceptions/desc"
+    },
+    {
+      "file": "player-interceptions-2026.json",
+      "row": 15,
+      "label": "Cam Hart",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/interceptions/2026/reg/all/defensiveinterceptions/desc"
+    },
+    {
+      "file": "player-interceptions-2026.json",
+      "row": 16,
+      "label": "Ty'Ron Hopper",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/interceptions/2026/reg/all/defensiveinterceptions/desc"
+    },
+    {
+      "file": "player-interceptions-2026.json",
+      "row": 17,
+      "label": "Talanoa Hufanga",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/interceptions/2026/reg/all/defensiveinterceptions/desc"
+    },
+    {
+      "file": "player-interceptions-2026.json",
+      "row": 18,
+      "label": "Travis Hunter",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/interceptions/2026/reg/all/defensiveinterceptions/desc"
+    },
+    {
+      "file": "player-interceptions-2026.json",
+      "row": 19,
+      "label": "Brandon Jones",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/interceptions/2026/reg/all/defensiveinterceptions/desc"
+    },
+    {
+      "file": "player-interceptions-2026.json",
+      "row": 20,
+      "label": "Jourdan Lewis",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/interceptions/2026/reg/all/defensiveinterceptions/desc"
+    },
+    {
+      "file": "player-interceptions-2026.json",
+      "row": 21,
+      "label": "Devin Lloyd",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/interceptions/2026/reg/all/defensiveinterceptions/desc"
+    },
+    {
+      "file": "player-interceptions-2026.json",
+      "row": 22,
+      "label": "Julian Love",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/interceptions/2026/reg/all/defensiveinterceptions/desc"
+    },
+    {
+      "file": "player-interceptions-2026.json",
+      "row": 23,
+      "label": "Zyon McCollum",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/interceptions/2026/reg/all/defensiveinterceptions/desc"
+    },
+    {
+      "file": "player-interceptions-2026.json",
+      "row": 24,
+      "label": "Trent McDuffie",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/interceptions/2026/reg/all/defensiveinterceptions/desc"
+    },
+    {
+      "file": "player-interceptions-2026.json",
+      "row": 25,
+      "label": "Foyesade Oluokun",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/interceptions/2026/reg/all/defensiveinterceptions/desc"
+    },
+    {
+      "file": "player-passing-2026.json",
+      "row": 1,
+      "label": "Jordan Love",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/passing/2026/reg/all/passingyards/desc"
+    },
+    {
+      "file": "player-passing-2026.json",
+      "row": 2,
+      "label": "Matthew Stafford",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/passing/2026/reg/all/passingyards/desc"
+    },
+    {
+      "file": "player-passing-2026.json",
+      "row": 3,
+      "label": "Kirk Cousins",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/passing/2026/reg/all/passingyards/desc"
+    },
+    {
+      "file": "player-passing-2026.json",
+      "row": 4,
+      "label": "Joe Burrow",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/passing/2026/reg/all/passingyards/desc"
+    },
+    {
+      "file": "player-passing-2026.json",
+      "row": 5,
+      "label": "Dak Prescott",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/passing/2026/reg/all/passingyards/desc"
+    },
+    {
+      "file": "player-passing-2026.json",
+      "row": 6,
+      "label": "Drake Maye",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/passing/2026/reg/all/passingyards/desc"
+    },
+    {
+      "file": "player-passing-2026.json",
+      "row": 7,
+      "label": "Jared Goff",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/passing/2026/reg/all/passingyards/desc"
+    },
+    {
+      "file": "player-passing-2026.json",
+      "row": 8,
+      "label": "Bryce Young",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/passing/2026/reg/all/passingyards/desc"
+    },
+    {
+      "file": "player-passing-2026.json",
+      "row": 9,
+      "label": "Geno Smith",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/passing/2026/reg/all/passingyards/desc"
+    },
+    {
+      "file": "player-passing-2026.json",
+      "row": 10,
+      "label": "Aaron Rodgers",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/passing/2026/reg/all/passingyards/desc"
+    },
+    {
+      "file": "player-passing-2026.json",
+      "row": 11,
+      "label": "C.J. Stroud",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/passing/2026/reg/all/passingyards/desc"
+    },
+    {
+      "file": "player-passing-2026.json",
+      "row": 12,
+      "label": "Deshaun Watson",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/passing/2026/reg/all/passingyards/desc"
+    },
+    {
+      "file": "player-passing-2026.json",
+      "row": 13,
+      "label": "Patrick Mahomes",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/passing/2026/reg/all/passingyards/desc"
+    },
+    {
+      "file": "player-passing-2026.json",
+      "row": 14,
+      "label": "Josh Allen",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/passing/2026/reg/all/passingyards/desc"
+    },
+    {
+      "file": "player-passing-2026.json",
+      "row": 15,
+      "label": "Brock Purdy",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/passing/2026/reg/all/passingyards/desc"
+    },
+    {
+      "file": "player-passing-2026.json",
+      "row": 16,
+      "label": "Tyler Shough",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/passing/2026/reg/all/passingyards/desc"
+    },
+    {
+      "file": "player-passing-2026.json",
+      "row": 17,
+      "label": "Jacoby Brissett",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/passing/2026/reg/all/passingyards/desc"
+    },
+    {
+      "file": "player-passing-2026.json",
+      "row": 18,
+      "label": "Trevor Lawrence",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/passing/2026/reg/all/passingyards/desc"
+    },
+    {
+      "file": "player-passing-2026.json",
+      "row": 19,
+      "label": "Daniel Jones",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/passing/2026/reg/all/passingyards/desc"
+    },
+    {
+      "file": "player-passing-2026.json",
+      "row": 20,
+      "label": "Bo Nix",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/passing/2026/reg/all/passingyards/desc"
+    },
+    {
+      "file": "player-passing-2026.json",
+      "row": 21,
+      "label": "Cam Ward",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/passing/2026/reg/all/passingyards/desc"
+    },
+    {
+      "file": "player-passing-2026.json",
+      "row": 22,
+      "label": "Sam Darnold",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/passing/2026/reg/all/passingyards/desc"
+    },
+    {
+      "file": "player-passing-2026.json",
+      "row": 23,
+      "label": "Justin Herbert",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/passing/2026/reg/all/passingyards/desc"
+    },
+    {
+      "file": "player-passing-2026.json",
+      "row": 24,
+      "label": "Michael Penix Jr.",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/passing/2026/reg/all/passingyards/desc"
+    },
+    {
+      "file": "player-passing-2026.json",
+      "row": 25,
+      "label": "Malik Willis",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/passing/2026/reg/all/passingyards/desc"
+    },
+    {
+      "file": "player-receiving-2026.json",
+      "row": 1,
+      "label": "Jaxon Smith-Njigba",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/receiving/2026/reg/all/receivingyards/desc"
+    },
+    {
+      "file": "player-receiving-2026.json",
+      "row": 2,
+      "label": "Tee Higgins",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/receiving/2026/reg/all/receivingyards/desc"
+    },
+    {
+      "file": "player-receiving-2026.json",
+      "row": 3,
+      "label": "CeeDee Lamb",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/receiving/2026/reg/all/receivingyards/desc"
+    },
+    {
+      "file": "player-receiving-2026.json",
+      "row": 4,
+      "label": "Christian Watson",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/receiving/2026/reg/all/receivingyards/desc"
+    },
+    {
+      "file": "player-receiving-2026.json",
+      "row": 5,
+      "label": "Chris Olave",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/receiving/2026/reg/all/receivingyards/desc"
+    },
+    {
+      "file": "player-receiving-2026.json",
+      "row": 6,
+      "label": "Drake London",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/receiving/2026/reg/all/receivingyards/desc"
+    },
+    {
+      "file": "player-receiving-2026.json",
+      "row": 7,
+      "label": "Matthew Golden",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/receiving/2026/reg/all/receivingyards/desc"
+    },
+    {
+      "file": "player-receiving-2026.json",
+      "row": 8,
+      "label": "Zay Flowers",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/receiving/2026/reg/all/receivingyards/desc"
+    },
+    {
+      "file": "player-receiving-2026.json",
+      "row": 9,
+      "label": "Malik Nabers",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/receiving/2026/reg/all/receivingyards/desc"
+    },
+    {
+      "file": "player-receiving-2026.json",
+      "row": 10,
+      "label": "Amon-Ra St. Brown",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/receiving/2026/reg/all/receivingyards/desc"
+    },
+    {
+      "file": "player-receiving-2026.json",
+      "row": 11,
+      "label": "Tetairoa McMillan",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/receiving/2026/reg/all/receivingyards/desc"
+    },
+    {
+      "file": "player-receiving-2026.json",
+      "row": 12,
+      "label": "Puka Nacua",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/receiving/2026/reg/all/receivingyards/desc"
+    },
+    {
+      "file": "player-receiving-2026.json",
+      "row": 13,
+      "label": "Brock Bowers",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/receiving/2026/reg/all/receivingyards/desc"
+    },
+    {
+      "file": "player-receiving-2026.json",
+      "row": 14,
+      "label": "Luther Burden III",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/receiving/2026/reg/all/receivingyards/desc"
+    },
+    {
+      "file": "player-receiving-2026.json",
+      "row": 15,
+      "label": "Trey McBride",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/receiving/2026/reg/all/receivingyards/desc"
+    },
+    {
+      "file": "player-receiving-2026.json",
+      "row": 16,
+      "label": "George Pickens",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/receiving/2026/reg/all/receivingyards/desc"
+    },
+    {
+      "file": "player-receiving-2026.json",
+      "row": 17,
+      "label": "Garrett Wilson",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/receiving/2026/reg/all/receivingyards/desc"
+    },
+    {
+      "file": "player-receiving-2026.json",
+      "row": 18,
+      "label": "Ja'Marr Chase",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/receiving/2026/reg/all/receivingyards/desc"
+    },
+    {
+      "file": "player-receiving-2026.json",
+      "row": 19,
+      "label": "Michael Wilson",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/receiving/2026/reg/all/receivingyards/desc"
+    },
+    {
+      "file": "player-receiving-2026.json",
+      "row": 20,
+      "label": "Davante Adams",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/receiving/2026/reg/all/receivingyards/desc"
+    },
+    {
+      "file": "player-receiving-2026.json",
+      "row": 21,
+      "label": "Tre Tucker",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/receiving/2026/reg/all/receivingyards/desc"
+    },
+    {
+      "file": "player-receiving-2026.json",
+      "row": 22,
+      "label": "Rome Odunze",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/receiving/2026/reg/all/receivingyards/desc"
+    },
+    {
+      "file": "player-receiving-2026.json",
+      "row": 23,
+      "label": "Jameson Williams",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/receiving/2026/reg/all/receivingyards/desc"
+    },
+    {
+      "file": "player-receiving-2026.json",
+      "row": 24,
+      "label": "Parker Washington",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/receiving/2026/reg/all/receivingyards/desc"
+    },
+    {
+      "file": "player-receiving-2026.json",
+      "row": 25,
+      "label": "George Kittle",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/receiving/2026/reg/all/receivingyards/desc"
+    },
+    {
+      "file": "player-rushing-2026.json",
+      "row": 1,
+      "label": "Bijan Robinson",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/rushing/2026/reg/all/rushingyards/desc"
+    },
+    {
+      "file": "player-rushing-2026.json",
+      "row": 2,
+      "label": "Jahmyr Gibbs",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/rushing/2026/reg/all/rushingyards/desc"
+    },
+    {
+      "file": "player-rushing-2026.json",
+      "row": 3,
+      "label": "Kenneth Walker III",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/rushing/2026/reg/all/rushingyards/desc"
+    },
+    {
+      "file": "player-rushing-2026.json",
+      "row": 4,
+      "label": "Bucky Irving",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/rushing/2026/reg/all/rushingyards/desc"
+    },
+    {
+      "file": "player-rushing-2026.json",
+      "row": 5,
+      "label": "James Cook",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/rushing/2026/reg/all/rushingyards/desc"
+    },
+    {
+      "file": "player-rushing-2026.json",
+      "row": 6,
+      "label": "Jaylen Warren",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/rushing/2026/reg/all/rushingyards/desc"
+    },
+    {
+      "file": "player-rushing-2026.json",
+      "row": 7,
+      "label": "Derrick Henry",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/rushing/2026/reg/all/rushingyards/desc"
+    },
+    {
+      "file": "player-rushing-2026.json",
+      "row": 8,
+      "label": "Jonathan Taylor",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/rushing/2026/reg/all/rushingyards/desc"
+    },
+    {
+      "file": "player-rushing-2026.json",
+      "row": 9,
+      "label": "Tony Pollard",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/rushing/2026/reg/all/rushingyards/desc"
+    },
+    {
+      "file": "player-rushing-2026.json",
+      "row": 10,
+      "label": "Braelon Allen",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/rushing/2026/reg/all/rushingyards/desc"
+    },
+    {
+      "file": "player-rushing-2026.json",
+      "row": 11,
+      "label": "Kyren Williams",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/rushing/2026/reg/all/rushingyards/desc"
+    },
+    {
+      "file": "player-rushing-2026.json",
+      "row": 12,
+      "label": "D'Andre Swift",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/rushing/2026/reg/all/rushingyards/desc"
+    },
+    {
+      "file": "player-rushing-2026.json",
+      "row": 13,
+      "label": "Chuba Hubbard",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/rushing/2026/reg/all/rushingyards/desc"
+    },
+    {
+      "file": "player-rushing-2026.json",
+      "row": 14,
+      "label": "Javonte Williams",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/rushing/2026/reg/all/rushingyards/desc"
+    },
+    {
+      "file": "player-rushing-2026.json",
+      "row": 15,
+      "label": "Bhayshul Tuten",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/rushing/2026/reg/all/rushingyards/desc"
+    },
+    {
+      "file": "player-rushing-2026.json",
+      "row": 16,
+      "label": "Aaron Jones",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/rushing/2026/reg/all/rushingyards/desc"
+    },
+    {
+      "file": "player-rushing-2026.json",
+      "row": 17,
+      "label": "Cam Skattebo",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/rushing/2026/reg/all/rushingyards/desc"
+    },
+    {
+      "file": "player-rushing-2026.json",
+      "row": 18,
+      "label": "Ollie Gordon II",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/rushing/2026/reg/all/rushingyards/desc"
+    },
+    {
+      "file": "player-rushing-2026.json",
+      "row": 19,
+      "label": "Emanuel Wilson",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/rushing/2026/reg/all/rushingyards/desc"
+    },
+    {
+      "file": "player-rushing-2026.json",
+      "row": 20,
+      "label": "Blake Corum",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/rushing/2026/reg/all/rushingyards/desc"
+    },
+    {
+      "file": "player-rushing-2026.json",
+      "row": 21,
+      "label": "Christian McCaffrey",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/rushing/2026/reg/all/rushingyards/desc"
+    },
+    {
+      "file": "player-rushing-2026.json",
+      "row": 22,
+      "label": "Rhamondre Stevenson",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/rushing/2026/reg/all/rushingyards/desc"
+    },
+    {
+      "file": "player-rushing-2026.json",
+      "row": 23,
+      "label": "Quinshon Judkins",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/rushing/2026/reg/all/rushingyards/desc"
+    },
+    {
+      "file": "player-rushing-2026.json",
+      "row": 24,
+      "label": "Chase Brown",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/rushing/2026/reg/all/rushingyards/desc"
+    },
+    {
+      "file": "player-rushing-2026.json",
+      "row": 25,
+      "label": "Ashton Jeanty",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/player-stats/category/rushing/2026/reg/all/rushingyards/desc"
+    },
+    {
+      "file": "schedule-2026-week9.json",
+      "row": 1,
+      "label": "JAX at BAL",
+      "values": null,
+      "status": "PARTIAL \u2014 see audited fields",
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9"
+    },
+    {
+      "file": "schedule-2026-week9.json",
+      "row": 2,
+      "label": "CIN at ATL",
+      "values": null,
+      "status": "PARTIAL \u2014 see audited fields",
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9"
+    },
+    {
+      "file": "schedule-2026-week9.json",
+      "row": 3,
+      "label": "DEN at CAR",
+      "values": null,
+      "status": "PARTIAL \u2014 see audited fields",
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9"
+    },
+    {
+      "file": "schedule-2026-week9.json",
+      "row": 4,
+      "label": "DAL at IND",
+      "values": null,
+      "status": "PARTIAL \u2014 see audited fields",
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9"
+    },
+    {
+      "file": "schedule-2026-week9.json",
+      "row": 5,
+      "label": "NYJ at KC",
+      "values": null,
+      "status": "PARTIAL \u2014 see audited fields",
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9"
+    },
+    {
+      "file": "schedule-2026-week9.json",
+      "row": 6,
+      "label": "DET at MIA",
+      "values": null,
+      "status": "PARTIAL \u2014 see audited fields",
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9"
+    },
+    {
+      "file": "schedule-2026-week9.json",
+      "row": 7,
+      "label": "CLE at NO",
+      "values": null,
+      "status": "PARTIAL \u2014 see audited fields",
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9"
+    },
+    {
+      "file": "schedule-2026-week9.json",
+      "row": 8,
+      "label": "NYG at PHI",
+      "values": null,
+      "status": "PARTIAL \u2014 see audited fields",
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9"
+    },
+    {
+      "file": "schedule-2026-week9.json",
+      "row": 9,
+      "label": "LA at WAS",
+      "values": null,
+      "status": "PARTIAL \u2014 see audited fields",
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9"
+    },
+    {
+      "file": "schedule-2026-week9.json",
+      "row": 10,
+      "label": "HOU at LAC",
+      "values": null,
+      "status": "PARTIAL \u2014 see audited fields",
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9"
+    },
+    {
+      "file": "schedule-2026-week9.json",
+      "row": 11,
+      "label": "LV at SF",
+      "values": null,
+      "status": "PARTIAL \u2014 see audited fields",
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9"
+    },
+    {
+      "file": "schedule-2026-week9.json",
+      "row": 12,
+      "label": "GB at NE",
+      "values": null,
+      "status": "PARTIAL \u2014 see audited fields",
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9"
+    },
+    {
+      "file": "schedule-2026-week9.json",
+      "row": 13,
+      "label": "AZ at SEA",
+      "values": null,
+      "status": "PARTIAL \u2014 see audited fields",
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9"
+    },
+    {
+      "file": "schedule-2026-week9.json",
+      "row": 14,
+      "label": "TB at CHI",
+      "values": null,
+      "status": "PARTIAL \u2014 see audited fields",
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9"
+    },
+    {
+      "file": "schedule-2026-week9.json",
+      "row": 15,
+      "label": "BUF at MIN",
+      "values": null,
+      "status": "PARTIAL \u2014 see audited fields",
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9"
+    },
+    {
+      "file": "scores-2026-week8.json",
+      "row": 1,
+      "label": "CAR at GB",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/scores/2026/week-8"
+    },
+    {
+      "file": "scores-2026-week8.json",
+      "row": 2,
+      "label": "BAL at BUF",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/scores/2026/week-8"
+    },
+    {
+      "file": "scores-2026-week8.json",
+      "row": 3,
+      "label": "TEN at CIN",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/scores/2026/week-8"
+    },
+    {
+      "file": "scores-2026-week8.json",
+      "row": 4,
+      "label": "AZ at DAL",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/scores/2026/week-8"
+    },
+    {
+      "file": "scores-2026-week8.json",
+      "row": 5,
+      "label": "MIN at DET",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/scores/2026/week-8"
+    },
+    {
+      "file": "scores-2026-week8.json",
+      "row": 6,
+      "label": "IND at JAX",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/scores/2026/week-8"
+    },
+    {
+      "file": "scores-2026-week8.json",
+      "row": 7,
+      "label": "LV at NYJ",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/scores/2026/week-8"
+    },
+    {
+      "file": "scores-2026-week8.json",
+      "row": 8,
+      "label": "CLE at PIT",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/scores/2026/week-8"
+    },
+    {
+      "file": "scores-2026-week8.json",
+      "row": 9,
+      "label": "ATL at TB",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/scores/2026/week-8"
+    },
+    {
+      "file": "scores-2026-week8.json",
+      "row": 10,
+      "label": "LAC at LA",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/scores/2026/week-8"
+    },
+    {
+      "file": "scores-2026-week8.json",
+      "row": 11,
+      "label": "KC at DEN",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/scores/2026/week-8"
+    },
+    {
+      "file": "scores-2026-week8.json",
+      "row": 12,
+      "label": "NE at MIA",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/scores/2026/week-8"
+    },
+    {
+      "file": "scores-2026-week8.json",
+      "row": 13,
+      "label": "PHI at WAS",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/scores/2026/week-8"
+    },
+    {
+      "file": "scores-2026-week8.json",
+      "row": 14,
+      "label": "CHI at SEA",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/scores/2026/week-8"
+    },
+    {
+      "file": "standings-2026-reg-w8.json",
+      "row": 1,
+      "label": "Buffalo Bills",
+      "values": null,
+      "status": "PARTIAL \u2014 see audited fields",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "standings-2026-reg-w8.json",
+      "row": 2,
+      "label": "New England Patriots",
+      "values": null,
+      "status": "PARTIAL \u2014 see audited fields",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "standings-2026-reg-w8.json",
+      "row": 3,
+      "label": "New York Jets",
+      "values": null,
+      "status": "PARTIAL \u2014 see audited fields",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "standings-2026-reg-w8.json",
+      "row": 4,
+      "label": "Miami Dolphins",
+      "values": null,
+      "status": "PARTIAL \u2014 see audited fields",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "standings-2026-reg-w8.json",
+      "row": 5,
+      "label": "Pittsburgh Steelers",
+      "values": null,
+      "status": "PARTIAL \u2014 see audited fields",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "standings-2026-reg-w8.json",
+      "row": 6,
+      "label": "Cincinnati Bengals",
+      "values": null,
+      "status": "PARTIAL \u2014 see audited fields",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "standings-2026-reg-w8.json",
+      "row": 7,
+      "label": "Cleveland Browns",
+      "values": null,
+      "status": "PARTIAL \u2014 see audited fields",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "standings-2026-reg-w8.json",
+      "row": 8,
+      "label": "Baltimore Ravens",
+      "values": null,
+      "status": "PARTIAL \u2014 see audited fields",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "standings-2026-reg-w8.json",
+      "row": 9,
+      "label": "Jacksonville Jaguars",
+      "values": null,
+      "status": "PARTIAL \u2014 see audited fields",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "standings-2026-reg-w8.json",
+      "row": 10,
+      "label": "Houston Texans",
+      "values": null,
+      "status": "PARTIAL \u2014 see audited fields",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "standings-2026-reg-w8.json",
+      "row": 11,
+      "label": "Indianapolis Colts",
+      "values": null,
+      "status": "PARTIAL \u2014 see audited fields",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "standings-2026-reg-w8.json",
+      "row": 12,
+      "label": "Tennessee Titans",
+      "values": null,
+      "status": "PARTIAL \u2014 see audited fields",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "standings-2026-reg-w8.json",
+      "row": 13,
+      "label": "Denver Broncos",
+      "values": null,
+      "status": "PARTIAL \u2014 see audited fields",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "standings-2026-reg-w8.json",
+      "row": 14,
+      "label": "Kansas City Chiefs",
+      "values": null,
+      "status": "PARTIAL \u2014 see audited fields",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "standings-2026-reg-w8.json",
+      "row": 15,
+      "label": "Las Vegas Raiders",
+      "values": null,
+      "status": "PARTIAL \u2014 see audited fields",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "standings-2026-reg-w8.json",
+      "row": 16,
+      "label": "Los Angeles Chargers",
+      "values": null,
+      "status": "PARTIAL \u2014 see audited fields",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "standings-2026-reg-w8.json",
+      "row": 17,
+      "label": "New York Giants",
+      "values": null,
+      "status": "PARTIAL \u2014 see audited fields",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "standings-2026-reg-w8.json",
+      "row": 18,
+      "label": "Dallas Cowboys",
+      "values": null,
+      "status": "PARTIAL \u2014 see audited fields",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "standings-2026-reg-w8.json",
+      "row": 19,
+      "label": "Washington Commanders",
+      "values": null,
+      "status": "PARTIAL \u2014 see audited fields",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "standings-2026-reg-w8.json",
+      "row": 20,
+      "label": "Philadelphia Eagles",
+      "values": null,
+      "status": "PARTIAL \u2014 see audited fields",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "standings-2026-reg-w8.json",
+      "row": 21,
+      "label": "Minnesota Vikings",
+      "values": null,
+      "status": "PARTIAL \u2014 see audited fields",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "standings-2026-reg-w8.json",
+      "row": 22,
+      "label": "Chicago Bears",
+      "values": null,
+      "status": "PARTIAL \u2014 see audited fields",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "standings-2026-reg-w8.json",
+      "row": 23,
+      "label": "Detroit Lions",
+      "values": null,
+      "status": "PARTIAL \u2014 see audited fields",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "standings-2026-reg-w8.json",
+      "row": 24,
+      "label": "Green Bay Packers",
+      "values": null,
+      "status": "PARTIAL \u2014 see audited fields",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "standings-2026-reg-w8.json",
+      "row": 25,
+      "label": "Carolina Panthers",
+      "values": null,
+      "status": "PARTIAL \u2014 see audited fields",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "standings-2026-reg-w8.json",
+      "row": 26,
+      "label": "Tampa Bay Buccaneers",
+      "values": null,
+      "status": "PARTIAL \u2014 see audited fields",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "standings-2026-reg-w8.json",
+      "row": 27,
+      "label": "Atlanta Falcons",
+      "values": null,
+      "status": "PARTIAL \u2014 see audited fields",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "standings-2026-reg-w8.json",
+      "row": 28,
+      "label": "New Orleans Saints",
+      "values": null,
+      "status": "PARTIAL \u2014 see audited fields",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "standings-2026-reg-w8.json",
+      "row": 29,
+      "label": "San Francisco 49ers",
+      "values": null,
+      "status": "PARTIAL \u2014 see audited fields",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "standings-2026-reg-w8.json",
+      "row": 30,
+      "label": "Seattle Seahawks",
+      "values": null,
+      "status": "PARTIAL \u2014 see audited fields",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "standings-2026-reg-w8.json",
+      "row": 31,
+      "label": "Los Angeles Rams",
+      "values": null,
+      "status": "PARTIAL \u2014 see audited fields",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "standings-2026-reg-w8.json",
+      "row": 32,
+      "label": "Arizona Cardinals",
+      "values": null,
+      "status": "PARTIAL \u2014 see audited fields",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "team-passing-defense-2026.json",
+      "row": 1,
+      "label": "SF",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-defense-2026.json",
+      "row": 2,
+      "label": "CHI",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-defense-2026.json",
+      "row": 3,
+      "label": "CIN",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-defense-2026.json",
+      "row": 4,
+      "label": "BUF",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-defense-2026.json",
+      "row": 5,
+      "label": "DEN",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-defense-2026.json",
+      "row": 6,
+      "label": "CLE",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-defense-2026.json",
+      "row": 7,
+      "label": "TB",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-defense-2026.json",
+      "row": 8,
+      "label": "AZ",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-defense-2026.json",
+      "row": 9,
+      "label": "LAC",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-defense-2026.json",
+      "row": 10,
+      "label": "KC",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-defense-2026.json",
+      "row": 11,
+      "label": "IND",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-defense-2026.json",
+      "row": 12,
+      "label": "WAS",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-defense-2026.json",
+      "row": 13,
+      "label": "DAL",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-defense-2026.json",
+      "row": 14,
+      "label": "MIA",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-defense-2026.json",
+      "row": 15,
+      "label": "PHI",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-defense-2026.json",
+      "row": 16,
+      "label": "ATL",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-defense-2026.json",
+      "row": 17,
+      "label": "NYG",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-defense-2026.json",
+      "row": 18,
+      "label": "JAX",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-defense-2026.json",
+      "row": 19,
+      "label": "NYJ",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-defense-2026.json",
+      "row": 20,
+      "label": "DET",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-defense-2026.json",
+      "row": 21,
+      "label": "GB",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-defense-2026.json",
+      "row": 22,
+      "label": "CAR",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-defense-2026.json",
+      "row": 23,
+      "label": "NE",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-defense-2026.json",
+      "row": 24,
+      "label": "LV",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-defense-2026.json",
+      "row": 25,
+      "label": "LA",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-defense-2026.json",
+      "row": 26,
+      "label": "BAL",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-defense-2026.json",
+      "row": 27,
+      "label": "NO",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-defense-2026.json",
+      "row": 28,
+      "label": "SEA",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-defense-2026.json",
+      "row": 29,
+      "label": "PIT",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-defense-2026.json",
+      "row": 30,
+      "label": "HOU",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-defense-2026.json",
+      "row": 31,
+      "label": "TEN",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-defense-2026.json",
+      "row": 32,
+      "label": "MIN",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-offense-2026.json",
+      "row": 1,
+      "label": "SF",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-offense-2026.json",
+      "row": 2,
+      "label": "CHI",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-offense-2026.json",
+      "row": 3,
+      "label": "CIN",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-offense-2026.json",
+      "row": 4,
+      "label": "BUF",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-offense-2026.json",
+      "row": 5,
+      "label": "DEN",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-offense-2026.json",
+      "row": 6,
+      "label": "CLE",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-offense-2026.json",
+      "row": 7,
+      "label": "TB",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-offense-2026.json",
+      "row": 8,
+      "label": "AZ",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-offense-2026.json",
+      "row": 9,
+      "label": "LAC",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-offense-2026.json",
+      "row": 10,
+      "label": "KC",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-offense-2026.json",
+      "row": 11,
+      "label": "IND",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-offense-2026.json",
+      "row": 12,
+      "label": "WAS",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-offense-2026.json",
+      "row": 13,
+      "label": "DAL",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-offense-2026.json",
+      "row": 14,
+      "label": "MIA",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-offense-2026.json",
+      "row": 15,
+      "label": "PHI",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-offense-2026.json",
+      "row": 16,
+      "label": "ATL",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-offense-2026.json",
+      "row": 17,
+      "label": "NYG",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-offense-2026.json",
+      "row": 18,
+      "label": "JAX",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-offense-2026.json",
+      "row": 19,
+      "label": "NYJ",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-offense-2026.json",
+      "row": 20,
+      "label": "DET",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-offense-2026.json",
+      "row": 21,
+      "label": "GB",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-offense-2026.json",
+      "row": 22,
+      "label": "CAR",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-offense-2026.json",
+      "row": 23,
+      "label": "NE",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-offense-2026.json",
+      "row": 24,
+      "label": "LV",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-offense-2026.json",
+      "row": 25,
+      "label": "LA",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-offense-2026.json",
+      "row": 26,
+      "label": "BAL",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-offense-2026.json",
+      "row": 27,
+      "label": "NO",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-offense-2026.json",
+      "row": 28,
+      "label": "SEA",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-offense-2026.json",
+      "row": 29,
+      "label": "PIT",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-offense-2026.json",
+      "row": 30,
+      "label": "HOU",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-offense-2026.json",
+      "row": 31,
+      "label": "TEN",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-passing-offense-2026.json",
+      "row": 32,
+      "label": "MIN",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/passing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-defense-2026.json",
+      "row": 1,
+      "label": "SF",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-defense-2026.json",
+      "row": 2,
+      "label": "CHI",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-defense-2026.json",
+      "row": 3,
+      "label": "CIN",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-defense-2026.json",
+      "row": 4,
+      "label": "BUF",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-defense-2026.json",
+      "row": 5,
+      "label": "DEN",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-defense-2026.json",
+      "row": 6,
+      "label": "CLE",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-defense-2026.json",
+      "row": 7,
+      "label": "TB",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-defense-2026.json",
+      "row": 8,
+      "label": "AZ",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-defense-2026.json",
+      "row": 9,
+      "label": "LAC",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-defense-2026.json",
+      "row": 10,
+      "label": "KC",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-defense-2026.json",
+      "row": 11,
+      "label": "IND",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-defense-2026.json",
+      "row": 12,
+      "label": "WAS",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-defense-2026.json",
+      "row": 13,
+      "label": "DAL",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-defense-2026.json",
+      "row": 14,
+      "label": "MIA",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-defense-2026.json",
+      "row": 15,
+      "label": "PHI",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-defense-2026.json",
+      "row": 16,
+      "label": "ATL",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-defense-2026.json",
+      "row": 17,
+      "label": "NYG",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-defense-2026.json",
+      "row": 18,
+      "label": "JAX",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-defense-2026.json",
+      "row": 19,
+      "label": "NYJ",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-defense-2026.json",
+      "row": 20,
+      "label": "DET",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-defense-2026.json",
+      "row": 21,
+      "label": "GB",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-defense-2026.json",
+      "row": 22,
+      "label": "CAR",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-defense-2026.json",
+      "row": 23,
+      "label": "NE",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-defense-2026.json",
+      "row": 24,
+      "label": "LV",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-defense-2026.json",
+      "row": 25,
+      "label": "LA",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-defense-2026.json",
+      "row": 26,
+      "label": "BAL",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-defense-2026.json",
+      "row": 27,
+      "label": "NO",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-defense-2026.json",
+      "row": 28,
+      "label": "SEA",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-defense-2026.json",
+      "row": 29,
+      "label": "PIT",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-defense-2026.json",
+      "row": 30,
+      "label": "HOU",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-defense-2026.json",
+      "row": 31,
+      "label": "TEN",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-defense-2026.json",
+      "row": 32,
+      "label": "MIN",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/defense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-offense-2026.json",
+      "row": 1,
+      "label": "SF",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-offense-2026.json",
+      "row": 2,
+      "label": "CHI",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-offense-2026.json",
+      "row": 3,
+      "label": "CIN",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-offense-2026.json",
+      "row": 4,
+      "label": "BUF",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-offense-2026.json",
+      "row": 5,
+      "label": "DEN",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-offense-2026.json",
+      "row": 6,
+      "label": "CLE",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-offense-2026.json",
+      "row": 7,
+      "label": "TB",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-offense-2026.json",
+      "row": 8,
+      "label": "AZ",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-offense-2026.json",
+      "row": 9,
+      "label": "LAC",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-offense-2026.json",
+      "row": 10,
+      "label": "KC",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-offense-2026.json",
+      "row": 11,
+      "label": "IND",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-offense-2026.json",
+      "row": 12,
+      "label": "WAS",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-offense-2026.json",
+      "row": 13,
+      "label": "DAL",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-offense-2026.json",
+      "row": 14,
+      "label": "MIA",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-offense-2026.json",
+      "row": 15,
+      "label": "PHI",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-offense-2026.json",
+      "row": 16,
+      "label": "ATL",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-offense-2026.json",
+      "row": 17,
+      "label": "NYG",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-offense-2026.json",
+      "row": 18,
+      "label": "JAX",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-offense-2026.json",
+      "row": 19,
+      "label": "NYJ",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-offense-2026.json",
+      "row": 20,
+      "label": "DET",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-offense-2026.json",
+      "row": 21,
+      "label": "GB",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-offense-2026.json",
+      "row": 22,
+      "label": "CAR",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-offense-2026.json",
+      "row": 23,
+      "label": "NE",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-offense-2026.json",
+      "row": 24,
+      "label": "LV",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-offense-2026.json",
+      "row": 25,
+      "label": "LA",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-offense-2026.json",
+      "row": 26,
+      "label": "BAL",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-offense-2026.json",
+      "row": 27,
+      "label": "NO",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-offense-2026.json",
+      "row": 28,
+      "label": "SEA",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-offense-2026.json",
+      "row": 29,
+      "label": "PIT",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-offense-2026.json",
+      "row": 30,
+      "label": "HOU",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-offense-2026.json",
+      "row": 31,
+      "label": "TEN",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/rushing/2026/reg/all"
+    },
+    {
+      "file": "team-rushing-offense-2026.json",
+      "row": 32,
+      "label": "MIN",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/stats/team-stats/offense/rushing/2026/reg/all"
+    },
+    {
+      "file": "nfl-2026-passing.csv",
+      "row": 1,
+      "label": "Tyler Shough",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-passing.csv",
+      "row": 2,
+      "label": "Jordan Love",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-passing.csv",
+      "row": 3,
+      "label": "Bryce Young",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-passing.csv",
+      "row": 4,
+      "label": "Josh Allen",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-passing.csv",
+      "row": 5,
+      "label": "Lamar Jackson",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-passing.csv",
+      "row": 6,
+      "label": "Jacoby Brissett",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-passing.csv",
+      "row": 7,
+      "label": "C.J. Stroud",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-passing.csv",
+      "row": 8,
+      "label": "Caleb Williams",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-passing.csv",
+      "row": 9,
+      "label": "Joe Burrow",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-passing.csv",
+      "row": 10,
+      "label": "Trevor Lawrence",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-passing.csv",
+      "row": 11,
+      "label": "Jaxson Dart",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-passing.csv",
+      "row": 12,
+      "label": "Aaron Rodgers",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-passing.csv",
+      "row": 13,
+      "label": "Malik Willis",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-passing.csv",
+      "row": 14,
+      "label": "Baker Mayfield",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-passing.csv",
+      "row": 15,
+      "label": "Geno Smith",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-passing.csv",
+      "row": 16,
+      "label": "Justin Herbert",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-passing.csv",
+      "row": 17,
+      "label": "Jared Goff",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-passing.csv",
+      "row": 18,
+      "label": "Deshaun Watson",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-passing.csv",
+      "row": 19,
+      "label": "Brock Purdy",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-passing.csv",
+      "row": 20,
+      "label": "Jalen Hurts",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-passing.csv",
+      "row": 21,
+      "label": "Drew Lock",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-passing.csv",
+      "row": 22,
+      "label": "Patrick Mahomes",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-passing.csv",
+      "row": 23,
+      "label": "Drake Maye",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-passing.csv",
+      "row": 24,
+      "label": "Dak Prescott",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-passing.csv",
+      "row": 25,
+      "label": "Daniel Jones",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-passing.csv",
+      "row": 26,
+      "label": "Jayden Daniels",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-passing.csv",
+      "row": 27,
+      "label": "Kirk Cousins",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-passing.csv",
+      "row": 28,
+      "label": "Matthew Stafford",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-passing.csv",
+      "row": 29,
+      "label": "Cooper Rush",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-passing.csv",
+      "row": 30,
+      "label": "Cam Ward",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-passing.csv",
+      "row": 31,
+      "label": "Carson Wentz",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-passing.csv",
+      "row": 32,
+      "label": "Bo Nix",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-receiving.csv",
+      "row": 1,
+      "label": "Chris Olave",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-receiving.csv",
+      "row": 2,
+      "label": "Zay Flowers",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-receiving.csv",
+      "row": 3,
+      "label": "Christian Watson",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-receiving.csv",
+      "row": 4,
+      "label": "Jalen Coker",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-receiving.csv",
+      "row": 5,
+      "label": "Dalton Kincaid",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-receiving.csv",
+      "row": 6,
+      "label": "Jaxon Smith-Njigba",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-receiving.csv",
+      "row": 7,
+      "label": "DJ Moore",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-receiving.csv",
+      "row": 8,
+      "label": "Matthew Golden",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-receiving.csv",
+      "row": 9,
+      "label": "Trey McBride",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-receiving.csv",
+      "row": 10,
+      "label": "Caleb Douglas",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-receiving.csv",
+      "row": 11,
+      "label": "Justin Jefferson",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-receiving.csv",
+      "row": 12,
+      "label": "Kalif Raymond",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-receiving.csv",
+      "row": 13,
+      "label": "Parker Washington",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-receiving.csv",
+      "row": 14,
+      "label": "Ladd McConkey",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-receiving.csv",
+      "row": 15,
+      "label": "Garrett Wilson",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-receiving.csv",
+      "row": 16,
+      "label": "Mike Gesicki",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-receiving.csv",
+      "row": 17,
+      "label": "Isaiah Likely",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-receiving.csv",
+      "row": 18,
+      "label": "Dallas Goedert",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-receiving.csv",
+      "row": 19,
+      "label": "Kendrick Bourne",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-receiving.csv",
+      "row": 20,
+      "label": "Tetairoa McMillan",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-receiving.csv",
+      "row": 21,
+      "label": "Nico Collins",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-receiving.csv",
+      "row": 22,
+      "label": "Puka Nacua",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-receiving.csv",
+      "row": 23,
+      "label": "Travis Kelce",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-receiving.csv",
+      "row": 24,
+      "label": "Malik Nabers",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-receiving.csv",
+      "row": 25,
+      "label": "Devaughn Vele",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-receiving.csv",
+      "row": 26,
+      "label": "Amon-Ra St. Brown",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-receiving.csv",
+      "row": 27,
+      "label": "Tucker Kraft",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-receiving.csv",
+      "row": 28,
+      "label": "Luther Burden III",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-receiving.csv",
+      "row": 29,
+      "label": "Emeka Egbuka",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-receiving.csv",
+      "row": 30,
+      "label": "Alec Pierce",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-receiving.csv",
+      "row": 31,
+      "label": "Tee Higgins",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-receiving.csv",
+      "row": 32,
+      "label": "David Njoku",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-receiving.csv",
+      "row": 33,
+      "label": "Michael Wilson",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-receiving.csv",
+      "row": 34,
+      "label": "Stefon Diggs",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-receiving.csv",
+      "row": 35,
+      "label": "Juwan Johnson",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-receiving.csv",
+      "row": 36,
+      "label": "Malik Washington",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-receiving.csv",
+      "row": 37,
+      "label": "DeVonta Smith",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-receiving.csv",
+      "row": 38,
+      "label": "Mack Hollins",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-receiving.csv",
+      "row": 39,
+      "label": "Mark Andrews",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-receiving.csv",
+      "row": 40,
+      "label": "Mike Evans",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-receiving.csv",
+      "row": 41,
+      "label": "Deebo Samuel Sr.",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-receiving.csv",
+      "row": 42,
+      "label": "Sam LaPorta",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-receiving.csv",
+      "row": 43,
+      "label": "Pat Freiermuth",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-receiving.csv",
+      "row": 44,
+      "label": "Jameson Williams",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-receiving.csv",
+      "row": 45,
+      "label": "CeeDee Lamb",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-receiving.csv",
+      "row": 46,
+      "label": "Evan Engram",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-receiving.csv",
+      "row": 47,
+      "label": "KC Concepcion",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-rushing.csv",
+      "row": 1,
+      "label": "Kenneth Walker III",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-rushing.csv",
+      "row": 2,
+      "label": "Jahmyr Gibbs",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-rushing.csv",
+      "row": 3,
+      "label": "Derrick Henry",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-rushing.csv",
+      "row": 4,
+      "label": "D'Andre Swift",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-rushing.csv",
+      "row": 5,
+      "label": "Breece Hall",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-rushing.csv",
+      "row": 6,
+      "label": "Ashton Jeanty",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-rushing.csv",
+      "row": 7,
+      "label": "Kyle Monangai",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-rushing.csv",
+      "row": 8,
+      "label": "Jonathan Taylor",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-rushing.csv",
+      "row": 9,
+      "label": "Bijan Robinson",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-rushing.csv",
+      "row": 10,
+      "label": "Saquon Barkley",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-rushing.csv",
+      "row": 11,
+      "label": "Cam Skattebo",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-rushing.csv",
+      "row": 12,
+      "label": "Christian McCaffrey",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-rushing.csv",
+      "row": 13,
+      "label": "Bhayshul Tuten",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-rushing.csv",
+      "row": 14,
+      "label": "Kaelon Black",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-rushing.csv",
+      "row": 15,
+      "label": "Jacory Croskey-Merritt",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-rushing.csv",
+      "row": 16,
+      "label": "Tyler Allgeier",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-rushing.csv",
+      "row": 17,
+      "label": "David Montgomery",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-rushing.csv",
+      "row": 18,
+      "label": "Jordan Mason",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-rushing.csv",
+      "row": 19,
+      "label": "James Cook",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-rushing.csv",
+      "row": 20,
+      "label": "Chase Brown",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-rushing.csv",
+      "row": 21,
+      "label": "Blake Corum",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-rushing.csv",
+      "row": 22,
+      "label": "Jadarian Price",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-rushing.csv",
+      "row": 23,
+      "label": "Rhamondre Stevenson",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-rushing.csv",
+      "row": 24,
+      "label": "Chuba Hubbard",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-rushing.csv",
+      "row": 25,
+      "label": "Jaylen Warren",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-rushing.csv",
+      "row": 26,
+      "label": "Omarion Hampton",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-rushing.csv",
+      "row": 27,
+      "label": "Kyren Williams",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-rushing.csv",
+      "row": 28,
+      "label": "Jeremiyah Love",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-rushing.csv",
+      "row": 29,
+      "label": "Javonte Williams",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-rushing.csv",
+      "row": 30,
+      "label": "Aaron Jones",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-rushing.csv",
+      "row": 31,
+      "label": "Braelon Allen",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-rushing.csv",
+      "row": 32,
+      "label": "MarShawn Lloyd",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-rushing.csv",
+      "row": 33,
+      "label": "De'Von Achane",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-rushing.csv",
+      "row": 34,
+      "label": "Quinshon Judkins",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://nextgenstats.nfl.com/"
+    },
+    {
+      "file": "nfl-2026-standings.csv",
+      "row": 1,
+      "label": "Buffalo Bills",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "nfl-2026-standings.csv",
+      "row": 2,
+      "label": "New England Patriots",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "nfl-2026-standings.csv",
+      "row": 3,
+      "label": "New York Jets",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "nfl-2026-standings.csv",
+      "row": 4,
+      "label": "Miami Dolphins",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "nfl-2026-standings.csv",
+      "row": 5,
+      "label": "Pittsburgh Steelers",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "nfl-2026-standings.csv",
+      "row": 6,
+      "label": "Cincinnati Bengals",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "nfl-2026-standings.csv",
+      "row": 7,
+      "label": "Cleveland Browns",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "nfl-2026-standings.csv",
+      "row": 8,
+      "label": "Baltimore Ravens",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "nfl-2026-standings.csv",
+      "row": 9,
+      "label": "Jacksonville Jaguars",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "nfl-2026-standings.csv",
+      "row": 10,
+      "label": "Houston Texans",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "nfl-2026-standings.csv",
+      "row": 11,
+      "label": "Indianapolis Colts",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "nfl-2026-standings.csv",
+      "row": 12,
+      "label": "Tennessee Titans",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "nfl-2026-standings.csv",
+      "row": 13,
+      "label": "Denver Broncos",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "nfl-2026-standings.csv",
+      "row": 14,
+      "label": "Kansas City Chiefs",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "nfl-2026-standings.csv",
+      "row": 15,
+      "label": "Las Vegas Raiders",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "nfl-2026-standings.csv",
+      "row": 16,
+      "label": "Los Angeles Chargers",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "nfl-2026-standings.csv",
+      "row": 17,
+      "label": "New York Giants",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "nfl-2026-standings.csv",
+      "row": 18,
+      "label": "Dallas Cowboys",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "nfl-2026-standings.csv",
+      "row": 19,
+      "label": "Washington Commanders",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "nfl-2026-standings.csv",
+      "row": 20,
+      "label": "Philadelphia Eagles",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "nfl-2026-standings.csv",
+      "row": 21,
+      "label": "Minnesota Vikings",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "nfl-2026-standings.csv",
+      "row": 22,
+      "label": "Chicago Bears",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "nfl-2026-standings.csv",
+      "row": 23,
+      "label": "Detroit Lions",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "nfl-2026-standings.csv",
+      "row": 24,
+      "label": "Green Bay Packers",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "nfl-2026-standings.csv",
+      "row": 25,
+      "label": "Carolina Panthers",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "nfl-2026-standings.csv",
+      "row": 26,
+      "label": "Tampa Bay Buccaneers",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "nfl-2026-standings.csv",
+      "row": 27,
+      "label": "Atlanta Falcons",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "nfl-2026-standings.csv",
+      "row": 28,
+      "label": "New Orleans Saints",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "nfl-2026-standings.csv",
+      "row": 29,
+      "label": "San Francisco 49ers",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "nfl-2026-standings.csv",
+      "row": 30,
+      "label": "Seattle Seahawks",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "nfl-2026-standings.csv",
+      "row": 31,
+      "label": "Los Angeles Rams",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "file": "nfl-2026-standings.csv",
+      "row": 32,
+      "label": "Arizona Cardinals",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy CSV not promoted",
+      "source_url": "https://www.nfl.com/standings/"
+    }
+  ],
+  "note": "Labels identify inherited entries, NOT verified identities. Numbers intentionally absent. Official source links are verification targets unless separately listed in audit-snapshot.json."
+}
