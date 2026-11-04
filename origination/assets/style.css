@@ -1,0 +1,35 @@
+:root{--bg:#f6f7f9;--card:#fff;--ink:#16202c;--muted:#5b6675;--line:#e3e7ec;--accent:#0b5cad;--ok:#11734b;--okbg:#e5f5ec;--bad:#a1260d;--badbg:#fbe9e5;--warn:#8a5a00;--warnbg:#fff4d6}
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink)}
+header{background:#0f2a47;color:#fff;padding:14px 20px}
+header h1{margin:0;font-size:19px;font-weight:650}
+header p{margin:2px 0 0;color:#c9d6e5;font-size:13px}
+nav{background:#fff;border-bottom:1px solid var(--line);padding:0 12px;display:flex;flex-wrap:wrap;gap:2px;position:sticky;top:0;z-index:5}
+nav a{padding:10px 10px;color:var(--ink);text-decoration:none;font-size:14px;border-bottom:2px solid transparent}
+nav a:hover{color:var(--accent)}
+nav a.on{border-bottom-color:var(--accent);color:var(--accent);font-weight:600}
+main{max-width:1180px;margin:0 auto;padding:18px 16px 40px}
+h2{font-size:18px;margin:26px 0 8px}
+h3{font-size:15px;margin:18px 0 6px}
+p,li{color:#243142}
+a{color:var(--accent)}
+.muted{color:var(--muted);font-size:13px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin:14px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px}
+.card .k{font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+.card .v{font-size:24px;font-weight:700;margin:2px 0}
+.card .d{font-size:13px;color:var(--muted)}
+.card a.more{font-size:13px}
+.tablewrap{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:10px;margin:10px 0 6px}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th,td{padding:7px 9px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;white-space:nowrap}
+td.wrap,th.wrap{white-space:normal;min-width:220px}
+th{background:#f0f3f6;font-weight:600;position:sticky;top:0}
+tr:last-child td{border-bottom:0}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+.b{display:inline-block;padding:1px 7px;border-radius:999px;font-size:12px;font-weight:600}
+.ok{background:var(--okbg);color:var(--ok)}.bad{background:var(--badbg);color:var(--bad)}.warn{background:var(--warnbg);color:var(--warn)}.na{background:#eef0f3;color:#5b6675}
+.note{background:var(--warnbg);border:1px solid #f0d899;border-radius:10px;padding:10px 14px;margin:12px 0;color:#4a3a00}
+.good{background:var(--okbg);border:1px solid #bfe3cf;border-radius:10px;padding:10px 14px;margin:12px 0}
+footer{max-width:1180px;margin:0 auto;padding:0 16px 30px;color:var(--muted);font-size:12.5px}
+code{background:#eef1f5;padding:1px 5px;border-radius:4px;font-size:12.5px}

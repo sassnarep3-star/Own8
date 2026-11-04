@@ -1,0 +1,279 @@
+{
+ "correlations": [
+  {
+   "id": "C1",
+   "pair": "Home points vs away points (same game)",
+   "n": 121,
+   "r": 0.0965838756266174,
+   "ci95": [
+    -0.08334959465921762,
+    0.27041842525532234
+   ],
+   "p_two_sided": 0.29259304942289655,
+   "significant_5pct": false,
+   "scope": "121 games W1-W8",
+   "source": "nfl.com scores W1-W8 (origination/data/games-2026-w1-w8.json)",
+   "use": "Team-total combos: if ~0, team totals can be priced independently",
+   "p_holm": 0.8777791482686896,
+   "significant_after_holm": false
+  },
+  {
+   "id": "C2",
+   "pair": "Home margin residual vs total residual (walk-forward)",
+   "n": 89,
+   "r": -0.2357563131515438,
+   "ci95": [
+    -0.42323321204916053,
+    -0.028919460723322674
+   ],
+   "p_two_sided": 0.02586539155963541,
+   "significant_5pct": true,
+   "scope": "89 games W3-W8",
+   "source": "nfl.com scores W1-W8 (origination/data/games-2026-w1-w8.json)",
+   "use": "Same-game parlay 'home side + over': joint prob = 1/4 + asin(r)/(2*pi)",
+   "p_holm": 0.12932695779817704,
+   "significant_after_holm": false
+  },
+  {
+   "id": "C3",
+   "pair": "Favourite margin residual vs total residual (walk-forward)",
+   "n": 89,
+   "r": -0.10753860567174242,
+   "ci95": [
+    -0.3088778249114427,
+    0.10302545061141306
+   ],
+   "p_two_sided": 0.31675756568338054,
+   "significant_5pct": false,
+   "scope": "89 games W3-W8",
+   "source": "nfl.com scores W1-W8 (origination/data/games-2026-w1-w8.json)",
+   "use": "Same-game parlay 'favourite covers + over'",
+   "p_holm": 0.8777791482686896,
+   "significant_after_holm": false
+  },
+  {
+   "id": "C4",
+   "pair": "Size of predicted spread vs total residual",
+   "n": 89,
+   "r": -0.09997116501918589,
+   "ci95": [
+    -0.301941576977234,
+    0.11058797545449602
+   ],
+   "p_two_sided": 0.3522666972865025,
+   "significant_5pct": false,
+   "scope": "89 games W3-W8",
+   "source": "nfl.com scores W1-W8 (origination/data/games-2026-w1-w8.json)",
+   "use": "Do lopsided matchups go over/under the originated total?",
+   "p_holm": 0.8777791482686896,
+   "significant_after_holm": false
+  },
+  {
+   "id": "C5",
+   "pair": "QB passing yards vs own team points",
+   "n": 204,
+   "r": 0.39530568721236886,
+   "ci95": [
+    0.27274557573530733,
+    0.5052404860029661
+   ],
+   "p_two_sided": 3.0813254170425353e-09,
+   "significant_5pct": true,
+   "scope": "204 QB-games",
+   "source": "Next Gen Stats weekly passing W1,W3-W8 + nfl.com scores",
+   "use": "QB yards over + team total over combo",
+   "p_holm": 2.4650603336340282e-08,
+   "significant_after_holm": true
+  },
+  {
+   "id": "C6",
+   "pair": "QB passing yards vs game total",
+   "n": 204,
+   "r": 0.4360167159205006,
+   "ci95": [
+    0.31767291382487134,
+    0.54098498872196
+   ],
+   "p_two_sided": 3.469002862743764e-11,
+   "significant_5pct": true,
+   "scope": "204 QB-games",
+   "source": "Next Gen Stats weekly passing W1,W3-W8 + nfl.com scores",
+   "use": "QB yards over + game over combo",
+   "p_holm": 3.1221025764693877e-10,
+   "significant_after_holm": true
+  },
+  {
+   "id": "C7",
+   "pair": "QB passing yards vs own team margin",
+   "n": 204,
+   "r": 0.10135782896881917,
+   "ci95": [
+    -0.03652186911824458,
+    0.23545067796271038
+   ],
+   "p_two_sided": 0.149317399109812,
+   "significant_5pct": false,
+   "scope": "204 QB-games",
+   "source": "Next Gen Stats weekly passing W1,W3-W8 + nfl.com scores",
+   "use": "QB yards over + own side combo (game script)",
+   "p_holm": 0.597269596439248,
+   "significant_after_holm": false
+  },
+  {
+   "id": "C8",
+   "pair": "QB pass attempts vs own team margin",
+   "n": 204,
+   "r": -0.1968690329861727,
+   "ci95": [
+    -0.3254389984838384,
+    -0.06115164556853003
+   ],
+   "p_two_sided": 0.004683668602961877,
+   "significant_5pct": true,
+   "scope": "204 QB-games",
+   "source": "Next Gen Stats weekly passing W1,W3-W8 + nfl.com scores",
+   "use": "Trailing teams throw more -> attempts props vs side",
+   "p_holm": 0.02810201161777126,
+   "significant_after_holm": true
+  },
+  {
+   "id": "C9",
+   "pair": "Opposing QBs' passing yards (same game)",
+   "n": 99,
+   "r": 0.5027795502111612,
+   "ci95": [
+    0.33901669916332583,
+    0.6369692327344232
+   ],
+   "p_two_sided": 6.01150769163894e-08,
+   "significant_5pct": true,
+   "scope": "99 games",
+   "source": "Next Gen Stats weekly passing W1,W3-W8 + nfl.com scores",
+   "use": "Shoot-out combos: QB A over + QB B over",
+   "p_holm": 4.208055384147258e-07,
+   "significant_after_holm": true
+  }
+ ],
+ "cross_game_dependence": [
+  {
+   "id": "C10",
+   "pair": "Total residuals of different games in the same week (ICC)",
+   "n": 89,
+   "icc": -0.044693854334988875,
+   "scope": "6 weeks x 14-16 games",
+   "source": "nfl.com scores W1-W8 (origination/data/games-2026-w1-w8.json)",
+   "use": "Cross-game 'over' parlays: ICC ~ 0 means weekly totals move independently"
+  },
+  {
+   "id": "C11",
+   "pair": "Win-probability residuals of different games in the same week (ICC)",
+   "n": 89,
+   "icc": 0.03881668757836656,
+   "scope": "6 weeks x 14-16 games",
+   "source": "nfl.com scores W1-W8 (origination/data/games-2026-w1-w8.json)",
+   "use": "Cross-game moneyline parlays: ICC ~ 0 supports multiplying leg probabilities"
+  }
+ ],
+ "combo_pricing": [
+  {
+   "id": "C1",
+   "combo": "Home points vs away points (same game)",
+   "r_measured": 0.0965838756266174,
+   "r_used": 0.0,
+   "joint_prob_both_over": 0.25,
+   "fair_odds": 300,
+   "independent_prob": 0.25,
+   "independent_odds": 300,
+   "note": "r not significant after Holm -> priced as independent"
+  },
+  {
+   "id": "C2",
+   "combo": "Home margin residual vs total residual (walk-forward)",
+   "r_measured": -0.2357563131515438,
+   "r_used": 0.0,
+   "joint_prob_both_over": 0.25,
+   "fair_odds": 300,
+   "independent_prob": 0.25,
+   "independent_odds": 300,
+   "note": "r not significant after Holm -> priced as independent"
+  },
+  {
+   "id": "C3",
+   "combo": "Favourite margin residual vs total residual (walk-forward)",
+   "r_measured": -0.10753860567174242,
+   "r_used": 0.0,
+   "joint_prob_both_over": 0.25,
+   "fair_odds": 300,
+   "independent_prob": 0.25,
+   "independent_odds": 300,
+   "note": "r not significant after Holm -> priced as independent"
+  },
+  {
+   "id": "C4",
+   "combo": "Size of predicted spread vs total residual",
+   "r_measured": -0.09997116501918589,
+   "r_used": 0.0,
+   "joint_prob_both_over": 0.25,
+   "fair_odds": 300,
+   "independent_prob": 0.25,
+   "independent_odds": 300,
+   "note": "r not significant after Holm -> priced as independent"
+  },
+  {
+   "id": "C5",
+   "combo": "QB passing yards vs own team points",
+   "r_measured": 0.39530568721236886,
+   "r_used": 0.39530568721236886,
+   "joint_prob_both_over": 0.3146806676427596,
+   "fair_odds": 218,
+   "independent_prob": 0.25,
+   "independent_odds": 300,
+   "note": "priced with measured r (survives Holm)"
+  },
+  {
+   "id": "C6",
+   "combo": "QB passing yards vs game total",
+   "r_measured": 0.4360167159205006,
+   "r_used": 0.4360167159205006,
+   "joint_prob_both_over": 0.321805574306645,
+   "fair_odds": 211,
+   "independent_prob": 0.25,
+   "independent_odds": 300,
+   "note": "priced with measured r (survives Holm)"
+  },
+  {
+   "id": "C7",
+   "combo": "QB passing yards vs own team margin",
+   "r_measured": 0.10135782896881917,
+   "r_used": 0.0,
+   "joint_prob_both_over": 0.25,
+   "fair_odds": 300,
+   "independent_prob": 0.25,
+   "independent_odds": 300,
+   "note": "r not significant after Holm -> priced as independent"
+  },
+  {
+   "id": "C8",
+   "combo": "QB pass attempts vs own team margin",
+   "r_measured": -0.1968690329861727,
+   "r_used": -0.1968690329861727,
+   "joint_prob_both_over": 0.21846131104479244,
+   "fair_odds": 358,
+   "independent_prob": 0.25,
+   "independent_odds": 300,
+   "note": "priced with measured r (survives Holm)"
+  },
+  {
+   "id": "C9",
+   "combo": "Opposing QBs' passing yards (same game)",
+   "r_measured": 0.5027795502111612,
+   "r_used": 0.5027795502111612,
+   "joint_prob_both_over": 0.333844623821341,
+   "fair_odds": 200,
+   "independent_prob": 0.25,
+   "independent_odds": 300,
+   "note": "priced with measured r (survives Holm)"
+  }
+ ],
+ "method": "Pearson r, Fisher-z 95% CI and two-sided p; Holm across C1-C9. Joint probability at the medians of two legs = 1/4 + asin(r)/(2*pi) (bivariate normal)."
+}

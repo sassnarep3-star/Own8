@@ -1,0 +1,3368 @@
+{
+ "source_url": "https://www.nfl.com/standings/league/2026/REG",
+ "division_source_url": "https://www.nfl.com/standings/division/2026/REG",
+ "teams": [
+  {
+   "team": "ATL",
+   "team_url": "https://www.nfl.com/teams/atlanta-falcons/",
+   "games_played": 8,
+   "all_match": true,
+   "cells": [
+    {
+     "column": "W",
+     "official": "3",
+     "recomputed": "3",
+     "match": true
+    },
+    {
+     "column": "L",
+     "official": "5",
+     "recomputed": "5",
+     "match": true
+    },
+    {
+     "column": "T",
+     "official": "0",
+     "recomputed": "0",
+     "match": true
+    },
+    {
+     "column": "PCT",
+     "official": "0.375",
+     "recomputed": "0.375",
+     "match": true
+    },
+    {
+     "column": "PF",
+     "official": "171",
+     "recomputed": "171",
+     "match": true
+    },
+    {
+     "column": "PA",
+     "official": "189",
+     "recomputed": "189",
+     "match": true
+    },
+    {
+     "column": "NET",
+     "official": "-18",
+     "recomputed": "-18",
+     "match": true
+    },
+    {
+     "column": "HOME",
+     "official": "1-3-0",
+     "recomputed": "1-3-0",
+     "match": true
+    },
+    {
+     "column": "ROAD",
+     "official": "2-2-0",
+     "recomputed": "2-2-0",
+     "match": true
+    },
+    {
+     "column": "DIV",
+     "official": "1-2-0",
+     "recomputed": "1-2-0",
+     "match": true
+    },
+    {
+     "column": "DIV%",
+     "official": "0.333",
+     "recomputed": "0.333",
+     "match": true
+    },
+    {
+     "column": "CONF",
+     "official": "3-3-0",
+     "recomputed": "3-3-0",
+     "match": true
+    },
+    {
+     "column": "CONF%",
+     "official": "0.500",
+     "recomputed": "0.500",
+     "match": true
+    },
+    {
+     "column": "STRK",
+     "official": "1L",
+     "recomputed": "1L",
+     "match": true
+    },
+    {
+     "column": "col14 (hypothesis: non-conference record)",
+     "official": "0-2-0",
+     "recomputed": "0-2-0",
+     "match": true
+    },
+    {
+     "column": "col16 (hypothesis: last-5 record)",
+     "official": "2-3-0",
+     "recomputed": "2-3-0",
+     "match": true
+    }
+   ],
+   "source_url": "https://www.nfl.com/standings/league/2026/REG"
+  },
+  {
+   "team": "AZ",
+   "team_url": "https://www.nfl.com/teams/arizona-cardinals/",
+   "games_played": 8,
+   "all_match": true,
+   "cells": [
+    {
+     "column": "W",
+     "official": "3",
+     "recomputed": "3",
+     "match": true
+    },
+    {
+     "column": "L",
+     "official": "5",
+     "recomputed": "5",
+     "match": true
+    },
+    {
+     "column": "T",
+     "official": "0",
+     "recomputed": "0",
+     "match": true
+    },
+    {
+     "column": "PCT",
+     "official": "0.375",
+     "recomputed": "0.375",
+     "match": true
+    },
+    {
+     "column": "PF",
+     "official": "175",
+     "recomputed": "175",
+     "match": true
+    },
+    {
+     "column": "PA",
+     "official": "238",
+     "recomputed": "238",
+     "match": true
+    },
+    {
+     "column": "NET",
+     "official": "-63",
+     "recomputed": "-63",
+     "match": true
+    },
+    {
+     "column": "HOME",
+     "official": "0-3-0",
+     "recomputed": "0-3-0",
+     "match": true
+    },
+    {
+     "column": "ROAD",
+     "official": "3-2-0",
+     "recomputed": "3-2-0",
+     "match": true
+    },
+    {
+     "column": "DIV",
+     "official": "1-2-0",
+     "recomputed": "1-2-0",
+     "match": true
+    },
+    {
+     "column": "DIV%",
+     "official": "0.333",
+     "recomputed": "0.333",
+     "match": true
+    },
+    {
+     "column": "CONF",
+     "official": "2-4-0",
+     "recomputed": "2-4-0",
+     "match": true
+    },
+    {
+     "column": "CONF%",
+     "official": "0.333",
+     "recomputed": "0.333",
+     "match": true
+    },
+    {
+     "column": "STRK",
+     "official": "1W",
+     "recomputed": "1W",
+     "match": true
+    },
+    {
+     "column": "col14 (hypothesis: non-conference record)",
+     "official": "1-1-0",
+     "recomputed": "1-1-0",
+     "match": true
+    },
+    {
+     "column": "col16 (hypothesis: last-5 record)",
+     "official": "2-3-0",
+     "recomputed": "2-3-0",
+     "match": true
+    }
+   ],
+   "source_url": "https://www.nfl.com/standings/league/2026/REG"
+  },
+  {
+   "team": "BAL",
+   "team_url": "https://www.nfl.com/teams/baltimore-ravens/",
+   "games_played": 8,
+   "all_match": true,
+   "cells": [
+    {
+     "column": "W",
+     "official": "4",
+     "recomputed": "4",
+     "match": true
+    },
+    {
+     "column": "L",
+     "official": "4",
+     "recomputed": "4",
+     "match": true
+    },
+    {
+     "column": "T",
+     "official": "0",
+     "recomputed": "0",
+     "match": true
+    },
+    {
+     "column": "PCT",
+     "official": "0.500",
+     "recomputed": "0.500",
+     "match": true
+    },
+    {
+     "column": "PF",
+     "official": "179",
+     "recomputed": "179",
+     "match": true
+    },
+    {
+     "column": "PA",
+     "official": "203",
+     "recomputed": "203",
+     "match": true
+    },
+    {
+     "column": "NET",
+     "official": "-24",
+     "recomputed": "-24",
+     "match": true
+    },
+    {
+     "column": "HOME",
+     "official": "1-2-0",
+     "recomputed": "1-2-0",
+     "match": true
+    },
+    {
+     "column": "ROAD",
+     "official": "3-2-0",
+     "recomputed": "3-2-0",
+     "match": true
+    },
+    {
+     "column": "DIV",
+     "official": "0-2-0",
+     "recomputed": "0-2-0",
+     "match": true
+    },
+    {
+     "column": "DIV%",
+     "official": "0.000",
+     "recomputed": "0.000",
+     "match": true
+    },
+    {
+     "column": "CONF",
+     "official": "2-3-0",
+     "recomputed": "2-3-0",
+     "match": true
+    },
+    {
+     "column": "CONF%",
+     "official": "0.400",
+     "recomputed": "0.400",
+     "match": true
+    },
+    {
+     "column": "STRK",
+     "official": "3L",
+     "recomputed": "3L",
+     "match": true
+    },
+    {
+     "column": "col14 (hypothesis: non-conference record)",
+     "official": "2-1-0",
+     "recomputed": "2-1-0",
+     "match": true
+    },
+    {
+     "column": "col16 (hypothesis: last-5 record)",
+     "official": "2-3-0",
+     "recomputed": "2-3-0",
+     "match": true
+    }
+   ],
+   "source_url": "https://www.nfl.com/standings/league/2026/REG"
+  },
+  {
+   "team": "BUF",
+   "team_url": "https://www.nfl.com/teams/buffalo-bills/",
+   "games_played": 7,
+   "all_match": true,
+   "cells": [
+    {
+     "column": "W",
+     "official": "6",
+     "recomputed": "6",
+     "match": true
+    },
+    {
+     "column": "L",
+     "official": "1",
+     "recomputed": "1",
+     "match": true
+    },
+    {
+     "column": "T",
+     "official": "0",
+     "recomputed": "0",
+     "match": true
+    },
+    {
+     "column": "PCT",
+     "official": "0.857",
+     "recomputed": "0.857",
+     "match": true
+    },
+    {
+     "column": "PF",
+     "official": "233",
+     "recomputed": "233",
+     "match": true
+    },
+    {
+     "column": "PA",
+     "official": "181",
+     "recomputed": "181",
+     "match": true
+    },
+    {
+     "column": "NET",
+     "official": "52",
+     "recomputed": "52",
+     "match": true
+    },
+    {
+     "column": "HOME",
+     "official": "3-1-0",
+     "recomputed": "3-1-0",
+     "match": true
+    },
+    {
+     "column": "ROAD",
+     "official": "3-0-0",
+     "recomputed": "3-0-0",
+     "match": true
+    },
+    {
+     "column": "DIV",
+     "official": "0-1-0",
+     "recomputed": "0-1-0",
+     "match": true
+    },
+    {
+     "column": "DIV%",
+     "official": "0.000",
+     "recomputed": "0.000",
+     "match": true
+    },
+    {
+     "column": "CONF",
+     "official": "4-1-0",
+     "recomputed": "4-1-0",
+     "match": true
+    },
+    {
+     "column": "CONF%",
+     "official": "0.800",
+     "recomputed": "0.800",
+     "match": true
+    },
+    {
+     "column": "STRK",
+     "official": "3W",
+     "recomputed": "3W",
+     "match": true
+    },
+    {
+     "column": "col14 (hypothesis: non-conference record)",
+     "official": "2-0-0",
+     "recomputed": "2-0-0",
+     "match": true
+    },
+    {
+     "column": "col16 (hypothesis: last-5 record)",
+     "official": "4-1-0",
+     "recomputed": "4-1-0",
+     "match": true
+    }
+   ],
+   "source_url": "https://www.nfl.com/standings/league/2026/REG"
+  },
+  {
+   "team": "CAR",
+   "team_url": "https://www.nfl.com/teams/carolina-panthers/",
+   "games_played": 7,
+   "all_match": true,
+   "cells": [
+    {
+     "column": "W",
+     "official": "3",
+     "recomputed": "3",
+     "match": true
+    },
+    {
+     "column": "L",
+     "official": "4",
+     "recomputed": "4",
+     "match": true
+    },
+    {
+     "column": "T",
+     "official": "0",
+     "recomputed": "0",
+     "match": true
+    },
+    {
+     "column": "PCT",
+     "official": "0.429",
+     "recomputed": "0.429",
+     "match": true
+    },
+    {
+     "column": "PF",
+     "official": "178",
+     "recomputed": "178",
+     "match": true
+    },
+    {
+     "column": "PA",
+     "official": "193",
+     "recomputed": "193",
+     "match": true
+    },
+    {
+     "column": "NET",
+     "official": "-15",
+     "recomputed": "-15",
+     "match": true
+    },
+    {
+     "column": "HOME",
+     "official": "1-2-0",
+     "recomputed": "1-2-0",
+     "match": true
+    },
+    {
+     "column": "ROAD",
+     "official": "2-2-0",
+     "recomputed": "2-2-0",
+     "match": true
+    },
+    {
+     "column": "DIV",
+     "official": "1-1-0",
+     "recomputed": "1-1-0",
+     "match": true
+    },
+    {
+     "column": "DIV%",
+     "official": "0.500",
+     "recomputed": "0.500",
+     "match": true
+    },
+    {
+     "column": "CONF",
+     "official": "3-3-0",
+     "recomputed": "3-3-0",
+     "match": true
+    },
+    {
+     "column": "CONF%",
+     "official": "0.500",
+     "recomputed": "0.500",
+     "match": true
+    },
+    {
+     "column": "STRK",
+     "official": "2L",
+     "recomputed": "2L",
+     "match": true
+    },
+    {
+     "column": "col14 (hypothesis: non-conference record)",
+     "official": "0-1-0",
+     "recomputed": "0-1-0",
+     "match": true
+    },
+    {
+     "column": "col16 (hypothesis: last-5 record)",
+     "official": "2-3-0",
+     "recomputed": "2-3-0",
+     "match": true
+    }
+   ],
+   "source_url": "https://www.nfl.com/standings/league/2026/REG"
+  },
+  {
+   "team": "CHI",
+   "team_url": "https://www.nfl.com/teams/chicago-bears/",
+   "games_played": 8,
+   "all_match": true,
+   "cells": [
+    {
+     "column": "W",
+     "official": "6",
+     "recomputed": "6",
+     "match": true
+    },
+    {
+     "column": "L",
+     "official": "2",
+     "recomputed": "2",
+     "match": true
+    },
+    {
+     "column": "T",
+     "official": "0",
+     "recomputed": "0",
+     "match": true
+    },
+    {
+     "column": "PCT",
+     "official": "0.750",
+     "recomputed": "0.750",
+     "match": true
+    },
+    {
+     "column": "PF",
+     "official": "214",
+     "recomputed": "214",
+     "match": true
+    },
+    {
+     "column": "PA",
+     "official": "160",
+     "recomputed": "160",
+     "match": true
+    },
+    {
+     "column": "NET",
+     "official": "54",
+     "recomputed": "54",
+     "match": true
+    },
+    {
+     "column": "HOME",
+     "official": "3-1-0",
+     "recomputed": "3-1-0",
+     "match": true
+    },
+    {
+     "column": "ROAD",
+     "official": "3-1-0",
+     "recomputed": "3-1-0",
+     "match": true
+    },
+    {
+     "column": "DIV",
+     "official": "0-2-0",
+     "recomputed": "0-2-0",
+     "match": true
+    },
+    {
+     "column": "DIV%",
+     "official": "0.000",
+     "recomputed": "0.000",
+     "match": true
+    },
+    {
+     "column": "CONF",
+     "official": "4-2-0",
+     "recomputed": "4-2-0",
+     "match": true
+    },
+    {
+     "column": "CONF%",
+     "official": "0.667",
+     "recomputed": "0.667",
+     "match": true
+    },
+    {
+     "column": "STRK",
+     "official": "3W",
+     "recomputed": "3W",
+     "match": true
+    },
+    {
+     "column": "col14 (hypothesis: non-conference record)",
+     "official": "2-0-0",
+     "recomputed": "2-0-0",
+     "match": true
+    },
+    {
+     "column": "col16 (hypothesis: last-5 record)",
+     "official": "4-1-0",
+     "recomputed": "4-1-0",
+     "match": true
+    }
+   ],
+   "source_url": "https://www.nfl.com/standings/league/2026/REG"
+  },
+  {
+   "team": "CIN",
+   "team_url": "https://www.nfl.com/teams/cincinnati-bengals/",
+   "games_played": 7,
+   "all_match": true,
+   "cells": [
+    {
+     "column": "W",
+     "official": "5",
+     "recomputed": "5",
+     "match": true
+    },
+    {
+     "column": "L",
+     "official": "2",
+     "recomputed": "2",
+     "match": true
+    },
+    {
+     "column": "T",
+     "official": "0",
+     "recomputed": "0",
+     "match": true
+    },
+    {
+     "column": "PCT",
+     "official": "0.714",
+     "recomputed": "0.714",
+     "match": true
+    },
+    {
+     "column": "PF",
+     "official": "206",
+     "recomputed": "206",
+     "match": true
+    },
+    {
+     "column": "PA",
+     "official": "158",
+     "recomputed": "158",
+     "match": true
+    },
+    {
+     "column": "NET",
+     "official": "48",
+     "recomputed": "48",
+     "match": true
+    },
+    {
+     "column": "HOME",
+     "official": "2-1-0",
+     "recomputed": "2-1-0",
+     "match": true
+    },
+    {
+     "column": "ROAD",
+     "official": "3-1-0",
+     "recomputed": "3-1-0",
+     "match": true
+    },
+    {
+     "column": "DIV",
+     "official": "1-1-0",
+     "recomputed": "1-1-0",
+     "match": true
+    },
+    {
+     "column": "DIV%",
+     "official": "0.500",
+     "recomputed": "0.500",
+     "match": true
+    },
+    {
+     "column": "CONF",
+     "official": "4-2-0",
+     "recomputed": "4-2-0",
+     "match": true
+    },
+    {
+     "column": "CONF%",
+     "official": "0.667",
+     "recomputed": "0.667",
+     "match": true
+    },
+    {
+     "column": "STRK",
+     "official": "3W",
+     "recomputed": "3W",
+     "match": true
+    },
+    {
+     "column": "col14 (hypothesis: non-conference record)",
+     "official": "1-0-0",
+     "recomputed": "1-0-0",
+     "match": true
+    },
+    {
+     "column": "col16 (hypothesis: last-5 record)",
+     "official": "3-2-0",
+     "recomputed": "3-2-0",
+     "match": true
+    }
+   ],
+   "source_url": "https://www.nfl.com/standings/league/2026/REG"
+  },
+  {
+   "team": "CLE",
+   "team_url": "https://www.nfl.com/teams/cleveland-browns/",
+   "games_played": 8,
+   "all_match": true,
+   "cells": [
+    {
+     "column": "W",
+     "official": "5",
+     "recomputed": "5",
+     "match": true
+    },
+    {
+     "column": "L",
+     "official": "3",
+     "recomputed": "3",
+     "match": true
+    },
+    {
+     "column": "T",
+     "official": "0",
+     "recomputed": "0",
+     "match": true
+    },
+    {
+     "column": "PCT",
+     "official": "0.625",
+     "recomputed": "0.625",
+     "match": true
+    },
+    {
+     "column": "PF",
+     "official": "139",
+     "recomputed": "139",
+     "match": true
+    },
+    {
+     "column": "PA",
+     "official": "173",
+     "recomputed": "173",
+     "match": true
+    },
+    {
+     "column": "NET",
+     "official": "-34",
+     "recomputed": "-34",
+     "match": true
+    },
+    {
+     "column": "HOME",
+     "official": "3-0-0",
+     "recomputed": "3-0-0",
+     "match": true
+    },
+    {
+     "column": "ROAD",
+     "official": "2-3-0",
+     "recomputed": "2-3-0",
+     "match": true
+    },
+    {
+     "column": "DIV",
+     "official": "2-1-0",
+     "recomputed": "2-1-0",
+     "match": true
+    },
+    {
+     "column": "DIV%",
+     "official": "0.667",
+     "recomputed": "0.667",
+     "match": true
+    },
+    {
+     "column": "CONF",
+     "official": "3-3-0",
+     "recomputed": "3-3-0",
+     "match": true
+    },
+    {
+     "column": "CONF%",
+     "official": "0.500",
+     "recomputed": "0.500",
+     "match": true
+    },
+    {
+     "column": "STRK",
+     "official": "1L",
+     "recomputed": "1L",
+     "match": true
+    },
+    {
+     "column": "col14 (hypothesis: non-conference record)",
+     "official": "2-0-0",
+     "recomputed": "2-0-0",
+     "match": true
+    },
+    {
+     "column": "col16 (hypothesis: last-5 record)",
+     "official": "3-2-0",
+     "recomputed": "3-2-0",
+     "match": true
+    }
+   ],
+   "source_url": "https://www.nfl.com/standings/league/2026/REG"
+  },
+  {
+   "team": "DAL",
+   "team_url": "https://www.nfl.com/teams/dallas-cowboys/",
+   "games_played": 8,
+   "all_match": true,
+   "cells": [
+    {
+     "column": "W",
+     "official": "3",
+     "recomputed": "3",
+     "match": true
+    },
+    {
+     "column": "L",
+     "official": "5",
+     "recomputed": "5",
+     "match": true
+    },
+    {
+     "column": "T",
+     "official": "0",
+     "recomputed": "0",
+     "match": true
+    },
+    {
+     "column": "PCT",
+     "official": "0.375",
+     "recomputed": "0.375",
+     "match": true
+    },
+    {
+     "column": "PF",
+     "official": "219",
+     "recomputed": "219",
+     "match": true
+    },
+    {
+     "column": "PA",
+     "official": "213",
+     "recomputed": "213",
+     "match": true
+    },
+    {
+     "column": "NET",
+     "official": "6",
+     "recomputed": "6",
+     "match": true
+    },
+    {
+     "column": "HOME",
+     "official": "1-3-0",
+     "recomputed": "1-3-0",
+     "match": true
+    },
+    {
+     "column": "ROAD",
+     "official": "2-2-0",
+     "recomputed": "2-2-0",
+     "match": true
+    },
+    {
+     "column": "DIV",
+     "official": "2-1-0",
+     "recomputed": "2-1-0",
+     "match": true
+    },
+    {
+     "column": "DIV%",
+     "official": "0.667",
+     "recomputed": "0.667",
+     "match": true
+    },
+    {
+     "column": "CONF",
+     "official": "2-4-0",
+     "recomputed": "2-4-0",
+     "match": true
+    },
+    {
+     "column": "CONF%",
+     "official": "0.333",
+     "recomputed": "0.333",
+     "match": true
+    },
+    {
+     "column": "STRK",
+     "official": "1L",
+     "recomputed": "1L",
+     "match": true
+    },
+    {
+     "column": "col14 (hypothesis: non-conference record)",
+     "official": "1-1-0",
+     "recomputed": "1-1-0",
+     "match": true
+    },
+    {
+     "column": "col16 (hypothesis: last-5 record)",
+     "official": "2-3-0",
+     "recomputed": "2-3-0",
+     "match": true
+    }
+   ],
+   "source_url": "https://www.nfl.com/standings/league/2026/REG"
+  },
+  {
+   "team": "DEN",
+   "team_url": "https://www.nfl.com/teams/denver-broncos/",
+   "games_played": 8,
+   "all_match": true,
+   "cells": [
+    {
+     "column": "W",
+     "official": "6",
+     "recomputed": "6",
+     "match": true
+    },
+    {
+     "column": "L",
+     "official": "2",
+     "recomputed": "2",
+     "match": true
+    },
+    {
+     "column": "T",
+     "official": "0",
+     "recomputed": "0",
+     "match": true
+    },
+    {
+     "column": "PCT",
+     "official": "0.750",
+     "recomputed": "0.750",
+     "match": true
+    },
+    {
+     "column": "PF",
+     "official": "172",
+     "recomputed": "172",
+     "match": true
+    },
+    {
+     "column": "PA",
+     "official": "165",
+     "recomputed": "165",
+     "match": true
+    },
+    {
+     "column": "NET",
+     "official": "7",
+     "recomputed": "7",
+     "match": true
+    },
+    {
+     "column": "HOME",
+     "official": "4-0-0",
+     "recomputed": "4-0-0",
+     "match": true
+    },
+    {
+     "column": "ROAD",
+     "official": "2-2-0",
+     "recomputed": "2-2-0",
+     "match": true
+    },
+    {
+     "column": "DIV",
+     "official": "2-1-0",
+     "recomputed": "2-1-0",
+     "match": true
+    },
+    {
+     "column": "DIV%",
+     "official": "0.667",
+     "recomputed": "0.667",
+     "match": true
+    },
+    {
+     "column": "CONF",
+     "official": "3-1-0",
+     "recomputed": "3-1-0",
+     "match": true
+    },
+    {
+     "column": "CONF%",
+     "official": "0.750",
+     "recomputed": "0.750",
+     "match": true
+    },
+    {
+     "column": "STRK",
+     "official": "4W",
+     "recomputed": "4W",
+     "match": true
+    },
+    {
+     "column": "col14 (hypothesis: non-conference record)",
+     "official": "3-1-0",
+     "recomputed": "3-1-0",
+     "match": true
+    },
+    {
+     "column": "col16 (hypothesis: last-5 record)",
+     "official": "4-1-0",
+     "recomputed": "4-1-0",
+     "match": true
+    }
+   ],
+   "source_url": "https://www.nfl.com/standings/league/2026/REG"
+  },
+  {
+   "team": "DET",
+   "team_url": "https://www.nfl.com/teams/detroit-lions/",
+   "games_played": 7,
+   "all_match": true,
+   "cells": [
+    {
+     "column": "W",
+     "official": "5",
+     "recomputed": "5",
+     "match": true
+    },
+    {
+     "column": "L",
+     "official": "2",
+     "recomputed": "2",
+     "match": true
+    },
+    {
+     "column": "T",
+     "official": "0",
+     "recomputed": "0",
+     "match": true
+    },
+    {
+     "column": "PCT",
+     "official": "0.714",
+     "recomputed": "0.714",
+     "match": true
+    },
+    {
+     "column": "PF",
+     "official": "203",
+     "recomputed": "203",
+     "match": true
+    },
+    {
+     "column": "PA",
+     "official": "180",
+     "recomputed": "180",
+     "match": true
+    },
+    {
+     "column": "NET",
+     "official": "23",
+     "recomputed": "23",
+     "match": true
+    },
+    {
+     "column": "HOME",
+     "official": "4-0-0",
+     "recomputed": "4-0-0",
+     "match": true
+    },
+    {
+     "column": "ROAD",
+     "official": "1-2-0",
+     "recomputed": "1-2-0",
+     "match": true
+    },
+    {
+     "column": "DIV",
+     "official": "2-0-0",
+     "recomputed": "2-0-0",
+     "match": true
+    },
+    {
+     "column": "DIV%",
+     "official": "1.000",
+     "recomputed": "1.000",
+     "match": true
+    },
+    {
+     "column": "CONF",
+     "official": "4-1-0",
+     "recomputed": "4-1-0",
+     "match": true
+    },
+    {
+     "column": "CONF%",
+     "official": "0.800",
+     "recomputed": "0.800",
+     "match": true
+    },
+    {
+     "column": "STRK",
+     "official": "3W",
+     "recomputed": "3W",
+     "match": true
+    },
+    {
+     "column": "col14 (hypothesis: non-conference record)",
+     "official": "1-1-0",
+     "recomputed": "1-1-0",
+     "match": true
+    },
+    {
+     "column": "col16 (hypothesis: last-5 record)",
+     "official": "4-1-0",
+     "recomputed": "4-1-0",
+     "match": true
+    }
+   ],
+   "source_url": "https://www.nfl.com/standings/league/2026/REG"
+  },
+  {
+   "team": "GB",
+   "team_url": "https://www.nfl.com/teams/green-bay-packers/",
+   "games_played": 8,
+   "all_match": true,
+   "cells": [
+    {
+     "column": "W",
+     "official": "5",
+     "recomputed": "5",
+     "match": true
+    },
+    {
+     "column": "L",
+     "official": "3",
+     "recomputed": "3",
+     "match": true
+    },
+    {
+     "column": "T",
+     "official": "0",
+     "recomputed": "0",
+     "match": true
+    },
+    {
+     "column": "PCT",
+     "official": "0.625",
+     "recomputed": "0.625",
+     "match": true
+    },
+    {
+     "column": "PF",
+     "official": "171",
+     "recomputed": "171",
+     "match": true
+    },
+    {
+     "column": "PA",
+     "official": "164",
+     "recomputed": "164",
+     "match": true
+    },
+    {
+     "column": "NET",
+     "official": "7",
+     "recomputed": "7",
+     "match": true
+    },
+    {
+     "column": "HOME",
+     "official": "3-1-0",
+     "recomputed": "3-1-0",
+     "match": true
+    },
+    {
+     "column": "ROAD",
+     "official": "2-2-0",
+     "recomputed": "2-2-0",
+     "match": true
+    },
+    {
+     "column": "DIV",
+     "official": "1-2-0",
+     "recomputed": "1-2-0",
+     "match": true
+    },
+    {
+     "column": "DIV%",
+     "official": "0.333",
+     "recomputed": "0.333",
+     "match": true
+    },
+    {
+     "column": "CONF",
+     "official": "4-3-0",
+     "recomputed": "4-3-0",
+     "match": true
+    },
+    {
+     "column": "CONF%",
+     "official": "0.571",
+     "recomputed": "0.571",
+     "match": true
+    },
+    {
+     "column": "STRK",
+     "official": "1W",
+     "recomputed": "1W",
+     "match": true
+    },
+    {
+     "column": "col14 (hypothesis: non-conference record)",
+     "official": "1-0-0",
+     "recomputed": "1-0-0",
+     "match": true
+    },
+    {
+     "column": "col16 (hypothesis: last-5 record)",
+     "official": "4-1-0",
+     "recomputed": "4-1-0",
+     "match": true
+    }
+   ],
+   "source_url": "https://www.nfl.com/standings/league/2026/REG"
+  },
+  {
+   "team": "HOU",
+   "team_url": "https://www.nfl.com/teams/houston-texans/",
+   "games_played": 7,
+   "all_match": true,
+   "cells": [
+    {
+     "column": "W",
+     "official": "2",
+     "recomputed": "2",
+     "match": true
+    },
+    {
+     "column": "L",
+     "official": "5",
+     "recomputed": "5",
+     "match": true
+    },
+    {
+     "column": "T",
+     "official": "0",
+     "recomputed": "0",
+     "match": true
+    },
+    {
+     "column": "PCT",
+     "official": "0.286",
+     "recomputed": "0.286",
+     "match": true
+    },
+    {
+     "column": "PF",
+     "official": "165",
+     "recomputed": "165",
+     "match": true
+    },
+    {
+     "column": "PA",
+     "official": "170",
+     "recomputed": "170",
+     "match": true
+    },
+    {
+     "column": "NET",
+     "official": "-5",
+     "recomputed": "-5",
+     "match": true
+    },
+    {
+     "column": "HOME",
+     "official": "0-4-0",
+     "recomputed": "0-4-0",
+     "match": true
+    },
+    {
+     "column": "ROAD",
+     "official": "2-1-0",
+     "recomputed": "2-1-0",
+     "match": true
+    },
+    {
+     "column": "DIV",
+     "official": "2-1-0",
+     "recomputed": "2-1-0",
+     "match": true
+    },
+    {
+     "column": "DIV%",
+     "official": "0.667",
+     "recomputed": "0.667",
+     "match": true
+    },
+    {
+     "column": "CONF",
+     "official": "2-3-0",
+     "recomputed": "2-3-0",
+     "match": true
+    },
+    {
+     "column": "CONF%",
+     "official": "0.400",
+     "recomputed": "0.400",
+     "match": true
+    },
+    {
+     "column": "STRK",
+     "official": "1L",
+     "recomputed": "1L",
+     "match": true
+    },
+    {
+     "column": "col14 (hypothesis: non-conference record)",
+     "official": "0-2-0",
+     "recomputed": "0-2-0",
+     "match": true
+    },
+    {
+     "column": "col16 (hypothesis: last-5 record)",
+     "official": "2-3-0",
+     "recomputed": "2-3-0",
+     "match": true
+    }
+   ],
+   "source_url": "https://www.nfl.com/standings/league/2026/REG"
+  },
+  {
+   "team": "IND",
+   "team_url": "https://www.nfl.com/teams/indianapolis-colts/",
+   "games_played": 8,
+   "all_match": true,
+   "cells": [
+    {
+     "column": "W",
+     "official": "2",
+     "recomputed": "2",
+     "match": true
+    },
+    {
+     "column": "L",
+     "official": "6",
+     "recomputed": "6",
+     "match": true
+    },
+    {
+     "column": "T",
+     "official": "0",
+     "recomputed": "0",
+     "match": true
+    },
+    {
+     "column": "PCT",
+     "official": "0.250",
+     "recomputed": "0.250",
+     "match": true
+    },
+    {
+     "column": "PF",
+     "official": "161",
+     "recomputed": "161",
+     "match": true
+    },
+    {
+     "column": "PA",
+     "official": "222",
+     "recomputed": "222",
+     "match": true
+    },
+    {
+     "column": "NET",
+     "official": "-61",
+     "recomputed": "-61",
+     "match": true
+    },
+    {
+     "column": "HOME",
+     "official": "1-2-0",
+     "recomputed": "1-2-0",
+     "match": true
+    },
+    {
+     "column": "ROAD",
+     "official": "1-4-0",
+     "recomputed": "1-4-0",
+     "match": true
+    },
+    {
+     "column": "DIV",
+     "official": "1-2-0",
+     "recomputed": "1-2-0",
+     "match": true
+    },
+    {
+     "column": "DIV%",
+     "official": "0.333",
+     "recomputed": "0.333",
+     "match": true
+    },
+    {
+     "column": "CONF",
+     "official": "1-5-0",
+     "recomputed": "1-5-0",
+     "match": true
+    },
+    {
+     "column": "CONF%",
+     "official": "0.167",
+     "recomputed": "0.167",
+     "match": true
+    },
+    {
+     "column": "STRK",
+     "official": "4L",
+     "recomputed": "4L",
+     "match": true
+    },
+    {
+     "column": "col14 (hypothesis: non-conference record)",
+     "official": "1-1-0",
+     "recomputed": "1-1-0",
+     "match": true
+    },
+    {
+     "column": "col16 (hypothesis: last-5 record)",
+     "official": "1-4-0",
+     "recomputed": "1-4-0",
+     "match": true
+    }
+   ],
+   "source_url": "https://www.nfl.com/standings/league/2026/REG"
+  },
+  {
+   "team": "JAX",
+   "team_url": "https://www.nfl.com/teams/jacksonville-jaguars/",
+   "games_played": 7,
+   "all_match": true,
+   "cells": [
+    {
+     "column": "W",
+     "official": "5",
+     "recomputed": "5",
+     "match": true
+    },
+    {
+     "column": "L",
+     "official": "2",
+     "recomputed": "2",
+     "match": true
+    },
+    {
+     "column": "T",
+     "official": "0",
+     "recomputed": "0",
+     "match": true
+    },
+    {
+     "column": "PCT",
+     "official": "0.714",
+     "recomputed": "0.714",
+     "match": true
+    },
+    {
+     "column": "PF",
+     "official": "196",
+     "recomputed": "196",
+     "match": true
+    },
+    {
+     "column": "PA",
+     "official": "111",
+     "recomputed": "111",
+     "match": true
+    },
+    {
+     "column": "NET",
+     "official": "85",
+     "recomputed": "85",
+     "match": true
+    },
+    {
+     "column": "HOME",
+     "official": "4-1-0",
+     "recomputed": "4-1-0",
+     "match": true
+    },
+    {
+     "column": "ROAD",
+     "official": "1-1-0",
+     "recomputed": "1-1-0",
+     "match": true
+    },
+    {
+     "column": "DIV",
+     "official": "1-1-0",
+     "recomputed": "1-1-0",
+     "match": true
+    },
+    {
+     "column": "DIV%",
+     "official": "0.500",
+     "recomputed": "0.500",
+     "match": true
+    },
+    {
+     "column": "CONF",
+     "official": "4-2-0",
+     "recomputed": "4-2-0",
+     "match": true
+    },
+    {
+     "column": "CONF%",
+     "official": "0.667",
+     "recomputed": "0.667",
+     "match": true
+    },
+    {
+     "column": "STRK",
+     "official": "1W",
+     "recomputed": "1W",
+     "match": true
+    },
+    {
+     "column": "col14 (hypothesis: non-conference record)",
+     "official": "1-0-0",
+     "recomputed": "1-0-0",
+     "match": true
+    },
+    {
+     "column": "col16 (hypothesis: last-5 record)",
+     "official": "4-1-0",
+     "recomputed": "4-1-0",
+     "match": true
+    }
+   ],
+   "source_url": "https://www.nfl.com/standings/league/2026/REG"
+  },
+  {
+   "team": "KC",
+   "team_url": "https://www.nfl.com/teams/kansas-city-chiefs/",
+   "games_played": 7,
+   "all_match": true,
+   "cells": [
+    {
+     "column": "W",
+     "official": "5",
+     "recomputed": "5",
+     "match": true
+    },
+    {
+     "column": "L",
+     "official": "2",
+     "recomputed": "2",
+     "match": true
+    },
+    {
+     "column": "T",
+     "official": "0",
+     "recomputed": "0",
+     "match": true
+    },
+    {
+     "column": "PCT",
+     "official": "0.714",
+     "recomputed": "0.714",
+     "match": true
+    },
+    {
+     "column": "PF",
+     "official": "167",
+     "recomputed": "167",
+     "match": true
+    },
+    {
+     "column": "PA",
+     "official": "131",
+     "recomputed": "131",
+     "match": true
+    },
+    {
+     "column": "NET",
+     "official": "36",
+     "recomputed": "36",
+     "match": true
+    },
+    {
+     "column": "HOME",
+     "official": "3-0-0",
+     "recomputed": "3-0-0",
+     "match": true
+    },
+    {
+     "column": "ROAD",
+     "official": "2-2-0",
+     "recomputed": "2-2-0",
+     "match": true
+    },
+    {
+     "column": "DIV",
+     "official": "3-1-0",
+     "recomputed": "3-1-0",
+     "match": true
+    },
+    {
+     "column": "DIV%",
+     "official": "0.750",
+     "recomputed": "0.750",
+     "match": true
+    },
+    {
+     "column": "CONF",
+     "official": "5-1-0",
+     "recomputed": "5-1-0",
+     "match": true
+    },
+    {
+     "column": "CONF%",
+     "official": "0.833",
+     "recomputed": "0.833",
+     "match": true
+    },
+    {
+     "column": "STRK",
+     "official": "2L",
+     "recomputed": "2L",
+     "match": true
+    },
+    {
+     "column": "col14 (hypothesis: non-conference record)",
+     "official": "0-1-0",
+     "recomputed": "0-1-0",
+     "match": true
+    },
+    {
+     "column": "col16 (hypothesis: last-5 record)",
+     "official": "3-2-0",
+     "recomputed": "3-2-0",
+     "match": true
+    }
+   ],
+   "source_url": "https://www.nfl.com/standings/league/2026/REG"
+  },
+  {
+   "team": "LAC",
+   "team_url": "https://www.nfl.com/teams/los-angeles-chargers/",
+   "games_played": 7,
+   "all_match": true,
+   "cells": [
+    {
+     "column": "W",
+     "official": "0",
+     "recomputed": "0",
+     "match": true
+    },
+    {
+     "column": "L",
+     "official": "7",
+     "recomputed": "7",
+     "match": true
+    },
+    {
+     "column": "T",
+     "official": "0",
+     "recomputed": "0",
+     "match": true
+    },
+    {
+     "column": "PCT",
+     "official": "0.000",
+     "recomputed": "0.000",
+     "match": true
+    },
+    {
+     "column": "PF",
+     "official": "99",
+     "recomputed": "99",
+     "match": true
+    },
+    {
+     "column": "PA",
+     "official": "175",
+     "recomputed": "175",
+     "match": true
+    },
+    {
+     "column": "NET",
+     "official": "-76",
+     "recomputed": "-76",
+     "match": true
+    },
+    {
+     "column": "HOME",
+     "official": "0-3-0",
+     "recomputed": "0-3-0",
+     "match": true
+    },
+    {
+     "column": "ROAD",
+     "official": "0-4-0",
+     "recomputed": "0-4-0",
+     "match": true
+    },
+    {
+     "column": "DIV",
+     "official": "0-3-0",
+     "recomputed": "0-3-0",
+     "match": true
+    },
+    {
+     "column": "DIV%",
+     "official": "0.000",
+     "recomputed": "0.000",
+     "match": true
+    },
+    {
+     "column": "CONF",
+     "official": "0-4-0",
+     "recomputed": "0-4-0",
+     "match": true
+    },
+    {
+     "column": "CONF%",
+     "official": "0.000",
+     "recomputed": "0.000",
+     "match": true
+    },
+    {
+     "column": "STRK",
+     "official": "7L",
+     "recomputed": "7L",
+     "match": true
+    },
+    {
+     "column": "col14 (hypothesis: non-conference record)",
+     "official": "0-3-0",
+     "recomputed": "0-3-0",
+     "match": true
+    },
+    {
+     "column": "col16 (hypothesis: last-5 record)",
+     "official": "0-5-0",
+     "recomputed": "0-5-0",
+     "match": true
+    }
+   ],
+   "source_url": "https://www.nfl.com/standings/league/2026/REG"
+  },
+  {
+   "team": "LAR",
+   "team_url": "https://www.nfl.com/teams/los-angeles-rams/",
+   "games_played": 8,
+   "all_match": true,
+   "cells": [
+    {
+     "column": "W",
+     "official": "4",
+     "recomputed": "4",
+     "match": true
+    },
+    {
+     "column": "L",
+     "official": "4",
+     "recomputed": "4",
+     "match": true
+    },
+    {
+     "column": "T",
+     "official": "0",
+     "recomputed": "0",
+     "match": true
+    },
+    {
+     "column": "PCT",
+     "official": "0.500",
+     "recomputed": "0.500",
+     "match": true
+    },
+    {
+     "column": "PF",
+     "official": "194",
+     "recomputed": "194",
+     "match": true
+    },
+    {
+     "column": "PA",
+     "official": "168",
+     "recomputed": "168",
+     "match": true
+    },
+    {
+     "column": "NET",
+     "official": "26",
+     "recomputed": "26",
+     "match": true
+    },
+    {
+     "column": "HOME",
+     "official": "2-3-0",
+     "recomputed": "2-3-0",
+     "match": true
+    },
+    {
+     "column": "ROAD",
+     "official": "2-1-0",
+     "recomputed": "2-1-0",
+     "match": true
+    },
+    {
+     "column": "DIV",
+     "official": "0-2-0",
+     "recomputed": "0-2-0",
+     "match": true
+    },
+    {
+     "column": "DIV%",
+     "official": "0.000",
+     "recomputed": "0.000",
+     "match": true
+    },
+    {
+     "column": "CONF",
+     "official": "2-2-0",
+     "recomputed": "2-2-0",
+     "match": true
+    },
+    {
+     "column": "CONF%",
+     "official": "0.500",
+     "recomputed": "0.500",
+     "match": true
+    },
+    {
+     "column": "STRK",
+     "official": "2W",
+     "recomputed": "2W",
+     "match": true
+    },
+    {
+     "column": "col14 (hypothesis: non-conference record)",
+     "official": "2-2-0",
+     "recomputed": "2-2-0",
+     "match": true
+    },
+    {
+     "column": "col16 (hypothesis: last-5 record)",
+     "official": "3-2-0",
+     "recomputed": "3-2-0",
+     "match": true
+    }
+   ],
+   "source_url": "https://www.nfl.com/standings/league/2026/REG"
+  },
+  {
+   "team": "LV",
+   "team_url": "https://www.nfl.com/teams/las-vegas-raiders/",
+   "games_played": 8,
+   "all_match": true,
+   "cells": [
+    {
+     "column": "W",
+     "official": "4",
+     "recomputed": "4",
+     "match": true
+    },
+    {
+     "column": "L",
+     "official": "4",
+     "recomputed": "4",
+     "match": true
+    },
+    {
+     "column": "T",
+     "official": "0",
+     "recomputed": "0",
+     "match": true
+    },
+    {
+     "column": "PCT",
+     "official": "0.500",
+     "recomputed": "0.500",
+     "match": true
+    },
+    {
+     "column": "PF",
+     "official": "221",
+     "recomputed": "221",
+     "match": true
+    },
+    {
+     "column": "PA",
+     "official": "230",
+     "recomputed": "230",
+     "match": true
+    },
+    {
+     "column": "NET",
+     "official": "-9",
+     "recomputed": "-9",
+     "match": true
+    },
+    {
+     "column": "HOME",
+     "official": "1-3-0",
+     "recomputed": "1-3-0",
+     "match": true
+    },
+    {
+     "column": "ROAD",
+     "official": "3-1-0",
+     "recomputed": "3-1-0",
+     "match": true
+    },
+    {
+     "column": "DIV",
+     "official": "1-1-0",
+     "recomputed": "1-1-0",
+     "match": true
+    },
+    {
+     "column": "DIV%",
+     "official": "0.500",
+     "recomputed": "0.500",
+     "match": true
+    },
+    {
+     "column": "CONF",
+     "official": "3-3-0",
+     "recomputed": "3-3-0",
+     "match": true
+    },
+    {
+     "column": "CONF%",
+     "official": "0.500",
+     "recomputed": "0.500",
+     "match": true
+    },
+    {
+     "column": "STRK",
+     "official": "1W",
+     "recomputed": "1W",
+     "match": true
+    },
+    {
+     "column": "col14 (hypothesis: non-conference record)",
+     "official": "1-1-0",
+     "recomputed": "1-1-0",
+     "match": true
+    },
+    {
+     "column": "col16 (hypothesis: last-5 record)",
+     "official": "1-4-0",
+     "recomputed": "1-4-0",
+     "match": true
+    }
+   ],
+   "source_url": "https://www.nfl.com/standings/league/2026/REG"
+  },
+  {
+   "team": "MIA",
+   "team_url": "https://www.nfl.com/teams/miami-dolphins/",
+   "games_played": 7,
+   "all_match": true,
+   "cells": [
+    {
+     "column": "W",
+     "official": "1",
+     "recomputed": "1",
+     "match": true
+    },
+    {
+     "column": "L",
+     "official": "6",
+     "recomputed": "6",
+     "match": true
+    },
+    {
+     "column": "T",
+     "official": "0",
+     "recomputed": "0",
+     "match": true
+    },
+    {
+     "column": "PCT",
+     "official": "0.143",
+     "recomputed": "0.143",
+     "match": true
+    },
+    {
+     "column": "PF",
+     "official": "117",
+     "recomputed": "117",
+     "match": true
+    },
+    {
+     "column": "PA",
+     "official": "181",
+     "recomputed": "181",
+     "match": true
+    },
+    {
+     "column": "NET",
+     "official": "-64",
+     "recomputed": "-64",
+     "match": true
+    },
+    {
+     "column": "HOME",
+     "official": "0-3-0",
+     "recomputed": "0-3-0",
+     "match": true
+    },
+    {
+     "column": "ROAD",
+     "official": "1-3-0",
+     "recomputed": "1-3-0",
+     "match": true
+    },
+    {
+     "column": "DIV",
+     "official": "1-1-0",
+     "recomputed": "1-1-0",
+     "match": true
+    },
+    {
+     "column": "DIV%",
+     "official": "0.500",
+     "recomputed": "0.500",
+     "match": true
+    },
+    {
+     "column": "CONF",
+     "official": "1-4-0",
+     "recomputed": "1-4-0",
+     "match": true
+    },
+    {
+     "column": "CONF%",
+     "official": "0.200",
+     "recomputed": "0.200",
+     "match": true
+    },
+    {
+     "column": "STRK",
+     "official": "1L",
+     "recomputed": "1L",
+     "match": true
+    },
+    {
+     "column": "col14 (hypothesis: non-conference record)",
+     "official": "0-2-0",
+     "recomputed": "0-2-0",
+     "match": true
+    },
+    {
+     "column": "col16 (hypothesis: last-5 record)",
+     "official": "1-4-0",
+     "recomputed": "1-4-0",
+     "match": true
+    }
+   ],
+   "source_url": "https://www.nfl.com/standings/league/2026/REG"
+  },
+  {
+   "team": "MIN",
+   "team_url": "https://www.nfl.com/teams/minnesota-vikings/",
+   "games_played": 7,
+   "all_match": true,
+   "cells": [
+    {
+     "column": "W",
+     "official": "6",
+     "recomputed": "6",
+     "match": true
+    },
+    {
+     "column": "L",
+     "official": "1",
+     "recomputed": "1",
+     "match": true
+    },
+    {
+     "column": "T",
+     "official": "0",
+     "recomputed": "0",
+     "match": true
+    },
+    {
+     "column": "PCT",
+     "official": "0.857",
+     "recomputed": "0.857",
+     "match": true
+    },
+    {
+     "column": "PF",
+     "official": "140",
+     "recomputed": "140",
+     "match": true
+    },
+    {
+     "column": "PA",
+     "official": "93",
+     "recomputed": "93",
+     "match": true
+    },
+    {
+     "column": "NET",
+     "official": "47",
+     "recomputed": "47",
+     "match": true
+    },
+    {
+     "column": "HOME",
+     "official": "3-0-0",
+     "recomputed": "3-0-0",
+     "match": true
+    },
+    {
+     "column": "ROAD",
+     "official": "3-1-0",
+     "recomputed": "3-1-0",
+     "match": true
+    },
+    {
+     "column": "DIV",
+     "official": "2-1-0",
+     "recomputed": "2-1-0",
+     "match": true
+    },
+    {
+     "column": "DIV%",
+     "official": "0.667",
+     "recomputed": "0.667",
+     "match": true
+    },
+    {
+     "column": "CONF",
+     "official": "4-1-0",
+     "recomputed": "4-1-0",
+     "match": true
+    },
+    {
+     "column": "CONF%",
+     "official": "0.800",
+     "recomputed": "0.800",
+     "match": true
+    },
+    {
+     "column": "STRK",
+     "official": "1L",
+     "recomputed": "1L",
+     "match": true
+    },
+    {
+     "column": "col14 (hypothesis: non-conference record)",
+     "official": "2-0-0",
+     "recomputed": "2-0-0",
+     "match": true
+    },
+    {
+     "column": "col16 (hypothesis: last-5 record)",
+     "official": "4-1-0",
+     "recomputed": "4-1-0",
+     "match": true
+    }
+   ],
+   "source_url": "https://www.nfl.com/standings/league/2026/REG"
+  },
+  {
+   "team": "NE",
+   "team_url": "https://www.nfl.com/teams/new-england-patriots/",
+   "games_played": 8,
+   "all_match": true,
+   "cells": [
+    {
+     "column": "W",
+     "official": "5",
+     "recomputed": "5",
+     "match": true
+    },
+    {
+     "column": "L",
+     "official": "3",
+     "recomputed": "3",
+     "match": true
+    },
+    {
+     "column": "T",
+     "official": "0",
+     "recomputed": "0",
+     "match": true
+    },
+    {
+     "column": "PCT",
+     "official": "0.625",
+     "recomputed": "0.625",
+     "match": true
+    },
+    {
+     "column": "PF",
+     "official": "184",
+     "recomputed": "184",
+     "match": true
+    },
+    {
+     "column": "PA",
+     "official": "162",
+     "recomputed": "162",
+     "match": true
+    },
+    {
+     "column": "NET",
+     "official": "22",
+     "recomputed": "22",
+     "match": true
+    },
+    {
+     "column": "HOME",
+     "official": "3-0-0",
+     "recomputed": "3-0-0",
+     "match": true
+    },
+    {
+     "column": "ROAD",
+     "official": "2-3-0",
+     "recomputed": "2-3-0",
+     "match": true
+    },
+    {
+     "column": "DIV",
+     "official": "3-0-0",
+     "recomputed": "3-0-0",
+     "match": true
+    },
+    {
+     "column": "DIV%",
+     "official": "1.000",
+     "recomputed": "1.000",
+     "match": true
+    },
+    {
+     "column": "CONF",
+     "official": "5-1-0",
+     "recomputed": "5-1-0",
+     "match": true
+    },
+    {
+     "column": "CONF%",
+     "official": "0.833",
+     "recomputed": "0.833",
+     "match": true
+    },
+    {
+     "column": "STRK",
+     "official": "1W",
+     "recomputed": "1W",
+     "match": true
+    },
+    {
+     "column": "col14 (hypothesis: non-conference record)",
+     "official": "0-2-0",
+     "recomputed": "0-2-0",
+     "match": true
+    },
+    {
+     "column": "col16 (hypothesis: last-5 record)",
+     "official": "4-1-0",
+     "recomputed": "4-1-0",
+     "match": true
+    }
+   ],
+   "source_url": "https://www.nfl.com/standings/league/2026/REG"
+  },
+  {
+   "team": "NO",
+   "team_url": "https://www.nfl.com/teams/new-orleans-saints/",
+   "games_played": 7,
+   "all_match": true,
+   "cells": [
+    {
+     "column": "W",
+     "official": "2",
+     "recomputed": "2",
+     "match": true
+    },
+    {
+     "column": "L",
+     "official": "5",
+     "recomputed": "5",
+     "match": true
+    },
+    {
+     "column": "T",
+     "official": "0",
+     "recomputed": "0",
+     "match": true
+    },
+    {
+     "column": "PCT",
+     "official": "0.286",
+     "recomputed": "0.286",
+     "match": true
+    },
+    {
+     "column": "PF",
+     "official": "162",
+     "recomputed": "162",
+     "match": true
+    },
+    {
+     "column": "PA",
+     "official": "194",
+     "recomputed": "194",
+     "match": true
+    },
+    {
+     "column": "NET",
+     "official": "-32",
+     "recomputed": "-32",
+     "match": true
+    },
+    {
+     "column": "HOME",
+     "official": "0-4-0",
+     "recomputed": "0-4-0",
+     "match": true
+    },
+    {
+     "column": "ROAD",
+     "official": "2-1-0",
+     "recomputed": "2-1-0",
+     "match": true
+    },
+    {
+     "column": "DIV",
+     "official": "0-1-0",
+     "recomputed": "0-1-0",
+     "match": true
+    },
+    {
+     "column": "DIV%",
+     "official": "0.000",
+     "recomputed": "0.000",
+     "match": true
+    },
+    {
+     "column": "CONF",
+     "official": "1-3-0",
+     "recomputed": "1-3-0",
+     "match": true
+    },
+    {
+     "column": "CONF%",
+     "official": "0.250",
+     "recomputed": "0.250",
+     "match": true
+    },
+    {
+     "column": "STRK",
+     "official": "1L",
+     "recomputed": "1L",
+     "match": true
+    },
+    {
+     "column": "col14 (hypothesis: non-conference record)",
+     "official": "1-2-0",
+     "recomputed": "1-2-0",
+     "match": true
+    },
+    {
+     "column": "col16 (hypothesis: last-5 record)",
+     "official": "1-4-0",
+     "recomputed": "1-4-0",
+     "match": true
+    }
+   ],
+   "source_url": "https://www.nfl.com/standings/league/2026/REG"
+  },
+  {
+   "team": "NYG",
+   "team_url": "https://www.nfl.com/teams/new-york-giants/",
+   "games_played": 7,
+   "all_match": true,
+   "cells": [
+    {
+     "column": "W",
+     "official": "4",
+     "recomputed": "4",
+     "match": true
+    },
+    {
+     "column": "L",
+     "official": "2",
+     "recomputed": "2",
+     "match": true
+    },
+    {
+     "column": "T",
+     "official": "1",
+     "recomputed": "1",
+     "match": true
+    },
+    {
+     "column": "PCT",
+     "official": "0.643",
+     "recomputed": "0.643",
+     "match": true
+    },
+    {
+     "column": "PF",
+     "official": "163",
+     "recomputed": "163",
+     "match": true
+    },
+    {
+     "column": "PA",
+     "official": "161",
+     "recomputed": "161",
+     "match": true
+    },
+    {
+     "column": "NET",
+     "official": "2",
+     "recomputed": "2",
+     "match": true
+    },
+    {
+     "column": "HOME",
+     "official": "3-1-0",
+     "recomputed": "3-1-0",
+     "match": true
+    },
+    {
+     "column": "ROAD",
+     "official": "1-1-1",
+     "recomputed": "1-1-1",
+     "match": true
+    },
+    {
+     "column": "DIV",
+     "official": "1-0-1",
+     "recomputed": "1-0-1",
+     "match": true
+    },
+    {
+     "column": "DIV%",
+     "official": "0.750",
+     "recomputed": "0.750",
+     "match": true
+    },
+    {
+     "column": "CONF",
+     "official": "2-2-1",
+     "recomputed": "2-2-1",
+     "match": true
+    },
+    {
+     "column": "CONF%",
+     "official": "0.500",
+     "recomputed": "0.500",
+     "match": true
+    },
+    {
+     "column": "STRK",
+     "official": "1W",
+     "recomputed": "1W",
+     "match": true
+    },
+    {
+     "column": "col14 (hypothesis: non-conference record)",
+     "official": "2-0-0",
+     "recomputed": "2-0-0",
+     "match": true
+    },
+    {
+     "column": "col16 (hypothesis: last-5 record)",
+     "official": "3-1-1",
+     "recomputed": "3-1-1",
+     "match": true
+    }
+   ],
+   "source_url": "https://www.nfl.com/standings/league/2026/REG"
+  },
+  {
+   "team": "NYJ",
+   "team_url": "https://www.nfl.com/teams/new-york-jets/",
+   "games_played": 8,
+   "all_match": true,
+   "cells": [
+    {
+     "column": "W",
+     "official": "2",
+     "recomputed": "2",
+     "match": true
+    },
+    {
+     "column": "L",
+     "official": "6",
+     "recomputed": "6",
+     "match": true
+    },
+    {
+     "column": "T",
+     "official": "0",
+     "recomputed": "0",
+     "match": true
+    },
+    {
+     "column": "PCT",
+     "official": "0.250",
+     "recomputed": "0.250",
+     "match": true
+    },
+    {
+     "column": "PF",
+     "official": "170",
+     "recomputed": "170",
+     "match": true
+    },
+    {
+     "column": "PA",
+     "official": "188",
+     "recomputed": "188",
+     "match": true
+    },
+    {
+     "column": "NET",
+     "official": "-18",
+     "recomputed": "-18",
+     "match": true
+    },
+    {
+     "column": "HOME",
+     "official": "1-3-0",
+     "recomputed": "1-3-0",
+     "match": true
+    },
+    {
+     "column": "ROAD",
+     "official": "1-3-0",
+     "recomputed": "1-3-0",
+     "match": true
+    },
+    {
+     "column": "DIV",
+     "official": "0-2-0",
+     "recomputed": "0-2-0",
+     "match": true
+    },
+    {
+     "column": "DIV%",
+     "official": "0.000",
+     "recomputed": "0.000",
+     "match": true
+    },
+    {
+     "column": "CONF",
+     "official": "2-3-0",
+     "recomputed": "2-3-0",
+     "match": true
+    },
+    {
+     "column": "CONF%",
+     "official": "0.400",
+     "recomputed": "0.400",
+     "match": true
+    },
+    {
+     "column": "STRK",
+     "official": "3L",
+     "recomputed": "3L",
+     "match": true
+    },
+    {
+     "column": "col14 (hypothesis: non-conference record)",
+     "official": "0-3-0",
+     "recomputed": "0-3-0",
+     "match": true
+    },
+    {
+     "column": "col16 (hypothesis: last-5 record)",
+     "official": "1-4-0",
+     "recomputed": "1-4-0",
+     "match": true
+    }
+   ],
+   "source_url": "https://www.nfl.com/standings/league/2026/REG"
+  },
+  {
+   "team": "PHI",
+   "team_url": "https://www.nfl.com/teams/philadelphia-eagles/",
+   "games_played": 8,
+   "all_match": true,
+   "cells": [
+    {
+     "column": "W",
+     "official": "2",
+     "recomputed": "2",
+     "match": true
+    },
+    {
+     "column": "L",
+     "official": "6",
+     "recomputed": "6",
+     "match": true
+    },
+    {
+     "column": "T",
+     "official": "0",
+     "recomputed": "0",
+     "match": true
+    },
+    {
+     "column": "PCT",
+     "official": "0.250",
+     "recomputed": "0.250",
+     "match": true
+    },
+    {
+     "column": "PF",
+     "official": "137",
+     "recomputed": "137",
+     "match": true
+    },
+    {
+     "column": "PA",
+     "official": "202",
+     "recomputed": "202",
+     "match": true
+    },
+    {
+     "column": "NET",
+     "official": "-65",
+     "recomputed": "-65",
+     "match": true
+    },
+    {
+     "column": "HOME",
+     "official": "1-3-0",
+     "recomputed": "1-3-0",
+     "match": true
+    },
+    {
+     "column": "ROAD",
+     "official": "1-3-0",
+     "recomputed": "1-3-0",
+     "match": true
+    },
+    {
+     "column": "DIV",
+     "official": "1-2-0",
+     "recomputed": "1-2-0",
+     "match": true
+    },
+    {
+     "column": "DIV%",
+     "official": "0.333",
+     "recomputed": "0.333",
+     "match": true
+    },
+    {
+     "column": "CONF",
+     "official": "1-5-0",
+     "recomputed": "1-5-0",
+     "match": true
+    },
+    {
+     "column": "CONF%",
+     "official": "0.167",
+     "recomputed": "0.167",
+     "match": true
+    },
+    {
+     "column": "STRK",
+     "official": "6L",
+     "recomputed": "6L",
+     "match": true
+    },
+    {
+     "column": "col14 (hypothesis: non-conference record)",
+     "official": "1-1-0",
+     "recomputed": "1-1-0",
+     "match": true
+    },
+    {
+     "column": "col16 (hypothesis: last-5 record)",
+     "official": "0-5-0",
+     "recomputed": "0-5-0",
+     "match": true
+    }
+   ],
+   "source_url": "https://www.nfl.com/standings/league/2026/REG"
+  },
+  {
+   "team": "PIT",
+   "team_url": "https://www.nfl.com/teams/pittsburgh-steelers/",
+   "games_played": 8,
+   "all_match": true,
+   "cells": [
+    {
+     "column": "W",
+     "official": "6",
+     "recomputed": "6",
+     "match": true
+    },
+    {
+     "column": "L",
+     "official": "2",
+     "recomputed": "2",
+     "match": true
+    },
+    {
+     "column": "T",
+     "official": "0",
+     "recomputed": "0",
+     "match": true
+    },
+    {
+     "column": "PCT",
+     "official": "0.750",
+     "recomputed": "0.750",
+     "match": true
+    },
+    {
+     "column": "PF",
+     "official": "180",
+     "recomputed": "180",
+     "match": true
+    },
+    {
+     "column": "PA",
+     "official": "144",
+     "recomputed": "144",
+     "match": true
+    },
+    {
+     "column": "NET",
+     "official": "36",
+     "recomputed": "36",
+     "match": true
+    },
+    {
+     "column": "HOME",
+     "official": "4-0-0",
+     "recomputed": "4-0-0",
+     "match": true
+    },
+    {
+     "column": "ROAD",
+     "official": "2-2-0",
+     "recomputed": "2-2-0",
+     "match": true
+    },
+    {
+     "column": "DIV",
+     "official": "2-1-0",
+     "recomputed": "2-1-0",
+     "match": true
+    },
+    {
+     "column": "DIV%",
+     "official": "0.667",
+     "recomputed": "0.667",
+     "match": true
+    },
+    {
+     "column": "CONF",
+     "official": "3-2-0",
+     "recomputed": "3-2-0",
+     "match": true
+    },
+    {
+     "column": "CONF%",
+     "official": "0.600",
+     "recomputed": "0.600",
+     "match": true
+    },
+    {
+     "column": "STRK",
+     "official": "4W",
+     "recomputed": "4W",
+     "match": true
+    },
+    {
+     "column": "col14 (hypothesis: non-conference record)",
+     "official": "3-0-0",
+     "recomputed": "3-0-0",
+     "match": true
+    },
+    {
+     "column": "col16 (hypothesis: last-5 record)",
+     "official": "4-1-0",
+     "recomputed": "4-1-0",
+     "match": true
+    }
+   ],
+   "source_url": "https://www.nfl.com/standings/league/2026/REG"
+  },
+  {
+   "team": "SEA",
+   "team_url": "https://www.nfl.com/teams/seattle-seahawks/",
+   "games_played": 8,
+   "all_match": true,
+   "cells": [
+    {
+     "column": "W",
+     "official": "4",
+     "recomputed": "4",
+     "match": true
+    },
+    {
+     "column": "L",
+     "official": "4",
+     "recomputed": "4",
+     "match": true
+    },
+    {
+     "column": "T",
+     "official": "0",
+     "recomputed": "0",
+     "match": true
+    },
+    {
+     "column": "PCT",
+     "official": "0.500",
+     "recomputed": "0.500",
+     "match": true
+    },
+    {
+     "column": "PF",
+     "official": "185",
+     "recomputed": "185",
+     "match": true
+    },
+    {
+     "column": "PA",
+     "official": "159",
+     "recomputed": "159",
+     "match": true
+    },
+    {
+     "column": "NET",
+     "official": "26",
+     "recomputed": "26",
+     "match": true
+    },
+    {
+     "column": "HOME",
+     "official": "3-2-0",
+     "recomputed": "3-2-0",
+     "match": true
+    },
+    {
+     "column": "ROAD",
+     "official": "1-2-0",
+     "recomputed": "1-2-0",
+     "match": true
+    },
+    {
+     "column": "DIV",
+     "official": "1-1-0",
+     "recomputed": "1-1-0",
+     "match": true
+    },
+    {
+     "column": "DIV%",
+     "official": "0.500",
+     "recomputed": "0.500",
+     "match": true
+    },
+    {
+     "column": "CONF",
+     "official": "1-3-0",
+     "recomputed": "1-3-0",
+     "match": true
+    },
+    {
+     "column": "CONF%",
+     "official": "0.250",
+     "recomputed": "0.250",
+     "match": true
+    },
+    {
+     "column": "STRK",
+     "official": "1L",
+     "recomputed": "1L",
+     "match": true
+    },
+    {
+     "column": "col14 (hypothesis: non-conference record)",
+     "official": "3-1-0",
+     "recomputed": "3-1-0",
+     "match": true
+    },
+    {
+     "column": "col16 (hypothesis: last-5 record)",
+     "official": "2-3-0",
+     "recomputed": "2-3-0",
+     "match": true
+    }
+   ],
+   "source_url": "https://www.nfl.com/standings/league/2026/REG"
+  },
+  {
+   "team": "SF",
+   "team_url": "https://www.nfl.com/teams/san-francisco-49ers/",
+   "games_played": 7,
+   "all_match": true,
+   "cells": [
+    {
+     "column": "W",
+     "official": "6",
+     "recomputed": "6",
+     "match": true
+    },
+    {
+     "column": "L",
+     "official": "1",
+     "recomputed": "1",
+     "match": true
+    },
+    {
+     "column": "T",
+     "official": "0",
+     "recomputed": "0",
+     "match": true
+    },
+    {
+     "column": "PCT",
+     "official": "0.857",
+     "recomputed": "0.857",
+     "match": true
+    },
+    {
+     "column": "PF",
+     "official": "197",
+     "recomputed": "197",
+     "match": true
+    },
+    {
+     "column": "PA",
+     "official": "139",
+     "recomputed": "139",
+     "match": true
+    },
+    {
+     "column": "NET",
+     "official": "58",
+     "recomputed": "58",
+     "match": true
+    },
+    {
+     "column": "HOME",
+     "official": "4-0-0",
+     "recomputed": "4-0-0",
+     "match": true
+    },
+    {
+     "column": "ROAD",
+     "official": "2-1-0",
+     "recomputed": "2-1-0",
+     "match": true
+    },
+    {
+     "column": "DIV",
+     "official": "3-0-0",
+     "recomputed": "3-0-0",
+     "match": true
+    },
+    {
+     "column": "DIV%",
+     "official": "1.000",
+     "recomputed": "1.000",
+     "match": true
+    },
+    {
+     "column": "CONF",
+     "official": "4-1-0",
+     "recomputed": "4-1-0",
+     "match": true
+    },
+    {
+     "column": "CONF%",
+     "official": "0.800",
+     "recomputed": "0.800",
+     "match": true
+    },
+    {
+     "column": "STRK",
+     "official": "1L",
+     "recomputed": "1L",
+     "match": true
+    },
+    {
+     "column": "col14 (hypothesis: non-conference record)",
+     "official": "2-0-0",
+     "recomputed": "2-0-0",
+     "match": true
+    },
+    {
+     "column": "col16 (hypothesis: last-5 record)",
+     "official": "4-1-0",
+     "recomputed": "4-1-0",
+     "match": true
+    }
+   ],
+   "source_url": "https://www.nfl.com/standings/league/2026/REG"
+  },
+  {
+   "team": "TB",
+   "team_url": "https://www.nfl.com/teams/tampa-bay-buccaneers/",
+   "games_played": 8,
+   "all_match": true,
+   "cells": [
+    {
+     "column": "W",
+     "official": "3",
+     "recomputed": "3",
+     "match": true
+    },
+    {
+     "column": "L",
+     "official": "5",
+     "recomputed": "5",
+     "match": true
+    },
+    {
+     "column": "T",
+     "official": "0",
+     "recomputed": "0",
+     "match": true
+    },
+    {
+     "column": "PCT",
+     "official": "0.375",
+     "recomputed": "0.375",
+     "match": true
+    },
+    {
+     "column": "PF",
+     "official": "178",
+     "recomputed": "178",
+     "match": true
+    },
+    {
+     "column": "PA",
+     "official": "151",
+     "recomputed": "151",
+     "match": true
+    },
+    {
+     "column": "NET",
+     "official": "27",
+     "recomputed": "27",
+     "match": true
+    },
+    {
+     "column": "HOME",
+     "official": "1-4-0",
+     "recomputed": "1-4-0",
+     "match": true
+    },
+    {
+     "column": "ROAD",
+     "official": "2-1-0",
+     "recomputed": "2-1-0",
+     "match": true
+    },
+    {
+     "column": "DIV",
+     "official": "2-0-0",
+     "recomputed": "2-0-0",
+     "match": true
+    },
+    {
+     "column": "DIV%",
+     "official": "1.000",
+     "recomputed": "1.000",
+     "match": true
+    },
+    {
+     "column": "CONF",
+     "official": "3-2-0",
+     "recomputed": "3-2-0",
+     "match": true
+    },
+    {
+     "column": "CONF%",
+     "official": "0.600",
+     "recomputed": "0.600",
+     "match": true
+    },
+    {
+     "column": "STRK",
+     "official": "2W",
+     "recomputed": "2W",
+     "match": true
+    },
+    {
+     "column": "col14 (hypothesis: non-conference record)",
+     "official": "0-3-0",
+     "recomputed": "0-3-0",
+     "match": true
+    },
+    {
+     "column": "col16 (hypothesis: last-5 record)",
+     "official": "3-2-0",
+     "recomputed": "3-2-0",
+     "match": true
+    }
+   ],
+   "source_url": "https://www.nfl.com/standings/league/2026/REG"
+  },
+  {
+   "team": "TEN",
+   "team_url": "https://www.nfl.com/teams/tennessee-titans/",
+   "games_played": 8,
+   "all_match": true,
+   "cells": [
+    {
+     "column": "W",
+     "official": "1",
+     "recomputed": "1",
+     "match": true
+    },
+    {
+     "column": "L",
+     "official": "7",
+     "recomputed": "7",
+     "match": true
+    },
+    {
+     "column": "T",
+     "official": "0",
+     "recomputed": "0",
+     "match": true
+    },
+    {
+     "column": "PCT",
+     "official": "0.125",
+     "recomputed": "0.125",
+     "match": true
+    },
+    {
+     "column": "PF",
+     "official": "144",
+     "recomputed": "144",
+     "match": true
+    },
+    {
+     "column": "PA",
+     "official": "199",
+     "recomputed": "199",
+     "match": true
+    },
+    {
+     "column": "NET",
+     "official": "-55",
+     "recomputed": "-55",
+     "match": true
+    },
+    {
+     "column": "HOME",
+     "official": "0-4-0",
+     "recomputed": "0-4-0",
+     "match": true
+    },
+    {
+     "column": "ROAD",
+     "official": "1-3-0",
+     "recomputed": "1-3-0",
+     "match": true
+    },
+    {
+     "column": "DIV",
+     "official": "1-1-0",
+     "recomputed": "1-1-0",
+     "match": true
+    },
+    {
+     "column": "DIV%",
+     "official": "0.500",
+     "recomputed": "0.500",
+     "match": true
+    },
+    {
+     "column": "CONF",
+     "official": "1-5-0",
+     "recomputed": "1-5-0",
+     "match": true
+    },
+    {
+     "column": "CONF%",
+     "official": "0.167",
+     "recomputed": "0.167",
+     "match": true
+    },
+    {
+     "column": "STRK",
+     "official": "2L",
+     "recomputed": "2L",
+     "match": true
+    },
+    {
+     "column": "col14 (hypothesis: non-conference record)",
+     "official": "0-2-0",
+     "recomputed": "0-2-0",
+     "match": true
+    },
+    {
+     "column": "col16 (hypothesis: last-5 record)",
+     "official": "1-4-0",
+     "recomputed": "1-4-0",
+     "match": true
+    }
+   ],
+   "source_url": "https://www.nfl.com/standings/league/2026/REG"
+  },
+  {
+   "team": "WAS",
+   "team_url": "https://www.nfl.com/teams/washington-commanders/",
+   "games_played": 7,
+   "all_match": true,
+   "cells": [
+    {
+     "column": "W",
+     "official": "2",
+     "recomputed": "2",
+     "match": true
+    },
+    {
+     "column": "L",
+     "official": "4",
+     "recomputed": "4",
+     "match": true
+    },
+    {
+     "column": "T",
+     "official": "1",
+     "recomputed": "1",
+     "match": true
+    },
+    {
+     "column": "PCT",
+     "official": "0.357",
+     "recomputed": "0.357",
+     "match": true
+    },
+    {
+     "column": "PF",
+     "official": "159",
+     "recomputed": "159",
+     "match": true
+    },
+    {
+     "column": "PA",
+     "official": "182",
+     "recomputed": "182",
+     "match": true
+    },
+    {
+     "column": "NET",
+     "official": "-23",
+     "recomputed": "-23",
+     "match": true
+    },
+    {
+     "column": "HOME",
+     "official": "2-1-1",
+     "recomputed": "2-1-1",
+     "match": true
+    },
+    {
+     "column": "ROAD",
+     "official": "0-3-0",
+     "recomputed": "0-3-0",
+     "match": true
+    },
+    {
+     "column": "DIV",
+     "official": "1-2-1",
+     "recomputed": "1-2-1",
+     "match": true
+    },
+    {
+     "column": "DIV%",
+     "official": "0.375",
+     "recomputed": "0.375",
+     "match": true
+    },
+    {
+     "column": "CONF",
+     "official": "2-3-1",
+     "recomputed": "2-3-1",
+     "match": true
+    },
+    {
+     "column": "CONF%",
+     "official": "0.417",
+     "recomputed": "0.417",
+     "match": true
+    },
+    {
+     "column": "STRK",
+     "official": "1W",
+     "recomputed": "1W",
+     "match": true
+    },
+    {
+     "column": "col14 (hypothesis: non-conference record)",
+     "official": "0-1-0",
+     "recomputed": "0-1-0",
+     "match": true
+    },
+    {
+     "column": "col16 (hypothesis: last-5 record)",
+     "official": "2-2-1",
+     "recomputed": "2-2-1",
+     "match": true
+    }
+   ],
+   "source_url": "https://www.nfl.com/standings/league/2026/REG"
+  }
+ ],
+ "cells_total": 512,
+ "cells_matching": 512
+}

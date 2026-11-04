@@ -1,0 +1,11 @@
+# Division tables exactly as grouped on https://www.nfl.com/standings/division/2026/REG (fetched 2026-11-04 by session 4bc92a5f; first committed in c395a40 at 20:19 UTC).
+# The text render prints the conference headings ("AMERICAN FOOTBALL CONFERENCE", "NATIONAL FOOTBALL CONFERENCE") and 4 tables per conference,
+# but NOT the division names; groups are therefore labeled by conference + table order only. Team order within a table = rendered order.
+AFC|1|buffalo-bills,new-england-patriots,new-york-jets,miami-dolphins
+AFC|2|pittsburgh-steelers,cincinnati-bengals,cleveland-browns,baltimore-ravens
+AFC|3|jacksonville-jaguars,houston-texans,indianapolis-colts,tennessee-titans
+AFC|4|denver-broncos,kansas-city-chiefs,las-vegas-raiders,los-angeles-chargers
+NFC|1|new-york-giants,dallas-cowboys,washington-commanders,philadelphia-eagles
+NFC|2|minnesota-vikings,chicago-bears,detroit-lions,green-bay-packers
+NFC|3|carolina-panthers,tampa-bay-buccaneers,atlanta-falcons,new-orleans-saints
+NFC|4|san-francisco-49ers,seattle-seahawks,los-angeles-rams,arizona-cardinals

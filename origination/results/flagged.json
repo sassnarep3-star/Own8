@@ -1,0 +1,127 @@
+{
+ "source": "session 4bc92a5f origination lab",
+ "flags": [
+  {
+   "id": "OF-01",
+   "type": "unverified (blank)",
+   "item": "Next Gen Stats Week 2 passing table",
+   "detail": "The official page rendered only the NGS logo shell on 4 attempts; Week 2 QB rows are left blank and excluded from prop work.",
+   "links": [
+    "https://nextgenstats.nfl.com/stats/passing/2026/REG/2"
+   ]
+  },
+  {
+   "id": "OF-02",
+   "type": "source irregularity",
+   "item": "Week 1 NE@SEA section heading",
+   "detail": "nfl.com labels the game 'Sunday Night Football, September 9th', but 2026-09-09 is a Wednesday. Recorded verbatim.",
+   "links": [
+    "https://www.nfl.com/scores/2026/week-1",
+    "https://www.nfl.com/games/patriots-at-seahawks-2026-reg-1"
+   ]
+  },
+  {
+   "id": "OF-03",
+   "type": "unverified label",
+   "item": "Week 9 kickoff time zone",
+   "detail": "The schedule render labels kickoff times 'LOCAL' without naming a time zone; times are shown exactly as rendered. Root data/schedule-2026-week9.json labels the same times ET.",
+   "links": [
+    "https://www.nfl.com/schedules/2026/by-week/week-9"
+   ]
+  },
+  {
+   "id": "OF-04",
+   "type": "inferred label (values verified)",
+   "item": "Two unlabeled standings columns",
+   "detail": "The standings legend does not name columns 14 and 16. Their values equal each team's non-conference record and last-5 record for 32/32 teams (arithmetic proof in results/standings-reconciliation.json); the labels are inferred, the values are official.",
+   "links": [
+    "https://www.nfl.com/standings/league/2026/REG"
+   ]
+  },
+  {
+   "id": "OF-05",
+   "type": "coverage gap",
+   "item": "NGS lists only qualifying passers",
+   "detail": "Some team-weeks have no NGS row (e.g. TB Week 7; JAX and TB Week 8). These team-games are excluded, never filled.",
+   "links": [
+    "https://nextgenstats.nfl.com/stats/passing/2026/REG/7",
+    "https://nextgenstats.nfl.com/stats/passing/2026/REG/8"
+   ]
+  },
+  {
+   "id": "OF-06",
+   "type": "conditional",
+   "item": "Week 9 QB prop lines",
+   "detail": "Each line assumes the team's most recent NGS passer starts. Starters are not confirmed by an official source here; check the official injury report before use.",
+   "links": [
+    "https://www.nfl.com/injuries/league/2026/reg9",
+    "https://nextgenstats.nfl.com/stats/passing/2026/REG/8"
+   ]
+  },
+  {
+   "id": "OF-07",
+   "type": "model limitation",
+   "item": "Week 9 lines ignore injuries and QB changes",
+   "detail": "Ratings use final scores only. Example: per NGS, BAL's Week 8 passer was Joe Fagnano; a score-only model cannot price such changes.",
+   "links": [
+    "https://nextgenstats.nfl.com/stats/passing/2026/REG/8",
+    "https://www.nfl.com/injuries/league/2026/reg9"
+   ]
+  },
+  {
+   "id": "OF-08",
+   "type": "validation",
+   "item": "No strategy passed all gates",
+   "detail": "0 of 12 strategies passed G1–G8; Week 9 lines are published as UNVALIDATED estimates, not proven edges. Best: S1 (spread MAE -1.7% vs baseline, Holm p = 0.32).",
+   "links": [
+    "https://www.nfl.com/scores/2026/week-3",
+    "https://www.nfl.com/scores/2026/week-4",
+    "https://www.nfl.com/scores/2026/week-5",
+    "https://www.nfl.com/scores/2026/week-6",
+    "https://www.nfl.com/scores/2026/week-7",
+    "https://www.nfl.com/scores/2026/week-8"
+   ]
+  },
+  {
+   "id": "OF-09",
+   "type": "not scored",
+   "item": "Market-dependent strategies (incl. root dashboard W9 candidates)",
+   "detail": "No official source publishes sportsbook prices, so any 'edge vs book' strategy fails G8 here. The root dashboard's W9 candidates rely on data/market-lines.json (flagged unverified by earlier sessions; see 74efc1ec audit).",
+   "links": [
+    "https://github.com/sassnarep3-star/Own8/blob/main/data/market-lines.json",
+    "https://sassnarep3-star.github.io/Own8/audit/"
+   ]
+  },
+  {
+   "id": "OF-10",
+   "type": "source irregularity",
+   "item": "nfl.com transient renders",
+   "detail": "First render of the Week 2 scores page showed 9 games as 'Hidden Score'; one Week 6 render was an empty skeleton. Re-fetching the same official URLs showed all values; every score is confirmed by the 512/512 standings reconciliation.",
+   "links": [
+    "https://www.nfl.com/scores/2026/week-2",
+    "https://www.nfl.com/scores/2026/week-6"
+   ]
+  },
+  {
+   "id": "OF-11",
+   "type": "process irregularity",
+   "item": "Parallel-session coordination",
+   "detail": "Two sessions claim root integration (5c4b8a3e, dd321bf5); open PRs #8 and #11 edit the same root files; 74efc1ec merged PRs #7/#9/#10 directly; PR #6 is stale; this session force-pushed its own branch once after rebasing its claim commit (content unchanged).",
+   "links": [
+    "https://github.com/sassnarep3-star/Own8/pull/6",
+    "https://github.com/sassnarep3-star/Own8/pull/8",
+    "https://github.com/sassnarep3-star/Own8/pull/11",
+    "https://github.com/sassnarep3-star/Own8/pull/13"
+   ]
+  },
+  {
+   "id": "OF-12",
+   "type": "cosmetic",
+   "item": "Rams abbreviation",
+   "detail": "nfl.com scores text prints LAR (logo id LA); root data files use LA. Same team; values agree.",
+   "links": [
+    "https://www.nfl.com/scores/2026/week-8"
+   ]
+  }
+ ]
+}
