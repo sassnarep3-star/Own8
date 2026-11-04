@@ -1,6 +1,6 @@
 {
   "as_of": "2026-11-04",
   "status": "SUPERSEDES LEGACY \u2014 STRICT AUDIT",
-  "notice": "No current actionable values or skill-qualified entries; see audit/results.json.",
+  "notice": "No current actionable values or skill-qualified entries; see strict/results.json.",
   "prop_signals": []
 }

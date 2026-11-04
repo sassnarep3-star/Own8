@@ -1,8 +1,8 @@
 {
   "checked_at": "2026-11-04",
-  "html_pages": 49,
-  "links_checked": 873,
-  "active_table_rows": 400,
+  "html_pages": 50,
+  "links_checked": 905,
+  "active_table_rows": 406,
   "errors": [],
   "external_http_liveness": "NOT TESTED by this checker; see dated source retrieval ledger",
   "status": "PASS"
