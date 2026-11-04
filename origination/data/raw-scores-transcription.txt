@@ -1,6 +1,9 @@
 # Verbatim transcription of https://www.nfl.com/scores/2026/week-N (fetched 2026-11-04 UTC by session 4bc92a5f).
 # Format: week|section heading as rendered|away|away_score|home|home_score|winner_indicator_team|game_slug (https://www.nfl.com/games/<slug>)
-# A score rendered by nfl.com as "Hidden Score" is written as HIDDEN (never guessed); resolved later only from the official game page.
+# A score rendered by nfl.com as "Hidden Score" is written as HIDDEN (never guessed).
+# Provenance note (W2): the first fetch of https://www.nfl.com/scores/2026/week-2 rendered the 9 early W2 games as "Hidden Score";
+# a second fetch of the SAME official URL (2026-11-04 ~20:20 UTC) rendered all 9 scores + winner indicators, transcribed below.
+# W6: the second chunk was re-fetched after one empty skeleton render; chunk boundary text matched exactly (no game skipped).
 1|Sunday Night Football, September 9th|NE|10|SEA|13|SEA|patriots-at-seahawks-2026-reg-1
 1|Thursday, September 10th, International Game|SF|27|LAR|7|SF|49ers-at-rams-2026-reg-1
 1|Sunday, September 13th|CHI|59|CAR|37|CHI|bears-at-panthers-2026-reg-1
@@ -17,15 +20,15 @@
 1|Sunday, September 13th|WAS|22|PHI|24|PHI|commanders-at-eagles-2026-reg-1
 1|Sunday Night Football, September 13th|DAL|20|NYG|28|NYG|cowboys-at-giants-2026-reg-1
 1|Monday Night Football, September 14th|DEN|10|KC|31|KC|broncos-at-chiefs-2026-reg-1
-2|Thursday Night Football, September 17th|DET|HIDDEN|BUF|HIDDEN|HIDDEN|lions-at-bills-2026-reg-2
-2|Sunday, September 20th|CAR|HIDDEN|ATL|HIDDEN|HIDDEN|panthers-at-falcons-2026-reg-2
-2|Sunday, September 20th|NO|HIDDEN|BAL|HIDDEN|HIDDEN|saints-at-ravens-2026-reg-2
-2|Sunday, September 20th|MIN|HIDDEN|CHI|HIDDEN|HIDDEN|vikings-at-bears-2026-reg-2
-2|Sunday, September 20th|CIN|HIDDEN|HOU|HIDDEN|HIDDEN|bengals-at-texans-2026-reg-2
-2|Sunday, September 20th|PIT|HIDDEN|NE|HIDDEN|HIDDEN|steelers-at-patriots-2026-reg-2
-2|Sunday, September 20th|GB|HIDDEN|NYJ|HIDDEN|HIDDEN|packers-at-jets-2026-reg-2
-2|Sunday, September 20th|CLE|HIDDEN|TB|HIDDEN|HIDDEN|browns-at-buccaneers-2026-reg-2
-2|Sunday, September 20th|PHI|HIDDEN|TEN|HIDDEN|HIDDEN|eagles-at-titans-2026-reg-2
+2|Thursday Night Football, September 17th|DET|31|BUF|41|BUF|lions-at-bills-2026-reg-2
+2|Sunday, September 20th|CAR|34|ATL|3|CAR|panthers-at-falcons-2026-reg-2
+2|Sunday, September 20th|NO|24|BAL|17|NO|saints-at-ravens-2026-reg-2
+2|Sunday, September 20th|MIN|9|CHI|3|MIN|vikings-at-bears-2026-reg-2
+2|Sunday, September 20th|CIN|20|HOU|6|CIN|bengals-at-texans-2026-reg-2
+2|Sunday, September 20th|PIT|3|NE|20|NE|steelers-at-patriots-2026-reg-2
+2|Sunday, September 20th|GB|20|NYJ|17|GB|packers-at-jets-2026-reg-2
+2|Sunday, September 20th|CLE|23|TB|19|CLE|browns-at-buccaneers-2026-reg-2
+2|Sunday, September 20th|PHI|24|TEN|20|PHI|eagles-at-titans-2026-reg-2
 2|Sunday, September 20th|JAX|13|DEN|20|DEN|jaguars-at-broncos-2026-reg-2
 2|Sunday, September 20th|LV|26|LAC|14|LV|raiders-at-chargers-2026-reg-2
 2|Sunday, September 20th|SEA|31|AZ|7|SEA|seahawks-at-cardinals-2026-reg-2
