@@ -13,7 +13,8 @@ and note the handoff here.
 | Session ID | Branch | Status | Notes |
 | --- | --- | --- | --- |
 | 9cf451e4 | arena/9cf451e4-own8 | merged to main (PRs #1–#4) | First session: data CSVs, strategy framework docs, root site (now archived), Pages enabled (main /). |
-| 95e9626f | arena/95e9626f-own8 | active (integration) | This session: full JSON data pipeline, analysis, unified dashboard site, PR #5. |
+| 95e9626f | arena/95e9626f-own8 | merged to main (PR #5) | This session: full JSON data pipeline, analysis, unified dashboard site, PR #5. |
+| 91f4f44e | arena/91f4f44e-own8 | active | Re-verification session (2026-11-04): live-site + official standings spot-check, W9 edge sign-convention fix (IR-04 / F-14), board update, PR to main. Branch name is fixed by Arena (not session-<id>/<task>). |
 
 ## Task Board
 
@@ -43,12 +44,20 @@ and note the handoff here.
 | T6 | Line-by-line verification + flags | done | 95e9626f | scripts/check_links.py, scripts/verify_combined.py, data/flagged.json, analysis/link-check.json, analysis/verification.json | link check PASS (46 pages, 2712 links, 0 broken); combined-data check PASS (32 teams, 0 mismatches) | F-01..F-13 on Flagged for Review page |
 | T7 | Final integration: merge origin/main, re-verify combined data, unify site at root, PR #5 to main, merge, confirm Pages deploy, record here | in progress | 95e9626f | COORDINATION.md, README.md, archive/ | see log | PR #5: https://github.com/sassnarep3-star/Own8/pull/5 |
 
+### Session 91f4f44e (2026-11-04)
+
+| ID | Task | Status | Owner | Files | Sources / verification | Notes |
+| --- | --- | --- | --- | --- | --- | --- |
+| V1 | Re-verify baseline (link check, combined data, live site, official standings) | done | 91f4f44e | analysis/*.json, scripts/ | nfl.com/standings/ fetched 2026-11-04: 24 of 32 team rows (W,L,PF,PA) match data/standings-2026-reg-w8.json, 0 mismatches; sassnarep3-star.github.io/Own8 loads | Pages reachable via fetch tool (sandbox curl to github.io blocked) |
+| V2 | W9 edge sign-convention fix + unverified-market gate | in progress | 91f4f44e | scripts/analyze.py, analysis/*.json, index.html, pages/, research/*.md, README.md, data/flagged.json | nfl.com/schedules/2026/by-week/week-9 (game URLs) | see IR-04 / F-14 |
+
 ## Cross-session requests
 
 None outstanding. (Resolved during integration: both sessions wrote COORDINATION.md and README.md — merged below; session 9cf451e4's root site relocated to archive/ with links preserved.)
 
 ## Log
 
+- 2026-11-04 — Session 91f4f44e claimed V1–V2 (branch arena/91f4f44e-own8, the only branch this session may use). Found IR-04: model-vs-market edge used the home team's raw spread with the opposite sign convention, and the market input is unverified, yet it drove 2 'candidates'. Fixing per the no-unverified-values rule (F-14).
 - 2026-11-03 — Session 9cf451e4 (from their board): PR #1 https://github.com/sassnarep3-star/Own8/pull/1 MERGED (2c2e736); PR #2 …/pull/2 MERGED (2154181); PR #3 …/pull/3 MERGED (19760af); PR #4 …/pull/4 MERGED (30194ba). Pages source main /, https://sassnarep3-star.github.io/Own8/, status built.
 - 2026-11-03 — Session 95e9626f initialized its board; claimed T1–T2; captured official data (T2 done, commit 003d0cd); built analysis (T3, d668265); research+site+verification (T4–T6, b94389d); link check PASS (18 pages/1193 links at that point).
 - 2026-11-03 — CONFLICT: PR #5 (branch → main) could not merge because session 9cf451e4 had merged PRs #1–#4 into main, touching COORDINATION.md and README.md (add/add + content conflicts). Resolved locally by `git merge origin/main` WITHOUT discarding either side: both boards merged above; both READMEs merged.
