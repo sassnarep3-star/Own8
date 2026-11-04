@@ -1,0 +1,41 @@
+name: Evidence lab validation
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'evidence-lab/**'
+      - 'docs/evidence-lab/**'
+      - '.github/workflows/evidence-lab.yml'
+  push:
+    branches: [main, arena/34f42e88-own8]
+    paths:
+      - 'evidence-lab/**'
+      - 'docs/evidence-lab/**'
+      - '.github/workflows/evidence-lab.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  evidence-lab:
+    name: Official evidence and fail-closed gates
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Reproduce official-snapshot research
+        run: |
+          python3 evidence-lab/analyze.py
+          python3 evidence-lab/build.py
+      - name: Test all gates, fact rows, mirror and local links
+        run: python3 evidence-lab/check.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: evidence-lab-checks
+          path: |
+            evidence-lab/checks.json
+            evidence-lab/repo-review.json
