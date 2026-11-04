@@ -32,7 +32,7 @@
     {
       "path": "README.md",
       "lines": 50,
-      "sha256": "3c86648f6fd0f1baae2f2726403aee9505dc11513704f2823b2b3b0573ce845e",
+      "sha256": "3e8d51ea6e9ce222093d96ed83b62b183b9291afa9a866b204d129f42c001c34",
       "review": "Executable/source or generated output \u2014 static checks; not official factual evidence",
       "source_url": "https://www.nfl.com/standings/"
     },
@@ -332,8 +332,8 @@
     },
     {
       "path": "data/flagged.json",
-      "lines": 243,
-      "sha256": "774482ff2de8b4638ffcf8f762e9a4ed62da4b4f16efbb5c73d1cd576d18151f",
+      "lines": 244,
+      "sha256": "ee3b1100bb5c79b73cb685f3b6a5845b871fbe917b2d37a174245528781cf8ed",
       "review": "Source capture \u2014 only explicit audited fields promoted",
       "source_url": "https://www.nfl.com/standings/"
     },

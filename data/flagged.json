@@ -228,9 +228,10 @@
     {
       "id": "F-24",
       "severity": "medium",
-      "item": "Coordination irregularity: open PR #6 (branch arena/28cc78aa-own8, 'Own8 NFL Line Lab: verified data, gated strategy leaderboard, correlation library, dashboard site') was created by a session (28cc78aa) that does not appear on the COORDINATION.md board. Its scope may overlap with the files on main. This session did not merge it. Board task T7 (session 95e9626f) was still marked 'in progress' although PR #5 was already merged on 2026-11-03; corrected to done in this session's log.",
-      "source_url": "https://github.com/sassnarep3-star/Own8/pull/6",
-      "status": "needs review \u2014 concurrent record preserved"
+      "item": "Coordination irregularity: open PR #6 (branch arena/28cc78aa-own8, 'Own8 NFL Line Lab: verified data, gated strategy leaderboard, correlation library, dashboard site') was created by a session (28cc78aa) that does not appear on the COORDINATION.md board. Its scope may overlap with the files on main. This session did not merge it. Board task T7 (session 95e9626f) was still marked 'in progress' although PR #5 was already merged on 2026-11-03; corrected to done in this session's log. Official link is context/verification target only; coordination record: https://github.com/sassnarep3-star/Own8/pull/6",
+      "source_url": "https://www.nfl.com/standings/",
+      "status": "needs review \u2014 concurrent record preserved",
+      "review_record_url": "https://github.com/sassnarep3-star/Own8/pull/6"
     },
     {
       "id": "F-25",

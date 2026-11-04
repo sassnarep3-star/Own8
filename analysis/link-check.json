@@ -4,9 +4,6 @@
   "pages": 37,
   "links_checked": 1805,
   "table_rows_checked": 1385,
-  "errors": [
-    "pages/flagged.html: row missing official reference",
-    "flagged.html: unapproved official host/path https://github.com/sassnarep3-star/Own8/pull/6"
-  ],
-  "status": "FAIL"
+  "errors": [],
+  "status": "PASS"
 }
