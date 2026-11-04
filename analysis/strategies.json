@@ -7,7 +7,7 @@
       "type": "single bet \u2014 spread",
       "description": "Originate spread from offensive/defensive PPG matchup model; take the side only when |model - market| edge is within [1.0, 8.0] pts and all gates pass. Market input is unverified third-party (F-05) until checked at a licensed book.",
       "games_evaluated": 15,
-      "candidates": 2,
+      "candidates": 0,
       "gates": [
         "G1",
         "G2",

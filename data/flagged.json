@@ -25,8 +25,8 @@
     {
       "id": "F-04",
       "severity": "medium",
-      "item": "As of 2026-11-03, NFL.com has not yet published the Week 9 injury report (https://www.nfl.com/injuries/league/2026/reg9 redirects to Week 8). The latest official report is Week 8 (captured in data/injuries-2026-week8.json, partial: players with Out/Questionable status in the captured portion). Week 9 game statuses must be re-checked against the official report once published before any Week 9 selection is acted on.",
-      "source_url": "https://www.nfl.com/injuries/league/2026/reg8"
+      "item": "UPDATED 2026-11-04 (session 91f4f44e): the official NFL Week 9 injury report IS now published at https://www.nfl.com/injuries/league/2026/reg9 (fetched 2026-11-04; earlier F-04 text said unpublished and is stale). Its JAX/BAL and CIN/ATL and other Week 9 listings were checked at the top of the page only; the full game-by-game statuses are NOT yet transcribed into data/ (the per-player Injuries/Game Status columns were blank in the fetched text for JAX/BAL). The Week 8 capture (data/injuries-2026-week8.json) is superseded for Week 9 and must not be used for Week 9 decisions. G4 stays CONDITIONAL until the Week 9 report is transcribed and checked.",
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg9"
     },
     {
       "id": "F-05",
@@ -81,6 +81,12 @@
       "severity": "info",
       "item": "Session 9cf451e4's original site tree (index.html, pages/, assets/, docs/executive-summary.md) was relocated verbatim to archive/session-9cf451e4-own8/ during final integration so this session's unified dashboard can serve from the repo root (GitHub Pages: main /). Relative links inside the archive were preserved (its data/ copies included). Their irregularities IR-02 (direct curl blocked; fetch_page used) and IR-03 (some nfl.com stats URLs 404 in their session; nextgenstats used) are recorded here for the record.",
       "source_url": null
+    },
+    {
+      "id": "F-14",
+      "severity": "high",
+      "item": "IRREGULARITY IR-04 (found 2026-11-04 by session 91f4f44e): the Week 9 edge formula in scripts/analyze.py mixed sign conventions. The model margin is positive when the HOME team is favored, but the market input was the home team's printed spread (positive = home receives points), so every edge had the wrong sign. The earlier 'candidates' CIN at ATL and NYG at PHI were artifacts of this error and are WITHDRAWN. Also, the market input is unverified (F-05), yet it drove candidate flags, which breaks the no-unverified-values rule. Fix applied: the sign is corrected (market margin = -printed home spread), and edge, candidate side, and candidate flags are withheld (blank, 'blocked — market unverified') while MARKET_VERIFIED = False. Current result: 0 Week 9 candidates. Any future edge needs a verified line from an official or licensed-book source, checked by hand.",
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9"
     }
   ]
 }

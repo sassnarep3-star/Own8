@@ -35,7 +35,7 @@ python3 scripts/check_links.py       # verify links; exits non-zero on broken li
 
 ## Highlights (2026-11-03)
 
-- Week 9 model-line candidates after all gates: **CIN at ATL** and **NYG at PHI**; JAX–BAL, NYJ–KC, LV–SF rejected by the 8-point edge sanity cap (anti-luck filter).
+- Week 9 model-line candidates: **0**. Edges are withheld while the market line is unverified (F-05/F-14). An earlier version listed CIN at ATL and NYG at PHI; a sign-convention error in the edge formula produced those picks, so they are withdrawn (IR-04).
 - Correlations computed from all 32 teams: net points/game vs win% **r = +0.84**; same-game parlays blocked by default (proxy r = +0.67, threshold 0.80).
 - Official news applied: Jalen Hurts (PHI) on IR — likely out for season; Terry McLaurin (WAS) out for season (both nfl.com news).
 - Week 9 injury report not yet published on NFL.com (flagged F-04); latest official report is Week 8.

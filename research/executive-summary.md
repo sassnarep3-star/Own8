@@ -35,7 +35,7 @@ The NFL does **not** publish betting lines. Any spread/total you see on a websit
 - **model spread** = proj_home − proj_away; **model total** = sum of projections
 - **edge** = model spread − market spread, only where a market line was captured (unverified); a play is a *candidate* only when `1.0 ≤ |edge| ≤ 8.0` points (the 8.0 cap rejects model blow-ups)
 
-Week 9 output (see Model Lines page): candidates this week are **CIN at ATL** and **NYG at PHI**; the JAX–BAL, NYJ–KC and LV–SF edges exceed the sanity cap and are **no-trade** despite large raw edges — that is the "remove luck" filter working.
+Week 9 output (see Model Lines page): **0 candidates**. An earlier draft listed CIN at ATL and NYG at PHI; those were artifacts of a sign-convention error in the edge formula and are withdrawn (IR-04 / F-14). Edges are withheld entirely while the market input is unverified (F-05), so no game is a candidate or a trade this week.
 
 ## 5. Validation gates (every strategy must pass)
 

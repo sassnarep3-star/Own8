@@ -266,12 +266,12 @@ body = f"""
   <div class="card"><div class="kpi">{len(flagged)}</div><div class="lbl"><a href="flagged.html" style="color:inherit">Flagged items</a></div></div>
 </div>
 <div class="panel"><h3 style="margin-top:0">Week 9 candidates (model vs unverified market — see Model Lines)</h3>
-{table(["Game","Kickoff (ET)","Model spread","Model total","Market (unverified)","Edge (pts)","Candidate side","Source"],
+{(table(["Game","Kickoff (ET)","Model spread","Model total","Market (unverified)","Edge (pts)","Candidate side","Source"],
  [[f"{g['away']} at {g['home']}", f"{g['date']} {g['kickoff_et']}", g['model_spread_rendered'], g['model_total'],
    (f"<span>{g['home']} {g['market_spread_home']:+.1f}</span> <span class='unverified'>(unverified, F-05)</span>" if g['market_spread_home'] is not None else '<span class="unverified">blank — no official market line</span>'),
    (g['edge_pts'] if g['edge_pts'] is not None else '<span class="unverified">—</span>'),
-   (f"<strong>{g['candidate_side']}</strong>" if g['candidate'] else "no trade"),
-   link(g['game_url'], "nfl.com game page")] for g in cands]) or '<p class="muted">None this week.</p>'}
+   (f"<strong>{g['candidate_side']}</strong>" if g['candidate'] else ("blocked — market unverified (F-14)" if g['edge_pts'] is None and g['market_spread_home'] is not None else "no trade")),
+   link(g['game_url'], "nfl.com game page")] for g in cands])) if cands else '<p class="muted">None this week — 0 candidates. Market lines are unverified (F-05), so edges are withheld (F-14).</p>'}
 </div>
 <div class="panel"><h3 style="margin-top:0">Browse by category</h3>
 <div class="cards">
@@ -373,7 +373,7 @@ for g in lines["games"]:
         g["proj_away"], g["proj_home"], f"<strong>{g['model_spread_rendered']}</strong>", g["model_total"],
         (f"<span>{g['home']} {g['market_spread_home']:+.1f}</span> <span class='unverified'>(unverified, F-05)</span>" if g["market_spread_home"] is not None else '<span class="unverified">blank</span>'),
         (g["edge_pts"] if g["edge_pts"] is not None else '<span class="unverified">—</span>'),
-        (f"<strong>{g['candidate_side']}</strong>" if g["candidate"] else "no trade"),
+        (f"<strong>{g['candidate_side']}</strong>" if g["candidate"] else ("blocked — market unverified (F-14)" if g["edge_pts"] is None and g["market_spread_home"] is not None else "no trade")),
         gates, link(g["game_url"], "game page"),
     ])
 body = f"""<p class="muted">Method: {esc(lines['method'])}</p>
