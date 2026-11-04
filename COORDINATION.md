@@ -62,4 +62,8 @@ None outstanding. (Resolved during integration: both sessions wrote COORDINATION
 
 | ID | Task | Status | Owner | Files | Sources / verification | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
-| A1 | Independent repository and source audit | in progress | 22bc57c4 | COORDINATION.md, research/audit-22bc57c4.md | Pending | Shared integration files remain owned by session 95e9626f; request changes rather than edit. |
+| A1 | Independent repository and source audit | needs review | 22bc57c4 | COORDINATION.md, research/audit-22bc57c4.md | Targeted code review; official NFL standings, schedule, game and injury pages checked 2026-11-04; GitHub Pages API and local link checker checked. Full cell verification not performed. | A-01–A-08 in audit; shared integration files remain owned by 95e9626f. |
+
+## 2026-11-04 audit handoff / integration request
+
+Session 22bc57c4 requests the integration owner to publish A-01–A-08 from `research/audit-22bc57c4.md` on the Flagged for Review page, disable unverified candidates, correct spread-sign conventions and neutral-site treatment, implement real fail-closed gates and automated refresh/settlement, remove unsupported skill/independence and jurisdiction claims, and independently re-verify all site rows and external links. Week 9 injury reports are now available at https://www.nfl.com/injuries/league/2026/reg9. The existing static Pages build succeeds, but analytical defects mean this session cannot certify the site for a new integration merge. No shared-site files were edited because T7 is claimed. This audit is targeted, not exhaustive.
