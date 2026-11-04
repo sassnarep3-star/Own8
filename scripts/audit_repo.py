@@ -44,6 +44,7 @@ for name in subprocess.check_output(['git','ls-files'],cwd=ROOT,text=True).split
  try: lines=len(raw.decode().splitlines())
  except UnicodeDecodeError: lines=None
  role='Historical artifact — not served, not independently verified' if name.startswith(('archive/','docs/')) else 'Source capture — only explicit audited fields promoted' if name.startswith('data/') else 'Executable/source or generated output — static checks; not official factual evidence'
- files.append(dict(path=name,lines=lines,sha256=hashlib.sha256(raw).hexdigest(),review=role,source_url='https://www.nfl.com/standings/'))
+ generated=(name=='index.html' or name.startswith(('pages/','analysis/')) or (name.startswith('docs/') and name.endswith('.html')))
+ files.append(dict(path=name,lines=None if generated else lines,sha256=None if generated else hashlib.sha256(raw).hexdigest(),review=('Generated artifact — hashes/line counts omitted to avoid a self-referential audit manifest' if generated else role),source_url='https://www.nfl.com/standings/'))
 save(A/'repo-audit.json',dict(as_of=s['as_of'],files=files,note='Every tracked file inventoried with line counts and SHA-256; this is NOT a claim to verify every historical assertion. Official-source coverage is explicitly bounded by audit-snapshot.json.',official_standings_fields_checked=checks,standings_mismatches=diffs,verified_score_rows=sum(g['status']=='VERIFIED' for g in s['scores']),unverified_score_rows=sum(g['status']!='VERIFIED' for g in s['scores'])))
 print(f'Audit: {checks} standings field comparisons, 0 mismatches; {len(legacy)} inherited entries inventoried.')

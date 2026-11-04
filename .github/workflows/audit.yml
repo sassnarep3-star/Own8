@@ -1,0 +1,51 @@
+name: Audit and publish Own8
+on:
+  push:
+    branches: [main, arena/dd321bf5-own8]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    - cron: '17 8 * * *'
+permissions:
+  contents: read
+concurrency:
+  group: own8-pages-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python scripts/audit_repo.py
+      - run: python scripts/analyze.py
+      - run: python -m unittest discover -s scripts -p 'test_audit.py' -v
+      - run: python scripts/build_site.py
+      - run: python scripts/check_links.py
+      - name: Stage only audited public output
+        run: |
+          mkdir -p _site/data _site/analysis
+          cp index.html .nojekyll _site/
+          cp -r pages assets docs _site/
+          cp data/audit-snapshot.json data/sources.json data/flagged.json _site/data/
+          cp analysis/*.json _site/analysis/
+          if [ -d audit ]; then cp -r audit _site/; fi
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+  deploy:
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: validate
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/deploy-pages@v4
+        id: deployment
