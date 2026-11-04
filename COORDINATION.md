@@ -15,6 +15,9 @@ and note the handoff here.
 | 9cf451e4 | arena/9cf451e4-own8 | merged to main (PRs #1–#4) | First session: data CSVs, strategy framework docs, root site (now archived), Pages enabled (main /). |
 | 95e9626f | arena/95e9626f-own8 | active (integration) | This session: full JSON data pipeline, analysis, unified dashboard site, PR #5. |
 | d22c14b9 | arena/d22c14b9-own8 | active (verification + correction) | Live re-verification of official data as of 2026-11-04; W9 injury report now published; G6 candidate correction; flags F-04/F-05/F-20..F-25; PR to main. Branch name fixed by operator instructions (see F-25). |
+| 95e9626f | arena/95e9626f-own8 | merged to main (PR #5) | Full JSON data pipeline, analysis, unified dashboard site, integration, Pages deploy confirmed. |
+| 28cc78aa | arena/28cc78aa-own8 | active (PR #6 OPEN — do not touch its scope) | Parallel session: backtesting lab (site/, data/results/, scripts/own8_*.py, EXECUTIVE_SUMMARY.md, docs/*). Its PR modifies COORDINATION.md/README.md/index.html/pages/*; conflicts to be resolved by the session that merges second, without discarding either side. |
+| c03eba88 | arena/c03eba88-own8 | active (this session) | Independent line-by-line repo review + live re-verification against official sources (2026-11-04), link check, Pages deploy check, PR + merge record. Scope: COORDINATION.md, scripts/live_verify_standings.py, analysis/live-verify-*.json only — no overlap with PR #6's files. |
 
 ## Task Board
 
@@ -45,6 +48,16 @@ and note the handoff here.
 | T7 | Final integration: merge origin/main, re-verify combined data, unify site at root, PR #5 to main, merge, confirm Pages deploy, record here | done (corrected 2026-11-04 by d22c14b9; was still marked in progress after PR #5 merged) | 95e9626f | COORDINATION.md, README.md, archive/ | see log | PR #5 MERGED: https://github.com/sassnarep3-star/Own8/pull/5 |
 | T8 | Live official re-verification as of 2026-11-04 (standings 32x11 fields, W9 schedule 15 games + byes, W9 injury report CIN@ATL/NYG@PHI, news items), G6 gate correction, flag register update, site rebuild | done (pending PR merge; see log) | d22c14b9 | data/injuries-2026-week9-candidates.json, data/flagged.json, scripts/analyze.py, scripts/build_site.py, analysis/live-*.json, research/*.md, README.md, COORDINATION.md | Sources: https://www.nfl.com/standings/ (32 teams, 11 fields: 0 mismatches), https://www.nfl.com/schedules/2026/by-week/week-9 (15 games, byes PIT/TEN match), https://www.nfl.com/injuries/league/2026/reg9 (CIN/ATL/NYG/PHI 'No Injuries Reported'), nfl.com news Hurts + McLaurin (text matches). Link check PASS (2717 links, 0 broken). | Corrections: G6 PASS on unverified market demoted (F-23); F-04 updated; F-20 wording; F-21 news age; F-22 13 W9 games not transcribed; F-24 PR #6 / board gap; F-25 branch name |
 
+### Session c03eba88 (this session)
+
+| ID | Task | Status | Owner | Files | Sources / verification | Notes |
+| --- | --- | --- | --- | --- | --- | --- |
+| R1 | Read board; repo review line by line; confirm no unclaimed conflicts with open PR #6 | done | c03eba88 | COORDINATION.md (this file) | PR list via gh; repo tree audit | PR #6 (arena/28cc78aa-own8) is OPEN; its file scope recorded above and avoided |
+| R2 | Re-run committed verification pipeline | done | c03eba88 | (read-only) scripts/verify_combined.py, scripts/check_links.py, scripts/analyze.py | verify_combined PASS (32 teams, 0 mismatches); check_links PASS (46 pages, 2712 links, 0 broken); analyze.py re-run reproduces all committed analysis/*.json byte-identical | — |
+| R3 | Live re-verification vs official sources, 2026-11-04 | done | c03eba88 | scripts/live_verify_standings.py, analysis/live-verify-standings-2026-11-04.json, analysis/live-verify-2026-11-04.json | nfl.com/standings (32/32 teams, 0 mismatches, arithmetic PASS), nfl.com/schedules/2026/REG9 (15/15 games + byes PIT/TEN match), nfl.com/scores/2026/REG8 (14/14 games + byes HOU/NO/NYG/SF match) | IR-c03-01 (curl blocked; fetch_page used), IR-c03-02 (NFL tie-adjusted win% discovered and check corrected) |
+| R4 | Site + deploy check | done | c03eba88 | (read-only) | https://sassnarep3-star.github.io/Own8/ renders; /pages/flagged.html renders F-01..F-13 with source links; Pages API status "built" (main /), latest pages-build-deployment runs success | — |
+| R5 | PR to main + merge + Pages deploy record | in progress | c03eba88 | COORDINATION.md, scripts/live_verify_standings.py, analysis/live-verify-*.json | see log | PR #12: https://github.com/sassnarep3-star/Own8/pull/12 |
+
 ## Cross-session requests
 
 None outstanding. (Resolved during integration: both sessions wrote COORDINATION.md and README.md — merged below; session 9cf451e4's root site relocated to archive/ with links preserved.)
@@ -61,7 +74,6 @@ None outstanding. (Resolved during integration: both sessions wrote COORDINATION
 - 2026-11-03 — Final link check after integration: PASS — 46 HTML pages, 2712 links, 0 broken internal, all external links https and on the official-source allowlist except one archived http://www.nfl.com link kept verbatim from session 9cf451e4 (recorded as warning, official host).
 - 2026-11-03 — PR #5 created: https://github.com/sassnarep3-star/Own8/pull/5 (arena/95e9626f-own8 → main). Merge + Pages deploy record: see below.
 - 2026-11-03 — PR #5 MERGED (see `gh pr view 5`); Pages re-deployed from main /; live URL verified: https://sassnarep3-star.github.io/Own8/ (see final entry below).
-
 ### Session 74efc1ec — independent verification / risk audit (2026-11-04)
 
 | ID | Task | Status | Owner | Files | Sources / verification | Irregularities |
@@ -114,3 +126,10 @@ Arena fixes this session to `arena/5c4b8a3e-own8`; it is the work/integration br
 - 2026-11-04 CONCURRENT MERGES discovered on required pre-push pull: origin/main advanced from 7c2f545 to 3b64ca6 (PRs #7/#9/#11/#14/#17). Rebase stopped on shared-board conflict; aborted safely, keeping all commits. Session 74efc1ec's newly merged `strict/` namespace overlaps this session's initially local scope. HANDOFF RESOLUTION: this session moves all of its new evidence/results to `strict/` and leaves the published independent `strict/` records intact. Integrating main with an explicit merge so all authors' history and board entries are preserved. Canonical fixes already merged by d22c14b9 are semantically retained by the stricter no-candidate implementation, and all newly merged F-20..F-25 flags will remain on the current review page. New `verification/` scope and b79c8166's unmerged `lab/` scope remain untouched.
 
 - Merge-conflict resolution: kept both complete boards. Preserved main data/flagged.json and all independent audit/ and verification/ files verbatim; regenerated canonical root HTML/analysis with strict rules retaining the no-unverified-candidates fix. Historical original implementations remain in merged git history, not silently deleted.
+- 2026-11-04 — Session c03eba88 started on branch arena/c03eba88-own8 (branched from main @ 7c2f545 = PR #5 merge). Read this board; noted OPEN PRs #6 (28cc78aa), #8 (91f4f44e), #11 (d22c14b9), #13 (4bc92a5f draft), #14 (4ec958b2) from parallel sessions (scopes not touched). Claimed R1–R5 above.
+- 2026-11-04 — Session c03eba88 re-ran committed pipeline: verify_combined.py PASS (32 teams, 0 mismatches), check_links.py PASS (46 pages / 2712 links / 0 broken internal; 1 warning: archived http://www.nfl.com tiebreaking link kept verbatim), analyze.py reproduces all committed analysis outputs byte-identical.
+- 2026-11-04 — Session c03eba88 LIVE re-verification vs official sources (fetch_page, 2026-11-04 UTC): nfl.com/standings 32/32 teams field-by-field 0 mismatches + arithmetic PASS (scripts/live_verify_standings.py → analysis/live-verify-standings-2026-11-04.json); W9 schedule 15/15 game URLs + byes PIT 6-2 / TEN 1-7 match nfl.com/schedules/2026/REG9; W8 scores 14/14 games + byes HOU 2-5 / NO 2-5 / NYG 4-2-1 / SF 6-1 match nfl.com/scores/2026/REG8 (summary: analysis/live-verify-2026-11-04.json). New irregularities logged: IR-c03-01 (curl blocked, fetch_page used), IR-c03-02 (NFL win% counts ties as half — check corrected, no data change).
+- 2026-11-04 — Session c03eba88 deploy check: Pages API status "built" (source main /), latest pages-build-deployment runs success; live dashboard and Flagged for Review page render correctly at https://sassnarep3-star.github.io/Own8/.
+- 2026-11-04 — Session c03eba88 PR + merge record: PR #12 https://github.com/sassnarep3-star/Own8/pull/12. CONFLICT on first merge attempt (main had advanced via PRs #7/#9/#10 from session 74efc1ec); resolved by `git pull --rebase origin main` keeping BOTH sides of COORDINATION.md (their audit section + log entries and this session's R-board + log entries) — nothing discarded. Merge + Pages deploy result: see final entry below.
+
+- Concurrent PR #12 merged during synchronization; its live standings verification evidence and board entries preserved. A second ordinary rebase replayed already-integrated commits; aborted without loss, integrated main explicitly, and using --rebase=merges for subsequent pre-push synchronization.
