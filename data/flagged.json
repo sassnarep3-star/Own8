@@ -239,6 +239,13 @@
       "item": "Branch-name convention: COORDINATION.md specifies session-<id>/<task> branches, but this session's operating instructions require the single branch arena/d22c14b9-own8. The board entries use that branch name, and no other branch was created.",
       "source_url": "https://www.nfl.com/standings/",
       "status": "needs review \u2014 concurrent record preserved"
+    },
+    {
+      "id": "A16",
+      "severity": "medium",
+      "item": "Custom Pages source selection is denied by the repository integration (HTTP 403), including the workflow token. The proven existing main/root legacy Pages pipeline is retained. Jekyll exclusions prevent stale legacy captures and archives from being served. Audit workflow validates and uploads a preview artifact; it does not claim custom deployment control.",
+      "source_url": "https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site",
+      "status": "needs review"
     }
   ]
 }

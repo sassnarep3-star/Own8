@@ -3,8 +3,8 @@
   "files": [
     {
       "path": ".github/workflows/audit.yml",
-      "lines": 58,
-      "sha256": "136cb07c3082487adfdf0926af79419d56e9495ddeb45f435efb8f856a71ed6a",
+      "lines": 39,
+      "sha256": "60d04db3dd777fb2f441e9a5ac5f6cb3ef3c8948375077829f78d49f1003987f",
       "review": "Executable/source or generated output \u2014 static checks; not official factual evidence",
       "source_url": "https://www.nfl.com/standings/"
     },
@@ -16,23 +16,23 @@
       "source_url": "https://www.nfl.com/standings/"
     },
     {
-      "path": ".nojekyll",
-      "lines": 0,
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "review": "Executable/source or generated output \u2014 static checks; not official factual evidence",
-      "source_url": "https://www.nfl.com/standings/"
-    },
-    {
       "path": "COORDINATION.md",
-      "lines": 131,
-      "sha256": "21d80745e3a5964dd441d78d33ea0f265658d41dbf6219fb0b01901c9b96e899",
+      "lines": 134,
+      "sha256": "c98506858fe373946d58002f634d9ad609ced607f350ce1d20d98dc4ae9c0b55",
       "review": "Executable/source or generated output \u2014 static checks; not official factual evidence",
       "source_url": "https://www.nfl.com/standings/"
     },
     {
       "path": "README.md",
       "lines": 50,
-      "sha256": "3e8d51ea6e9ce222093d96ed83b62b183b9291afa9a866b204d129f42c001c34",
+      "sha256": "f5a1b7ee5ce26c0a33c3b99c0af2291983f727ed926e6024566fe3a33d0d0568",
+      "review": "Executable/source or generated output \u2014 static checks; not official factual evidence",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "path": "_config.yml",
+      "lines": 42,
+      "sha256": "c6976e5532edfa143b1d65f66e2d93a95ed4ac9658d64ce94ac7cd2386dcec94",
       "review": "Executable/source or generated output \u2014 static checks; not official factual evidence",
       "source_url": "https://www.nfl.com/standings/"
     },
@@ -332,8 +332,8 @@
     },
     {
       "path": "data/flagged.json",
-      "lines": 244,
-      "sha256": "ee3b1100bb5c79b73cb685f3b6a5845b871fbe917b2d37a174245528781cf8ed",
+      "lines": 251,
+      "sha256": "d3522294e1762090a5ea7b369eaf75d28ae7dcdfd1b7f259fd658ffef5f6862a",
       "review": "Source capture \u2014 only explicit audited fields promoted",
       "source_url": "https://www.nfl.com/standings/"
     },
@@ -444,8 +444,8 @@
     },
     {
       "path": "data/sources.json",
-      "lines": 94,
-      "sha256": "d802bf724e0e3291152720913cc1597d0797be6b9fd9c430dd4c3b753daa58aa",
+      "lines": 102,
+      "sha256": "a2215fdae67f39e16ea0329ea161548faad946b3186b749cd2910b06c4e9e483",
       "review": "Source capture \u2014 only explicit audited fields promoted",
       "source_url": "https://www.nfl.com/standings/"
     },
@@ -781,7 +781,7 @@
     {
       "path": "research/executive-summary.md",
       "lines": 31,
-      "sha256": "badd2c3b9c6434a15c80e1860bfefacd15df480a35e2ae76662896e56b540d83",
+      "sha256": "608afaa48876179fc3dcf0fa42194e2e452bce7d3ec63539e5877e5e14229d75",
       "review": "Executable/source or generated output \u2014 static checks; not official factual evidence",
       "source_url": "https://www.nfl.com/standings/"
     },
@@ -844,14 +844,14 @@
     {
       "path": "scripts/build_site.py",
       "lines": 61,
-      "sha256": "ba3882eb99e2c429ac7f6efc5de567a659eb2f2340fe2a763451e6abc4fbf3d2",
+      "sha256": "9bb40e4c67762efae1ca3558f904a1a9bc66d0da048c88f35af6a3d6c24e0806",
       "review": "Executable/source or generated output \u2014 static checks; not official factual evidence",
       "source_url": "https://www.nfl.com/standings/"
     },
     {
       "path": "scripts/check_links.py",
       "lines": 55,
-      "sha256": "bb69de31da94d7c2097bc7cd6d38b94afec0ae1ead0356f336857d140f534a0f",
+      "sha256": "93640415841f9047d5eb8d69bda0c64e8c59db704420eebd1f608b4309e18d87",
       "review": "Executable/source or generated output \u2014 static checks; not official factual evidence",
       "source_url": "https://www.nfl.com/standings/"
     },
