@@ -1,0 +1,239 @@
+{
+  "audit_date": "2026-11-04",
+  "scope": "Independent static/code audit of the committed 2026-11-03 Week 9 snapshot; NOT a live official-source data refresh or exhaustive external verification.",
+  "checks": {
+    "standings_arithmetic_rows": 32,
+    "schedule_join_rows": 15,
+    "model_rows": 15,
+    "non_null_unverified_market_rows": 6,
+    "published_candidates_with_unverified_market": 2,
+    "g4_conditional_rows": 15,
+    "sign_error_rows": 6
+  },
+  "rows": [
+    {
+      "game": "JAX at BAL",
+      "source_url": "https://www.nfl.com/games/jaguars-at-ravens-2026-reg-9",
+      "official_market_handicap": null,
+      "official_market_edge": null,
+      "published_candidate": false,
+      "published_gate_g4": "CONDITIONAL",
+      "published_gate_g6": "FAIL_NO_TRADE",
+      "published_gate_g1": "PASS",
+      "diagnostic_sign_error_pts": -19.0,
+      "sign_flips_side": true
+    },
+    {
+      "game": "CIN at ATL",
+      "source_url": "https://www.nfl.com/games/bengals-at-falcons-2026-reg-9",
+      "official_market_handicap": null,
+      "official_market_edge": null,
+      "published_candidate": true,
+      "published_gate_g4": "CONDITIONAL",
+      "published_gate_g6": "PASS",
+      "published_gate_g1": "PASS",
+      "diagnostic_sign_error_pts": -6.0,
+      "sign_flips_side": true
+    },
+    {
+      "game": "DEN at CAR",
+      "source_url": "https://www.nfl.com/games/broncos-at-panthers-2026-reg-9",
+      "official_market_handicap": null,
+      "official_market_edge": null,
+      "published_candidate": false,
+      "published_gate_g4": "CONDITIONAL",
+      "published_gate_g6": "NOT_COMPUTABLE",
+      "published_gate_g1": "PASS",
+      "diagnostic_sign_error_pts": null,
+      "sign_flips_side": null
+    },
+    {
+      "game": "DAL at IND",
+      "source_url": "https://www.nfl.com/games/cowboys-at-colts-2026-reg-9",
+      "official_market_handicap": null,
+      "official_market_edge": null,
+      "published_candidate": false,
+      "published_gate_g4": "CONDITIONAL",
+      "published_gate_g6": "NOT_COMPUTABLE",
+      "published_gate_g1": "PASS",
+      "diagnostic_sign_error_pts": null,
+      "sign_flips_side": null
+    },
+    {
+      "game": "NYJ at KC",
+      "source_url": "https://www.nfl.com/games/jets-at-chiefs-2026-reg-9",
+      "official_market_handicap": null,
+      "official_market_edge": null,
+      "published_candidate": false,
+      "published_gate_g4": "CONDITIONAL",
+      "published_gate_g6": "FAIL_NO_TRADE",
+      "published_gate_g1": "PASS",
+      "diagnostic_sign_error_pts": 19.0,
+      "sign_flips_side": true
+    },
+    {
+      "game": "DET at MIA",
+      "source_url": "https://www.nfl.com/games/lions-at-dolphins-2026-reg-9",
+      "official_market_handicap": null,
+      "official_market_edge": null,
+      "published_candidate": false,
+      "published_gate_g4": "CONDITIONAL",
+      "published_gate_g6": "NOT_COMPUTABLE",
+      "published_gate_g1": "PASS",
+      "diagnostic_sign_error_pts": null,
+      "sign_flips_side": null
+    },
+    {
+      "game": "CLE at NO",
+      "source_url": "https://www.nfl.com/games/browns-at-saints-2026-reg-9",
+      "official_market_handicap": null,
+      "official_market_edge": null,
+      "published_candidate": false,
+      "published_gate_g4": "CONDITIONAL",
+      "published_gate_g6": "NOT_COMPUTABLE",
+      "published_gate_g1": "PASS",
+      "diagnostic_sign_error_pts": null,
+      "sign_flips_side": null
+    },
+    {
+      "game": "NYG at PHI",
+      "source_url": "https://www.nfl.com/games/giants-at-eagles-2026-reg-9",
+      "official_market_handicap": null,
+      "official_market_edge": null,
+      "published_candidate": true,
+      "published_gate_g4": "CONDITIONAL",
+      "published_gate_g6": "PASS",
+      "published_gate_g1": "PASS",
+      "diagnostic_sign_error_pts": -6.0,
+      "sign_flips_side": true
+    },
+    {
+      "game": "LA at WAS",
+      "source_url": "https://www.nfl.com/games/rams-at-commanders-2026-reg-9",
+      "official_market_handicap": null,
+      "official_market_edge": null,
+      "published_candidate": false,
+      "published_gate_g4": "CONDITIONAL",
+      "published_gate_g6": "NOT_COMPUTABLE",
+      "published_gate_g1": "PASS",
+      "diagnostic_sign_error_pts": null,
+      "sign_flips_side": null
+    },
+    {
+      "game": "HOU at LAC",
+      "source_url": "https://www.nfl.com/games/texans-at-chargers-2026-reg-9",
+      "official_market_handicap": null,
+      "official_market_edge": null,
+      "published_candidate": false,
+      "published_gate_g4": "CONDITIONAL",
+      "published_gate_g6": "NOT_COMPUTABLE",
+      "published_gate_g1": "PASS",
+      "diagnostic_sign_error_pts": null,
+      "sign_flips_side": null
+    },
+    {
+      "game": "LV at SF",
+      "source_url": "https://www.nfl.com/games/raiders-at-49ers-2026-reg-9",
+      "official_market_handicap": null,
+      "official_market_edge": null,
+      "published_candidate": false,
+      "published_gate_g4": "CONDITIONAL",
+      "published_gate_g6": "FAIL_NO_TRADE",
+      "published_gate_g1": "PASS",
+      "diagnostic_sign_error_pts": 19.0,
+      "sign_flips_side": true
+    },
+    {
+      "game": "GB at NE",
+      "source_url": "https://www.nfl.com/games/packers-at-patriots-2026-reg-9",
+      "official_market_handicap": null,
+      "official_market_edge": null,
+      "published_candidate": false,
+      "published_gate_g4": "CONDITIONAL",
+      "published_gate_g6": "NOT_COMPUTABLE",
+      "published_gate_g1": "PASS",
+      "diagnostic_sign_error_pts": null,
+      "sign_flips_side": null
+    },
+    {
+      "game": "AZ at SEA",
+      "source_url": "https://www.nfl.com/games/cardinals-at-seahawks-2026-reg-9",
+      "official_market_handicap": null,
+      "official_market_edge": null,
+      "published_candidate": false,
+      "published_gate_g4": "CONDITIONAL",
+      "published_gate_g6": "NOT_COMPUTABLE",
+      "published_gate_g1": "PASS",
+      "diagnostic_sign_error_pts": null,
+      "sign_flips_side": null
+    },
+    {
+      "game": "TB at CHI",
+      "source_url": "https://www.nfl.com/games/buccaneers-at-bears-2026-reg-9",
+      "official_market_handicap": null,
+      "official_market_edge": null,
+      "published_candidate": false,
+      "published_gate_g4": "CONDITIONAL",
+      "published_gate_g6": "NOT_COMPUTABLE",
+      "published_gate_g1": "PASS",
+      "diagnostic_sign_error_pts": null,
+      "sign_flips_side": null
+    },
+    {
+      "game": "BUF at MIN",
+      "source_url": "https://www.nfl.com/games/bills-at-vikings-2026-reg-9",
+      "official_market_handicap": null,
+      "official_market_edge": null,
+      "published_candidate": false,
+      "published_gate_g4": "CONDITIONAL",
+      "published_gate_g6": "FAIL_NO_TRADE",
+      "published_gate_g1": "PASS",
+      "diagnostic_sign_error_pts": -6.0,
+      "sign_flips_side": true
+    }
+  ],
+  "findings": [
+    {
+      "id": "A-01",
+      "severity": "critical",
+      "finding": "Spread sign convention is reversed in scripts/analyze.py: model_spread_home is home winning margin (+ for home), while market_spread_home is the signed home handicap (- for home favorite). Code subtracts handicap; correct diagnostic expression is model margin + handicap. All 6 displayed comparisons using the unverified third-party market are arithmetically invalid; 6 flip preferred side. Published candidates CIN at ATL and NYG at PHI are not valid edge calls. Leave market/edge blank pending official sportsbook verification.",
+      "official_source": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "code": "scripts/analyze.py:market_spread_home / edge assignment"
+    },
+    {
+      "id": "A-02",
+      "severity": "critical",
+      "finding": "The two published candidates pass G1 and G6 despite market_verified=false and G4=CONDITIONAL. The user requires every gate to pass; conditional is not PASS. Publication of an unverified betting edge violates the blank-if-unconfirmed rule. Hold all actionable selections.",
+      "official_source": "https://www.nfl.com/injuries/league/2026/reg9",
+      "code": "scripts/analyze.py:gates / all_pass / candidate"
+    },
+    {
+      "id": "A-03",
+      "severity": "high",
+      "finding": "The official NFL Week 9 injury report is now present and lists practice participation for Jaguars and Ravens (including Lamar Jackson); the live site says it has not been published and still uses Week 8. Practice status is not a game status. Recheck each game before making a selection.",
+      "official_source": "https://www.nfl.com/injuries/league/2026/reg9",
+      "code": "data/flagged.json:F-04 / pages/injuries.html"
+    },
+    {
+      "id": "A-04",
+      "severity": "high",
+      "finding": "The leaderboard claims automatic grading after official scores post, but scripts/analyze.py writes realized_pts=0.0 for every strategy on each run and contains no outcome fetch/settlement loop; projected edge is an unverified-market aggregate. Rank is list order, not skill-based. Use blank for ungraded results and label competition unlaunched until out-of-sample outcomes exist.",
+      "official_source": "https://www.nfl.com/scores/2026/week-9",
+      "code": "scripts/analyze.py:leaderboard assignment"
+    },
+    {
+      "id": "A-05",
+      "severity": "medium",
+      "finding": "Cross-sectional correlations across 32 teams (pass YDS/game vs PF/game) are not measured same-game QB-prop/total correlations. Different games do not guarantee zero correlation when weather, team, or market factors are shared. Do not pass the same-game or parlay correlation gate on these proxies; measure paired historical bet-outcome legs and uncertainty.",
+      "official_source": "https://www.nfl.com/stats/team-stats/",
+      "code": "scripts/analyze.py:correlations / S6 / S7"
+    },
+    {
+      "id": "A-06",
+      "severity": "medium",
+      "finding": "As written the site rebuilds from frozen JSON captures; there is no automated official-source fetch or refreshed grading. A source link only establishes provenance, not current accuracy. Date each snapshot and require freshness failures rather than claiming unattended current picks.",
+      "official_source": "https://www.nfl.com/standings/",
+      "code": "scripts/analyze.py:load / G2 / leaderboard"
+    }
+  ]
+}
