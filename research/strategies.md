@@ -4,7 +4,7 @@ All strategies run through the validation gates (`validation-gates.md`). Status 
 
 ## Singles
 
-- **S1 — Form Spread.** Model spread from the PPG matchup model vs market (unverified until checked at a licensed book). Candidate ⇔ 1.0 ≤ |edge| ≤ 8.0 and gates pass. Week 9 candidates: **CIN at ATL** (model CIN −2.1 vs market CIN −3 → edge −5.1, take CIN), **NYG at PHI** (model NYG −1.7 vs market NYG −3 → edge −4.7, take NYG; PHI is starting backup QB Tanner McKee with Jalen Hurts on IR per official nfl.com news). No-trade despite big raw edges (cap exceeded): JAX@BAL (−14.6), NYJ@KC (+15.7), LV@SF (+16.7).
+- **S1 — Form Spread.** Model spread from the PPG matchup model vs market (unverified until checked at a licensed book). Candidate ⇔ 1.0 ≤ |edge| ≤ 8.0 and gates pass. Week 9 status (updated 2026-11-04): **0 verified candidates.** Earlier candidates CIN at ATL and NYG at PHI were demoted because G6 cannot pass on the unverified third-party market line (F-05, F-23). Market-based edges are withheld (unverified third-party line, F-05). Gates G4 for both games: PASS on the official Week 9 injury report (no injuries reported for CIN, ATL, NYG, PHI). Official news context: PHI starting backup QB Tanner McKee with Jalen Hurts on IR (nfl.com). Cap-exceeded no-trade games: JAX@BAL, NYJ@KC, LV@SF.
 - **S2 — Totals.** Model total vs market total, same band. This week only one third-party total was captured (unverified) → effectively NOT_COMPUTABLE; blank, not estimated.
 
 ## Player props (model projections; compare only at a licensed sportsbook)

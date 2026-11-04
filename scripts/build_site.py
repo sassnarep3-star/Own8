@@ -36,6 +36,7 @@ prec = load(DATA / "player-receiving-2026.json")
 pint = load(DATA / "player-interceptions-2026.json")
 ngs = load(DATA / "nextgen-passing-2026-week8.json")
 inj = load(DATA / "injuries-2026-week8.json")
+inj_w9 = load(DATA / "injuries-2026-week9-candidates.json")
 news = load(DATA / "news-items.json")
 market = load(DATA / "market-lines.json")
 flagged = load(DATA / "flagged.json")["items"]
@@ -262,10 +263,10 @@ body = f"""
   <div class="card"><div class="kpi">{len(lines['games'])}</div><div class="lbl">Games modeled</div></div>
   <div class="card"><div class="kpi">{len(standings['teams'])}</div><div class="lbl">Teams (standings W8)</div></div>
   <div class="card"><div class="kpi">{n_src}</div><div class="lbl">Official sources</div></div>
-  <div class="card"><div class="kpi">{len(cands)}</div><div class="lbl">W9 candidates (gates passed)</div></div>
+  <div class="card"><div class="kpi">{len(cands)}</div><div class="lbl">W9 verified candidates (all gates passed)</div></div>
   <div class="card"><div class="kpi">{len(flagged)}</div><div class="lbl"><a href="flagged.html" style="color:inherit">Flagged items</a></div></div>
 </div>
-<div class="panel"><h3 style="margin-top:0">Week 9 candidates (model vs unverified market — see Model Lines)</h3>
+<div class="panel"><h3 style="margin-top:0">Week 9 candidates: {len(cands)} verified (third-party market values and edges are withheld as unverified — F-05; see Model Lines)</h3>
 {table(["Game","Kickoff (ET)","Model spread","Model total","Market (unverified)","Edge (pts)","Candidate side","Source"],
  [[f"{g['away']} at {g['home']}", f"{g['date']} {g['kickoff_et']}", g['model_spread_rendered'], g['model_total'],
    (f"<span>{g['home']} {g['market_spread_home']:+.1f}</span> <span class='unverified'>(unverified, F-05)</span>" if g['market_spread_home'] is not None else '<span class="unverified">blank — no official market line</span>'),
@@ -357,9 +358,12 @@ write("player-stats.html", page("Player Stats & Next Gen Stats — 2026", body, 
 # ---------------- injuries & news ----------------
 rows = [[r["game"], r["team"], link(r["player_url"], r["player"]), r["pos"], r["injuries"], r["practice"], badge("PASS" if r["game_status"] == "" else ("FAIL" if r["game_status"] == "Out" else "CONDITIONAL")) + " " + esc(r["game_status"]), srclink(inj["source_url"])] for r in inj["rows"]]
 news_html = "".join(f"<li><a href='{esc(n['source_url'])}' target='_blank' rel='noopener'><strong>{esc(n['headline'])}</strong></a> ({esc(n['date'])}) — {esc(n['summary'])} <em>Affects: {esc(n['affects'])}</em></li>" for n in news["items"])
-body = f"""<div class="panel"><span class="badge cond">F-04</span> <strong>Week 9 injury report not yet published on NFL.com as of 2026-11-03</strong> (<code>/injuries/league/2026/reg9</code> redirects to Week 8). The latest published official report is Week 8, shown below (players with Out/Questionable status in the captured portion). Re-check {link('https://www.nfl.com/injuries/','NFL.com injury report')} before acting on any Week 9 selection.</div>
+w9c_rows = [[g["game"], f'{g["away"]["abbr"]} ({g["away"]["record_on_report"]}): {g["away"]["status_on_report"]}', f'{g["home"]["abbr"]} ({g["home"]["record_on_report"]}): {g["home"]["status_on_report"]}', g["report_section"], srclink(inj_w9["source_url"])] for g in inj_w9["games"]]
+body = f"""<div class="panel"><span class="badge pass">F-04 updated 2026-11-04</span> <strong>The official NFL.com Week 9 injury report is now published.</strong> Verified below for the two games the model evaluates (CIN at ATL, NYG at PHI). The other 13 Week 9 games are not yet transcribed (flag F-22) — re-check {link('https://www.nfl.com/injuries/league/2026/reg9','the official Week 9 report')} before acting on any other game.</div>
+<h3>Week 9 official injury report — model-evaluated games (verified 2026-11-04)</h3>
+<div class="wrap">{table(["Game", "Away team status", "Home team status", "Report section (ET)", "Source"], w9c_rows)}</div>
 <h3>Official news affecting Week 9</h3><ul>{news_html}</ul>
-<h3>Latest official injury report — Week 8 (partial capture)</h3>
+<h3>Latest transcribed official injury report — Week 8 (partial capture)</h3>
 <p class="muted">{esc(inj['note'])}</p>
 <div class="wrap">{table(["Game","Team","Player","Pos","Injuries","Practice status","Game status","Source"], rows)}</div>"""
 write("injuries.html", page("Injuries & News", body, "injuries.html", sub=True))
@@ -377,7 +381,7 @@ for g in lines["games"]:
         gates, link(g["game_url"], "game page"),
     ])
 body = f"""<p class="muted">Method: {esc(lines['method'])}</p>
-<div class="panel"><strong>Legend:</strong> {badge('PASS')} gate passed · {badge('CONDITIONAL')} passed with note (e.g., W9 injury report pending, F-04) · {badge('FAIL')}/{badge('NOT_COMPUTABLE')} gate not met — no trade. Market column: third-party aggregator values attributed to FanDuel, time-stamped 2026-11-03 11:31 AM ET — <strong>unverified</strong> (F-05); verify at a licensed sportsbook (NL: <a href="https://kansspelautoriteit.nl/kansspelwijzer" target="_blank" rel="noopener">Kansspelwijzer</a>). League avg pass YDS allowed/game: {lines['league_avg_def_pass_ypg']} · rush: {lines['league_avg_def_rush_ypg']} (computed from official data).</div>
+<div class="panel"><strong>Legend:</strong> {badge('PASS')} gate passed · {badge('CONDITIONAL')} passed with note (e.g., Week 9 report not yet transcribed for that game, F-22) · {badge('FAIL')}/{badge('NOT_COMPUTABLE')} gate not met — no trade. <strong>G6 is NOT_COMPUTABLE for every game</strong>: the only market lines available are unverified third-party values (F-05), so no edge can be validated and <strong>no candidate is listed</strong> (correction 2026-11-04, F-23). Market column: third-party aggregator values attributed to FanDuel, time-stamped 2026-11-03 11:31 AM ET — <strong>unverified</strong> (F-05); verify at a licensed sportsbook (NL: <a href="https://kansspelautoriteit.nl/kansspelwijzer" target="_blank" rel="noopener">Kansspelwijzer</a>). League avg pass YDS allowed/game: {lines['league_avg_def_pass_ypg']} · rush: {lines['league_avg_def_rush_ypg']} (computed from official data).</div>
 <div class="wrap">{table(["Game","Kickoff (ET)","Records (away/home)","Proj away","Proj home","Model spread","Model total","Market spread (home)","Edge (pts)","Candidate","Gates G1–G7","Source"], rows)}</div>
 <h3>Gate details</h3>
 <div class="wrap">{table(["Game","Gate","Status","Detail"],

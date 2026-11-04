@@ -36,7 +36,7 @@
 <p>   - <code>proj_home = (PFpg_home + PApg_away)/2 + HFA/2</code>  (HFA = 2.5 is an <strong>assumption</strong>, flagged F-07)</p>
 <p>   - <code>model_spread_home = proj_home − proj_away</code>; <code>model_total = proj_home + proj_away</code></p>
 <p>   - <code>edge = model_spread_home − market_spread_home</code> (only where a market line exists in the unverified capture)</p>
-<p>   - candidate ⇔ <code>1.0 ≤ |edge| ≤ 8.0</code> <strong>and</strong> all gates PASS/CONDITIONAL → <code>analysis/model-lines-week9.json</code></p>
+<p>   - candidate ⇔ a <strong>verified</strong> (official) market line exists <strong>and</strong> <code>1.0 ≤ |edge| ≤ 8.0</code> <strong>and</strong> all gates PASS/CONDITIONAL → <code>analysis/model-lines-week9.json</code>. Correction 2026-11-04: no official market line exists, so G6 is NOT_COMPUTABLE and there are 0 candidates; third-party lines are withheld (F-05, F-23).</p>
 <p>4. Player-prop projections: <code>QB proj = QB season YPG × (opp pass-def YDS allowed/game ÷ league avg)</code>; team rush/pass projections likewise → <code>analysis/prop-signals-week9.json</code>. Market prop lines are blank by rule (no official source).</p>
 <p>5. Strategy definitions + gates → <code>analysis/strategies.json</code>; leaderboard → <code>analysis/leaderboard.json</code>.</p>
 <h3>4. Verification pass</h3>
