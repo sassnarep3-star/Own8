@@ -2,7 +2,7 @@
   "dataset": "flagged-for-review",
   "as_of": "2026-11-04",
   "captured_at": "2026-11-04",
-  "note": "Register of irregularities and unverified items. None of these block publication; they are published on the site's 'Flagged for Review' page with source links. Rule applied throughout: if a value cannot be confirmed from an official source, the cell is left blank and flagged — never inferred or filled in. Updated 2026-11-04 by session d22c14b9: F-04 updated (W9 report published), F-05 corrected, F-14..F-19 added.",
+  "note": "Register of irregularities and unverified items. None of these block publication; they are published on the site's 'Flagged for Review' page with source links. Rule applied throughout: if a value cannot be confirmed from an official source, the cell is left blank and flagged — never inferred or filled in. Updated 2026-11-04 by session d22c14b9: F-04 updated (W9 report published), F-05 corrected, F-20..F-25 added.",
   "items": [
     {
       "id": "F-01",
@@ -25,13 +25,13 @@
     {
       "id": "F-04",
       "severity": "low",
-      "item": "UPDATED 2026-11-04 (session d22c14b9): the official NFL.com Week 9 injury report IS now published (https://www.nfl.com/injuries/league/2026/reg9). Verified for the two model-evaluated games only: CIN at ATL and NYG at PHI, both teams \"No Injuries Reported\" (data/injuries-2026-week9-candidates.json). The other 13 Week 9 games are not yet transcribed — see F-16.",
+      "item": "UPDATED 2026-11-04 (session d22c14b9): the official NFL.com Week 9 injury report IS now published (https://www.nfl.com/injuries/league/2026/reg9). Verified for the two model-evaluated games only: CIN at ATL and NYG at PHI, both teams \"No Injuries Reported\" (data/injuries-2026-week9-candidates.json). The other 13 Week 9 games are not yet transcribed — see F-22.",
       "source_url": "https://www.nfl.com/injuries/league/2026/reg9"
     },
     {
       "id": "F-05",
       "severity": "high",
-      "item": "Market betting lines (spreads/totals) are NOT published by the NFL or any official league source. Values seen on third-party aggregators (nflschedules.com showing 'FanDuel' spreads; an ESPN scoreboard capture showing 'SF -10, Total 48.5') are recorded in data/market-lines.json as UNVERIFIED third-party values. Live lines must be verified at a licensed sportsbook's own site; in the Netherlands only Ksa-licensed providers may be used (check https://kansspelautoriteit.nl/kansspelwijzer). Lines move constantly — treat any captured line as time-stamped and stale. CORRECTION 2026-11-04: because no official market line exists, G6 (edge vs market) is NOT_COMPUTABLE for every Week 9 game; the two previously listed candidates (CIN at ATL, NYG at PHI) were demoted to reference-only. See F-17.",
+      "item": "Market betting lines (spreads/totals) are NOT published by the NFL or any official league source. Values seen on third-party aggregators (nflschedules.com showing 'FanDuel' spreads; an ESPN scoreboard capture showing 'SF -10, Total 48.5') are recorded in data/market-lines.json as UNVERIFIED third-party values. Live lines must be verified at a licensed sportsbook's own site; in the Netherlands only Ksa-licensed providers may be used (check https://kansspelautoriteit.nl/kansspelwijzer). Lines move constantly — treat any captured line as time-stamped and stale. CORRECTION 2026-11-04: because no official market line exists, G6 (edge vs market) is NOT_COMPUTABLE for every Week 9 game; the two previously listed candidates (CIN at ATL, NYG at PHI) were demoted and their market-based edges withheld. See F-23.",
       "source_url": "https://nflschedules.com/weeks/2026/week-9/"
     },
     {
@@ -83,37 +83,37 @@
       "source_url": null
     },
     {
-      "id": "F-14",
+      "id": "F-20",
       "severity": "medium",
       "item": "Eagles QB Jalen Hurts: the nfl.com article headline reads 'likely out for rest of 2026 season', while the body also quotes the Eagles/agent statement that 'we expect a full recovery' with 'no long-term effects' and that the return this season is 'in doubt' (per insider reports). The site uses the article's own 'likely out' wording and does not state a definitive season-ending outcome. Article date 2026-10-19; status not re-confirmed after that date.",
       "source_url": "https://www.nfl.com/news/eagles-qb-jalen-hurts-out-2026-season-blood-clots"
     },
     {
-      "id": "F-15",
+      "id": "F-21",
       "severity": "low",
       "item": "Official news items affecting Week 9 (Hurts, McLaurin) are dated 2026-10-19 and 2026-10-21, i.e., more than two weeks before the 2026-11-04 check. The pages were fetched 2026-11-04 and their text is unchanged, but later roster moves (e.g., IR/practice-squad/roster changes) would not be captured in this project's data unless the news feed is re-captured.",
       "source_url": "https://www.nfl.com/news/commanders-wr-terry-mclaurin-out-rest-of-season-torn-patellar-tendon"
     },
     {
-      "id": "F-16",
+      "id": "F-22",
       "severity": "medium",
       "item": "Week 9 official injury report: only the two model-evaluated games (CIN at ATL, NYG at PHI) are transcribed. The other 13 Week 9 games (JAX at BAL, DEN at CAR, DAL at IND, NYJ at KC, DET at MIA, CLE at NO, LA at WAS, HOU at LAC, LV at SF, GB at NE, AZ at SEA, TB at CHI, BUF at MIN) remain uncaptured and their G4 gate stays CONDITIONAL.",
       "source_url": "https://www.nfl.com/injuries/league/2026/reg9"
     },
     {
-      "id": "F-17",
+      "id": "F-23",
       "severity": "high",
-      "item": "CORRECTION (session d22c14b9): the prior build listed CIN at ATL and NYG at PHI as 'candidates' with G6 = PASS. G6 used a third-party market value (FanDuel via nflschedules.com) that the project's own rules classify as unverified (F-05), so the PASS was not valid. analyze.py now sets G6 = NOT_COMPUTABLE for all games when the market input is unverified and candidate = false for every game. Model spreads and edges are kept as reference only. The W9 verified candidate count is now 0. Strategy text in research/ and README was updated to match.",
+      "item": "CORRECTION (session d22c14b9): the prior build listed CIN at ATL and NYG at PHI as 'candidates' with G6 = PASS. G6 used a third-party market value (FanDuel via nflschedules.com) that the project's own rules classify as unverified (F-05), so the PASS was not valid. analyze.py now sets G6 = NOT_COMPUTABLE for all games when the market input is unverified and candidate = false for every game. Model spreads are kept; the third-party market value and all edges are WITHHELD (not displayed) because they are unverified (blank-if-unconfirmed rule). The W9 verified candidate count is now 0. Strategy text in research/ and README was updated to match.",
       "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9"
     },
     {
-      "id": "F-18",
+      "id": "F-24",
       "severity": "medium",
       "item": "Coordination irregularity: open PR #6 (branch arena/28cc78aa-own8, 'Own8 NFL Line Lab: verified data, gated strategy leaderboard, correlation library, dashboard site') was created by a session (28cc78aa) that does not appear on the COORDINATION.md board. Its scope may overlap with the files on main. This session did not merge it. Board task T7 (session 95e9626f) was still marked 'in progress' although PR #5 was already merged on 2026-11-03; corrected to done in this session's log.",
       "source_url": "https://github.com/sassnarep3-star/Own8/pull/6"
     },
     {
-      "id": "F-19",
+      "id": "F-25",
       "severity": "info",
       "item": "Branch-name convention: COORDINATION.md specifies session-<id>/<task> branches, but this session's operating instructions require the single branch arena/d22c14b9-own8. The board entries use that branch name, and no other branch was created.",
       "source_url": null

@@ -24,7 +24,7 @@ Captured 2026-11-03 into `data/*.json`, each row carrying `source_url`. Column o
    - `proj_home = (PFpg_home + PApg_away)/2 + HFA/2`  (HFA = 2.5 is an **assumption**, flagged F-07)
    - `model_spread_home = proj_home − proj_away`; `model_total = proj_home + proj_away`
    - `edge = model_spread_home − market_spread_home` (only where a market line exists in the unverified capture)
-   - candidate ⇔ a **verified** (official) market line exists **and** `1.0 ≤ |edge| ≤ 8.0` **and** all gates PASS/CONDITIONAL → `analysis/model-lines-week9.json`. Correction 2026-11-04: no official market line exists, so G6 is NOT_COMPUTABLE and there are 0 candidates; third-party lines are reference only (F-05, F-17).
+   - candidate ⇔ a **verified** (official) market line exists **and** `1.0 ≤ |edge| ≤ 8.0` **and** all gates PASS/CONDITIONAL → `analysis/model-lines-week9.json`. Correction 2026-11-04: no official market line exists, so G6 is NOT_COMPUTABLE and there are 0 candidates; third-party lines are withheld (F-05, F-23).
 4. Player-prop projections: `QB proj = QB season YPG × (opp pass-def YDS allowed/game ÷ league avg)`; team rush/pass projections likewise → `analysis/prop-signals-week9.json`. Market prop lines are blank by rule (no official source).
 5. Strategy definitions + gates → `analysis/strategies.json`; leaderboard → `analysis/leaderboard.json`.
 

@@ -6,7 +6,7 @@
   "source_id": "nfl-injuries-w9",
   "source_url": "https://www.nfl.com/injuries/league/2026/reg9",
   "official": true,
-  "scope_note": "The official NFL.com Week 9 injury report was published by 2026-11-04 (previously unpublished as of 2026-11-03, flag F-04). This file records ONLY the two Week 9 games that are evaluated by the model (CIN at ATL, NYG at PHI). The remaining 13 games of the Week 9 report are not yet transcribed (flag F-16).",
+  "scope_note": "The official NFL.com Week 9 injury report was published by 2026-11-04 (previously unpublished as of 2026-11-03, flag F-04). This file records ONLY the two Week 9 games that are evaluated by the model (CIN at ATL, NYG at PHI). The remaining 13 games of the Week 9 report are not yet transcribed (flag F-22).",
   "games": [
     {
       "game": "CIN at ATL",

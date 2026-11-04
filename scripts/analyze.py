@@ -148,20 +148,20 @@ INJ_W9 = load("injuries-2026-week9-candidates.json")
 MARKET_VERIFIED = False  # no official NFL source publishes betting lines (F-05); third-party values can never pass G6
 
 def g4_gate(away, home):
-    """G4 uses the official NFL.com Week 9 injury report captured 2026-11-04 (only the candidate games are transcribed; F-16)."""
+    """G4 uses the official NFL.com Week 9 injury report captured 2026-11-04 (only the candidate games are transcribed; F-22)."""
     for rec in INJ_W9.get("games", []):
         if rec["game"] == f"{away} at {home}":
             a, h = rec["away"]["status_on_report"], rec["home"]["status_on_report"]
             if a == "No Injuries Reported" and h == "No Injuries Reported":
                 return {"status": "PASS", "detail": f"Official NFL.com Week 9 injury report (captured 2026-11-04, {INJ_W9['source_url']}): {away} and {home} both 'No Injuries Reported'. Official nfl.com news still applied (Hurts IR — PHI; McLaurin season out — WAS)."}
-    return {"status": "CONDITIONAL", "detail": "Week 9 official injury report not transcribed for this game (F-16); Week 8 report is the latest transcribed. Re-check official report before acting."}
+    return {"status": "CONDITIONAL", "detail": "Week 9 official injury report not transcribed for this game (F-22); Week 8 report is the latest transcribed. Re-check official report before acting."}
 
 def g6_gate(model_spread_home, mkt, edge, edge_note):
     """G6 can only PASS with a verified market line. Third-party lines are shown for reference and make the gate NOT_COMPUTABLE."""
     if mkt is None:
         return {"status": "NOT_COMPUTABLE", "detail": edge_note}
     if not MARKET_VERIFIED:
-        return {"status": "NOT_COMPUTABLE", "detail": f"Reference only: model home spread {model_spread_home:+.2f} vs unverified third-party market {mkt:+.2f} (edge {edge:+.2f} pts). {edge_note} Gate cannot pass on an unverified line (correction 2026-11-04, F-05/F-17)."}
+        return {"status": "NOT_COMPUTABLE", "detail": f"Reference only: model home spread {model_spread_home:+.2f} vs unverified third-party market {mkt:+.2f} (edge {edge:+.2f} pts). {edge_note} Gate cannot pass on an unverified line (correction 2026-11-04, F-05/F-23)."}
     return {"status": ("PASS" if EDGE_MIN <= abs(edge) <= EDGE_MAX else "FAIL_NO_TRADE"), "detail": f"Model home spread {model_spread_home:+.2f} vs market {mkt:+.2f} -> edge {edge:+.2f} pts. {edge_note}"}
 
 games_out = []
@@ -172,13 +172,16 @@ for g in sched:
     proj_home = (H["PFpg"] + A["PApg"]) / 2 + HFA / 2
     model_spread_home = proj_home - proj_away   # + = home favored
     model_total = proj_away + proj_home
-    mkt, _ = market_spread_home(away, home)
+    mkt_ref, _ = market_spread_home(away, home)
+    # WITHHELD (2026-11-04): the only market value is a third-party aggregator line (F-05). Per the blank-if-unverified rule
+    # it is neither displayed nor used, so no edge is computed. Audit finding A-01 (sign convention) is moot while withheld.
+    mkt = None
     edge = None
-    edge_note = "No market line captured (market lines are not an official source — blank by rule)."
-    if mkt is not None:
-        edge = model_spread_home - mkt   # + means market underprices home side
-        edge_note = ("Market input is a THIRD-PARTY aggregator value attributed to FanDuel, time-stamped Nov 3 11:31 AM ET — UNVERIFIED (flagged F-05). "
-                     "Verify at a licensed sportsbook before any use.")
+    if mkt_ref is not None:
+        edge_note = ("A third-party reference line exists in data/market-lines.json but is WITHHELD: it is unverified (F-05), so it is not displayed or used. "
+                     "No official market line exists, so no edge can be validated.")
+    else:
+        edge_note = "No market line captured (market lines are not an official source — blank by rule)."
     # gates
     gates = {
         "G1_official_sources_only": {"status": "PASS", "detail": "All model inputs from nfl.com / nextgenstats.nfl.com captures dated 2026-11-03."},
@@ -198,7 +201,7 @@ for g in sched:
         "model_spread_home": round(model_spread_home, 2),
         "model_spread_rendered": (f"{home} {model_spread_home:+.1f}" if model_spread_home >= 0 else f"{away} {-model_spread_home:.1f}"),
         "model_total": round(model_total, 2),
-        "market_spread_home": mkt, "market_verified": False,
+        "market_spread_home": None, "market_verified": False, "market_reference_withheld": mkt_ref is not None,
         "edge_pts": (round(edge, 2) if edge is not None else None),
         "candidate_side": None,   # reference only: no candidate side while the market input is unverified (G6 = NOT_COMPUTABLE)
         "reference_side": (None if edge is None else (home if edge > 0 else away)),

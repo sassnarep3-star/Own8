@@ -35,8 +35,8 @@ python3 scripts/check_links.py       # verify links; exits non-zero on broken li
 
 ## Highlights (2026-11-03)
 
-- **Correction (2026-11-04):** Week 9 verified candidates = **0**. The earlier "CIN at ATL / NYG at PHI" candidates passed G6 on an unverified third-party market line, which the project's own rules disallow (F-05, F-17). G6 is now NOT_COMPUTABLE for all games; model edges are reference only.
-- **Official Week 9 injury report published 2026-11-04** (F-04 updated): CIN, ATL, NYG, PHI all "No Injuries Reported". The other 13 games are not yet transcribed (F-16).
+- **Correction (2026-11-04):** Week 9 verified candidates = **0**. The earlier "CIN at ATL / NYG at PHI" candidates passed G6 on an unverified third-party market line, which the project's own rules disallow (F-05, F-23). G6 is now NOT_COMPUTABLE for all games; third-party market values and edges are withheld (unverified, F-05).
+- **Official Week 9 injury report published 2026-11-04** (F-04 updated): CIN, ATL, NYG, PHI all "No Injuries Reported". The other 13 games are not yet transcribed (F-22).
 - Correlations computed from all 32 teams: net points/game vs win% **r = +0.84**; same-game parlays blocked by default (proxy r = +0.67, threshold 0.80).
 - Official news applied: Jalen Hurts (PHI) on IR — likely out for season; Terry McLaurin (WAS) out for season (both nfl.com news).
 - Week 9 injury report not yet published on NFL.com (flagged F-04); latest official report is Week 8.

@@ -22,11 +22,12 @@
       "model_spread_home": -5.07,
       "model_spread_rendered": "JAX 5.1",
       "model_total": 45.8,
-      "market_spread_home": 9.5,
+      "market_spread_home": null,
       "market_verified": false,
-      "edge_pts": -14.57,
+      "market_reference_withheld": true,
+      "edge_pts": null,
       "candidate_side": null,
-      "reference_side": "JAX",
+      "reference_side": null,
       "candidate": false,
       "gates": {
         "G1_official_sources_only": {
@@ -43,7 +44,7 @@
         },
         "G4_injury_news_check": {
           "status": "CONDITIONAL",
-          "detail": "Week 9 official injury report not transcribed for this game (F-16); Week 8 report is the latest transcribed. Re-check official report before acting."
+          "detail": "Week 9 official injury report not transcribed for this game (F-22); Week 8 report is the latest transcribed. Re-check official report before acting."
         },
         "G5_correlation_check": {
           "status": "PASS",
@@ -51,7 +52,7 @@
         },
         "G6_edge_vs_market": {
           "status": "NOT_COMPUTABLE",
-          "detail": "Reference only: model home spread -5.07 vs unverified third-party market +9.50 (edge -14.57 pts). Market input is a THIRD-PARTY aggregator value attributed to FanDuel, time-stamped Nov 3 11:31 AM ET \u2014 UNVERIFIED (flagged F-05). Verify at a licensed sportsbook before any use. Gate cannot pass on an unverified line (correction 2026-11-04, F-05/F-17)."
+          "detail": "A third-party reference line exists in data/market-lines.json but is WITHHELD: it is unverified (F-05), so it is not displayed or used. No official market line exists, so no edge can be validated."
         },
         "G7_stake_cap": {
           "status": "PASS",
@@ -99,11 +100,12 @@
       "model_spread_home": -2.05,
       "model_spread_rendered": "CIN 2.1",
       "model_total": 48.5,
-      "market_spread_home": 3.0,
+      "market_spread_home": null,
       "market_verified": false,
-      "edge_pts": -5.05,
+      "market_reference_withheld": true,
+      "edge_pts": null,
       "candidate_side": null,
-      "reference_side": "CIN",
+      "reference_side": null,
       "candidate": false,
       "gates": {
         "G1_official_sources_only": {
@@ -128,7 +130,7 @@
         },
         "G6_edge_vs_market": {
           "status": "NOT_COMPUTABLE",
-          "detail": "Reference only: model home spread -2.05 vs unverified third-party market +3.00 (edge -5.05 pts). Market input is a THIRD-PARTY aggregator value attributed to FanDuel, time-stamped Nov 3 11:31 AM ET \u2014 UNVERIFIED (flagged F-05). Verify at a licensed sportsbook before any use. Gate cannot pass on an unverified line (correction 2026-11-04, F-05/F-17)."
+          "detail": "A third-party reference line exists in data/market-lines.json but is WITHHELD: it is unverified (F-05), so it is not displayed or used. No official market line exists, so no edge can be validated."
         },
         "G7_stake_cap": {
           "status": "PASS",
@@ -178,6 +180,7 @@
       "model_total": 47.56,
       "market_spread_home": null,
       "market_verified": false,
+      "market_reference_withheld": false,
       "edge_pts": null,
       "candidate_side": null,
       "reference_side": null,
@@ -197,7 +200,7 @@
         },
         "G4_injury_news_check": {
           "status": "CONDITIONAL",
-          "detail": "Week 9 official injury report not transcribed for this game (F-16); Week 8 report is the latest transcribed. Re-check official report before acting."
+          "detail": "Week 9 official injury report not transcribed for this game (F-22); Week 8 report is the latest transcribed. Re-check official report before acting."
         },
         "G5_correlation_check": {
           "status": "PASS",
@@ -255,6 +258,7 @@
       "model_total": 50.94,
       "market_spread_home": null,
       "market_verified": false,
+      "market_reference_withheld": false,
       "edge_pts": null,
       "candidate_side": null,
       "reference_side": null,
@@ -274,7 +278,7 @@
         },
         "G4_injury_news_check": {
           "status": "CONDITIONAL",
-          "detail": "Week 9 official injury report not transcribed for this game (F-16); Week 8 report is the latest transcribed. Re-check official report before acting."
+          "detail": "Week 9 official injury report not transcribed for this game (F-22); Week 8 report is the latest transcribed. Re-check official report before acting."
         },
         "G5_correlation_check": {
           "status": "PASS",
@@ -330,11 +334,12 @@
       "model_spread_home": 6.2,
       "model_spread_rendered": "KC +6.2",
       "model_total": 43.66,
-      "market_spread_home": -9.5,
+      "market_spread_home": null,
       "market_verified": false,
-      "edge_pts": 15.7,
+      "market_reference_withheld": true,
+      "edge_pts": null,
       "candidate_side": null,
-      "reference_side": "KC",
+      "reference_side": null,
       "candidate": false,
       "gates": {
         "G1_official_sources_only": {
@@ -351,7 +356,7 @@
         },
         "G4_injury_news_check": {
           "status": "CONDITIONAL",
-          "detail": "Week 9 official injury report not transcribed for this game (F-16); Week 8 report is the latest transcribed. Re-check official report before acting."
+          "detail": "Week 9 official injury report not transcribed for this game (F-22); Week 8 report is the latest transcribed. Re-check official report before acting."
         },
         "G5_correlation_check": {
           "status": "PASS",
@@ -359,7 +364,7 @@
         },
         "G6_edge_vs_market": {
           "status": "NOT_COMPUTABLE",
-          "detail": "Reference only: model home spread +6.20 vs unverified third-party market -9.50 (edge +15.70 pts). Market input is a THIRD-PARTY aggregator value attributed to FanDuel, time-stamped Nov 3 11:31 AM ET \u2014 UNVERIFIED (flagged F-05). Verify at a licensed sportsbook before any use. Gate cannot pass on an unverified line (correction 2026-11-04, F-05/F-17)."
+          "detail": "A third-party reference line exists in data/market-lines.json but is WITHHELD: it is unverified (F-05), so it is not displayed or used. No official market line exists, so no edge can be validated."
         },
         "G7_stake_cap": {
           "status": "PASS",
@@ -409,6 +414,7 @@
       "model_total": 48.64,
       "market_spread_home": null,
       "market_verified": false,
+      "market_reference_withheld": false,
       "edge_pts": null,
       "candidate_side": null,
       "reference_side": null,
@@ -428,7 +434,7 @@
         },
         "G4_injury_news_check": {
           "status": "CONDITIONAL",
-          "detail": "Week 9 official injury report not transcribed for this game (F-16); Week 8 report is the latest transcribed. Re-check official report before acting."
+          "detail": "Week 9 official injury report not transcribed for this game (F-22); Week 8 report is the latest transcribed. Re-check official report before acting."
         },
         "G5_correlation_check": {
           "status": "PASS",
@@ -486,6 +492,7 @@
       "model_total": 44.93,
       "market_spread_home": null,
       "market_verified": false,
+      "market_reference_withheld": false,
       "edge_pts": null,
       "candidate_side": null,
       "reference_side": null,
@@ -505,7 +512,7 @@
         },
         "G4_injury_news_check": {
           "status": "CONDITIONAL",
-          "detail": "Week 9 official injury report not transcribed for this game (F-16); Week 8 report is the latest transcribed. Re-check official report before acting."
+          "detail": "Week 9 official injury report not transcribed for this game (F-22); Week 8 report is the latest transcribed. Re-check official report before acting."
         },
         "G5_correlation_check": {
           "status": "PASS",
@@ -561,11 +568,12 @@
       "model_spread_home": -1.71,
       "model_spread_rendered": "NYG 1.7",
       "model_total": 44.33,
-      "market_spread_home": 3.0,
+      "market_spread_home": null,
       "market_verified": false,
-      "edge_pts": -4.71,
+      "market_reference_withheld": true,
+      "edge_pts": null,
       "candidate_side": null,
-      "reference_side": "NYG",
+      "reference_side": null,
       "candidate": false,
       "gates": {
         "G1_official_sources_only": {
@@ -590,7 +598,7 @@
         },
         "G6_edge_vs_market": {
           "status": "NOT_COMPUTABLE",
-          "detail": "Reference only: model home spread -1.71 vs unverified third-party market +3.00 (edge -4.71 pts). Market input is a THIRD-PARTY aggregator value attributed to FanDuel, time-stamped Nov 3 11:31 AM ET \u2014 UNVERIFIED (flagged F-05). Verify at a licensed sportsbook before any use. Gate cannot pass on an unverified line (correction 2026-11-04, F-05/F-17)."
+          "detail": "A third-party reference line exists in data/market-lines.json but is WITHHELD: it is unverified (F-05), so it is not displayed or used. No official market line exists, so no edge can be validated."
         },
         "G7_stake_cap": {
           "status": "PASS",
@@ -640,6 +648,7 @@
       "model_total": 46.98,
       "market_spread_home": null,
       "market_verified": false,
+      "market_reference_withheld": false,
       "edge_pts": null,
       "candidate_side": null,
       "reference_side": null,
@@ -659,7 +668,7 @@
         },
         "G4_injury_news_check": {
           "status": "CONDITIONAL",
-          "detail": "Week 9 official injury report not transcribed for this game (F-16); Week 8 report is the latest transcribed. Re-check official report before acting."
+          "detail": "Week 9 official injury report not transcribed for this game (F-22); Week 8 report is the latest transcribed. Re-check official report before acting."
         },
         "G5_correlation_check": {
           "status": "PASS",
@@ -717,6 +726,7 @@
       "model_total": 43.5,
       "market_spread_home": null,
       "market_verified": false,
+      "market_reference_withheld": false,
       "edge_pts": null,
       "candidate_side": null,
       "reference_side": null,
@@ -736,7 +746,7 @@
         },
         "G4_injury_news_check": {
           "status": "CONDITIONAL",
-          "detail": "Week 9 official injury report not transcribed for this game (F-16); Week 8 report is the latest transcribed. Re-check official report before acting."
+          "detail": "Week 9 official injury report not transcribed for this game (F-22); Week 8 report is the latest transcribed. Re-check official report before acting."
         },
         "G5_correlation_check": {
           "status": "PASS",
@@ -792,11 +802,12 @@
       "model_spread_home": 7.21,
       "model_spread_rendered": "SF +7.2",
       "model_total": 52.19,
-      "market_spread_home": -9.5,
+      "market_spread_home": null,
       "market_verified": false,
-      "edge_pts": 16.71,
+      "market_reference_withheld": true,
+      "edge_pts": null,
       "candidate_side": null,
-      "reference_side": "SF",
+      "reference_side": null,
       "candidate": false,
       "gates": {
         "G1_official_sources_only": {
@@ -813,7 +824,7 @@
         },
         "G4_injury_news_check": {
           "status": "CONDITIONAL",
-          "detail": "Week 9 official injury report not transcribed for this game (F-16); Week 8 report is the latest transcribed. Re-check official report before acting."
+          "detail": "Week 9 official injury report not transcribed for this game (F-22); Week 8 report is the latest transcribed. Re-check official report before acting."
         },
         "G5_correlation_check": {
           "status": "PASS",
@@ -821,7 +832,7 @@
         },
         "G6_edge_vs_market": {
           "status": "NOT_COMPUTABLE",
-          "detail": "Reference only: model home spread +7.21 vs unverified third-party market -9.50 (edge +16.71 pts). Market input is a THIRD-PARTY aggregator value attributed to FanDuel, time-stamped Nov 3 11:31 AM ET \u2014 UNVERIFIED (flagged F-05). Verify at a licensed sportsbook before any use. Gate cannot pass on an unverified line (correction 2026-11-04, F-05/F-17)."
+          "detail": "A third-party reference line exists in data/market-lines.json but is WITHHELD: it is unverified (F-05), so it is not displayed or used. No official market line exists, so no edge can be validated."
         },
         "G7_stake_cap": {
           "status": "PASS",
@@ -871,6 +882,7 @@
       "model_total": 42.56,
       "market_spread_home": null,
       "market_verified": false,
+      "market_reference_withheld": false,
       "edge_pts": null,
       "candidate_side": null,
       "reference_side": null,
@@ -890,7 +902,7 @@
         },
         "G4_injury_news_check": {
           "status": "CONDITIONAL",
-          "detail": "Week 9 official injury report not transcribed for this game (F-16); Week 8 report is the latest transcribed. Re-check official report before acting."
+          "detail": "Week 9 official injury report not transcribed for this game (F-22); Week 8 report is the latest transcribed. Re-check official report before acting."
         },
         "G5_correlation_check": {
           "status": "PASS",
@@ -948,6 +960,7 @@
       "model_total": 47.31,
       "market_spread_home": null,
       "market_verified": false,
+      "market_reference_withheld": false,
       "edge_pts": null,
       "candidate_side": null,
       "reference_side": null,
@@ -967,7 +980,7 @@
         },
         "G4_injury_news_check": {
           "status": "CONDITIONAL",
-          "detail": "Week 9 official injury report not transcribed for this game (F-16); Week 8 report is the latest transcribed. Re-check official report before acting."
+          "detail": "Week 9 official injury report not transcribed for this game (F-22); Week 8 report is the latest transcribed. Re-check official report before acting."
         },
         "G5_correlation_check": {
           "status": "PASS",
@@ -1025,6 +1038,7 @@
       "model_total": 43.94,
       "market_spread_home": null,
       "market_verified": false,
+      "market_reference_withheld": false,
       "edge_pts": null,
       "candidate_side": null,
       "reference_side": null,
@@ -1044,7 +1058,7 @@
         },
         "G4_injury_news_check": {
           "status": "CONDITIONAL",
-          "detail": "Week 9 official injury report not transcribed for this game (F-16); Week 8 report is the latest transcribed. Re-check official report before acting."
+          "detail": "Week 9 official injury report not transcribed for this game (F-22); Week 8 report is the latest transcribed. Re-check official report before acting."
         },
         "G5_correlation_check": {
           "status": "PASS",
@@ -1100,11 +1114,12 @@
       "model_spread_home": 2.14,
       "model_spread_rendered": "MIN +2.1",
       "model_total": 46.21,
-      "market_spread_home": 3.0,
+      "market_spread_home": null,
       "market_verified": false,
-      "edge_pts": -0.86,
+      "market_reference_withheld": true,
+      "edge_pts": null,
       "candidate_side": null,
-      "reference_side": "BUF",
+      "reference_side": null,
       "candidate": false,
       "gates": {
         "G1_official_sources_only": {
@@ -1121,7 +1136,7 @@
         },
         "G4_injury_news_check": {
           "status": "CONDITIONAL",
-          "detail": "Week 9 official injury report not transcribed for this game (F-16); Week 8 report is the latest transcribed. Re-check official report before acting."
+          "detail": "Week 9 official injury report not transcribed for this game (F-22); Week 8 report is the latest transcribed. Re-check official report before acting."
         },
         "G5_correlation_check": {
           "status": "PASS",
@@ -1129,7 +1144,7 @@
         },
         "G6_edge_vs_market": {
           "status": "NOT_COMPUTABLE",
-          "detail": "Reference only: model home spread +2.14 vs unverified third-party market +3.00 (edge -0.86 pts). Market input is a THIRD-PARTY aggregator value attributed to FanDuel, time-stamped Nov 3 11:31 AM ET \u2014 UNVERIFIED (flagged F-05). Verify at a licensed sportsbook before any use. Gate cannot pass on an unverified line (correction 2026-11-04, F-05/F-17)."
+          "detail": "A third-party reference line exists in data/market-lines.json but is WITHHELD: it is unverified (F-05), so it is not displayed or used. No official market line exists, so no edge can be validated."
         },
         "G7_stake_cap": {
           "status": "PASS",
