@@ -27,6 +27,7 @@ See `data/verified/sources.json` for exact checked scope and retrieval dates. `d
 ## Reproduce without manual input (Python standard library only)
 
 ```sh
+python3 scripts/strict_build_site.py
 python3 -m unittest discover -s tests -v
 python3 scripts/audit.py
 python3 scripts/analyze.py
@@ -38,7 +39,9 @@ python3 -m http.server 8000 --bind 0.0.0.0 --directory _site
 
 The fixed-input pipeline is automated. It does **not** implement continuous official-data collection, quote refresh, real-time injury monitoring, a trained multi-season backtest, a live settled forecast ledger or full sportsbook-specific parlay settlement. Those gaps are explicit; no user credentials, purchase or manual entry is requested. The source snapshot remains dated instead of being silently relabeled current.
 
-The integrated PR #19 snapshot, math helpers and 18 inherited regression tests are retained alongside this session’s 12 tests. All 30 test methods must pass. The current site does not promote every inherited observation as independently rechecked by this session.
+The integrated PR #19 snapshot, math helpers and 18 inherited regression tests are retained alongside this session’s 12 tests. All 50 combined test methods must pass (12 engine + 18 inherited audit + 20 namespaced research). The current site does not promote every inherited observation as independently rechecked by this session.
+
+The complementary [historical benchmark workspace](https://sassnarep3-star.github.io/Own8/strict/site/index.html) from PR #22 is retained unchanged and linked from the root. Its official NFL Big Data Bowl game/schema/README file bytes were independently re-fetched and hashed against the immutable upstream commit. Its developmental predictions are not validated betting edges.
 
 ## Repository layout
 
@@ -48,8 +51,8 @@ The integrated PR #19 snapshot, math helpers and 18 inherited regression tests a
 - `scripts/engine.py` + `tests/` — tested gate, probability, price, settlement and validation primitives.
 - `research/methodology.md` — full research protocol, proposed signal designs, holdout/multiplicity controls, ranking/reward rules and limitations.
 - `index.html`, `pages/`, `assets/`, `public-data/` — generated dashboard and reviewable downloads.
-- `_site/` — ignored, isolated deploy artifact. No legacy HTML/raw unverified numeric datasets are included. `_config.yml` also excludes historical trees if legacy main/root publishing is used as fallback.
-- `.github/workflows/pages.yml` — tests/build checks on branch/PR and one artifact deployment on main. The direct sandbox settings call was denied HTTP 403; the deploy job uses the scoped pages:write workflow token, integrating PR #19’s publishing approach.
+- `_site/` — ignored, isolated deploy artifact. Historical HTML/raw unverified numeric datasets are excluded by `_config.yml` in the retained main/root Jekyll deployment. CI/preview validates this isolated artifact.
+- `.github/workflows/pages.yml` — tests/build checks on branch/PR. Existing legacy main/root Pages publishing is retained with Jekyll exclusions. Both sandbox and scoped workflow-token attempts to change publishing mode failed; those custom deploy attempts are disabled, not falsely reported successful.
 - `archive/pre-audit-2026-11-04/` — superseded scripts, analysis and research, **not authoritative**. Other legacy `data/` files remain for provenance only. Do not feed them to the current pipeline.
 - `COORDINATION.md` — task scope, verification limits and deployment record.
 

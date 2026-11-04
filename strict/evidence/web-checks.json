@@ -1,0 +1,25 @@
+{
+  "checked_at": "2026-11-04",
+  "checks": [
+    {
+      "url": "https://www.nfl.com/standings/",
+      "result": "32 rows observed, selected 7 numeric fields compared (224 cells); all match existing JSON."
+    },
+    {
+      "url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "result": "15 matchups and dates observed. CIN at ATL labeled Madrid. Kickoff timezone and venues excluded."
+    },
+    {
+      "url": "https://www.nfl.com/injuries/league/2026/reg9",
+      "result": "Week 9 report now accessible. Earlier not-published assertion superseded. Selected 8 DNP entries retained; blank diagnoses/statuses not inferred."
+    },
+    {
+      "url": "https://www.nfl.com/news/eagles-qb-jalen-hurts-out-2026-season-blood-clots",
+      "result": "Article observed: likely out / expected to miss remainder of season. Not a final certainty, and no numerical model adjustment established."
+    },
+    {
+      "url": "https://operations.nfl.com/programs-initiatives/innovation/big-data-bowl",
+      "result": "Official NFL analytics competition description observed; not evidence of profitable betting."
+    }
+  ]
+}
