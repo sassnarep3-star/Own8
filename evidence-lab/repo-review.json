@@ -1,0 +1,841 @@
+{
+  "scope": "Read-only tracked-file inventory and narrow line-oriented risk-pattern scan. Not semantic line-by-line official verification of all existing datasets or prose. Existing owners handle their scopes.",
+  "network_limit": "Only official publisher GitHub evidence was fetched. Direct NFL URLs, current odds, news and injuries were not externally checked in this session.",
+  "inventory": [
+    {
+      "path": ".nojekyll",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "line_count": 0,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "COORDINATION.md",
+      "bytes": 11927,
+      "sha256": "62efce0f42e890fe474c7d732ee678537c5efe180bd575f3cf86fb34e2434852",
+      "line_count": 81,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4514,
+      "sha256": "ca2a096e64701584d6875e83b37b0aa4bbc8c76bbcf721b6812afb4945e973e1",
+      "line_count": 50,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "analysis/correlations.json",
+      "bytes": 2339,
+      "sha256": "2bef284e1b06b20f962f1c0ee8aa1718de4921ba8c01ae3b9d8e987fbd37bd5c",
+      "line_count": 69,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "analysis/leaderboard.json",
+      "bytes": 3031,
+      "sha256": "61ac01586bd5b1134b2a23dde09afaea71052cb48835c4c3ae455361ac5017eb",
+      "line_count": 84,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "analysis/link-check.json",
+      "bytes": 460,
+      "sha256": "55b14e0ca5c395cecf6282d561e9cb29adc21d2a59c1a6d7132f5902a9461293",
+      "line_count": 22,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "analysis/model-lines-week9.json",
+      "bytes": 45254,
+      "sha256": "52a2d067efcfc44cf4a5a6a3490781c21e00ce6e873eea5f1af20a11a2e04f98",
+      "line_count": 1149,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "analysis/prop-signals-week9.json",
+      "bytes": 18161,
+      "sha256": "6fdb52e5b833a9be1d1e8ce32699e010f60833ef5f71843901873c97c89d3cc4",
+      "line_count": 457,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "analysis/strategies.json",
+      "bytes": 4833,
+      "sha256": "8ef6a03342dd589cbb200b89424373c4f3cf21c7fcb3304b2b91fc2deae684c8",
+      "line_count": 121,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "analysis/verification.json",
+      "bytes": 1181,
+      "sha256": "5a0639fbaaa27d10c69d9bb00f82934e194d0c30d50161fa24eb6101c2dc1c1f",
+      "line_count": 22,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "archive/session-9cf451e4-own8/assets/css/style.css",
+      "bytes": 6513,
+      "sha256": "8da36c0948affcdb5781e87cc96584ec2374e6da49a7ac096dacede11d13058b",
+      "line_count": 98,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "archive/session-9cf451e4-own8/data/correlations.md",
+      "bytes": 2793,
+      "sha256": "0500d6e17823756907cd7153169ae4b81486b91fdc147f8ad444ebf6a15d033e",
+      "line_count": 40,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "archive/session-9cf451e4-own8/data/nfl-2026-passing.csv",
+      "bytes": 7322,
+      "sha256": "164f3b9afbc61a0c8bd7b6e1fb23045d2c861ad867d0148ae2ee566dfc2c7724",
+      "line_count": 33,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "archive/session-9cf451e4-own8/data/nfl-2026-receiving.csv",
+      "bytes": 10751,
+      "sha256": "e7f7ec514bee598d8ee2c4b0b01f05f6d62c20ba893f4f047ded9a7a02b1af3c",
+      "line_count": 48,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "archive/session-9cf451e4-own8/data/nfl-2026-rushing.csv",
+      "bytes": 7798,
+      "sha256": "89bc5dfecfff46452afd7318e963932d6b3295f97e787af9e11390dd0b719ca5",
+      "line_count": 35,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "archive/session-9cf451e4-own8/data/nfl-2026-standings.csv",
+      "bytes": 4244,
+      "sha256": "a621db48c431dae20d364c85caa8117dcbcafa4ec53077139d3629a889099a43",
+      "line_count": 33,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "archive/session-9cf451e4-own8/data/sources.md",
+      "bytes": 2866,
+      "sha256": "45f5a36bb974eff7aec7c6525bb3cae3586e38119d22d13fa236ed81fa03481e",
+      "line_count": 23,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "archive/session-9cf451e4-own8/data/strategies.md",
+      "bytes": 9634,
+      "sha256": "2bb094dab91a6cd8ee27bf59dafdd17f3c7bd0072058ca164d7d773ddb8edec4",
+      "line_count": 148,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "archive/session-9cf451e4-own8/docs/executive-summary.md",
+      "bytes": 6131,
+      "sha256": "66739953b177ea1d9ec3517f3589d7c4796cd2913ed06cc5d8cb8895cef086f1",
+      "line_count": 107,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "archive/session-9cf451e4-own8/index.html",
+      "bytes": 6638,
+      "sha256": "a2e2438cfb44b76184ad2b9b1b947b5f48f0f86d90eea32f7a356d6c9fb313dc",
+      "line_count": 113,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "archive/session-9cf451e4-own8/pages/correlations.html",
+      "bytes": 7430,
+      "sha256": "334e1e9161b3f7d1f540e6dc20858c88645df018b5e0a308fa65632d35aa4de1",
+      "line_count": 88,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "archive/session-9cf451e4-own8/pages/executive-summary.html",
+      "bytes": 10946,
+      "sha256": "58fe42c550414df3f154d7a62d43bf1464a00befab7b64f46c7d1c10ffb34096",
+      "line_count": 124,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "archive/session-9cf451e4-own8/pages/flagged-for-review.html",
+      "bytes": 7546,
+      "sha256": "5c1833f6634aafb03d519f1337f78fd0ee8e4abad6301de303d20d4cb0659917",
+      "line_count": 79,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "archive/session-9cf451e4-own8/pages/parlays.html",
+      "bytes": 5527,
+      "sha256": "0bbaa191bd8ca37cbb3f81b40dfdd2588f77a0225d755c656e90cdd867349147",
+      "line_count": 88,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "archive/session-9cf451e4-own8/pages/player-props.html",
+      "bytes": 6090,
+      "sha256": "9fd00b42bb7700b7dd5ad6649313dddbdfd66ec81c1a95bb0fcbfef822fc124b",
+      "line_count": 88,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "archive/session-9cf451e4-own8/pages/single-bets.html",
+      "bytes": 5939,
+      "sha256": "d4e4ecd66feeb9689552d484437d0b9d6763fe475000b036ea049d749f0e6b75",
+      "line_count": 95,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "archive/session-9cf451e4-own8/pages/sources.html",
+      "bytes": 7365,
+      "sha256": "2e9752dc6c932bd3e42f5dbf056d2dc9ae85f4b0f050406ea844b4eafae28bbe",
+      "line_count": 82,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "archive/session-9cf451e4-own8/pages/standings-data.html",
+      "bytes": 18524,
+      "sha256": "a65ad1b2d25bc7b28a376c09c4e3e972a52cd39f2944f15642cfea9d8c72aa77",
+      "line_count": 92,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "archive/session-9cf451e4-own8/pages/validation-gates.html",
+      "bytes": 7706,
+      "sha256": "9051fe66a3df3a5303a82324bc6c4028e354d4d16fae4e62d1f81df00a3941ba",
+      "line_count": 105,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "assets/style.css",
+      "bytes": 3661,
+      "sha256": "b7c5024efaaf4019cb7cb27f19ca94361c62ed657619bb1fec3c8d4fd915794b",
+      "line_count": 46,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "audit/check.py",
+      "bytes": 11785,
+      "sha256": "524dfe6270793f6e65c36964ba2195a11380a044e43d96cc0d52affa6849e0d4",
+      "line_count": 94,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "audit/index.html",
+      "bytes": 10825,
+      "sha256": "2d083179a1d427f61b7f67e966fe7913df577f478881f2e4f321df4dd75a41f2",
+      "line_count": 9,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "audit/results.json",
+      "bytes": 10303,
+      "sha256": "8e2551aef9687ec0231e57b702a660d3d191a8d45ead2689e172f78a8cb3621e",
+      "line_count": 239,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "compute_correlations.py",
+      "bytes": 7838,
+      "sha256": "84c68c119c5bdde2d179d414ee1b9d529062241a236fecafd8ad889cf928b36f",
+      "line_count": 164,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "data/correlations.md",
+      "bytes": 2793,
+      "sha256": "0500d6e17823756907cd7153169ae4b81486b91fdc147f8ad444ebf6a15d033e",
+      "line_count": 40,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "data/flagged.json",
+      "bytes": 7642,
+      "sha256": "c9e63fb0ad8d7a5a1974617512b756090b0ebfd611b2d67837149d93fe0ece62",
+      "line_count": 86,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "data/injuries-2026-week8.json",
+      "bytes": 6214,
+      "sha256": "4d22aed17fdf3270666d1a1a97aa8e91637cd4d089a850b376e3a227e5e28bef",
+      "line_count": 32,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "data/market-lines.json",
+      "bytes": 1382,
+      "sha256": "6a9960cfc793cafa346aa40b3e3e894637e0288628ac2a217b39aeecf17b722f",
+      "line_count": 15,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "data/news-items.json",
+      "bytes": 1436,
+      "sha256": "3ff6bdc32a6ba2dab5922284475eac2c01191e32732e8d1385a382b2944616e8",
+      "line_count": 24,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "data/nextgen-passing-2026-week8.json",
+      "bytes": 7154,
+      "sha256": "ba22e16405ece831cddba74355092076d7be6af47a554d90dc6e94aa7482acd0",
+      "line_count": 38,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "data/nfl-2026-passing.csv",
+      "bytes": 7322,
+      "sha256": "164f3b9afbc61a0c8bd7b6e1fb23045d2c861ad867d0148ae2ee566dfc2c7724",
+      "line_count": 33,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "data/nfl-2026-receiving.csv",
+      "bytes": 10751,
+      "sha256": "e7f7ec514bee598d8ee2c4b0b01f05f6d62c20ba893f4f047ded9a7a02b1af3c",
+      "line_count": 48,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "data/nfl-2026-rushing.csv",
+      "bytes": 7798,
+      "sha256": "89bc5dfecfff46452afd7318e963932d6b3295f97e787af9e11390dd0b719ca5",
+      "line_count": 35,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "data/nfl-2026-standings.csv",
+      "bytes": 4244,
+      "sha256": "a621db48c431dae20d364c85caa8117dcbcafa4ec53077139d3629a889099a43",
+      "line_count": 33,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "data/player-interceptions-2026.json",
+      "bytes": 4370,
+      "sha256": "50c4c654a6b3f48cfe58face7e7e6da374b78a3cad3f76eddd89014731072ab8",
+      "line_count": 36,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "data/player-passing-2026.json",
+      "bytes": 7840,
+      "sha256": "bcb4242cf847554b9c63d7ba693f2e8a432dd71be9715375144b779f087c5e7c",
+      "line_count": 36,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "data/player-receiving-2026.json",
+      "bytes": 6807,
+      "sha256": "afd102616434ba2020187e4ec250a5cc76b76c30d147ce25282fee1d5e4eaf66",
+      "line_count": 36,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "data/player-rushing-2026.json",
+      "bytes": 6051,
+      "sha256": "d5d96c5e6899bfa04605a9a1e706cdd8e4582775ae640bac65a0db31eb0d073f",
+      "line_count": 36,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "data/schedule-2026-week9.json",
+      "bytes": 4306,
+      "sha256": "1867ae4c63c3227c27bdf8871264b7f643760d673d6fcce1d2f0bfe241fb2ef3",
+      "line_count": 29,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "data/scores-2026-week8.json",
+      "bytes": 3566,
+      "sha256": "6e4a9c0a31010f569e8244c43d5190aa234eed6f5e78687d69323cb7abe9b48f",
+      "line_count": 29,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "data/sources.json",
+      "bytes": 7156,
+      "sha256": "8dde076443721a6e870432751f3ad7a31a9f9ae99c2a679460a9298e141e4e98",
+      "line_count": 147,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "data/sources.md",
+      "bytes": 2866,
+      "sha256": "45f5a36bb974eff7aec7c6525bb3cae3586e38119d22d13fa236ed81fa03481e",
+      "line_count": 23,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "data/standings-2026-reg-w8.json",
+      "bytes": 12851,
+      "sha256": "88ed305af0685ecc79a9ad01c1336cb878d1ba3eb05941da5ba97d745577ab63",
+      "line_count": 650,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "data/strategies.md",
+      "bytes": 9634,
+      "sha256": "2bb094dab91a6cd8ee27bf59dafdd17f3c7bd0072058ca164d7d773ddb8edec4",
+      "line_count": 148,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "data/team-passing-defense-2026.json",
+      "bytes": 6690,
+      "sha256": "d319af7f788b80412196ec1903b27bc6727a7f1c74d919a2deb59f8b0ba35cc5",
+      "line_count": 43,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "data/team-passing-offense-2026.json",
+      "bytes": 7046,
+      "sha256": "ba83941b7bf10258b227db488a26e237c9b524a289b9d0d877a370ce41026283",
+      "line_count": 43,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "data/team-rushing-defense-2026.json",
+      "bytes": 4959,
+      "sha256": "c7e8bd8c96507bd4c86b6e89f1e0af62b8da55565c0f75c5f7874ce84e08c408",
+      "line_count": 43,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "data/team-rushing-offense-2026.json",
+      "bytes": 4923,
+      "sha256": "58acc679577888df8fece0fd84f7848ed713c6fc5f630d1eecbb70ded98039f7",
+      "line_count": 43,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "docs/.nojekyll",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "line_count": 0,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "docs/assets/style.css",
+      "bytes": 3661,
+      "sha256": "b7c5024efaaf4019cb7cb27f19ca94361c62ed657619bb1fec3c8d4fd915794b",
+      "line_count": 46,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "docs/correlations.html",
+      "bytes": 7396,
+      "sha256": "dc968678cd03ce92971dd3d2863c2d1c492a34e38f95b5eee699dc29bcdebc9d",
+      "line_count": 32,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "docs/executive-summary.html",
+      "bytes": 10880,
+      "sha256": "f06481b6e12e9942ff34017e520e014b3d75363bbf280448df229830b6073c34",
+      "line_count": 68,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "docs/flagged.html",
+      "bytes": 9240,
+      "sha256": "080335bf89c43c83a1c0a6d8430a9eda7b01386e877e6e2c8a9d0e4768b2ff38",
+      "line_count": 27,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "docs/index.html",
+      "bytes": 5784,
+      "sha256": "0b71a185dbecb7ee7d631dc461a16a436298e1cb3d43ca674ad6425b9e707a5a",
+      "line_count": 55,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "docs/injuries.html",
+      "bytes": 13022,
+      "sha256": "2faa82a0194a1f257c8e51a9f3f5b0d52109b11746b5f61f04be54a90d413a6b",
+      "line_count": 29,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "docs/leaderboard.html",
+      "bytes": 7240,
+      "sha256": "9032e343a9752ea452b22ae34932f8116105650a950113c2b7a619c24190a23e",
+      "line_count": 50,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "docs/methodology.html",
+      "bytes": 5910,
+      "sha256": "d310b872891d96ca035c8a2732ff2d5f9acc873e17371e045e6e89a76da435e4",
+      "line_count": 51,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "docs/model-lines.html",
+      "bytes": 39772,
+      "sha256": "d033221bbaaf4bf1e1066611fc551134df8a5e620b97ed69e87d646e4845c9df",
+      "line_count": 29,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "docs/player-stats.html",
+      "bytes": 55178,
+      "sha256": "6a3ed9264164706948554f28cbc18017d1d0854d9d44f80743ac70b6d4dfd60e",
+      "line_count": 31,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "docs/prop-signals.html",
+      "bytes": 14528,
+      "sha256": "f6cad5683a3ec1fe0491b9fdd4b7ac301ff51b045eecaa24cba13c6ebbc013ed",
+      "line_count": 27,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "docs/responsible-gambling.html",
+      "bytes": 3566,
+      "sha256": "82ff1724d2c4c344bd17dc3d1984ca80318c8be61cde4ba1915527629bf88c5d",
+      "line_count": 34,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "docs/schedule.html",
+      "bytes": 8397,
+      "sha256": "f5a7c692ae4ee8b44939a1803b23d6afebcf29615c1bdb776243c0c871cbe29a",
+      "line_count": 26,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "docs/scores.html",
+      "bytes": 6945,
+      "sha256": "09c3f558e0bb916071e4318144b0467bc0ca5d8f087741068e15eb0b6a6f9adb",
+      "line_count": 26,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "docs/sources.html",
+      "bytes": 11204,
+      "sha256": "34627a45a0c0dac389978e3e0fe16392b485ba22ef659a9f0e66188c3f6f27b5",
+      "line_count": 26,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "docs/standings.html",
+      "bytes": 15034,
+      "sha256": "38184edd67f000cc18649d8156cb04807d3c241e8b9a55993f8b8925ce69deb8",
+      "line_count": 26,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "docs/strategies.html",
+      "bytes": 7601,
+      "sha256": "381b866c2e5697d6a8cbc6a8fcc52f8afa305d7bbeeaa6d90708e42fe8a519bf",
+      "line_count": 34,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "docs/team-stats.html",
+      "bytes": 52881,
+      "sha256": "5805dd8a80ed9758df64089c8adf33ac2c29f055df3123afa2348d8ddb7786c3",
+      "line_count": 29,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "docs/validation-gates.html",
+      "bytes": 4713,
+      "sha256": "f139c456e650decd990b91158aa7e7b756a9ed75d7478fcc360883d84c49f0e4",
+      "line_count": 27,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "index.html",
+      "bytes": 6048,
+      "sha256": "fcc113b0dac163f80d09b2839a41db94680ff152443cae92d4ddf38bab0114dc",
+      "line_count": 55,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "pages/correlations.html",
+      "bytes": 7495,
+      "sha256": "f177b44831efb06a54f2457d5883d713a779b8ecc0355cc630739e6b00d3d628",
+      "line_count": 32,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "pages/executive-summary.html",
+      "bytes": 10979,
+      "sha256": "a55c437ffa6f73e020ebdd5a59c61e43222833efb1e289c147c117f0e6ee7821",
+      "line_count": 68,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "pages/flagged.html",
+      "bytes": 11653,
+      "sha256": "868deb9ea9961b4680a2a893e5216fb7d366a69cb31c4739ff591d171560b932",
+      "line_count": 27,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "pages/injuries.html",
+      "bytes": 13121,
+      "sha256": "cdb1adb8da93d46ba9a52c5dfb9e4a9952f13490f1b9703e40228b22cb872ba1",
+      "line_count": 29,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "pages/leaderboard.html",
+      "bytes": 7339,
+      "sha256": "caed67355c48ea085782baec3f141d3dca81b00e053346c034be4aa96335b30b",
+      "line_count": 50,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "pages/methodology.html",
+      "bytes": 6009,
+      "sha256": "613544b09ff7a105e74b8bea18888d93561f8d3aae1eeb8df47a0fdafe22be4f",
+      "line_count": 51,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "pages/model-lines.html",
+      "bytes": 39871,
+      "sha256": "a8a200f10c4b1275fe6ca49f7517d236dc525e2d0fe6c2668a6751e663c2f57f",
+      "line_count": 29,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "pages/player-stats.html",
+      "bytes": 55277,
+      "sha256": "40f1cdd6b6ac87ebcfd4d93a15148eed025fb0203120b7480dee0f5a0885b7a4",
+      "line_count": 31,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "pages/prop-signals.html",
+      "bytes": 14627,
+      "sha256": "415c7026abb3bf86744a255b30ca8b268af4ae9f99b59e408a68eabe6afe8f0e",
+      "line_count": 27,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "pages/responsible-gambling.html",
+      "bytes": 3665,
+      "sha256": "a2a7b2887f3f5e2e9cb3bb332ed3b01b806b59f0793883b42089cd827be370a9",
+      "line_count": 34,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "pages/schedule.html",
+      "bytes": 8496,
+      "sha256": "761f286d222af9bf630b5b108cc3bffcfd984b7e189b7b7a78d2a1a74e36856d",
+      "line_count": 26,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "pages/scores.html",
+      "bytes": 7044,
+      "sha256": "b679bf997901878d16888820c1206d1a038c60b3578b381e1fbcb0f2db4b804d",
+      "line_count": 26,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "pages/sources.html",
+      "bytes": 11303,
+      "sha256": "db9129a9a729697cfd9a2fa04d32c53c3b096ccd71b3f3bb7b9deba31389bb69",
+      "line_count": 26,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "pages/standings.html",
+      "bytes": 17039,
+      "sha256": "afc8389af18999d6ac71c588f9afc0dd4a0ee0a35520e6b0a289125c5b04b6f4",
+      "line_count": 26,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "pages/strategies.html",
+      "bytes": 7700,
+      "sha256": "74827b21def9d36fe10485ee715db5ae0c809825f0a13e04df29bc25c97b8be3",
+      "line_count": 34,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "pages/team-stats.html",
+      "bytes": 52980,
+      "sha256": "e5e09ab3273e0066cce72501f06faba8e4467655429a563d3968c7cbd64ed884",
+      "line_count": 29,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "pages/validation-gates.html",
+      "bytes": 4812,
+      "sha256": "430cc36648d23303aa31425606a3ff1100f1a65112dc418addfd17cb5a6a9f62",
+      "line_count": 27,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "research/correlation-policy.md",
+      "bytes": 1913,
+      "sha256": "69b47973624fafd224f0cf6c16b5349c341943253bb09cc88b9af09b96588f28",
+      "line_count": 23,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "research/executive-summary.md",
+      "bytes": 7743,
+      "sha256": "124a200679e5ac790d85280c388e0c28ac0687a11b60fad64bfbbc42e1ae6bd9",
+      "line_count": 73,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "research/leaderboard-rules.md",
+      "bytes": 1604,
+      "sha256": "3c9cad14f8da7bff9cec781882eb52bcd9d5983a30c70ffc4463c8f2d6292a5c",
+      "line_count": 26,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "research/methodology.md",
+      "bytes": 3404,
+      "sha256": "72a3c4b1be594a8a411f88b5ff17c45ca831ca3228b5705b9d39e27b64b17691",
+      "line_count": 37,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "research/responsible-gambling.md",
+      "bytes": 1287,
+      "sha256": "e1e5cd4b7d89d60d4b6ff502cf42d0ceb099599bda0df7cce9d080a1ce2dcd23",
+      "line_count": 9,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "research/strategies.md",
+      "bytes": 2343,
+      "sha256": "38bc83c00314f547c46630d9fabba8e6a5eb378cce3fd101d7b32ff4138c9c2b",
+      "line_count": 27,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "research/validation-gates.md",
+      "bytes": 2183,
+      "sha256": "228cf0a61e936ca3bd0bf01ae49d8d206039a257d30d590f5bb44f07d0add10c",
+      "line_count": 13,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "scripts/analyze.py",
+      "bytes": 20519,
+      "sha256": "ba469cd4d5e904ce261e9876336a245a8998530debab23f065a050359ab71d1e",
+      "line_count": 298,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "scripts/build_site.py",
+      "bytes": 32078,
+      "sha256": "e9a14a8f103f4c42589e6e7f3f300bf17530cc4fdfc8bf3949f798d5e5708885",
+      "line_count": 454,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "scripts/check_links.py",
+      "bytes": 2962,
+      "sha256": "7ef3e9559fe8fb0fff9890e044449b9b829adb321dbf4785472a74fbf8901630",
+      "line_count": 66,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "scripts/verify_combined.py",
+      "bytes": 4669,
+      "sha256": "951d1e6eb2b2c26b44c5c3e556352e6149bb1392865e7713f031a41cba55d0e1",
+      "line_count": 87,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    }
+  ],
+  "findings": [
+    {
+      "path": "scripts/analyze.py",
+      "line": 159,
+      "line_text": "edge = model_spread_home - mkt   # + means market underprices home side",
+      "file_sha256": "ba469cd4d5e904ce261e9876336a245a8998530debab23f065a050359ab71d1e",
+      "file_revision": "d6682654297f149705ba0dce9f2be9f3457ec475",
+      "severity": "CRITICAL",
+      "finding": "Potential reversed sign: model variable is home margin, market input is signed handicap; correct cover margin adds the handicap.",
+      "status": "NEEDS REVIEW / revision-bound local code or copy finding, not external factual verification",
+      "code_url": "https://github.com/sassnarep3-star/Own8/blob/d6682654297f149705ba0dce9f2be9f3457ec475/scripts/analyze.py#L159",
+      "official_data_context": "https://github.com/nfl-football-ops/Big-Data-Bowl/blob/9ad0b4b2ea36697e29e44e2399512cc1ce70358c/schema.md"
+    },
+    {
+      "path": "scripts/analyze.py",
+      "line": 173,
+      "line_text": "all_pass = all(v[\"status\"] in (\"PASS\", \"CONDITIONAL\") for v in gates.values())",
+      "file_sha256": "ba469cd4d5e904ce261e9876336a245a8998530debab23f065a050359ab71d1e",
+      "file_revision": "d6682654297f149705ba0dce9f2be9f3457ec475",
+      "severity": "CRITICAL",
+      "finding": "Conditional status admitted as pass; strict gate policy must reject it.",
+      "status": "NEEDS REVIEW / revision-bound local code or copy finding, not external factual verification",
+      "code_url": "https://github.com/sassnarep3-star/Own8/blob/d6682654297f149705ba0dce9f2be9f3457ec475/scripts/analyze.py#L173",
+      "official_data_context": "https://github.com/nfl-football-ops/Big-Data-Bowl/blob/9ad0b4b2ea36697e29e44e2399512cc1ce70358c/schema.md"
+    },
+    {
+      "path": "scripts/analyze.py",
+      "line": 285,
+      "line_text": "\"realized_pts\": 0.0, \"status\": s[\"status\"]}",
+      "file_sha256": "ba469cd4d5e904ce261e9876336a245a8998530debab23f065a050359ab71d1e",
+      "file_revision": "d6682654297f149705ba0dce9f2be9f3457ec475",
+      "severity": "HIGH",
+      "finding": "Hard-coded zero is not settled performance; ungraded results must remain blank.",
+      "status": "NEEDS REVIEW / revision-bound local code or copy finding, not external factual verification",
+      "code_url": "https://github.com/sassnarep3-star/Own8/blob/d6682654297f149705ba0dce9f2be9f3457ec475/scripts/analyze.py#L285",
+      "official_data_context": "https://github.com/nfl-football-ops/Big-Data-Bowl/blob/9ad0b4b2ea36697e29e44e2399512cc1ce70358c/schema.md"
+    },
+    {
+      "path": "README.md",
+      "line": 3,
+      "line_text": "Originate your own NFL lines from **official verified sources only**, run every strategy through explicit **validation gates**, enforce computed **correlation limits**, and compete on a **skill leaderboard** across single bets, parlays, and player-prop combos. Built to remove luck and keep selectively skill-based signals. No manual input: the pipeline is fully scripted.",
+      "file_sha256": "ca2a096e64701584d6875e83b37b0aa4bbc8c76bbcf721b6812afb4945e973e1",
+      "file_revision": "b40dc112f8eb88e46b07167f40ddf5fbda8b2016",
+      "severity": "HIGH",
+      "finding": "Luck cannot be eliminated; skill requires uncertainty-aware prospective validation.",
+      "status": "NEEDS REVIEW / revision-bound local code or copy finding, not external factual verification",
+      "code_url": "https://github.com/sassnarep3-star/Own8/blob/b40dc112f8eb88e46b07167f40ddf5fbda8b2016/README.md#L3",
+      "official_data_context": "https://github.com/nfl-football-ops/Big-Data-Bowl/blob/9ad0b4b2ea36697e29e44e2399512cc1ce70358c/schema.md"
+    },
+    {
+      "path": "README.md",
+      "line": 38,
+      "line_text": "- Week 9 model-line candidates after all gates: **CIN at ATL** and **NYG at PHI**; JAX\u2013BAL, NYJ\u2013KC, LV\u2013SF rejected by the 8-point edge sanity cap (anti-luck filter).",
+      "file_sha256": "ca2a096e64701584d6875e83b37b0aa4bbc8c76bbcf721b6812afb4945e973e1",
+      "file_revision": "b40dc112f8eb88e46b07167f40ddf5fbda8b2016",
+      "severity": "HIGH",
+      "finding": "Candidate claim must be reconciled with official-price evidence and literal PASS gates.",
+      "status": "NEEDS REVIEW / revision-bound local code or copy finding, not external factual verification",
+      "code_url": "https://github.com/sassnarep3-star/Own8/blob/b40dc112f8eb88e46b07167f40ddf5fbda8b2016/README.md#L38",
+      "official_data_context": "https://github.com/nfl-football-ops/Big-Data-Bowl/blob/9ad0b4b2ea36697e29e44e2399512cc1ce70358c/schema.md"
+    },
+    {
+      "path": "research/executive-summary.md",
+      "line": 57,
+      "line_text": "Strategies earn points when official scores post (ROI at \u2212110 vig, stake-capped), graded automatically by re-running the pipeline \u2014 no manual input. Tiers: **Gold \u2265 +5.0 pts, Silver \u2265 0, Bronze < 0**, tie-break by Sharpe-like ratio. Rewards are **points/trophies only** \u2014 this project places no real-money wagers (F-10). Current standings (all 0.0 realized points; Week 9 projections on the Leaderboard page).",
+      "file_sha256": "124a200679e5ac790d85280c388e0c28ac0687a11b60fad64bfbbc42e1ae6bd9",
+      "file_revision": "b94389df3d80acb4adbb4bd1f9e49c005aba9158",
+      "severity": "HIGH",
+      "finding": "Claim of automatic settlement needs a real outcome and rules-aware settlement implementation; the legacy script has placeholder realized points.",
+      "status": "NEEDS REVIEW / revision-bound local code or copy finding, not external factual verification",
+      "code_url": "https://github.com/sassnarep3-star/Own8/blob/b94389df3d80acb4adbb4bd1f9e49c005aba9158/research/executive-summary.md#L57",
+      "official_data_context": "https://github.com/nfl-football-ops/Big-Data-Bowl/blob/9ad0b4b2ea36697e29e44e2399512cc1ce70358c/schema.md"
+    },
+    {
+      "path": "research/methodology.md",
+      "line": 9,
+      "line_text": "- Jurisdiction (user in the Netherlands): Kansspelautoriteit https://kansspelautoriteit.nl/ (licence check: https://kansspelautoriteit.nl/kansspelwijzer; CRUKS self-exclusion: https://kansspelautoriteit.nl/uitsluitregister-cruks)",
+      "file_sha256": "72a3c4b1be594a8a411f88b5ff17c45ca831ca3228b5705b9d39e27b64b17691",
+      "file_revision": "b94389df3d80acb4adbb4bd1f9e49c005aba9158",
+      "severity": "MEDIUM",
+      "finding": "Jurisdiction was asserted without evidence reviewed by this session; do not personalize legal guidance from this assumption.",
+      "status": "NEEDS REVIEW / revision-bound local code or copy finding, not external factual verification",
+      "code_url": "https://github.com/sassnarep3-star/Own8/blob/b94389df3d80acb4adbb4bd1f9e49c005aba9158/research/methodology.md#L9",
+      "official_data_context": "https://github.com/nfl-football-ops/Big-Data-Bowl/blob/9ad0b4b2ea36697e29e44e2399512cc1ce70358c/schema.md"
+    }
+  ]
+}
