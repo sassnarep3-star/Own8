@@ -1,0 +1,152 @@
+{
+ "games": 121,
+ "verified_games": 121,
+ "checks_total": 511,
+ "checks_failed": [],
+ "standings_cells": "512/512",
+ "irregularities": [
+  {
+   "id": "O1-IR-date-label",
+   "game": "W1 NE@SEA",
+   "detail": "nfl.com heading 'Sunday Night Football, September 9th' names Sunday, but 2026-09-09 is a Wednesday. Recorded verbatim; date = heading month/day + season year 2026.",
+   "source": "https://www.nfl.com/scores/2026/week-1"
+  }
+ ],
+ "league_checks": [
+  {
+   "check": "W1: every one of 32 teams appears exactly once (games + byes)",
+   "pass": true,
+   "detail": "16 games, 0 byes"
+  },
+  {
+   "check": "W2: every one of 32 teams appears exactly once (games + byes)",
+   "pass": true,
+   "detail": "16 games, 0 byes"
+  },
+  {
+   "check": "W3: every one of 32 teams appears exactly once (games + byes)",
+   "pass": true,
+   "detail": "16 games, 0 byes"
+  },
+  {
+   "check": "W4: every one of 32 teams appears exactly once (games + byes)",
+   "pass": true,
+   "detail": "16 games, 0 byes"
+  },
+  {
+   "check": "W5: every one of 32 teams appears exactly once (games + byes)",
+   "pass": true,
+   "detail": "15 games, 2 byes"
+  },
+  {
+   "check": "W6: every one of 32 teams appears exactly once (games + byes)",
+   "pass": true,
+   "detail": "14 games, 4 byes"
+  },
+  {
+   "check": "W7: every one of 32 teams appears exactly once (games + byes)",
+   "pass": true,
+   "detail": "14 games, 4 byes"
+  },
+  {
+   "check": "W8: every one of 32 teams appears exactly once (games + byes)",
+   "pass": true,
+   "detail": "14 games, 4 byes"
+  },
+  {
+   "check": "standings: 32 distinct teams transcribed",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "division groups: 8 groups x 4 = 32 teams",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "bye box record W5 CAR equals standings W-L-T",
+   "pass": true,
+   "detail": "bye box 3-4-0"
+  },
+  {
+   "check": "bye box record W5 KC equals standings W-L-T",
+   "pass": true,
+   "detail": "bye box 5-2-0"
+  },
+  {
+   "check": "bye box record W6 CIN equals standings W-L-T",
+   "pass": true,
+   "detail": "bye box 5-2-0"
+  },
+  {
+   "check": "bye box record W6 DET equals standings W-L-T",
+   "pass": true,
+   "detail": "bye box 5-2-0"
+  },
+  {
+   "check": "bye box record W6 MIA equals standings W-L-T",
+   "pass": true,
+   "detail": "bye box 1-6-0"
+  },
+  {
+   "check": "bye box record W6 MIN equals standings W-L-T",
+   "pass": true,
+   "detail": "bye box 6-1-0"
+  },
+  {
+   "check": "bye box record W7 BUF equals standings W-L-T",
+   "pass": true,
+   "detail": "bye box 6-1-0"
+  },
+  {
+   "check": "bye box record W7 JAX equals standings W-L-T",
+   "pass": true,
+   "detail": "bye box 5-2-0"
+  },
+  {
+   "check": "bye box record W7 LAC equals standings W-L-T",
+   "pass": true,
+   "detail": "bye box 0-7-0"
+  },
+  {
+   "check": "bye box record W7 WAS equals standings W-L-T",
+   "pass": true,
+   "detail": "bye box 2-4-1"
+  },
+  {
+   "check": "bye box record W8 HOU equals standings W-L-T",
+   "pass": true,
+   "detail": "bye box 2-5-0"
+  },
+  {
+   "check": "bye box record W8 NO equals standings W-L-T",
+   "pass": true,
+   "detail": "bye box 2-5-0"
+  },
+  {
+   "check": "bye box record W8 NYG equals standings W-L-T",
+   "pass": true,
+   "detail": "bye box 4-2-1"
+  },
+  {
+   "check": "bye box record W8 SF equals standings W-L-T",
+   "pass": true,
+   "detail": "bye box 6-1-0"
+  },
+  {
+   "check": "standings reconciliation: every cell for all 32 teams matches the game log",
+   "pass": true,
+   "detail": "512/512 cells match"
+  },
+  {
+   "check": "unlabeled col14 behaves as non-conference record for all 32 teams",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "unlabeled col16 behaves as last-5 record for all 32 teams",
+   "pass": true,
+   "detail": ""
+  }
+ ]
+}
