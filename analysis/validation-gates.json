@@ -1,0 +1,39 @@
+{
+  "as_of": "2026-11-04",
+  "gates": {
+    "G1": {
+      "status": "PASS",
+      "rule": "Verified snapshot inputs, field-level sources; third-party prices excluded."
+    },
+    "G2": {
+      "status": "BLOCKED",
+      "rule": "Timestamped pre-kickoff inputs and prices, with complete as-of history. Current capture dates alone do not establish availability at each past decision."
+    },
+    "G3": {
+      "status": "BLOCKED",
+      "rule": "Chronological training / validation / untouched test; no in-sample standings used to prove predictive skill."
+    },
+    "G4": {
+      "status": "BLOCKED",
+      "rule": "Current final injuries, active roster and usage; No Injuries Reported is not clearance."
+    },
+    "G5": {
+      "status": "BLOCKED",
+      "rule": "Operator-native timestamped line, price, settlement and void rules. No assumed -110 pricing."
+    },
+    "G6": {
+      "status": "BLOCKED",
+      "rule": "Out-of-sample calibrated probabilities; aligned outcomes and joint distribution for combos. Team correlations cannot price bets."
+    },
+    "G7": {
+      "status": "BLOCKED",
+      "rule": "Positive conservative net EV after costs and pushes, robust across seasons; pre-registered family-wide uncertainty adjustment."
+    },
+    "G8": {
+      "status": "BLOCKED",
+      "rule": "Prospective immutable paper ledger, exposure caps, drawdown stress tests. No rewards before every applicable gate passes."
+    }
+  },
+  "eligible_strategies": 0,
+  "candidates": 0
+}

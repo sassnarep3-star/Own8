@@ -1,26 +1,13 @@
-# Leaderboard Competition — rules
+# Proposed paper competition
 
-**Purpose:** rank strategies by skill, not luck. Rewards are **points and tier badges only** — this project does not place, facilitate, or intermediate real-money wagers (flagged F-10).
+Eight designs are registered in `analysis/strategies.json`. No strategy is eligible, ranked, graded or rewarded. Unobserved ROI/Brier/rewards are null, not zero. No cash prizes or bets occur.
 
-## Scoring
+## Proposed skill-sensitive ranking
 
-- When a week's games are final per **official scores** (https://www.nfl.com/scores/), each candidate bet grades at standard **−110** vig.
-- Weekly points for a strategy = realized ROI% × 100 (stake-capped per G7).
-- Season points = sum of weekly points. **Tiers:** Gold ≥ +5.0, Silver ≥ 0, Bronze < 0.
-- Tie-break: higher Sharpe-like ratio = mean weekly ROI ÷ stdev of weekly ROI (rewards consistency — the anti-luck tie-break).
+Pre-register a frozen baseline, eight trials initially (count every later tested variant), chronological development, final untouched test and a prospective immutable forecast ledger. Use paired Brier-loss improvement over baseline as the primary endpoint; log loss, calibration, abstention, stability, price-sensitive expected value and realized returns are diagnostics. CLV alone is not proof of skill.
 
-## Anti-luck design
+After all gates PASS, proposed reward points = 100 × max(0, simultaneous lower confidence bound of mean paired Brier improvement). Use game/week blocks with dependence-appropriate resampling; pre-specify the family-wide adjustment and minimum precision requirement before testing. No arbitrary short-sample sample-size count is a universal proof of skill. No estimator, bootstrap result or confidence bound has been computed from missing forecast history.
 
-- Bets only exist if they passed all validation gates (G1–G7) at origination.
-- Edge sanity cap (|edge| ≤ 8) removes blowout-driven outliers.
-- Stake caps (≤2% singles, ≤1% parlays) prevent variance domination.
-- Same-game correlated parlays blocked by default (correlation policy).
-- Standings anchor on net-points regression (r = +0.84 vs win%), not raw W-L.
+Lottery-like ROI streaks, sum of weekly ROI percentages, invented −110 prices and arbitrary Gold/Silver thresholds are not accepted ranking evidence. No finite sample can remove luck or guarantee future profit.
 
-## Automation
-
-No manual input: after each week, re-capture official data, re-run `python3 scripts/analyze.py`, grade from official scores, update `analysis/leaderboard.json`, rebuild the site with `python3 scripts/build_site.py`, and verify links with `python3 scripts/check_links.py`.
-
-## Current standings (2026-11-03, pre-Week-9)
-
-All strategies at **0.0 realized points** (no games graded yet). Week 9 projections are shown on the Leaderboard page. First grading after the Week 9 slate completes (from Monday 2026-11-09 onward).
+Official statistical context: https://www.itl.nist.gov/div898/handbook/prc/section1/prc14.htm and https://www.itl.nist.gov/div898/handbook/prc/section4/prc473.htm . Competition rules are project proposals, not endorsed by these sources.
