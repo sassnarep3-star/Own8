@@ -1,0 +1,121 @@
+{
+  "as_of": "2026-11-03",
+  "strategies": [
+    {
+      "id": "S1",
+      "name": "Form Spread (single game)",
+      "type": "single bet \u2014 spread",
+      "description": "Originate spread from offensive/defensive PPG matchup model; take the side only when |model - market| edge is within [1.0, 8.0] pts and all gates pass. Market input is unverified third-party (F-05) until checked at a licensed book.",
+      "games_evaluated": 15,
+      "candidates": 0,
+      "gates": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7"
+      ],
+      "status": "active \u2014 Week 9 model lines published; 0 verified candidates (G6 needs a verified market line, F-05)"
+    },
+    {
+      "id": "S2",
+      "name": "Total Fishing (game totals)",
+      "type": "single bet \u2014 total",
+      "description": "Model total = sum of matchup projections. Trade only when model total differs from market total by >= 1.0 pt (totals from aggregators are unverified; most W9 totals were not captured \u2014 left blank by rule).",
+      "games_evaluated": 15,
+      "candidates": 0,
+      "gates": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G6"
+      ],
+      "status": "limited \u2014 only 1 third-party total captured (SF game, F-05); mostly NOT_COMPUTABLE this week"
+    },
+    {
+      "id": "S3",
+      "name": "QB Prop Alignment",
+      "type": "player prop \u2014 QB passing yards",
+      "description": "Project QB yards = season YPG * opponent pass-defense factor. Compare with licensed-book line (never from aggregators). Favor QBs behind pass-blocking issues (high SK) facing weak pass rush (low def SK) \u2014 e.g., CLE (33 SK taken) at NO.",
+      "signals": 20,
+      "gates": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G6(market at licensed book only)"
+      ],
+      "status": "active \u2014 projections on Prop Signals page"
+    },
+    {
+      "id": "S4",
+      "name": "RB Workload vs Run Defense",
+      "type": "player prop \u2014 RB rushing yards",
+      "description": "Team rush projection vs opponent run-defense YPG allowed; allocate to lead back share (RB team affiliation is not rendered on the official leaders page \u2014 F-02 \u2014 so use team-level signal + official depth chart on nfl.com team pages before acting).",
+      "signals": 30,
+      "gates": [
+        "G1",
+        "G2",
+        "G3",
+        "G4"
+      ],
+      "status": "active \u2014 team-level projections only (individual allocation unverified)"
+    },
+    {
+      "id": "S5",
+      "name": "WR Matchup vs Pass Defense",
+      "type": "player prop \u2014 receiving yards/receptions",
+      "description": "Team pass projection vs opponent pass defense; allocate by player share of team receiving (player YDS / team pass YDS). Injury adjustments from official nfl.com news (e.g., WAS WR McLaurin out for season -> target share redistributes).",
+      "signals": 30,
+      "gates": [
+        "G1",
+        "G2",
+        "G3",
+        "G4"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "S6",
+      "name": "De-correlated 2-leg Parlay",
+      "type": "parlay \u2014 2 legs, different games",
+      "description": "Pair two single-game candidates from DIFFERENT games (cross-game correlation ~0 by construction). Same-game parlays (SGP) are restricted: documented same-game proxy r(pass YDSpg, PFpg) = 0.67; legs like QB over + team over in the same game are mechanically correlated and are blocked when |r| >= 0.80.",
+      "legs_allowed": "different games only",
+      "correlation_threshold": 0.8,
+      "same_game_proxy_r": 0.668,
+      "gates": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7(parlay stake <= 1% bankroll)"
+      ],
+      "status": "active \u2014 build only from S1 candidate list"
+    },
+    {
+      "id": "S7",
+      "name": "Same-Game Parlay (restricted)",
+      "type": "parlay \u2014 same game",
+      "description": "Same-game combos are mechanically correlated (e.g., QB over + team over share the same drives). Default BLOCKED for correlated combos; only contrarian pairs (e.g., game total OVER + favorite spread UNDER, or game-script-negative pairs with r(pass YDSpg, rushYDSpg) = -0.32) may be submitted for review and must pass G5 with pair |r| < 0.80 from the computed correlation table.",
+      "status": "restricted \u2014 correlated same-game combos BLOCKED; contrarian pairs reviewable; proxy r(passYDSpg,PFpg) = 0.67",
+      "gates": [
+        "G5"
+      ]
+    },
+    {
+      "id": "S8",
+      "name": "Live / in-game",
+      "type": "live betting",
+      "description": "Not covered: no official live-data feed was captured this session. Left blank \u2014 flagged rather than simulated.",
+      "status": "not covered (no official live source captured)",
+      "gates": [
+        "G1"
+      ]
+    }
+  ]
+}

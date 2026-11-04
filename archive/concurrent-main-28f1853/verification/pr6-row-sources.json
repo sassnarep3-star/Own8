@@ -1,0 +1,393 @@
+{
+  "ref": "origin/arena/28cc78aa-own8",
+  "scope": "Rendered site HTML table rows, official-link PRESENCE only; not field verification.",
+  "pages": {
+    "site/correlations.html": {
+      "rows": 16,
+      "without_official_link": 16,
+      "examples": [
+        {
+          "row": 1,
+          "text": "QB pass yards \u2194 team WR1 receiving yards (same game)0.6950.680 \u2013 0.7090.70446082009\u20132017DERIVEDDERIVED \u00b7 nflscrapR player-game stats \u2197 \u00b7 method",
+          "links": [
+            "https://github.com/ryurko/nflscrapR-data/tree/master/legacy_data/game_player_stats",
+            "methodology.html"
+          ]
+        },
+        {
+          "row": 2,
+          "text": "QB pass yards \u2194 team WR2 receiving yards (same game)0.7560.742 \u2013 0.7690.75546082009\u20132017DERIVEDDERIVED \u00b7 nflscrapR player-game stats \u2197 \u00b7 method",
+          "links": [
+            "https://github.com/ryurko/nflscrapR-data/tree/master/legacy_data/game_player_stats",
+            "methodology.html"
+          ]
+        },
+        {
+          "row": 3,
+          "text": "WR1 \u2194 WR2 receiving yards (same team, same game)0.4920.465 \u2013 0.5180.53746082009\u20132017DERIVEDDERIVED \u00b7 nflscrapR player-game stats \u2197 \u00b7 method",
+          "links": [
+            "https://github.com/ryurko/nflscrapR-data/tree/master/legacy_data/game_player_stats",
+            "methodology.html"
+          ]
+        },
+        {
+          "row": 4,
+          "text": "QB pass yards \u2194 team points0.3790.354 \u2013 0.4040.37446062009\u20132017DERIVEDDERIVED \u00b7 nflscrapR player-game stats \u2197 \u00b7 method",
+          "links": [
+            "https://github.com/ryurko/nflscrapR-data/tree/master/legacy_data/game_player_stats",
+            "methodology.html"
+          ]
+        },
+        {
+          "row": 5,
+          "text": "QB pass yards \u2194 RB1 rush yards (same team)-0.178-0.204 \u2013 -0.150-0.15546082009\u20132017DERIVEDDERIVED \u00b7 nflscrapR player-game stats \u2197 \u00b7 method",
+          "links": [
+            "https://github.com/ryurko/nflscrapR-data/tree/master/legacy_data/game_player_stats",
+            "methodology.html"
+          ]
+        }
+      ]
+    },
+    "site/data-sources.html": {
+      "rows": 24,
+      "without_official_link": 16,
+      "examples": [
+        {
+          "row": 1,
+          "text": "OFFICIAL Value confirmed against an NFL-owned source (nfl.com, operations.nfl.com, media.nfl.com, static.www.nfl.com, or the NFL's own GitHub org nfl-football-ops).",
+          "links": []
+        },
+        {
+          "row": 2,
+          "text": "DERIVED Statistic computed by this project's scripts from a named primary dataset. Reproducible via scripts/own8_analyze.py. The underlying dataset's own tier applies to the inputs",
+          "links": []
+        },
+        {
+          "row": 3,
+          "text": "PRIMARY (non-NFL) Value taken from a widely-used public primary-data mirror that is not NFL-owned. Flagged on the Flagged for Review page because no NFL-official source publishes i",
+          "links": []
+        },
+        {
+          "row": 4,
+          "text": "UNVERIFIED Could not be confirmed from an official source \u2192 value left blank in tables and flagged.",
+          "links": []
+        },
+        {
+          "row": 5,
+          "text": "No official NFL source publishes betting lines or prop lines Market-line values cannot carry an OFFICIAL tier All market values labeled PRIMARY (non-NFL); flagged for review.",
+          "links": []
+        }
+      ]
+    },
+    "site/executive-summary.html": {
+      "rows": 0,
+      "without_official_link": 0,
+      "examples": []
+    },
+    "site/flagged.html": {
+      "rows": 7,
+      "without_official_link": 7,
+      "examples": [
+        {
+          "row": 1,
+          "text": "Market-line provenancePRIMARY (non-NFL)The NFL does not publish betting lines. All spread/total/moneyline values come from public primary mirrors (D1/D2), cross-checked between two",
+          "links": [
+            "https://github.com/LeeSharpe/nfldata/blob/master/data/games.csv",
+            "https://github.com/mrcaseb/nfl-data/blob/master/data/nfl_lines_odds.csv.gz"
+          ]
+        },
+        {
+          "row": 2,
+          "text": "Spread close disagreement between mirrorsDERIVEDIndependent mirrors agree within 0.5 pt on 93.4% of spreads (MAD 0.182). Disagreements concentrate in 2006\u20132013 consensus snapshots;",
+          "links": [
+            "https://github.com/mrcaseb/nfl-data/blob/master/data/nfl_lines_odds.csv.gz"
+          ]
+        },
+        {
+          "row": 3,
+          "text": "Legacy player-stat yardage quirksDERIVED96.9% of team-games have exactly matching passer/receiver yards; ~3.1% differ (lateral/sack attribution in legacy nflscrapR aggregation), me",
+          "links": [
+            "https://github.com/ryurko/nflscrapR-data/tree/master/legacy_data/game_player_stats"
+          ]
+        },
+        {
+          "row": 4,
+          "text": "Player-prop correlation era caveatDERIVEDCorrelations estimated on 2009\u20132017 (D3) with a 2021 robustness check (D4). The modern passing environment may shift magnitudes; CIs and th",
+          "links": [
+            "https://github.com/ryurko/nflscrapR-data/tree/master/legacy_data/game_player_stats",
+            "https://github.com/fantasydatapros/LearnPythonWithFantasyFootball/tree/master/2022/09-Correlation%20Matrices/01-Weekly%20Fantasy%20Stats%20-%202021"
+          ]
+        },
+        {
+          "row": 5,
+          "text": "No archived market player-prop linesUNVERIFIEDHistorical market prop lines are not publicly archived in any reachable primary source. Prop strategies are therefore evaluated as lin",
+          "links": [
+            "methodology.html"
+          ]
+        }
+      ]
+    },
+    "site/index.html": {
+      "rows": 13,
+      "without_official_link": 13,
+      "examples": [
+        {
+          "row": 1,
+          "text": "1S2Model total value @ opening lineSingle bet63.96/7SilverDERIVED \u00b7 LeeSharpe/nfldata games.csv \u2197 \u00b7 mrcaseb/nfl-data odds \u2197 \u00b7 method",
+          "links": [
+            "singles.html#S2",
+            "https://github.com/LeeSharpe/nfldata/blob/master/data/games.csv",
+            "https://github.com/mrcaseb/nfl-data/blob/master/data/nfl_lines_odds.csv.gz",
+            "methodology.html"
+          ]
+        },
+        {
+          "row": 2,
+          "text": "2X3RB1 rushing yards \u2014 fair-line originationPlayer prop51.44/7RejectedDERIVED \u00b7 nflscrapR player-game stats \u2197 \u00b7 FantasyDataPros 2021 weekly \u2197 \u00b7 method",
+          "links": [
+            "props.html#X3",
+            "https://github.com/ryurko/nflscrapR-data/tree/master/legacy_data/game_player_stats",
+            "https://github.com/fantasydatapros/LearnPythonWithFantasyFootball/tree/master/2022/09-Correlation%20Matrices/01-Weekly%20Fantasy%20Stats%20-%202021",
+            "methodology.html"
+          ]
+        },
+        {
+          "row": 3,
+          "text": "3X1QB passing yards \u2014 fair-line originationPlayer prop39.54/7RejectedDERIVED \u00b7 nflscrapR player-game stats \u2197 \u00b7 FantasyDataPros 2021 weekly \u2197 \u00b7 method",
+          "links": [
+            "props.html#X1",
+            "https://github.com/ryurko/nflscrapR-data/tree/master/legacy_data/game_player_stats",
+            "https://github.com/fantasydatapros/LearnPythonWithFantasyFootball/tree/master/2022/09-Correlation%20Matrices/01-Weekly%20Fantasy%20Stats%20-%202021",
+            "methodology.html"
+          ]
+        },
+        {
+          "row": 4,
+          "text": "4X2WR1 receiving yards \u2014 fair-line originationPlayer prop29.83/7RejectedDERIVED \u00b7 nflscrapR player-game stats \u2197 \u00b7 FantasyDataPros 2021 weekly \u2197 \u00b7 method",
+          "links": [
+            "props.html#X2",
+            "https://github.com/ryurko/nflscrapR-data/tree/master/legacy_data/game_player_stats",
+            "https://github.com/fantasydatapros/LearnPythonWithFantasyFootball/tree/master/2022/09-Correlation%20Matrices/01-Weekly%20Fantasy%20Stats%20-%202021",
+            "methodology.html"
+          ]
+        },
+        {
+          "row": 5,
+          "text": "5S6Fade extreme longshots (bet big favorite ML)Single bet19.73/7RejectedDERIVED \u00b7 LeeSharpe/nfldata games.csv \u2197 \u00b7 method",
+          "links": [
+            "singles.html#S6",
+            "https://github.com/LeeSharpe/nfldata/blob/master/data/games.csv",
+            "methodology.html"
+          ]
+        }
+      ]
+    },
+    "site/methodology.html": {
+      "rows": 42,
+      "without_official_link": 42,
+      "examples": [
+        {
+          "row": 1,
+          "text": "S1 Model spread vs opening consensus, bet edge \u2265 T Single CLV \u22120.02 pts (z \u22120.21); ROI \u221210.5% Rejected \u2014 no spread edge",
+          "links": []
+        },
+        {
+          "row": 2,
+          "text": "S2 Model total vs opening consensus, bet edge \u2265 T Single CLV +0.80 pts (z 5.68, CI 0.53\u20131.09); ROI \u22126.9% Silver \u2014 real line-beating skill, ROI unproven",
+          "links": []
+        },
+        {
+          "row": 3,
+          "text": "S3 Model spread vs closing line Single ROI \u22121.3% (CI \u22127.0\u20134.5%) Rejected \u2014 close is efficient",
+          "links": []
+        },
+        {
+          "row": 4,
+          "text": "S4 Model total vs closing line Single ROI negative Rejected",
+          "links": []
+        },
+        {
+          "row": 5,
+          "text": "S5 Value ML: model prob \u2212 no-vig market \u2265 5 pp Single ROI negative; model Brier worse than market Rejected",
+          "links": []
+        }
+      ]
+    },
+    "site/official-facts.html": {
+      "rows": 21,
+      "without_official_link": 0,
+      "examples": []
+    },
+    "site/parlays.html": {
+      "rows": 44,
+      "without_official_link": 44,
+      "examples": [
+        {
+          "row": 1,
+          "text": "Window (full / holdout)2006\u20132025 / 2016\u20132025",
+          "links": []
+        },
+        {
+          "row": 2,
+          "text": "Holdout bets2553",
+          "links": []
+        },
+        {
+          "row": 3,
+          "text": "Holdout ROI-15.7% (CI -21.3%\u2013-9.9%)",
+          "links": []
+        },
+        {
+          "row": 4,
+          "text": "Holdout win rate23.4%",
+          "links": []
+        },
+        {
+          "row": 5,
+          "text": "Full-window ROI-13.2%",
+          "links": []
+        }
+      ]
+    },
+    "site/props.html": {
+      "rows": 27,
+      "without_official_link": 27,
+      "examples": [
+        {
+          "row": 1,
+          "text": "Player-games evaluated3633",
+          "links": []
+        },
+        {
+          "row": 2,
+          "text": "MAE (yards)60.97",
+          "links": []
+        },
+        {
+          "row": 3,
+          "text": "RMSE \u2014 accuracy line76.56",
+          "links": []
+        },
+        {
+          "row": 4,
+          "text": "RMSE \u2014 best naive baseline77.88",
+          "links": []
+        },
+        {
+          "row": 5,
+          "text": "RMSE skill vs baseline1.7% (CI -0.21\u20133.57%)",
+          "links": []
+        }
+      ]
+    },
+    "site/repo-review.html": {
+      "rows": 5,
+      "without_official_link": 5,
+      "examples": [
+        {
+          "row": 1,
+          "text": "R1 README.md 1 # Own8 (6 bytes, no trailing newline) Repo name header only. No project description, no data, no code, no site, no CI. Nothing to fact-check against external sources",
+          "links": [
+            "https://github.com/sassnarep3-star/Own8"
+          ]
+        },
+        {
+          "row": 2,
+          "text": "R2 .git history \u2014 Single commit 9bd72f5c63ac00a184159d15941f2eaab5382812 on main; no other branches, tags, or remote activity at session start Clean slate; no prior claims in COORD",
+          "links": []
+        },
+        {
+          "row": 3,
+          "text": "IR1 Empty project The repository contained no prior work to verify; all deliverables are created fresh by this session. Informational \u2014 listed on the site's Flagged for Review page",
+          "links": []
+        },
+        {
+          "row": 4,
+          "text": "IR2 README missing newline README.md had no trailing newline (cosmetic). Fixed when README was rewritten for the project.",
+          "links": []
+        },
+        {
+          "row": 5,
+          "text": "IR3 Branch policy conflict The task text asks for session-<id>/<task> branches, but the Arena platform pins this session to arena/28cc78aa-own8 and forbids creating other branches.",
+          "links": []
+        }
+      ]
+    },
+    "site/singles.html": {
+      "rows": 48,
+      "without_official_link": 48,
+      "examples": [
+        {
+          "row": 1,
+          "text": "Window (full / holdout)2006\u20132021 / 2016\u20132021",
+          "links": []
+        },
+        {
+          "row": 2,
+          "text": "Holdout bets378",
+          "links": []
+        },
+        {
+          "row": 3,
+          "text": "Holdout ROI-10.5% (CI -19.9%\u2013-0.9%)",
+          "links": []
+        },
+        {
+          "row": 4,
+          "text": "Holdout win rate46.8%",
+          "links": []
+        },
+        {
+          "row": 5,
+          "text": "Full-window ROI-5.6%",
+          "links": []
+        }
+      ]
+    },
+    "site/validation.html": {
+      "rows": 29,
+      "without_official_link": 28,
+      "examples": [
+        {
+          "row": 2,
+          "text": "Independent odds cross-checkgames.csv closing lines vs median of book-level closing lines (independent mirror)spread 93.4% / total 98.5% within 0.5PASSDERIVED \u00b7 LeeSharpe/nfldata g",
+          "links": [
+            "https://github.com/LeeSharpe/nfldata/blob/master/data/games.csv",
+            "methodology.html"
+          ]
+        },
+        {
+          "row": 3,
+          "text": "Player-stats internal consistencyPer team-game: summed passer yards vs summed receiver yards (must match)96.9% exact, median diff 0.0PASSDERIVED \u00b7 nflscrapR player-game stats \u2197 \u00b7 m",
+          "links": [
+            "https://github.com/ryurko/nflscrapR-data/tree/master/legacy_data/game_player_stats",
+            "methodology.html"
+          ]
+        },
+        {
+          "row": 4,
+          "text": "Player stats \u2194 schedule coverageEvery player-stat game date exists in the schedule/results mirror426/426PASSDERIVED \u00b7 nflscrapR player-game stats \u2197 \u00b7 method",
+          "links": [
+            "https://github.com/ryurko/nflscrapR-data/tree/master/legacy_data/game_player_stats",
+            "methodology.html"
+          ]
+        },
+        {
+          "row": 5,
+          "text": "2021 sample \u2194 schedule coverage2021 weekly fantasy sample: every team-week appears in the 2021 schedule544/544PASSDERIVED \u00b7 FantasyDataPros 2021 weekly \u2197 \u00b7 method",
+          "links": [
+            "https://github.com/fantasydatapros/LearnPythonWithFantasyFootball/tree/master/2022/09-Correlation%20Matrices/01-Weekly%20Fantasy%20Stats%20-%202021",
+            "methodology.html"
+          ]
+        },
+        {
+          "row": 6,
+          "text": "G1 Data integrity All Part-A validation checks pass: official NFL anchor 91/91 exact; independent line cross-check within documented tolerance (\u226590% of spreads / \u226595% of totals wit",
+          "links": []
+        }
+      ]
+    }
+  },
+  "total_rows": 276,
+  "rows_without_official_link": 246
+}

@@ -4,6 +4,8 @@ baseurl: /Own8
 exclude:
   - archive
   - docs
+  - audit
+  - verification
   - data
   - analysis
   - research

@@ -11,7 +11,7 @@ An evidence-first workspace for originating NFL lines and evaluating singles, pa
 - Three descriptive cross-team correlations, **not** bet-leg correlations or skill evidence. Actual parlay/prop-combo correlations remain blank.
 - **Eight blocked strategy hypotheses** and **eleven strict gates**. CONDITIONAL/missing is not PASS. The leaderboard has no ranks, ROI, scores or rewards until qualified, settled evidence exists.
 - All **104 baseline files / 7,901 text lines** inventoried by hash/line count; **502 legacy structured rows** enumerated. This is mechanical review coverage, **not a claim of independently verifying every historical sentence**. Unsupported legacy numeric values are withheld from published tables.
-- Thirteen material audit findings and prior F-01–F-13 IDs are published on **Flagged for Review**. Review flags do not block site publication; missing evidence blocks strategy eligibility.
+- Fourteen material audit findings and prior F-01–F-13 IDs are published on **Flagged for Review**. Review flags do not block site publication; missing evidence blocks strategy eligibility.
 
 ## Official references and scope
 

@@ -1,0 +1,65 @@
+{
+ "dataset": "live-reverification-2026-11-04",
+ "verified_at": "2026-11-04 (UTC)",
+ "verified_by": "session c03eba88 (branch arena/c03eba88-own8)",
+ "method": "Official pages fetched live via fetch_page on 2026-11-04 (direct curl is blocked in this sandbox — same workaround as IR-02), transcribed verbatim, and compared field-by-field against the committed captures. No values inferred.",
+ "checks": [
+  {
+   "check": "standings W8",
+   "live_source": "https://www.nfl.com/standings/",
+   "captured_file": "data/standings-2026-reg-w8.json",
+   "script": "scripts/live_verify_standings.py",
+   "teams_compared": 32,
+   "fields": ["W", "L", "T", "PCT", "PF", "PA", "NET", "HOME", "ROAD", "DIV", "DIVPCT", "CONF", "CONFPCT", "STRK"],
+   "mismatches": 0,
+   "arithmetic": "HOME+ROAD = record, PF-PA = NET, PCT/DIV%/CONF% = (W + T/2)/GP (NFL tie-adjusted formula) — all 32 teams PASS",
+   "status": "PASS"
+  },
+  {
+   "check": "Week 9 schedule",
+   "live_source": "https://www.nfl.com/schedules/2026/REG9/",
+   "captured_file": "data/schedule-2026-week9.json",
+   "games_compared": 15,
+   "mismatches": 0,
+   "byes": "captured PIT 6-2, TEN 1-7 — identical to live page",
+   "status": "PASS"
+  },
+  {
+   "check": "Week 8 scores",
+   "live_source": "https://www.nfl.com/scores/2026/REG8/",
+   "captured_file": "data/scores-2026-week8.json",
+   "games_compared": 14,
+   "mismatches": 0,
+   "byes": "captured HOU 2-5, NO 2-5, NYG 4-2-1, SF 6-1 — identical to live page",
+   "status": "PASS"
+  },
+  {
+   "check": "link integrity",
+   "script": "scripts/check_links.py",
+   "pages": 46,
+   "links_checked": 2712,
+   "internal_broken": 0,
+   "external_non_https": 0,
+   "external_unlisted": 0,
+   "warnings": ["pages/sources.html keeps one archived http://www.nfl.com/standings/tiebreakingprocedures link verbatim from session 9cf451e4 (official host, http scheme only)"],
+   "status": "PASS"
+  },
+  {
+   "check": "pipeline reproducibility",
+   "script": "python3 scripts/analyze.py",
+   "result": "re-ran clean; all committed analysis/*.json outputs reproduced byte-identical (git status clean apart from this session's new files)",
+   "status": "PASS"
+  },
+  {
+   "check": "live site",
+   "url": "https://sassnarep3-star.github.io/Own8/",
+   "result": "dashboard renders (KPIs, W9 candidates CIN@ATL / NYG@PHI, category cards); /pages/flagged.html renders F-01..F-13 with source links; GitHub Pages API status 'built', source main /, latest pages-build-deployment runs success",
+   "status": "PASS"
+  }
+ ],
+ "irregularities_new": [
+  "IR-c03-01: direct curl to nfl.com is blocked in this sandbox (HTTP 000); fetch_page proxy used instead — same class of workaround as IR-02 from session 9cf451e4. All comparisons above were done on verbatim fetch_page output.",
+  "IR-c03-02: NFL win% tie-adjustment — an initial arithmetic check using W/GP flagged NYG and WAS DIV%/CONF%; on inspection NFL.com computes (W + T/2)/GP (ties count half). Check corrected; all 32 teams then PASS. No data change needed — captured values already matched live exactly."
+ ],
+ "status": "PASS"
+}

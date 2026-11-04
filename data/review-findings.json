@@ -3,7 +3,7 @@
     "id": "A-01",
     "severity": "critical",
     "item": "Unverified third-party market prices were used in edges and candidate selection. Official links alone did not verify inputs.",
-    "location": "archive/pre-audit-2026-11-04/scripts/analyze.py:130–185",
+    "location": "archive/pre-audit-2026-11-04/scripts/analyze.py:130\u2013185",
     "resolution": "All market prices, EV and eligible selections blank. Exact operator quote, timestamp and settlement rules required.",
     "source_url": "https://www.nfl.com/standings/"
   },
@@ -11,7 +11,7 @@
     "id": "A-02",
     "severity": "critical",
     "item": "CONDITIONAL injury gate was accepted as PASS. Missing current availability cannot support a selection.",
-    "location": "archive/pre-audit-2026-11-04/scripts/analyze.py:163–173",
+    "location": "archive/pre-audit-2026-11-04/scripts/analyze.py:163\u2013173",
     "resolution": "Strict PASS-only engine. Availability remains blocked; no candidate is recommended.",
     "source_url": "https://www.nfl.com/injuries/"
   },
@@ -19,7 +19,7 @@
     "id": "A-03",
     "severity": "high",
     "item": "Cross-team passing/scoring correlation was used as same-game bet correlation. These are different observational units.",
-    "location": "archive/pre-audit-2026-11-04/scripts/analyze.py:103–105,168,262–268",
+    "location": "archive/pre-audit-2026-11-04/scripts/analyze.py:103\u2013105,168,262\u2013268",
     "resolution": "Bet-leg correlation blank. Require paired pregame residuals and threshold-specific joint outcome calibration.",
     "source_url": "https://www.itl.nist.gov/div898/handbook/eda/section3/scatterp.htm"
   },
@@ -27,15 +27,15 @@
     "id": "A-04",
     "severity": "high",
     "item": "Model home winning margin and sportsbook home handicap used incompatible signs; model minus handicap was not a valid edge.",
-    "location": "archive/pre-audit-2026-11-04/scripts/analyze.py:151–159",
+    "location": "archive/pre-audit-2026-11-04/scripts/analyze.py:151\u2013159",
     "resolution": "Use home handicap = negative projected home margin. Expected cover margin = predicted margin + quoted handicap. No price edge published.",
     "source_url": "https://www.nfl.com/scores/"
   },
   {
     "id": "A-05",
     "severity": "high",
-    "item": "Blanket 2.5-point home advantage applied to the CIN–ATL Madrid international game.",
-    "location": "archive/pre-audit-2026-11-04/scripts/analyze.py:151–152",
+    "item": "Blanket 2.5-point home advantage applied to the CIN\u2013ATL Madrid international game.",
+    "location": "archive/pre-audit-2026-11-04/scripts/analyze.py:151\u2013152",
     "resolution": "Madrid label rechecked. Baseline uses zero home adjustment everywhere (design, not estimated fact); neutral game override tested.",
     "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9"
   },
@@ -43,7 +43,7 @@
     "id": "A-06",
     "severity": "high",
     "item": "Leaderboard ranked strategies in array order and filled realized points with zero without a settled ledger. Claimed automated grading was not implemented.",
-    "location": "archive/pre-audit-2026-11-04/scripts/analyze.py:276–290",
+    "location": "archive/pre-audit-2026-11-04/scripts/analyze.py:276\u2013290",
     "resolution": "Ranks, returns, scores, confidence intervals and rewards blank. Unit-tested settlement primitives exist; no claim of a live ingestion/grading service.",
     "source_url": "https://www.nfl.com/scores/"
   },
@@ -102,5 +102,13 @@
     "location": "GitHub Pages repository settings API (2026-11-04)",
     "resolution": "Reuse existing main/root Pages deployment. Jekyll exclusion config keeps legacy trees out of publication; CI separately validates the isolated artifact. No user credentials or manual changes requested.",
     "source_url": "https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages"
+  },
+  {
+    "id": "A-14",
+    "severity": "medium",
+    "item": "Concurrent sessions published additional reviews and partial Week 9 injury captures after this checkout baseline.",
+    "location": "archive/concurrent-main-28f1853/; data/injuries-2026-week9-candidates.json; audit/; verification/",
+    "resolution": "Preserved all concurrent source files and board history. Independently confirmed Week 9 report exists, plus limited selected observations. No Injuries Reported is not final availability clearance. Historical audit diagnostics remain in Git, not the new site.",
+    "source_url": "https://www.nfl.com/injuries/league/2026/reg9"
   }
 ]

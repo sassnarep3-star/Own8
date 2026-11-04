@@ -1,0 +1,1179 @@
+{
+  "as_of": "2026-11-03",
+  "week": 9,
+  "method": "proj_team = (team PFpg + opp PApg)/2; home/away each adjusted by HFA/2 = 1.25 (HFA=2.5 assumption, flagged F-07). model_spread_home = proj_home - proj_away. model_total = sum of projections. Edge = model_spread_home - market_spread_home (market = unverified third-party, F-05). Candidate requires EDGE_MIN<=|edge|<=EDGE_MAX and all gates PASS/CONDITIONAL.",
+  "league_avg_def_pass_ypg": 234.25,
+  "league_avg_def_rush_ypg": 112.64,
+  "games": [
+    {
+      "game": "JAX at BAL",
+      "away": "JAX",
+      "home": "BAL",
+      "date": "2026-11-05",
+      "kickoff_et": "8:15 PM",
+      "network": "Prime Video",
+      "venue": "M&T Bank Stadium, Baltimore, MD",
+      "game_url": "https://www.nfl.com/games/jaguars-at-ravens-2026-reg-9",
+      "label": "Thursday Night Football",
+      "away_record": "5-2-0",
+      "home_record": "4-4-0",
+      "proj_away": 25.44,
+      "proj_home": 20.37,
+      "model_spread_home": -5.07,
+      "model_spread_rendered": "JAX 5.1",
+      "model_total": 45.8,
+      "market_spread_home": null,
+      "market_verified": false,
+      "market_reference_withheld": true,
+      "edge_pts": null,
+      "candidate_side": null,
+      "reference_side": null,
+      "candidate": false,
+      "gates": {
+        "G1_official_sources_only": {
+          "status": "PASS",
+          "detail": "All model inputs from nfl.com / nextgenstats.nfl.com captures dated 2026-11-03."
+        },
+        "G2_data_freshness_le_7d": {
+          "status": "PASS",
+          "detail": "Standings/stats through Week 8 (final Nov 2); captured Nov 3."
+        },
+        "G3_sample_size_ge_4_games": {
+          "status": "PASS",
+          "detail": "JAX GP=7, BAL GP=8 (min required 4)."
+        },
+        "G4_injury_news_check": {
+          "status": "CONDITIONAL",
+          "detail": "Week 9 official injury report not transcribed for this game (F-22); Week 8 report is the latest transcribed. Re-check official report before acting."
+        },
+        "G5_correlation_check": {
+          "status": "PASS",
+          "detail": "Single-game play; no parlay legs. Same-game parlay correlation proxy r(pass YDSpg, PFpg) = 0.668 \u2014 same-game combos restricted (see correlation policy)."
+        },
+        "G6_edge_vs_market": {
+          "status": "NOT_COMPUTABLE",
+          "detail": "A third-party reference line exists in data/market-lines.json but is WITHHELD: it is unverified (F-05), so it is not displayed or used. No official market line exists, so no edge can be validated."
+        },
+        "G7_stake_cap": {
+          "status": "PASS",
+          "detail": "Kelly-style cap: max 2% of bankroll per single play (assumption, flagged F-07)."
+        }
+      },
+      "gates_all_pass": false,
+      "inputs": {
+        "away": {
+          "PFpg": 28.0,
+          "PApg": 15.86,
+          "passYDSpg": 242.57,
+          "rushYDSpg": 122.86
+        },
+        "home": {
+          "PFpg": 22.38,
+          "PApg": 25.38,
+          "passYDSpg": 223.12,
+          "rushYDSpg": 133.5
+        }
+      },
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "inputs_source_urls": [
+        "https://www.nfl.com/standings/",
+        "https://www.nfl.com/stats/team-stats/offense/passing/2026/reg/all",
+        "https://www.nfl.com/stats/team-stats/offense/rushing/2026/reg/all",
+        "https://www.nfl.com/stats/team-stats/defense/passing/2026/reg/all",
+        "https://www.nfl.com/stats/team-stats/defense/rushing/2026/reg/all"
+      ]
+    },
+    {
+      "game": "CIN at ATL",
+      "away": "CIN",
+      "home": "ATL",
+      "date": "2026-11-08",
+      "kickoff_et": "9:30 AM",
+      "network": "NFL Network",
+      "venue": "Santiago Bernab\u00e9u, Madrid, Spain",
+      "game_url": "https://www.nfl.com/games/bengals-at-falcons-2026-reg-9",
+      "label": "International Game (Madrid)",
+      "away_record": "5-2-0",
+      "home_record": "3-5-0",
+      "proj_away": 25.28,
+      "proj_home": 23.22,
+      "model_spread_home": -2.05,
+      "model_spread_rendered": "CIN 2.1",
+      "model_total": 48.5,
+      "market_spread_home": null,
+      "market_verified": false,
+      "market_reference_withheld": true,
+      "edge_pts": null,
+      "candidate_side": null,
+      "reference_side": null,
+      "candidate": false,
+      "gates": {
+        "G1_official_sources_only": {
+          "status": "PASS",
+          "detail": "All model inputs from nfl.com / nextgenstats.nfl.com captures dated 2026-11-03."
+        },
+        "G2_data_freshness_le_7d": {
+          "status": "PASS",
+          "detail": "Standings/stats through Week 8 (final Nov 2); captured Nov 3."
+        },
+        "G3_sample_size_ge_4_games": {
+          "status": "PASS",
+          "detail": "CIN GP=7, ATL GP=8 (min required 4)."
+        },
+        "G4_injury_news_check": {
+          "status": "PASS",
+          "detail": "Official NFL.com Week 9 injury report (captured 2026-11-04, https://www.nfl.com/injuries/league/2026/reg9): CIN and ATL both 'No Injuries Reported'. Official nfl.com news still applied (Hurts IR \u2014 PHI; McLaurin season out \u2014 WAS)."
+        },
+        "G5_correlation_check": {
+          "status": "PASS",
+          "detail": "Single-game play; no parlay legs. Same-game parlay correlation proxy r(pass YDSpg, PFpg) = 0.668 \u2014 same-game combos restricted (see correlation policy)."
+        },
+        "G6_edge_vs_market": {
+          "status": "NOT_COMPUTABLE",
+          "detail": "A third-party reference line exists in data/market-lines.json but is WITHHELD: it is unverified (F-05), so it is not displayed or used. No official market line exists, so no edge can be validated."
+        },
+        "G7_stake_cap": {
+          "status": "PASS",
+          "detail": "Kelly-style cap: max 2% of bankroll per single play (assumption, flagged F-07)."
+        }
+      },
+      "gates_all_pass": false,
+      "inputs": {
+        "away": {
+          "PFpg": 29.43,
+          "PApg": 22.57,
+          "passYDSpg": 302.14,
+          "rushYDSpg": 80.29
+        },
+        "home": {
+          "PFpg": 21.38,
+          "PApg": 23.62,
+          "passYDSpg": 200.5,
+          "rushYDSpg": 134.75
+        }
+      },
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "inputs_source_urls": [
+        "https://www.nfl.com/standings/",
+        "https://www.nfl.com/stats/team-stats/offense/passing/2026/reg/all",
+        "https://www.nfl.com/stats/team-stats/offense/rushing/2026/reg/all",
+        "https://www.nfl.com/stats/team-stats/defense/passing/2026/reg/all",
+        "https://www.nfl.com/stats/team-stats/defense/rushing/2026/reg/all"
+      ]
+    },
+    {
+      "game": "DEN at CAR",
+      "away": "DEN",
+      "home": "CAR",
+      "date": "2026-11-08",
+      "kickoff_et": "1:00 PM",
+      "network": "CBS",
+      "venue": "Bank of America Stadium, Charlotte, NC",
+      "game_url": "https://www.nfl.com/games/broncos-at-panthers-2026-reg-9",
+      "label": "NFL RedZone",
+      "away_record": "6-2-0",
+      "home_record": "3-4-0",
+      "proj_away": 23.29,
+      "proj_home": 24.28,
+      "model_spread_home": 0.99,
+      "model_spread_rendered": "CAR +1.0",
+      "model_total": 47.56,
+      "market_spread_home": null,
+      "market_verified": false,
+      "market_reference_withheld": false,
+      "edge_pts": null,
+      "candidate_side": null,
+      "reference_side": null,
+      "candidate": false,
+      "gates": {
+        "G1_official_sources_only": {
+          "status": "PASS",
+          "detail": "All model inputs from nfl.com / nextgenstats.nfl.com captures dated 2026-11-03."
+        },
+        "G2_data_freshness_le_7d": {
+          "status": "PASS",
+          "detail": "Standings/stats through Week 8 (final Nov 2); captured Nov 3."
+        },
+        "G3_sample_size_ge_4_games": {
+          "status": "PASS",
+          "detail": "DEN GP=8, CAR GP=7 (min required 4)."
+        },
+        "G4_injury_news_check": {
+          "status": "CONDITIONAL",
+          "detail": "Week 9 official injury report not transcribed for this game (F-22); Week 8 report is the latest transcribed. Re-check official report before acting."
+        },
+        "G5_correlation_check": {
+          "status": "PASS",
+          "detail": "Single-game play; no parlay legs. Same-game parlay correlation proxy r(pass YDSpg, PFpg) = 0.668 \u2014 same-game combos restricted (see correlation policy)."
+        },
+        "G6_edge_vs_market": {
+          "status": "NOT_COMPUTABLE",
+          "detail": "No market line captured (market lines are not an official source \u2014 blank by rule)."
+        },
+        "G7_stake_cap": {
+          "status": "PASS",
+          "detail": "Kelly-style cap: max 2% of bankroll per single play (assumption, flagged F-07)."
+        }
+      },
+      "gates_all_pass": false,
+      "inputs": {
+        "away": {
+          "PFpg": 21.5,
+          "PApg": 20.62,
+          "passYDSpg": 186.62,
+          "rushYDSpg": 92.62
+        },
+        "home": {
+          "PFpg": 25.43,
+          "PApg": 27.57,
+          "passYDSpg": 281.14,
+          "rushYDSpg": 102.0
+        }
+      },
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "inputs_source_urls": [
+        "https://www.nfl.com/standings/",
+        "https://www.nfl.com/stats/team-stats/offense/passing/2026/reg/all",
+        "https://www.nfl.com/stats/team-stats/offense/rushing/2026/reg/all",
+        "https://www.nfl.com/stats/team-stats/defense/passing/2026/reg/all",
+        "https://www.nfl.com/stats/team-stats/defense/rushing/2026/reg/all"
+      ]
+    },
+    {
+      "game": "DAL at IND",
+      "away": "DAL",
+      "home": "IND",
+      "date": "2026-11-08",
+      "kickoff_et": "1:00 PM",
+      "network": "FOX",
+      "venue": "Lucas Oil Stadium, Indianapolis, IN",
+      "game_url": "https://www.nfl.com/games/cowboys-at-colts-2026-reg-9",
+      "label": "",
+      "away_record": "3-5-0",
+      "home_record": "2-6-0",
+      "proj_away": 26.31,
+      "proj_home": 24.62,
+      "model_spread_home": -1.69,
+      "model_spread_rendered": "DAL 1.7",
+      "model_total": 50.94,
+      "market_spread_home": null,
+      "market_verified": false,
+      "market_reference_withheld": false,
+      "edge_pts": null,
+      "candidate_side": null,
+      "reference_side": null,
+      "candidate": false,
+      "gates": {
+        "G1_official_sources_only": {
+          "status": "PASS",
+          "detail": "All model inputs from nfl.com / nextgenstats.nfl.com captures dated 2026-11-03."
+        },
+        "G2_data_freshness_le_7d": {
+          "status": "PASS",
+          "detail": "Standings/stats through Week 8 (final Nov 2); captured Nov 3."
+        },
+        "G3_sample_size_ge_4_games": {
+          "status": "PASS",
+          "detail": "DAL GP=8, IND GP=8 (min required 4)."
+        },
+        "G4_injury_news_check": {
+          "status": "CONDITIONAL",
+          "detail": "Week 9 official injury report not transcribed for this game (F-22); Week 8 report is the latest transcribed. Re-check official report before acting."
+        },
+        "G5_correlation_check": {
+          "status": "PASS",
+          "detail": "Single-game play; no parlay legs. Same-game parlay correlation proxy r(pass YDSpg, PFpg) = 0.668 \u2014 same-game combos restricted (see correlation policy)."
+        },
+        "G6_edge_vs_market": {
+          "status": "NOT_COMPUTABLE",
+          "detail": "No market line captured (market lines are not an official source \u2014 blank by rule)."
+        },
+        "G7_stake_cap": {
+          "status": "PASS",
+          "detail": "Kelly-style cap: max 2% of bankroll per single play (assumption, flagged F-07)."
+        }
+      },
+      "gates_all_pass": false,
+      "inputs": {
+        "away": {
+          "PFpg": 27.38,
+          "PApg": 26.62,
+          "passYDSpg": 255.75,
+          "rushYDSpg": 94.12
+        },
+        "home": {
+          "PFpg": 20.12,
+          "PApg": 27.75,
+          "passYDSpg": 193.75,
+          "rushYDSpg": 116.5
+        }
+      },
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "inputs_source_urls": [
+        "https://www.nfl.com/standings/",
+        "https://www.nfl.com/stats/team-stats/offense/passing/2026/reg/all",
+        "https://www.nfl.com/stats/team-stats/offense/rushing/2026/reg/all",
+        "https://www.nfl.com/stats/team-stats/defense/passing/2026/reg/all",
+        "https://www.nfl.com/stats/team-stats/defense/rushing/2026/reg/all"
+      ]
+    },
+    {
+      "game": "NYJ at KC",
+      "away": "NYJ",
+      "home": "KC",
+      "date": "2026-11-08",
+      "kickoff_et": "1:00 PM",
+      "network": "CBS",
+      "venue": "GEHA Field at Arrowhead Stadium, Kansas City, MO",
+      "game_url": "https://www.nfl.com/games/jets-at-chiefs-2026-reg-9",
+      "label": "",
+      "away_record": "2-6-0",
+      "home_record": "5-2-0",
+      "proj_away": 18.73,
+      "proj_home": 24.93,
+      "model_spread_home": 6.2,
+      "model_spread_rendered": "KC +6.2",
+      "model_total": 43.66,
+      "market_spread_home": null,
+      "market_verified": false,
+      "market_reference_withheld": true,
+      "edge_pts": null,
+      "candidate_side": null,
+      "reference_side": null,
+      "candidate": false,
+      "gates": {
+        "G1_official_sources_only": {
+          "status": "PASS",
+          "detail": "All model inputs from nfl.com / nextgenstats.nfl.com captures dated 2026-11-03."
+        },
+        "G2_data_freshness_le_7d": {
+          "status": "PASS",
+          "detail": "Standings/stats through Week 8 (final Nov 2); captured Nov 3."
+        },
+        "G3_sample_size_ge_4_games": {
+          "status": "PASS",
+          "detail": "NYJ GP=8, KC GP=7 (min required 4)."
+        },
+        "G4_injury_news_check": {
+          "status": "CONDITIONAL",
+          "detail": "Week 9 official injury report not transcribed for this game (F-22); Week 8 report is the latest transcribed. Re-check official report before acting."
+        },
+        "G5_correlation_check": {
+          "status": "PASS",
+          "detail": "Single-game play; no parlay legs. Same-game parlay correlation proxy r(pass YDSpg, PFpg) = 0.668 \u2014 same-game combos restricted (see correlation policy)."
+        },
+        "G6_edge_vs_market": {
+          "status": "NOT_COMPUTABLE",
+          "detail": "A third-party reference line exists in data/market-lines.json but is WITHHELD: it is unverified (F-05), so it is not displayed or used. No official market line exists, so no edge can be validated."
+        },
+        "G7_stake_cap": {
+          "status": "PASS",
+          "detail": "Kelly-style cap: max 2% of bankroll per single play (assumption, flagged F-07)."
+        }
+      },
+      "gates_all_pass": false,
+      "inputs": {
+        "away": {
+          "PFpg": 21.25,
+          "PApg": 23.5,
+          "passYDSpg": 239.12,
+          "rushYDSpg": 105.12
+        },
+        "home": {
+          "PFpg": 23.86,
+          "PApg": 18.71,
+          "passYDSpg": 256.43,
+          "rushYDSpg": 134.14
+        }
+      },
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "inputs_source_urls": [
+        "https://www.nfl.com/standings/",
+        "https://www.nfl.com/stats/team-stats/offense/passing/2026/reg/all",
+        "https://www.nfl.com/stats/team-stats/offense/rushing/2026/reg/all",
+        "https://www.nfl.com/stats/team-stats/defense/passing/2026/reg/all",
+        "https://www.nfl.com/stats/team-stats/defense/rushing/2026/reg/all"
+      ]
+    },
+    {
+      "game": "DET at MIA",
+      "away": "DET",
+      "home": "MIA",
+      "date": "2026-11-08",
+      "kickoff_et": "1:00 PM",
+      "network": "CBS",
+      "venue": "Hard Rock Stadium, Miami Gardens, FL",
+      "game_url": "https://www.nfl.com/games/lions-at-dolphins-2026-reg-9",
+      "label": "",
+      "away_record": "5-2-0",
+      "home_record": "1-6-0",
+      "proj_away": 26.18,
+      "proj_home": 22.46,
+      "model_spread_home": -3.71,
+      "model_spread_rendered": "DET 3.7",
+      "model_total": 48.64,
+      "market_spread_home": null,
+      "market_verified": false,
+      "market_reference_withheld": false,
+      "edge_pts": null,
+      "candidate_side": null,
+      "reference_side": null,
+      "candidate": false,
+      "gates": {
+        "G1_official_sources_only": {
+          "status": "PASS",
+          "detail": "All model inputs from nfl.com / nextgenstats.nfl.com captures dated 2026-11-03."
+        },
+        "G2_data_freshness_le_7d": {
+          "status": "PASS",
+          "detail": "Standings/stats through Week 8 (final Nov 2); captured Nov 3."
+        },
+        "G3_sample_size_ge_4_games": {
+          "status": "PASS",
+          "detail": "DET GP=7, MIA GP=7 (min required 4)."
+        },
+        "G4_injury_news_check": {
+          "status": "CONDITIONAL",
+          "detail": "Week 9 official injury report not transcribed for this game (F-22); Week 8 report is the latest transcribed. Re-check official report before acting."
+        },
+        "G5_correlation_check": {
+          "status": "PASS",
+          "detail": "Single-game play; no parlay legs. Same-game parlay correlation proxy r(pass YDSpg, PFpg) = 0.668 \u2014 same-game combos restricted (see correlation policy)."
+        },
+        "G6_edge_vs_market": {
+          "status": "NOT_COMPUTABLE",
+          "detail": "No market line captured (market lines are not an official source \u2014 blank by rule)."
+        },
+        "G7_stake_cap": {
+          "status": "PASS",
+          "detail": "Kelly-style cap: max 2% of bankroll per single play (assumption, flagged F-07)."
+        }
+      },
+      "gates_all_pass": false,
+      "inputs": {
+        "away": {
+          "PFpg": 29.0,
+          "PApg": 25.71,
+          "passYDSpg": 280.57,
+          "rushYDSpg": 131.43
+        },
+        "home": {
+          "PFpg": 16.71,
+          "PApg": 25.86,
+          "passYDSpg": 181.14,
+          "rushYDSpg": 123.29
+        }
+      },
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "inputs_source_urls": [
+        "https://www.nfl.com/standings/",
+        "https://www.nfl.com/stats/team-stats/offense/passing/2026/reg/all",
+        "https://www.nfl.com/stats/team-stats/offense/rushing/2026/reg/all",
+        "https://www.nfl.com/stats/team-stats/defense/passing/2026/reg/all",
+        "https://www.nfl.com/stats/team-stats/defense/rushing/2026/reg/all"
+      ]
+    },
+    {
+      "game": "CLE at NO",
+      "away": "CLE",
+      "home": "NO",
+      "date": "2026-11-08",
+      "kickoff_et": "1:00 PM",
+      "network": "CBS",
+      "venue": "Caesars Superdome, New Orleans, LA",
+      "game_url": "https://www.nfl.com/games/browns-at-saints-2026-reg-9",
+      "label": "",
+      "away_record": "5-3-0",
+      "home_record": "2-5-0",
+      "proj_away": 21.29,
+      "proj_home": 23.63,
+      "model_spread_home": 2.34,
+      "model_spread_rendered": "NO +2.3",
+      "model_total": 44.93,
+      "market_spread_home": null,
+      "market_verified": false,
+      "market_reference_withheld": false,
+      "edge_pts": null,
+      "candidate_side": null,
+      "reference_side": null,
+      "candidate": false,
+      "gates": {
+        "G1_official_sources_only": {
+          "status": "PASS",
+          "detail": "All model inputs from nfl.com / nextgenstats.nfl.com captures dated 2026-11-03."
+        },
+        "G2_data_freshness_le_7d": {
+          "status": "PASS",
+          "detail": "Standings/stats through Week 8 (final Nov 2); captured Nov 3."
+        },
+        "G3_sample_size_ge_4_games": {
+          "status": "PASS",
+          "detail": "CLE GP=8, NO GP=7 (min required 4)."
+        },
+        "G4_injury_news_check": {
+          "status": "CONDITIONAL",
+          "detail": "Week 9 official injury report not transcribed for this game (F-22); Week 8 report is the latest transcribed. Re-check official report before acting."
+        },
+        "G5_correlation_check": {
+          "status": "PASS",
+          "detail": "Single-game play; no parlay legs. Same-game parlay correlation proxy r(pass YDSpg, PFpg) = 0.668 \u2014 same-game combos restricted (see correlation policy)."
+        },
+        "G6_edge_vs_market": {
+          "status": "NOT_COMPUTABLE",
+          "detail": "No market line captured (market lines are not an official source \u2014 blank by rule)."
+        },
+        "G7_stake_cap": {
+          "status": "PASS",
+          "detail": "Kelly-style cap: max 2% of bankroll per single play (assumption, flagged F-07)."
+        }
+      },
+      "gates_all_pass": false,
+      "inputs": {
+        "away": {
+          "PFpg": 17.38,
+          "PApg": 21.62,
+          "passYDSpg": 226.0,
+          "rushYDSpg": 97.62
+        },
+        "home": {
+          "PFpg": 23.14,
+          "PApg": 27.71,
+          "passYDSpg": 245.86,
+          "rushYDSpg": 86.0
+        }
+      },
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "inputs_source_urls": [
+        "https://www.nfl.com/standings/",
+        "https://www.nfl.com/stats/team-stats/offense/passing/2026/reg/all",
+        "https://www.nfl.com/stats/team-stats/offense/rushing/2026/reg/all",
+        "https://www.nfl.com/stats/team-stats/defense/passing/2026/reg/all",
+        "https://www.nfl.com/stats/team-stats/defense/rushing/2026/reg/all"
+      ]
+    },
+    {
+      "game": "NYG at PHI",
+      "away": "NYG",
+      "home": "PHI",
+      "date": "2026-11-08",
+      "kickoff_et": "1:00 PM",
+      "network": "FOX",
+      "venue": "Lincoln Financial Field, Philadelphia, PA",
+      "game_url": "https://www.nfl.com/games/giants-at-eagles-2026-reg-9",
+      "label": "",
+      "away_record": "4-2-1",
+      "home_record": "2-6-0",
+      "proj_away": 23.02,
+      "proj_home": 21.31,
+      "model_spread_home": -1.71,
+      "model_spread_rendered": "NYG 1.7",
+      "model_total": 44.33,
+      "market_spread_home": null,
+      "market_verified": false,
+      "market_reference_withheld": true,
+      "edge_pts": null,
+      "candidate_side": null,
+      "reference_side": null,
+      "candidate": false,
+      "gates": {
+        "G1_official_sources_only": {
+          "status": "PASS",
+          "detail": "All model inputs from nfl.com / nextgenstats.nfl.com captures dated 2026-11-03."
+        },
+        "G2_data_freshness_le_7d": {
+          "status": "PASS",
+          "detail": "Standings/stats through Week 8 (final Nov 2); captured Nov 3."
+        },
+        "G3_sample_size_ge_4_games": {
+          "status": "PASS",
+          "detail": "NYG GP=7, PHI GP=8 (min required 4)."
+        },
+        "G4_injury_news_check": {
+          "status": "PASS",
+          "detail": "Official NFL.com Week 9 injury report (captured 2026-11-04, https://www.nfl.com/injuries/league/2026/reg9): NYG and PHI both 'No Injuries Reported'. Official nfl.com news still applied (Hurts IR \u2014 PHI; McLaurin season out \u2014 WAS)."
+        },
+        "G5_correlation_check": {
+          "status": "PASS",
+          "detail": "Single-game play; no parlay legs. Same-game parlay correlation proxy r(pass YDSpg, PFpg) = 0.668 \u2014 same-game combos restricted (see correlation policy)."
+        },
+        "G6_edge_vs_market": {
+          "status": "NOT_COMPUTABLE",
+          "detail": "A third-party reference line exists in data/market-lines.json but is WITHHELD: it is unverified (F-05), so it is not displayed or used. No official market line exists, so no edge can be validated."
+        },
+        "G7_stake_cap": {
+          "status": "PASS",
+          "detail": "Kelly-style cap: max 2% of bankroll per single play (assumption, flagged F-07)."
+        }
+      },
+      "gates_all_pass": false,
+      "inputs": {
+        "away": {
+          "PFpg": 23.29,
+          "PApg": 23.0,
+          "passYDSpg": 243.14,
+          "rushYDSpg": 116.71
+        },
+        "home": {
+          "PFpg": 17.12,
+          "PApg": 25.25,
+          "passYDSpg": 196.38,
+          "rushYDSpg": 88.12
+        }
+      },
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "inputs_source_urls": [
+        "https://www.nfl.com/standings/",
+        "https://www.nfl.com/stats/team-stats/offense/passing/2026/reg/all",
+        "https://www.nfl.com/stats/team-stats/offense/rushing/2026/reg/all",
+        "https://www.nfl.com/stats/team-stats/defense/passing/2026/reg/all",
+        "https://www.nfl.com/stats/team-stats/defense/rushing/2026/reg/all"
+      ]
+    },
+    {
+      "game": "LA at WAS",
+      "away": "LA",
+      "home": "WAS",
+      "date": "2026-11-08",
+      "kickoff_et": "1:00 PM",
+      "network": "FOX",
+      "venue": "FedEx Field, Landover, MD",
+      "game_url": "https://www.nfl.com/games/rams-at-commanders-2026-reg-9",
+      "label": "",
+      "away_record": "4-4-0",
+      "home_record": "2-4-1",
+      "proj_away": 23.88,
+      "proj_home": 23.11,
+      "model_spread_home": -0.77,
+      "model_spread_rendered": "LA 0.8",
+      "model_total": 46.98,
+      "market_spread_home": null,
+      "market_verified": false,
+      "market_reference_withheld": false,
+      "edge_pts": null,
+      "candidate_side": null,
+      "reference_side": null,
+      "candidate": false,
+      "gates": {
+        "G1_official_sources_only": {
+          "status": "PASS",
+          "detail": "All model inputs from nfl.com / nextgenstats.nfl.com captures dated 2026-11-03."
+        },
+        "G2_data_freshness_le_7d": {
+          "status": "PASS",
+          "detail": "Standings/stats through Week 8 (final Nov 2); captured Nov 3."
+        },
+        "G3_sample_size_ge_4_games": {
+          "status": "PASS",
+          "detail": "LA GP=8, WAS GP=7 (min required 4)."
+        },
+        "G4_injury_news_check": {
+          "status": "CONDITIONAL",
+          "detail": "Week 9 official injury report not transcribed for this game (F-22); Week 8 report is the latest transcribed. Re-check official report before acting."
+        },
+        "G5_correlation_check": {
+          "status": "PASS",
+          "detail": "Single-game play; no parlay legs. Same-game parlay correlation proxy r(pass YDSpg, PFpg) = 0.668 \u2014 same-game combos restricted (see correlation policy)."
+        },
+        "G6_edge_vs_market": {
+          "status": "NOT_COMPUTABLE",
+          "detail": "No market line captured (market lines are not an official source \u2014 blank by rule)."
+        },
+        "G7_stake_cap": {
+          "status": "PASS",
+          "detail": "Kelly-style cap: max 2% of bankroll per single play (assumption, flagged F-07)."
+        }
+      },
+      "gates_all_pass": false,
+      "inputs": {
+        "away": {
+          "PFpg": 24.25,
+          "PApg": 21.0,
+          "passYDSpg": 269.88,
+          "rushYDSpg": 125.5
+        },
+        "home": {
+          "PFpg": 22.71,
+          "PApg": 26.0,
+          "passYDSpg": 214.57,
+          "rushYDSpg": 126.57
+        }
+      },
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "inputs_source_urls": [
+        "https://www.nfl.com/standings/",
+        "https://www.nfl.com/stats/team-stats/offense/passing/2026/reg/all",
+        "https://www.nfl.com/stats/team-stats/offense/rushing/2026/reg/all",
+        "https://www.nfl.com/stats/team-stats/defense/passing/2026/reg/all",
+        "https://www.nfl.com/stats/team-stats/defense/rushing/2026/reg/all"
+      ]
+    },
+    {
+      "game": "HOU at LAC",
+      "away": "HOU",
+      "home": "LAC",
+      "date": "2026-11-08",
+      "kickoff_et": "4:05 PM",
+      "network": "CBS",
+      "venue": "SoFi Stadium, Inglewood, CA",
+      "game_url": "https://www.nfl.com/games/texans-at-chargers-2026-reg-9",
+      "label": "",
+      "away_record": "2-5-0",
+      "home_record": "0-7-0",
+      "proj_away": 23.04,
+      "proj_home": 20.46,
+      "model_spread_home": -2.57,
+      "model_spread_rendered": "HOU 2.6",
+      "model_total": 43.5,
+      "market_spread_home": null,
+      "market_verified": false,
+      "market_reference_withheld": false,
+      "edge_pts": null,
+      "candidate_side": null,
+      "reference_side": null,
+      "candidate": false,
+      "gates": {
+        "G1_official_sources_only": {
+          "status": "PASS",
+          "detail": "All model inputs from nfl.com / nextgenstats.nfl.com captures dated 2026-11-03."
+        },
+        "G2_data_freshness_le_7d": {
+          "status": "PASS",
+          "detail": "Standings/stats through Week 8 (final Nov 2); captured Nov 3."
+        },
+        "G3_sample_size_ge_4_games": {
+          "status": "PASS",
+          "detail": "HOU GP=7, LAC GP=7 (min required 4)."
+        },
+        "G4_injury_news_check": {
+          "status": "CONDITIONAL",
+          "detail": "Week 9 official injury report not transcribed for this game (F-22); Week 8 report is the latest transcribed. Re-check official report before acting."
+        },
+        "G5_correlation_check": {
+          "status": "PASS",
+          "detail": "Single-game play; no parlay legs. Same-game parlay correlation proxy r(pass YDSpg, PFpg) = 0.668 \u2014 same-game combos restricted (see correlation policy)."
+        },
+        "G6_edge_vs_market": {
+          "status": "NOT_COMPUTABLE",
+          "detail": "No market line captured (market lines are not an official source \u2014 blank by rule)."
+        },
+        "G7_stake_cap": {
+          "status": "PASS",
+          "detail": "Kelly-style cap: max 2% of bankroll per single play (assumption, flagged F-07)."
+        }
+      },
+      "gates_all_pass": false,
+      "inputs": {
+        "away": {
+          "PFpg": 23.57,
+          "PApg": 24.29,
+          "passYDSpg": 266.71,
+          "rushYDSpg": 84.71
+        },
+        "home": {
+          "PFpg": 14.14,
+          "PApg": 25.0,
+          "passYDSpg": 199.71,
+          "rushYDSpg": 111.14
+        }
+      },
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "inputs_source_urls": [
+        "https://www.nfl.com/standings/",
+        "https://www.nfl.com/stats/team-stats/offense/passing/2026/reg/all",
+        "https://www.nfl.com/stats/team-stats/offense/rushing/2026/reg/all",
+        "https://www.nfl.com/stats/team-stats/defense/passing/2026/reg/all",
+        "https://www.nfl.com/stats/team-stats/defense/rushing/2026/reg/all"
+      ]
+    },
+    {
+      "game": "LV at SF",
+      "away": "LV",
+      "home": "SF",
+      "date": "2026-11-08",
+      "kickoff_et": "4:25 PM",
+      "network": "FOX",
+      "venue": "Levi's Stadium, Santa Clara, CA",
+      "game_url": "https://www.nfl.com/games/raiders-at-49ers-2026-reg-9",
+      "label": "",
+      "away_record": "4-4-0",
+      "home_record": "6-1-0",
+      "proj_away": 22.49,
+      "proj_home": 29.7,
+      "model_spread_home": 7.21,
+      "model_spread_rendered": "SF +7.2",
+      "model_total": 52.19,
+      "market_spread_home": null,
+      "market_verified": false,
+      "market_reference_withheld": true,
+      "edge_pts": null,
+      "candidate_side": null,
+      "reference_side": null,
+      "candidate": false,
+      "gates": {
+        "G1_official_sources_only": {
+          "status": "PASS",
+          "detail": "All model inputs from nfl.com / nextgenstats.nfl.com captures dated 2026-11-03."
+        },
+        "G2_data_freshness_le_7d": {
+          "status": "PASS",
+          "detail": "Standings/stats through Week 8 (final Nov 2); captured Nov 3."
+        },
+        "G3_sample_size_ge_4_games": {
+          "status": "PASS",
+          "detail": "LV GP=8, SF GP=7 (min required 4)."
+        },
+        "G4_injury_news_check": {
+          "status": "CONDITIONAL",
+          "detail": "Week 9 official injury report not transcribed for this game (F-22); Week 8 report is the latest transcribed. Re-check official report before acting."
+        },
+        "G5_correlation_check": {
+          "status": "PASS",
+          "detail": "Single-game play; no parlay legs. Same-game parlay correlation proxy r(pass YDSpg, PFpg) = 0.668 \u2014 same-game combos restricted (see correlation policy)."
+        },
+        "G6_edge_vs_market": {
+          "status": "NOT_COMPUTABLE",
+          "detail": "A third-party reference line exists in data/market-lines.json but is WITHHELD: it is unverified (F-05), so it is not displayed or used. No official market line exists, so no edge can be validated."
+        },
+        "G7_stake_cap": {
+          "status": "PASS",
+          "detail": "Kelly-style cap: max 2% of bankroll per single play (assumption, flagged F-07)."
+        }
+      },
+      "gates_all_pass": false,
+      "inputs": {
+        "away": {
+          "PFpg": 27.62,
+          "PApg": 28.75,
+          "passYDSpg": 273.12,
+          "rushYDSpg": 77.25
+        },
+        "home": {
+          "PFpg": 28.14,
+          "PApg": 19.86,
+          "passYDSpg": 249.71,
+          "rushYDSpg": 127.43
+        }
+      },
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "inputs_source_urls": [
+        "https://www.nfl.com/standings/",
+        "https://www.nfl.com/stats/team-stats/offense/passing/2026/reg/all",
+        "https://www.nfl.com/stats/team-stats/offense/rushing/2026/reg/all",
+        "https://www.nfl.com/stats/team-stats/defense/passing/2026/reg/all",
+        "https://www.nfl.com/stats/team-stats/defense/rushing/2026/reg/all"
+      ]
+    },
+    {
+      "game": "GB at NE",
+      "away": "GB",
+      "home": "NE",
+      "date": "2026-11-08",
+      "kickoff_et": "4:25 PM",
+      "network": "FOX",
+      "venue": "Gillette Stadium, Foxborough, MA",
+      "game_url": "https://www.nfl.com/games/packers-at-patriots-2026-reg-9",
+      "label": "",
+      "away_record": "5-3-0",
+      "home_record": "5-3-0",
+      "proj_away": 19.56,
+      "proj_home": 23.0,
+      "model_spread_home": 3.44,
+      "model_spread_rendered": "NE +3.4",
+      "model_total": 42.56,
+      "market_spread_home": null,
+      "market_verified": false,
+      "market_reference_withheld": false,
+      "edge_pts": null,
+      "candidate_side": null,
+      "reference_side": null,
+      "candidate": false,
+      "gates": {
+        "G1_official_sources_only": {
+          "status": "PASS",
+          "detail": "All model inputs from nfl.com / nextgenstats.nfl.com captures dated 2026-11-03."
+        },
+        "G2_data_freshness_le_7d": {
+          "status": "PASS",
+          "detail": "Standings/stats through Week 8 (final Nov 2); captured Nov 3."
+        },
+        "G3_sample_size_ge_4_games": {
+          "status": "PASS",
+          "detail": "GB GP=8, NE GP=8 (min required 4)."
+        },
+        "G4_injury_news_check": {
+          "status": "CONDITIONAL",
+          "detail": "Week 9 official injury report not transcribed for this game (F-22); Week 8 report is the latest transcribed. Re-check official report before acting."
+        },
+        "G5_correlation_check": {
+          "status": "PASS",
+          "detail": "Single-game play; no parlay legs. Same-game parlay correlation proxy r(pass YDSpg, PFpg) = 0.668 \u2014 same-game combos restricted (see correlation policy)."
+        },
+        "G6_edge_vs_market": {
+          "status": "NOT_COMPUTABLE",
+          "detail": "No market line captured (market lines are not an official source \u2014 blank by rule)."
+        },
+        "G7_stake_cap": {
+          "status": "PASS",
+          "detail": "Kelly-style cap: max 2% of bankroll per single play (assumption, flagged F-07)."
+        }
+      },
+      "gates_all_pass": false,
+      "inputs": {
+        "away": {
+          "PFpg": 21.38,
+          "PApg": 20.5,
+          "passYDSpg": 280.75,
+          "rushYDSpg": 60.62
+        },
+        "home": {
+          "PFpg": 23.0,
+          "PApg": 20.25,
+          "passYDSpg": 253.62,
+          "rushYDSpg": 123.12
+        }
+      },
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "inputs_source_urls": [
+        "https://www.nfl.com/standings/",
+        "https://www.nfl.com/stats/team-stats/offense/passing/2026/reg/all",
+        "https://www.nfl.com/stats/team-stats/offense/rushing/2026/reg/all",
+        "https://www.nfl.com/stats/team-stats/defense/passing/2026/reg/all",
+        "https://www.nfl.com/stats/team-stats/defense/rushing/2026/reg/all"
+      ]
+    },
+    {
+      "game": "AZ at SEA",
+      "away": "AZ",
+      "home": "SEA",
+      "date": "2026-11-08",
+      "kickoff_et": "4:25 PM",
+      "network": "FOX",
+      "venue": "Lumen Field, Seattle, WA",
+      "game_url": "https://www.nfl.com/games/cardinals-at-seahawks-2026-reg-9",
+      "label": "",
+      "away_record": "3-5-0",
+      "home_record": "4-4-0",
+      "proj_away": 19.62,
+      "proj_home": 27.69,
+      "model_spread_home": 8.06,
+      "model_spread_rendered": "SEA +8.1",
+      "model_total": 47.31,
+      "market_spread_home": null,
+      "market_verified": false,
+      "market_reference_withheld": false,
+      "edge_pts": null,
+      "candidate_side": null,
+      "reference_side": null,
+      "candidate": false,
+      "gates": {
+        "G1_official_sources_only": {
+          "status": "PASS",
+          "detail": "All model inputs from nfl.com / nextgenstats.nfl.com captures dated 2026-11-03."
+        },
+        "G2_data_freshness_le_7d": {
+          "status": "PASS",
+          "detail": "Standings/stats through Week 8 (final Nov 2); captured Nov 3."
+        },
+        "G3_sample_size_ge_4_games": {
+          "status": "PASS",
+          "detail": "AZ GP=8, SEA GP=8 (min required 4)."
+        },
+        "G4_injury_news_check": {
+          "status": "CONDITIONAL",
+          "detail": "Week 9 official injury report not transcribed for this game (F-22); Week 8 report is the latest transcribed. Re-check official report before acting."
+        },
+        "G5_correlation_check": {
+          "status": "PASS",
+          "detail": "Single-game play; no parlay legs. Same-game parlay correlation proxy r(pass YDSpg, PFpg) = 0.668 \u2014 same-game combos restricted (see correlation policy)."
+        },
+        "G6_edge_vs_market": {
+          "status": "NOT_COMPUTABLE",
+          "detail": "No market line captured (market lines are not an official source \u2014 blank by rule)."
+        },
+        "G7_stake_cap": {
+          "status": "PASS",
+          "detail": "Kelly-style cap: max 2% of bankroll per single play (assumption, flagged F-07)."
+        }
+      },
+      "gates_all_pass": false,
+      "inputs": {
+        "away": {
+          "PFpg": 21.88,
+          "PApg": 29.75,
+          "passYDSpg": 239.25,
+          "rushYDSpg": 109.25
+        },
+        "home": {
+          "PFpg": 23.12,
+          "PApg": 19.88,
+          "passYDSpg": 239.25,
+          "rushYDSpg": 109.62
+        }
+      },
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "inputs_source_urls": [
+        "https://www.nfl.com/standings/",
+        "https://www.nfl.com/stats/team-stats/offense/passing/2026/reg/all",
+        "https://www.nfl.com/stats/team-stats/offense/rushing/2026/reg/all",
+        "https://www.nfl.com/stats/team-stats/defense/passing/2026/reg/all",
+        "https://www.nfl.com/stats/team-stats/defense/rushing/2026/reg/all"
+      ]
+    },
+    {
+      "game": "TB at CHI",
+      "away": "TB",
+      "home": "CHI",
+      "date": "2026-11-08",
+      "kickoff_et": "8:20 PM",
+      "network": "NBC",
+      "venue": "Soldier Field, Chicago, IL",
+      "game_url": "https://www.nfl.com/games/buccaneers-at-bears-2026-reg-9",
+      "label": "Sunday Night Football",
+      "away_record": "3-5-0",
+      "home_record": "6-2-0",
+      "proj_away": 19.88,
+      "proj_home": 24.06,
+      "model_spread_home": 4.19,
+      "model_spread_rendered": "CHI +4.2",
+      "model_total": 43.94,
+      "market_spread_home": null,
+      "market_verified": false,
+      "market_reference_withheld": false,
+      "edge_pts": null,
+      "candidate_side": null,
+      "reference_side": null,
+      "candidate": false,
+      "gates": {
+        "G1_official_sources_only": {
+          "status": "PASS",
+          "detail": "All model inputs from nfl.com / nextgenstats.nfl.com captures dated 2026-11-03."
+        },
+        "G2_data_freshness_le_7d": {
+          "status": "PASS",
+          "detail": "Standings/stats through Week 8 (final Nov 2); captured Nov 3."
+        },
+        "G3_sample_size_ge_4_games": {
+          "status": "PASS",
+          "detail": "TB GP=8, CHI GP=8 (min required 4)."
+        },
+        "G4_injury_news_check": {
+          "status": "CONDITIONAL",
+          "detail": "Week 9 official injury report not transcribed for this game (F-22); Week 8 report is the latest transcribed. Re-check official report before acting."
+        },
+        "G5_correlation_check": {
+          "status": "PASS",
+          "detail": "Single-game play; no parlay legs. Same-game parlay correlation proxy r(pass YDSpg, PFpg) = 0.668 \u2014 same-game combos restricted (see correlation policy)."
+        },
+        "G6_edge_vs_market": {
+          "status": "NOT_COMPUTABLE",
+          "detail": "No market line captured (market lines are not an official source \u2014 blank by rule)."
+        },
+        "G7_stake_cap": {
+          "status": "PASS",
+          "detail": "Kelly-style cap: max 2% of bankroll per single play (assumption, flagged F-07)."
+        }
+      },
+      "gates_all_pass": false,
+      "inputs": {
+        "away": {
+          "PFpg": 22.25,
+          "PApg": 18.88,
+          "passYDSpg": 147.5,
+          "rushYDSpg": 168.62
+        },
+        "home": {
+          "PFpg": 26.75,
+          "PApg": 20.0,
+          "passYDSpg": 253.88,
+          "rushYDSpg": 150.75
+        }
+      },
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "inputs_source_urls": [
+        "https://www.nfl.com/standings/",
+        "https://www.nfl.com/stats/team-stats/offense/passing/2026/reg/all",
+        "https://www.nfl.com/stats/team-stats/offense/rushing/2026/reg/all",
+        "https://www.nfl.com/stats/team-stats/defense/passing/2026/reg/all",
+        "https://www.nfl.com/stats/team-stats/defense/rushing/2026/reg/all"
+      ]
+    },
+    {
+      "game": "BUF at MIN",
+      "away": "BUF",
+      "home": "MIN",
+      "date": "2026-11-09",
+      "kickoff_et": "8:15 PM",
+      "network": "ESPN",
+      "venue": "U.S. Bank Stadium, Minneapolis, MN",
+      "game_url": "https://www.nfl.com/games/bills-at-vikings-2026-reg-9",
+      "label": "Monday Night Football",
+      "away_record": "6-1-0",
+      "home_record": "6-1-0",
+      "proj_away": 22.04,
+      "proj_home": 24.18,
+      "model_spread_home": 2.14,
+      "model_spread_rendered": "MIN +2.1",
+      "model_total": 46.21,
+      "market_spread_home": null,
+      "market_verified": false,
+      "market_reference_withheld": true,
+      "edge_pts": null,
+      "candidate_side": null,
+      "reference_side": null,
+      "candidate": false,
+      "gates": {
+        "G1_official_sources_only": {
+          "status": "PASS",
+          "detail": "All model inputs from nfl.com / nextgenstats.nfl.com captures dated 2026-11-03."
+        },
+        "G2_data_freshness_le_7d": {
+          "status": "PASS",
+          "detail": "Standings/stats through Week 8 (final Nov 2); captured Nov 3."
+        },
+        "G3_sample_size_ge_4_games": {
+          "status": "PASS",
+          "detail": "BUF GP=7, MIN GP=7 (min required 4)."
+        },
+        "G4_injury_news_check": {
+          "status": "CONDITIONAL",
+          "detail": "Week 9 official injury report not transcribed for this game (F-22); Week 8 report is the latest transcribed. Re-check official report before acting."
+        },
+        "G5_correlation_check": {
+          "status": "PASS",
+          "detail": "Single-game play; no parlay legs. Same-game parlay correlation proxy r(pass YDSpg, PFpg) = 0.668 \u2014 same-game combos restricted (see correlation policy)."
+        },
+        "G6_edge_vs_market": {
+          "status": "NOT_COMPUTABLE",
+          "detail": "A third-party reference line exists in data/market-lines.json but is WITHHELD: it is unverified (F-05), so it is not displayed or used. No official market line exists, so no edge can be validated."
+        },
+        "G7_stake_cap": {
+          "status": "PASS",
+          "detail": "Kelly-style cap: max 2% of bankroll per single play (assumption, flagged F-07)."
+        }
+      },
+      "gates_all_pass": false,
+      "inputs": {
+        "away": {
+          "PFpg": 33.29,
+          "PApg": 25.86,
+          "passYDSpg": 256.14,
+          "rushYDSpg": 148.43
+        },
+        "home": {
+          "PFpg": 20.0,
+          "PApg": 13.29,
+          "passYDSpg": 185.43,
+          "rushYDSpg": 113.86
+        }
+      },
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "inputs_source_urls": [
+        "https://www.nfl.com/standings/",
+        "https://www.nfl.com/stats/team-stats/offense/passing/2026/reg/all",
+        "https://www.nfl.com/stats/team-stats/offense/rushing/2026/reg/all",
+        "https://www.nfl.com/stats/team-stats/defense/passing/2026/reg/all",
+        "https://www.nfl.com/stats/team-stats/defense/rushing/2026/reg/all"
+      ]
+    }
+  ]
+}
