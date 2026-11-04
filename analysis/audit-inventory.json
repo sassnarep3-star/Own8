@@ -2,6 +2,22 @@
   "as_of": "2026-11-04",
   "rows": [
     {
+      "file": "injuries-2026-week9-candidates.json",
+      "row": 1,
+      "label": "CIN at ATL",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg9"
+    },
+    {
+      "file": "injuries-2026-week9-candidates.json",
+      "row": 2,
+      "label": "NYG at PHI",
+      "values": null,
+      "status": "UNVERIFIED \u2014 legacy values withheld",
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg9"
+    },
+    {
       "file": "market-lines.json",
       "row": 1,
       "label": "Legacy market row 1",

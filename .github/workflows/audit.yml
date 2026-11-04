@@ -31,7 +31,7 @@ jobs:
           cp index.html .nojekyll _site/
           cp -r pages assets docs _site/
           cp data/audit-snapshot.json data/sources.json data/flagged.json _site/data/
-          cp analysis/*.json _site/analysis/
+          cp analysis/audit-inventory.json analysis/repo-audit.json analysis/correlations.json analysis/model-lines-week9.json analysis/prop-signals-week9.json analysis/strategies.json analysis/leaderboard.json analysis/validation-gates.json analysis/link-check.json _site/analysis/
           if [ -d audit ]; then cp -r audit _site/; fi
       - uses: actions/upload-pages-artifact@v3
         with:

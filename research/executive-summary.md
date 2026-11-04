@@ -9,7 +9,7 @@ Own8 now separates verified observations, derived benchmarks, proposed methods a
 3. Three cross-sectional team correlations are reproducible. They cannot identify parlay bet-event dependence or establish causality, forecasting skill or independence. Those event estimates remain null.
 4. Eight strategy designs span single spreads, totals, moneylines, QB/receiver/RB props, cross-game parlays, and same-game prop combos. All are blocked by missing evidence. No historical wins, ROI, tiers or prizes are fabricated.
 5. The competition proposes rewards for conservative, family-adjusted out-of-sample proper-score improvement over a fixed baseline after all gates pass. It does not reward a lucky short-term ROI streak. These are project rules, not official NFL/NIST rules.
-6. The dashboard publishes all findings, entry inventories and 28 review flags (A01–A15 and retained F-01–F-13 identifiers). Each canonical table row links an official source/reference or an explicitly labeled verification target.
+6. The dashboard publishes all findings, entry inventories and 34 review flags (A01–A15, retained F-01–F-13 identifiers, and concurrent F-20–F-25 records). Each canonical table row links an official source/reference or an explicitly labeled verification target.
 7. Python standard-library automation rebuilds/checks the dated snapshot. Scheduled CI is not a live acquisition feed or future results-grading engine. Missing future inputs fail closed.
 
 ## Corrections
