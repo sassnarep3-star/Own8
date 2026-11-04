@@ -11,8 +11,8 @@ import random
 import statistics as st
 
 ROOT = Path(__file__).resolve().parents[1]
-EVIDENCE = ROOT / 'audit/evidence'
-OUTPUT = ROOT / 'audit/results.json'
+EVIDENCE = ROOT / 'strict/evidence'
+OUTPUT = ROOT / 'strict/results.json'
 AS_OF = '2026-11-04'
 BDB = 'https://github.com/nfl-football-ops/Big-Data-Bowl/blob/9ad0b4b2ea36697e29e44e2399512cc1ce70358c/Data/games.csv'
 STANDINGS = 'https://www.nfl.com/standings/'

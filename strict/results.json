@@ -3,7 +3,7 @@
   "policy": "Facts observed / derived descriptive / proposed / unverified are separate. No strategy can eliminate chance.",
   "manifest": [
     {
-      "file": "audit/evidence/games-2017.csv",
+      "file": "strict/evidence/games-2017.csv",
       "upstream_commit": "9ad0b4b2ea36697e29e44e2399512cc1ce70358c",
       "sha256": "f5bbd13d9c711c07e3d4a5b674eb25c1f5f9ced099729337bfd366b5229199ed",
       "bytes": 15825,
@@ -12,7 +12,7 @@
       "checked_at": "2026-11-04"
     },
     {
-      "file": "audit/evidence/bdb-schema.md",
+      "file": "strict/evidence/bdb-schema.md",
       "upstream_commit": "9ad0b4b2ea36697e29e44e2399512cc1ce70358c",
       "sha256": "b65a93f6daf67c879d73f8563dc5a32878bb7aee91a606883160dc9f7c274394",
       "bytes": 5816,
@@ -21,7 +21,7 @@
       "checked_at": "2026-11-04"
     },
     {
-      "file": "audit/evidence/bdb-readme.md",
+      "file": "strict/evidence/bdb-readme.md",
       "upstream_commit": "9ad0b4b2ea36697e29e44e2399512cc1ce70358c",
       "sha256": "c8fa7443aa7cdbc4a17482c19b3df7fee91db7b6483428b061491e171c528690",
       "bytes": 6225,

@@ -70,7 +70,7 @@ class StrictTests(unittest.TestCase):
   self.assertAlmostEqual(a.expected_return(1/2.1,0,2.1),0)
   with self.assertRaises(ValueError):a.expected_return(.9,.2,2)
  def test_deterministic_analysis(self):
-  before=(R/'audit/results.json').read_bytes();a.run();self.assertEqual(before,(R/'audit/results.json').read_bytes())
+  before=(R/'strict/results.json').read_bytes();a.run();self.assertEqual(before,(R/'strict/results.json').read_bytes())
  def test_partial_injuries_unknown(self):
   rows=a.load('injuries-observed.json')['players'];self.assertEqual(len(rows),8)
   for p in rows:self.assertIsNone(p['injury']);self.assertIsNone(p['game_status'])

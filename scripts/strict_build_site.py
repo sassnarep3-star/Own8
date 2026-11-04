@@ -19,7 +19,7 @@ def table(headers,rows,caption):
 def badge(s):return f'<span class="tag {"warn" if any(k in s for k in ["BLOCK","UNVERIFIED","REVIEW","PARTIAL"]) else "good" if "OFFICIAL" in s else "neutral"}">{esc(s)}</span>'
 def note(t):return '<div class="notice">'+t+'</div>'
 def build():
- d=run(); flags=json.loads((R/'audit/flags.json').read_text()); inv=json.loads((R/'audit/repository-inventory.json').read_text())
+ d=run(); flags=json.loads((R/'strict/flags.json').read_text()); inv=json.loads((R/'strict/repository-inventory.json').read_text())
  out=R/'pages'; out.mkdir(exist_ok=True)
  contents={}
  contents['index']=('The evidence comes first.','An NFL research workspace for originating lines, testing signals and rewarding demonstrated skill—not a lucky run.',
@@ -92,7 +92,7 @@ def build():
  ['Recognition','Proposed non-cash points: first = 3, second = 2, third = 1 per completed eligible contest. Ties share place; no eligible entries means no awards. Not yet activated.',source(NIST)],
  ['Drawdown / overlap','Publish realized and expected drawdowns, game/player exposure and duplicate-signal families; failed gates suspend rather than silently reset history.',source(NIST)]
  ],'Reward design • Own8 policy, not a claim from cited institutions'))
- inj=json.loads((R/'audit/evidence/injuries-observed.json').read_text())
+ inj=json.loads((R/'strict/evidence/injuries-observed.json').read_text())
  contents['injuries']=('Availability & injury evidence','Week 9 official page is now accessible. Practice participation is not final game status.',
  note(esc(inj['scope'])+' Earlier November 3 report-availability notes are superseded. Do not interpret “No Injuries Reported” or an empty status as cleared to play.')
  +table(['Team','Player','Practice participation','Injury','Game status','Classification','Source'],[[esc(p['team']),esc(p['player']),esc(p['practice']),'','',badge('PARTIAL OBSERVATION'),source(p['source_url'])] for p in inj['players']],'Selected DNP observations only • checked 2026-11-04')
@@ -137,7 +137,7 @@ def build():
  ['Washington regulator','Local official sports-wagering information','Retrieved 2026-11-04; legal eligibility not assessed.',source('https://wsgc.wa.gov/tribal-partnerships/sports-wagering')]
  ],'Web evidence ledger • snapshot date 2026-11-04')
  +table(['Immutable file','Bytes','SHA-256','Official source'],[[esc(m['file']),str(m['bytes']),'<code>'+esc(m['sha256'])+'</code>',source(m['source_url'])] for m in manifest],'NFL repository files • pinned commit 9ad0b4b2ea36697e29e44e2399512cc1ce70358c')
- +'<div class="downloads"><a href="../audit/results.json">Analysis JSON ↓</a><a href="../audit/flags.json">Review register ↓</a><a href="../audit/repository-inventory.json">File audit & digests ↓</a><a href="../audit/evidence/manifest.json">Evidence manifest ↓</a><a href="../audit/evidence/standings-observed.json">Standings observation ↓</a><a href="../audit/evidence/web-checks.json">Web-check log ↓</a><a href="../audit/evidence/games-2017.csv">Official historical CSV ↓</a></div>')
+ +'<div class="downloads"><a href="../strict/results.json">Analysis JSON ↓</a><a href="../strict/flags.json">Review register ↓</a><a href="../strict/repository-inventory.json">File audit & digests ↓</a><a href="../strict/evidence/manifest.json">Evidence manifest ↓</a><a href="../strict/evidence/standings-observed.json">Standings observation ↓</a><a href="../strict/evidence/web-checks.json">Web-check log ↓</a><a href="../strict/evidence/games-2017.csv">Official historical CSV ↓</a></div>')
  legacy=json.loads((R/'data/flagged.json').read_text())['items']
  legacy_rows=[]
  for f in legacy:
@@ -176,7 +176,7 @@ def build():
         target=Path(__import__('os').path.relpath(out/'flagged.html',p.parent)).as_posix()
         p.write_text(redirect(target))
  for filename,rows in [('model-lines-week9.json',{'games':d['current_lines']}),('correlations.json',{'correlations':d['correlations']}),('leaderboard.json',{'strategies':d['strategies'],'qualified_strategies':0}),('strategies.json',{'strategies':d['strategies']}),('prop-signals-week9.json',{'prop_signals':[]})]:
-    (R/'analysis'/filename).write_text(json.dumps({'as_of':d['as_of'],'status':'SUPERSEDES LEGACY — STRICT AUDIT','notice':'No current actionable values or skill-qualified entries; see audit/results.json.',**rows},indent=2)+'\n')
+    (R/'analysis'/filename).write_text(json.dumps({'as_of':d['as_of'],'status':'SUPERSEDES LEGACY — STRICT AUDIT','notice':'No current actionable values or skill-qualified entries; see strict/results.json.',**rows},indent=2)+'\n')
  print('Built',len(PAGES),'dashboard pages, compatibility redirects, quarantined duplicate HTML routes.')
 
 def redirect(target):

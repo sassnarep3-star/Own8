@@ -48,7 +48,7 @@ def check():
     rows+=1
     if not any(official(link) for link in row):errors.append(f'{p.relative_to(R)}: row lacks official context/source')
  result={'checked_at':'2026-11-04','html_pages':len(docs),'links_checked':count,'active_table_rows':rows,'errors':errors,'external_http_liveness':'NOT TESTED by this checker; see dated source retrieval ledger','status':'PASS' if not errors else 'FAIL'}
- (R/'audit/link-check.json').write_text(json.dumps(result,indent=2)+'\n')
+ (R/'strict/link-check.json').write_text(json.dumps(result,indent=2)+'\n')
  (R/'analysis/link-check.json').write_text(json.dumps(result,indent=2)+'\n')
  print(json.dumps(result,indent=2))
  return result

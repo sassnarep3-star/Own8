@@ -60,7 +60,7 @@
     "title": "Week 9 injury page now published",
     "finding": "Official Week 9 page was retrieved on Nov 4. Eight selected DNP entries captured; blank diagnoses/game statuses retained. Prior not-published statement is superseded, not asserted false for Nov 3.",
     "source_url": "https://www.nfl.com/injuries/league/2026/reg9",
-    "evidence": "audit/evidence/injuries-observed.json",
+    "evidence": "strict/evidence/injuries-observed.json",
     "status": "NEEDS REVIEW",
     "value": null,
     "source_scope": "Official context; code-audit finding is supported by the referenced local evidence, not an NFL endorsement."
@@ -82,7 +82,7 @@
     "title": "Standings recheck has explicit limits",
     "finding": "All 32 names and seven numeric fields (224 cells) were re-observed and compared. HOME/ROAD/DIV/CONF tail labels are not re-certified in this session.",
     "source_url": "https://www.nfl.com/standings/",
-    "evidence": "audit/evidence/standings-observed.json",
+    "evidence": "strict/evidence/standings-observed.json",
     "status": "NEEDS REVIEW",
     "value": null,
     "source_scope": "Official context; code-audit finding is supported by the referenced local evidence, not an NFL endorsement."
@@ -93,7 +93,7 @@
     "title": "Historical benchmark is not a betting backtest",
     "finding": "91 official 2017 games, only first six weeks; 60 rolling-week test predictions. One partial season, repeated teams and four test-week clusters cannot establish a persistent edge. No odds/ROI/CLV inferred.",
     "source_url": "https://github.com/nfl-football-ops/Big-Data-Bowl/blob/9ad0b4b2ea36697e29e44e2399512cc1ce70358c/Data/games.csv",
-    "evidence": "audit/results.json",
+    "evidence": "strict/results.json",
     "status": "NEEDS REVIEW",
     "value": null,
     "source_scope": "Official context; code-audit finding is supported by the referenced local evidence, not an NFL endorsement."
@@ -159,7 +159,7 @@
     "title": "Legacy outputs superseded",
     "finding": "Old analysis/data/research captures are provenance, not current recommendations. Duplicate legacy HTML routes redirect to Flagged for Review. Raw legacy files remain inspectable, explicitly not re-certified.",
     "source_url": "https://www.nfl.com/standings/",
-    "evidence": "audit/repository-inventory.json",
+    "evidence": "strict/repository-inventory.json",
     "status": "NEEDS REVIEW",
     "value": null,
     "source_scope": "Official context; code-audit finding is supported by the referenced local evidence, not an NFL endorsement."
@@ -181,7 +181,7 @@
     "title": "External-link verification limits",
     "finding": "New source pages were retrieved or official GitHub files downloaded. Local link checks verify paths/anchors and official URL patterns, not the future availability or every endpoint in retained legacy captures.",
     "source_url": "https://github.com/nfl-football-ops/Big-Data-Bowl",
-    "evidence": "audit/evidence/web-checks.json",
+    "evidence": "strict/evidence/web-checks.json",
     "status": "NEEDS REVIEW",
     "value": null,
     "source_scope": "Official context; code-audit finding is supported by the referenced local evidence, not an NFL endorsement."
