@@ -33,6 +33,7 @@ jobs:
           cp data/audit-snapshot.json data/sources.json data/flagged.json _site/data/
           cp analysis/audit-inventory.json analysis/repo-audit.json analysis/correlations.json analysis/model-lines-week9.json analysis/prop-signals-week9.json analysis/strategies.json analysis/leaderboard.json analysis/validation-gates.json analysis/link-check.json _site/analysis/
           if [ -d audit ]; then cp -r audit _site/; fi
+          if [ -d strict ]; then cp -r strict _site/; fi
       - uses: actions/upload-artifact@v4
         with:
           name: audited-dashboard
