@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sassnarep3-star.github.io/Own8/competition/schema/prediction.schema.json",
+  "title": "Own8 paper-prediction payload v1 (not self-certified evidence)",
+  "description": "Structural contract only. All admission gates are independently checked by ledger.py; schema compliance never establishes verified prices, legality, skill or eligibility.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["entry_id", "strategy_id", "strategy_version", "training_cutoff_utc", "legs", "stake_units", "rulebook_id"],
+  "properties": {
+    "entry_id": {"$ref": "#/$defs/reference"},
+    "strategy_id": {"$ref": "#/$defs/reference"},
+    "strategy_version": {"$ref": "#/$defs/reference"},
+    "training_cutoff_utc": {"type": "string", "format": "date-time", "description": "Explicit timezone required at runtime; must precede the server publication receipt."},
+    "stake_units": {"$ref": "#/$defs/decimal", "description": "Paper units, not money. Runtime admission additionally requires >0 and <=1, with <=10 open units."},
+    "rulebook_id": {"$ref": "#/$defs/reference"},
+    "combined_quote_id": {"$ref": "#/$defs/reference"},
+    "joint_report_id": {"$ref": "#/$defs/reference"},
+    "model_probability": {"$ref": "#/$defs/decimal", "description": "Optional research estimate. Runtime enforces [0,1]; never an official factual probability."},
+    "legs": {
+      "type": "array", "minItems": 1, "maxItems": 2,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["event_id", "market", "quote_id"],
+        "properties": {
+          "event_id": {"$ref": "#/$defs/reference"},
+          "quote_id": {"$ref": "#/$defs/reference"},
+          "market": {"enum": ["moneyline", "spread", "total", "player_prop"]},
+          "team": {"$ref": "#/$defs/reference"},
+          "side": {"enum": ["over", "under"]},
+          "line": {"$ref": "#/$defs/decimal"},
+          "player_id": {"$ref": "#/$defs/reference"},
+          "stat": {"$ref": "#/$defs/reference"}
+        },
+        "allOf": [
+          {"if": {"properties": {"market": {"enum": ["moneyline", "spread"]}}}, "then": {"required": ["team"]}},
+          {"if": {"properties": {"market": {"enum": ["spread", "total", "player_prop"]}}}, "then": {"required": ["line"]}},
+          {"if": {"properties": {"market": {"enum": ["total", "player_prop"]}}}, "then": {"required": ["side"]}},
+          {"if": {"properties": {"market": {"const": "player_prop"}}}, "then": {"required": ["player_id", "stat"]}}
+        ]
+      }
+    }
+  },
+  "$defs": {
+    "reference": {"type": "string", "minLength": 1, "pattern": "\\S"},
+    "decimal": {"oneOf": [{"type": "number"}, {"type": "string", "pattern": "^[+-]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)(?:[eE][+-]?[0-9]+)?$"}]}
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "correlations": [
+    {
+      "pair": "Net points/game vs win percentage",
+      "n": 32,
+      "r": 0.8431416322632224,
+      "status": "DESCRIPTIVE_ONLY",
+      "unit": "32 teams, same season snapshot",
+      "source_ids": [
+        "NFL-STANDINGS",
+        "SCIPY-R"
+      ],
+      "ci_low": null,
+      "ci_high": null,
+      "bet_correlation": false,
+      "warning": "Descriptive association, not causal/predictive skill and not a wager-outcome correlation; inferential interval withheld without validated independent clusters."
+    },
+    {
+      "pair": "Points for/game vs win percentage",
+      "n": 32,
+      "r": 0.6177898151841543,
+      "status": "DESCRIPTIVE_ONLY",
+      "unit": "32 teams, same season snapshot",
+      "source_ids": [
+        "NFL-STANDINGS",
+        "SCIPY-R"
+      ],
+      "ci_low": null,
+      "ci_high": null,
+      "bet_correlation": false,
+      "warning": "Descriptive association, not causal/predictive skill and not a wager-outcome correlation; inferential interval withheld without validated independent clusters."
+    },
+    {
+      "pair": "Home final points vs away final points",
+      "n": 14,
+      "r": 0.1799599230398692,
+      "status": "DESCRIPTIVE_ONLY",
+      "unit": "14 games, Week 8 only; one week cluster",
+      "source_ids": [
+        "NFL-SCORES",
+        "SCIPY-R"
+      ],
+      "ci_low": null,
+      "ci_high": null,
+      "bet_correlation": false,
+      "warning": "Descriptive association, not causal/predictive skill and not a wager-outcome correlation; inferential interval withheld without validated independent clusters."
+    },
+    {
+      "pair": "Two spread-cover indicators in different games",
+      "r": null,
+      "n": 0,
+      "ci_low": null,
+      "ci_high": null,
+      "unit": "No matched verified pregame-threshold sample",
+      "status": "UNVERIFIED",
+      "bet_correlation": true,
+      "source_ids": [
+        "SCIPY-R",
+        "NFL-SCORES",
+        "NFL-NGS"
+      ]
+    },
+    {
+      "pair": "Spread-cover and total-over indicators in one game",
+      "r": null,
+      "n": 0,
+      "ci_low": null,
+      "ci_high": null,
+      "unit": "No matched verified pregame-threshold sample",
+      "status": "UNVERIFIED",
+      "bet_correlation": true,
+      "source_ids": [
+        "SCIPY-R",
+        "NFL-SCORES",
+        "NFL-NGS"
+      ]
+    },
+    {
+      "pair": "QB passing-over and WR receiving-over indicators",
+      "r": null,
+      "n": 0,
+      "ci_low": null,
+      "ci_high": null,
+      "unit": "No matched verified pregame-threshold sample",
+      "status": "UNVERIFIED",
+      "bet_correlation": true,
+      "source_ids": [
+        "SCIPY-R",
+        "NFL-SCORES",
+        "NFL-NGS"
+      ]
+    },
+    {
+      "pair": "RB rushing-over and receiving-over indicators",
+      "r": null,
+      "n": 0,
+      "ci_low": null,
+      "ci_high": null,
+      "unit": "No matched verified pregame-threshold sample",
+      "status": "UNVERIFIED",
+      "bet_correlation": true,
+      "source_ids": [
+        "SCIPY-R",
+        "NFL-SCORES",
+        "NFL-NGS"
+      ]
+    }
+  ]
+}

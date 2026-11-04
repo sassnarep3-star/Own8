@@ -1,0 +1,275 @@
+{
+  "status": "UNVALIDATED_REFERENCE_ONLY",
+  "lines": [
+    {
+      "event_id": "jaguars-at-ravens-2026-reg-9",
+      "away": "JAX",
+      "home": "BAL",
+      "home_margin": -7.571428571428569,
+      "home_handicap": 7.571428571428569,
+      "total": 45.80357142857143,
+      "home_win_probability": null,
+      "status": "UNVALIDATED_REFERENCE_BASELINE",
+      "candidate": false,
+      "edge": null,
+      "uncertainty": null,
+      "source_ids": [
+        "NFL-STANDINGS",
+        "NFL-SCHEDULE"
+      ],
+      "method": "B0: away=(away PF/GP + home PA/GP)/2; home=(home PF/GP + away PA/GP)/2. HFA=0 project benchmark. No validated probability/edge."
+    },
+    {
+      "event_id": "bengals-at-falcons-2026-reg-9",
+      "away": "CIN",
+      "home": "ATL",
+      "home_margin": -4.553571428571431,
+      "home_handicap": 4.553571428571431,
+      "total": 48.5,
+      "home_win_probability": null,
+      "status": "UNVALIDATED_REFERENCE_BASELINE",
+      "candidate": false,
+      "edge": null,
+      "uncertainty": null,
+      "source_ids": [
+        "NFL-STANDINGS",
+        "NFL-SCHEDULE"
+      ],
+      "method": "B0: away=(away PF/GP + home PA/GP)/2; home=(home PF/GP + away PA/GP)/2. HFA=0 project benchmark. No validated probability/edge."
+    },
+    {
+      "event_id": "broncos-at-panthers-2026-reg-9",
+      "away": "DEN",
+      "home": "CAR",
+      "home_margin": -1.5089285714285694,
+      "home_handicap": 1.5089285714285694,
+      "total": 47.5625,
+      "home_win_probability": null,
+      "status": "UNVALIDATED_REFERENCE_BASELINE",
+      "candidate": false,
+      "edge": null,
+      "uncertainty": null,
+      "source_ids": [
+        "NFL-STANDINGS",
+        "NFL-SCHEDULE"
+      ],
+      "method": "B0: away=(away PF/GP + home PA/GP)/2; home=(home PF/GP + away PA/GP)/2. HFA=0 project benchmark. No validated probability/edge."
+    },
+    {
+      "event_id": "cowboys-at-colts-2026-reg-9",
+      "away": "DAL",
+      "home": "IND",
+      "home_margin": -4.1875,
+      "home_handicap": 4.1875,
+      "total": 50.9375,
+      "home_win_probability": null,
+      "status": "UNVALIDATED_REFERENCE_BASELINE",
+      "candidate": false,
+      "edge": null,
+      "uncertainty": null,
+      "source_ids": [
+        "NFL-STANDINGS",
+        "NFL-SCHEDULE"
+      ],
+      "method": "B0: away=(away PF/GP + home PA/GP)/2; home=(home PF/GP + away PA/GP)/2. HFA=0 project benchmark. No validated probability/edge."
+    },
+    {
+      "event_id": "jets-at-chiefs-2026-reg-9",
+      "away": "NYJ",
+      "home": "KC",
+      "home_margin": 3.696428571428573,
+      "home_handicap": -3.696428571428573,
+      "total": 43.66071428571429,
+      "home_win_probability": null,
+      "status": "UNVALIDATED_REFERENCE_BASELINE",
+      "candidate": false,
+      "edge": null,
+      "uncertainty": null,
+      "source_ids": [
+        "NFL-STANDINGS",
+        "NFL-SCHEDULE"
+      ],
+      "method": "B0: away=(away PF/GP + home PA/GP)/2; home=(home PF/GP + away PA/GP)/2. HFA=0 project benchmark. No validated probability/edge."
+    },
+    {
+      "event_id": "lions-at-dolphins-2026-reg-9",
+      "away": "DET",
+      "home": "MIA",
+      "home_margin": -6.214285714285715,
+      "home_handicap": 6.214285714285715,
+      "total": 48.642857142857146,
+      "home_win_probability": null,
+      "status": "UNVALIDATED_REFERENCE_BASELINE",
+      "candidate": false,
+      "edge": null,
+      "uncertainty": null,
+      "source_ids": [
+        "NFL-STANDINGS",
+        "NFL-SCHEDULE"
+      ],
+      "method": "B0: away=(away PF/GP + home PA/GP)/2; home=(home PF/GP + away PA/GP)/2. HFA=0 project benchmark. No validated probability/edge."
+    },
+    {
+      "event_id": "browns-at-saints-2026-reg-9",
+      "away": "CLE",
+      "home": "NO",
+      "home_margin": -0.16071428571428825,
+      "home_handicap": 0.16071428571428825,
+      "total": 44.92857142857143,
+      "home_win_probability": null,
+      "status": "UNVALIDATED_REFERENCE_BASELINE",
+      "candidate": false,
+      "edge": null,
+      "uncertainty": null,
+      "source_ids": [
+        "NFL-STANDINGS",
+        "NFL-SCHEDULE"
+      ],
+      "method": "B0: away=(away PF/GP + home PA/GP)/2; home=(home PF/GP + away PA/GP)/2. HFA=0 project benchmark. No validated probability/edge."
+    },
+    {
+      "event_id": "giants-at-eagles-2026-reg-9",
+      "away": "NYG",
+      "home": "PHI",
+      "home_margin": -4.205357142857142,
+      "home_handicap": 4.205357142857142,
+      "total": 44.33035714285714,
+      "home_win_probability": null,
+      "status": "UNVALIDATED_REFERENCE_BASELINE",
+      "candidate": false,
+      "edge": null,
+      "uncertainty": null,
+      "source_ids": [
+        "NFL-STANDINGS",
+        "NFL-SCHEDULE"
+      ],
+      "method": "B0: away=(away PF/GP + home PA/GP)/2; home=(home PF/GP + away PA/GP)/2. HFA=0 project benchmark. No validated probability/edge."
+    },
+    {
+      "event_id": "rams-at-commanders-2026-reg-9",
+      "away": "LA",
+      "home": "WAS",
+      "home_margin": -3.2678571428571423,
+      "home_handicap": 3.2678571428571423,
+      "total": 46.98214285714286,
+      "home_win_probability": null,
+      "status": "UNVALIDATED_REFERENCE_BASELINE",
+      "candidate": false,
+      "edge": null,
+      "uncertainty": null,
+      "source_ids": [
+        "NFL-STANDINGS",
+        "NFL-SCHEDULE"
+      ],
+      "method": "B0: away=(away PF/GP + home PA/GP)/2; home=(home PF/GP + away PA/GP)/2. HFA=0 project benchmark. No validated probability/edge."
+    },
+    {
+      "event_id": "texans-at-chargers-2026-reg-9",
+      "away": "HOU",
+      "home": "LAC",
+      "home_margin": -5.071428571428569,
+      "home_handicap": 5.071428571428569,
+      "total": 43.5,
+      "home_win_probability": null,
+      "status": "UNVALIDATED_REFERENCE_BASELINE",
+      "candidate": false,
+      "edge": null,
+      "uncertainty": null,
+      "source_ids": [
+        "NFL-STANDINGS",
+        "NFL-SCHEDULE"
+      ],
+      "method": "B0: away=(away PF/GP + home PA/GP)/2; home=(home PF/GP + away PA/GP)/2. HFA=0 project benchmark. No validated probability/edge."
+    },
+    {
+      "event_id": "raiders-at-49ers-2026-reg-9",
+      "away": "LV",
+      "home": "SF",
+      "home_margin": 4.705357142857139,
+      "home_handicap": -4.705357142857139,
+      "total": 52.1875,
+      "home_win_probability": null,
+      "status": "UNVALIDATED_REFERENCE_BASELINE",
+      "candidate": false,
+      "edge": null,
+      "uncertainty": null,
+      "source_ids": [
+        "NFL-STANDINGS",
+        "NFL-SCHEDULE"
+      ],
+      "method": "B0: away=(away PF/GP + home PA/GP)/2; home=(home PF/GP + away PA/GP)/2. HFA=0 project benchmark. No validated probability/edge."
+    },
+    {
+      "event_id": "packers-at-patriots-2026-reg-9",
+      "away": "GB",
+      "home": "NE",
+      "home_margin": 0.9375,
+      "home_handicap": -0.9375,
+      "total": 42.5625,
+      "home_win_probability": null,
+      "status": "UNVALIDATED_REFERENCE_BASELINE",
+      "candidate": false,
+      "edge": null,
+      "uncertainty": null,
+      "source_ids": [
+        "NFL-STANDINGS",
+        "NFL-SCHEDULE"
+      ],
+      "method": "B0: away=(away PF/GP + home PA/GP)/2; home=(home PF/GP + away PA/GP)/2. HFA=0 project benchmark. No validated probability/edge."
+    },
+    {
+      "event_id": "cardinals-at-seahawks-2026-reg-9",
+      "away": "AZ",
+      "home": "SEA",
+      "home_margin": 5.5625,
+      "home_handicap": -5.5625,
+      "total": 47.3125,
+      "home_win_probability": null,
+      "status": "UNVALIDATED_REFERENCE_BASELINE",
+      "candidate": false,
+      "edge": null,
+      "uncertainty": null,
+      "source_ids": [
+        "NFL-STANDINGS",
+        "NFL-SCHEDULE"
+      ],
+      "method": "B0: away=(away PF/GP + home PA/GP)/2; home=(home PF/GP + away PA/GP)/2. HFA=0 project benchmark. No validated probability/edge."
+    },
+    {
+      "event_id": "buccaneers-at-bears-2026-reg-9",
+      "away": "TB",
+      "home": "CHI",
+      "home_margin": 1.6875,
+      "home_handicap": -1.6875,
+      "total": 43.9375,
+      "home_win_probability": null,
+      "status": "UNVALIDATED_REFERENCE_BASELINE",
+      "candidate": false,
+      "edge": null,
+      "uncertainty": null,
+      "source_ids": [
+        "NFL-STANDINGS",
+        "NFL-SCHEDULE"
+      ],
+      "method": "B0: away=(away PF/GP + home PA/GP)/2; home=(home PF/GP + away PA/GP)/2. HFA=0 project benchmark. No validated probability/edge."
+    },
+    {
+      "event_id": "bills-at-vikings-2026-reg-9",
+      "away": "BUF",
+      "home": "MIN",
+      "home_margin": -0.3571428571428541,
+      "home_handicap": 0.3571428571428541,
+      "total": 46.214285714285715,
+      "home_win_probability": null,
+      "status": "UNVALIDATED_REFERENCE_BASELINE",
+      "candidate": false,
+      "edge": null,
+      "uncertainty": null,
+      "source_ids": [
+        "NFL-STANDINGS",
+        "NFL-SCHEDULE"
+      ],
+      "method": "B0: away=(away PF/GP + home PA/GP)/2; home=(home PF/GP + away PA/GP)/2. HFA=0 project benchmark. No validated probability/edge."
+    }
+  ]
+}

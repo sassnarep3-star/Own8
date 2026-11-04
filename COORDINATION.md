@@ -80,8 +80,8 @@ began before the additional fresh claims were discovered.
 
 | ID | Task | Status | Owner | Files | Verification plan |
 | --- | --- | --- | --- | --- | --- |
-| C1 | Immutable evidence contract for competition entries; official outcome snapshots, source hashes, freshness and missing-field handling | in progress | b2783d1d | `competition/data/`, `competition/schema/`, `competition/scripts/evidence.py` | Source-linked official NFL scores/schedule; append-only evidence; no inherited badge trusted |
-| C2 | Paper competition ledger: prediction lock, exact-odds settlement, singles/parlays/prop-combo handling, all-pass gates and uncertainty-aware reward eligibility | in progress | b2783d1d | `competition/scripts/`, `competition/tests/`, `competition/results/` | No fabricated entries; immutable prediction hashes; timestamp/leakage, vig, void/push, missing-price tests; no ranks without validated OOS evidence |
+| C1 | Immutable evidence contract for competition entries; official outcome snapshots, source hashes, freshness and missing-field handling | done (selected-field scope) | b2783d1d | `competition/data/`, `competition/schema/`, `competition/scripts/evidence.py` | Source-linked official NFL scores/schedule; append-only evidence; no inherited badge trusted |
+| C2 | Paper competition ledger: prediction lock, exact-odds settlement, singles/parlays/prop-combo handling, all-pass gates and uncertainty-aware reward eligibility | done (engine; production held) | b2783d1d | `competition/scripts/`, `competition/tests/`, `competition/results/` | No fabricated entries; immutable prediction hashes; timestamp/leakage, vig, void/push, missing-price tests; no ranks without validated OOS evidence |
 | C3 | Isolated competition dashboard and executive summary, per-row official references, flags, requirement coverage | in progress | b2783d1d | `competition/*.html`, `competition/assets/`, `competition/README.md`, `competition/EXECUTIVE_SUMMARY.md` | No root navigation edits; accessible category tables; every published row source-linked; unknown metrics blank |
 | C4 | Own PR/merge, no-conflict integration, confirm Pages subpath deployment, record handoff | in progress | b2783d1d | `competition/`, own COORDINATION.md section | Tests/build/link checks before merge; no competing Pages workflow/settings |
 
@@ -111,3 +111,20 @@ began before the additional fresh claims were discovered.
   status is NOT game status; most games say No Injuries Reported, not a medical
   clearance), Week 8 scores (continuing complete capture). NIST and Washington
   regulator pages are methodology/safety references, not evidence of bet returns.
+- 20:40Z: C1 selected-field checks PASS: 32 core standings / 15 fixtures /
+  14 finals / 28 practice rows / 15 primary operator rows; no exact quote update
+  or fetch instants claimed. Baseline commit hash confirmed against git.
+- 20:40Z: C2 engine has **83 passing tests**, including simultaneous publisher
+  exposure checks and simultaneous grader idempotence. Real ledger remains
+  empty. Eight catalog hypotheses are NOT externally preregistered; renamed
+  trial-family count to avoid a false registration claim. Real automation
+  adapters remain absent and flagged, not silently enabled.
+- 20:40Z: Starting-data audit found LAC CSV physical line 17 has a surplus field,
+  shifting trailing labels. Shared data was NOT edited; affected audit cells are
+  null and C-F16 is published locally. Official guide fractional example is also
+  inconsistent (C-F15); not adopted. 524 data rows / 104 starting files inventoried
+  is NOT an exhaustive all-line external-verification claim.
+- 20:40Z: C3 snapshot build generates 14 pages; local check PASS: 334 local
+  references, 876 source-linked data rows, zero broken local links/anchors.
+  Responsive/browser checks and live deployment are still pending. Flags do not
+  block publication; missing evidence still blocks strategy admission/promotion.

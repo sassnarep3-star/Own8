@@ -1,0 +1,182 @@
+[
+  {
+    "id": "C-F01",
+    "severity": "critical",
+    "status": "held",
+    "title": "No skill-qualified strategies",
+    "detail": "The genuine prediction ledger is empty. ROI, win rate, CLV, rank and reward points are unknown, not zero. No strategy is represented as luck-free, validated or profitable.",
+    "source_ids": [
+      "NFL-SCORES",
+      "NIST-CI"
+    ]
+  },
+  {
+    "id": "C-F02",
+    "severity": "high",
+    "status": "unverified",
+    "title": "Quote-update timestamps are unavailable",
+    "detail": "Fifteen primary DraftKings game-line rows were transcribed from its own public page. The page shows Server Time 11/04/2026 3:14:47 PM but does not establish the timezone or individual quote-update instants. Exact observation instants were also not logged. These are observed snapshots, not executable/live quotes; freshness gate HOLD.",
+    "source_ids": [
+      "DK-LINES"
+    ]
+  },
+  {
+    "id": "C-F03",
+    "severity": "high",
+    "status": "needs review",
+    "title": "NFL and operator kickoff disagree",
+    "detail": "For LV at SF, the NFL schedule and injury page show Sunday November 8 at 4:25 PM EST; the DraftKings page renders 4:05 PM. The NFL governs fixture identity and kickoff locks. No inferred timestamp or venue is taken from the operator page.",
+    "source_ids": [
+      "NFL-SCHEDULE",
+      "NFL-INJURIES",
+      "DK-LINES"
+    ]
+  },
+  {
+    "id": "C-F04",
+    "severity": "high",
+    "status": "unverified",
+    "title": "Player-prop ladder cannot be paired safely",
+    "detail": "Eight player names/event groups were visible in the reviewed first prop-page chunk. Animated digit strips and concatenated alternate thresholds/prices do not establish an unambiguous line/price pair. Every numerical prop quote is null. The rest of the paginated prop page was not audited and is not claimed complete.",
+    "source_ids": [
+      "DK-PROPS"
+    ]
+  },
+  {
+    "id": "C-F05",
+    "severity": "high",
+    "status": "held",
+    "title": "Practice participation is not a game status",
+    "detail": "All 28 JAX/BAL practice rows have blank injury and game-status cells in the retrieved Week 9 report. Other 28 playing teams render No Injuries Reported, which is not confirmation that each player is healthy, active or the starter. Participation gate HOLD until final game-specific evidence is established.",
+    "source_ids": [
+      "NFL-INJURIES"
+    ]
+  },
+  {
+    "id": "C-F06",
+    "severity": "high",
+    "status": "unverified",
+    "title": "Complete operator settlement rulebook not established",
+    "detail": "Introductory football/parlay guides were checked, but jurisdiction-specific market rules for overtime, ties, DNP, postponements, voids and SGP repricing were not verified. Two guessed help/house-rule URLs returned a 404 page; they are not used as valid references. The engine holds all ambiguous settlements and does not infer reduced parlay odds.",
+    "source_ids": [
+      "DK-FOOTBALL",
+      "DK-PARLAY"
+    ]
+  },
+  {
+    "id": "C-F07",
+    "severity": "medium",
+    "status": "held",
+    "title": "Baseline lines are untrained research outputs",
+    "detail": "B0 averages each team's scoring rate with its opponent's concession rate, using the checked 32-team snapshot. Home advantage is exactly zero by declared benchmark design, not an empirical estimate. The same rule applies to Madrid. No injury adjustment, schedule-strength adjustment, probability distribution, uncertainty interval or predictive-skill evidence is available; edges and picks stay blank.",
+    "source_ids": [
+      "NFL-STANDINGS",
+      "NFL-SCHEDULE"
+    ]
+  },
+  {
+    "id": "C-F08",
+    "severity": "high",
+    "status": "unverified",
+    "title": "No parlay or prop-outcome correlation measured",
+    "detail": "Standings/scoring correlations are descriptive. They do not estimate two specific wager-outcome indicators or justify rho=0 across games. Joint probabilities, leg correlations and correlation intervals remain blank until a matching historical sample is verified.",
+    "source_ids": [
+      "SCIPY-R",
+      "NIST-TIME",
+      "NFL-SCORES"
+    ]
+  },
+  {
+    "id": "C-F09",
+    "severity": "medium",
+    "status": "needs review",
+    "title": "Inherited verification claims exceed the evidence",
+    "detail": "This module inventories the entire starting commit 7c2f545 and separately compares 32 core standings rows, 15 fixture identities and 14 final-score rows with its newly checked source transcriptions. Inherited team/player statistics, old injuries, news details and third-party market values are not externally re-verified here; unsupported cells in the coverage export are null. Matching two inherited files is not official verification.",
+    "source_ids": [
+      "NFL-STANDINGS",
+      "NFL-SCORES",
+      "NFL-SCHEDULE",
+      "NFL-NGS"
+    ]
+  },
+  {
+    "id": "C-F10",
+    "severity": "high",
+    "status": "handoff",
+    "title": "Shared dashboard corrections belong to other sessions",
+    "detail": "At the starting commit, the root model subtracts signed home handicap from a home winning margin, admits unverified prices, treats CONDITIONAL as PASS and fabricates zero realized leaderboard points. Independent audit A-01…A-06 and correction PRs #8/#11 document those issues. This isolated module does not overwrite fresh root-integration claims. Its own engine uses margin plus signed handicap and requires every gate to be PASS.",
+    "source_ids": [
+      "NFL-SCHEDULE",
+      "DK-FOOTBALL",
+      "NFL-INJURIES"
+    ]
+  },
+  {
+    "id": "C-F11",
+    "severity": "medium",
+    "status": "handoff",
+    "title": "Continuous production refresh is not installed by this module",
+    "detail": "The build and integrity checks run unattended from checked snapshots, and the engine has real receipt/settlement APIs. There is no enabled source-refresh schedule, production strategy emitter or final-rulebook adapter in this isolated scope. Root owners must integrate automation after their checks. No claim of automatic live picks or ongoing weekly grading is made.",
+    "source_ids": [
+      "NFL-SCORES",
+      "DK-LINES"
+    ]
+  },
+  {
+    "id": "C-F12",
+    "severity": "medium",
+    "status": "needs review",
+    "title": "Source snapshots are selected-field transcriptions",
+    "detail": "The official pages were read with fetch_page on 2026-11-04. Selected fields were transcribed to CSV, then every published source value was compared against those rows. Raw upstream HTML was not retained and exact per-page fetch timestamps were not logged. SHA-256 detects later changes to the local transcriptions; it cannot authenticate the original upstream response.",
+    "source_ids": [
+      "NFL-STANDINGS",
+      "NFL-SCHEDULE",
+      "NFL-SCORES",
+      "DK-LINES"
+    ]
+  },
+  {
+    "id": "C-F13",
+    "severity": "medium",
+    "status": "corrected locally",
+    "title": "Jurisdiction and support text must not be assumed",
+    "detail": "The inherited site incorrectly treated the user as being in the Netherlands. This module links the Washington regulator without making a personal legal determination: Washington's page limits sports wagering to qualifying tribal facilities and on-premises mobile use. The current NCPG help page lists call/text 1-800-MY-RESET (1-800-697-3738). No cash, purchase, wagering, accounts or location bypass is offered.",
+    "source_ids": [
+      "WA-RULES",
+      "NCPG-HELP"
+    ]
+  },
+  {
+    "id": "C-F14",
+    "severity": "medium",
+    "status": "policy",
+    "title": "Statistical gates are project choices, not guarantees",
+    "detail": "A 200-ticket/20-week screen, two holdouts, 5,000 week-block resamples, Holm adjustment and a frozen final evaluation are declared project policies. Exchangeable week clusters are an assumption; shared teams, serial dependence and regime changes can invalidate uncertainty estimates. A positive CLV or p-value does not remove luck or prove durable profitability.",
+    "source_ids": [
+      "NIST-CI",
+      "NIST-BOOT",
+      "NIST-TIME",
+      "SM-HOLM"
+    ]
+  },
+  {
+    "id": "C-F15",
+    "severity": "low",
+    "status": "needs review",
+    "title": "Operator odds guide contains an inconsistent fractional example",
+    "detail": "The checked reading-odds guide gives a 3/1 fractional example, then writes '3 by 4' while concluding 25%. Those statements are arithmetically inconsistent. Only the separately checked American/decimal formulae are used by this module; the fractional paragraph is excluded.",
+    "source_ids": [
+      "DK-ODDS"
+    ]
+  },
+  {
+    "id": "C-F16",
+    "severity": "high",
+    "status": "needs review",
+    "title": "Inherited Chargers CSV row has an extra column",
+    "detail": "Starting-commit data/nfl-2026-standings.csv physical line 17 (LAC) has more fields than its header. The extra zero shifts the trailing streak/games_played/source/data_as_of labels. The inventory preserves an unlabeled-surplus-column flag and leaves affected fields null. Only independently matched core fields are retained; the shared CSV is not changed by this session.",
+    "source_ids": [
+      "NFL-STANDINGS"
+    ]
+  }
+]

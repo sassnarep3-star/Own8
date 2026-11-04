@@ -1,0 +1,58 @@
+{
+  "checked_on_utc": "2026-11-04",
+  "status": "PASS_SELECTED_FIELDS_AND_LOCAL_INTEGRITY",
+  "manifest": [
+    {
+      "path": "data/evidence/draftkings-2026-week9.csv",
+      "sha256": "d1f1e43c705ea0f8d4270b2e8a8c973518611d310ac67367c7a24536491697a3",
+      "rows": 15,
+      "status": "LOCAL_INTEGRITY_PASS",
+      "source_ids": [
+        "DK-LINES"
+      ]
+    },
+    {
+      "path": "data/evidence/fixtures-2026-week9.csv",
+      "sha256": "6447b9acc8dc57523157844f2a6ad6cac242840b02f778fdde1fedc1b21c6e68",
+      "rows": 15,
+      "status": "LOCAL_INTEGRITY_PASS",
+      "source_ids": [
+        "NFL-SCHEDULE",
+        "NFL-INJURIES"
+      ]
+    },
+    {
+      "path": "data/evidence/injuries-2026-week9.csv",
+      "sha256": "369dd0609717aeccd1cd082a6a0d93185ccde164b8265a703ca6c5a47ea49fcf",
+      "rows": 28,
+      "status": "LOCAL_INTEGRITY_PASS",
+      "source_ids": [
+        "NFL-INJURIES"
+      ]
+    },
+    {
+      "path": "data/evidence/scores-2026-week8.csv",
+      "sha256": "e2a0656dd54f1ce4aa24187b5bd14b1b0271f62eae8123706a3d6acc57d7dd52",
+      "rows": 14,
+      "status": "LOCAL_INTEGRITY_PASS",
+      "source_ids": [
+        "NFL-SCORES"
+      ]
+    },
+    {
+      "path": "data/evidence/standings-2026-11-04.csv",
+      "sha256": "7b150a26491b1e1a2fbec871003a1b7efcc3f3cb339e29ad33f3688c30d2982d",
+      "rows": 32,
+      "status": "LOCAL_INTEGRITY_PASS",
+      "source_ids": [
+        "NFL-STANDINGS"
+      ]
+    }
+  ],
+  "standings_rows": 32,
+  "fixtures": 15,
+  "final_scores": 14,
+  "primary_price_rows": 15,
+  "practice_rows": 28,
+  "warning": "Selected-field official-source transcription, not exhaustive external verification. Local checks detect arithmetic/schema/hash issues; they do not prove upstream authenticity."
+}

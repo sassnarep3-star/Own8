@@ -1,0 +1,493 @@
+{
+  "evaluation_at_utc": "2026-11-04T20:18:54.292942Z",
+  "policy": {
+    "version": "competition-v1",
+    "minimum_settled_tickets": 200,
+    "minimum_distinct_weeks": 20,
+    "minimum_tickets_each_fold": 100,
+    "alpha": 0.05,
+    "bootstrap_resamples": 5000,
+    "random_seed": 2783,
+    "evaluation_at_utc": "2027-03-01T00:00:00Z",
+    "reward_points": [
+      100,
+      60,
+      30
+    ],
+    "cash_value": null,
+    "policy_note": "Fixed research policies only. One frozen final look; extra variants/looks must join the multiplicity family. Minimum counts alone do not prove skill."
+  },
+  "trial_family_size": 8,
+  "registration_note": "Catalog membership reserves a multiplicity-family slot; it does not establish external preregistration.",
+  "eligible_strategies": 0,
+  "settled_tickets": 0,
+  "standings": [
+    {
+      "strategy_id": "C-S1",
+      "name": "Opponent-adjusted spread",
+      "category": "single",
+      "rank": null,
+      "reward_points": null,
+      "eligible": false,
+      "status": "RESEARCH_HOLD",
+      "metrics": {
+        "tickets": 0,
+        "week_clusters": 0,
+        "roi": null,
+        "simultaneous_ci_low": null,
+        "simultaneous_ci_high": null,
+        "p_value": null,
+        "folds": {},
+        "method": "NFL season-week cluster percentile bootstrap; all tickets in a week resampled together",
+        "holm_adjusted_p": null
+      },
+      "validation_gates": {
+        "V1_integrity": {
+          "status": "HOLD",
+          "detail": "External prediction receipts and official final outcomes independently rechecked"
+        },
+        "V2_effective_sample": {
+          "status": "HOLD",
+          "detail": "At least 200 settled tickets AND 20 season-week clusters (project screening policy)"
+        },
+        "V3_simultaneous_roi": {
+          "status": "HOLD",
+          "detail": "Positive multiplicity-adjusted lower net-return bootstrap limit, exact prices after costs"
+        },
+        "V4_holm_null": {
+          "status": "HOLD",
+          "detail": "One-sided null-centered block-bootstrap p, Holm across ALL registered variants"
+        },
+        "V5_independent_folds": {
+          "status": "HOLD",
+          "detail": "Two frozen non-overlapping holdouts, no test-set tuning or hindsight slicing"
+        },
+        "V6_calibration_benchmark": {
+          "status": "HOLD",
+          "detail": "Proper-score improvement against a contemporaneous normalized market baseline with uncertainty"
+        },
+        "V7_clv_support": {
+          "status": "HOLD",
+          "detail": "Positive matched-contract CLV support; CLV alone is never proof of profitability"
+        },
+        "V8_exposure": {
+          "status": "HOLD",
+          "detail": "Ticket and overlapping-event portfolio caps enforced; no duplicated legs as independent samples"
+        },
+        "V9_frozen_final_look": {
+          "status": "HOLD",
+          "detail": "One preregistered final decision date; no repeated significance peeking"
+        }
+      }
+    },
+    {
+      "strategy_id": "C-S2",
+      "name": "Pace and efficiency total",
+      "category": "single",
+      "rank": null,
+      "reward_points": null,
+      "eligible": false,
+      "status": "RESEARCH_HOLD",
+      "metrics": {
+        "tickets": 0,
+        "week_clusters": 0,
+        "roi": null,
+        "simultaneous_ci_low": null,
+        "simultaneous_ci_high": null,
+        "p_value": null,
+        "folds": {},
+        "method": "NFL season-week cluster percentile bootstrap; all tickets in a week resampled together",
+        "holm_adjusted_p": null
+      },
+      "validation_gates": {
+        "V1_integrity": {
+          "status": "HOLD",
+          "detail": "External prediction receipts and official final outcomes independently rechecked"
+        },
+        "V2_effective_sample": {
+          "status": "HOLD",
+          "detail": "At least 200 settled tickets AND 20 season-week clusters (project screening policy)"
+        },
+        "V3_simultaneous_roi": {
+          "status": "HOLD",
+          "detail": "Positive multiplicity-adjusted lower net-return bootstrap limit, exact prices after costs"
+        },
+        "V4_holm_null": {
+          "status": "HOLD",
+          "detail": "One-sided null-centered block-bootstrap p, Holm across ALL registered variants"
+        },
+        "V5_independent_folds": {
+          "status": "HOLD",
+          "detail": "Two frozen non-overlapping holdouts, no test-set tuning or hindsight slicing"
+        },
+        "V6_calibration_benchmark": {
+          "status": "HOLD",
+          "detail": "Proper-score improvement against a contemporaneous normalized market baseline with uncertainty"
+        },
+        "V7_clv_support": {
+          "status": "HOLD",
+          "detail": "Positive matched-contract CLV support; CLV alone is never proof of profitability"
+        },
+        "V8_exposure": {
+          "status": "HOLD",
+          "detail": "Ticket and overlapping-event portfolio caps enforced; no duplicated legs as independent samples"
+        },
+        "V9_frozen_final_look": {
+          "status": "HOLD",
+          "detail": "One preregistered final decision date; no repeated significance peeking"
+        }
+      }
+    },
+    {
+      "strategy_id": "C-S3",
+      "name": "Calibrated moneyline",
+      "category": "single",
+      "rank": null,
+      "reward_points": null,
+      "eligible": false,
+      "status": "RESEARCH_HOLD",
+      "metrics": {
+        "tickets": 0,
+        "week_clusters": 0,
+        "roi": null,
+        "simultaneous_ci_low": null,
+        "simultaneous_ci_high": null,
+        "p_value": null,
+        "folds": {},
+        "method": "NFL season-week cluster percentile bootstrap; all tickets in a week resampled together",
+        "holm_adjusted_p": null
+      },
+      "validation_gates": {
+        "V1_integrity": {
+          "status": "HOLD",
+          "detail": "External prediction receipts and official final outcomes independently rechecked"
+        },
+        "V2_effective_sample": {
+          "status": "HOLD",
+          "detail": "At least 200 settled tickets AND 20 season-week clusters (project screening policy)"
+        },
+        "V3_simultaneous_roi": {
+          "status": "HOLD",
+          "detail": "Positive multiplicity-adjusted lower net-return bootstrap limit, exact prices after costs"
+        },
+        "V4_holm_null": {
+          "status": "HOLD",
+          "detail": "One-sided null-centered block-bootstrap p, Holm across ALL registered variants"
+        },
+        "V5_independent_folds": {
+          "status": "HOLD",
+          "detail": "Two frozen non-overlapping holdouts, no test-set tuning or hindsight slicing"
+        },
+        "V6_calibration_benchmark": {
+          "status": "HOLD",
+          "detail": "Proper-score improvement against a contemporaneous normalized market baseline with uncertainty"
+        },
+        "V7_clv_support": {
+          "status": "HOLD",
+          "detail": "Positive matched-contract CLV support; CLV alone is never proof of profitability"
+        },
+        "V8_exposure": {
+          "status": "HOLD",
+          "detail": "Ticket and overlapping-event portfolio caps enforced; no duplicated legs as independent samples"
+        },
+        "V9_frozen_final_look": {
+          "status": "HOLD",
+          "detail": "One preregistered final decision date; no repeated significance peeking"
+        }
+      }
+    },
+    {
+      "strategy_id": "C-P1",
+      "name": "Cross-game two-leg ticket",
+      "category": "parlay",
+      "rank": null,
+      "reward_points": null,
+      "eligible": false,
+      "status": "RESEARCH_HOLD",
+      "metrics": {
+        "tickets": 0,
+        "week_clusters": 0,
+        "roi": null,
+        "simultaneous_ci_low": null,
+        "simultaneous_ci_high": null,
+        "p_value": null,
+        "folds": {},
+        "method": "NFL season-week cluster percentile bootstrap; all tickets in a week resampled together",
+        "holm_adjusted_p": null
+      },
+      "validation_gates": {
+        "V1_integrity": {
+          "status": "HOLD",
+          "detail": "External prediction receipts and official final outcomes independently rechecked"
+        },
+        "V2_effective_sample": {
+          "status": "HOLD",
+          "detail": "At least 200 settled tickets AND 20 season-week clusters (project screening policy)"
+        },
+        "V3_simultaneous_roi": {
+          "status": "HOLD",
+          "detail": "Positive multiplicity-adjusted lower net-return bootstrap limit, exact prices after costs"
+        },
+        "V4_holm_null": {
+          "status": "HOLD",
+          "detail": "One-sided null-centered block-bootstrap p, Holm across ALL registered variants"
+        },
+        "V5_independent_folds": {
+          "status": "HOLD",
+          "detail": "Two frozen non-overlapping holdouts, no test-set tuning or hindsight slicing"
+        },
+        "V6_calibration_benchmark": {
+          "status": "HOLD",
+          "detail": "Proper-score improvement against a contemporaneous normalized market baseline with uncertainty"
+        },
+        "V7_clv_support": {
+          "status": "HOLD",
+          "detail": "Positive matched-contract CLV support; CLV alone is never proof of profitability"
+        },
+        "V8_exposure": {
+          "status": "HOLD",
+          "detail": "Ticket and overlapping-event portfolio caps enforced; no duplicated legs as independent samples"
+        },
+        "V9_frozen_final_look": {
+          "status": "HOLD",
+          "detail": "One preregistered final decision date; no repeated significance peeking"
+        }
+      }
+    },
+    {
+      "strategy_id": "C-P2",
+      "name": "Same-game score combinations",
+      "category": "parlay",
+      "rank": null,
+      "reward_points": null,
+      "eligible": false,
+      "status": "RESEARCH_HOLD",
+      "metrics": {
+        "tickets": 0,
+        "week_clusters": 0,
+        "roi": null,
+        "simultaneous_ci_low": null,
+        "simultaneous_ci_high": null,
+        "p_value": null,
+        "folds": {},
+        "method": "NFL season-week cluster percentile bootstrap; all tickets in a week resampled together",
+        "holm_adjusted_p": null
+      },
+      "validation_gates": {
+        "V1_integrity": {
+          "status": "HOLD",
+          "detail": "External prediction receipts and official final outcomes independently rechecked"
+        },
+        "V2_effective_sample": {
+          "status": "HOLD",
+          "detail": "At least 200 settled tickets AND 20 season-week clusters (project screening policy)"
+        },
+        "V3_simultaneous_roi": {
+          "status": "HOLD",
+          "detail": "Positive multiplicity-adjusted lower net-return bootstrap limit, exact prices after costs"
+        },
+        "V4_holm_null": {
+          "status": "HOLD",
+          "detail": "One-sided null-centered block-bootstrap p, Holm across ALL registered variants"
+        },
+        "V5_independent_folds": {
+          "status": "HOLD",
+          "detail": "Two frozen non-overlapping holdouts, no test-set tuning or hindsight slicing"
+        },
+        "V6_calibration_benchmark": {
+          "status": "HOLD",
+          "detail": "Proper-score improvement against a contemporaneous normalized market baseline with uncertainty"
+        },
+        "V7_clv_support": {
+          "status": "HOLD",
+          "detail": "Positive matched-contract CLV support; CLV alone is never proof of profitability"
+        },
+        "V8_exposure": {
+          "status": "HOLD",
+          "detail": "Ticket and overlapping-event portfolio caps enforced; no duplicated legs as independent samples"
+        },
+        "V9_frozen_final_look": {
+          "status": "HOLD",
+          "detail": "One preregistered final decision date; no repeated significance peeking"
+        }
+      }
+    },
+    {
+      "strategy_id": "C-R1",
+      "name": "QB volume and receiver combo",
+      "category": "player_prop",
+      "rank": null,
+      "reward_points": null,
+      "eligible": false,
+      "status": "RESEARCH_HOLD",
+      "metrics": {
+        "tickets": 0,
+        "week_clusters": 0,
+        "roi": null,
+        "simultaneous_ci_low": null,
+        "simultaneous_ci_high": null,
+        "p_value": null,
+        "folds": {},
+        "method": "NFL season-week cluster percentile bootstrap; all tickets in a week resampled together",
+        "holm_adjusted_p": null
+      },
+      "validation_gates": {
+        "V1_integrity": {
+          "status": "HOLD",
+          "detail": "External prediction receipts and official final outcomes independently rechecked"
+        },
+        "V2_effective_sample": {
+          "status": "HOLD",
+          "detail": "At least 200 settled tickets AND 20 season-week clusters (project screening policy)"
+        },
+        "V3_simultaneous_roi": {
+          "status": "HOLD",
+          "detail": "Positive multiplicity-adjusted lower net-return bootstrap limit, exact prices after costs"
+        },
+        "V4_holm_null": {
+          "status": "HOLD",
+          "detail": "One-sided null-centered block-bootstrap p, Holm across ALL registered variants"
+        },
+        "V5_independent_folds": {
+          "status": "HOLD",
+          "detail": "Two frozen non-overlapping holdouts, no test-set tuning or hindsight slicing"
+        },
+        "V6_calibration_benchmark": {
+          "status": "HOLD",
+          "detail": "Proper-score improvement against a contemporaneous normalized market baseline with uncertainty"
+        },
+        "V7_clv_support": {
+          "status": "HOLD",
+          "detail": "Positive matched-contract CLV support; CLV alone is never proof of profitability"
+        },
+        "V8_exposure": {
+          "status": "HOLD",
+          "detail": "Ticket and overlapping-event portfolio caps enforced; no duplicated legs as independent samples"
+        },
+        "V9_frozen_final_look": {
+          "status": "HOLD",
+          "detail": "One preregistered final decision date; no repeated significance peeking"
+        }
+      }
+    },
+    {
+      "strategy_id": "C-R2",
+      "name": "RB workload combinations",
+      "category": "player_prop",
+      "rank": null,
+      "reward_points": null,
+      "eligible": false,
+      "status": "RESEARCH_HOLD",
+      "metrics": {
+        "tickets": 0,
+        "week_clusters": 0,
+        "roi": null,
+        "simultaneous_ci_low": null,
+        "simultaneous_ci_high": null,
+        "p_value": null,
+        "folds": {},
+        "method": "NFL season-week cluster percentile bootstrap; all tickets in a week resampled together",
+        "holm_adjusted_p": null
+      },
+      "validation_gates": {
+        "V1_integrity": {
+          "status": "HOLD",
+          "detail": "External prediction receipts and official final outcomes independently rechecked"
+        },
+        "V2_effective_sample": {
+          "status": "HOLD",
+          "detail": "At least 200 settled tickets AND 20 season-week clusters (project screening policy)"
+        },
+        "V3_simultaneous_roi": {
+          "status": "HOLD",
+          "detail": "Positive multiplicity-adjusted lower net-return bootstrap limit, exact prices after costs"
+        },
+        "V4_holm_null": {
+          "status": "HOLD",
+          "detail": "One-sided null-centered block-bootstrap p, Holm across ALL registered variants"
+        },
+        "V5_independent_folds": {
+          "status": "HOLD",
+          "detail": "Two frozen non-overlapping holdouts, no test-set tuning or hindsight slicing"
+        },
+        "V6_calibration_benchmark": {
+          "status": "HOLD",
+          "detail": "Proper-score improvement against a contemporaneous normalized market baseline with uncertainty"
+        },
+        "V7_clv_support": {
+          "status": "HOLD",
+          "detail": "Positive matched-contract CLV support; CLV alone is never proof of profitability"
+        },
+        "V8_exposure": {
+          "status": "HOLD",
+          "detail": "Ticket and overlapping-event portfolio caps enforced; no duplicated legs as independent samples"
+        },
+        "V9_frozen_final_look": {
+          "status": "HOLD",
+          "detail": "One preregistered final decision date; no repeated significance peeking"
+        }
+      }
+    },
+    {
+      "strategy_id": "C-R3",
+      "name": "Cross-game player prop pair",
+      "category": "player_prop",
+      "rank": null,
+      "reward_points": null,
+      "eligible": false,
+      "status": "RESEARCH_HOLD",
+      "metrics": {
+        "tickets": 0,
+        "week_clusters": 0,
+        "roi": null,
+        "simultaneous_ci_low": null,
+        "simultaneous_ci_high": null,
+        "p_value": null,
+        "folds": {},
+        "method": "NFL season-week cluster percentile bootstrap; all tickets in a week resampled together",
+        "holm_adjusted_p": null
+      },
+      "validation_gates": {
+        "V1_integrity": {
+          "status": "HOLD",
+          "detail": "External prediction receipts and official final outcomes independently rechecked"
+        },
+        "V2_effective_sample": {
+          "status": "HOLD",
+          "detail": "At least 200 settled tickets AND 20 season-week clusters (project screening policy)"
+        },
+        "V3_simultaneous_roi": {
+          "status": "HOLD",
+          "detail": "Positive multiplicity-adjusted lower net-return bootstrap limit, exact prices after costs"
+        },
+        "V4_holm_null": {
+          "status": "HOLD",
+          "detail": "One-sided null-centered block-bootstrap p, Holm across ALL registered variants"
+        },
+        "V5_independent_folds": {
+          "status": "HOLD",
+          "detail": "Two frozen non-overlapping holdouts, no test-set tuning or hindsight slicing"
+        },
+        "V6_calibration_benchmark": {
+          "status": "HOLD",
+          "detail": "Proper-score improvement against a contemporaneous normalized market baseline with uncertainty"
+        },
+        "V7_clv_support": {
+          "status": "HOLD",
+          "detail": "Positive matched-contract CLV support; CLV alone is never proof of profitability"
+        },
+        "V8_exposure": {
+          "status": "HOLD",
+          "detail": "Ticket and overlapping-event portfolio caps enforced; no duplicated legs as independent samples"
+        },
+        "V9_frozen_final_look": {
+          "status": "HOLD",
+          "detail": "One preregistered final decision date; no repeated significance peeking"
+        }
+      }
+    }
+  ],
+  "warning": "Ranks and rewards are blank until EVERY promotion gate passes. Statistical screening cannot eliminate luck or guarantee future profits.",
+  "prospectively_registered_strategies": 0,
+  "catalog_note": "Eight proposed hypotheses are reserved in the testing family; none has a verified preregistration receipt."
+}
