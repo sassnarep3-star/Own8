@@ -39,9 +39,9 @@
     },
     {
       "path": "COORDINATION.md",
-      "bytes": 55943,
-      "sha256": "1b25448bc1df9ef9cba1795f3df5e78a47fe8a51a0ba9f49dfb6f57d9b929ca8",
-      "line_count": 236,
+      "bytes": 58227,
+      "sha256": "6c2a8617dd715fb8bd3b5e2952d1c7587a0038414f4bec847c28caa16df5b229",
+      "line_count": 244,
       "verification": "Inventory only; factual contents not externally re-verified"
     },
     {
@@ -82,7 +82,7 @@
     {
       "path": "analysis/link-check.json",
       "bytes": 272,
-      "sha256": "dd4ba8f65321fd955571a89d9e63060f2ced1135d31e45f39aa80abf788e60f6",
+      "sha256": "f149964319a245415cbe1a419c39324c2c992eb7cba2a1017b85b31a8c1d4f5e",
       "line_count": 9,
       "verification": "Inventory only; factual contents not externally re-verified"
     },
@@ -137,9 +137,9 @@
     },
     {
       "path": "analysis/repo-audit.json",
-      "bytes": 52777,
-      "sha256": "f3f85f0712db7f68ca3a239ba0480a59a38db38a8975247f626c401b0a82c760",
-      "line_count": 1228,
+      "bytes": 53101,
+      "sha256": "883bc86ed2bfbaaa4b7950edf9559c4d169ec5aa20d87e6778e95078fb10ab44",
+      "line_count": 1235,
       "verification": "Inventory only; factual contents not externally re-verified"
     },
     {
@@ -1999,8 +1999,8 @@
     },
     {
       "path": "pages/repo-review.html",
-      "bytes": 64463,
-      "sha256": "5f814666d14b41a5c7fd3aafc35416f39740172e550972bc0bd04c02ed4f3e7a",
+      "bytes": 64803,
+      "sha256": "fbff48a3e56fa851ab853fb0d356d84620a914fa0c4cecf87f1d6d1ac2a3bbd8",
       "line_count": 1,
       "verification": "Inventory only; factual contents not externally re-verified"
     },
