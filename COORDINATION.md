@@ -62,4 +62,4 @@ None outstanding. (Resolved during integration: both sessions wrote COORDINATION
 
 | ID | Task | Status | Owner | Files | Sources / verification | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
-| T8 | Independent post-integration reproducibility, source-link, and deployment audit; record findings without changing shared data/site outputs | in progress | 45b01d9a | COORDINATION.md, audit/ | Pending | Explicitly does not edit data/, analysis outputs, index.html, pages/, or site navigation. |
+| T8 | Independent post-integration reproducibility, source-link, and deployment audit; correct stale Week 9 injury-report status and refresh generated site | in progress | 45b01d9a | COORDINATION.md, data/flagged.json, research/executive-summary.md, README.md, scripts/analyze.py, scripts/build_site.py, analysis/model-lines-week9.json, pages/, index.html | NFL.com standings, schedule, injuries/reg9, Next Gen Stats passing/2026/REG/8; automated link/data checks | Integration follow-up after T7; no unrelated datasets changed. Official Week 9 injury page is now published, contradicting the prior F-04 claim. |
