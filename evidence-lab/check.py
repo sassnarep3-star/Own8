@@ -10,6 +10,7 @@ from pathlib import Path
 import subprocess
 import sys
 import unittest
+from publish import PUBLIC, files as public_files, public_bytes, main as publish
 from urllib.parse import unquote, urlparse
 from analyze import load_evidence
 
@@ -64,7 +65,7 @@ def fingerprint(path):
 def review_repository():
     tracked = subprocess.check_output(["git", "ls-files", "-z"], cwd=REPO).decode().split("\0")
     inventory = []
-    for name in sorted(n for n in tracked if n and not n.startswith("evidence-lab/")):
+    for name in sorted(n for n in tracked if n and not n.startswith(("evidence-lab/", "docs/evidence-lab/"))):
         path = REPO / name
         raw = path.read_bytes()
         try:
@@ -125,6 +126,7 @@ def main():
         errors.append("Unsupported strategy eligibility/reward/performance")
     if any(r["official_market_handicap"] is not None or r["expected_return"] is not None or r["cover_probability"] is not None for r in data["models"]):
         errors.append("Unverified market or probability populated")
+    publish()
     parsed = {p: Page(p.read_text()) for p in REPO.rglob("*.html") if not any(part in (".git", "node_modules", ".venv") for part in p.parts)}
     internal, external = 0, set()
     for path, page in parsed.items():
@@ -148,7 +150,7 @@ def main():
                     errors.append(f"Missing internal anchor {path.relative_to(REPO)} -> {link}")
     official_rows = 0
     for path, page in parsed.items():
-        if path.parent != ROOT:
+        if path.parent not in (ROOT, PUBLIC):
             continue
         for cells, urls in page.rows:
             if not any(url.startswith(OFFICIAL_PREFIX) for url in urls):
@@ -175,6 +177,10 @@ def main():
               "external_scope": "Static URL inspection only; external HTTP status not checked. Official evidence API blobs were actually retrieved by capture.py and their hashes rechecked locally.",
               "repository_review": review, "errors": errors}
     (ROOT / "checks.json").write_text(json.dumps(report, indent=2) + "\n")
+    publish()
+    for path in public_files():
+        if (PUBLIC / path.relative_to(ROOT)).read_bytes() != public_bytes(path):
+            raise ValueError("Public mirror mismatch")
     print(json.dumps(report, indent=2))
     if errors:
         raise SystemExit(1)

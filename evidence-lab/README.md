@@ -2,7 +2,7 @@
 
 **Historical research only. No actionable picks, proven skill, current odds feed or real-money wagering.**
 
-Dashboard: https://sassnarep3-star.github.io/Own8/evidence-lab/
+Dashboard: https://sassnarep3-star.github.io/Own8/docs/evidence-lab/
 
 ## Reproduce without prompts or external dependencies
 
@@ -12,6 +12,7 @@ From repository root:
 python3 evidence-lab/analyze.py
 python3 evidence-lab/build.py
 python3 evidence-lab/check.py
+python3 evidence-lab/publish.py
 ```
 
 Or test just the engine:
@@ -19,6 +20,8 @@ Or test just the engine:
 ```sh
 python3 -m unittest discover -s verification -p 'test_*.py' -v
 ```
+
+The published mirror at `docs/evidence-lab/` is included by the shared Pages artifact staging of `docs/`; it does not edit shared navigation or workflow files. Run commands from the source directory named above, not the public mirror.
 
 The build is offline and reads the captured official NFL sample. To intentionally refresh that immutable source capture via the permitted GitHub API:
 

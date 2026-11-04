@@ -55,6 +55,7 @@ metrics = DATA["metrics"]
 summary_rows = [
     ["Evidence", f"{DATA['official_games']} game rows captured directly from the NFL publisher's GitHub repository; file hashes match the API blobs.", badge("OFFICIAL SNAPSHOT", "good"), source(GAMES)],
     ["Line origination", f"{metrics['holdout_games']} historical point forecasts; Weeks 1–2 warm-up, Weeks 3–6 held out one week at a time. No current NFL lines.", badge("DERIVED / EXPLORATORY", "neutral"), source(GAMES)],
+    ["Forecast quality", f"Prototype MAE is worse than the league baseline: margin {metrics['spread_mae']:.2f} vs {metrics['spread_baseline_mae']:.2f}; total {metrics['total_mae']:.2f} vs {metrics['total_baseline_mae']:.2f} points. No demonstrated improvement.", badge("NEGATIVE RESULT", "neutral"), source(GAMES)],
     ["Skill leaderboard", "Seven registered research ideas. Zero eligible strategies. No rank, realized ROI, reward, or recommendation published.", badge("HOLD"), source(SCHEMA, "Dataset scope")],
     ["Parlays & props", "Matched bet-outcome histories and verified offered prices are absent. Prop and parlay correlation values remain blank.", badge("UNVERIFIED"), source(SCHEMA, "Dataset scope")],
     ["Luck & uncertainty", "No method removes outcome randomness. Chronological tests and uncertainty controls can reduce false discoveries, not guarantee skill or profit.", badge("RESEARCH POLICY", "neutral"), source(README, "Official data context")],
