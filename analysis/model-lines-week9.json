@@ -24,8 +24,8 @@
       "model_total": 45.8,
       "market_spread_home": 9.5,
       "market_verified": false,
-      "edge_pts": -14.57,
-      "candidate_side": "JAX",
+      "edge_pts": null,
+      "candidate_side": null,
       "candidate": false,
       "gates": {
         "G1_official_sources_only": {
@@ -49,8 +49,8 @@
           "detail": "Single-game play; no parlay legs. Same-game parlay correlation proxy r(pass YDSpg, PFpg) = 0.668 \u2014 same-game combos restricted (see correlation policy)."
         },
         "G6_edge_vs_market": {
-          "status": "FAIL_NO_TRADE",
-          "detail": "Model home spread -5.07 vs market +9.50 -> edge -14.57 pts. Market input is a THIRD-PARTY aggregator value attributed to FanDuel, time-stamped Nov 3 11:31 AM ET \u2014 UNVERIFIED (flagged F-05). Verify at a licensed sportsbook before any use."
+          "status": "BLOCKED_UNVERIFIED_MARKET",
+          "detail": "Market input is a THIRD-PARTY aggregator value attributed to FanDuel, time-stamped Nov 3 11:31 AM ET \u2014 UNVERIFIED (F-05). Edge is NOT computed while the market is unverified (F-14): no edge, no candidate, no trade."
         },
         "G7_stake_cap": {
           "status": "PASS",
@@ -100,9 +100,9 @@
       "model_total": 48.5,
       "market_spread_home": 3.0,
       "market_verified": false,
-      "edge_pts": -5.05,
-      "candidate_side": "CIN",
-      "candidate": true,
+      "edge_pts": null,
+      "candidate_side": null,
+      "candidate": false,
       "gates": {
         "G1_official_sources_only": {
           "status": "PASS",
@@ -125,15 +125,15 @@
           "detail": "Single-game play; no parlay legs. Same-game parlay correlation proxy r(pass YDSpg, PFpg) = 0.668 \u2014 same-game combos restricted (see correlation policy)."
         },
         "G6_edge_vs_market": {
-          "status": "PASS",
-          "detail": "Model home spread -2.05 vs market +3.00 -> edge -5.05 pts. Market input is a THIRD-PARTY aggregator value attributed to FanDuel, time-stamped Nov 3 11:31 AM ET \u2014 UNVERIFIED (flagged F-05). Verify at a licensed sportsbook before any use."
+          "status": "BLOCKED_UNVERIFIED_MARKET",
+          "detail": "Market input is a THIRD-PARTY aggregator value attributed to FanDuel, time-stamped Nov 3 11:31 AM ET \u2014 UNVERIFIED (F-05). Edge is NOT computed while the market is unverified (F-14): no edge, no candidate, no trade."
         },
         "G7_stake_cap": {
           "status": "PASS",
           "detail": "Kelly-style cap: max 2% of bankroll per single play (assumption, flagged F-07)."
         }
       },
-      "gates_all_pass": true,
+      "gates_all_pass": false,
       "inputs": {
         "away": {
           "PFpg": 29.43,
@@ -328,8 +328,8 @@
       "model_total": 43.66,
       "market_spread_home": -9.5,
       "market_verified": false,
-      "edge_pts": 15.7,
-      "candidate_side": "KC",
+      "edge_pts": null,
+      "candidate_side": null,
       "candidate": false,
       "gates": {
         "G1_official_sources_only": {
@@ -353,8 +353,8 @@
           "detail": "Single-game play; no parlay legs. Same-game parlay correlation proxy r(pass YDSpg, PFpg) = 0.668 \u2014 same-game combos restricted (see correlation policy)."
         },
         "G6_edge_vs_market": {
-          "status": "FAIL_NO_TRADE",
-          "detail": "Model home spread +6.20 vs market -9.50 -> edge +15.70 pts. Market input is a THIRD-PARTY aggregator value attributed to FanDuel, time-stamped Nov 3 11:31 AM ET \u2014 UNVERIFIED (flagged F-05). Verify at a licensed sportsbook before any use."
+          "status": "BLOCKED_UNVERIFIED_MARKET",
+          "detail": "Market input is a THIRD-PARTY aggregator value attributed to FanDuel, time-stamped Nov 3 11:31 AM ET \u2014 UNVERIFIED (F-05). Edge is NOT computed while the market is unverified (F-14): no edge, no candidate, no trade."
         },
         "G7_stake_cap": {
           "status": "PASS",
@@ -556,9 +556,9 @@
       "model_total": 44.33,
       "market_spread_home": 3.0,
       "market_verified": false,
-      "edge_pts": -4.71,
-      "candidate_side": "NYG",
-      "candidate": true,
+      "edge_pts": null,
+      "candidate_side": null,
+      "candidate": false,
       "gates": {
         "G1_official_sources_only": {
           "status": "PASS",
@@ -581,15 +581,15 @@
           "detail": "Single-game play; no parlay legs. Same-game parlay correlation proxy r(pass YDSpg, PFpg) = 0.668 \u2014 same-game combos restricted (see correlation policy)."
         },
         "G6_edge_vs_market": {
-          "status": "PASS",
-          "detail": "Model home spread -1.71 vs market +3.00 -> edge -4.71 pts. Market input is a THIRD-PARTY aggregator value attributed to FanDuel, time-stamped Nov 3 11:31 AM ET \u2014 UNVERIFIED (flagged F-05). Verify at a licensed sportsbook before any use."
+          "status": "BLOCKED_UNVERIFIED_MARKET",
+          "detail": "Market input is a THIRD-PARTY aggregator value attributed to FanDuel, time-stamped Nov 3 11:31 AM ET \u2014 UNVERIFIED (F-05). Edge is NOT computed while the market is unverified (F-14): no edge, no candidate, no trade."
         },
         "G7_stake_cap": {
           "status": "PASS",
           "detail": "Kelly-style cap: max 2% of bankroll per single play (assumption, flagged F-07)."
         }
       },
-      "gates_all_pass": true,
+      "gates_all_pass": false,
       "inputs": {
         "away": {
           "PFpg": 23.29,
@@ -784,8 +784,8 @@
       "model_total": 52.19,
       "market_spread_home": -9.5,
       "market_verified": false,
-      "edge_pts": 16.71,
-      "candidate_side": "SF",
+      "edge_pts": null,
+      "candidate_side": null,
       "candidate": false,
       "gates": {
         "G1_official_sources_only": {
@@ -809,8 +809,8 @@
           "detail": "Single-game play; no parlay legs. Same-game parlay correlation proxy r(pass YDSpg, PFpg) = 0.668 \u2014 same-game combos restricted (see correlation policy)."
         },
         "G6_edge_vs_market": {
-          "status": "FAIL_NO_TRADE",
-          "detail": "Model home spread +7.21 vs market -9.50 -> edge +16.71 pts. Market input is a THIRD-PARTY aggregator value attributed to FanDuel, time-stamped Nov 3 11:31 AM ET \u2014 UNVERIFIED (flagged F-05). Verify at a licensed sportsbook before any use."
+          "status": "BLOCKED_UNVERIFIED_MARKET",
+          "detail": "Market input is a THIRD-PARTY aggregator value attributed to FanDuel, time-stamped Nov 3 11:31 AM ET \u2014 UNVERIFIED (F-05). Edge is NOT computed while the market is unverified (F-14): no edge, no candidate, no trade."
         },
         "G7_stake_cap": {
           "status": "PASS",
@@ -1088,8 +1088,8 @@
       "model_total": 46.21,
       "market_spread_home": 3.0,
       "market_verified": false,
-      "edge_pts": -0.86,
-      "candidate_side": "BUF",
+      "edge_pts": null,
+      "candidate_side": null,
       "candidate": false,
       "gates": {
         "G1_official_sources_only": {
@@ -1113,8 +1113,8 @@
           "detail": "Single-game play; no parlay legs. Same-game parlay correlation proxy r(pass YDSpg, PFpg) = 0.668 \u2014 same-game combos restricted (see correlation policy)."
         },
         "G6_edge_vs_market": {
-          "status": "FAIL_NO_TRADE",
-          "detail": "Model home spread +2.14 vs market +3.00 -> edge -0.86 pts. Market input is a THIRD-PARTY aggregator value attributed to FanDuel, time-stamped Nov 3 11:31 AM ET \u2014 UNVERIFIED (flagged F-05). Verify at a licensed sportsbook before any use."
+          "status": "BLOCKED_UNVERIFIED_MARKET",
+          "detail": "Market input is a THIRD-PARTY aggregator value attributed to FanDuel, time-stamped Nov 3 11:31 AM ET \u2014 UNVERIFIED (F-05). Edge is NOT computed while the market is unverified (F-14): no edge, no candidate, no trade."
         },
         "G7_stake_cap": {
           "status": "PASS",

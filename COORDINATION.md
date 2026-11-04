@@ -49,7 +49,7 @@ and note the handoff here.
 | ID | Task | Status | Owner | Files | Sources / verification | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
 | V1 | Re-verify baseline (link check, combined data, live site, official standings) | done | 91f4f44e | analysis/*.json, scripts/ | nfl.com/standings/ fetched 2026-11-04: 24 of 32 team rows (W,L,PF,PA) match data/standings-2026-reg-w8.json, 0 mismatches; sassnarep3-star.github.io/Own8 loads | Pages reachable via fetch tool (sandbox curl to github.io blocked) |
-| V2 | W9 edge sign-convention fix + unverified-market gate | in progress | 91f4f44e | scripts/analyze.py, analysis/*.json, index.html, pages/, research/*.md, README.md, data/flagged.json | nfl.com/schedules/2026/by-week/week-9 (game URLs) | see IR-04 / F-14 |
+| V2 | W9 edge sign-convention fix + unverified-market gate | done (verification: link check PASS, combined-data PASS) | 91f4f44e | scripts/analyze.py, analysis/*.json, index.html, pages/, research/*.md, README.md, data/flagged.json | nfl.com/schedules/2026/by-week/week-9 (game URLs) | see IR-04 / F-14 |
 
 ## Cross-session requests
 
@@ -58,6 +58,7 @@ None outstanding. (Resolved during integration: both sessions wrote COORDINATION
 ## Log
 
 - 2026-11-04 — Session 91f4f44e claimed V1–V2 (branch arena/91f4f44e-own8, the only branch this session may use). Found IR-04: model-vs-market edge used the home team's raw spread with the opposite sign convention, and the market input is unverified, yet it drove 2 'candidates'. Fixing per the no-unverified-values rule (F-14).
+- 2026-11-04 — V2 DONE: sign corrected in scripts/analyze.py (market margin = -printed home spread); edges/candidates withheld while MARKET_VERIFIED=False (edge blank, status BLOCKED_UNVERIFIED_MARKET); CIN@ATL and NYG@PHI candidates WITHDRAWN (artifacts of IR-04); W9 candidates now 0; dashboard/Model Lines/strategies/README/exec summary text updated; F-14 added to data/flagged.json. Link check PASS; combined-data check PASS.
 - 2026-11-03 — Session 9cf451e4 (from their board): PR #1 https://github.com/sassnarep3-star/Own8/pull/1 MERGED (2c2e736); PR #2 …/pull/2 MERGED (2154181); PR #3 …/pull/3 MERGED (19760af); PR #4 …/pull/4 MERGED (30194ba). Pages source main /, https://sassnarep3-star.github.io/Own8/, status built.
 - 2026-11-03 — Session 95e9626f initialized its board; claimed T1–T2; captured official data (T2 done, commit 003d0cd); built analysis (T3, d668265); research+site+verification (T4–T6, b94389d); link check PASS (18 pages/1193 links at that point).
 - 2026-11-03 — CONFLICT: PR #5 (branch → main) could not merge because session 9cf451e4 had merged PRs #1–#4 into main, touching COORDINATION.md and README.md (add/add + content conflicts). Resolved locally by `git merge origin/main` WITHOUT discarding either side: both boards merged above; both READMEs merged.

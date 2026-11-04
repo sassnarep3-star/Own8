@@ -14,6 +14,8 @@ Model assumptions (NOT official values — see data/flagged.json F-07):
 import json, math, os, statistics
 from pathlib import Path
 
+MARKET_VERIFIED = False  # F-05/F-14: no official market line exists; edges are withheld until a verified line is entered
+
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 OUT = ROOT / "analysis"
@@ -152,13 +154,17 @@ for g in sched:
     proj_home = (H["PFpg"] + A["PApg"]) / 2 + HFA / 2
     model_spread_home = proj_home - proj_away   # + = home favored
     model_total = proj_away + proj_home
-    mkt, _ = market_spread_home(away, home)
+    mkt_raw, _ = market_spread_home(away, home)   # home team's printed spread (+ = home receives points)
+    # Sign-corrected market margin in the model's convention (+ = home favored). Used only if verified (F-14).
+    mkt_margin = (-mkt_raw) if mkt_raw is not None else None
+    mkt = mkt_raw
     edge = None
     edge_note = "No market line captured (market lines are not an official source — blank by rule)."
-    if mkt is not None:
-        edge = model_spread_home - mkt   # + means market underprices home side
-        edge_note = ("Market input is a THIRD-PARTY aggregator value attributed to FanDuel, time-stamped Nov 3 11:31 AM ET — UNVERIFIED (flagged F-05). "
-                     "Verify at a licensed sportsbook before any use.")
+    if mkt_raw is not None:
+        edge_note = ("Market input is a THIRD-PARTY aggregator value attributed to FanDuel, time-stamped Nov 3 11:31 AM ET — UNVERIFIED (F-05). "
+                     "Edge is NOT computed while the market is unverified (F-14): no edge, no candidate, no trade.")
+    if MARKET_VERIFIED and mkt_margin is not None:
+        edge = model_spread_home - mkt_margin   # + means market underprices home side
     # gates
     gates = {
         "G1_official_sources_only": {"status": "PASS", "detail": "All model inputs from nfl.com / nextgenstats.nfl.com captures dated 2026-11-03."},
@@ -166,8 +172,8 @@ for g in sched:
         "G3_sample_size_ge_4_games": {"status": "PASS", "detail": f"{away} GP={A['GP']}, {home} GP={H['GP']} (min required 4)."},
         "G4_injury_news_check": {"status": "CONDITIONAL", "detail": "Latest official injury report is Week 8 (W9 report not yet published — flagged F-04); official nfl.com news applied where relevant (Hurts IR — PHI; McLaurin season out — WAS). Re-check official W9 report before acting."},
         "G5_correlation_check": {"status": "PASS", "detail": "Single-game play; no parlay legs. Same-game parlay correlation proxy r(pass YDSpg, PFpg) = " + str([c for c in correlations if 'same-game' in c['interpretation']][0]['r']) + " — same-game combos restricted (see correlation policy)."},
-        "G6_edge_vs_market": {"status": ("PASS" if (edge is not None and EDGE_MIN <= abs(edge) <= EDGE_MAX) else ("FAIL_NO_TRADE" if edge is not None else "NOT_COMPUTABLE")),
-                               "detail": (f"Model home spread {model_spread_home:+.2f} vs market {mkt:+.2f} -> edge {edge:+.2f} pts. {edge_note}" if mkt is not None else edge_note)},
+        "G6_edge_vs_market": {"status": ("PASS" if (edge is not None and EDGE_MIN <= abs(edge) <= EDGE_MAX) else ("FAIL_NO_TRADE" if edge is not None else ("BLOCKED_UNVERIFIED_MARKET" if mkt_raw is not None else "NOT_COMPUTABLE"))),
+                               "detail": (f"Model home margin {model_spread_home:+.2f} (+ = home favored); sign-corrected market home margin {mkt_margin:+.2f}. {edge_note}" if (mkt_raw is not None and edge is not None) else edge_note)},
         "G7_stake_cap": {"status": "PASS", "detail": "Kelly-style cap: max 2% of bankroll per single play (assumption, flagged F-07)."},
     }
     all_pass = all(v["status"] in ("PASS", "CONDITIONAL") for v in gates.values())
