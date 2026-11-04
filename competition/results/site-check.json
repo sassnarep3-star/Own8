@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "pages": 14,
+  "local_references_checked": 347,
+  "data_rows_with_primary_reference": 876,
+  "unique_external_urls_listed": 142,
+  "external_http_rechecked_by_this_script": false,
+  "scope": "Local HTML/assets/anchors, table structure, primary-reference presence and null/rank safeguards only. External publisher status and factual authenticity are not inferred from links.",
+  "failures": []
+}

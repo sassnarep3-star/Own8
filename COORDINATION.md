@@ -82,7 +82,7 @@ began before the additional fresh claims were discovered.
 | --- | --- | --- | --- | --- | --- |
 | C1 | Immutable evidence contract for competition entries; official outcome snapshots, source hashes, freshness and missing-field handling | done (selected-field scope) | b2783d1d | `competition/data/`, `competition/schema/`, `competition/scripts/evidence.py` | Source-linked official NFL scores/schedule; append-only evidence; no inherited badge trusted |
 | C2 | Paper competition ledger: prediction lock, exact-odds settlement, singles/parlays/prop-combo handling, all-pass gates and uncertainty-aware reward eligibility | done (engine; production held) | b2783d1d | `competition/scripts/`, `competition/tests/`, `competition/results/` | No fabricated entries; immutable prediction hashes; timestamp/leakage, vig, void/push, missing-price tests; no ranks without validated OOS evidence |
-| C3 | Isolated competition dashboard and executive summary, per-row official references, flags, requirement coverage | in progress | b2783d1d | `competition/*.html`, `competition/assets/`, `competition/README.md`, `competition/EXECUTIVE_SUMMARY.md` | No root navigation edits; accessible category tables; every published row source-linked; unknown metrics blank |
+| C3 | Isolated competition dashboard and executive summary, per-row official references, flags, requirement coverage | done | b2783d1d | `competition/*.html`, `competition/assets/`, `competition/README.md`, `competition/EXECUTIVE_SUMMARY.md` | No root navigation edits; accessible category tables; every published row source-linked; unknown metrics blank |
 | C4 | Own PR/merge, no-conflict integration, confirm Pages subpath deployment, record handoff | in progress | b2783d1d | `competition/`, own COORDINATION.md section | Tests/build/link checks before merge; no competing Pages workflow/settings |
 
 ### Coordination log / requests
@@ -128,3 +128,20 @@ began before the additional fresh claims were discovered.
   references, 876 source-linked data rows, zero broken local links/anchors.
   Responsive/browser checks and live deployment are still pending. Flags do not
   block publication; missing evidence still blocks strategy admission/promotion.
+- 20:49Z: C3 final local validation PASS: **14 category pages**, **347 local
+  references**, **876 source-linked table rows**; zero local link/anchor/structural
+  failures. All **42 page/viewport combinations** pass real Chromium checks at
+  1440x1000, 390x844 and 320x740, including filters, numeric sorting, mobile
+  navigation/Escape, blank unknowns and no body overflow or browser errors.
+  Found/fixed a mobile grid min-content overflow; screenshots/dependencies stay
+  ignored under competition/.cache/. No source page HTTP authenticity is inferred
+  from this browser test (local first-party pages only).
+- C3 source, verification, irregularity and requirement records:
+  competition/EXECUTIVE_SUMMARY.md, README.md, VALIDATION.md, data/sources.json,
+  data/flags.json, results/site-check.json and results/browser-check.json.
+  Jekyll-safe .txt brief download avoids assuming raw .md routes survive build.
+- Root integration/CI/nav requests posted on PR #16 comment 6641616497. No
+  cross-owned shared files were edited. Pages legacy build API currently reports
+  errored for 259edab while same-commit deployment run 41908419724 says SUCCESS;
+  discrepancy communicated to PR #31, not represented as a verified failure or
+  success of our still-unmerged contribution. Actual live content check pending.

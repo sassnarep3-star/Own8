@@ -1,0 +1,236 @@
+{
+  "status": "PASS",
+  "browser": "Chromium 153.0.8010.0",
+  "playwright": "1.64.1",
+  "viewports": [
+    "1440×1000",
+    "390×844",
+    "320×740"
+  ],
+  "pages_checked": 42,
+  "checks": [
+    "200 responses",
+    "one visible h1",
+    "no horizontal body overflow",
+    "safe external targets",
+    "filter / clear / empty state",
+    "numeric ascending/descending sort",
+    "unknown performance blank",
+    "unknown prop quotes blank",
+    "mobile menu / Escape / navigation",
+    "no page/console/request errors"
+  ],
+  "external_publisher_http_checked": false,
+  "results": [
+    {
+      "device": "desktop",
+      "page": "correlations.html",
+      "status": "PASS"
+    },
+    {
+      "device": "desktop",
+      "page": "coverage.html",
+      "status": "PASS"
+    },
+    {
+      "device": "desktop",
+      "page": "evidence.html",
+      "status": "PASS"
+    },
+    {
+      "device": "desktop",
+      "page": "executive-summary.html",
+      "status": "PASS"
+    },
+    {
+      "device": "desktop",
+      "page": "flagged.html",
+      "status": "PASS"
+    },
+    {
+      "device": "desktop",
+      "page": "index.html",
+      "status": "PASS"
+    },
+    {
+      "device": "desktop",
+      "page": "leaderboard.html",
+      "status": "PASS"
+    },
+    {
+      "device": "desktop",
+      "page": "parlays.html",
+      "status": "PASS"
+    },
+    {
+      "device": "desktop",
+      "page": "player-props.html",
+      "status": "PASS"
+    },
+    {
+      "device": "desktop",
+      "page": "repo-review.html",
+      "status": "PASS"
+    },
+    {
+      "device": "desktop",
+      "page": "responsible-research.html",
+      "status": "PASS"
+    },
+    {
+      "device": "desktop",
+      "page": "singles.html",
+      "status": "PASS"
+    },
+    {
+      "device": "desktop",
+      "page": "sources.html",
+      "status": "PASS"
+    },
+    {
+      "device": "desktop",
+      "page": "validation.html",
+      "status": "PASS"
+    },
+    {
+      "device": "mobile",
+      "page": "correlations.html",
+      "status": "PASS"
+    },
+    {
+      "device": "mobile",
+      "page": "coverage.html",
+      "status": "PASS"
+    },
+    {
+      "device": "mobile",
+      "page": "evidence.html",
+      "status": "PASS"
+    },
+    {
+      "device": "mobile",
+      "page": "executive-summary.html",
+      "status": "PASS"
+    },
+    {
+      "device": "mobile",
+      "page": "flagged.html",
+      "status": "PASS"
+    },
+    {
+      "device": "mobile",
+      "page": "index.html",
+      "status": "PASS"
+    },
+    {
+      "device": "mobile",
+      "page": "leaderboard.html",
+      "status": "PASS"
+    },
+    {
+      "device": "mobile",
+      "page": "parlays.html",
+      "status": "PASS"
+    },
+    {
+      "device": "mobile",
+      "page": "player-props.html",
+      "status": "PASS"
+    },
+    {
+      "device": "mobile",
+      "page": "repo-review.html",
+      "status": "PASS"
+    },
+    {
+      "device": "mobile",
+      "page": "responsible-research.html",
+      "status": "PASS"
+    },
+    {
+      "device": "mobile",
+      "page": "singles.html",
+      "status": "PASS"
+    },
+    {
+      "device": "mobile",
+      "page": "sources.html",
+      "status": "PASS"
+    },
+    {
+      "device": "mobile",
+      "page": "validation.html",
+      "status": "PASS"
+    },
+    {
+      "device": "small-mobile",
+      "page": "correlations.html",
+      "status": "PASS"
+    },
+    {
+      "device": "small-mobile",
+      "page": "coverage.html",
+      "status": "PASS"
+    },
+    {
+      "device": "small-mobile",
+      "page": "evidence.html",
+      "status": "PASS"
+    },
+    {
+      "device": "small-mobile",
+      "page": "executive-summary.html",
+      "status": "PASS"
+    },
+    {
+      "device": "small-mobile",
+      "page": "flagged.html",
+      "status": "PASS"
+    },
+    {
+      "device": "small-mobile",
+      "page": "index.html",
+      "status": "PASS"
+    },
+    {
+      "device": "small-mobile",
+      "page": "leaderboard.html",
+      "status": "PASS"
+    },
+    {
+      "device": "small-mobile",
+      "page": "parlays.html",
+      "status": "PASS"
+    },
+    {
+      "device": "small-mobile",
+      "page": "player-props.html",
+      "status": "PASS"
+    },
+    {
+      "device": "small-mobile",
+      "page": "repo-review.html",
+      "status": "PASS"
+    },
+    {
+      "device": "small-mobile",
+      "page": "responsible-research.html",
+      "status": "PASS"
+    },
+    {
+      "device": "small-mobile",
+      "page": "singles.html",
+      "status": "PASS"
+    },
+    {
+      "device": "small-mobile",
+      "page": "sources.html",
+      "status": "PASS"
+    },
+    {
+      "device": "small-mobile",
+      "page": "validation.html",
+      "status": "PASS"
+    }
+  ]
+}
