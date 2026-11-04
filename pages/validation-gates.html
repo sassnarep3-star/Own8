@@ -3,103 +3,25 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Validation Gates | Own8 NFL Lines</title>
-<link rel="stylesheet" href="../assets/css/style.css">
+<title>Validation Gates — Own8 NFL Lines</title>
+<link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
-<a class="skip" href="#content">Skip to content</a>
-<header>
-  <div class="container header-wrap">
-    <a class="brand" href="../index.html"><span class="mark">O8</span>Own8 NFL Lines</a>
-    <nav>
-      <ul>
-        <li><a href="../index.html">Dashboard</a></li>
-        <li><a href="executive-summary.html">Executive Summary</a></li>
-        <li><a href="single-bets.html">Single Bets</a></li>
-        <li><a href="parlays.html">Parlays</a></li>
-        <li><a href="player-props.html">Player Props</a></li>
-        <li><a class="active" href="validation-gates.html">Validation Gates</a></li>
-        <li><a href="correlations.html">Correlations</a></li>
-        <li><a href="standings-data.html">Standings Data</a></li>
-        <li><a href="flagged-for-review.html" style="color:var(--flag-border)">Flagged for Review</a></li>
-        <li><a href="sources.html">Sources</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-<main class="container" id="content">
-  <div class="hero">
-    <div>
-      <div class="kicker">Validation Framework</div>
-      <h1>Validation Gates</h1>
-      <p>Every strategy must pass ALL six gates before a signal is released. One blank or failed gate = PAUSED. No exceptions. This is how luck is removed: only verified, skill-based inputs generate signals.</p>
-    </div>
-  </div>
-
-  <table>
-    <thead><tr><th>Gate</th><th>What it requires</th><th>Verified?</th><th>Source</th></tr></thead>
-    <tbody>
-      <tr>
-        <td><b>V1</b> Official-data completeness</td>
-        <td>Every strategy input traced to an official source link; each table row on this site carries its source.</td>
-        <td class="b-pass">PARTIAL — team data verified (NFL.com); player data flagged UNVERIFIED (Next Gen Stats totals vs games played mismatch)</td>
-        <td class="src"><a href="https://www.nfl.com/standings/" target="_blank" rel="noopener">nfl.com/standings</a> &bull; <a href="https://nextgenstats.nfl.com/" target="_blank" rel="noopener">nextgenstats.nfl.com</a></td>
-      </tr>
-      <tr>
-        <td><b>V2</b> Sample size</td>
-        <td>Minimum N observations computed from verified data before a strategy can qualify.</td>
-        <td class="blank">BLANK — UNVERIFIED. Game-by-game history is not available from the official sources used; season aggregates only.</td>
-        <td class="src"><a href="flagged-for-review.html">Flagged for Review: F-02</a></td>
-      </tr>
-      <tr>
-        <td><b>V3</b> Correlation limit</td>
-        <td>For multi-leg strategies, |Pearson r| between legs &le; 0.45 unless the correlation is explicitly documented and the play is sized down. Same-game legs require documented correlation.</td>
-        <td class="b-paused">Documented where computable (see Correlations page). Same-game rho unknown for P-02 &rarr; blocked.</td>
-        <td class="src"><a href="correlations.html">Correlations</a> &bull; <a href="../data/correlations.md" target="_blank" rel="noopener">data/correlations.md</a></td>
-      </tr>
-      <tr>
-        <td><b>V4</b> Edge vs implied line</td>
-        <td>Modeled probability minus implied probability from the betting line. Positive edge required to release.</td>
-        <td class="blank">BLANK — UNVERIFIED. NFL.com does not publish betting lines, spreads, totals, or implied probabilities (sportsbook data).</td>
-        <td class="src"><a href="flagged-for-review.html">Flagged for Review: F-04</a></td>
-      </tr>
-      <tr>
-        <td><b>V5</b> Backtest pass rate</td>
-        <td>Historical win rate of the strategy over verified historical games.</td>
-        <td class="blank">BLANK — UNVERIFIED. Historical game-by-game results unavailable from the official sources used.</td>
-        <td class="src"><a href="flagged-for-review.html">Flagged for Review: F-05</a></td>
-      </tr>
-      <tr>
-        <td><b>V6</b> Availability / injury check</td>
-        <td>All key players active per the official NFL injury report before release.</td>
-        <td class="blank">BLANK — UNVERIFIED. Injury report not fetched in this session.</td>
-        <td class="src"><a href="flagged-for-review.html">Flagged for Review: F-06</a></td>
-      </tr>
-    </tbody>
-  </table>
-
-  <h2>Gate results by strategy (snapshot 2026-11-03)</h2>
-  <table>
-    <thead><tr><th>Strategy</th><th>Type</th><th>V1 Data</th><th>V2 Sample</th><th>V3 Correlation</th><th>V4 Edge</th><th>V5 Backtest</th><th>V6 Availability</th><th>Result</th></tr></thead>
-    <tbody>
-      <tr><td class="src"><b>SB-01</b> Net-Differential Road Value</td><td>Single</td><td class="b-pass">PASS</td><td class="blank">blank</td><td class="b-na">n/a</td><td class="blank">blank</td><td class="blank">blank</td><td class="blank">blank</td><td class="b-paused">PAUSED</td></tr>
-      <tr><td class="src"><b>SB-02</b> Balanced-Game Total Under</td><td>Single</td><td class="b-pass">PASS</td><td class="blank">blank</td><td class="b-na">n/a</td><td class="blank">blank</td><td class="blank">blank</td><td class="blank">blank</td><td class="b-paused">PAUSED</td></tr>
-      <tr><td class="src"><b>SB-03</b> Home Favorite Efficiency Edge</td><td>Single</td><td class="b-pass">PASS</td><td class="blank">blank</td><td class="b-na">n/a</td><td class="blank">blank</td><td class="blank">blank</td><td class="blank">blank</td><td class="b-paused">PAUSED</td></tr>
-      <tr><td class="src"><b>P-01</b> Division Favorite ML Parlay</td><td>Parlay</td><td class="b-paused">partial</td><td class="blank">blank</td><td class="b-paused">documented</td><td class="blank">blank</td><td class="blank">blank</td><td class="blank">blank</td><td class="b-paused">PAUSED</td></tr>
-      <tr><td class="src"><b>P-02</b> Same-Game Winner + Total</td><td>Same-game parlay</td><td class="blank">blank</td><td class="blank">blank</td><td class="b-blocked">FAIL (unknown)</td><td class="blank">blank</td><td class="blank">blank</td><td class="blank">blank</td><td class="b-blocked">PAUSED (blocked)</td></tr>
-      <tr><td class="src"><b>PP-01</b> QB Over + WR1 Over</td><td>Prop combo</td><td class="b-paused">partial</td><td class="blank">blank</td><td class="b-paused">documented</td><td class="blank">blank</td><td class="blank">blank</td><td class="blank">blank</td><td class="b-paused">PAUSED</td></tr>
-      <tr><td class="src"><b>PP-02</b> Opposing RB Split</td><td>Prop combo</td><td class="blank">blank</td><td class="blank">blank</td><td class="blank">blank</td><td class="blank">blank</td><td class="blank">blank</td><td class="blank">blank</td><td class="b-paused">PAUSED</td></tr>
-    </tbody>
-  </table>
-  <p class="src">Per-strategy gate logic: <a href="../data/strategies.md" target="_blank" rel="noopener">data/strategies.md</a> (repository).</p>
-
-  <div class="note"><span class="t">Why no live signals</span>
-  V4, V5, and V6 depend on data the NFL does not publish (sportsbook odds, historical game-by-game results, injury report). Until verified sources are added for those inputs, every strategy remains PAUSED by design. Selective, skill-based participation means staying out when the gates cannot be cleared.</div>
-
-  <div class="disclaimer"><b>Not gambling advice.</b> Gates are a risk-discipline framework, not a prediction of outcomes.</div>
+<div class="layout">
+<aside class="sidebar">
+  <div class="brand">🏈 Own8 <span>NFL Line Lab</span></div>
+  <nav><a href="../index.html" class="">Dashboard</a><a href="executive-summary.html" class="">Executive Summary</a><a href="standings.html" class="">Standings (W8)</a><a href="schedule.html" class="">Week 9 Schedule</a><a href="scores.html" class="">Week 8 Scores</a><a href="team-stats.html" class="">Team Stats</a><a href="player-stats.html" class="">Player Stats &amp; NGS</a><a href="injuries.html" class="">Injuries &amp; News</a><a href="model-lines.html" class="">Model Lines (W9)</a><a href="prop-signals.html" class="">Prop Signals (W9)</a><a href="strategies.html" class="">Strategies</a><a href="validation-gates.html" class="active">Validation Gates</a><a href="correlations.html" class="">Correlations</a><a href="leaderboard.html" class="">Leaderboard</a><a href="methodology.html" class="">Methodology</a><a href="sources.html" class="">Sources</a><a href="flagged.html" class="">⚑ Flagged for Review</a><a href="responsible-gambling.html" class="">Responsible Gambling</a><a href="../archive/session-9cf451e4-own8/index.html" class="">Archive (session 9cf451e4)</a></nav>
+  <div class="sidefoot">Data as of 2026-11-03 · official sources only · <a href="flagged.html">Flagged for Review</a></div>
+</aside>
+<main class="main">
+<header class="topbar"><h1>Validation Gates</h1><span class="asof">as of 2026-11-03 · 2026 NFL season, Week 9 slate</span></header>
+<div class="content">
+<h2>Validation Gates — every strategy must pass before it can appear as a candidate</h2>
+<table class='data'><thead><tr><th>Gate</th><th>Rule</th><th>Data source</th><th>Week 9 status (as of 2026-11-03)</th></tr></thead><tbody><tr><td><strong>G1 — Official sources only</strong></td><td>Every input row must link to an official source (nfl.com, nextgenstats.nfl.com, team sites, official regulator). Third-party values never enter a verified table.</td><td><code>data/sources.json</code></td><td>PASS — all inputs captured from official domains 2026-11-03</td></tr><tr><td><strong>G2 — Freshness ≤ 7 days</strong></td><td>Standings/stats must be from the most recent completed week (≤ 7 days old).</td><td>nfl.com standings/scores timestamps</td><td>PASS — through Week 8 (final 2026-11-02)</td></tr><tr><td><strong>G3 — Sample size ≥ 4 games</strong></td><td>Both teams ≥ 4 games played (avoids tiny-sample noise).</td><td>nfl.com standings</td><td>PASS — all teams 7–8 GP</td></tr><tr><td><strong>G4 — Injury &amp; news check</strong></td><td>Check the latest <strong>published</strong> official injury report + official nfl.com news; adjust (e.g., QB change, WR out). Re-check when the next report publishes.</td><td>https://www.nfl.com/injuries/ · nfl.com news</td><td>CONDITIONAL — W9 report not yet published (F-04); W8 report + Hurts/McLaurin news applied</td></tr><tr><td><strong>G5 — Correlation check</strong></td><td>Multi-leg bets: pair correlation must satisfy the correlation policy (see <code>correlation-policy.md</code>). Same-game correlated combos blocked by default.</td><td><code>analysis/correlations.json</code></td><td>PASS for singles; enforced for S6/S7</td></tr><tr><td><strong>G6 — Edge vs market, sanity band</strong></td><td>Candidate requires `1.0 ≤</td><td>model − market</td><td>≤ 8.0` points. Market input, where used, is unverified third-party (F-05) and must be re-verified at a licensed sportsbook. No market line → NOT_COMPUTABLE (blank), never estimated.</td><td><code>data/market-lines.json</code> (unverified)</td><td>6 games computable, 2 candidates (CIN@ATL, NYG@PHI); 3 computable no-trade (edge beyond cap); 9 not computable</td></tr><tr><td><strong>G7 — Stake cap</strong></td><td>≤ 2% of bankroll per single, ≤ 1% per parlay (Kelly-style; assumption F-07).</td><td>framework</td><td>PASS (rule enforced in grading)</td></tr></tbody></table>
+<p>A strategy that fails any gate is <strong>not published as a candidate</strong> — it is logged with the failing gate instead. &quot;Needs review&quot; items are published on the Flagged for Review page and block nothing.</p>
+</div>
+<footer class="footer">Own8 — research/analytics competition framework. Not gambling advice; no real-money wagering occurs here. Every table row links to its official source; unverifiable values are blank and <a href="flagged.html">flagged</a>. 18+ (NL) / 21+ where required — <a href="responsible-gambling.html">responsible gambling</a>.</footer>
 </main>
-<footer>
-  <div class="container">Own8 NFL Lines &bull; Data as of 2026-11-03 &bull; <a href="../pages/sources.html">Source register</a> &bull; <a href="../pages/flagged-for-review.html">Flagged for Review</a></div>
-</footer>
+</div>
 </body>
 </html>

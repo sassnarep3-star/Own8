@@ -3,122 +3,66 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Executive Summary | Own8 NFL Lines</title>
-<link rel="stylesheet" href="../assets/css/style.css">
+<title>Executive Summary — Own8 NFL Lines</title>
+<link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
-<a class="skip" href="#content">Skip to content</a>
-<header>
-  <div class="container header-wrap">
-    <a class="brand" href="../index.html"><span class="mark">O8</span>Own8 NFL Lines</a>
-    <nav>
-      <ul>
-        <li><a href="../index.html">Dashboard</a></li>
-        <li><a class="active" href="executive-summary.html">Executive Summary</a></li>
-        <li><a href="single-bets.html">Single Bets</a></li>
-        <li><a href="parlays.html">Parlays</a></li>
-        <li><a href="player-props.html">Player Props</a></li>
-        <li><a href="validation-gates.html">Validation Gates</a></li>
-        <li><a href="correlations.html">Correlations</a></li>
-        <li><a href="standings-data.html">Standings Data</a></li>
-        <li><a href="flagged-for-review.html" style="color:var(--flag-border)">Flagged for Review</a></li>
-        <li><a href="sources.html">Sources</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-<main class="container" id="content">
-  <div class="hero" style="border-bottom:none;padding-bottom:0;">
-    <div>
-      <div class="kicker">Executive Summary</div>
-      <h1>Own8 NFL Lines — Project Overview</h1>
-      <p>Originate, validate, and track NFL betting-line strategies as a leaderboard competition. Data snapshot: 2026 NFL regular season, fetched from official NFL sources on 2026-11-03.</p>
-    </div>
-  </div>
-
-  <h2>1. Objective</h2>
-  <p>Build a fully automated, source-verified NFL line-origination system. Strategies are originated in-house across single bets, parlays, and player-prop combos, ranked on a leaderboard, and released only when they pass every validation gate. Correlation between legs is measured and documented. Luck is removed by requiring verified skill inputs before any signal is issued.</p>
-
-  <h2>2. Data — Official Verified Sources (fetched 2026-11-03)</h2>
-  <table>
-    <thead><tr><th>Dataset</th><th>Source</th><th>Records</th><th>Status</th></tr></thead>
-    <tbody>
-      <tr><td>2026 NFL regular-season standings (all 32 teams)</td><td><a href="https://www.nfl.com/standings/" target="_blank" rel="noopener">NFL.com — Standings</a></td><td>32 teams</td><td class="b-pass">VERIFIED</td></tr>
-      <tr><td>2026 Passing leaders (Next Gen Stats)</td><td><a href="https://nextgenstats.nfl.com/stats/passing/2026/REG/1" target="_blank" rel="noopener">NFL Next Gen Stats</a></td><td>32 QBs</td><td class="b-paused">UNVERIFIED — totals appear low vs. games played</td></tr>
-      <tr><td>2026 Rushing leaders (Next Gen Stats)</td><td><a href="https://nextgenstats.nfl.com/stats/rushing/2026/REG/1" target="_blank" rel="noopener">NFL Next Gen Stats</a></td><td>34 RBs</td><td class="b-paused">UNVERIFIED — totals appear low vs. games played</td></tr>
-      <tr><td>2026 Receiving leaders (Next Gen Stats)</td><td><a href="https://nextgenstats.nfl.com/stats/receiving/2026/REG/1" target="_blank" rel="noopener">NFL Next Gen Stats</a></td><td>47 WRs/TEs</td><td class="b-paused">UNVERIFIED — totals appear low vs. games played</td></tr>
-    </tbody>
-  </table>
-  <p class="src">Full source register: <a href="sources.html">sources.html</a>. See also: <a href="flagged-for-review.html">Flagged for Review</a>.</p>
-
-  <div class="note"><span class="t">Irregularity flagged</span>
-  Player-stat totals appear low relative to games played in the standings (e.g., Kansas City shows 7 games played but Patrick Mahomes is listed with 27 attempts / 184 yards). Possible partial data or a week-filter default on the Next Gen Stats pages. Player inputs are treated as UNVERIFIED until re-checked against an official source.
-  </div>
-
-  <h2>3. Strategies Originated (7)</h2>
-  <table>
-    <thead><tr><th>ID</th><th>Strategy</th><th>Type</th><th>Gate result</th><th>Live signal</th></tr></thead>
-    <tbody>
-      <tr><td>SB-01</td><td>Net-Differential Road Value (division game)</td><td>Single bet</td><td class="b-paused">PAUSED</td><td class="blank">No</td></tr>
-      <tr><td>SB-02</td><td>Balanced-Game Total Under (conference game)</td><td>Single bet</td><td class="b-paused">PAUSED</td><td class="blank">No</td></tr>
-      <tr><td>SB-03</td><td>Home Favorite Efficiency Edge</td><td>Single bet</td><td class="b-paused">PAUSED</td><td class="blank">No</td></tr>
-      <tr><td>P-01</td><td>Division Favorite Moneyline 2-Leg Parlay</td><td>Parlay</td><td class="b-paused">PAUSED</td><td class="blank">No</td></tr>
-      <tr><td>P-02</td><td>Same-Game Winner + Total</td><td>Same-game parlay</td><td class="b-blocked">PAUSED (blocked — correlation unknown)</td><td class="blank">No</td></tr>
-      <tr><td>PP-01</td><td>QB Passing Over + Same-Team WR1 Receiving Over</td><td>Player-prop combo</td><td class="b-paused">PAUSED</td><td class="blank">No</td></tr>
-      <tr><td>PP-02</td><td>Opposing RB Rushing Yards Split</td><td>Player-prop combo</td><td class="b-paused">PAUSED</td><td class="blank">No</td></tr>
-    </tbody>
-  </table>
-  <p class="src">Detail per strategy: data/strategies.md (repository). Gate definitions: <a href="validation-gates.html">Validation Gates</a>.</p>
-
-  <h2>4. Validation Gates (6 per strategy)</h2>
-  <table>
-    <thead><tr><th>Gate</th><th>Requirement</th><th>Status on this snapshot</th></tr></thead>
-    <tbody>
-      <tr><td>V1 Official-data completeness</td><td>Every input traced to an official source link</td><td class="b-pass">PASS (team data) / partial (player data flagged)</td></tr>
-      <tr><td>V2 Sample size</td><td>Minimum N observations from verified data</td><td class="blank">blank — UNVERIFIED (game-by-game history unavailable from official sources)</td></tr>
-      <tr><td>V3 Correlation limit</td><td>\|Pearson r\| &le; 0.45 between legs unless documented</td><td class="b-paused">Documented where computable; same-game rho unknown</td></tr>
-      <tr><td>V4 Edge vs implied line</td><td>Modeled probability minus implied probability from line</td><td class="blank">blank — UNVERIFIED (sportsbook odds not published by NFL)</td></tr>
-      <tr><td>V5 Backtest pass rate</td><td>Historical win rate of the strategy</td><td class="blank">blank — UNVERIFIED (historical game-by-game results unavailable)</td></tr>
-      <tr><td>V6 Availability/injury check</td><td>Key players active per official injury report</td><td class="blank">blank — UNVERIFIED (injury report not fetched)</td></tr>
-    </tbody>
-  </table>
-  <p><strong>Result: all 7 strategies PAUSED. Zero live signals issued.</strong> This is by design — skill-based selectivity means staying out when gates cannot be verified.</p>
-
-  <h2>5. Correlation Values (Pearson r, computed from verified data)</h2>
-  <table>
-    <thead><tr><th>Pair</th><th>n</th><th>r</th><th>Reading</th><th>Source</th></tr></thead>
-    <tbody>
-      <tr><td>Win% vs Conference Win% (teams)</td><td>32</td><td>+0.895</td><td>Strong positive</td><td><a href="https://www.nfl.com/standings/" target="_blank" rel="noopener">NFL.com standings</a></td></tr>
-      <tr><td>Win% vs Home Win% (teams)</td><td>32</td><td>+0.881</td><td>Strong positive</td><td><a href="https://www.nfl.com/standings/" target="_blank" rel="noopener">NFL.com standings</a></td></tr>
-      <tr><td>Wins vs Net Points (teams)</td><td>32</td><td>+0.808</td><td>Strong positive</td><td><a href="https://www.nfl.com/standings/" target="_blank" rel="noopener">NFL.com standings</a></td></tr>
-      <tr><td>Win% vs Division Win% (teams)</td><td>32</td><td>+0.800</td><td>Strong positive</td><td><a href="https://www.nfl.com/standings/" target="_blank" rel="noopener">NFL.com standings</a></td></tr>
-      <tr><td>Win% vs Points Per Game (teams)</td><td>32</td><td>+0.618</td><td>Moderate positive</td><td><a href="https://www.nfl.com/standings/" target="_blank" rel="noopener">NFL.com standings</a></td></tr>
-      <tr><td>Wins vs Points For (teams)</td><td>32</td><td>+0.584</td><td>Moderate positive</td><td><a href="https://www.nfl.com/standings/" target="_blank" rel="noopener">NFL.com standings</a></td></tr>
-      <tr><td>Wins vs Points Against (teams)</td><td>32</td><td>-0.535</td><td>Moderate negative</td><td><a href="https://www.nfl.com/standings/" target="_blank" rel="noopener">NFL.com standings</a></td></tr>
-      <tr><td>Points For vs Points Against (teams)</td><td>32</td><td>+0.044</td><td>Negligible</td><td><a href="https://www.nfl.com/standings/" target="_blank" rel="noopener">NFL.com standings</a></td></tr>
-      <tr><td>Rush attempts vs Rushing yards (players)</td><td>34</td><td>+0.788</td><td>Strong positive</td><td><a href="https://nextgenstats.nfl.com/stats/rushing/2026/REG/1" target="_blank" rel="noopener">NFL Next Gen Stats</a> <span class="flag">UNVERIFIED</span></td></tr>
-      <tr><td>Receptions vs Receiving yards (players)</td><td>47</td><td>+0.510</td><td>Moderate positive</td><td><a href="https://nextgenstats.nfl.com/stats/receiving/2026/REG/1" target="_blank" rel="noopener">NFL Next Gen Stats</a> <span class="flag">UNVERIFIED</span></td></tr>
-      <tr><td>Pass attempts vs Passing yards (players)</td><td>32</td><td>+0.573</td><td>Moderate positive</td><td><a href="https://nextgenstats.nfl.com/stats/passing/2026/REG/1" target="_blank" rel="noopener">NFL Next Gen Stats</a> <span class="flag">UNVERIFIED</span></td></tr>
-    </tbody>
-  </table>
-
-  <h2>6. Leaderboard &amp; Rewards (Framework)</h2>
-  <p>Strategies are ranked by gate-pass rate, documented correlation control, and verified-edge consistency. Rewards for top-performing strategies = allocation priority on the weekly signal list. Only strategies passing all six gates are eligible. No rewards are paid on unverified performance.</p>
-
-  <h2>7. Limitations &amp; Next Steps</h2>
-  <ul>
-    <li>Add a verified odds source to clear V4 (edge vs implied line).</li>
-    <li>Add the official NFL injury report to clear V6 (availability).</li>
-    <li>Add historical game-by-game data to clear V2 and V5 (sample size, backtest).</li>
-    <li>Re-fetch standings and player stats weekly; re-run correlations; update this summary.</li>
-  </ul>
-
-  <div class="disclaimer">
-    <b>Not gambling or financial advice.</b> Analytical strategy frameworks and verified public NFL data only. Betting lines/odds are not published by the NFL and are left blank until a verified source is added. Data snapshot: 2026 NFL regular season, fetched 2026-11-03. Correlations are descriptive, not predictive. Full sources: <a href="sources.html">sources.html</a>. Flagged items: <a href="flagged-for-review.html">Flagged for Review</a>.
-  </div>
+<div class="layout">
+<aside class="sidebar">
+  <div class="brand">🏈 Own8 <span>NFL Line Lab</span></div>
+  <nav><a href="../index.html" class="">Dashboard</a><a href="executive-summary.html" class="active">Executive Summary</a><a href="standings.html" class="">Standings (W8)</a><a href="schedule.html" class="">Week 9 Schedule</a><a href="scores.html" class="">Week 8 Scores</a><a href="team-stats.html" class="">Team Stats</a><a href="player-stats.html" class="">Player Stats &amp; NGS</a><a href="injuries.html" class="">Injuries &amp; News</a><a href="model-lines.html" class="">Model Lines (W9)</a><a href="prop-signals.html" class="">Prop Signals (W9)</a><a href="strategies.html" class="">Strategies</a><a href="validation-gates.html" class="">Validation Gates</a><a href="correlations.html" class="">Correlations</a><a href="leaderboard.html" class="">Leaderboard</a><a href="methodology.html" class="">Methodology</a><a href="sources.html" class="">Sources</a><a href="flagged.html" class="">⚑ Flagged for Review</a><a href="responsible-gambling.html" class="">Responsible Gambling</a><a href="../archive/session-9cf451e4-own8/index.html" class="">Archive (session 9cf451e4)</a></nav>
+  <div class="sidefoot">Data as of 2026-11-03 · official sources only · <a href="flagged.html">Flagged for Review</a></div>
+</aside>
+<main class="main">
+<header class="topbar"><h1>Executive Summary</h1><span class="asof">as of 2026-11-03 · 2026 NFL season, Week 9 slate</span></header>
+<div class="content">
+<h2>Executive Summary — Own8 NFL Line-Origination Project</h2>
+<p><strong>As of:</strong> 2026-11-03 (NFL 2026 regular season, after Week 8, ahead of Week 9 which begins Thursday 2026-11-05)</p>
+<p><strong>Prepared by:</strong> automated agent session <code>95e9626f</code>, branch <code>arena/95e9626f-own8</code></p>
+<p><strong>Verification rule used throughout:</strong> every value in this project comes from an official source (NFL.com, Next Gen Stats, or — for your jurisdiction — the Dutch regulator Kansspelautoriteit). If a value cannot be confirmed from an official source it is left <strong>blank</strong> and listed on the <strong>Flagged for Review</strong> page. Nothing is inferred or filled in.</p>
+<h3>1. Goal</h3>
+<p>Originate our own NFL betting lines from first principles, run them as a <strong>leaderboard competition</strong> that rewards top-performing strategies, and cover three bet shapes: <strong>single bets, parlays, and player-prop combos</strong>. Every strategy must pass explicit <strong>validation gates</strong>, correlation values are computed and enforced, and the framework is designed to <strong>remove luck and keep only selectively skill-based signals</strong>.</p>
+<h3>2. Data foundation (all official, captured 2026-11-03)</h3>
+<table class='data'><thead><tr><th>Dataset</th><th>Official source</th></tr></thead><tbody><tr><td>2026 standings through Week 8 (all 32 teams: W-L-T, PCT, PF, PA, net, streak)</td><td>https://www.nfl.com/standings/</td></tr><tr><td>Week 9 schedule (15 games, times, networks, venues, byes PIT/TEN)</td><td>https://www.nfl.com/schedules/2026/by-week/week-9</td></tr><tr><td>Week 8 final scores (14 games)</td><td>https://www.nfl.com/scores/2026/week-8</td></tr><tr><td>Team offense passing &amp; rushing, team defense passing &amp; rushing (season)</td><td>https://www.nfl.com/stats/team-stats/</td></tr><tr><td>Player leaders: passing, rushing, receiving, interceptions (top 25 each)</td><td>https://www.nfl.com/stats/player-stats/</td></tr><tr><td>Next Gen Stats QB passing, Week 8 (TT, CPOE, xCOMP%, AGG%, …)</td><td>https://nextgenstats.nfl.com/stats/passing/2026/REG/8 (+ glossary: https://nextgenstats.nfl.com/glossary)</td></tr><tr><td>Latest published official injury report (Week 8; Week 9 report not yet published — flagged F-04)</td><td>https://www.nfl.com/injuries/league/2026/reg8</td></tr><tr><td>Official news: Terry McLaurin (WAS) out for season; Jalen Hurts (PHI) on IR, likely out for season</td><td>https://www.nfl.com/news/commanders-wr-terry-mclaurin-out-rest-of-season-torn-patellar-tendon · https://www.nfl.com/news/eagles-qb-jalen-hurts-out-2026-season-blood-clots</td></tr></tbody></table>
+<p>Full machine-readable captures with per-row source links: <code>data/*.json</code>. Source registry: <code>data/sources.json</code>.</p>
+<h3>3. Market context (important)</h3>
+<p>The NFL does <strong>not</strong> publish betting lines. Any spread/total you see on a website is a <strong>sportsbook&#x27;s</strong> number and moves constantly. The few lines visible on third-party aggregators on 2026-11-03 (attributed to FanDuel) are recorded as <strong>unverified</strong> in <code>data/market-lines.json</code> and flagged (F-05). In the Netherlands you may only use providers licensed by the <strong>Kansspelautoriteit</strong> — check https://kansspelautoriteit.nl/kansspelwijzer before using any book. Our own lines below are <strong>model outputs computed from official stats</strong>, not official NFL values.</p>
+<h3>4. Line origination model (transparent, reproducible)</h3>
+<p><code>scripts/analyze.py</code> (stdlib only, no manual input) computes, per Week 9 game:</p>
+<ul>
+<li><code>proj_team = (team PF/game + opponent PA/game) / 2</code>, with a home-field assumption of <strong>2.5 pts</strong> (flagged F-07 — an assumption, not an official value)</li>
+<li><strong>model spread</strong> = proj_home − proj_away; <strong>model total</strong> = sum of projections</li>
+<li><strong>edge</strong> = model spread − market spread, only where a market line was captured (unverified); a play is a *candidate* only when <code>1.0 ≤ |edge| ≤ 8.0</code> points (the 8.0 cap rejects model blow-ups)</li>
+</ul>
+<p>Week 9 output (see Model Lines page): candidates this week are <strong>CIN at ATL</strong> and <strong>NYG at PHI</strong>; the JAX–BAL, NYJ–KC and LV–SF edges exceed the sanity cap and are <strong>no-trade</strong> despite large raw edges — that is the &quot;remove luck&quot; filter working.</p>
+<h3>5. Validation gates (every strategy must pass)</h3>
+<p>G1 official sources only · G2 data freshness ≤ 7 days · G3 sample ≥ 4 games · G4 injury/news check against the latest official report · G5 correlation check for any multi-leg bet · G6 edge vs market within sanity band · G7 stake cap (≤ 2% bankroll singles, ≤ 1% parlays — Kelly-style, assumption F-07). Week 9 status: G1–G3 PASS for all 15 games; G4 CONDITIONAL everywhere (Week 9 injury report not yet published — must be re-checked at https://www.nfl.com/injuries/ before acting); G6 computable for 6 games (unverified market input), NOT_COMPUTABLE for 9 (blank by rule).</p>
+<h3>6. Correlation discipline</h3>
+<p>Computed from the 32-team official data (<code>analysis/correlations.json</code>), e.g. net points/game vs win% <strong>r = +0.84</strong> (skill anchor), pass YDS/game vs PF/game <strong>r = +0.67</strong> (same-game QB↔team-total proxy), pass vs rush YDS/game <strong>r = −0.32</strong> (game script). Parlays (S6) are built only from <strong>different games</strong> (cross-game correlation ≈ 0); same-game parlays (S7) are <strong>blocked by default</strong> for correlated combos (QB over + team over) and only contrarian pairs may be reviewed when pair |r| &lt; 0.80.</p>
+<h3>7. Bet shapes covered</h3>
+<ul>
+<li><strong>Singles:</strong> S1 Form Spread, S2 Totals (limited this week — only one third-party total captured, unverified)</li>
+<li><strong>Player props:</strong> S3 QB passing (matchup factor + Next Gen CPOE), S4 RB rushing vs run defense, S5 WR receiving vs pass defense with official injury adjustments (McLaurin/Hurts)</li>
+<li><strong>Parlays:</strong> S6 de-correlated 2-leg (different games), S7 same-game restricted</li>
+<li><strong>Live betting:</strong> S8 not covered — no official live feed captured; left blank rather than simulated</li>
+</ul>
+<h3>8. Leaderboard competition</h3>
+<p>Strategies earn points when official scores post (ROI at −110 vig, stake-capped), graded automatically by re-running the pipeline — no manual input. Tiers: <strong>Gold ≥ +5.0 pts, Silver ≥ 0, Bronze &lt; 0</strong>, tie-break by Sharpe-like ratio. Rewards are <strong>points/trophies only</strong> — this project places no real-money wagers (F-10). Current standings (all 0.0 realized points; Week 9 projections on the Leaderboard page).</p>
+<h3>9. Removing luck</h3>
+<ul>
+<li>Anchoring on <strong>net points per game</strong> (r = 0.84 vs win%) instead of raw W-L</li>
+<li>Sanity-capped edges (|edge| ≤ 8) so blowout-driven model outliers don&#x27;t masquerade as skill</li>
+<li>Regression-style matchup projections (offense vs defense) rather than narrative</li>
+<li>Turnover-luck metrics are <strong>not</strong> applied (fumble data not in captured categories — flagged F-09, so nobody assumes they were)</li>
+<li>Every input re-verified weekly against official sources; stale data fails G2</li>
+</ul>
+<h3>10. Flagged for review (does not block; see site page)</h3>
+<p>F-01 standings tail columns omitted (labels unverifiable) · F-02 player team affiliations not rendered on leader pages (null + player-page links) · F-03 two unlabeled receiving tail columns kept as raw keys · F-04 Week 9 injury report not yet published · F-05 market lines are unverified third-party · F-06 third-party record discrepancies discarded in favor of NFL.com · F-07 model assumptions (HFA 2.5, −110, stake caps) labeled as assumptions · F-08 top-25 pagination · F-09 no fumble-based luck metric · F-10 no real-money wagering; 18+ NL / 21+ where required; CRUKS self-exclusion https://kansspelautoriteit.nl/uitsluitregister-cruks; US helpline 1-800-GAMBLER https://www.ncpgambling.org/.</p>
+<h3>11. Repo &amp; site</h3>
+<p>This repository hosts the data, analysis, research and the live GitHub Pages dashboard (<code>docs/</code>). Landing page + subpages by category: Standings, Week 9 Schedule, Week 8 Scores, Team Stats, Player Stats, Injuries &amp; News, Model Lines, Prop Signals, Strategies, Validation Gates, Correlations, Leaderboard, Sources, Flagged for Review, Methodology, Executive Summary. Every table row carries its official source link. Build: <code>python3 scripts/build_site.py</code>; link check: <code>python3 scripts/check_links.py</code>.</p>
+</div>
+<footer class="footer">Own8 — research/analytics competition framework. Not gambling advice; no real-money wagering occurs here. Every table row links to its official source; unverifiable values are blank and <a href="flagged.html">flagged</a>. 18+ (NL) / 21+ where required — <a href="responsible-gambling.html">responsible gambling</a>.</footer>
 </main>
-<footer>
-  <div class="container">Own8 NFL Lines &bull; Data as of 2026-11-03 &bull; <a href="sources.html">Source register</a> &bull; <a href="flagged-for-review.html">Flagged for Review</a></div>
-</footer>
+</div>
 </body>
 </html>

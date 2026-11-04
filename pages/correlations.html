@@ -3,86 +3,30 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Correlations | Own8 NFL Lines</title>
-<link rel="stylesheet" href="../assets/css/style.css">
+<title>Correlation Analysis (computed from official data) — Own8 NFL Lines</title>
+<link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
-<a class="skip" href="#content">Skip to content</a>
-<header>
-  <div class="container header-wrap">
-    <a class="brand" href="../index.html"><span class="mark">O8</span>Own8 NFL Lines</a>
-    <nav>
-      <ul>
-        <li><a href="../index.html">Dashboard</a></li>
-        <li><a href="executive-summary.html">Executive Summary</a></li>
-        <li><a href="single-bets.html">Single Bets</a></li>
-        <li><a href="parlays.html">Parlays</a></li>
-        <li><a href="player-props.html">Player Props</a></li>
-        <li><a href="validation-gates.html">Validation Gates</a></li>
-        <li><a class="active" href="correlations.html">Correlations</a></li>
-        <li><a href="standings-data.html">Standings Data</a></li>
-        <li><a href="flagged-for-review.html" style="color:var(--flag-border)">Flagged for Review</a></li>
-        <li><a href="sources.html">Sources</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-<main class="container" id="content">
-  <div class="hero">
-    <div>
-      <div class="kicker">Correlation Values</div>
-      <h1>Correlation Matrix (Pearson r)</h1>
-      <p>Computed from verified official NFL data. Pearson r measures linear association between two variables across the observations in the snapshot. Descriptive only — not predictive. Full computation: <a href="../data/correlations.md" target="_blank" rel="noopener">data/correlations.md</a> (repository, includes the Python script used).</p>
-    </div>
-  </div>
-
-  <div class="note"><span class="t">How to read</span>
-  |r| &ge; 0.70 = strong, 0.40–0.69 = moderate, &lt; 0.40 = weak. Positive = move together; negative = move opposite. Player-table rows are flagged UNVERIFIED because Next Gen Stats totals appear low vs. games played in the standings (possible partial data). Betting-market correlations (e.g., same-game parlay legs) are blank — odds are not published by official NFL sources.</div>
-
-  <h2>Team-level correlations — 32 teams, 2026 REG standings</h2>
-  <table>
-    <thead><tr><th>Variable A</th><th>Variable B</th><th>Teams</th><th>Pearson r</th><th>Reading</th><th>Source</th></tr></thead>
-    <tbody>
-      <tr><td>Win%</td><td>Conference Win%</td><td>32</td><td>+0.895</td><td>Strong positive</td><td class="src"><a href="https://www.nfl.com/standings/" target="_blank" rel="noopener">nfl.com/standings</a></td></tr>
-      <tr><td>Win%</td><td>Home Win%</td><td>32</td><td>+0.881</td><td>Strong positive</td><td class="src"><a href="https://www.nfl.com/standings/" target="_blank" rel="noopener">nfl.com/standings</a></td></tr>
-      <tr><td>Wins</td><td>Net Points</td><td>32</td><td>+0.808</td><td>Strong positive</td><td class="src"><a href="https://www.nfl.com/standings/" target="_blank" rel="noopener">nfl.com/standings</a></td></tr>
-      <tr><td>Win%</td><td>Division Win%</td><td>32</td><td>+0.800</td><td>Strong positive</td><td class="src"><a href="https://www.nfl.com/standings/" target="_blank" rel="noopener">nfl.com/standings</a></td></tr>
-      <tr><td>Win%</td><td>Points Per Game</td><td>32</td><td>+0.618</td><td>Moderate positive</td><td class="src"><a href="https://www.nfl.com/standings/" target="_blank" rel="noopener">nfl.com/standings</a></td></tr>
-      <tr><td>Wins</td><td>Points For</td><td>32</td><td>+0.584</td><td>Moderate positive</td><td class="src"><a href="https://www.nfl.com/standings/" target="_blank" rel="noopener">nfl.com/standings</a></td></tr>
-      <tr><td>Win%</td><td>Road Win%</td><td>32</td><td>+0.600</td><td>Moderate positive</td><td class="src"><a href="https://www.nfl.com/standings/" target="_blank" rel="noopener">nfl.com/standings</a></td></tr>
-      <tr><td>Wins</td><td>Points Against</td><td>32</td><td>-0.535</td><td>Moderate negative</td><td class="src"><a href="https://www.nfl.com/standings/" target="_blank" rel="noopener">nfl.com/standings</a></td></tr>
-      <tr><td>Win%</td><td>Points Against Per Game</td><td>32</td><td>-0.581</td><td>Moderate negative</td><td class="src"><a href="https://www.nfl.com/standings/" target="_blank" rel="noopener">nfl.com/standings</a></td></tr>
-      <tr><td>Points For</td><td>Points Against</td><td>32</td><td>+0.044</td><td>Negligible</td><td class="src"><a href="https://www.nfl.com/standings/" target="_blank" rel="noopener">nfl.com/standings</a></td></tr>
-    </tbody>
-  </table>
-
-  <h2>Player-level correlations — Next Gen Stats leader tables (2026 REG)</h2>
-  <table>
-    <thead><tr><th>Variable A</th><th>Variable B</th><th>Players</th><th>Pearson r</th><th>Reading</th><th>Source</th><th>Flag</th></tr></thead>
-    <tbody>
-      <tr><td>Rush attempts</td><td>Rushing yards</td><td>34</td><td>+0.788</td><td>Strong positive</td><td class="src"><a href="https://nextgenstats.nfl.com/stats/rushing/2026/REG/1" target="_blank" rel="noopener">NGS rushing</a></td><td class="flag">UNVERIFIED</td></tr>
-      <tr><td>Pass attempts</td><td>Passing yards</td><td>32</td><td>+0.573</td><td>Moderate positive</td><td class="src"><a href="https://nextgenstats.nfl.com/stats/passing/2026/REG/1" target="_blank" rel="noopener">NGS passing</a></td><td class="flag">UNVERIFIED</td></tr>
-      <tr><td>Receptions</td><td>Receiving yards</td><td>47</td><td>+0.510</td><td>Moderate positive</td><td class="src"><a href="https://nextgenstats.nfl.com/stats/receiving/2026/REG/1" target="_blank" rel="noopener">NGS receiving</a></td><td class="flag">UNVERIFIED</td></tr>
-      <tr><td>Pass attempts</td><td>Passer rating</td><td>32</td><td>-0.179</td><td>Weak negative</td><td class="src"><a href="https://nextgenstats.nfl.com/stats/passing/2026/REG/1" target="_blank" rel="noopener">NGS passing</a></td><td class="flag">UNVERIFIED</td></tr>
-    </tbody>
-  </table>
-
-  <h2>Correlations used in strategy gating</h2>
-  <table>
-    <thead><tr><th>Strategy</th><th>Correlation used</th><th>Value</th><th>Gate V3 outcome</th></tr></thead>
-    <tbody>
-      <tr><td>SB-01, SB-02, SB-03</td><td>Single-leg strategies</td><td>n/a</td><td class="b-na">n/a</td></tr>
-      <tr><td>P-01 (2 legs, different games)</td><td>Cross-game outcome correlation</td><td>Assumed ~0; not computed from game-level data</td><td class="b-paused">Documented assumption, uncertified</td></tr>
-      <tr><td>P-02 (same game)</td><td>Winner vs total, same game</td><td>Unknown — game-by-game scoring data not published by NFL</td><td class="b-blocked">FAIL — blocked</td></tr>
-      <tr><td>PP-01 (QB over + WR1 over)</td><td>Pass volume vs receiving volume</td><td>Receptions vs receiving yards r = +0.510 (positive)</td><td class="b-paused">Documented; size down if released</td></tr>
-      <tr><td>PP-02 (opposing RB split)</td><td>Game-script rushing correlation</td><td>Not computable from season aggregates</td><td class="blank">blank — UNVERIFIED</td></tr>
-    </tbody>
-  </table>
-
-  <div class="disclaimer"><b>Not gambling advice.</b> Correlations describe the fetched snapshot only. They do not predict future games or outcomes.</div>
+<div class="layout">
+<aside class="sidebar">
+  <div class="brand">🏈 Own8 <span>NFL Line Lab</span></div>
+  <nav><a href="../index.html" class="">Dashboard</a><a href="executive-summary.html" class="">Executive Summary</a><a href="standings.html" class="">Standings (W8)</a><a href="schedule.html" class="">Week 9 Schedule</a><a href="scores.html" class="">Week 8 Scores</a><a href="team-stats.html" class="">Team Stats</a><a href="player-stats.html" class="">Player Stats &amp; NGS</a><a href="injuries.html" class="">Injuries &amp; News</a><a href="model-lines.html" class="">Model Lines (W9)</a><a href="prop-signals.html" class="">Prop Signals (W9)</a><a href="strategies.html" class="">Strategies</a><a href="validation-gates.html" class="">Validation Gates</a><a href="correlations.html" class="active">Correlations</a><a href="leaderboard.html" class="">Leaderboard</a><a href="methodology.html" class="">Methodology</a><a href="sources.html" class="">Sources</a><a href="flagged.html" class="">⚑ Flagged for Review</a><a href="responsible-gambling.html" class="">Responsible Gambling</a><a href="../archive/session-9cf451e4-own8/index.html" class="">Archive (session 9cf451e4)</a></nav>
+  <div class="sidefoot">Data as of 2026-11-03 · official sources only · <a href="flagged.html">Flagged for Review</a></div>
+</aside>
+<main class="main">
+<header class="topbar"><h1>Correlation Analysis (computed from official data)</h1><span class="asof">as of 2026-11-03 · 2026 NFL season, Week 9 slate</span></header>
+<div class="content">
+<p class="muted">Pearson/Spearman across all 32 teams, computed from data/*.json (official NFL.com captures). n=32 teams, season through Week 8.</p>
+<div class="wrap"><table class="data"><thead><tr><th>Pair</th><th>Statistic</th><th>n</th><th>r</th><th>Interpretation</th><th>Source 1</th><th>Source 2</th></tr></thead><tbody><tr><td>Team points-for per game (PFpg) vs win%</td><td>pearson</td><td>32</td><td>+0.6178</td><td>Pythagorean sanity check: scoring rate should track winning. High r = standings points are skill-consistent, not luck-driven.</td><td><a href="https://www.nfl.com/stats/team-stats/" target="_blank" rel="noopener">nfl.com team stats</a></td><td><a href="https://www.nfl.com/standings/" target="_blank" rel="noopener">nfl.com standings</a></td></tr><tr><td>Net points per game (NETpg) vs win%</td><td>pearson</td><td>32</td><td>+0.8431</td><td>Point differential vs record — the core &amp;#x27;remove luck&amp;#x27; regression anchor.</td><td><a href="https://www.nfl.com/stats/team-stats/" target="_blank" rel="noopener">nfl.com team stats</a></td><td><a href="https://www.nfl.com/standings/" target="_blank" rel="noopener">nfl.com standings</a></td></tr><tr><td>Net points per game (NETpg) rank vs win% rank</td><td>spearman</td><td>32</td><td>+0.8451</td><td>Rank correlation: robust to outliers (e.g., blowouts).</td><td><a href="https://www.nfl.com/stats/team-stats/" target="_blank" rel="noopener">nfl.com team stats</a></td><td><a href="https://www.nfl.com/standings/" target="_blank" rel="noopener">nfl.com standings</a></td></tr><tr><td>Offensive pass YDS/game vs PFpg</td><td>pearson</td><td>32</td><td>+0.6680</td><td>Passing volume explains scoring. Also used as the documented proxy for same-game QB-performance vs team-total correlation (parlay gate G5).</td><td><a href="https://www.nfl.com/stats/team-stats/" target="_blank" rel="noopener">nfl.com team stats</a></td><td><a href="https://www.nfl.com/standings/" target="_blank" rel="noopener">nfl.com standings</a></td></tr><tr><td>Defensive pass YDS allowed/game vs PApg</td><td>pearson</td><td>32</td><td>+0.3668</td><td>Pass defense quality explains points allowed — drives QB/WR prop matchup factors.</td><td><a href="https://www.nfl.com/stats/team-stats/" target="_blank" rel="noopener">nfl.com team stats</a></td><td><a href="https://www.nfl.com/standings/" target="_blank" rel="noopener">nfl.com standings</a></td></tr><tr><td>Offensive rush YDS/game vs PFpg</td><td>pearson</td><td>32</td><td>+0.1809</td><td>Rushing volume vs scoring.</td><td><a href="https://www.nfl.com/stats/team-stats/" target="_blank" rel="noopener">nfl.com team stats</a></td><td><a href="https://www.nfl.com/standings/" target="_blank" rel="noopener">nfl.com standings</a></td></tr><tr><td>Defensive rush YDS allowed/game vs PApg</td><td>pearson</td><td>32</td><td>+0.5961</td><td>Run defense vs points allowed — drives RB prop matchup factors.</td><td><a href="https://www.nfl.com/stats/team-stats/" target="_blank" rel="noopener">nfl.com team stats</a></td><td><a href="https://www.nfl.com/standings/" target="_blank" rel="noopener">nfl.com standings</a></td></tr><tr><td>Team pass RTG vs win%</td><td>pearson</td><td>32</td><td>+0.5782</td><td>QB efficiency vs winning.</td><td><a href="https://www.nfl.com/stats/team-stats/" target="_blank" rel="noopener">nfl.com team stats</a></td><td><a href="https://www.nfl.com/standings/" target="_blank" rel="noopener">nfl.com standings</a></td></tr><tr><td>Offensive pass YDS/game vs offensive rush YDS/game (game script)</td><td>pearson</td><td>32</td><td>-0.3207</td><td>Teams that pass more tend to run less (negative expected) — relevant when pairing QB overs with RB unders in the same game (correlation gate).</td><td><a href="https://www.nfl.com/stats/team-stats/" target="_blank" rel="noopener">nfl.com team stats</a></td><td><a href="https://www.nfl.com/standings/" target="_blank" rel="noopener">nfl.com standings</a></td></tr></tbody></table></div>
+<h3>Enforcement rules</h3>
+<p>1. <strong>Parlays across different games (strategy S6):</strong> cross-game correlation is treated as ≈ 0 by construction — legs must come from different games; max 2 legs this season phase.</p>
+<p>2. <strong>Same-game parlays (strategy S7):</strong> mechanically correlated combos (QB over + team total over; RB over + team total over; favorite spread + over) are <strong>blocked by default</strong>. Only contrarian pairs may be submitted for review, and only if the pair&#x27;s |r| &lt; <strong>0.80</strong> using the computed table above (proxy for same-game QB↔team-total: r = +0.67; game-script pass↔rush: r = −0.32).</p>
+<p>3. <strong>Prop combos (player props):</strong> a player prop combined with his own team&#x27;s game bet in the same game is treated as correlated (default blocked); a player prop in game A combined with a prop in game B is allowed (cross-game).</p>
+<p>4. <strong>Correlation values are recomputed weekly</strong> from the latest official data; the threshold 0.80 is a framework parameter (assumption, flagged F-07), not a measured constant.</p>
+<p>5. Correlations are computed, never asserted: <code>python3 scripts/analyze.py</code> regenerates <code>analysis/correlations.json</code> from <code>data/*.json</code>.</p>
+</div>
+<footer class="footer">Own8 — research/analytics competition framework. Not gambling advice; no real-money wagering occurs here. Every table row links to its official source; unverifiable values are blank and <a href="flagged.html">flagged</a>. 18+ (NL) / 21+ where required — <a href="responsible-gambling.html">responsible gambling</a>.</footer>
 </main>
-<footer>
-  <div class="container">Own8 NFL Lines &bull; Data as of 2026-11-03 &bull; <a href="../pages/sources.html">Source register</a> &bull; <a href="../pages/flagged-for-review.html">Flagged for Review</a></div>
-</footer>
+</div>
 </body>
 </html>
