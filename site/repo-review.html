@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Repo Review · Own8 NFL</title>
+<meta name="description" content="Line-by-line audit of the starting repository">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><a href="index.html">Own8 <span>NFL Line Lab</span></a></div>
+  <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('nav-open')">☰</button>
+</header>
+<nav class="sidebar"><div class="nav-title">Dashboard</div><a href="index.html" class="">Home</a><a href="executive-summary.html" class="">Executive Summary</a><a href="singles.html" class="">Single Bets</a><a href="parlays.html" class="">Parlays</a><a href="props.html" class="">Player Props</a><a href="correlations.html" class="">Correlations</a><a href="validation.html" class="">Validation &amp; Gates</a><a href="official-facts.html" class="">Official Facts</a><a href="data-sources.html" class="active">Data &amp; Sources</a><a href="methodology.html" class="">Methodology</a><a href="flagged.html" class="">Flagged for Review</a>
+  <div class="nav-foot">Verified 2026-11-03 · session 28cc78aa</div>
+</nav>
+<main class="content wide">
+  <div class="page-head"><h1>Repo Review</h1><p class="sub">Line-by-line audit of the starting repository</p></div>
+  <section class="panel doc"><h1 id="repo-review-line-by-line-audit">Repo Review — line-by-line audit</h1>
+<p>Session: <code>28cc78aa</code> · Date: 2026-11-03 · Branch: <code>arena/28cc78aa-own8</code> (base commit <code>9bd72f5</code>)</p>
+<h2 id="scope">Scope</h2>
+<p>Audit of every file present in the repository at session start, before any project work.</p>
+<h2 id="findings">Findings</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>File</th>
+<th>Line(s)</th>
+<th>Content</th>
+<th>Assessment</th>
+<th>Source / evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R1</td>
+<td><code>README.md</code></td>
+<td>1</td>
+<td><code># Own8</code> (6 bytes, no trailing newline)</td>
+<td>Repo name header only. No project description, no data, no code, no site, no CI. Nothing to fact-check against external sources.</td>
+<td>Local checkout, commit <code>9bd72f5</code> ("Initial commit") — <a href="https://github.com/sassnarep3-star/Own8">github.com/sassnarep3-star/Own8</a></td>
+</tr>
+<tr>
+<td>R2</td>
+<td><code>.git</code> history</td>
+<td>—</td>
+<td>Single commit <code>9bd72f5c63ac00a184159d15941f2eaab5382812</code> on <code>main</code>; no other branches, tags, or remote activity at session start</td>
+<td>Clean slate; no prior claims in COORDINATION.md (file did not exist and was created by this session).</td>
+<td><code>git log --all --oneline</code> output at session start</td>
+</tr>
+</tbody>
+</table>
+<h2 id="irregularities-flagged">Irregularities flagged</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Item</th>
+<th>Detail</th>
+<th>Disposition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IR1</td>
+<td>Empty project</td>
+<td>The repository contained no prior work to verify; all deliverables are created fresh by this session.</td>
+<td>Informational — listed on the site's Flagged for Review page.</td>
+</tr>
+<tr>
+<td>IR2</td>
+<td>README missing newline</td>
+<td><code>README.md</code> had no trailing newline (cosmetic).</td>
+<td>Fixed when README was rewritten for the project.</td>
+</tr>
+<tr>
+<td>IR3</td>
+<td>Branch policy conflict</td>
+<td>The task text asks for <code>session-&lt;id&gt;/&lt;task&gt;</code> branches, but the Arena platform pins this session to <code>arena/28cc78aa-own8</code> and forbids creating other branches.</td>
+<td>This session uses its pinned branch as both work and integration branch; recorded in COORDINATION.md.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="verification-method">Verification method</h2>
+<ul>
+<li>Every pre-existing file was read in full (1 file, 1 line).</li>
+<li>Git history inspected with <code>git log</code>, <code>git branch -a</code>, <code>git remote -v</code>.</li>
+<li>No external factual claims existed in the repo to verify; therefore no external source links are required for R1–R2 beyond the repository itself.</li>
+</ul></section>
+  <footer class="foot">
+    <p>Own8 NFL Line Lab · research &amp; education only, not betting advice. Market data is
+    <strong>PRIMARY (non-NFL)</strong> and flagged; official facts link to NFL sources.
+    See <a href="flagged.html">Flagged for Review</a> and <a href="data-sources.html">Data &amp; Sources</a>.</p>
+  </footer>
+</main>
+<script src="assets/app.js"></script>
+</body>
+</html>

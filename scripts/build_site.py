@@ -101,6 +101,7 @@ NAV = [
     ("sources.html", "Sources", False),
     ("flagged.html", "⚑ Flagged for Review", False),
     ("responsible-gambling.html", "Responsible Gambling", False),
+    ("site/index.html", "Historical Lab (28cc78aa)", True),
     ("archive/session-9cf451e4-own8/index.html", "Archive (session 9cf451e4)", True),
 ]
 

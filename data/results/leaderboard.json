@@ -1,0 +1,106 @@
+[
+  {
+    "id": "S2",
+    "name": "Model total value @ opening line",
+    "category": "Single bet",
+    "score": 63.9,
+    "tier": "Silver",
+    "gates_passed": 6
+  },
+  {
+    "id": "X3",
+    "name": "RB1 rushing yards \u2014 fair-line origination",
+    "category": "Player prop",
+    "score": 51.4,
+    "tier": "Rejected",
+    "gates_passed": 4
+  },
+  {
+    "id": "X1",
+    "name": "QB passing yards \u2014 fair-line origination",
+    "category": "Player prop",
+    "score": 39.5,
+    "tier": "Rejected",
+    "gates_passed": 4
+  },
+  {
+    "id": "X2",
+    "name": "WR1 receiving yards \u2014 fair-line origination",
+    "category": "Player prop",
+    "score": 29.8,
+    "tier": "Rejected",
+    "gates_passed": 3
+  },
+  {
+    "id": "S6",
+    "name": "Fade extreme longshots (bet big favorite ML)",
+    "category": "Single bet",
+    "score": 19.7,
+    "tier": "Rejected",
+    "gates_passed": 3
+  },
+  {
+    "id": "S5",
+    "name": "Value moneyline @ closing line",
+    "category": "Single bet",
+    "score": 18.8,
+    "tier": "Rejected",
+    "gates_passed": 4
+  },
+  {
+    "id": "S3",
+    "name": "Model spread value @ closing line",
+    "category": "Single bet",
+    "score": 15.2,
+    "tier": "Rejected",
+    "gates_passed": 3
+  },
+  {
+    "id": "S1",
+    "name": "Model spread value @ opening line",
+    "category": "Single bet",
+    "score": 13.2,
+    "tier": "Rejected",
+    "gates_passed": 3
+  },
+  {
+    "id": "P4",
+    "name": "Underdog covers + Under",
+    "category": "Parlay",
+    "score": 13.1,
+    "tier": "Rejected",
+    "gates_passed": 2
+  },
+  {
+    "id": "S4",
+    "name": "Model total value @ closing line",
+    "category": "Single bet",
+    "score": 12.2,
+    "tier": "Rejected",
+    "gates_passed": 3
+  },
+  {
+    "id": "P1",
+    "name": "Favorite covers + Over",
+    "category": "Parlay",
+    "score": 10.1,
+    "tier": "Rejected",
+    "gates_passed": 2
+  },
+  {
+    "id": "P2",
+    "name": "Favorite covers + Under",
+    "category": "Parlay",
+    "score": 10.1,
+    "tier": "Rejected",
+    "gates_passed": 2
+  },
+  {
+    "id": "P3",
+    "name": "Underdog covers + Over",
+    "category": "Parlay",
+    "score": 8.6,
+    "tier": "Rejected",
+    "gates_passed": 2
+  }
+]

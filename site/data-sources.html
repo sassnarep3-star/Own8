@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data &amp; Sources · Own8 NFL</title>
+<meta name="description" content="Provenance · verification tiers · source registry">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><a href="index.html">Own8 <span>NFL Line Lab</span></a></div>
+  <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('nav-open')">☰</button>
+</header>
+<nav class="sidebar"><div class="nav-title">Dashboard</div><a href="index.html" class="">Home</a><a href="executive-summary.html" class="">Executive Summary</a><a href="singles.html" class="">Single Bets</a><a href="parlays.html" class="">Parlays</a><a href="props.html" class="">Player Props</a><a href="correlations.html" class="">Correlations</a><a href="validation.html" class="">Validation &amp; Gates</a><a href="official-facts.html" class="">Official Facts</a><a href="data-sources.html" class="active">Data &amp; Sources</a><a href="methodology.html" class="">Methodology</a><a href="flagged.html" class="">Flagged for Review</a>
+  <div class="nav-foot">Verified 2026-11-03 · session 28cc78aa</div>
+</nav>
+<main class="content wide">
+  <div class="page-head"><h1>Data &amp; Sources</h1><p class="sub">Provenance · verification tiers · source registry</p></div>
+  <section class="panel doc"><h1 id="data-provenance-verification-log">Data Provenance &amp; Verification Log</h1>
+<p>Session <code>28cc78aa</code> · 2026-11-03. Every dataset used by this project is listed here with its
+publisher, exact fetch location, SHA-256 (in <code>data/raw/manifest.json</code> after running
+<code>scripts/fetch_data.py</code>), and verification status.</p>
+<p><strong>Verification tiers used throughout this project</strong></p>
+<table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>OFFICIAL</code></td>
+<td>Value confirmed against an NFL-owned source (nfl.com, operations.nfl.com, media.nfl.com, static.www.nfl.com, or the NFL's own GitHub org <code>nfl-football-ops</code>).</td>
+</tr>
+<tr>
+<td><code>DERIVED</code></td>
+<td>Statistic computed by this project's scripts from a named primary dataset. Reproducible via <code>scripts/own8_analyze.py</code>. The underlying dataset's own tier applies to the inputs.</td>
+</tr>
+<tr>
+<td><code>PRIMARY (non-NFL)</code></td>
+<td>Value taken from a widely-used public primary-data mirror that is <strong>not</strong> NFL-owned. Flagged on the Flagged for Review page because no NFL-official source publishes it.</td>
+</tr>
+<tr>
+<td><code>UNVERIFIED</code></td>
+<td>Could not be confirmed from an official source → value left blank in tables and flagged.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="datasets">Datasets</h2>
+<h3 id="d1-gamescsv-schedules-results-closing-market-lines">D1 — <code>games.csv</code> (schedules, results, closing market lines)</h3>
+<ul>
+<li>Publisher: Lee Sharpe / nflverse (<code>LeeSharpe/nfldata</code> on GitHub).</li>
+<li>Fetch: GitHub contents API → <code>data/games.csv</code> (2,188,275 bytes at fetch time).</li>
+<li>Coverage: 7,548 games, seasons 1999–2026 (2026 in progress: 272 scheduled, results filled through the current week).</li>
+<li>Fields used: <code>season, game_type, week, gameday, home_team, away_team, home_score, away_score, result, total, overtime, spread_line, total_line, home_moneyline, away_moneyline, home_spread_odds, away_spread_odds, over_odds, under_odds</code>.</li>
+<li>Tier: scores <code>PRIMARY (non-NFL)</code> cross-validated against OFFICIAL anchor D5 (91/91 games of the 2017 BDB sample — see <code>data/results/validation.json</code>); market lines <code>PRIMARY (non-NFL)</code> cross-checked against independent mirror D2. The NFL does not publish betting lines, so no official source exists for them; they are flagged as such, never presented as official.</li>
+<li>Source links: <a href="https://github.com/LeeSharpe/nfldata">repo</a> · <a href="https://github.com/LeeSharpe/nfldata/blob/master/data/games.csv">file</a></li>
+</ul>
+<h3 id="d2-nfl_lines_oddscsvgz-book-level-opening-closing-odds">D2 — <code>nfl_lines_odds.csv.gz</code> (book-level opening &amp; closing odds)</h3>
+<ul>
+<li>Publisher: Sebastian Carl / nflverse (<code>mrcaseb/nfl-data</code> on GitHub).</li>
+<li>Fetch: GitHub contents API → <code>data/nfl_lines_odds.csv.gz</code> (2,596,471 bytes).</li>
+<li>Coverage: 479,089 book-level quotes (moneyline / spread / total) with <code>opening_lines</code> and closing <code>lines</code>, multiple books, from 2006 on.</li>
+<li>Tier: <code>PRIMARY (non-NFL)</code>. Used to cross-check D1 closing lines and to measure open→close line movement (CLV).</li>
+<li>Source links: <a href="https://github.com/mrcaseb/nfl-data">repo</a> · <a href="https://github.com/mrcaseb/nfl-data/blob/master/data/nfl_lines_odds.csv.gz">file</a></li>
+</ul>
+<h3 id="d3-game_passing_dfcsv-game_receiving_dfcsv-game_rushing_dfcsv-player-game-stats">D3 — <code>game_passing_df.csv</code>, <code>game_receiving_df.csv</code>, <code>game_rushing_df.csv</code> (player-game stats)</h3>
+<ul>
+<li>Publisher: Ryurko / nflscrapR (<code>ryurko/nflscrapR-data</code>, legacy data aggregated from NFL play-by-play).</li>
+<li>Fetch: GitHub contents API (7.5 MB / 37.2 MB / 5.6 MB).</li>
+<li>Coverage: player-game rows, GameIDs 2009091000–2017123115 (2009–2017 seasons).</li>
+<li>Tier: <code>PRIMARY (non-NFL)</code>; internal consistency checked (team passing yards vs team receiving yards per game, team points vs games.csv) — see <code>data/results/validation.json</code>.</li>
+<li>Source links: <a href="https://github.com/ryurko/nflscrapR-data">repo</a> · <a href="https://github.com/ryurko/nflscrapR-data/tree/master/legacy_data/game_player_stats">directory</a></li>
+</ul>
+<h3 id="d4-fdp2021118csv-2021-weekly-player-fantasy-stats-modern-era-robustness-sample">D4 — <code>fdp2021/{1..18}.csv</code> (2021 weekly player fantasy stats, modern-era robustness sample)</h3>
+<ul>
+<li>Publisher: Fantasy Data Pros (course datasets, <code>fantasydatapros/LearnPythonWithFantasyFootball</code>).</li>
+<li>Fetch: GitHub contents API, 18 weekly files, ~400 players/week with PassingYds/RushingYds/ReceivingYds/etc.</li>
+<li>Tier: <code>PRIMARY (non-NFL)</code>. Used only as a modern-era robustness check on correlations estimated from D3.</li>
+<li>Source links: <a href="https://github.com/fantasydatapros/LearnPythonWithFantasyFootball">repo</a> · <a href="https://github.com/fantasydatapros/LearnPythonWithFantasyFootball/tree/master/2022/09-Correlation%20Matrices/01-Weekly%20Fantasy%20Stats%20-%202021">directory</a></li>
+</ul>
+<h3 id="d5-bdb_officialgamescsv-playscsv-playerscsv-official-nfl-anchor">D5 — <code>bdb_official/games.csv</code>, <code>plays.csv</code>, <code>players.csv</code> (OFFICIAL NFL anchor)</h3>
+<ul>
+<li>Publisher: <strong>National Football League</strong> — the NFL Football Operations GitHub organization (<code>nfl-football-ops</code>), Big Data Bowl repository (2019 competition, 2017-season sample of 91 games).</li>
+<li>Fetch: GitHub contents API.</li>
+<li>Tier: <code>OFFICIAL</code> — this is the NFL's own published data. Used to verify D1 game results line by line (91 games: date, home/away teams, final scores).</li>
+<li>Source links: <a href="https://github.com/nfl-football-ops">org</a> · <a href="https://github.com/nfl-football-ops/Big-Data-Bowl">repo</a> · <a href="https://github.com/nfl-football-ops/Big-Data-Bowl/blob/master/Data/games.csv">games.csv</a></li>
+</ul>
+<h2 id="known-gaps-flagged-not-filled">Known gaps (flagged, not filled)</h2>
+<table>
+<thead>
+<tr>
+<th>Gap</th>
+<th>Consequence</th>
+<th>Disposition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>No official NFL source publishes betting lines or prop lines</td>
+<td>Market-line values cannot carry an <code>OFFICIAL</code> tier</td>
+<td>All market values labeled <code>PRIMARY (non-NFL)</code>; flagged for review.</td>
+</tr>
+<tr>
+<td>Historical player-prop lines are not publicly archived in any reachable primary source</td>
+<td>Prop strategies are evaluated as <strong>line origination</strong> (model fairness/calibration), not as backtests against market prop lines</td>
+<td>Explicitly labeled; no fabricated prop lines.</td>
+</tr>
+<tr>
+<td>D3 covers 2009–2017 only</td>
+<td>Correlations may differ in the modern passing environment</td>
+<td>D4 (2021) used as robustness check; era caveat flagged.</td>
+</tr>
+<tr>
+<td>2026 season incomplete at analysis time</td>
+<td>2026 excluded from all backtests</td>
+<td>Backtests use completed seasons only.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="reproducibility">Reproducibility</h2>
+<pre><code class="language-bash">python3 scripts/fetch_data.py   # re-download all raw data + sha256 manifest
+python3 scripts/own8_analyze.py      # recompute every DERIVED number in data/results/
+python3 scripts/own8_build_site.py   # regenerate the dashboard from data/results/
+</code></pre></section><section class="panel doc"><h1 id="sources-registry">Sources Registry</h1>
+<p>Every factual claim published by this project links to one of the sources below.
+Tier definitions: see <code>docs/DATA_PROVENANCE.md</code>. Verification date for all OFFICIAL
+sources: <strong>2026-11-03</strong> (fetched and read directly by session <code>28cc78aa</code>).</p>
+<h2 id="official-nfl-sources-tier-official">Official NFL sources (tier OFFICIAL)</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Source</th>
+<th>What it verifies</th>
+<th>URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>O1</td>
+<td>2026 NFL Official Playing Rules (rulebook PDF, media.nfl.com)</td>
+<td>Scoring values (Rule 11-1-2), Try spots (11-3-1), game length (4-1-1), overtime procedures (16-1), field dimensions (1-1), 11 players (5-1-1), 2026 rule changes (cover)</td>
+<td><a href="https://media.nfl.com/content/dam/communications/Official%20Playing%20Rules/2026%20Official%20Playing%20Rules.pdf">https://media.nfl.com/content/dam/communications/Official%20Playing%20Rules/2026%20Official%20Playing%20Rules.pdf</a></td>
+</tr>
+<tr>
+<td>O2</td>
+<td>2026 NFL Rulebook — operations.nfl.com</td>
+<td>Same rulebook, canonical web edition incl. 2026 rule-change table</td>
+<td><a href="https://operations.nfl.com/rules-officiating/2026-nfl-rulebook/">https://operations.nfl.com/rules-officiating/2026-nfl-rulebook/</a></td>
+</tr>
+<tr>
+<td>O3</td>
+<td>Approved 2025 Playing Rules, Bylaws and Resolutions (NFL Football Communications, Apr 1 2025)</td>
+<td>2025 OT alignment (both teams possess, 10-min regular-season OT), dynamic kickoff made permanent, touchback to 35, roster cut to 53 with 2 return designations</td>
+<td><a href="https://media.nfl.com/football-information/2025/approved-2025-playing-rules--bylaws-and-resolutions">https://media.nfl.com/football-information/2025/approved-2025-playing-rules--bylaws-and-resolutions</a></td>
+</tr>
+<tr>
+<td>O4</td>
+<td>NFL.com — "NFL moves extra point to 15-yard line for 2015 season" (May 19 2015)</td>
+<td>PAT kick from the 15 (33-yd attempt), 2-pt try from the 2, defense may score 2 on Try returns</td>
+<td><a href="https://www.nfl.com/news/nfl-moves-extra-point-to-15-yard-line-for-2015-season-0ap3000000493347">https://www.nfl.com/news/nfl-moves-extra-point-to-15-yard-line-for-2015-season-0ap3000000493347</a></td>
+</tr>
+<tr>
+<td>O5</td>
+<td>NFL.com — "What you need to know about enhanced NFL schedule featuring 17 regular-season games per team"</td>
+<td>17-game regular season adopted for 2021 (owners' vote)</td>
+<td><a href="https://www.nfl.com/news/what-you-need-to-know-nfl-schedule-17-regular-season-games">https://www.nfl.com/news/what-you-need-to-know-nfl-schedule-17-regular-season-games</a></td>
+</tr>
+<tr>
+<td>O6</td>
+<td>NFL.com — "Collective Bargaining Agreement" (2020)</td>
+<td>14-team playoffs from 2020 (7 per conference); gameday active roster 48</td>
+<td><a href="https://www.nfl.com/news/collective-bargaining-agreement">https://www.nfl.com/news/collective-bargaining-agreement</a></td>
+</tr>
+<tr>
+<td>O7</td>
+<td>NFL Football Operations GitHub — Big Data Bowl (<code>nfl-football-ops/Big-Data-Bowl</code>)</td>
+<td>Official 2017-season game results (91-game sample) used to verify D1 line by line</td>
+<td><a href="https://github.com/nfl-football-ops/Big-Data-Bowl/blob/master/Data/games.csv">https://github.com/nfl-football-ops/Big-Data-Bowl/blob/master/Data/games.csv</a></td>
+</tr>
+<tr>
+<td>O8</td>
+<td>2025 NFL rules changes — operations.nfl.com</td>
+<td>2025 dynamic kickoff + overtime summaries</td>
+<td><a href="https://operations.nfl.com/the-rules/rules-changes/2025-rules-changes">https://operations.nfl.com/the-rules/rules-changes/2025-rules-changes</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="primary-data-mirrors-tier-primary-non-nfl">Primary data mirrors (tier PRIMARY (non-NFL))</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Source</th>
+<th>Contents</th>
+<th>URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1</td>
+<td>LeeSharpe/nfldata <code>games.csv</code></td>
+<td>1999–2026 schedules/results + closing market lines</td>
+<td><a href="https://github.com/LeeSharpe/nfldata/blob/master/data/games.csv">https://github.com/LeeSharpe/nfldata/blob/master/data/games.csv</a></td>
+</tr>
+<tr>
+<td>D2</td>
+<td>mrcaseb/nfl-data <code>nfl_lines_odds.csv.gz</code></td>
+<td>Book-level opening/closing odds, 2006→</td>
+<td><a href="https://github.com/mrcaseb/nfl-data/blob/master/data/nfl_lines_odds.csv.gz">https://github.com/mrcaseb/nfl-data/blob/master/data/nfl_lines_odds.csv.gz</a></td>
+</tr>
+<tr>
+<td>D3</td>
+<td>ryurko/nflscrapR-data legacy game player stats</td>
+<td>Player-game passing/receiving/rushing, 2009–2017</td>
+<td><a href="https://github.com/ryurko/nflscrapR-data/tree/master/legacy_data/game_player_stats">https://github.com/ryurko/nflscrapR-data/tree/master/legacy_data/game_player_stats</a></td>
+</tr>
+<tr>
+<td>D4</td>
+<td>fantasydatapros course data, 2021 weekly</td>
+<td>2021 weekly player stats (robustness sample)</td>
+<td><a href="https://github.com/fantasydatapros/LearnPythonWithFantasyFootball/tree/master/2022/09-Correlation%20Matrices/01-Weekly%20Fantasy%20Stats%20-%202021">https://github.com/fantasydatapros/LearnPythonWithFantasyFootball/tree/master/2022/09-Correlation%20Matrices/01-Weekly%20Fantasy%20Stats%20-%202021</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="research-literature-strategy-methodology-tier-research">Research literature (strategy methodology; tier RESEARCH)</h2>
+<p>Used to design validation gates and luck-vs-skill methodology. These are peer-reviewed
+or primary research publications, not NFL sources; they justify <em>method</em>, never fill
+data values.</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Reference</th>
+<th>Relevance</th>
+<th>URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R1</td>
+<td>Levitt, S. (2004), "Why are gambling markets organised so differently from financial markets?", Economic Journal 114(495)</td>
+<td>Bookmaker bias exploitation; market-efficiency framing</td>
+<td><a href="https://doi.org/10.1111/j.1468-0297.2004.00207.x">https://doi.org/10.1111/j.1468-0297.2004.00207.x</a></td>
+</tr>
+<tr>
+<td>R2</td>
+<td>Štrumbelj, E. (2014), "On determining probability forecasts from betting odds", International Journal of Forecasting 30(4)</td>
+<td>Removing vig; odds→probability conversion</td>
+<td><a href="https://doi.org/10.1016/j.ijforecast.2014.02.008">https://doi.org/10.1016/j.ijforecast.2014.02.008</a></td>
+</tr>
+<tr>
+<td>R3</td>
+<td>Mauboussin, M. (2012), <em>The Success Equation: Untangling Skill and Luck in Business, Sports, and Investing</em>, Harvard Business Review Press, ISBN 9781422184233</td>
+<td>Skill/luck decomposition framework (paradox of skill)</td>
+<td><a href="https://books.google.com/books/about/The_Success_Equation.html?id=Qb4qSoJ6B40C">https://books.google.com/books/about/The_Success_Equation.html?id=Qb4qSoJ6B40C</a></td>
+</tr>
+<tr>
+<td>R4</td>
+<td>Moskowitz, T. (2021), "Asset Pricing and Sports Betting", Journal of Finance 76(6), 3153–3209</td>
+<td>Momentum/mispricing exists in betting markets but returns fail to overcome transaction costs — core motivation for CLV-based validation</td>
+<td><a href="https://doi.org/10.1111/jofi.13082">https://doi.org/10.1111/jofi.13082</a></td>
+</tr>
+</tbody>
+</table></section>
+  <footer class="foot">
+    <p>Own8 NFL Line Lab · research &amp; education only, not betting advice. Market data is
+    <strong>PRIMARY (non-NFL)</strong> and flagged; official facts link to NFL sources.
+    See <a href="flagged.html">Flagged for Review</a> and <a href="data-sources.html">Data &amp; Sources</a>.</p>
+  </footer>
+</main>
+<script src="assets/app.js"></script>
+</body>
+</html>

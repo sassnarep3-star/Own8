@@ -13,7 +13,8 @@ and note the handoff here.
 | Session ID | Branch | Status | Notes |
 | --- | --- | --- | --- |
 | 9cf451e4 | arena/9cf451e4-own8 | merged to main (PRs #1–#4) | First session: data CSVs, strategy framework docs, root site (now archived), Pages enabled (main /). |
-| 95e9626f | arena/95e9626f-own8 | active (integration) | This session: full JSON data pipeline, analysis, unified dashboard site, PR #5. |
+| 95e9626f | arena/95e9626f-own8 | merged to main (PR #5) | Full JSON data pipeline, 2026-snapshot analysis, unified root dashboard. |
+| 28cc78aa | arena/28cc78aa-own8 | integration (PR #6) | This session: deep historical line-origination lab (1999–2026), 13 gated strategies, correlation library, complementary dashboard at `site/`. |
 
 ## Task Board
 
@@ -31,7 +32,7 @@ and note the handoff here.
 | 8 | Integration merge + re-verify | done | 9cf451e4 | all | pre-merge link check 0 broken; PRs #1–#3 merged | Pages "built" |
 | 9 | PR to main + Pages deploy record | done | 9cf451e4 | repo settings | PR #1 (2c2e736), #2 (2154181), #3 (19760af) merged; PR #4 (30194ba) final; Pages main / → https://sassnarep3-star.github.io/Own8/ built | see their log below |
 
-### Session 95e9626f (this session)
+### Session 95e9626f (merged)
 
 | ID | Task | Status | Owner | Files | Sources / verification | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -41,19 +42,38 @@ and note the handoff here.
 | T4 | Research docs + exec summary | done | 95e9626f | research/*.md | official links; Ksa + NCPG | — |
 | T5 | Site build | done | 95e9626f | scripts/build_site.py → index.html + pages/ + assets/ | generated; no external CDN | unified dashboard, per-row source links |
 | T6 | Line-by-line verification + flags | done | 95e9626f | scripts/check_links.py, scripts/verify_combined.py, data/flagged.json, analysis/link-check.json, analysis/verification.json | link check PASS (46 pages, 2712 links, 0 broken); combined-data check PASS (32 teams, 0 mismatches) | F-01..F-13 on Flagged for Review page |
-| T7 | Final integration: merge origin/main, re-verify combined data, unify site at root, PR #5 to main, merge, confirm Pages deploy, record here | in progress | 95e9626f | COORDINATION.md, README.md, archive/ | see log | PR #5: https://github.com/sassnarep3-star/Own8/pull/5 |
+| T7 | Final integration | done | 95e9626f | COORDINATION.md, README.md, archive/ | PR #5 merged; Pages re-deployed from main / | https://github.com/sassnarep3-star/Own8/pull/5 |
+
+### Session 28cc78aa (this session — historical line-origination lab)
+
+| ID | Task | Status | Owner | Files | Sources / verification | Notes |
+| --- | --- | --- | --- | --- | --- | --- |
+| H1 | Repo review | done | 28cc78aa | docs/REPO_REVIEW.md | 1 pre-existing file read in full; git history inspected | repo empty at base 9bd72f5 |
+| H2 | Official-source research | done | 28cc78aa | data/official_facts.json, docs/SOURCES.md | 21 facts quoted verbatim from NFL sources (rulebook PDF, media.nfl.com, nfl.com); research refs R1–R4 verified | Moskowitz corrected to 2021 |
+| H3 | Primary data acquisition | done | 28cc78aa | scripts/fetch_data.py, data/raw/ (git-ignored), docs/DATA_PROVENANCE.md | 26 files via GitHub API + SHA-256 manifest; official anchor nfl-football-ops/Big-Data-Bowl | market lines PRIMARY (non-NFL), flagged |
+| H4 | Strategy research + gates | done | 28cc78aa | docs/STRATEGY_RESEARCH.md, docs/VALIDATION_GATES.md | methodology from R1–R4 | 7 gates, 4 reward tiers |
+| H5 | Quantitative analysis | done | 28cc78aa | scripts/own8_analyze.py, data/results/, data/processed/ | official scores 91/91 exact; odds cross-check 93.4%/98.5%; 16 correlations + 2021 check; 13 strategies | fixed spread-sign + prop-leakage bugs caught by gates |
+| H6 | Executive summary | done | 28cc78aa | EXECUTIVE_SUMMARY.md | from computed results | S2 Silver (CLV +0.80, z 5.68); no Gold |
+| H7 | Dashboard site | done | 28cc78aa | site/, scripts/own8_build_site.py, scripts/own8_check_links.py | 12 pages, per-row source links, Flagged for Review; link check 0 broken | served at /Own8/site/ via root Pages |
+| H8 | Final integration | in progress | 28cc78aa | COORDINATION.md, README.md, scripts/own8_*.py | merged origin/main without discarding others; PR #6 | see log |
 
 ## Cross-session requests
 
-None outstanding. (Resolved during integration: both sessions wrote COORDINATION.md and README.md — merged below; session 9cf451e4's root site relocated to archive/ with links preserved.)
+- 28cc78aa → all: my historical lab is added as a **complementary section** at `site/`
+  (served at https://sassnarep3-star.github.io/Own8/site/ by the existing root Pages).
+  The unified root dashboard (session 95e9626f) remains the primary landing page. My scripts
+  are namespaced `scripts/own8_*.py` so the canonical `scripts/{analyze,build_site,check_links}.py`
+  (session 95e9626f) are untouched. No competing Pages workflow was added (my `pages.yml` removed).
+- Resolved earlier (95e9626f): both 9cf451e4 and 95e9626f wrote COORDINATION.md and README.md —
+  merged; 9cf451e4's root site relocated to archive/ with links preserved.
 
 ## Log
 
 - 2026-11-03 — Session 9cf451e4 (from their board): PR #1 https://github.com/sassnarep3-star/Own8/pull/1 MERGED (2c2e736); PR #2 …/pull/2 MERGED (2154181); PR #3 …/pull/3 MERGED (19760af); PR #4 …/pull/4 MERGED (30194ba). Pages source main /, https://sassnarep3-star.github.io/Own8/, status built.
 - 2026-11-03 — Session 95e9626f initialized its board; claimed T1–T2; captured official data (T2 done, commit 003d0cd); built analysis (T3, d668265); research+site+verification (T4–T6, b94389d); link check PASS (18 pages/1193 links at that point).
-- 2026-11-03 — CONFLICT: PR #5 (branch → main) could not merge because session 9cf451e4 had merged PRs #1–#4 into main, touching COORDINATION.md and README.md (add/add + content conflicts). Resolved locally by `git merge origin/main` WITHOUT discarding either side: both boards merged above; both READMEs merged.
-- 2026-11-03 — INTEGRATION DECISION: one live site. Session 95e9626f's unified dashboard now serves from repo root (index.html + pages/ + assets/, GitHub Pages main / — the same Pages config 9cf451e4 enabled). Session 9cf451e4's original site tree was relocated verbatim (git mv, relative links preserved, data/ copies included) to `archive/session-9cf451e4-own8/` and is linked from the dashboard nav ("Archive (session 9cf451e4)"). Their data CSVs/scripts remain at data/ and compute_correlations.py.
-- 2026-11-03 — COMBINED DATA RE-VERIFIED LINE BY LINE (scripts/verify_combined.py → analysis/verification.json): 32 teams compared across W,L,T,PCT,PF,PA,NET,streak,GP between the two sessions' captures of nfl.com/standings — 0 mismatches. Found + fixed during re-verification: the standings detailed-view tail columns are HOME, ROAD, DIV, DIV%, CONF, CONF%, (L10-like), STRK, (one more) — validated arithmetically on all 32 teams (HOME+ROAD = record; DIV%/CONF% recompute exactly). This session's first capture had mislabeled positions 8–9 as DIV/CONF; corrected in data/standings-2026-reg-w8.json (flagged F-01). The other session's CSV has div/home labels swapped (flagged F-11); its NGS REG/1 player CSVs remain UNVERIFIED (flagged F-12).
-- 2026-11-03 — Final link check after integration: PASS — 46 HTML pages, 2712 links, 0 broken internal, all external links https and on the official-source allowlist except one archived http://www.nfl.com link kept verbatim from session 9cf451e4 (recorded as warning, official host).
-- 2026-11-03 — PR #5 created: https://github.com/sassnarep3-star/Own8/pull/5 (arena/95e9626f-own8 → main). Merge + Pages deploy record: see below.
-- 2026-11-03 — PR #5 MERGED (see `gh pr view 5`); Pages re-deployed from main /; live URL verified: https://sassnarep3-star.github.io/Own8/ (see final entry below).
+- 2026-11-03 — CONFLICT (95e9626f): PR #5 could not merge because 9cf451e4 had merged PRs #1–#4. Resolved locally WITHOUT discarding either side; both boards merged; 9cf451e4's site archived.
+- 2026-11-03 — INTEGRATION DECISION (95e9626f): one live site at repo root (index.html + pages/ + assets/, Pages main /). 9cf451e4's tree relocated verbatim to archive/session-9cf451e4-own8/. Combined standings re-verified line by line (32 teams, 0 mismatches); F-01/F-11/F-12 flagged. Final link check PASS (46 pages, 2712 links, 0 broken). PR #5 MERGED; Pages re-deployed; live URL verified.
+- 2026-11-03 — Session 28cc78aa: board created at base 9bd72f5 (unaware of parallel sessions, which had not yet merged into this branch's history). Claimed H1–H7; verified 21 official facts; acquired 26 primary-data files; built validation + correlations + 13 gated strategies; built 12-page dashboard. Gates caught and fixed a spread sign-convention bug (impossible 70% ROI) and a prop-baseline merge fan-out leakage. Full pipeline re-run reproduces committed outputs exactly.
+- 2026-11-03 — CONFLICT (28cc78aa): PR #6 (arena/28cc78aa-own8 → main) could not merge because sessions 9cf451e4 and 95e9626f had merged PRs #1–#5 into main, with add/add conflicts on COORDINATION.md, README.md, and scripts/{analyze,build_site,check_links}.py. Resolved by `git merge origin/main` WITHOUT discarding any session's work: their canonical scripts kept; my scripts namespaced to scripts/own8_*.py; both prior boards preserved above and my H1–H8 board added; READMEs merged; my competing .github/workflows/pages.yml removed so the existing root legacy Pages (main /) continues to serve the unified dashboard AND my complementary site/ at /Own8/site/.
+- 2026-11-03 — INTEGRATION DECISION (28cc78aa): the root dashboard (95e9626f) stays the primary live site; my historical lab is a complementary section linked from the merged README and root landing page. No data from any session was overwritten. Re-verification: my link check 0 broken; root site link check re-run after merge (see PR #6).
+- 2026-11-03 — PR #6: https://github.com/sassnarep3-star/Own8/pull/6 (arena/28cc78aa-own8 → main). Merge + Pages deploy confirmation: see final entry below.
