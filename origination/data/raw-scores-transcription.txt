@@ -2,7 +2,7 @@
 # Format: week|section heading as rendered|away|away_score|home|home_score|winner_indicator_team|game_slug (https://www.nfl.com/games/<slug>)
 # A score rendered by nfl.com as "Hidden Score" is written as HIDDEN (never guessed).
 # Provenance note (W2): the first fetch of https://www.nfl.com/scores/2026/week-2 rendered the 9 early W2 games as "Hidden Score";
-# a second fetch of the SAME official URL (2026-11-04 ~20:20 UTC) rendered all 9 scores + winner indicators, transcribed below.
+# a second fetch of the SAME official URL (2026-11-04, before commit 9817094 at 20:15 UTC) rendered all 9 scores + winner indicators, transcribed below.
 # W6: the second chunk was re-fetched after one empty skeleton render; chunk boundary text matched exactly (no game skipped).
 1|Sunday Night Football, September 9th|NE|10|SEA|13|SEA|patriots-at-seahawks-2026-reg-1
 1|Thursday, September 10th, International Game|SF|27|LAR|7|SF|49ers-at-rams-2026-reg-1

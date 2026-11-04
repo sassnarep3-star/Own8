@@ -1,4 +1,4 @@
-# Verbatim transcription of https://www.nfl.com/standings/league/2026/REG ("Standings - Detailed View"), fetched 2026-11-04 ~20:25 UTC by session 4bc92a5f.
+# Verbatim transcription of https://www.nfl.com/standings/league/2026/REG ("Standings - Detailed View"), fetched 2026-11-04 by session 4bc92a5f; first committed in c395a40 at 20:19 UTC.
 # Column order as rendered; legend on the page labels W, L, T, PCT, HOME, ROAD, DIV, CONF, PF, PA, NET PTS, STRK.
 # Two columns are NOT labeled in the page legend: col14 (hypothesis: non-conference record) and col16 (hypothesis: last-5 record).
 # They are only used if the reconciliation script proves the hypothesis arithmetically for all 32 teams; otherwise ignored.
