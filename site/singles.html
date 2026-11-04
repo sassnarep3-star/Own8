@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Single Bets · Own8 NFL</title>
+<meta name="description" content="Spread · total · moneyline strategies">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><a href="index.html">Own8 <span>NFL Line Lab</span></a></div>
+  <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('nav-open')">☰</button>
+</header>
+<nav class="sidebar"><div class="nav-title">Dashboard</div><a href="index.html" class="">Home</a><a href="executive-summary.html" class="">Executive Summary</a><a href="singles.html" class="active">Single Bets</a><a href="parlays.html" class="">Parlays</a><a href="props.html" class="">Player Props</a><a href="correlations.html" class="">Correlations</a><a href="validation.html" class="">Validation &amp; Gates</a><a href="official-facts.html" class="">Official Facts</a><a href="data-sources.html" class="">Data &amp; Sources</a><a href="methodology.html" class="">Methodology</a><a href="flagged.html" class="">Flagged for Review</a>
+  <div class="nav-foot">Verified 2026-11-03 · session 28cc78aa</div>
+</nav>
+<main class="content wide">
+  <div class="page-head"><h1>Single Bets</h1><p class="sub">Spread · total · moneyline strategies</p></div>
+  <section class="panel"><p class="lead">Model-originated lines vs market. Skill is measured by closing-line value (CLV) where we bet the opening number, and by out-of-sample ROI at the closing number. Every strategy is gated; most are rejected because the closing market is efficient.</p></section>
+    <article class="strategy" id="S1">
+      <div class="strategy-head">
+        <h3>S1 · Model spread value @ opening line <span class="badge rejected">Rejected</span></h3>
+        <div class="strategy-meta">Score <strong>13.2</strong> · Gates 3/7 <span class="gates"><span class="gate pass" title="G1_data: pass">G1</span><span class="gate pass" title="G2_oos: pass">G2</span><span class="gate fail" title="G3_beats_baseline: fail">G3</span><span class="gate fail" title="G4_significance: fail">G4</span><span class="gate fail" title="G5_luck_removed: fail">G5</span><span class="gate fail" title="G6_robustness: fail">G6</span><span class="gate pass" title="G7_correlation: pass">G7</span></span></div>
+      </div>
+      <p class="muted">Walk-forward points-based team ratings originate a spread; bet when model disagrees with consensus opening spread by ≥ T pts (T chosen on 2006–2015 train). Skill metric: closing-line value (CLV) vs consensus close.</p>
+      <div class="table-wrap"><table class="kv"><tbody><tr><th>Window (full / holdout)</th><td>2006–2021 / 2016–2021</td></tr><tr><th>Holdout bets</th><td>378</td></tr><tr><th>Holdout ROI</th><td>-10.5% (CI -19.9%–-0.9%)</td></tr><tr><th>Holdout win rate</th><td>46.8%</td></tr><tr><th>Full-window ROI</th><td>-5.6%</td></tr><tr><th>Holdout CLV (pts)</th><td>-0.019 (CI -0.192–0.146, z -0.21)</td></tr><tr><th>Luck null p-value</th><td>0.987</td></tr><tr><th>Seasons positive / drop-best ROI</th><td>16.7% / -13.9%</td></tr><tr><th>Threshold (chosen on train)</th><td>4</td></tr></tbody></table></div>
+      <div class="src-row">Source: <div class="src"><span class="badge derived">DERIVED</span> · <a href="https://github.com/LeeSharpe/nfldata/blob/master/data/games.csv" target="_blank" rel="noopener">LeeSharpe/nfldata games.csv <span class="ext">↗</span></a> · <a href="https://github.com/mrcaseb/nfl-data/blob/master/data/nfl_lines_odds.csv.gz" target="_blank" rel="noopener">mrcaseb/nfl-data odds <span class="ext">↗</span></a> · <a href="methodology.html">method</a></div></div>
+    </article>
+    <article class="strategy" id="S2">
+      <div class="strategy-head">
+        <h3>S2 · Model total value @ opening line <span class="badge silver">Silver</span></h3>
+        <div class="strategy-meta">Score <strong>63.9</strong> · Gates 6/7 <span class="gates"><span class="gate pass" title="G1_data: pass">G1</span><span class="gate pass" title="G2_oos: pass">G2</span><span class="gate pass" title="G3_beats_baseline: pass">G3</span><span class="gate pass" title="G4_significance: pass">G4</span><span class="gate pass" title="G5_luck_removed: pass">G5</span><span class="gate fail" title="G6_robustness: fail">G6</span><span class="gate pass" title="G7_correlation: pass">G7</span></span></div>
+      </div>
+      <p class="muted">Same ratings engine originates a game total; bet over/under when model edge vs consensus opening total ≥ T pts. Skill metric: CLV.</p>
+      <div class="table-wrap"><table class="kv"><tbody><tr><th>Window (full / holdout)</th><td>2006–2021 / 2016–2021</td></tr><tr><th>Holdout bets</th><td>158</td></tr><tr><th>Holdout ROI</th><td>-6.9% (CI -21.3%–8.2%)</td></tr><tr><th>Holdout win rate</th><td>48.7%</td></tr><tr><th>Full-window ROI</th><td>-4.1%</td></tr><tr><th>Holdout CLV (pts)</th><td>0.801 (CI 0.532–1.089, z 5.68)</td></tr><tr><th>Luck null p-value</th><td>0.841</td></tr><tr><th>Seasons positive / drop-best ROI</th><td>50.0% / -9.5%</td></tr><tr><th>Threshold (chosen on train)</th><td>5</td></tr></tbody></table></div>
+      <div class="src-row">Source: <div class="src"><span class="badge derived">DERIVED</span> · <a href="https://github.com/LeeSharpe/nfldata/blob/master/data/games.csv" target="_blank" rel="noopener">LeeSharpe/nfldata games.csv <span class="ext">↗</span></a> · <a href="https://github.com/mrcaseb/nfl-data/blob/master/data/nfl_lines_odds.csv.gz" target="_blank" rel="noopener">mrcaseb/nfl-data odds <span class="ext">↗</span></a> · <a href="methodology.html">method</a></div></div>
+    </article>
+    <article class="strategy" id="S3">
+      <div class="strategy-head">
+        <h3>S3 · Model spread value @ closing line <span class="badge rejected">Rejected</span></h3>
+        <div class="strategy-meta">Score <strong>15.2</strong> · Gates 3/7 <span class="gates"><span class="gate pass" title="G1_data: pass">G1</span><span class="gate pass" title="G2_oos: pass">G2</span><span class="gate fail" title="G3_beats_baseline: fail">G3</span><span class="gate fail" title="G4_significance: fail">G4</span><span class="gate fail" title="G5_luck_removed: fail">G5</span><span class="gate fail" title="G6_robustness: fail">G6</span><span class="gate pass" title="G7_correlation: pass">G7</span></span></div>
+      </div>
+      <p class="muted">Stress test: same model, but entry at the efficient closing spread with posted vig. Threshold chosen on train; holdout 2016–2025.</p>
+      <div class="table-wrap"><table class="kv"><tbody><tr><th>Window (full / holdout)</th><td>2006–2025 / 2016–2025</td></tr><tr><th>Holdout bets</th><td>1120</td></tr><tr><th>Holdout ROI</th><td>-1.3% (CI -7.0%–4.5%)</td></tr><tr><th>Holdout win rate</th><td>51.2%</td></tr><tr><th>Full-window ROI</th><td>0.3%</td></tr><tr><th>Luck null p-value</th><td>0.669</td></tr><tr><th>Seasons positive / drop-best ROI</th><td>30.0% / -2.4%</td></tr><tr><th>Threshold (chosen on train)</th><td>3</td></tr></tbody></table></div>
+      <div class="src-row">Source: <div class="src"><span class="badge derived">DERIVED</span> · <a href="https://github.com/LeeSharpe/nfldata/blob/master/data/games.csv" target="_blank" rel="noopener">LeeSharpe/nfldata games.csv <span class="ext">↗</span></a> · <a href="methodology.html">method</a></div></div>
+    </article>
+    <article class="strategy" id="S4">
+      <div class="strategy-head">
+        <h3>S4 · Model total value @ closing line <span class="badge rejected">Rejected</span></h3>
+        <div class="strategy-meta">Score <strong>12.2</strong> · Gates 3/7 <span class="gates"><span class="gate pass" title="G1_data: pass">G1</span><span class="gate pass" title="G2_oos: pass">G2</span><span class="gate fail" title="G3_beats_baseline: fail">G3</span><span class="gate fail" title="G4_significance: fail">G4</span><span class="gate fail" title="G5_luck_removed: fail">G5</span><span class="gate fail" title="G6_robustness: fail">G6</span><span class="gate pass" title="G7_correlation: pass">G7</span></span></div>
+      </div>
+      <p class="muted">Stress test: model totals vs closing total with posted vig.</p>
+      <div class="table-wrap"><table class="kv"><tbody><tr><th>Window (full / holdout)</th><td>2006–2025 / 2016–2025</td></tr><tr><th>Holdout bets</th><td>111</td></tr><tr><th>Holdout ROI</th><td>-15.2% (CI -32.8%–3.8%)</td></tr><tr><th>Holdout win rate</th><td>44.1%</td></tr><tr><th>Full-window ROI</th><td>-4.2%</td></tr><tr><th>Luck null p-value</th><td>0.954</td></tr><tr><th>Seasons positive / drop-best ROI</th><td>10.0% / -18.6%</td></tr><tr><th>Threshold (chosen on train)</th><td>7</td></tr></tbody></table></div>
+      <div class="src-row">Source: <div class="src"><span class="badge derived">DERIVED</span> · <a href="https://github.com/LeeSharpe/nfldata/blob/master/data/games.csv" target="_blank" rel="noopener">LeeSharpe/nfldata games.csv <span class="ext">↗</span></a> · <a href="methodology.html">method</a></div></div>
+    </article>
+    <article class="strategy" id="S5">
+      <div class="strategy-head">
+        <h3>S5 · Value moneyline @ closing line <span class="badge rejected">Rejected</span></h3>
+        <div class="strategy-meta">Score <strong>18.8</strong> · Gates 4/7 <span class="gates"><span class="gate pass" title="G1_data: pass">G1</span><span class="gate pass" title="G2_oos: pass">G2</span><span class="gate fail" title="G3_beats_baseline: fail">G3</span><span class="gate fail" title="G4_significance: fail">G4</span><span class="gate pass" title="G5_luck_removed: pass">G5</span><span class="gate fail" title="G6_robustness: fail">G6</span><span class="gate pass" title="G7_correlation: pass">G7</span></span></div>
+      </div>
+      <p class="muted">Model win probability (normal CDF of model margin, sigma fit on train) vs no-vig market probability; bet when edge ≥ 5 percentage points. Holdout 2016–2025.</p>
+      <div class="table-wrap"><table class="kv"><tbody><tr><th>Window (full / holdout)</th><td>2006–2025 / 2016–2025</td></tr><tr><th>Holdout bets</th><td>1839</td></tr><tr><th>Holdout ROI</th><td>-6.0% (CI -12.6%–1.2%)</td></tr><tr><th>Holdout win rate</th><td>32.7%</td></tr><tr><th>Full-window ROI</th><td>-4.5%</td></tr><tr><th>Luck null p-value</th><td>0.000601</td></tr><tr><th>Seasons positive / drop-best ROI</th><td>30.0% / -7.3%</td></tr></tbody></table></div>
+      <div class="src-row">Source: <div class="src"><span class="badge derived">DERIVED</span> · <a href="https://github.com/LeeSharpe/nfldata/blob/master/data/games.csv" target="_blank" rel="noopener">LeeSharpe/nfldata games.csv <span class="ext">↗</span></a> · <a href="methodology.html">method</a></div></div>
+    </article>
+    <article class="strategy" id="S6">
+      <div class="strategy-head">
+        <h3>S6 · Fade extreme longshots (bet big favorite ML) <span class="badge rejected">Rejected</span></h3>
+        <div class="strategy-meta">Score <strong>19.7</strong> · Gates 3/7 <span class="gates"><span class="gate pass" title="G1_data: pass">G1</span><span class="gate pass" title="G2_oos: pass">G2</span><span class="gate fail" title="G3_beats_baseline: fail">G3</span><span class="gate fail" title="G4_significance: fail">G4</span><span class="gate fail" title="G5_luck_removed: fail">G5</span><span class="gate fail" title="G6_robustness: fail">G6</span><span class="gate pass" title="G7_correlation: pass">G7</span></span></div>
+      </div>
+      <p class="muted">Bet the favorite whenever the underdog&#x27;s raw implied probability ≤ 15%. Classic favorite-longshot-bias angle; included to test whether the bias survives the vig.</p>
+      <div class="table-wrap"><table class="kv"><tbody><tr><th>Window (full / holdout)</th><td>2006–2025 / 2016–2025</td></tr><tr><th>Holdout bets</th><td>115</td></tr><tr><th>Holdout ROI</th><td>-0.7% (CI -7.3%–5.0%)</td></tr><tr><th>Holdout win rate</th><td>90.4%</td></tr><tr><th>Full-window ROI</th><td>0.1%</td></tr><tr><th>Luck null p-value</th><td>0.659</td></tr><tr><th>Seasons positive / drop-best ROI</th><td>60.0% / -1.8%</td></tr></tbody></table></div>
+      <div class="src-row">Source: <div class="src"><span class="badge derived">DERIVED</span> · <a href="https://github.com/LeeSharpe/nfldata/blob/master/data/games.csv" target="_blank" rel="noopener">LeeSharpe/nfldata games.csv <span class="ext">↗</span></a> · <a href="methodology.html">method</a></div></div>
+    </article>
+  <footer class="foot">
+    <p>Own8 NFL Line Lab · research &amp; education only, not betting advice. Market data is
+    <strong>PRIMARY (non-NFL)</strong> and flagged; official facts link to NFL sources.
+    See <a href="flagged.html">Flagged for Review</a> and <a href="data-sources.html">Data &amp; Sources</a>.</p>
+  </footer>
+</main>
+<script src="assets/app.js"></script>
+</body>
+</html>

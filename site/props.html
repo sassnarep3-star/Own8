@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Player Props · Own8 NFL</title>
+<meta name="description" content="Fair-line origination + correlation-aware combos">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><a href="index.html">Own8 <span>NFL Line Lab</span></a></div>
+  <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('nav-open')">☰</button>
+</header>
+<nav class="sidebar"><div class="nav-title">Dashboard</div><a href="index.html" class="">Home</a><a href="executive-summary.html" class="">Executive Summary</a><a href="singles.html" class="">Single Bets</a><a href="parlays.html" class="">Parlays</a><a href="props.html" class="active">Player Props</a><a href="correlations.html" class="">Correlations</a><a href="validation.html" class="">Validation &amp; Gates</a><a href="official-facts.html" class="">Official Facts</a><a href="data-sources.html" class="">Data &amp; Sources</a><a href="methodology.html" class="">Methodology</a><a href="flagged.html" class="">Flagged for Review</a>
+  <div class="nav-foot">Verified 2026-11-03 · session 28cc78aa</div>
+</nav>
+<main class="content wide">
+  <div class="page-head"><h1>Player Props</h1><p class="sub">Fair-line origination + correlation-aware combos</p></div>
+  <section class="panel"><p class="lead">No historical market prop lines are publicly archived, so props are evaluated as line origination (accuracy vs baselines + fair 50/50 line), not ROI backtests. The real combo value is the strong QB↔WR correlation (r≈0.70) — see Correlations.</p></section>
+    <article class="strategy" id="X1">
+      <div class="strategy-head">
+        <h3>X1 · QB passing yards — fair-line origination <span class="badge rejected">Rejected</span></h3>
+        <div class="strategy-meta">Score <strong>39.5</strong> · Gates 4/7 <span class="gates"><span class="gate pass" title="G1_data: pass">G1</span><span class="gate pass" title="G2_oos: pass">G2</span><span class="gate pass" title="G3_beats_baseline: pass">G3</span><span class="gate fail" title="G4_significance: fail">G4</span><span class="gate fail" title="G5_luck_removed: fail">G5</span><span class="gate fail" title="G6_robustness: fail">G6</span><span class="gate pass" title="G7_correlation: pass">G7</span></span></div>
+      </div>
+      <p class="muted">Originate qb passing yards lines walk-forward: expanding mean (accuracy) + expanding median (fair 50/50 line), min 2 prior games within season. Evaluated as line origination vs naive baselines with a 2021 robustness check. NOT a betting-ROI backtest (no archived market prop lines).</p>
+      <div class="table-wrap"><table class="kv"><tbody><tr><th>Player-games evaluated</th><td>3633</td></tr><tr><th>MAE (yards)</th><td>60.97</td></tr><tr><th>RMSE — accuracy line</th><td>76.56</td></tr><tr><th>RMSE — best naive baseline</th><td>77.88</td></tr><tr><th>RMSE skill vs baseline</th><td>1.7% (CI -0.21–3.57%)</td></tr><tr><th>Out-of-sample R²</th><td>0.0311</td></tr><tr><th>Fair-line over-hit rate</th><td>47.7% (CI 46.1%–49.4%)</td></tr><tr><th>2021 robustness skill</th><td>-1.67%</td></tr><tr><th>2021 fair-line over-hit</th><td>40.5%</td></tr></tbody></table></div>
+      <div class="src-row">Source: <div class="src"><span class="badge derived">DERIVED</span> · <a href="https://github.com/ryurko/nflscrapR-data/tree/master/legacy_data/game_player_stats" target="_blank" rel="noopener">nflscrapR player-game stats <span class="ext">↗</span></a> · <a href="https://github.com/fantasydatapros/LearnPythonWithFantasyFootball/tree/master/2022/09-Correlation%20Matrices/01-Weekly%20Fantasy%20Stats%20-%202021" target="_blank" rel="noopener">FantasyDataPros 2021 weekly <span class="ext">↗</span></a> · <a href="methodology.html">method</a></div></div>
+    </article>
+    <article class="strategy" id="X2">
+      <div class="strategy-head">
+        <h3>X2 · WR1 receiving yards — fair-line origination <span class="badge rejected">Rejected</span></h3>
+        <div class="strategy-meta">Score <strong>29.8</strong> · Gates 3/7 <span class="gates"><span class="gate pass" title="G1_data: pass">G1</span><span class="gate pass" title="G2_oos: pass">G2</span><span class="gate fail" title="G3_beats_baseline: fail">G3</span><span class="gate fail" title="G4_significance: fail">G4</span><span class="gate fail" title="G5_luck_removed: fail">G5</span><span class="gate fail" title="G6_robustness: fail">G6</span><span class="gate pass" title="G7_correlation: pass">G7</span></span></div>
+      </div>
+      <p class="muted">Originate wr1 receiving yards lines walk-forward: expanding mean (accuracy) + expanding median (fair 50/50 line), min 2 prior games within season. Evaluated as line origination vs naive baselines with a 2021 robustness check. NOT a betting-ROI backtest (no archived market prop lines).</p>
+      <div class="table-wrap"><table class="kv"><tbody><tr><th>Player-games evaluated</th><td>2170</td></tr><tr><th>MAE (yards)</th><td>30.03</td></tr><tr><th>RMSE — accuracy line</th><td>39.26</td></tr><tr><th>RMSE — best naive baseline</th><td>37.83</td></tr><tr><th>RMSE skill vs baseline</th><td>-3.78% (CI -6.92–-0.8%)</td></tr><tr><th>Out-of-sample R²</th><td>-0.0973</td></tr><tr><th>Fair-line over-hit rate</th><td>47.6% (CI 45.7%–49.7%)</td></tr><tr><th>2021 robustness skill</th><td>-3.33%</td></tr><tr><th>2021 fair-line over-hit</th><td>49.0%</td></tr></tbody></table></div>
+      <div class="src-row">Source: <div class="src"><span class="badge derived">DERIVED</span> · <a href="https://github.com/ryurko/nflscrapR-data/tree/master/legacy_data/game_player_stats" target="_blank" rel="noopener">nflscrapR player-game stats <span class="ext">↗</span></a> · <a href="https://github.com/fantasydatapros/LearnPythonWithFantasyFootball/tree/master/2022/09-Correlation%20Matrices/01-Weekly%20Fantasy%20Stats%20-%202021" target="_blank" rel="noopener">FantasyDataPros 2021 weekly <span class="ext">↗</span></a> · <a href="methodology.html">method</a></div></div>
+    </article>
+    <article class="strategy" id="X3">
+      <div class="strategy-head">
+        <h3>X3 · RB1 rushing yards — fair-line origination <span class="badge rejected">Rejected</span></h3>
+        <div class="strategy-meta">Score <strong>51.4</strong> · Gates 4/7 <span class="gates"><span class="gate pass" title="G1_data: pass">G1</span><span class="gate pass" title="G2_oos: pass">G2</span><span class="gate fail" title="G3_beats_baseline: fail">G3</span><span class="gate fail" title="G4_significance: fail">G4</span><span class="gate fail" title="G5_luck_removed: fail">G5</span><span class="gate pass" title="G6_robustness: pass">G6</span><span class="gate pass" title="G7_correlation: pass">G7</span></span></div>
+      </div>
+      <p class="muted">Originate rb1 rushing yards lines walk-forward: expanding mean (accuracy) + expanding median (fair 50/50 line), min 2 prior games within season. Evaluated as line origination vs naive baselines with a 2021 robustness check. NOT a betting-ROI backtest (no archived market prop lines).</p>
+      <div class="table-wrap"><table class="kv"><tbody><tr><th>Player-games evaluated</th><td>3026</td></tr><tr><th>MAE (yards)</th><td>29.98</td></tr><tr><th>RMSE — accuracy line</th><td>38.83</td></tr><tr><th>RMSE — best naive baseline</th><td>38.04</td></tr><tr><th>RMSE skill vs baseline</th><td>-2.09% (CI -4.32–-0.05%)</td></tr><tr><th>Out-of-sample R²</th><td>-0.0526</td></tr><tr><th>Fair-line over-hit rate</th><td>48.8% (CI 47.1%–50.7%)</td></tr><tr><th>2021 robustness skill</th><td>2.08%</td></tr><tr><th>2021 fair-line over-hit</th><td>52.8%</td></tr></tbody></table></div>
+      <div class="src-row">Source: <div class="src"><span class="badge derived">DERIVED</span> · <a href="https://github.com/ryurko/nflscrapR-data/tree/master/legacy_data/game_player_stats" target="_blank" rel="noopener">nflscrapR player-game stats <span class="ext">↗</span></a> · <a href="https://github.com/fantasydatapros/LearnPythonWithFantasyFootball/tree/master/2022/09-Correlation%20Matrices/01-Weekly%20Fantasy%20Stats%20-%202021" target="_blank" rel="noopener">FantasyDataPros 2021 weekly <span class="ext">↗</span></a> · <a href="methodology.html">method</a></div></div>
+    </article>
+  <footer class="foot">
+    <p>Own8 NFL Line Lab · research &amp; education only, not betting advice. Market data is
+    <strong>PRIMARY (non-NFL)</strong> and flagged; official facts link to NFL sources.
+    See <a href="flagged.html">Flagged for Review</a> and <a href="data-sources.html">Data &amp; Sources</a>.</p>
+  </footer>
+</main>
+<script src="assets/app.js"></script>
+</body>
+</html>

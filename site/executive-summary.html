@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Executive Summary · Own8 NFL</title>
+<meta name="description" content="Important details at a glance">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><a href="index.html">Own8 <span>NFL Line Lab</span></a></div>
+  <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('nav-open')">☰</button>
+</header>
+<nav class="sidebar"><div class="nav-title">Dashboard</div><a href="index.html" class="">Home</a><a href="executive-summary.html" class="active">Executive Summary</a><a href="singles.html" class="">Single Bets</a><a href="parlays.html" class="">Parlays</a><a href="props.html" class="">Player Props</a><a href="correlations.html" class="">Correlations</a><a href="validation.html" class="">Validation &amp; Gates</a><a href="official-facts.html" class="">Official Facts</a><a href="data-sources.html" class="">Data &amp; Sources</a><a href="methodology.html" class="">Methodology</a><a href="flagged.html" class="">Flagged for Review</a>
+  <div class="nav-foot">Verified 2026-11-03 · session 28cc78aa</div>
+</nav>
+<main class="content wide">
+  <div class="page-head"><h1>Executive Summary</h1><p class="sub">Important details at a glance</p></div>
+  <section class="panel doc"><h1 id="executive-summary-own8-nfl-line-origination-strategy-competition">Executive Summary — Own8 NFL Line Origination &amp; Strategy Competition</h1>
+<p><strong>Date:</strong> 2026-11-03 · <strong>Session:</strong> <code>28cc78aa</code> · <strong>Branch:</strong> <code>arena/28cc78aa-own8</code>
+<strong>Live dashboard:</strong> GitHub Pages (see <code>COORDINATION.md</code> for the deployed URL after merge).</p>
+<h2 id="mission">Mission</h2>
+<p>Collect, organize, and analyze NFL data to <strong>originate our own betting lines</strong> (spreads,
+totals, moneylines, player props), research signals for singles / parlays / prop combos,
+<strong>determine correlation values</strong>, and run the whole thing as a <strong>leaderboard competition</strong>
+where each strategy must pass <strong>validation gates</strong> that <strong>remove luck</strong> and reward only
+selectively skill-based edges. Every published value is verified line-by-line against an
+official or named primary source, with a link on every table row.</p>
+<h2 id="what-was-built">What was built</h2>
+<ol>
+<li><strong>Verified data foundation</strong> — 7,548 games (1999–2026) with closing market lines; 479,089
+   book-level opening/closing odds quotes (2006–2021); 59,989 player-game stat rows (2009–2017);
+   a 2021 modern-era robustness sample; and an <strong>official NFL anchor</strong> (the NFL's own
+   <code>nfl-football-ops</code> Big Data Bowl data). See <code>docs/DATA_PROVENANCE.md</code>.</li>
+<li><strong>Line-by-line validation</strong> — game results matched <strong>91/91 exactly</strong> against the NFL's
+   official published scores; two independent odds mirrors agree within 0.5 pt on 93.4% of
+   spreads / 98.5% of totals (MAD 0.18 / 0.15); player-stats internal consistency 96.9% exact.</li>
+<li><strong>Line-origination engine</strong> — a transparent walk-forward team-rating model (no leakage)
+   producing spreads, totals, and moneyline probabilities, plus a dual-estimator player-prop
+   line origination (accuracy line + fair 50/50 line).</li>
+<li><strong>13 strategies</strong> across single bets, same-game parlays, and player-prop combos, each
+   backtested out-of-sample and scored on a 7-gate leaderboard.</li>
+<li><strong>Correlation library</strong> — 16 dependency estimates with bootstrap 95% CIs and a 2021
+   robustness check, the core input for correct parlay/prop-combo pricing.</li>
+<li><strong>Clean dashboard site</strong> — landing page + category subpages, every row source-linked,
+   plus a clearly labeled <strong>Flagged for Review</strong> page.</li>
+</ol>
+<h2 id="headline-findings">Headline findings</h2>
+<ul>
+<li><strong>One robust skill signal exists: the model beats the opening game total by ~0.80 points</strong>
+  (holdout 2016–2021, n=158, bootstrap CI 0.53–1.09, <strong>z = 5.68</strong>). Closing-line value is
+  outcome-independent, so this is skill, not luck. It earns <strong>Silver</strong> — the only non-rejected
+  strategy — because profit consistency (G6) is not yet proven (holdout ROI −6.9%).</li>
+<li><strong>No strategy reached Gold.</strong> Naive models do not beat the efficient <strong>closing</strong> spread/total
+  after vig, and the market's no-vig moneyline is better calibrated than our model
+  (Brier 0.21105 vs 0.2247). This matches the peer-reviewed evidence (Moskowitz 2021) that
+  betting-market edges are small relative to transaction costs.</li>
+<li><strong>Player props are strongly correlated</strong> — the key to combo pricing:</li>
+<li>QB pass yards ↔ WR1 receiving yards <strong>r = 0.695</strong> (2021 check 0.671).</li>
+<li>QB pass yards ↔ WR2 receiving yards <strong>r = 0.756</strong>.</li>
+<li>WR1 ↔ WR2 receiving yards <strong>r = 0.492</strong> (positive — stacking same-team receivers does not diversify).</li>
+<li>QB pass yards ↔ own RB1 rush yards <strong>r = −0.178</strong> (game-script tension; a negatively correlated SGP pair).</li>
+<li>RB1 rush yards ↔ team point margin <strong>r = 0.334</strong> (leaders run).</li>
+<li><strong>Game-level cover ↔ total legs are ~independent (φ = −0.007)</strong> — standard 2-leg parlay
+    pricing is roughly fair there; all four cover+total parlay backtests lose the vig (−8% to −16%).</li>
+<li><strong>Key numbers confirmed:</strong> margin 3 in 14.5% of games, margin 7 in 8.9% (2006–2025).</li>
+<li><strong>Simple prop origination is not a standalone edge</strong> (QB +1.7% RMSE skill, CI crosses 0;
+  WR/RB ≤ 0). Its value is as the input to correlation-aware combo pricing.</li>
+</ul>
+<h2 id="luck-removal-validation">Luck removal &amp; validation</h2>
+<p>Every estimate carries a 2,000-sample bootstrap CI; win rates are tested against a binomial
+null <strong>at the posted vig</strong>; thresholds are fit on a 2006–2015 train and judged on a 2016+
+holdout; season-consistency and drop-best-season checks kill flukes; and CLV is the primary
+skill metric because it does not depend on whether a bet wins. Seven gates (data integrity,
+out-of-sample, beats-baseline, significance, luck-removed, robustness, correlation-correctness)
+gate the reward tiers (Gold/Silver/Bronze/Rejected). Full rules: <code>docs/VALIDATION_GATES.md</code>.</p>
+<h2 id="verification-honesty-policy">Verification &amp; honesty policy</h2>
+<ul>
+<li><strong>OFFICIAL</strong> facts (rules, scoring, season structure) are quoted verbatim from NFL sources
+  (nfl.com, operations.nfl.com, media.nfl.com, the official 2026 rulebook PDF, and the NFL's
+  GitHub org). 21 official facts verified, each linked.</li>
+<li><strong>Market lines are not published by the NFL</strong>, so they are labeled <strong>PRIMARY (non-NFL)</strong>,
+  cross-checked between two independent mirrors, and flagged — never presented as official.</li>
+<li>Values that cannot be confirmed from an official source are left <strong>blank</strong> and flagged
+  <strong>UNVERIFIED</strong>. Nothing is inferred or fabricated. Historical market prop lines do not exist
+  in any reachable archive, so prop work is explicitly <strong>line origination</strong>, not a ROI backtest.</li>
+</ul>
+<h2 id="flagged-for-review-non-blocking">Flagged for review (non-blocking)</h2>
+<ul>
+<li>Market-line provenance (no official NFL source exists for betting lines).</li>
+<li>6.6% of spread closes differ &gt;0.5 pt between mirrors (concentrated 2006–2013; 25 games &gt;1.5 pt).</li>
+<li>3.1% of legacy player-stat team-games have passing/receiving yardage attribution quirks.</li>
+<li>Player-prop correlation era caveat (2009–2017 base, 2021 check) and missing market prop lines.</li>
+<li>The repo started empty; all work is new. Branch-policy note (pinned Arena branch).</li>
+</ul>
+<h2 id="bottom-line">Bottom line</h2>
+<p>The competition did exactly what it should: it <strong>found one genuine, luck-free skill signal</strong>
+(opening-total line-beating), <strong>quantified the correlation structure</strong> needed to price player
+prop combos correctly, and <strong>rejected twelve strategies</strong> that could not prove an edge after
+vig. The deliverable is a verified, reproducible, source-linked foundation and an honest
+leaderboard — not a set of too-good-to-be-true picks. Next steps to convert the S2 signal and
+correlations into profit: usage-based prop features, EPA ratings, injury/lineup adjustments,
+and copula-based same-game-parlay pricing with line-shopping.</p></section>
+  <footer class="foot">
+    <p>Own8 NFL Line Lab · research &amp; education only, not betting advice. Market data is
+    <strong>PRIMARY (non-NFL)</strong> and flagged; official facts link to NFL sources.
+    See <a href="flagged.html">Flagged for Review</a> and <a href="data-sources.html">Data &amp; Sources</a>.</p>
+  </footer>
+</main>
+<script src="assets/app.js"></script>
+</body>
+</html>

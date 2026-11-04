@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Methodology · Own8 NFL</title>
+<meta name="description" content="Strategy research + validation gates">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><a href="index.html">Own8 <span>NFL Line Lab</span></a></div>
+  <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('nav-open')">☰</button>
+</header>
+<nav class="sidebar"><div class="nav-title">Dashboard</div><a href="index.html" class="">Home</a><a href="executive-summary.html" class="">Executive Summary</a><a href="singles.html" class="">Single Bets</a><a href="parlays.html" class="">Parlays</a><a href="props.html" class="">Player Props</a><a href="correlations.html" class="">Correlations</a><a href="validation.html" class="">Validation &amp; Gates</a><a href="official-facts.html" class="">Official Facts</a><a href="data-sources.html" class="">Data &amp; Sources</a><a href="methodology.html" class="active">Methodology</a><a href="flagged.html" class="">Flagged for Review</a>
+  <div class="nav-foot">Verified 2026-11-03 · session 28cc78aa</div>
+</nav>
+<main class="content wide">
+  <div class="page-head"><h1>Methodology</h1><p class="sub">Strategy research + validation gates</p></div>
+  <section class="panel doc"><h1 id="strategy-research-nfl-line-origination-signal-design">Strategy Research — NFL Line Origination &amp; Signal Design</h1>
+<p>Session <code>28cc78aa</code> · 2026-11-03. All numbers below are <strong>DERIVED</strong> by <code>scripts/analyze.py</code>
+from the primary datasets in <code>docs/DATA_PROVENANCE.md</code> (reproducible, seed 20261103).
+Market data is <strong>PRIMARY (non-NFL)</strong> — the NFL does not publish betting lines — and is
+flagged as such. Method references are in <code>docs/SOURCES.md</code> (R1–R4).</p>
+<h2 id="1-objective-framing">1. Objective &amp; framing</h2>
+<p>Originate our own NFL lines (spreads, totals, moneylines, player props), compare them to
+market lines, and keep only strategies that demonstrate <strong>skill independent of luck</strong>.
+The project is run as a leaderboard competition: every strategy is scored and must pass
+validation gates (<code>docs/VALIDATION_GATES.md</code>) to earn a reward tier.</p>
+<p>Two structural facts shape everything:
+- <strong>Closing lines are highly efficient.</strong> Moskowitz (2021, R4) finds mispricing in betting
+  markets but returns too small to overcome transaction costs. Our backtests confirm this:
+  naive models do not beat the closing spread/total after vig.
+- <strong>Skill is measured by line-beating, not by wins.</strong> Closing-line value (CLV) — getting a
+  better number than the eventual close — is outcome-independent and is the primary skill
+  metric (R1, R4). A strategy can be +EV yet lose money short-run; CLV separates the two.</p>
+<h2 id="2-the-ratings-engine-line-origination-core">2. The ratings engine (line origination core)</h2>
+<p>A walk-forward, points-based team rating produces a model margin and total for every game:
+- Each team carries a rolling log of its last 8 games (points for / against).
+- Expected home points = (home offense avg + away defense avg) / 2; away symmetric.
+- Model margin = exp_home − exp_away + home-field advantage (expanding mean of home margins).
+- Model total = exp_home + exp_away.
+- <strong>No leakage:</strong> ratings use only games strictly before the current game; at each season
+  boundary ratings regress 25% toward the league mean (roster turnover).
+- Moneyline probability = Φ(model_margin / σ), σ = std of (actual − model) margin fit on the
+  2006–2015 training window only.</p>
+<p>This is deliberately simple and transparent. It is a <em>baseline origination engine</em>, not a
+claim of state-of-the-art prediction. Its market Brier score (0.2247) is <strong>worse</strong> than the
+no-vig market (0.21105) over 2006–2025 — the market is the better forecaster, exactly as the
+efficiency literature predicts.</p>
+<h2 id="3-signal-catalog-results-holdout-unless-noted">3. Signal catalog &amp; results (holdout unless noted)</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Signal</th>
+<th>Category</th>
+<th>Key holdout result</th>
+<th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S1</td>
+<td>Model spread vs <strong>opening</strong> consensus, bet edge ≥ T</td>
+<td>Single</td>
+<td>CLV −0.02 pts (z −0.21); ROI −10.5%</td>
+<td>Rejected — no spread edge</td>
+</tr>
+<tr>
+<td>S2</td>
+<td>Model total vs <strong>opening</strong> consensus, bet edge ≥ T</td>
+<td>Single</td>
+<td><strong>CLV +0.80 pts (z 5.68, CI 0.53–1.09)</strong>; ROI −6.9%</td>
+<td><strong>Silver</strong> — real line-beating skill, ROI unproven</td>
+</tr>
+<tr>
+<td>S3</td>
+<td>Model spread vs <strong>closing</strong> line</td>
+<td>Single</td>
+<td>ROI −1.3% (CI −7.0–4.5%)</td>
+<td>Rejected — close is efficient</td>
+</tr>
+<tr>
+<td>S4</td>
+<td>Model total vs <strong>closing</strong> line</td>
+<td>Single</td>
+<td>ROI negative</td>
+<td>Rejected</td>
+</tr>
+<tr>
+<td>S5</td>
+<td>Value ML: model prob − no-vig market ≥ 5 pp</td>
+<td>Single</td>
+<td>ROI negative; model Brier worse than market</td>
+<td>Rejected</td>
+</tr>
+<tr>
+<td>S6</td>
+<td>Fade extreme longshots (dog implied ≤ 15%)</td>
+<td>Single</td>
+<td>ROI negative after vig</td>
+<td>Rejected — bias exists but vig eats it</td>
+</tr>
+<tr>
+<td>P1–P4</td>
+<td>Same-game cover+total 2-leg parlays @ +260</td>
+<td>Parlay</td>
+<td>All ROI −8% to −16%; legs ~independent</td>
+<td>Rejected — no correlation edge</td>
+</tr>
+<tr>
+<td>X1–X3</td>
+<td>Player-prop fair-line origination (QB/WR/RB yards)</td>
+<td>Player prop</td>
+<td>QB +1.7% RMSE skill (CI −0.2–3.6); WR/RB ≤ 0</td>
+<td>Rejected as betting edge; useful as pricing input</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Headline:</strong> the only robust skill signal found is <strong>S2 — the model beats the opening game
+total by ~0.8 points on average</strong> (highly significant, z≈5.7). That is a genuine, luck-free
+signal. It does <strong>not</strong> yet convert to proven profit (holdout ROI negative, season consistency
+50%), so it earns Silver, not Gold. This is the honest, defensible conclusion.</p>
+<h2 id="4-correlation-values-the-core-deliverable-for-prop-combos">4. Correlation values (the core deliverable for prop combos)</h2>
+<p>Estimated from 2009–2017 player-game data (D3, n≈4,600 team-games) with 2,000-sample
+bootstrap 95% CIs, and re-checked on 2021 (D4, n=544). Full table: <code>data/results/correlations.json</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Pair</th>
+<th>r (2009–17)</th>
+<th>95% CI</th>
+<th>2021 check</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>QB pass yds ↔ team WR1 rec yds</td>
+<td><strong>0.695</strong></td>
+<td>0.68–0.71</td>
+<td>0.671</td>
+<td>Strong + SGP leg pair</td>
+</tr>
+<tr>
+<td>QB pass yds ↔ team WR2 rec yds</td>
+<td><strong>0.756</strong></td>
+<td>0.74–0.77</td>
+<td>—</td>
+<td>Even stronger (WR2 volume-dependent)</td>
+</tr>
+<tr>
+<td>WR1 ↔ WR2 rec yds (same team)</td>
+<td><strong>0.492</strong></td>
+<td>0.47–0.52</td>
+<td>0.497</td>
+<td>Positive, NOT negative — both ride team pass volume</td>
+</tr>
+<tr>
+<td>QB pass yds ↔ team points</td>
+<td>0.379</td>
+<td>0.35–0.40</td>
+<td>0.432</td>
+<td>QB yards + team over/ML</td>
+</tr>
+<tr>
+<td>QB pass yds ↔ RB1 rush yds (same team)</td>
+<td><strong>−0.178</strong></td>
+<td>−0.20–−0.15</td>
+<td>—</td>
+<td>Game-script tension (negative SGP pair)</td>
+</tr>
+<tr>
+<td>RB1 rush yds ↔ team point margin</td>
+<td><strong>0.334</strong></td>
+<td>0.31–0.36</td>
+<td>0.361</td>
+<td>Game script: leaders run</td>
+</tr>
+<tr>
+<td>Team points ↔ game total</td>
+<td>0.676</td>
+<td>0.66–0.69</td>
+<td>—</td>
+<td>Team over + game over</td>
+</tr>
+<tr>
+<td>QB pass yds ↔ opposing QB pass yds</td>
+<td>0.172</td>
+<td>0.12–0.22</td>
+<td>—</td>
+<td>Shootout / pace effect</td>
+</tr>
+<tr>
+<td>Closing spread ↔ closing total (market)</td>
+<td>−0.020</td>
+<td>−0.05–0.01</td>
+<td>—</td>
+<td>No market-level relation</td>
+</tr>
+<tr>
+<td>Favorite covers ↔ over hits (binary φ)</td>
+<td>−0.007</td>
+<td>−0.04–0.02</td>
+<td>—</td>
+<td>Cover &amp; total legs ~independent</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Implications for parlay / prop-combo pricing</strong>
+- <strong>Same-game player props are strongly correlated.</strong> QB+WR1 yards r≈0.70 means an
+  "independent-legs" parlay price badly misstates the joint probability. Price these with the
+  empirical joint distribution (or a copula calibrated to r), not by multiplying legs.
+- <strong>WR1+WR2 is positively correlated (r≈0.49)</strong>, contrary to the "target competition" intuition.
+  Stacking two receivers on the same offense is less diversifying than it looks.
+- <strong>QB yards + own RB yards is negatively correlated (r≈−0.18)</strong> — a rare negatively-correlated
+  SGP pair that books may over-price.
+- <strong>Game-level cover+total legs are essentially independent (φ≈0)</strong>, so standard 2-leg parlay
+  pricing is roughly fair there; our P1–P4 backtests lose the vig, confirming no edge.</p>
+<h2 id="5-player-prop-line-origination-x1x3">5. Player-prop line origination (X1–X3)</h2>
+<p>No historical <em>market</em> prop lines are publicly archived in any reachable primary source, so
+props are evaluated as <strong>line origination</strong>, not ROI backtests (flagged). Dual estimator,
+walk-forward within season (min 2 prior games):
+- <strong>Accuracy line</strong> = expanding mean of prior games → RMSE vs naive baselines (last game,
+  position mean).
+- <strong>Fair 50/50 line</strong> = expanding median of prior games → over-hit rate should be ≈50%.</p>
+<p>Results: QB expanding mean beats the position-mean baseline by <strong>1.7% RMSE</strong> (CI −0.2–3.6,
+not significant); WR1 and RB1 naive estimators do <strong>not</strong> beat baselines. A rolling-4-median
+variant was tested and rejected (worse RMSE than expanding mean at every position). The
+over-hit rate at the fair line is 47.7–48.8% (slightly under 50% because yards are right-skewed
+and the within-season median lags early-season usage). <strong>Conclusion:</strong> simple univariate prop
+origination is not a standalone edge; its value is as the <em>input</em> to the correlation-aware
+combo pricing in §4. Better prop lines need usage/role features (snap share, targets, game
+script) — listed as future work, not fabricated.</p>
+<h2 id="6-removing-luck-method">6. Removing luck (method)</h2>
+<ul>
+<li><strong>CLV as the skill metric</strong> (§3): line-beating is independent of whether the bet wins.</li>
+<li><strong>Bootstrap CIs</strong> (2,000 resamples) on every ROI, CLV, correlation, and skill estimate.</li>
+<li><strong>Binomial luck null:</strong> win rate tested against the break-even probability <em>at the posted
+  vig</em> (e.g., 52.38% at −110); p-value reported per strategy.</li>
+<li><strong>Out-of-sample protocol:</strong> thresholds/σ chosen on 2006–2015 train; evaluated on 2016+ holdout.</li>
+<li><strong>Season robustness:</strong> fraction of seasons with positive edge + drop-best-season edge.</li>
+<li><strong>Market calibration check:</strong> no-vig moneyline deciles vs empirical win rate; market Brier
+  0.21105 vs model 0.2247 → market better calibrated; favorite-longshot bias visible (longshots
+  implied 16.2% → won 19.1%; big favorites implied 91.7% → won 95.1%) but too small to beat vig.</li>
+</ul>
+<h2 id="7-market-context-derived-d1">7. Market context (DERIVED, D1)</h2>
+<ul>
+<li><strong>Key numbers:</strong> margin 3 occurs in 14.5% of games, margin 7 in 8.9% (2006–2025) — buying
+  on/off 3 and 7 has measurable value; originate lines aware of these atoms.</li>
+<li><strong>Scoring environment:</strong> league avg total 45.8 (2024), 46.0 (2025); home margin ≈1.9–2.1 pts.</li>
+<li><strong>Ties exist</strong> in the regular season (Rule 16-1-3(d), OFFICIAL F21) — moneyline pushes must be
+  modeled, not ignored.</li>
+</ul>
+<h2 id="8-future-work-not-fabricated-not-counted-as-results">8. Future work (not fabricated, not counted as results)</h2>
+<p>Usage-based prop models (snap/target share, game script), EPA-based ratings, injury/lineup
+adjustments, copula-based SGP pricing, and live line-shopping across books. These are the
+natural next steps to convert the S2 CLV signal and the correlation structure into profit.</p></section><section class="panel doc"><h1 id="validation-gates-leaderboard-rules">Validation Gates &amp; Leaderboard Rules</h1>
+<p>Session <code>28cc78aa</code> · 2026-11-03. Every strategy must pass these gates to earn a reward tier.
+Gates are computed in <code>scripts/analyze.py::apply_gates</code> and published per-strategy on the site.
+Flagged irregularities and unverified items do <strong>not</strong> block publication or merge; they are
+listed on the Flagged for Review page.</p>
+<h2 id="the-seven-gates">The seven gates</h2>
+<table>
+<thead>
+<tr>
+<th>Gate</th>
+<th>Name</th>
+<th>Rule (market / parlay strategies)</th>
+<th>Rule (player-prop origination)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>G1</strong></td>
+<td>Data integrity</td>
+<td>All Part-A validation checks pass: official NFL anchor 91/91 exact; independent line cross-check within documented tolerance (≥90% of spreads / ≥95% of totals within 0.5 pt, MAD ≤ 0.5); player-stats internal consistency ≥95% exact with median diff 0; schedule coverage 100%.</td>
+<td>Same (shared data foundation).</td>
+</tr>
+<tr>
+<td><strong>G2</strong></td>
+<td>Out-of-sample</td>
+<td>Walk-forward only; ≥100 holdout bets; thresholds/σ fit on 2006–2015 train, evaluated 2016+.</td>
+<td>Walk-forward within season by construction (no future games used).</td>
+</tr>
+<tr>
+<td><strong>G3</strong></td>
+<td>Beats baseline</td>
+<td>@open: mean holdout CLV &gt; 0. @close/parlay: holdout ROI &gt; 0.</td>
+<td>Accuracy line RMSE beats best naive baseline (last game / position mean).</td>
+</tr>
+<tr>
+<td><strong>G4</strong></td>
+<td>Statistical significance</td>
+<td>Holdout ROI bootstrap 95% CI lower bound &gt; 0, <strong>or</strong> CLV z ≥ 2.</td>
+<td>Skill bootstrap 95% CI lower bound &gt; 0.</td>
+</tr>
+<tr>
+<td><strong>G5</strong></td>
+<td>Luck removed</td>
+<td>@open: CLV z ≥ 2 (outcome-independent skill). @close/parlay: binomial win-rate p &lt; 0.05 vs break-even-at-vig null.</td>
+<td>OOS R² &gt; 0 <strong>and</strong> skill CI &gt; 0 <strong>and</strong> fair-line over-hit 95% CI covers 50%.</td>
+</tr>
+<tr>
+<td><strong>G6</strong></td>
+<td>Robustness</td>
+<td>≥60% of holdout seasons positive <strong>and</strong> drop-best-season edge still &gt; 0.</td>
+<td>2021 robustness skill &gt; 0.</td>
+</tr>
+<tr>
+<td><strong>G7</strong></td>
+<td>Correlation correctness</td>
+<td>Parlays: joint probability estimated empirically with bootstrap CI and |correlation lift| &gt; 1% (pricing must not assume independence). Single bets/props: n/a (auto-pass).</td>
+<td>n/a (auto-pass).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Why these gates:</strong> G1–G2 prevent garbage-in and overfitting; G3–G4 demand a real, significant
+edge over a sensible baseline; G5 is the explicit <em>luck removal</em> requirement (skill must show
+up in a metric that does not depend on short-run wins); G6 kills single-season flukes; G7 forces
+correct dependence modeling for combos.</p>
+<h2 id="leaderboard-score-transparent-0100">Leaderboard score (transparent, 0–100)</h2>
+<p>Market / parlay strategies:</p>
+<pre><code>score = 100 × (0.35·CLV_component + 0.25·ROI_component + 0.25·gate_component + 0.15·robustness_component)
+  CLV_component        = clamp(CLV_z / 3, 0, 1)            (0 if no CLV measured)
+  ROI_component        = clamp(ROI_CI_low / 0.03, 0, 1)    (parlays: clamp(ROI/0.05)×(1 if CI_low&gt;0 else 0.5))
+  gate_component       = gates_passed / 7
+  robustness_component = fraction of holdout seasons positive
+</code></pre>
+<p>Player-prop origination:</p>
+<pre><code>score = 100 × (0.35·skill_component + 0.25·fairness_component + 0.25·gate_component + 0.15·robustness_component)
+  skill_component     = clamp(RMSE_skill_pct / 10, 0, 1)
+  fairness_component  = 1 − clamp(|over_hit_rate − 0.5| / 0.1, 0, 1)
+  gate_component      = gates_passed / 7
+  robustness_component= 1 if 2021 skill &gt; 0 else 0
+</code></pre>
+<h2 id="reward-tiers">Reward tiers</h2>
+<table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Requirement</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Gold</strong></td>
+<td>7/7 gates <strong>and</strong> score ≥ 70</td>
+<td>Deployable, skill-verified edge.</td>
+</tr>
+<tr>
+<td><strong>Silver</strong></td>
+<td>≥6/7 gates <strong>and</strong> score ≥ 50</td>
+<td>Strong skill signal; one gate (usually profit-consistency) unproven.</td>
+</tr>
+<tr>
+<td><strong>Bronze</strong></td>
+<td>≥5/7 gates <strong>and</strong> score ≥ 35</td>
+<td>Partial signal; research candidate.</td>
+</tr>
+<tr>
+<td><strong>Rejected</strong></td>
+<td>otherwise</td>
+<td>No demonstrated skill edge; do not bet.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="current-leaderboard-computed-2026-11-03">Current leaderboard (computed 2026-11-03)</h2>
+<table>
+<thead>
+<tr>
+<th>Rank</th>
+<th>ID</th>
+<th>Strategy</th>
+<th>Score</th>
+<th>Gates</th>
+<th>Tier</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>S2</td>
+<td>Model total value @ opening line</td>
+<td>63.9</td>
+<td>6/7</td>
+<td><strong>Silver</strong></td>
+</tr>
+<tr>
+<td>2</td>
+<td>X3</td>
+<td>RB1 rushing yards — fair-line origination</td>
+<td>51.4</td>
+<td>4/7</td>
+<td>Rejected</td>
+</tr>
+<tr>
+<td>3</td>
+<td>X1</td>
+<td>QB passing yards — fair-line origination</td>
+<td>39.5</td>
+<td>4/7</td>
+<td>Rejected</td>
+</tr>
+<tr>
+<td>4</td>
+<td>X2</td>
+<td>WR1 receiving yards — fair-line origination</td>
+<td>29.8</td>
+<td>3/7</td>
+<td>Rejected</td>
+</tr>
+<tr>
+<td>5</td>
+<td>S6</td>
+<td>Fade extreme longshots</td>
+<td>19.7</td>
+<td>3/7</td>
+<td>Rejected</td>
+</tr>
+<tr>
+<td>6</td>
+<td>S5</td>
+<td>Value moneyline @ closing line</td>
+<td>18.8</td>
+<td>4/7</td>
+<td>Rejected</td>
+</tr>
+<tr>
+<td>7</td>
+<td>S3</td>
+<td>Model spread value @ closing line</td>
+<td>15.2</td>
+<td>3/7</td>
+<td>Rejected</td>
+</tr>
+<tr>
+<td>8</td>
+<td>S1</td>
+<td>Model spread value @ opening line</td>
+<td>13.2</td>
+<td>3/7</td>
+<td>Rejected</td>
+</tr>
+<tr>
+<td>9</td>
+<td>P4</td>
+<td>Underdog covers + Under</td>
+<td>13.1</td>
+<td>2/7</td>
+<td>Rejected</td>
+</tr>
+<tr>
+<td>10</td>
+<td>S4</td>
+<td>Model total value @ closing line</td>
+<td>12.2</td>
+<td>3/7</td>
+<td>Rejected</td>
+</tr>
+<tr>
+<td>11</td>
+<td>P1</td>
+<td>Favorite covers + Over</td>
+<td>10.1</td>
+<td>2/7</td>
+<td>Rejected</td>
+</tr>
+<tr>
+<td>12</td>
+<td>P2</td>
+<td>Favorite covers + Under</td>
+<td>10.1</td>
+<td>2/7</td>
+<td>Rejected</td>
+</tr>
+<tr>
+<td>13</td>
+<td>P3</td>
+<td>Underdog covers + Over</td>
+<td>8.6</td>
+<td>2/7</td>
+<td>Rejected</td>
+</tr>
+</tbody>
+</table>
+<p><strong>No strategy reached Gold.</strong> The single Silver (S2) is the only strategy with a statistically
+robust, luck-free skill signal (CLV +0.80 pts, z 5.68). This is the honest outcome of applying
+strict gates to an efficient market — not a failure of the method, but the method working.</p></section>
+  <footer class="foot">
+    <p>Own8 NFL Line Lab · research &amp; education only, not betting advice. Market data is
+    <strong>PRIMARY (non-NFL)</strong> and flagged; official facts link to NFL sources.
+    See <a href="flagged.html">Flagged for Review</a> and <a href="data-sources.html">Data &amp; Sources</a>.</p>
+  </footer>
+</main>
+<script src="assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Validation &amp; Gates · Own8 NFL</title>
+<meta name="description" content="Data checks · 7 gates · leaderboard rules">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><a href="index.html">Own8 <span>NFL Line Lab</span></a></div>
+  <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('nav-open')">☰</button>
+</header>
+<nav class="sidebar"><div class="nav-title">Dashboard</div><a href="index.html" class="">Home</a><a href="executive-summary.html" class="">Executive Summary</a><a href="singles.html" class="">Single Bets</a><a href="parlays.html" class="">Parlays</a><a href="props.html" class="">Player Props</a><a href="correlations.html" class="">Correlations</a><a href="validation.html" class="active">Validation &amp; Gates</a><a href="official-facts.html" class="">Official Facts</a><a href="data-sources.html" class="">Data &amp; Sources</a><a href="methodology.html" class="">Methodology</a><a href="flagged.html" class="">Flagged for Review</a>
+  <div class="nav-foot">Verified 2026-11-03 · session 28cc78aa</div>
+</nav>
+<main class="content wide">
+  <div class="page-head"><h1>Validation &amp; Gates</h1><p class="sub">Data checks · 7 gates · leaderboard rules</p></div>
+  
+    <section class="panel"><h2>Data validation (Part A)</h2>
+      <p class="muted">Overall: <span class="gate pass">ALL PASS</span>.
+      Tolerances are documented; flagged items are non-blocking and listed on <a href="flagged.html">Flagged for Review</a>.</p>
+      <div class="table-wrap"><table class="data-table sortable" id="checks"><thead><tr><th>Check</th><th>What it verifies</th><th>Result</th><th>Status</th><th>Source</th></tr></thead><tbody><tr><td>Official NFL score anchor</td><td>NFL-official Big Data Bowl 2017 game results vs games.csv mirror, line by line</td><td>91/91 exact</td><td><span class="gate pass">PASS</span></td><td><div class="src"><a href="https://github.com/nfl-football-ops/Big-Data-Bowl/blob/master/Data/games.csv" target="_blank" rel="noopener">NFL official Big Data Bowl <span class="ext">↗</span></a> · <a href="methodology.html">method</a> · <a href="https://github.com/nfl-football-ops/Big-Data-Bowl/blob/master/Data/games.csv" target="_blank" rel="noopener">official source <span class="ext">↗</span></a></div></td></tr><tr><td>Independent odds cross-check</td><td>games.csv closing lines vs median of book-level closing lines (independent mirror)</td><td>spread 93.4% / total 98.5% within 0.5</td><td><span class="gate pass">PASS</span></td><td><div class="src"><span class="badge derived">DERIVED</span> · <a href="https://github.com/LeeSharpe/nfldata/blob/master/data/games.csv" target="_blank" rel="noopener">LeeSharpe/nfldata games.csv <span class="ext">↗</span></a> · <a href="methodology.html">method</a></div><div class="muted small">⚑ Independent mirrors agree within 0.5 pt on 93.4% of spreads / 98.5% of totals (MAD 0.18 / 0.15). Disagreements concentrate in 2006–2013 consensus snapshots; only 25 games (0.6%) differ by &gt;1.5 pts. Tolerance documented; listed on Flagged for Review.</div></td></tr><tr><td>Player-stats internal consistency</td><td>Per team-game: summed passer yards vs summed receiver yards (must match)</td><td>96.9% exact, median diff 0.0</td><td><span class="gate pass">PASS</span></td><td><div class="src"><span class="badge derived">DERIVED</span> · <a href="https://github.com/ryurko/nflscrapR-data/tree/master/legacy_data/game_player_stats" target="_blank" rel="noopener">nflscrapR player-game stats <span class="ext">↗</span></a> · <a href="methodology.html">method</a></div><div class="muted small">⚑ 3.1% of team-games differ (lateral/sack attribution quirks in legacy nflscrapR aggregation); median diff 0. Listed on Flagged for Review.</div></td></tr><tr><td>Player stats ↔ schedule coverage</td><td>Every player-stat game date exists in the schedule/results mirror</td><td>426/426</td><td><span class="gate pass">PASS</span></td><td><div class="src"><span class="badge derived">DERIVED</span> · <a href="https://github.com/ryurko/nflscrapR-data/tree/master/legacy_data/game_player_stats" target="_blank" rel="noopener">nflscrapR player-game stats <span class="ext">↗</span></a> · <a href="methodology.html">method</a></div></td></tr><tr><td>2021 sample ↔ schedule coverage</td><td>2021 weekly fantasy sample: every team-week appears in the 2021 schedule</td><td>544/544</td><td><span class="gate pass">PASS</span></td><td><div class="src"><span class="badge derived">DERIVED</span> · <a href="https://github.com/fantasydatapros/LearnPythonWithFantasyFootball/tree/master/2022/09-Correlation%20Matrices/01-Weekly%20Fantasy%20Stats%20-%202021" target="_blank" rel="noopener">FantasyDataPros 2021 weekly <span class="ext">↗</span></a> · <a href="methodology.html">method</a></div></td></tr></tbody></table></div></section>
+    <section class="panel doc"><h1>Validation Gates &amp; Leaderboard Rules</h1>
+<p>Session <code>28cc78aa</code> · 2026-11-03. Every strategy must pass these gates to earn a reward tier.
+Gates are computed in <code>scripts/analyze.py::apply_gates</code> and published per-strategy on the site.
+Flagged irregularities and unverified items do <strong>not</strong> block publication or merge; they are
+listed on the Flagged for Review page.</p>
+<h2>The seven gates</h2>
+<table>
+<thead>
+<tr>
+<th>Gate</th>
+<th>Name</th>
+<th>Rule (market / parlay strategies)</th>
+<th>Rule (player-prop origination)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>G1</strong></td>
+<td>Data integrity</td>
+<td>All Part-A validation checks pass: official NFL anchor 91/91 exact; independent line cross-check within documented tolerance (≥90% of spreads / ≥95% of totals within 0.5 pt, MAD ≤ 0.5); player-stats internal consistency ≥95% exact with median diff 0; schedule coverage 100%.</td>
+<td>Same (shared data foundation).</td>
+</tr>
+<tr>
+<td><strong>G2</strong></td>
+<td>Out-of-sample</td>
+<td>Walk-forward only; ≥100 holdout bets; thresholds/σ fit on 2006–2015 train, evaluated 2016+.</td>
+<td>Walk-forward within season by construction (no future games used).</td>
+</tr>
+<tr>
+<td><strong>G3</strong></td>
+<td>Beats baseline</td>
+<td>@open: mean holdout CLV &gt; 0. @close/parlay: holdout ROI &gt; 0.</td>
+<td>Accuracy line RMSE beats best naive baseline (last game / position mean).</td>
+</tr>
+<tr>
+<td><strong>G4</strong></td>
+<td>Statistical significance</td>
+<td>Holdout ROI bootstrap 95% CI lower bound &gt; 0, <strong>or</strong> CLV z ≥ 2.</td>
+<td>Skill bootstrap 95% CI lower bound &gt; 0.</td>
+</tr>
+<tr>
+<td><strong>G5</strong></td>
+<td>Luck removed</td>
+<td>@open: CLV z ≥ 2 (outcome-independent skill). @close/parlay: binomial win-rate p &lt; 0.05 vs break-even-at-vig null.</td>
+<td>OOS R² &gt; 0 <strong>and</strong> skill CI &gt; 0 <strong>and</strong> fair-line over-hit 95% CI covers 50%.</td>
+</tr>
+<tr>
+<td><strong>G6</strong></td>
+<td>Robustness</td>
+<td>≥60% of holdout seasons positive <strong>and</strong> drop-best-season edge still &gt; 0.</td>
+<td>2021 robustness skill &gt; 0.</td>
+</tr>
+<tr>
+<td><strong>G7</strong></td>
+<td>Correlation correctness</td>
+<td>Parlays: joint probability estimated empirically with bootstrap CI and |correlation lift| &gt; 1% (pricing must not assume independence). Single bets/props: n/a (auto-pass).</td>
+<td>n/a (auto-pass).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Why these gates:</strong> G1–G2 prevent garbage-in and overfitting; G3–G4 demand a real, significant
+edge over a sensible baseline; G5 is the explicit <em>luck removal</em> requirement (skill must show
+up in a metric that does not depend on short-run wins); G6 kills single-season flukes; G7 forces
+correct dependence modeling for combos.</p>
+<h2>Leaderboard score (transparent, 0–100)</h2>
+<p>Market / parlay strategies:</p>
+<pre><code>score = 100 × (0.35·CLV_component + 0.25·ROI_component + 0.25·gate_component + 0.15·robustness_component)
+  CLV_component        = clamp(CLV_z / 3, 0, 1)            (0 if no CLV measured)
+  ROI_component        = clamp(ROI_CI_low / 0.03, 0, 1)    (parlays: clamp(ROI/0.05)×(1 if CI_low&gt;0 else 0.5))
+  gate_component       = gates_passed / 7
+  robustness_component = fraction of holdout seasons positive
+</code></pre>
+<p>Player-prop origination:</p>
+<pre><code>score = 100 × (0.35·skill_component + 0.25·fairness_component + 0.25·gate_component + 0.15·robustness_component)
+  skill_component     = clamp(RMSE_skill_pct / 10, 0, 1)
+  fairness_component  = 1 − clamp(|over_hit_rate − 0.5| / 0.1, 0, 1)
+  gate_component      = gates_passed / 7
+  robustness_component= 1 if 2021 skill &gt; 0 else 0
+</code></pre>
+<h2>Reward tiers</h2>
+<table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Requirement</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Gold</strong></td>
+<td>7/7 gates <strong>and</strong> score ≥ 70</td>
+<td>Deployable, skill-verified edge.</td>
+</tr>
+<tr>
+<td><strong>Silver</strong></td>
+<td>≥6/7 gates <strong>and</strong> score ≥ 50</td>
+<td>Strong skill signal; one gate (usually profit-consistency) unproven.</td>
+</tr>
+<tr>
+<td><strong>Bronze</strong></td>
+<td>≥5/7 gates <strong>and</strong> score ≥ 35</td>
+<td>Partial signal; research candidate.</td>
+</tr>
+<tr>
+<td><strong>Rejected</strong></td>
+<td>otherwise</td>
+<td>No demonstrated skill edge; do not bet.</td>
+</tr>
+</tbody>
+</table></section>
+    <section class="panel"><h2>Leaderboard with gate detail</h2><div class="table-wrap"><table class="data-table sortable" id="vleaderboard"><thead><tr><th>ID</th><th>Strategy</th><th>Score</th><th>Gates</th><th>Tier</th><th>Gate detail</th><th>Source</th></tr></thead><tbody><tr><td>S2</td><td>Model total value @ opening line</td><td>63.9</td><td>6/7</td><td><span class="badge silver">Silver</span></td><td><span class="gates"><span class="gate pass" title="G1_data: pass">G1</span><span class="gate pass" title="G2_oos: pass">G2</span><span class="gate pass" title="G3_beats_baseline: pass">G3</span><span class="gate pass" title="G4_significance: pass">G4</span><span class="gate pass" title="G5_luck_removed: pass">G5</span><span class="gate fail" title="G6_robustness: fail">G6</span><span class="gate pass" title="G7_correlation: pass">G7</span></span></td><td><div class="src"><span class="badge derived">DERIVED</span> · <a href="https://github.com/LeeSharpe/nfldata/blob/master/data/games.csv" target="_blank" rel="noopener">LeeSharpe/nfldata games.csv <span class="ext">↗</span></a> · <a href="https://github.com/mrcaseb/nfl-data/blob/master/data/nfl_lines_odds.csv.gz" target="_blank" rel="noopener">mrcaseb/nfl-data odds <span class="ext">↗</span></a> · <a href="methodology.html">method</a></div></td></tr><tr><td>X3</td><td>RB1 rushing yards — fair-line origination</td><td>51.4</td><td>4/7</td><td><span class="badge rejected">Rejected</span></td><td><span class="gates"><span class="gate pass" title="G1_data: pass">G1</span><span class="gate pass" title="G2_oos: pass">G2</span><span class="gate fail" title="G3_beats_baseline: fail">G3</span><span class="gate fail" title="G4_significance: fail">G4</span><span class="gate fail" title="G5_luck_removed: fail">G5</span><span class="gate pass" title="G6_robustness: pass">G6</span><span class="gate pass" title="G7_correlation: pass">G7</span></span></td><td><div class="src"><span class="badge derived">DERIVED</span> · <a href="https://github.com/ryurko/nflscrapR-data/tree/master/legacy_data/game_player_stats" target="_blank" rel="noopener">nflscrapR player-game stats <span class="ext">↗</span></a> · <a href="https://github.com/fantasydatapros/LearnPythonWithFantasyFootball/tree/master/2022/09-Correlation%20Matrices/01-Weekly%20Fantasy%20Stats%20-%202021" target="_blank" rel="noopener">FantasyDataPros 2021 weekly <span class="ext">↗</span></a> · <a href="methodology.html">method</a></div></td></tr><tr><td>X1</td><td>QB passing yards — fair-line origination</td><td>39.5</td><td>4/7</td><td><span class="badge rejected">Rejected</span></td><td><span class="gates"><span class="gate pass" title="G1_data: pass">G1</span><span class="gate pass" title="G2_oos: pass">G2</span><span class="gate pass" title="G3_beats_baseline: pass">G3</span><span class="gate fail" title="G4_significance: fail">G4</span><span class="gate fail" title="G5_luck_removed: fail">G5</span><span class="gate fail" title="G6_robustness: fail">G6</span><span class="gate pass" title="G7_correlation: pass">G7</span></span></td><td><div class="src"><span class="badge derived">DERIVED</span> · <a href="https://github.com/ryurko/nflscrapR-data/tree/master/legacy_data/game_player_stats" target="_blank" rel="noopener">nflscrapR player-game stats <span class="ext">↗</span></a> · <a href="https://github.com/fantasydatapros/LearnPythonWithFantasyFootball/tree/master/2022/09-Correlation%20Matrices/01-Weekly%20Fantasy%20Stats%20-%202021" target="_blank" rel="noopener">FantasyDataPros 2021 weekly <span class="ext">↗</span></a> · <a href="methodology.html">method</a></div></td></tr><tr><td>X2</td><td>WR1 receiving yards — fair-line origination</td><td>29.8</td><td>3/7</td><td><span class="badge rejected">Rejected</span></td><td><span class="gates"><span class="gate pass" title="G1_data: pass">G1</span><span class="gate pass" title="G2_oos: pass">G2</span><span class="gate fail" title="G3_beats_baseline: fail">G3</span><span class="gate fail" title="G4_significance: fail">G4</span><span class="gate fail" title="G5_luck_removed: fail">G5</span><span class="gate fail" title="G6_robustness: fail">G6</span><span class="gate pass" title="G7_correlation: pass">G7</span></span></td><td><div class="src"><span class="badge derived">DERIVED</span> · <a href="https://github.com/ryurko/nflscrapR-data/tree/master/legacy_data/game_player_stats" target="_blank" rel="noopener">nflscrapR player-game stats <span class="ext">↗</span></a> · <a href="https://github.com/fantasydatapros/LearnPythonWithFantasyFootball/tree/master/2022/09-Correlation%20Matrices/01-Weekly%20Fantasy%20Stats%20-%202021" target="_blank" rel="noopener">FantasyDataPros 2021 weekly <span class="ext">↗</span></a> · <a href="methodology.html">method</a></div></td></tr><tr><td>S6</td><td>Fade extreme longshots (bet big favorite ML)</td><td>19.7</td><td>3/7</td><td><span class="badge rejected">Rejected</span></td><td><span class="gates"><span class="gate pass" title="G1_data: pass">G1</span><span class="gate pass" title="G2_oos: pass">G2</span><span class="gate fail" title="G3_beats_baseline: fail">G3</span><span class="gate fail" title="G4_significance: fail">G4</span><span class="gate fail" title="G5_luck_removed: fail">G5</span><span class="gate fail" title="G6_robustness: fail">G6</span><span class="gate pass" title="G7_correlation: pass">G7</span></span></td><td><div class="src"><span class="badge derived">DERIVED</span> · <a href="https://github.com/LeeSharpe/nfldata/blob/master/data/games.csv" target="_blank" rel="noopener">LeeSharpe/nfldata games.csv <span class="ext">↗</span></a> · <a href="methodology.html">method</a></div></td></tr><tr><td>S5</td><td>Value moneyline @ closing line</td><td>18.8</td><td>4/7</td><td><span class="badge rejected">Rejected</span></td><td><span class="gates"><span class="gate pass" title="G1_data: pass">G1</span><span class="gate pass" title="G2_oos: pass">G2</span><span class="gate fail" title="G3_beats_baseline: fail">G3</span><span class="gate fail" title="G4_significance: fail">G4</span><span class="gate pass" title="G5_luck_removed: pass">G5</span><span class="gate fail" title="G6_robustness: fail">G6</span><span class="gate pass" title="G7_correlation: pass">G7</span></span></td><td><div class="src"><span class="badge derived">DERIVED</span> · <a href="https://github.com/LeeSharpe/nfldata/blob/master/data/games.csv" target="_blank" rel="noopener">LeeSharpe/nfldata games.csv <span class="ext">↗</span></a> · <a href="methodology.html">method</a></div></td></tr><tr><td>S3</td><td>Model spread value @ closing line</td><td>15.2</td><td>3/7</td><td><span class="badge rejected">Rejected</span></td><td><span class="gates"><span class="gate pass" title="G1_data: pass">G1</span><span class="gate pass" title="G2_oos: pass">G2</span><span class="gate fail" title="G3_beats_baseline: fail">G3</span><span class="gate fail" title="G4_significance: fail">G4</span><span class="gate fail" title="G5_luck_removed: fail">G5</span><span class="gate fail" title="G6_robustness: fail">G6</span><span class="gate pass" title="G7_correlation: pass">G7</span></span></td><td><div class="src"><span class="badge derived">DERIVED</span> · <a href="https://github.com/LeeSharpe/nfldata/blob/master/data/games.csv" target="_blank" rel="noopener">LeeSharpe/nfldata games.csv <span class="ext">↗</span></a> · <a href="methodology.html">method</a></div></td></tr><tr><td>S1</td><td>Model spread value @ opening line</td><td>13.2</td><td>3/7</td><td><span class="badge rejected">Rejected</span></td><td><span class="gates"><span class="gate pass" title="G1_data: pass">G1</span><span class="gate pass" title="G2_oos: pass">G2</span><span class="gate fail" title="G3_beats_baseline: fail">G3</span><span class="gate fail" title="G4_significance: fail">G4</span><span class="gate fail" title="G5_luck_removed: fail">G5</span><span class="gate fail" title="G6_robustness: fail">G6</span><span class="gate pass" title="G7_correlation: pass">G7</span></span></td><td><div class="src"><span class="badge derived">DERIVED</span> · <a href="https://github.com/LeeSharpe/nfldata/blob/master/data/games.csv" target="_blank" rel="noopener">LeeSharpe/nfldata games.csv <span class="ext">↗</span></a> · <a href="https://github.com/mrcaseb/nfl-data/blob/master/data/nfl_lines_odds.csv.gz" target="_blank" rel="noopener">mrcaseb/nfl-data odds <span class="ext">↗</span></a> · <a href="methodology.html">method</a></div></td></tr><tr><td>P4</td><td>Underdog covers + Under</td><td>13.1</td><td>2/7</td><td><span class="badge rejected">Rejected</span></td><td><span class="gates"><span class="gate pass" title="G1_data: pass">G1</span><span class="gate pass" title="G2_oos: pass">G2</span><span class="gate fail" title="G3_beats_baseline: fail">G3</span><span class="gate fail" title="G4_significance: fail">G4</span><span class="gate fail" title="G5_luck_removed: fail">G5</span><span class="gate fail" title="G6_robustness: fail">G6</span><span class="gate fail" title="G7_correlation: fail">G7</span></span></td><td><div class="src"><span class="badge derived">DERIVED</span> · <a href="https://github.com/LeeSharpe/nfldata/blob/master/data/games.csv" target="_blank" rel="noopener">LeeSharpe/nfldata games.csv <span class="ext">↗</span></a> · <a href="methodology.html">method</a></div></td></tr><tr><td>S4</td><td>Model total value @ closing line</td><td>12.2</td><td>3/7</td><td><span class="badge rejected">Rejected</span></td><td><span class="gates"><span class="gate pass" title="G1_data: pass">G1</span><span class="gate pass" title="G2_oos: pass">G2</span><span class="gate fail" title="G3_beats_baseline: fail">G3</span><span class="gate fail" title="G4_significance: fail">G4</span><span class="gate fail" title="G5_luck_removed: fail">G5</span><span class="gate fail" title="G6_robustness: fail">G6</span><span class="gate pass" title="G7_correlation: pass">G7</span></span></td><td><div class="src"><span class="badge derived">DERIVED</span> · <a href="https://github.com/LeeSharpe/nfldata/blob/master/data/games.csv" target="_blank" rel="noopener">LeeSharpe/nfldata games.csv <span class="ext">↗</span></a> · <a href="methodology.html">method</a></div></td></tr><tr><td>P1</td><td>Favorite covers + Over</td><td>10.1</td><td>2/7</td><td><span class="badge rejected">Rejected</span></td><td><span class="gates"><span class="gate pass" title="G1_data: pass">G1</span><span class="gate pass" title="G2_oos: pass">G2</span><span class="gate fail" title="G3_beats_baseline: fail">G3</span><span class="gate fail" title="G4_significance: fail">G4</span><span class="gate fail" title="G5_luck_removed: fail">G5</span><span class="gate fail" title="G6_robustness: fail">G6</span><span class="gate fail" title="G7_correlation: fail">G7</span></span></td><td><div class="src"><span class="badge derived">DERIVED</span> · <a href="https://github.com/LeeSharpe/nfldata/blob/master/data/games.csv" target="_blank" rel="noopener">LeeSharpe/nfldata games.csv <span class="ext">↗</span></a> · <a href="methodology.html">method</a></div></td></tr><tr><td>P2</td><td>Favorite covers + Under</td><td>10.1</td><td>2/7</td><td><span class="badge rejected">Rejected</span></td><td><span class="gates"><span class="gate pass" title="G1_data: pass">G1</span><span class="gate pass" title="G2_oos: pass">G2</span><span class="gate fail" title="G3_beats_baseline: fail">G3</span><span class="gate fail" title="G4_significance: fail">G4</span><span class="gate fail" title="G5_luck_removed: fail">G5</span><span class="gate fail" title="G6_robustness: fail">G6</span><span class="gate fail" title="G7_correlation: fail">G7</span></span></td><td><div class="src"><span class="badge derived">DERIVED</span> · <a href="https://github.com/LeeSharpe/nfldata/blob/master/data/games.csv" target="_blank" rel="noopener">LeeSharpe/nfldata games.csv <span class="ext">↗</span></a> · <a href="methodology.html">method</a></div></td></tr><tr><td>P3</td><td>Underdog covers + Over</td><td>8.6</td><td>2/7</td><td><span class="badge rejected">Rejected</span></td><td><span class="gates"><span class="gate pass" title="G1_data: pass">G1</span><span class="gate pass" title="G2_oos: pass">G2</span><span class="gate fail" title="G3_beats_baseline: fail">G3</span><span class="gate fail" title="G4_significance: fail">G4</span><span class="gate fail" title="G5_luck_removed: fail">G5</span><span class="gate fail" title="G6_robustness: fail">G6</span><span class="gate fail" title="G7_correlation: fail">G7</span></span></td><td><div class="src"><span class="badge derived">DERIVED</span> · <a href="https://github.com/LeeSharpe/nfldata/blob/master/data/games.csv" target="_blank" rel="noopener">LeeSharpe/nfldata games.csv <span class="ext">↗</span></a> · <a href="methodology.html">method</a></div></td></tr></tbody></table></div></section>
+  <footer class="foot">
+    <p>Own8 NFL Line Lab · research &amp; education only, not betting advice. Market data is
+    <strong>PRIMARY (non-NFL)</strong> and flagged; official facts link to NFL sources.
+    See <a href="flagged.html">Flagged for Review</a> and <a href="data-sources.html">Data &amp; Sources</a>.</p>
+  </footer>
+</main>
+<script src="assets/app.js"></script>
+</body>
+</html>

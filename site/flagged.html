@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flagged for Review · Own8 NFL</title>
+<meta name="description" content="Irregularities &amp; unverified items (non-blocking)">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><a href="index.html">Own8 <span>NFL Line Lab</span></a></div>
+  <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('nav-open')">☰</button>
+</header>
+<nav class="sidebar"><div class="nav-title">Dashboard</div><a href="index.html" class="">Home</a><a href="executive-summary.html" class="">Executive Summary</a><a href="singles.html" class="">Single Bets</a><a href="parlays.html" class="">Parlays</a><a href="props.html" class="">Player Props</a><a href="correlations.html" class="">Correlations</a><a href="validation.html" class="">Validation &amp; Gates</a><a href="official-facts.html" class="">Official Facts</a><a href="data-sources.html" class="">Data &amp; Sources</a><a href="methodology.html" class="">Methodology</a><a href="flagged.html" class="active">Flagged for Review</a>
+  <div class="nav-foot">Verified 2026-11-03 · session 28cc78aa</div>
+</nav>
+<main class="content wide">
+  <div class="page-head"><h1>Flagged for Review</h1><p class="sub">Irregularities &amp; unverified items (non-blocking)</p></div>
+  
+    <section class="panel">
+      <p class="lead">Clearly labeled irregularities and unverified items. These are
+      <strong>non-blocking</strong> — they are published for review after the site is live, and do not
+      prevent merge. Values that cannot be confirmed from an official source are left blank and marked
+      <span class="badge unverified">UNVERIFIED</span>; derived statistics are labeled
+      <span class="badge derived">DERIVED</span> with their primary-data provenance.</p>
+      <div class="table-wrap"><table class="data-table sortable" id="flagged"><thead><tr><th>Item</th><th>Tier</th><th>Detail</th><th>Source / review link</th></tr></thead><tbody><tr><td><strong>Market-line provenance</strong></td><td><span class="badge primary">PRIMARY (non-NFL)</span></td><td>The NFL does not publish betting lines. All spread/total/moneyline values come from public primary mirrors (D1/D2), cross-checked between two independent sources, and are never presented as official.</td><td><a href="https://github.com/LeeSharpe/nfldata/blob/master/data/games.csv" target="_blank" rel="noopener">D1 <span class="ext">↗</span></a> · <a href="https://github.com/mrcaseb/nfl-data/blob/master/data/nfl_lines_odds.csv.gz" target="_blank" rel="noopener">D2 <span class="ext">↗</span></a></td></tr><tr><td><strong>Spread close disagreement between mirrors</strong></td><td><span class="badge derived">DERIVED</span></td><td>Independent mirrors agree within 0.5 pt on 93.4% of spreads (MAD 0.182). Disagreements concentrate in 2006–2013 consensus snapshots; 25 games (0.6%) differ by &gt;1.5 pt. Tolerance documented; does not block.</td><td><a href="https://github.com/mrcaseb/nfl-data/blob/master/data/nfl_lines_odds.csv.gz" target="_blank" rel="noopener">D1/D2 cross-check <span class="ext">↗</span></a></td></tr><tr><td><strong>Legacy player-stat yardage quirks</strong></td><td><span class="badge derived">DERIVED</span></td><td>96.9% of team-games have exactly matching passer/receiver yards; ~3.1% differ (lateral/sack attribution in legacy nflscrapR aggregation), median diff 0. Correlations use receiver-side yards; flagged, not silently corrected.</td><td><a href="https://github.com/ryurko/nflscrapR-data/tree/master/legacy_data/game_player_stats" target="_blank" rel="noopener">D3 <span class="ext">↗</span></a></td></tr><tr><td><strong>Player-prop correlation era caveat</strong></td><td><span class="badge derived">DERIVED</span></td><td>Correlations estimated on 2009–2017 (D3) with a 2021 robustness check (D4). The modern passing environment may shift magnitudes; CIs and the 2021 check are reported so the reader can judge.</td><td><a href="https://github.com/ryurko/nflscrapR-data/tree/master/legacy_data/game_player_stats" target="_blank" rel="noopener">D3 <span class="ext">↗</span></a> · <a href="https://github.com/fantasydatapros/LearnPythonWithFantasyFootball/tree/master/2022/09-Correlation%20Matrices/01-Weekly%20Fantasy%20Stats%20-%202021" target="_blank" rel="noopener">D4 <span class="ext">↗</span></a></td></tr><tr><td><strong>No archived market player-prop lines</strong></td><td><span class="badge unverified">UNVERIFIED</span></td><td>Historical market prop lines are not publicly archived in any reachable primary source. Prop strategies are therefore evaluated as line origination (accuracy + fairness), NOT as ROI backtests against market prop lines. No prop lines were fabricated.</td><td><a href="methodology.html" target="_blank" rel="noopener">Methodology <span class="ext">↗</span></a></td></tr><tr><td><strong>Empty starting repository</strong></td><td><span class="badge derived">INFO</span></td><td>The repo contained only a 6-byte README at session start; all deliverables are new. Nothing pre-existing required external verification.</td><td><a href="repo-review.html" target="_blank" rel="noopener">Repo review <span class="ext">↗</span></a></td></tr><tr><td><strong>Branch-policy note</strong></td><td><span class="badge derived">INFO</span></td><td>The task requested session-&lt;id&gt;/&lt;task&gt; branches, but the Arena platform pins this session to arena/28cc78aa-own8 and forbids other branches. That branch serves as both work and integration branch.</td><td><a href="https://github.com/sassnarep3-star/Own8/blob/main/COORDINATION.md" target="_blank" rel="noopener">COORDINATION.md <span class="ext">↗</span></a></td></tr></tbody></table></div>
+    </section>
+  <footer class="foot">
+    <p>Own8 NFL Line Lab · research &amp; education only, not betting advice. Market data is
+    <strong>PRIMARY (non-NFL)</strong> and flagged; official facts link to NFL sources.
+    See <a href="flagged.html">Flagged for Review</a> and <a href="data-sources.html">Data &amp; Sources</a>.</p>
+  </footer>
+</main>
+<script src="assets/app.js"></script>
+</body>
+</html>
