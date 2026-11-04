@@ -57,3 +57,9 @@ None outstanding. (Resolved during integration: both sessions wrote COORDINATION
 - 2026-11-03 — Final link check after integration: PASS — 46 HTML pages, 2712 links, 0 broken internal, all external links https and on the official-source allowlist except one archived http://www.nfl.com link kept verbatim from session 9cf451e4 (recorded as warning, official host).
 - 2026-11-03 — PR #5 created: https://github.com/sassnarep3-star/Own8/pull/5 (arena/95e9626f-own8 → main). Merge + Pages deploy record: see below.
 - 2026-11-03 — PR #5 MERGED (see `gh pr view 5`); Pages re-deployed from main /; live URL verified: https://sassnarep3-star.github.io/Own8/ (see final entry below).
+
+### Session 22bc57c4
+
+| ID | Task | Status | Owner | Files | Sources / verification | Notes |
+| --- | --- | --- | --- | --- | --- | --- |
+| A1 | Independent repository and source audit | in progress | 22bc57c4 | COORDINATION.md, research/audit-22bc57c4.md | Pending | Shared integration files remain owned by session 95e9626f; request changes rather than edit. |
