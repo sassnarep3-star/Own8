@@ -23,7 +23,7 @@ Proposed non-cash reward scoring ranks only eligible strategies by a positive mu
 
 ## Material findings and limitations
 
-1. The existing baseline repository audit found a reversed spread sign, conditional gate passes, unverified candidates and placeholder leaderboard results. Active owners are handling their files. This package does not certify their eventual fixes; review the [baseline audit](../audit/index.html) and shared [coordination board](../COORDINATION.md).
+1. The existing baseline repository audit found a reversed spread sign, conditional gate passes, unverified candidates and placeholder leaderboard results. Active owners are handling their files. This package does not certify their eventual fixes; review the [baseline audit](../audit/index.html) and shared [coordination board](https://github.com/sassnarep3-star/Own8/blob/main/COORDINATION.md).
 2. A source URL is not proof of a verified value. All historical fact cells in this package map to the exact official captured file; other repository datasets were not externally re-verified here. Matching two internal snapshots is not external verification.
 3. Current odds, current injuries, prop thresholds, book rules, expected betting returns, ranks and rewards remain blank when unconfirmed. Descriptive score r is not a valid substitute for matched bet-leg r.
 4. Local builds and tests run without prompts. There is no scheduled current-data feed, prospective prediction lock, official-price ingestion or live settlement service. Do not mistake a static rebuild for live automation.

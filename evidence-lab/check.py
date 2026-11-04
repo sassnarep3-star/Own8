@@ -1,5 +1,5 @@
 """Read-only whole-repo link scan + scoped reproducibility and evidence checks.
-Only writes evidence-lab/checks.json and evidence-lab/repo-review.json.
+Writes only this package reports and its claimed docs/evidence-lab/ mirror.
 """
 import csv
 import hashlib

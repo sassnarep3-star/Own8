@@ -4,9 +4,23 @@
   "inventory": [
     {
       "path": ".github/workflows/audit.yml",
-      "bytes": 2069,
-      "sha256": "136cb07c3082487adfdf0926af79419d56e9495ddeb45f435efb8f856a71ed6a",
-      "line_count": 58,
+      "bytes": 1469,
+      "sha256": "5e295bfa049e6080e23bbdcb6ed58de45eb848dc6bc7cfab34ad68ee6af9bc77",
+      "line_count": 40,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": ".github/workflows/evidence-lab.yml",
+      "bytes": 1130,
+      "sha256": "cbf04c714eeb58147c5dfa5197b83a2fbf7f11c1766248d4f247fbb790bbd05a",
+      "line_count": 41,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": ".github/workflows/verify.yml",
+      "bytes": 578,
+      "sha256": "b9ef231816f6326c563467c6bdfe2c9fa50b561e28baeace85d4f94f0a56e37a",
+      "line_count": 19,
       "verification": "Inventory only; factual contents not externally re-verified"
     },
     {
@@ -17,24 +31,24 @@
       "verification": "Inventory only; factual contents not externally re-verified"
     },
     {
-      "path": ".nojekyll",
-      "bytes": 0,
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "line_count": 0,
-      "verification": "Inventory only; factual contents not externally re-verified"
-    },
-    {
       "path": "COORDINATION.md",
-      "bytes": 33857,
-      "sha256": "8921a534dca5b3ae743ded9d92add6d7908b5f680facd01e02d8f9c588b8d8a1",
-      "line_count": 148,
+      "bytes": 44909,
+      "sha256": "db7ad0a576b1b25a552f5d2c511bd95c8d2c87093bb6b000d4cf69db17237614",
+      "line_count": 189,
       "verification": "Inventory only; factual contents not externally re-verified"
     },
     {
       "path": "README.md",
-      "bytes": 5486,
-      "sha256": "3e8d51ea6e9ce222093d96ed83b62b183b9291afa9a866b204d129f42c001c34",
+      "bytes": 5587,
+      "sha256": "f5a1b7ee5ce26c0a33c3b99c0af2291983f727ed926e6024566fe3a33d0d0568",
       "line_count": 50,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "_config.yml",
+      "bytes": 1443,
+      "sha256": "c6976e5532edfa143b1d65f66e2d93a95ed4ac9658d64ce94ac7cd2386dcec94",
+      "line_count": 42,
       "verification": "Inventory only; factual contents not externally re-verified"
     },
     {
@@ -60,8 +74,8 @@
     },
     {
       "path": "analysis/link-check.json",
-      "bytes": 245,
-      "sha256": "c13b2abab38fe55cfee2d0d42811d7365e62be817263d8efff868883e440703e",
+      "bytes": 272,
+      "sha256": "2a93eddfeb7cb1a1fa5b9f1c6c76ca0c76df382fd5543aa5cdd424c93dcaafb8",
       "line_count": 9,
       "verification": "Inventory only; factual contents not externally re-verified"
     },
@@ -116,9 +130,9 @@
     },
     {
       "path": "analysis/repo-audit.json",
-      "bytes": 37809,
-      "sha256": "0d30c1542f1582bc5bc71f17149045105bb0db1d1089e28266baffcf6c66ef16",
-      "line_count": 906,
+      "bytes": 52459,
+      "sha256": "6eba9669c25dfed32d3626876e3d32464088f5ea34cee70c69eba6db6eb8c288",
+      "line_count": 1221,
       "verification": "Inventory only; factual contents not externally re-verified"
     },
     {
@@ -333,9 +347,9 @@
     },
     {
       "path": "data/flagged.json",
-      "bytes": 13609,
-      "sha256": "ee3b1100bb5c79b73cb685f3b6a5845b871fbe917b2d37a174245528781cf8ed",
-      "line_count": 244,
+      "bytes": 14225,
+      "sha256": "d3522294e1762090a5ea7b369eaf75d28ae7dcdfd1b7f259fd658ffef5f6862a",
+      "line_count": 251,
       "verification": "Inventory only; factual contents not externally re-verified"
     },
     {
@@ -445,9 +459,9 @@
     },
     {
       "path": "data/sources.json",
-      "bytes": 3715,
-      "sha256": "d802bf724e0e3291152720913cc1597d0797be6b9fd9c430dd4c3b753daa58aa",
-      "line_count": 94,
+      "bytes": 4217,
+      "sha256": "a2215fdae67f39e16ea0329ea161548faad946b3186b749cd2910b06c4e9e483",
+      "line_count": 102,
       "verification": "Inventory only; factual contents not externally re-verified"
     },
     {
@@ -641,134 +655,134 @@
     },
     {
       "path": "index.html",
-      "bytes": 5893,
-      "sha256": "ef9e9d589b876c74d02d8560cb5198791e3dc39f111449fc48cf2effc8bfe7de",
+      "bytes": 5970,
+      "sha256": "a22bd9b39d8ade2ec29b44490768616eac964e764dbccf734f4eac9b2b3e5230",
       "line_count": 1,
       "verification": "Inventory only; factual contents not externally re-verified"
     },
     {
       "path": "pages/correlations.html",
-      "bytes": 6553,
-      "sha256": "c45ce3756755a06af8ee3b4d54ecbfd59710b4760b613af21ff8037aa5461165",
+      "bytes": 6633,
+      "sha256": "3b002f6451099612c46e4295629a62bde19288f3356adb61045da97cc64cd1ae",
       "line_count": 1,
       "verification": "Inventory only; factual contents not externally re-verified"
     },
     {
       "path": "pages/executive-summary.html",
-      "bytes": 5584,
-      "sha256": "6bedc2aa86b485336a6a8309a2318f29365475899f73588b4a8cf70fdeac656a",
+      "bytes": 5664,
+      "sha256": "661cca03b41006a852e40bf137fca2b3c5f86fcb31c560f6364cbad41f324d83",
       "line_count": 1,
       "verification": "Inventory only; factual contents not externally re-verified"
     },
     {
       "path": "pages/flagged.html",
-      "bytes": 171464,
-      "sha256": "464dd7dfab02ec5432f8f9344c234b5b9b980228cc24a3e091225d80345e1863",
+      "bytes": 172213,
+      "sha256": "3b139a963adbd21444bfc0c934ab842a87a5844a14698c28a20d6f0ba222a878",
       "line_count": 1,
       "verification": "Inventory only; factual contents not externally re-verified"
     },
     {
       "path": "pages/injuries.html",
-      "bytes": 14753,
-      "sha256": "494d8d7e5ff44f67d41c79b62d4d2f80b56e72d86c9be1975db08ceddd35f178",
+      "bytes": 14833,
+      "sha256": "7d6485dc707d7c18b6eea9c01797066462c2cd470dee61820277e25309b85420",
       "line_count": 1,
       "verification": "Inventory only; factual contents not externally re-verified"
     },
     {
       "path": "pages/leaderboard.html",
-      "bytes": 7869,
-      "sha256": "37ce3a3810fa414bee81c0ed9f413c948d438593a0a8c1be2d8119db469c8f87",
+      "bytes": 7949,
+      "sha256": "c51d8faa1c7d9df40c107fb57faea6181dc826605e9bedb51bab50e9e3781a56",
       "line_count": 1,
       "verification": "Inventory only; factual contents not externally re-verified"
     },
     {
       "path": "pages/methodology.html",
-      "bytes": 5955,
-      "sha256": "c5001277646f21277afad645018619d8ac5aaa30f754e4c83eaf80ee53a2693e",
+      "bytes": 6035,
+      "sha256": "d8572205858a689cf9b8aab00234d21eb03050fb4ea6dad69af5dd25e28317ec",
       "line_count": 1,
       "verification": "Inventory only; factual contents not externally re-verified"
     },
     {
       "path": "pages/model-lines.html",
-      "bytes": 11329,
-      "sha256": "c40b8ded64f86b5fba63bebfa6092de6ca4517899b9d70525042c27e08132b51",
+      "bytes": 11409,
+      "sha256": "9c9fc983e464060f1a4d8eed8c1a22c2f8ad1cfa34386bb118943c73c3d0a814",
       "line_count": 1,
       "verification": "Inventory only; factual contents not externally re-verified"
     },
     {
       "path": "pages/player-stats.html",
-      "bytes": 171848,
-      "sha256": "0c916e62b2f037a7c04471c64870f087b4794e428c4a86c303fc928107943376",
+      "bytes": 171928,
+      "sha256": "7e538784122d401c1a61b9a9fde81ec7fc519d58ae1cfa98e1b96b672c704b8e",
       "line_count": 1,
       "verification": "Inventory only; factual contents not externally re-verified"
     },
     {
       "path": "pages/prop-signals.html",
-      "bytes": 9380,
-      "sha256": "590d65485c6683c18cd270e3b6e7e86eb89461409b3b250791b7d6cc7b110c12",
+      "bytes": 9460,
+      "sha256": "77cf0aeeb209bf03d417aa127983c9d706f4d621d9c450cdf881a641e8c7e264",
       "line_count": 1,
       "verification": "Inventory only; factual contents not externally re-verified"
     },
     {
       "path": "pages/repo-review.html",
-      "bytes": 48679,
-      "sha256": "2ffc0304a31f2ac373289e7e74a59856c0b70331159437bba4b979c44fee97e7",
+      "bytes": 64129,
+      "sha256": "0dfcd9b3e00f583c3e18e84ec8d765169a656f4d1dc686961cf11b4e53238411",
       "line_count": 1,
       "verification": "Inventory only; factual contents not externally re-verified"
     },
     {
       "path": "pages/responsible-gambling.html",
-      "bytes": 3792,
-      "sha256": "1dd3e96a2a6c7a1768934692281ec8f2b0d6093674394837e3c5ee010f01897b",
+      "bytes": 3872,
+      "sha256": "1810eb700e0b0deefed1f98dde64e836be7dda9372247d59a319840aa0a2a2c7",
       "line_count": 1,
       "verification": "Inventory only; factual contents not externally re-verified"
     },
     {
       "path": "pages/schedule.html",
-      "bytes": 11899,
-      "sha256": "89d5a9ddb97334bc74eeadf35f4f6a3cea4302c2de6a0751cae32817da2419a1",
+      "bytes": 11979,
+      "sha256": "f0a79a3774cf0b8e6628819e27b7acd05cd4ebeeacac1baaffbd2f24c488b2c6",
       "line_count": 1,
       "verification": "Inventory only; factual contents not externally re-verified"
     },
     {
       "path": "pages/scores.html",
-      "bytes": 6736,
-      "sha256": "b385656b3a9bf8509cdfcb8ad421099c01b0e700916f3f5dc1e7fcf29f7e230d",
+      "bytes": 6816,
+      "sha256": "f0144d2985601f5a4266981e8f46f7f154beba43171e1a821502145f06f36cbb",
       "line_count": 1,
       "verification": "Inventory only; factual contents not externally re-verified"
     },
     {
       "path": "pages/sources.html",
-      "bytes": 6803,
-      "sha256": "6f17a83260ff01a5376abc87a4261a78453b19be0ca0876802fe9722404f0bb4",
+      "bytes": 7381,
+      "sha256": "fe21055a1f06898372b505b5edf723e2897146227ad8a9ba8740d27e06b23d30",
       "line_count": 1,
       "verification": "Inventory only; factual contents not externally re-verified"
     },
     {
       "path": "pages/standings.html",
-      "bytes": 12131,
-      "sha256": "2d90b7a318ea35889760987ec20000340b74c9a951643192f64b4e8207ad2259",
+      "bytes": 12211,
+      "sha256": "4b8e1ab43c45445857cd012a0795c5810636733a70cdff95c69b1e7d4277eaac",
       "line_count": 1,
       "verification": "Inventory only; factual contents not externally re-verified"
     },
     {
       "path": "pages/strategies.html",
-      "bytes": 6148,
-      "sha256": "21c173e574037881660a5b0e346bd683424c590cc90e9c61200fd7130e4a13ff",
+      "bytes": 6228,
+      "sha256": "1754193d1f49f52748819eb4f7a9da6df76ac61f086f675b600af069ac63630f",
       "line_count": 1,
       "verification": "Inventory only; factual contents not externally re-verified"
     },
     {
       "path": "pages/team-stats.html",
-      "bytes": 49731,
-      "sha256": "6b2fa039f0a2243fae4d9c8f7fcaee193f26a82df8f561ad0ec4f4f50f86a610",
+      "bytes": 49811,
+      "sha256": "aef8a232c700a8b8ec32dcaf27de7c3911abd232540ba44a77b3f0d21f9de257",
       "line_count": 1,
       "verification": "Inventory only; factual contents not externally re-verified"
     },
     {
       "path": "pages/validation-gates.html",
-      "bytes": 5778,
-      "sha256": "d939760319c43f9fb120750916a36fe5d06a23515c61312fcdb5abfd1734bb8c",
+      "bytes": 5858,
+      "sha256": "0342cdacf7073729863e2cf7d69218170bb4f434398819fda7e183c488387fea",
       "line_count": 1,
       "verification": "Inventory only; factual contents not externally re-verified"
     },
@@ -782,7 +796,7 @@
     {
       "path": "research/executive-summary.md",
       "bytes": 3009,
-      "sha256": "badd2c3b9c6434a15c80e1860bfefacd15df480a35e2ae76662896e56b540d83",
+      "sha256": "608afaa48876179fc3dcf0fa42194e2e452bce7d3ec63539e5877e5e14229d75",
       "line_count": 31,
       "verification": "Inventory only; factual contents not externally re-verified"
     },
@@ -844,15 +858,15 @@
     },
     {
       "path": "scripts/build_site.py",
-      "bytes": 20619,
-      "sha256": "ba3882eb99e2c429ac7f6efc5de567a659eb2f2340fe2a763451e6abc4fbf3d2",
-      "line_count": 61,
+      "bytes": 20822,
+      "sha256": "bb0275a3c81f81c5c8738ac2f96cb481f33c2f9a405071f94752d3ee5f66b7be",
+      "line_count": 62,
       "verification": "Inventory only; factual contents not externally re-verified"
     },
     {
       "path": "scripts/check_links.py",
-      "bytes": 3173,
-      "sha256": "bb69de31da94d7c2097bc7cd6d38b94afec0ae1ead0356f336857d140f534a0f",
+      "bytes": 3254,
+      "sha256": "93640415841f9047d5eb8d69bda0c64e8c59db704420eebd1f608b4309e18d87",
       "line_count": 55,
       "verification": "Inventory only; factual contents not externally re-verified"
     },
@@ -861,6 +875,27 @@
       "bytes": 4070,
       "sha256": "99e8d75b81b864706b36085a636ea62821837c710d78d3107cc494de2ba1e01c",
       "line_count": 86,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "scripts/strict_analyze.py",
+      "bytes": 13714,
+      "sha256": "d6fd4db08cdf6e4c5015f4014f40da24f05a3dcdf6c67dde0571be057700b0b4",
+      "line_count": 176,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "scripts/strict_build_site.py",
+      "bytes": 30901,
+      "sha256": "60ed6cb63aa7d6bdaa6aaf7729d2131c0897ccb95ce49eff410b093fd303435a",
+      "line_count": 179,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "scripts/strict_check.py",
+      "bytes": 2847,
+      "sha256": "39f88994887ed2c75f23f5620b362856d03b86d93903e73f94acfad75d953982",
+      "line_count": 54,
       "verification": "Inventory only; factual contents not externally re-verified"
     },
     {
@@ -875,6 +910,300 @@
       "bytes": 226,
       "sha256": "196b2ca24f763f0ecabfb7cd7fe55d2694872aec3f0cb7462f515e2ccc2c63fb",
       "line_count": 5,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "strict/AUDIT.md",
+      "bytes": 5111,
+      "sha256": "2423627022fc91aac3cd31c2c911ac1c5ef39f20c77c4aff7dd180efcd35d6cb",
+      "line_count": 36,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "strict/README.md",
+      "bytes": 6110,
+      "sha256": "47de60a39e9c060cc52fb2eec3880af012a9dcba6546ffcd4eae938281451054",
+      "line_count": 58,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "strict/browser-check.json",
+      "bytes": 507,
+      "sha256": "2115fad9b3e3c5714439a6cf88aac3bd079a7d070809ecee053b6e321b83551f",
+      "line_count": 16,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "strict/deployment.json",
+      "bytes": 1482,
+      "sha256": "8d8c5b0738fe3fcc83bd1591103543984c1b223d98ccfb27e1580fa7dd7ec2ca",
+      "line_count": 24,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "strict/evidence/bdb-readme.md",
+      "bytes": 6225,
+      "sha256": "c8fa7443aa7cdbc4a17482c19b3df7fee91db7b6483428b061491e171c528690",
+      "line_count": 125,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "strict/evidence/bdb-schema.md",
+      "bytes": 5816,
+      "sha256": "b65a93f6daf67c879d73f8563dc5a32878bb7aee91a606883160dc9f7c274394",
+      "line_count": 107,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "strict/evidence/games-2017.csv",
+      "bytes": 15825,
+      "sha256": "f5bbd13d9c711c07e3d4a5b674eb25c1f5f9ced099729337bfd366b5229199ed",
+      "line_count": 92,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "strict/evidence/injuries-observed.json",
+      "bytes": 2903,
+      "sha256": "53ffbaa23fe3b9cc31099617d4fcf4eb3c77ad9c8fc731b5aa720ab5d01229ac",
+      "line_count": 85,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "strict/evidence/legacy-flags.json",
+      "bytes": 11375,
+      "sha256": "a3b7e924f5473ad4b7100c84cd15c16b5241ab6fefd9e5b0e531c37e01a43dff",
+      "line_count": 122,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "strict/evidence/manifest.json",
+      "bytes": 1435,
+      "sha256": "2f04634bd5ed731f0f10c3fd9dd9af7b7a9a83d77b807677f8415197ff7a1cbc",
+      "line_count": 29,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "strict/evidence/schedule-observed.json",
+      "bytes": 4582,
+      "sha256": "b5a3cbe78637965df0f7e6f4bb7c76984fc43a43ac6252a4662d65b46bf45cb5",
+      "line_count": 140,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "strict/evidence/standings-observed.json",
+      "bytes": 10123,
+      "sha256": "a8b10f33926da28eaaa8895dd8a525564ab6995c28ec57f8ae0130bea600fd24",
+      "line_count": 455,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "strict/evidence/web-checks.json",
+      "bytes": 1127,
+      "sha256": "7a7367052f03e4ccc79c6c6da34bbd065a67ecd76c3a9ec3f0717fd3276cd1eb",
+      "line_count": 25,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "strict/flags.json",
+      "bytes": 10805,
+      "sha256": "3c8a537d1a8426c15cc9f0e44fdc9526c067071c0f4f0f61ae33b1872e41fa9d",
+      "line_count": 189,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "strict/link-check.json",
+      "bytes": 234,
+      "sha256": "5276478d3d65eb2f3ae1adb3d0d656cca4ba135e2c99c9b4f12dbc3c463ad051",
+      "line_count": 9,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "strict/repository-inventory.json",
+      "bytes": 37222,
+      "sha256": "66aa49d3110eedcd945aef0fcc18eb553968e5d0a43f1355367ba7384c61ea80",
+      "line_count": 834,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "strict/results.json",
+      "bytes": 151917,
+      "sha256": "0a137a4e308d64dbb135b88f1ee844a54f77d6d6358c337c44bb7a3c568701e8",
+      "line_count": 4672,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "strict/site/assets/app.js",
+      "bytes": 1445,
+      "sha256": "6558fe17e329e069ae28c48bbcd63c89559af22429b87e03ba904dd315fba2c3",
+      "line_count": 29,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "strict/site/assets/style.css",
+      "bytes": 7761,
+      "sha256": "e2b113bb12ebcdb01526074c717fcff93f4e3797005ba2a695456eb52a0dd1a0",
+      "line_count": 1,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "strict/site/index.html",
+      "bytes": 6627,
+      "sha256": "18304d53bcbd96bf7488cb07a7b89a96abf0f462a3d9a46e9aa5253dbc3982c4",
+      "line_count": 1,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "strict/site/pages/benchmark.html",
+      "bytes": 26152,
+      "sha256": "3671a5cc2632be1439368b26e27da3108029b154ce7ff7ab365d78e8c8377aac",
+      "line_count": 1,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "strict/site/pages/correlations.html",
+      "bytes": 7896,
+      "sha256": "5b4f4d154514dd9ce20f1229401ea357ccde56cd9a4a12c847d926349ff476a7",
+      "line_count": 1,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "strict/site/pages/executive-summary.html",
+      "bytes": 7291,
+      "sha256": "9e7403ba0403d8a73d9e3af0c222dacd33f05bdbe16ced18f299b3085001aab9",
+      "line_count": 1,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "strict/site/pages/flagged.html",
+      "bytes": 26891,
+      "sha256": "d7c31e9c242cc0ff963fec545c30ceb659f186e0a857f6f5434a81cfcc761da5",
+      "line_count": 1,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "strict/site/pages/injuries.html",
+      "bytes": 8228,
+      "sha256": "b0122b175ab76fb49c63218db68771feb3b9e475eaab9adf57e2273411406100",
+      "line_count": 1,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "strict/site/pages/leaderboard.html",
+      "bytes": 10937,
+      "sha256": "661a32adf56868d2daef700801e62e5179e87f5cbf6db259dd24f7b89534952f",
+      "line_count": 1,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "strict/site/pages/methodology.html",
+      "bytes": 7811,
+      "sha256": "ada6e0bf54a41de2165884cfe0d09f6ba85d8adde42716fa634a0e6582ddf3cc",
+      "line_count": 1,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "strict/site/pages/model-lines.html",
+      "bytes": 11195,
+      "sha256": "f256c54e7682f6bebd5b1b05abfa264927fd31abdf1d6dc337fa4054f06f39e3",
+      "line_count": 1,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "strict/site/pages/parlays.html",
+      "bytes": 8083,
+      "sha256": "4455869f241561edd6e2c1c138ef0fe910cb9812844c0c8570abd77e152f2d9f",
+      "line_count": 1,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "strict/site/pages/player-stats.html",
+      "bytes": 8043,
+      "sha256": "2ff5b6f37da82d1801e173faec7e3acc5a664accf3cd0889d30dff8c4ba028d3",
+      "line_count": 1,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "strict/site/pages/prop-signals.html",
+      "bytes": 427,
+      "sha256": "7cf29adbb23f01aed4ca5ec59b086b5e1635e072e0c736e043dd66a934a7e34a",
+      "line_count": 1,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "strict/site/pages/repo-review.html",
+      "bytes": 36520,
+      "sha256": "6e1f3ca53e311b1ac2afd7096ff481b466f14bfb9e8b60648a263ad42df002cc",
+      "line_count": 1,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "strict/site/pages/responsible-gambling.html",
+      "bytes": 5630,
+      "sha256": "2a62a32d0dc27b6a7f654c1e309d95f456fd4739dbd5bdf5086a91f19c641286",
+      "line_count": 1,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "strict/site/pages/schedule.html",
+      "bytes": 8221,
+      "sha256": "8cf7e7c52d49d2fd50f0eca093fc984b4b0d6692cfdd6f04bd0367459cb95a44",
+      "line_count": 1,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "strict/site/pages/scores.html",
+      "bytes": 421,
+      "sha256": "eaeebbdb03c98a6cf40fb719cc59f05ff7a99c4b5ddb76889608224f23d776c9",
+      "line_count": 1,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "strict/site/pages/sources.html",
+      "bytes": 9066,
+      "sha256": "93502d4237148c796455f062499ce73e7a4245fb644346da59da72e9a12c84bc",
+      "line_count": 1,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "strict/site/pages/standings.html",
+      "bytes": 14197,
+      "sha256": "1d4370925fe8858641e6f1662e7ac62506c538ad282e1844e430dd2620cf57dd",
+      "line_count": 1,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "strict/site/pages/strategies.html",
+      "bytes": 9979,
+      "sha256": "5c37166d3616cd7ff39745ce57b865ef1eb5739d1f09efd8b260a032f51ce8ad",
+      "line_count": 1,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "strict/site/pages/team-stats.html",
+      "bytes": 421,
+      "sha256": "40d568003e358811e09849e25c1c80cb86b02956484509706acf0e60178857bb",
+      "line_count": 1,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "strict/site/pages/validation-gates.html",
+      "bytes": 16207,
+      "sha256": "a2c95c1f1b83613122bdf893f5c4fdf953df18ade124e66ab5857c670f88a611",
+      "line_count": 1,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "tests/strict_browser.cjs",
+      "bytes": 2714,
+      "sha256": "ca3136a9297ba2d61cf6367d52f797dd57bea48fb64ea5323a3a6c3385a99d1c",
+      "line_count": 3,
+      "verification": "Inventory only; factual contents not externally re-verified"
+    },
+    {
+      "path": "tests/test_strict.py",
+      "bytes": 4224,
+      "sha256": "c18b5016bdc752707b0f498e3fd9cb7ac74c4ae4176e68ac3f816f025a0062af",
+      "line_count": 81,
       "verification": "Inventory only; factual contents not externally re-verified"
     },
     {
