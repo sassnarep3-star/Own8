@@ -58,7 +58,7 @@
   {
     "id": "A-08",
     "severity": "medium",
-    "item": "README/source registry assumed Netherlands jurisdiction without evidence. User context is approximately Seattle, not legal-residency proof.",
+    "item": "README/source registry assumed Netherlands jurisdiction without evidence. Repository content does not establish legal residency or wagering eligibility.",
     "location": "Baseline README.md and data/sources.json",
     "resolution": "Replace legal claims with Washington regulator guidance; no assumption that remote mobile wagering is permitted.",
     "source_url": "https://www.wsgc.wa.gov/tribal-partnerships/sports-wagering/sports-wagering-requirements-and-rules"
