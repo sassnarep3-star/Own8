@@ -1,6 +1,6 @@
 {
   "audit_date": "2026-11-04",
-  "scope": "Independent static/code audit of the committed 2026-11-03 Week 9 snapshot; NOT a live official-source data refresh or exhaustive external verification.",
+  "scope": "Independent static/code audit of baseline main commit 7c2f545 (2026-11-03 Week 9 snapshot); NOT a live official-source data refresh or exhaustive external verification. Later PRs may resolve findings; re-run against their integrated outputs.",
   "checks": {
     "standings_arithmetic_rows": 32,
     "schedule_join_rows": 15,
