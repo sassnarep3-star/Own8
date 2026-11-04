@@ -1,0 +1,189 @@
+[
+  {
+    "id": "A01",
+    "severity": "HIGH",
+    "title": "Unsupported betting candidates withdrawn",
+    "finding": "Prior engine consumed third-party lines yet marked provenance PASS; candidate did not require all gates. All current quote, edge and actionable-line cells are now blank.",
+    "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+    "evidence": "scripts/analyze.py: original lines 132\u2013192 at base 7c2f545",
+    "status": "NEEDS REVIEW",
+    "value": null,
+    "source_scope": "Official context; code-audit finding is supported by the referenced local evidence, not an NFL endorsement."
+  },
+  {
+    "id": "A02",
+    "severity": "HIGH",
+    "title": "Spread sign convention corrected",
+    "finding": "Prior projected home margin (positive means home better) was compared to a home handicap (negative means home favored). New engine separates expected_home_margin from home_handicap_mean_proxy = \u2212margin. No calibrated fair spread asserted.",
+    "source_url": "https://github.com/nfl-football-ops/Big-Data-Bowl/blob/9ad0b4b2ea36697e29e44e2399512cc1ce70358c/schema.md",
+    "evidence": "Original analysis and model output",
+    "status": "NEEDS REVIEW",
+    "value": null,
+    "source_scope": "Official context; code-audit finding is supported by the referenced local evidence, not an NFL endorsement."
+  },
+  {
+    "id": "A03",
+    "severity": "HIGH",
+    "title": "Conditional is not PASS",
+    "finding": "Prior gate aggregation accepted CONDITIONAL and freshness was hard-coded. New eligibility requires every gate exactly PASS; current availability and prices block all strategies.",
+    "source_url": "https://www.nfl.com/injuries/league/2026/reg9",
+    "evidence": "Original G4 / all_pass implementation",
+    "status": "NEEDS REVIEW",
+    "value": null,
+    "source_scope": "Official context; code-audit finding is supported by the referenced local evidence, not an NFL endorsement."
+  },
+  {
+    "id": "A04",
+    "severity": "HIGH",
+    "title": "Ecological correlation is not bet dependence",
+    "finding": "Across-team pass yards vs points was used as a proxy for same-game dependence. That cannot price QB/WR overs or cover/over legs. Bet-leg correlation estimates are blank.",
+    "source_url": "https://nextgenstats.nfl.com/glossary",
+    "evidence": "Original analysis/correlations.json and correlation policy",
+    "status": "NEEDS REVIEW",
+    "value": null,
+    "source_scope": "Official context; code-audit finding is supported by the referenced local evidence, not an NFL endorsement."
+  },
+  {
+    "id": "A05",
+    "severity": "HIGH",
+    "title": "Luck cannot be removed",
+    "finding": "Edge caps, stake caps, a positive ROI or a high correlation do not prove skill. No strategy is skill-certified, ranked or awarded rewards.",
+    "source_url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda35c.htm",
+    "evidence": "Original README and research/leaderboard-rules.md",
+    "status": "NEEDS REVIEW",
+    "value": null,
+    "source_scope": "Official context; code-audit finding is supported by the referenced local evidence, not an NFL endorsement."
+  },
+  {
+    "id": "A06",
+    "severity": "MEDIUM",
+    "title": "Week 9 injury page now published",
+    "finding": "Official Week 9 page was retrieved on Nov 4. Eight selected DNP entries captured; blank diagnoses/game statuses retained. Prior not-published statement is superseded, not asserted false for Nov 3.",
+    "source_url": "https://www.nfl.com/injuries/league/2026/reg9",
+    "evidence": "audit/evidence/injuries-observed.json",
+    "status": "NEEDS REVIEW",
+    "value": null,
+    "source_scope": "Official context; code-audit finding is supported by the referenced local evidence, not an NFL endorsement."
+  },
+  {
+    "id": "A07",
+    "severity": "MEDIUM",
+    "title": "Partial player tables / denominator risk",
+    "finding": "Top-25 leader tables are not a complete player-game panel; a player\u2019s yards divided by team GP is not verified per-start workload. Existing player statistics are quarantined from the current model.",
+    "source_url": "https://nextgenstats.nfl.com/glossary",
+    "evidence": "data/player-*.json; prior prop projection logic",
+    "status": "NEEDS REVIEW",
+    "value": null,
+    "source_scope": "Official context; code-audit finding is supported by the referenced local evidence, not an NFL endorsement."
+  },
+  {
+    "id": "A08",
+    "severity": "MEDIUM",
+    "title": "Standings recheck has explicit limits",
+    "finding": "All 32 names and seven numeric fields (224 cells) were re-observed and compared. HOME/ROAD/DIV/CONF tail labels are not re-certified in this session.",
+    "source_url": "https://www.nfl.com/standings/",
+    "evidence": "audit/evidence/standings-observed.json",
+    "status": "NEEDS REVIEW",
+    "value": null,
+    "source_scope": "Official context; code-audit finding is supported by the referenced local evidence, not an NFL endorsement."
+  },
+  {
+    "id": "A09",
+    "severity": "MEDIUM",
+    "title": "Historical benchmark is not a betting backtest",
+    "finding": "91 official 2017 games, only first six weeks; 60 rolling-week test predictions. One partial season, repeated teams and four test-week clusters cannot establish a persistent edge. No odds/ROI/CLV inferred.",
+    "source_url": "https://github.com/nfl-football-ops/Big-Data-Bowl/blob/9ad0b4b2ea36697e29e44e2399512cc1ce70358c/Data/games.csv",
+    "evidence": "audit/results.json",
+    "status": "NEEDS REVIEW",
+    "value": null,
+    "source_scope": "Official context; code-audit finding is supported by the referenced local evidence, not an NFL endorsement."
+  },
+  {
+    "id": "A10",
+    "severity": "MEDIUM",
+    "title": "Prior verification was internal consistency",
+    "finding": "Matching a CSV to JSON proves agreement, not independent official verification. All retained legacy files are inventoried without blanket verified status.",
+    "source_url": "https://www.nfl.com/standings/",
+    "evidence": "scripts/verify_combined.py; analysis/verification.json",
+    "status": "NEEDS REVIEW",
+    "value": null,
+    "source_scope": "Official context; code-audit finding is supported by the referenced local evidence, not an NFL endorsement."
+  },
+  {
+    "id": "A11",
+    "severity": "MEDIUM",
+    "title": "No bookmaker evidence acquired",
+    "finding": "Official league tables do not supply an executable price archive in the captured evidence. A bookmaker\u2019s own timestamped price/rules would be primary evidence; none is available here. No paid credentials or manual user work requested.",
+    "source_url": "https://wsgc.wa.gov/tribal-partnerships/sports-wagering",
+    "evidence": "data/market-lines.json excluded",
+    "status": "NEEDS REVIEW",
+    "value": null,
+    "source_scope": "Official context; code-audit finding is supported by the referenced local evidence, not an NFL endorsement."
+  },
+  {
+    "id": "A12",
+    "severity": "LOW",
+    "title": "Incorrect jurisdiction assumption removed",
+    "finding": "Previous content assumed Netherlands residency. New resource page links Washington\u2019s official regulator without asserting the user\u2019s legal eligibility or providing legal advice.",
+    "source_url": "https://wsgc.wa.gov/tribal-partnerships/sports-wagering",
+    "evidence": "Original README / sources registry",
+    "status": "NEEDS REVIEW",
+    "value": null,
+    "source_scope": "Official context; code-audit finding is supported by the referenced local evidence, not an NFL endorsement."
+  },
+  {
+    "id": "A13",
+    "severity": "MEDIUM",
+    "title": "Parallel PR #6 not incorporated",
+    "finding": "Other session\u2019s complementary historical lab remains on its own open PR. Its claims of luck-free skill and numerical results have not been verified here; no claim is imported or endorsed.",
+    "source_url": "https://operations.nfl.com/programs-initiatives/innovation/big-data-bowl",
+    "evidence": "https://github.com/sassnarep3-star/Own8/pull/6",
+    "status": "NEEDS REVIEW",
+    "value": null,
+    "source_scope": "Official context; code-audit finding is supported by the referenced local evidence, not an NFL endorsement."
+  },
+  {
+    "id": "A14",
+    "severity": "MEDIUM",
+    "title": "No continuous live ingestion claimed",
+    "finding": "Automated reproducible build/tests use dated evidence. There is no authenticated live odds feed, scheduled injury ingestion, or automatic wagering. CI detects code/evidence problems, not unseen real-world changes.",
+    "source_url": "https://www.nfl.com/injuries/league/2026/reg9",
+    "evidence": "README.md / .github/workflows/verify.yml",
+    "status": "NEEDS REVIEW",
+    "value": null,
+    "source_scope": "Official context; code-audit finding is supported by the referenced local evidence, not an NFL endorsement."
+  },
+  {
+    "id": "A15",
+    "severity": "MEDIUM",
+    "title": "Legacy outputs superseded",
+    "finding": "Old analysis/data/research captures are provenance, not current recommendations. Duplicate legacy HTML routes redirect to Flagged for Review. Raw legacy files remain inspectable, explicitly not re-certified.",
+    "source_url": "https://www.nfl.com/standings/",
+    "evidence": "audit/repository-inventory.json",
+    "status": "NEEDS REVIEW",
+    "value": null,
+    "source_scope": "Official context; code-audit finding is supported by the referenced local evidence, not an NFL endorsement."
+  },
+  {
+    "id": "A16",
+    "severity": "MEDIUM",
+    "title": "Neutral-site treatment and mean/median limits",
+    "finding": "CIN at ATL is labeled Madrid on the official schedule. Current lines remain blank. Historical heuristic estimates score means, not the calibrated median or push-aware fair handicap. Neutral-site parameter is tested but historical benchmark does not fully classify venues.",
+    "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+    "evidence": "scripts/strict_analyze.py",
+    "status": "NEEDS REVIEW",
+    "value": null,
+    "source_scope": "Official context; code-audit finding is supported by the referenced local evidence, not an NFL endorsement."
+  },
+  {
+    "id": "A17",
+    "severity": "LOW",
+    "title": "External-link verification limits",
+    "finding": "New source pages were retrieved or official GitHub files downloaded. Local link checks verify paths/anchors and official URL patterns, not the future availability or every endpoint in retained legacy captures.",
+    "source_url": "https://github.com/nfl-football-ops/Big-Data-Bowl",
+    "evidence": "audit/evidence/web-checks.json",
+    "status": "NEEDS REVIEW",
+    "value": null,
+    "source_scope": "Official context; code-audit finding is supported by the referenced local evidence, not an NFL endorsement."
+  }
+]

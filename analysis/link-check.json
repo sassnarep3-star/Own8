@@ -1,22 +1,9 @@
 {
-  "checked_at": "2026-11-03",
-  "pages": 46,
-  "links_checked": 2712,
-  "internal_broken": [],
-  "external_total": 1674,
-  "external_non_https": [],
-  "external_unlisted": [],
-  "warnings_http_official_host": [
-    [
-      "sources.html",
-      "http://www.nfl.com/standings/tiebreakingprocedures"
-    ]
-  ],
-  "official_hosts": [
-    "kansspelautoriteit.nl",
-    "nextgenstats.nfl.com",
-    "www.ncpgambling.org",
-    "www.nfl.com"
-  ],
+  "checked_at": "2026-11-04",
+  "html_pages": 49,
+  "links_checked": 873,
+  "active_table_rows": 400,
+  "errors": [],
+  "external_http_liveness": "NOT TESTED by this checker; see dated source retrieval ledger",
   "status": "PASS"
 }

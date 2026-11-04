@@ -1,69 +1,70 @@
 {
-  "as_of": "2026-11-03",
-  "method": "Pearson/Spearman across all 32 teams, computed from data/*.json (official NFL.com captures). n=32 teams, season through Week 8.",
+  "as_of": "2026-11-04",
+  "status": "SUPERSEDES LEGACY \u2014 STRICT AUDIT",
+  "notice": "No current actionable values or skill-qualified entries; see audit/results.json.",
   "correlations": [
     {
-      "pair": "Team points-for per game (PFpg) vs win%",
-      "type": "pearson",
+      "pair": "Net points/game vs win fraction",
+      "r": 0.8431416322632226,
       "n": 32,
-      "r": 0.6178,
-      "interpretation": "Pythagorean sanity check: scoring rate should track winning. High r = standings points are skill-consistent, not luck-driven."
+      "unit": "team season-to-date",
+      "status": "DERIVED DESCRIPTIVE ONLY",
+      "source_url": "https://www.nfl.com/standings/",
+      "limitation": "Shared opponents and outcomes; cross-sectional association, not causality, future skill, or bet-leg dependence. No independent-sample CI asserted."
     },
     {
-      "pair": "Net points per game (NETpg) vs win%",
-      "type": "pearson",
+      "pair": "Points for/game vs points allowed/game",
+      "r": -0.011248911443001797,
       "n": 32,
-      "r": 0.8431,
-      "interpretation": "Point differential vs record \u2014 the core 'remove luck' regression anchor."
+      "unit": "team season-to-date",
+      "status": "DERIVED DESCRIPTIVE ONLY",
+      "source_url": "https://www.nfl.com/standings/",
+      "limitation": "Shared opponents and outcomes; cross-sectional association, not causality, future skill, or bet-leg dependence. No independent-sample CI asserted."
     },
     {
-      "pair": "Net points per game (NETpg) rank vs win% rank",
-      "type": "spearman",
-      "n": 32,
-      "r": 0.8451,
-      "interpretation": "Rank correlation: robust to outliers (e.g., blowouts)."
+      "pair": "Home score vs visitor score",
+      "r": 0.06680870782482659,
+      "n": 91,
+      "unit": "game, 2017 weeks 1\u20136",
+      "status": "DERIVED DESCRIPTIVE ONLY",
+      "source_url": "https://github.com/nfl-football-ops/Big-Data-Bowl/blob/9ad0b4b2ea36697e29e44e2399512cc1ce70358c/Data/games.csv",
+      "limitation": "Repeated teams, old short sample. Score correlation is not cover/over or prop-over correlation."
     },
     {
-      "pair": "Offensive pass YDS/game vs PFpg",
-      "type": "pearson",
-      "n": 32,
-      "r": 0.668,
-      "interpretation": "Passing volume explains scoring. Also used as the documented proxy for same-game QB-performance vs team-total correlation (parlay gate G5)."
+      "pair": "QB passing over + WR receiving over",
+      "r": null,
+      "n": null,
+      "unit": "settled bet indicators",
+      "status": "UNVERIFIED \u2014 BLOCKED",
+      "source_url": "https://nextgenstats.nfl.com/glossary",
+      "limitation": "No official matched player-game thresholds/quotes/settlement sample. Source is scope context only; it supplies no correlation."
     },
     {
-      "pair": "Defensive pass YDS allowed/game vs PApg",
-      "type": "pearson",
-      "n": 32,
-      "r": 0.3668,
-      "interpretation": "Pass defense quality explains points allowed \u2014 drives QB/WR prop matchup factors."
+      "pair": "RB rushing over + team win",
+      "r": null,
+      "n": null,
+      "unit": "settled bet indicators",
+      "status": "UNVERIFIED \u2014 BLOCKED",
+      "source_url": "https://nextgenstats.nfl.com/glossary",
+      "limitation": "No official matched player-game thresholds/quotes/settlement sample. Source is scope context only; it supplies no correlation."
     },
     {
-      "pair": "Offensive rush YDS/game vs PFpg",
-      "type": "pearson",
-      "n": 32,
-      "r": 0.1809,
-      "interpretation": "Rushing volume vs scoring."
+      "pair": "Favorite cover + game over",
+      "r": null,
+      "n": null,
+      "unit": "settled bet indicators",
+      "status": "UNVERIFIED \u2014 BLOCKED",
+      "source_url": "https://github.com/nfl-football-ops/Big-Data-Bowl/blob/9ad0b4b2ea36697e29e44e2399512cc1ce70358c/Data/games.csv",
+      "limitation": "No official matched player-game thresholds/quotes/settlement sample. Source is scope context only; it supplies no correlation."
     },
     {
-      "pair": "Defensive rush YDS allowed/game vs PApg",
-      "type": "pearson",
-      "n": 32,
-      "r": 0.5961,
-      "interpretation": "Run defense vs points allowed \u2014 drives RB prop matchup factors."
-    },
-    {
-      "pair": "Team pass RTG vs win%",
-      "type": "pearson",
-      "n": 32,
-      "r": 0.5782,
-      "interpretation": "QB efficiency vs winning."
-    },
-    {
-      "pair": "Offensive pass YDS/game vs offensive rush YDS/game (game script)",
-      "type": "pearson",
-      "n": 32,
-      "r": -0.3207,
-      "interpretation": "Teams that pass more tend to run less (negative expected) \u2014 relevant when pairing QB overs with RB unders in the same game (correlation gate)."
+      "pair": "Cross-game two-leg parlay",
+      "r": null,
+      "n": null,
+      "unit": "settled bet indicators",
+      "status": "UNVERIFIED \u2014 BLOCKED",
+      "source_url": "https://github.com/nfl-football-ops/Big-Data-Bowl/blob/9ad0b4b2ea36697e29e44e2399512cc1ce70358c/Data/games.csv",
+      "limitation": "No official matched player-game thresholds/quotes/settlement sample. Source is scope context only; it supplies no correlation."
     }
   ]
 }
