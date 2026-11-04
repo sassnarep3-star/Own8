@@ -67,3 +67,41 @@ None outstanding. (Resolved during integration: both sessions wrote COORDINATION
 Scope note: PR #6 (session 28cc78aa) currently owns root site generator and `site/` integration changes. This session will not edit those files. Arena pins the branch name; no `session-<id>/<task>` branch will be created.
 
 - 2026-11-04 — A1: independent read-only code/data audit complete. Six of six computed market edges use the wrong handicap sign; the six signed comparisons flip direction. Two published candidates have unverified market lines and conditional G4. NFL Week 9 injury report now exists: https://www.nfl.com/injuries/league/2026/reg9 (contradicts stale F-04). All 32 standings rows passed internal PF−PA and PCT arithmetic; 15 schedule rows joined, but ONLY BUF/NE and JAX/BAL + CIN/ATL were externally spot-checked at https://www.nfl.com/standings/ and https://www.nfl.com/schedules/2026/by-week/week-9. Do not mistake internal validation for complete official row-by-row verification. Detailed A-01…A-06 in audit/results.json and audit/index.html. Change request to integration owner on PR #6: https://github.com/sassnarep3-star/Own8/pull/6#issuecomment-6640938329. Primary dashboard remains unchanged because claimed by another session.
+
+## Session b2783d1d — evidence audit and final integration (2026-11-04)
+
+Session branch: `arena/b2783d1d-own8` (Arena-fixed; this is the only branch this
+session will modify or push). Session ID: `b2783d1d`.
+
+| ID | Task | Status | Owner | File scope | Verification / sources |
+| --- | --- | --- | --- | --- | --- |
+| B1 | Audit existing repository and independently verify source evidence | in progress | b2783d1d | `COORDINATION.md`, `audit/b2783d1d/`, `data/evidence/`, `research/source-audit.md` | Read all inherited tracked text; official sources only for verified facts; unavailable values blank |
+| B2 | Repair provenance, statistical gates, correlations, reproducible tests | in progress | b2783d1d | `scripts/`, `tests/`, `data/`, `analysis/`, `research/`, `compute_correlations.py`, project config | Explicit evidence gating; no luck-free claims; test missing/unverified input rejection |
+| B3 | Final integration and accessible source-linked dashboard | in progress | b2783d1d | `index.html`, `pages/`, `assets/`, `docs/`, `README.md`, `EXECUTIVE_SUMMARY.md`, `site/` if inherited from PR #6 | One authoritative landing page, row sources, blank unconfirmed values, Flagged for Review |
+| B4 | CI, PR, merge, Pages deployment verification | in progress | b2783d1d | `.github/`, `.gitignore`, `.nojekyll`, `COORDINATION.md` | Build and link tests before explicit-number PR merge; record deployment via GitHub API |
+
+### Coordination / handoff
+
+- 2026-11-04T20:10Z: fetched `origin/main` at `7c2f545`; PR #5 confirmed
+  MERGED via GitHub API (actual merge 2026-11-04T00:02:24Z, correcting the earlier
+  board's date). Pages API currently reports `built`, main `/`.
+- PR #6 (`arena/28cc78aa-own8`) remains OPEN. Read its full file list and remote
+  coordination board before claiming. Its last commit is
+  `d6e88e72bb233625891b9fea00fab32bf2969774` at 2026-11-04T00:18:51Z, over 60 minutes
+  ago. Its H1–H7 are marked done; only H8 integration remains in progress.
+  Under the stale-claim rule, b2783d1d takes over final integration/audit (H8
+  and the already-merged prior T7 record). Preserve prior work; do not trust
+  prior verification badges or quantitative claims without evidence.
+- Cross-session request / notice: b2783d1d owns final root navigation, shared
+  data-policy remediation, build scripts, and integration starting now. Do not
+  concurrently change these scopes. Historical-lab work from PR #6 will be
+  inspected for safe integration, not silently represented as officially verified.
+- No new task branch is created because this environment fixes the current
+  branch. All integration, commits, and pushes remain on `arena/b2783d1d-own8`.
+
+- 2026-11-04T20:12Z — CLAIM REBASE CONFLICT: main advanced while the initial
+  claim was being committed (PR #7, session 74efc1ec independent audit). Stopped
+  on the COORDINATION.md append conflict, read both complete sides, preserved
+  both session sections, and narrowed my audit scope to `audit/b2783d1d/`.
+  No audit/74efc1ec files or other session changes discarded. The independent
+  audit's integration requests will be handled as part of B2/B3.
