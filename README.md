@@ -25,7 +25,7 @@ python3 scripts/build_site.py
 python3 scripts/check_links.py
 ```
 
-`.github/workflows/audit.yml` runs these checks for pushes/PRs and daily, then deploys an allowlisted public artifact to GitHub Pages on main. It validates/rebuilds the **dated snapshot**; it does **not** implement unattended fresh official-data capture, sportsbook access, future settlement or a live odds feed. No user input was needed for this session. Unavailable inputs stay null; strategy eligibility fails closed. Build PASS is not evidence-gate PASS.
+`.github/workflows/audit.yml` runs these checks for pushes/PRs and daily, uploads an audited preview artifact. The existing legacy GitHub Pages main/root pipeline publishes the site; `_config.yml` excludes legacy archive/capture surfaces. It validates/rebuilds the **dated snapshot**; it does **not** implement unattended fresh official-data capture, sportsbook access, future settlement or a live odds feed. No user input was needed for this session. Unavailable inputs stay null; strategy eligibility fails closed. Build PASS is not evidence-gate PASS.
 
 ## Evidence boundary
 
@@ -41,7 +41,7 @@ Official sources checked: [NFL standings](https://www.nfl.com/standings/), [sche
 - `analysis/`: derived outputs and software-check reports, not official NFL publications.
 - `research/`: executive summary and proposed research/competition methods.
 - `COORDINATION.md`: task ownership, handoffs, conflicts, PR and deployment record.
-- `archive/`, old root data CSV/JSON/Markdown, `compute_correlations.py`: historical artifacts retained for audit, **not authoritative**. Not published as current data by the allowlisted Pages workflow.
+- `archive/`, old root data CSV/JSON/Markdown, `compute_correlations.py`: historical artifacts retained for audit, **not authoritative**. Excluded from publication by `_config.yml` in the legacy Pages build.
 - `docs/*.html`: redirects to audited canonical pages.
 - `audit/`: concurrent session 74efc1ec's independent baseline audit, preserved unchanged. Its findings refer to baseline commit 7c2f545, not the new canonical outputs.
 
