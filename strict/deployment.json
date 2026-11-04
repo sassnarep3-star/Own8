@@ -1,0 +1,24 @@
+{
+  "checked_at": "2026-11-04",
+  "pr_url": "https://github.com/sassnarep3-star/Own8/pull/22",
+  "state": "MERGED",
+  "merge_commit": "55aa236630cdbc4d97c31308e6e8408b2f19a559",
+  "merged_at": "2026-11-04T20:22:04Z",
+  "pr_checks": {
+    "strict_evidence_and_site": "PASS",
+    "canonical_validate": "PASS"
+  },
+  "pages_run_url": "https://github.com/sassnarep3-star/Own8/actions/runs/41905927956",
+  "pages_run_conclusion": "success",
+  "pages_source": "legacy main / (observed at release)",
+  "live_url": "https://sassnarep3-star.github.io/Own8/strict/site/",
+  "executive_summary_url": "https://sassnarep3-star.github.io/Own8/strict/site/pages/executive-summary.html",
+  "flagged_url": "https://sassnarep3-star.github.io/Own8/strict/site/pages/flagged.html",
+  "live_observations": [
+    "Landing page fetched and content matches evidence-first headline, 32 teams / 91 games / 11 proposals / 0 skill qualified.",
+    "Flagged for Review fetched; current A01\u2013A17 findings displayed, unknown cells blank.",
+    "Historical benchmark fetched; both MAEs match local output, negative improvement and short-sample caveats displayed."
+  ],
+  "external_liveness_scope": "Only listed live routes checked here; not a blanket check of all external source links.",
+  "concurrent_release_note": "Primary audit.yml custom settings deploy failed due permissions; legacy Pages succeeded. Root owner dd321bf5 is handling recovery in PR #23. Strict namespace did not modify that workflow."
+}

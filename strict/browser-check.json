@@ -1,0 +1,16 @@
+{
+  "checked_at": "2026-11-04",
+  "status": "PASS",
+  "browser": "Headless Chromium via Playwright (local smoke test)",
+  "checks": [
+    "Desktop landing renders",
+    "Navigation loads standings",
+    "Search isolates Buffalo",
+    "Numeric PF sorting works",
+    "390px mobile viewport has no page overflow",
+    "Current line unknowns render blank",
+    "17 current + 19 inherited flags present",
+    "No browser page errors"
+  ],
+  "scope": "Local static server only, not external source validation"
+}

@@ -1,4 +1,4 @@
-name: Audit and publish Own8
+name: Audit Own8 dashboard
 on:
   push:
     branches: [main, arena/dd321bf5-own8]
@@ -25,34 +25,16 @@ jobs:
       - run: python -m unittest discover -s scripts -p 'test_audit.py' -v
       - run: python scripts/build_site.py
       - run: python scripts/check_links.py
-      - name: Stage only audited public output
+      - name: Stage audited preview artifact
         run: |
           mkdir -p _site/data _site/analysis
-          cp index.html .nojekyll _site/
+          cp index.html _site/
           cp -r pages assets docs _site/
           cp data/audit-snapshot.json data/sources.json data/flagged.json _site/data/
           cp analysis/audit-inventory.json analysis/repo-audit.json analysis/correlations.json analysis/model-lines-week9.json analysis/prop-signals-week9.json analysis/strategies.json analysis/leaderboard.json analysis/validation-gates.json analysis/link-check.json _site/analysis/
           if [ -d audit ]; then cp -r audit _site/; fi
-      - uses: actions/upload-pages-artifact@v3
+          if [ -d strict ]; then cp -r strict _site/; fi
+      - uses: actions/upload-artifact@v4
         with:
+          name: audited-dashboard
           path: _site
-  deploy:
-    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
-    needs: validate
-    runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Select audited workflow artifact as Pages source
-        uses: actions/github-script@v7
-        with:
-          script: |
-            await github.request("PUT /repos/{owner}/{repo}/pages", {
-              owner: context.repo.owner, repo: context.repo.repo, build_type: "workflow"
-            });
-      - uses: actions/deploy-pages@v4
-        id: deployment

@@ -1,0 +1,85 @@
+{
+  "scope": "Selected DNP rows from JAX/BAL only, chunk 0. Not a complete league or team report. Blank injury and game-status fields preserved; DNP does not mean out.",
+  "players": [
+    {
+      "team": "JAX",
+      "player": "DaVon Hamilton",
+      "practice": "Did Not Participate In Practice",
+      "injury": null,
+      "game_status": null,
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg9",
+      "checked_at": "2026-11-04",
+      "status": "PARTIAL OBSERVATION \u2014 NOT FINAL GAME STATUS"
+    },
+    {
+      "team": "JAX",
+      "player": "Eric Murray",
+      "practice": "Did Not Participate In Practice",
+      "injury": null,
+      "game_status": null,
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg9",
+      "checked_at": "2026-11-04",
+      "status": "PARTIAL OBSERVATION \u2014 NOT FINAL GAME STATUS"
+    },
+    {
+      "team": "JAX",
+      "player": "Bhayshul Tuten",
+      "practice": "Did Not Participate In Practice",
+      "injury": null,
+      "game_status": null,
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg9",
+      "checked_at": "2026-11-04",
+      "status": "PARTIAL OBSERVATION \u2014 NOT FINAL GAME STATUS"
+    },
+    {
+      "team": "BAL",
+      "player": "Calais Campbell",
+      "practice": "Did Not Participate In Practice",
+      "injury": null,
+      "game_status": null,
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg9",
+      "checked_at": "2026-11-04",
+      "status": "PARTIAL OBSERVATION \u2014 NOT FINAL GAME STATUS"
+    },
+    {
+      "team": "BAL",
+      "player": "Jaylinn Hawkins",
+      "practice": "Did Not Participate In Practice",
+      "injury": null,
+      "game_status": null,
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg9",
+      "checked_at": "2026-11-04",
+      "status": "PARTIAL OBSERVATION \u2014 NOT FINAL GAME STATUS"
+    },
+    {
+      "team": "BAL",
+      "player": "Tyler Huntley",
+      "practice": "Did Not Participate In Practice",
+      "injury": null,
+      "game_status": null,
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg9",
+      "checked_at": "2026-11-04",
+      "status": "PARTIAL OBSERVATION \u2014 NOT FINAL GAME STATUS"
+    },
+    {
+      "team": "BAL",
+      "player": "Lamar Jackson",
+      "practice": "Did Not Participate In Practice",
+      "injury": null,
+      "game_status": null,
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg9",
+      "checked_at": "2026-11-04",
+      "status": "PARTIAL OBSERVATION \u2014 NOT FINAL GAME STATUS"
+    },
+    {
+      "team": "BAL",
+      "player": "Tyler Loop",
+      "practice": "Did Not Participate In Practice",
+      "injury": null,
+      "game_status": null,
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg9",
+      "checked_at": "2026-11-04",
+      "status": "PARTIAL OBSERVATION \u2014 NOT FINAL GAME STATUS"
+    }
+  ]
+}
