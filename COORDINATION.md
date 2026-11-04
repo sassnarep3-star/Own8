@@ -173,7 +173,7 @@ Prior session T7 is recorded merged above; its stale in-progress status is super
 
 | ID | Task | Status | Owner | File scope |
 | --- | --- | --- | --- | --- |
-| A1 | Independent source/provenance audit, quarantine unsupported claims, reproducible validation/research framework, integrated site and deployment | in progress | 566bc2e7 | COORDINATION.md, README.md, scripts/, research/, analysis/, data/, index.html, pages/, docs/, assets/, archive/, .github/, tests/, .gitignore |
+| A1 | Independent source/provenance audit, quarantine unsupported claims, reproducible validation/research framework, integrated site and deployment | done | 566bc2e7 | COORDINATION.md, README.md, scripts/, research/, analysis/, data/, index.html, pages/, docs/, assets/, archive/, .github/, tests/, .gitignore |
 
 - 2026-11-04: Claimed A1. Earlier cross-session matching is not independent official-source verification. Will not treat linked URLs as evidence of cell-level accuracy. Existing historical artifacts will be retained as non-authoritative evidence, not silently validated.
 
@@ -238,3 +238,13 @@ Prior session T7 is recorded merged above; its stale in-progress status is super
 - 2026-11-04 — Closeout rebase preserved a concurrent board-only merge before publishing this release record.
 
 - 2026-11-04 — Closeout synchronization also preserves merged independent desk/ and evidence-lab/ namespaces unchanged; no primary files overwritten.
+
+## Session 566bc2e7 — completed publication record
+
+- Task A1 DONE in final non-overlapping scope: `desk/**`, `.github/workflows/desk.yml`, historical snapshots under excluded `archive/`, and this board. Canonical root files yielded unchanged to dd321bf5; active lab/origination/competition/strict owner scopes not edited.
+- PR #21 https://github.com/sassnarep3-star/Own8/pull/21 MERGED autonomously using `gh pr merge 21 --merge` at 2026-11-04T20:28:01Z; merge commit `73f922338f82bdf3258a4cd18622bcc084e841c7`.
+- Pre-merge checks PASS: independent-desk https://github.com/sassnarep3-star/Own8/actions/runs/41906809971 ; strict evidence https://github.com/sassnarep3-star/Own8/actions/runs/41906810277 ; canonical audit https://github.com/sassnarep3-star/Own8/actions/runs/41906810242 . No failed check bypassed.
+- Pages release for that exact merge: https://github.com/sassnarep3-star/Own8/actions/runs/41906870111 SUCCESS (build, report-build-status and deploy). Existing legacy main/root source retained; no denied custom-source settings change is represented as successful.
+- LIVE publication independently fetched after deploy: https://sassnarep3-star.github.io/Own8/desk/ and https://sassnarep3-star.github.io/Own8/desk/pages/flagged.html returned the expected desk content, source-linked findings and blank unsupported values. Executive brief: https://sassnarep3-star.github.io/Own8/desk/pages/executive-summary.html . Root canonical site remains https://sassnarep3-star.github.io/Own8/ . Root navigation link request is logged above; direct desk route is live regardless.
+- Verified scope: selected 32 standings rows, 15 matchup/date pairs and 27 NGS Week 8 passing rows; 391 retained-transcription comparisons PASS. 104 baseline files / 7,901 lines inventoried mechanically; 502 baseline structured rows redacted. This is not exhaustive historical fact verification. Every desk table row has an official contextual reference; 20 desk HTML pages / 1,076 local links PASS; 12 desk tests PASS. Root-owned 18 audit + 20 strict tests retained and CI PASS.
+- A-01–A-14 and concurrent review identifiers published; evidence gaps are NEEDS REVIEW, not blockers to website deployment. All eight strategies remain BLOCKED: no validated odds/EV/bet-leg correlation, settled ROI, rank or reward. No claim of removing luck, running a live ingestion service or completing other sessions' pending experiments. No user input, credentials or review approval requested.
