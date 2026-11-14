@@ -17,13 +17,46 @@ Why this scope: the operator's requirements that no artifact yet covers are (a) 
 | ID | Task | Status | Owner | Files (scope) | Verification plan |
 | --- | --- | --- | --- | --- | --- |
 | K0 | Board claim (this section) | done (pushed before any other work) | 6652101e | COORDINATION.md (this section) | Claim commit pushed before any other ledger file |
-| K1 | Price-snapshot store: one row per originated market (side, total, moneyline in that order) for every Week 10 game, opening and closing numbers fail-closed (null unless an official URL is recorded) | in progress | 6652101e | ledger/data/price-snapshots.json, ledger/schema.md | Official-page probe of nfl.com game pages recorded in ledger/data/price-probe.json; any value without an official URL is rejected by ledger/scripts/build_ledger.py |
-| K2 | Verified results feed (official final scores per game, with nfl.com URL) that backtests and ROI can join to | in progress | 6652101e | ledger/data/results-feed.json | Rows copied from origination/data/games-2026-w1-w9.json (136 verified games) and checked by re-reading that file; no new values typed by hand |
-| K3 | Fair line / market line / difference as three separate columns for each Week 10 game; market and difference stay blank with reason | in progress | 6652101e | ledger/data/lines-columns.json | Fair values copied from origination/results/w10-lines.json; difference computed only when a market value exists |
-| K4 | Demotion gate: pre-registered rule set that moves a LIVE strategy back to PAPER, with evaluator and unit tests on synthetic fixtures (fixtures are labelled as tests, never as data) | in progress | 6652101e | ledger/scripts/demotion_gate.py, ledger/scripts/test_demotion_gate.py, ledger/data/demotion-rules.json | Rule thresholds written before evaluation; current registry state = 0 LIVE strategies, so 0 demotions recorded |
-| K5 | Signal vs staking split: leaderboard with a SIGNAL block (skill vs baseline, LCB, gate status) and a STAKING block that cannot change rank | in progress | 6652101e | ledger/results/leaderboard-split.json | Signal values copied from origination/results/leaderboard-w10.json; staking block blank because no official prices exist |
-| K6 | Ledger pages (index, prices, results, lines, gates, leaderboard, flagged) with a source link on every table row; own link check | in progress | 6652101e | ledger/*.html, ledger/assets/*, ledger/scripts/build_ledger.py, ledger/scripts/check_ledger.py | `python3 ledger/scripts/check_ledger.py` must exit 0; unverified values blank and flagged |
-| K7 | Local CI replay, PR to main, merge, Pages confirmation, record here | pending | 6652101e | COORDINATION.md | Root checks from .github/workflows run on the branch; live URL re-fetched after deploy |
+| K1 | Price-snapshot store: one row per originated market (side, total, moneyline in that order) for every Week 10 game, opening and closing numbers fail-closed (null unless an official URL is recorded) | done (39 markets; 0 of 78 opening/closing values verified, all blank; LF-01) | 6652101e | ledger/data/price-snapshots.json, ledger/data/price-probe.json | Official probe of https://www.nfl.com/games/patriots-at-lions-2026-reg-10 (2 chunks): no spread, total, moneyline or odds text. check_ledger.py fails any value without an official URL |
+| K2 | Verified results feed (official final scores per game, with nfl.com URL) that backtests and ROI can join to | done (137 rows: 136 from verified log + WAS 24 NYG 21 Thursday re-read; 0 arithmetic failures) | 6652101e | ledger/data/results-feed.json | Rows copied from origination/data/games-2026-w1-w9.json; Thursday game re-read at https://www.nfl.com/scores/2026/week-10 on 2026-11-14 |
+| K3 | Fair line / market line / difference as three separate columns for each Week 10 game; market and difference stay blank with reason | done (13 games; spread S1 and moneyline S6 PASS, total S4 FAIL G4/G5/G6 shown UNVALIDATED; 0 recompute mismatches) | 6652101e | ledger/data/lines-columns.json, ledger/lines.html | Fair values copied from origination/results/w10-lines.json; moneylines recomputed from p_home |
+| K4 | Demotion gate: pre-registered rule set that moves a LIVE strategy back to PAPER, with evaluator and unit tests on synthetic fixtures (fixtures are labelled as tests, never as data) | done (rules D1-D8 + P1 written before any live window; 23 unit tests pass; 0 LIVE strategies so 0 demotions; thresholds await operator decision SG-L2) | 6652101e | ledger/scripts/demotion_gate.py, ledger/scripts/test_ledger.py, ledger/data/demotion-rules.json | Rule thresholds written before evaluation; current registry = 0 LIVE strategies |
+| K5 | Signal vs staking split: leaderboard with a SIGNAL block (skill vs baseline, LCB, gate status) and a STAKING block that cannot change rank | done (12 scored + 2 not scored; signal ranks match origination for all 14; staking blank, excluded from rank by test) | 6652101e | ledger/results/leaderboard-split.json, ledger/leaderboard-split.html | Signal values copied from origination/results/validation-w10.json and leaderboard-w10.json |
+| K6 | Ledger pages (index, prices, results, lines, gates, leaderboard, flagged, suggestions) with a source link on every table row; own link check | done (8 pages; check_ledger.py 22 checks, 0 failed; every data row has an allowed official link) | 6652101e | ledger/*.html, ledger/assets/style.css, ledger/scripts/build_ledger.py, ledger/scripts/check_ledger.py | python3 ledger/scripts/check_ledger.py exit 0 |
+| K7 | Local CI replay, PR to main, merge, Pages confirmation, record here | in progress (local replay done; PR and merge next) | 6652101e | COORDINATION.md | Root checks from .github/workflows run on the branch; live URL re-fetched after deploy |
+
+Sources used (all read-only inputs or official pages):
+- https://www.nfl.com/games/patriots-at-lions-2026-reg-10 (price probe; game-centre team strip also checked, see LF-04)
+- https://www.nfl.com/scores/2026/week-10 (Thursday WAS 24 NYG 21 Final, re-read 2026-11-14)
+- https://www.nfl.com/schedules/2026/by-week/week-10 (13 unplayed games, Thursday excluded)
+- https://www.nfl.com/scores/2026/week-1 ... week-9 via origination/data/games-2026-w1-w9.json (136 rows, all verified in origination)
+- Secondary press context only (not used as a value): https://www.espn.com/nfl/story/_/id/49740505/nfl-renews-draftkings-fanduel-deals-adds-fanatics
+- NIST e-Handbook 7.4.7.3 Bonferroni's method https://www.itl.nist.gov/div898/handbook/prc/section4/prc473.htm (re-read 2026-11-14) and 7.1.4 What are confidence intervals? https://www.itl.nist.gov/div898/handbook/prc/section1/prc14.htm (re-read 2026-11-14)
+
+Verification performed (2026-11-14):
+- Feed: 137 rows; margin = away-home difference, total = sum, winner = playing team or NONE for the one tie (NYG 27 WAS 27, W5). 0 failures.
+- Lines: spread text and moneyline recomputed from stored inputs; 0 mismatches; sigma constant across 13 games (flagged LF-03).
+- Registry: 14 strategies; fail-closed verdicts equal origination verdicts; leaderboard split ranks equal origination ranks for all 14.
+- Tests: `python3 -m unittest discover -s ledger/scripts -p 'test_ledger.py'` 23 OK. Checker: `python3 ledger/scripts/check_ledger.py` 22 PASS, 0 FAIL.
+- Root CI replay on this branch: scripts/audit_publication.py PASS (61 HTML, 1117 local URLs); scripts/check_links.py exit 0; scripts/test_audit tests OK; requirements/scripts/check_req.py PASS.
+
+Irregularities for review (also on ledger/flagged.html):
+- LF-01 no official source for any betting line; price store blank (0 of 78).
+- LF-02 Week 10 total model S4 fails G4, G5, G6 (UNVALIDATED).
+- LF-03 one constant sigma across all 13 games.
+- LF-04 nfl.com game-centre team strip prints New England scores in inconsistent order (W6 "Win 19-26" vs scores page NE 26; W7 "Loss 24-30"; W8 "Win 24-19"; W9 "Loss 45-27"). Not used as a value source.
+- LF-05 the probe read one game page only; scope stated.
+- LF-06 demotion thresholds not yet approved (gate inert).
+- LF-07 S9 and S10 are probability products but origination recorded G7 as not applicable (null), which its verdict code does not count as failure; ledger counts it as FAIL. Verdicts unchanged.
+- LF-08 Holm family definition (12 scored strategies) is a design choice; not reviewed.
+- LF-10 W1 heading "Sunday Night Football, September 9th" vs date 2026-09-09 (a Wednesday); already logged by origination (O1), kept as rendered.
+
+Cross-session requests from 6652101e (not performed; shared files):
+- (R1) Integration owner: add a navigation link to ledger/index.html (SG-L7 in ledger/suggestions.html).
+- (R2) Integration owner: consider adding ledger/ to the requirements register (new suggestions SG-L1..L7 are the operator decision points).
+- (R3) origination owner (if still active): G7 applicability for S9/S10 (LF-07) and the total model failure (LF-02) are recorded in ledger/flagged.html; no change to origination files was made.
+
+Status: K0-K6 done; K7 (PR, merge, Pages confirmation) next. Nothing blocking. No money, stakes or rewards are involved.
 
 ## Session e8155046 — Week 10 line origination + skill-vs-luck validation refresh (claimed 2026-11-14 UTC, base main @ 9d182b8)
 
