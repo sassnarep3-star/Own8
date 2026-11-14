@@ -148,8 +148,8 @@ def main():
          "root dashboard owner / integration session")
 
     # 6. Duplicate namespace inventory: count published HTML surfaces.
-    surfaces = sorted(({p.parent.name for p in REPO.glob("*/index.html")} |
-                       {p.parent.parent.name for p in REPO.glob("*/site/index.html")}) - {"market"})
+    surfaces = sorted(({p2.parent.name for p2 in REPO.glob("*/index.html")} |
+                       {p2.parent.parent.name for p2 in REPO.glob("*/site/index.html")}) - {"market"})
     flag("F-05", "medium", "navigation",
          f"{len(surfaces)} separate site surfaces are published from one repository",
          "surfaces: " + ", ".join(surfaces),
@@ -163,7 +163,13 @@ def main():
          "excluded: " + ", ".join(ex[:12]) + (" ..." if len(ex) > 12 else ""),
          "_config.yml", "exclude", "https://github.com/sassnarep3-star/Own8/blob/main/_config.yml", "integration owner")
 
+    surfaces = sorted(({p2.parent.name for p2 in REPO.glob("*/index.html")} |
+                       {p2.parent.parent.name for p2 in REPO.glob("*/site/index.html")}) - {"market"})
+
     out = dict(crawled_at="2026-11-14", crawled_by="session 949f49b0",
+               site_surfaces=len(surfaces),
+               suggestion_registers=len(dupes.get("suggestions", [])),
+               question_registers=len(dupes.get("questions", [])),
                scope="every *.json under the repository root except archive/, .git/, market/ and node_modules/",
                files_scanned=len(inventory),
                files_with_unsourced_rows=sum(1 for i in inventory if i["rows_with_no_source_url"]),

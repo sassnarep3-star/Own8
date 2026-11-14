@@ -1,10 +1,13 @@
 {
  "crawled_at": "2026-11-14",
  "crawled_by": "session 949f49b0",
+ "site_surfaces": 16,
+ "suggestion_registers": 6,
+ "question_registers": 6,
  "scope": "every *.json under the repository root except archive/, .git/, market/ and node_modules/",
- "files_scanned": 155,
+ "files_scanned": 166,
  "files_with_unsourced_rows": 4,
- "row_like_dicts_total": 7125,
+ "row_like_dicts_total": 7375,
  "unsourced_rows_total": 1028,
  "inventory": [
   {
@@ -161,8 +164,8 @@
   },
   {
    "file": "analysis/repo-audit.json",
-   "bytes": 191600,
-   "row_like_dicts": 602,
+   "bytes": 209420,
+   "row_like_dicts": 656,
    "rows_with_no_source_url": 0,
    "top_level_keys": [
     "as_of",
@@ -223,6 +226,54 @@
     "findings",
     "rows",
     "scope"
+   ]
+  },
+  {
+   "file": "correlation-audit/data/input-checks.json",
+   "bytes": 1270,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "checks",
+    "pass",
+    "total",
+    "walk_forward_mismatches"
+   ]
+  },
+  {
+   "file": "correlation-audit/data/link-check.json",
+   "bytes": 182,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "failures",
+    "hosts_allowed",
+    "links_checked"
+   ]
+  },
+  {
+   "file": "correlation-audit/data/live-spotcheck-2026-11-14.json",
+   "bytes": 7197,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "method",
+    "nfl_scores_week9",
+    "ngs_week8"
+   ]
+  },
+  {
+   "file": "correlation-audit/data/recomputed.json",
+   "bytes": 6877,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "holm_official_family",
+    "method",
+    "p_two_sided",
+    "rows",
+    "tolerance_abs"
    ]
   },
   {
@@ -1913,6 +1964,134 @@
    ]
   },
   {
+   "file": "signals/data/availability-tiers.json",
+   "bytes": 85296,
+   "row_like_dicts": 132,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "capability_matrix",
+    "caveats",
+    "depth_changes",
+    "generated",
+    "how_to_read",
+    "irregularities",
+    "next_task_to_scale",
+    "pregame_gaps",
+    "session",
+    "starter_set_churn",
+    "summary",
+    "tiers"
+   ]
+  },
+  {
+   "file": "signals/data/baseline-ladder.json",
+   "bytes": 65638,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "assumed_price_block",
+    "caveats",
+    "findings",
+    "generated",
+    "head_to_head",
+    "inputs",
+    "ladder",
+    "luck_decomposition",
+    "session",
+    "title"
+   ]
+  },
+  {
+   "file": "signals/data/correlation-legitimacy.json",
+   "bytes": 19708,
+   "row_like_dicts": 21,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "caveats",
+    "combination_products",
+    "comparison_with_published",
+    "correlations",
+    "generated",
+    "inputs",
+    "rules",
+    "session",
+    "summary",
+    "title"
+   ]
+  },
+  {
+   "file": "signals/data/decision-queue.json",
+   "bytes": 16924,
+   "row_like_dicts": 13,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "closed_without_new_data",
+    "consistency_checks",
+    "counts",
+    "generated",
+    "needs_a_purchase_or_a_feed",
+    "needs_only_mechanical_work",
+    "needs_time",
+    "queue",
+    "ranking_rule",
+    "session",
+    "the_one_line_answer",
+    "title"
+   ]
+  },
+  {
+   "file": "signals/data/flags.json",
+   "bytes": 13430,
+   "row_like_dicts": 16,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "counts",
+    "flags",
+    "generated",
+    "own_work_corrections",
+    "reading_rule",
+    "requires_operator_action",
+    "session",
+    "title",
+    "total"
+   ]
+  },
+  {
+   "file": "signals/data/market-relative.json",
+   "bytes": 43689,
+   "row_like_dicts": 14,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "assumed_price",
+    "assumed_price_is_a_quote",
+    "book_arithmetic",
+    "caveats",
+    "generated",
+    "interval_vs_breakeven",
+    "line_advantage_implied_by_hit_rate",
+    "market_verdict",
+    "model",
+    "no_market_data_statement",
+    "session",
+    "title"
+   ]
+  },
+  {
+   "file": "signals/data/site-checks.json",
+   "bytes": 12038,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "checks_run",
+    "failed",
+    "generated",
+    "passed",
+    "results",
+    "rows_checked",
+    "status"
+   ]
+  },
+  {
    "file": "strict/browser-check.json",
    "bytes": 507,
    "row_like_dicts": 0,
@@ -2256,8 +2435,8 @@
    "id": "F-05",
    "severity": "medium",
    "area": "navigation",
-   "title": "14 separate site surfaces are published from one repository",
-   "evidence": "surfaces: audit, decision, decision-review, desk, docs, evidence-lab, hub, integration, ledger, origination, requirements, review, strict, suggestions",
+   "title": "16 separate site surfaces are published from one repository",
+   "evidence": "surfaces: audit, correlation-audit, decision, decision-review, desk, docs, evidence-lab, hub, integration, ledger, origination, requirements, review, signals, strict, suggestions",
    "file": "repository root",
    "record": "*/index.html",
    "source_url": "https://github.com/sassnarep3-star/Own8",
