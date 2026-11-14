@@ -318,3 +318,17 @@ Log (101b20bc):
 - 2026-11-14 — Cross-session request (101b20bc): root navigation integration owner should add a link to hub/index.html once merged. Request logged here; root index.html not edited.
 - 2026-11-14 — H6 IN PROGRESS: PR to main from arena/101b20bc-own8, merge after CI, confirm Pages deploy, then record PR link and merge result here.
 
+## Session d6bada32 — suggestions & decision hub, Week 10 injury/depth-deficiency tracker, repo review (claimed 2026-11-14 00:55 UTC)
+
+Branch: `arena/d6bada32-own8` (Arena pins this session to that branch; no `session-<id>/<task>` branch is created). Base: main @ 259edab. Scope is NEW directories only — `advisory/**` and `injury-depth/**` — plus this section of COORDINATION.md. No other session's files are edited; shared nav/index is requested below, not edited.
+
+| ID | Task | Status | Owner | Files (scope) | Verification plan |
+| --- | --- | --- | --- | --- | --- |
+| H1 | Suggestions & decision hub: suggestions register (options, recommendation, awaiting user choice — nothing implemented), questions / information-gap register, current-status executive summary, repo-review irregularity log | in progress | d6bada32 | advisory/**, COORDINATION.md (this section) | Every row links an official nfl.com page or a repo file path; unverifiable items blank + flagged |
+| H2 | 2026 Week 10 official injury capture (rows with Injuries, non-Full practice, or Game Status) + position-group deficiency tracker; starter/backup replacement fields left blank because no official depth-chart source was reachable | in progress | d6bada32 | injury-depth/**, COORDINATION.md (this section) | Source: https://www.nfl.com/injuries/league/2026/reg10 (8 chunks); each row checked against its chunk; player_url from the page |
+| H3 | Repo review: stale-data check (W9 games final on nfl.com/scores/2026/week-9 while repo model lines are "Week 9 pre-game"); open-PR and claim inventory | in progress | d6bada32 | advisory/irregularities (within H1) | nfl.com scores/injuries pages; `gh pr list`; file reads |
+
+Not claimed here (remain open for other sessions; listed as suggestions in advisory/): Week 10 line origination and skill-vs-luck re-validation (origination/** owned by 4bc92a5f, done through W9 inputs); official depth-chart source (not found — see advisory/ gap G-03); integration nav link on the root dashboard (root integration owner).
+
+Log:
+- 2026-11-14 00:55 UTC — d6bada32 claimed H1–H3. Read full board (sections above) and open PRs #6, #8, #16, #28, #31, #32. Confirmed via nfl.com: Week 9 games are Final (https://www.nfl.com/scores/2026/week-9); current official injury report is Week 10 (https://www.nfl.com/injuries/league/2026/reg10). Repo's data/*, origination/* W9 slates and model-lines are therefore not current — logged as irregularity H3-01.
