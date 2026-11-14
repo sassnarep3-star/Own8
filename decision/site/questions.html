@@ -1,0 +1,73 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Open questions · Own8 decision support</title>
+<style>
+:root{--bg:#0d1117;--panel:#151b23;--line:#232c38;--ink:#e6edf3;--mut:#8b98a8;--acc:#3fb950;--warn:#d29922;--bad:#f85149}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header{position:sticky;top:0;z-index:9;background:rgba(13,17,23,.94);border-bottom:1px solid var(--line);backdrop-filter:blur(8px)}
+.bar{max-width:1180px;margin:0 auto;padding:.7rem 1rem;display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
+.brand{font-weight:700;letter-spacing:.02em;color:var(--ink);text-decoration:none}
+.brand b{color:var(--acc)}
+nav{display:flex;gap:.15rem;flex-wrap:wrap;margin-left:auto}
+nav a{color:var(--mut);text-decoration:none;padding:.32rem .6rem;border-radius:7px;font-size:13.5px}
+nav a:hover{background:var(--panel);color:var(--ink)}
+nav a[aria-current=page]{background:#1f6feb22;color:#79c0ff;box-shadow:inset 0 0 0 1px #1f6feb55}
+main{max-width:1180px;margin:0 auto;padding:1.6rem 1rem 4rem}
+h1{font-size:1.72rem;line-height:1.25;margin:.2rem 0 .5rem;letter-spacing:-.01em}
+h2{font-size:1.14rem;margin:2rem 0 .6rem;padding-bottom:.35rem;border-bottom:1px solid var(--line)}
+h3{font-size:1rem;margin:1.3rem 0 .4rem}
+p{margin:.55rem 0}
+.lead{color:var(--mut);font-size:1.02rem;max-width:74ch}
+.note{color:var(--mut);font-size:12.8px;margin:.45rem 0 0}
+a{color:#79c0ff}
+code{background:#1b2230;padding:.1rem .32rem;border-radius:5px;font-size:12.5px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:.8rem;margin:1.1rem 0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:.85rem .9rem}
+.card .k{font-size:1.5rem;font-weight:700;letter-spacing:-.02em}
+.card .l{color:var(--mut);font-size:12.6px;text-transform:uppercase;letter-spacing:.05em}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:11px;margin:.7rem 0}
+table{border-collapse:collapse;width:100%;font-size:13.6px}
+caption{text-align:left;padding:.65rem .8rem;color:var(--mut);font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;border-bottom:1px solid var(--line)}
+th,td{padding:.5rem .7rem;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
+th{background:#101720;color:var(--mut);font-weight:600;font-size:12.4px;text-transform:uppercase;letter-spacing:.04em;white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:hover{background:#111823}
+td.blank{color:#5a6472;text-align:center}
+.chip{display:inline-block;padding:.1rem .45rem;border-radius:999px;font-size:11.4px;font-weight:600;white-space:nowrap;border:1px solid}
+.chip.good{color:#3fb950;border-color:#3fb95055;background:#3fb95015}
+.chip.warn{color:#d29922;border-color:#d2992255;background:#d2992215}
+.chip.bad{color:#f85149;border-color:#f8514955;background:#f8514915}
+.box{background:#10202b;border:1px solid #1f6feb44;border-left:3px solid #1f6feb;border-radius:9px;padding:.8rem 1rem;margin:1rem 0}
+.box.warn{background:#241d10;border-color:#d2992244;border-left-color:#d29922}
+.box.bad{background:#2a1414;border-color:#f8514944;border-left-color:#f85149}
+.box b{display:block;margin-bottom:.2rem}
+.opt{border:1px solid var(--line);border-radius:9px;padding:.6rem .8rem;margin:.45rem 0;background:#111823}
+.opt .t{font-weight:600}
+.opt.rec{border-color:#3fb95066;box-shadow:inset 3px 0 0 #3fb950}
+footer{border-top:1px solid var(--line);color:var(--mut);font-size:12.5px;padding:1.1rem 1rem;text-align:center}
+ul{margin:.4rem 0 .4rem 1.1rem;padding:0} li{margin:.22rem 0}
+</style></head><body>
+<header><div class="bar"><a class="brand" href="index.html"><b>8</b> OWN8 · DECISION SUPPORT</a>
+<nav aria-label="Section navigation"><a href="index.html">Start here</a><a href="executive-summary.html">Executive summary</a><a href="out-of-sample.html">Week 9 test</a><a href="suggestions.html">Suggestions</a><a aria-current=page href="questions.html">Open questions</a><a href="availability.html">Injuries &amp; depth</a><a href="anti-luck.html">Anti-luck rules</a><a href="flagged.html">Flagged for review</a></nav></div></header>
+<main><h1>Open questions</h1><p class="lead">What is known, what is unknown, and what specifically has to be answered before a decision is reasonable.</p><div class="cards">
+<div class="card"><div class="k">10</div><div class="l">Questions tracked</div></div>
+<div class="card"><div class="k">5</div><div class="l">Answered from official data</div></div>
+<div class="card"><div class="k">5</div><div class="l">Still open</div></div>
+<div class="card"><div class="k">8</div><div class="l">Blocking a decision</div></div></div>
+<h2>Register</h2><div class="tbl"><table><caption>Open questions and information gaps</caption><thead><tr><th scope="col">ID</th><th scope="col">Question</th><th scope="col">Status</th><th scope="col">Answer</th><th scope="col">What is missing</th><th scope="col">Blocks a decision</th><th scope="col">Owner</th><th scope="col">Source</th></tr></thead><tbody><tr><td>Q-01</td><td>Which exact games did the Week 9 benchmarks cover, and did they win?</td><td><span class="chip good">ANSWERED</span></td><td>All 15 Week 9 games. The frozen B0 favourite hit 13 of 15 winners (86.7%).</td><td>Nothing for this narrow question.</td><td>YES</td><td>analysis</td><td><a href="https://www.nfl.com/scores/2026/week-9" target="_blank" rel="noopener noreferrer">Source ↗</a> <code>analysis/model-lines-week9.json</code> <code>decision/results/w9-out-of-sample.json</code></td></tr><tr><td>Q-02</td><td>Was the 86.7% a real signal?</td><td><span class="chip good">ANSWERED</span></td><td>No, as far as one week can tell: a naive &quot;better point differential&quot; rule also scored 86.7% on the same 15 games and &quot;better win percentage&quot; scored 92.3%.</td><td>Many more slates to estimate any real difference.</td><td>YES</td><td>analysis</td><td><a href="https://www.nfl.com/standings/league/2026/REG" target="_blank" rel="noopener noreferrer">Source ↗</a> <code>decision/results/w9-out-of-sample.json</code></td></tr><tr><td>Q-03</td><td>Can we track 2nd/3rd/4th-string backups replacing starters from official data?</td><td><span class="chip good">ANSWERED (NO)</span></td><td>No. nfl.com publishes no depth chart (league and club URLs both return 404) and no snap-count or role data. Only position, roster status and injury designation are official.</td><td>Official depth ordering and per-game participation counts — NOT FOUND as of 2026-11-14.</td><td>YES</td><td>data owner</td><td><a href="https://www.nfl.com/teams/depth-chart" target="_blank" rel="noopener noreferrer">Source ↗</a></td></tr><tr><td>Q-04</td><td>Is the published dashboard current?</td><td><span class="chip good">ANSWERED</span></td><td>No. It is frozen at 2026-11-04 (Week 9 pre-game). The league has completed Week 9 and is in Week 10; WAS 24-21 NYG has already been played.</td><td>An automated publish path that refreshes the site on a schedule.</td><td>YES</td><td>integration owner</td><td><a href="https://www.nfl.com/scores/2026/week-9" target="_blank" rel="noopener noreferrer">Source ↗</a></td></tr><tr><td>Q-05</td><td>What does a strategy have to beat to be called skilful?</td><td><span class="chip warn">OPEN</span></td><td>Undefined. No minimum sample, no fixed baseline set, no required confidence interval is written into the rules.</td><td>An approved, written definition: baseline set, minimum slates, and the statistic that must exceed it.</td><td>YES</td><td>rules owner</td><td><a href="https://www.itl.nist.gov/div898/handbook/prc/section1/prc14.htm" target="_blank" rel="noopener noreferrer">Source ↗</a></td></tr><tr><td>Q-06</td><td>Where do verified operator prices and settlement rules come from?</td><td><span class="chip warn">OPEN — no official source exists</span></td><td>Unknown. Sportsbook prices are commercial, not official NFL publications, and the project forbids third-party odds.</td><td>A legitimate, citable price source with timestamps, plus settlement/void rules per operator.</td><td>YES</td><td>project owner</td><td><a href="https://www.nfl.com/scores/" target="_blank" rel="noopener noreferrer">Source ↗</a> <code>data/flagged.json</code> <code>analysis/validation-gates.json</code></td></tr><tr><td>Q-07</td><td>What happens when a game ties, and how are dropped games reported?</td><td><span class="chip warn">OPEN</span></td><td>Undefined in the current registry, although ties occur (NYG and WAS each have one in 2026).</td><td>An explicit per-market tie rule (push / void / refund) and a count of games dropped.</td><td>no</td><td>rules owner</td><td><a href="https://www.nfl.com/standings/league/2026/REG" target="_blank" rel="noopener noreferrer">Source ↗</a></td></tr><tr><td>Q-08</td><td>Is a same-game parlay correlation available from official data?</td><td><span class="chip warn">OPEN — cannot be computed yet</span></td><td>Not from official NFL pages alone: it needs paired player-level outcomes against fixed thresholds and event-level alignment.</td><td>Timestamp-aligned per-game player logs, market thresholds, and joint outcomes.</td><td>YES</td><td>data owner</td><td><a href="https://nextgenstats.nfl.com/stats/passing/2026/REG/9" target="_blank" rel="noopener noreferrer">Source ↗</a></td></tr><tr><td>Q-09</td><td>How large is the home-field effect the current benchmark ignores?</td><td><span class="chip warn">PARTIALLY ANSWERED — insufficient sample</span></td><td>Week 9 alone shows B0 under-weighting the home side by about 3.2 points of mean margin; one week is not an estimate.</td><td>Multiple seasons of the same comparison before any venue term is fitted.</td><td>no</td><td>analysis</td><td><a href="https://www.nfl.com/standings/" target="_blank" rel="noopener noreferrer">Source ↗</a> <code>decision/results/w9-out-of-sample.json</code></td></tr><tr><td>Q-10</td><td>Which other agent sessions are producing overlapping deliverables?</td><td><span class="chip good">ANSWERED — coordination risk</span></td><td>Four parallel sessions (a57af0ab, aa2d8cbe, d6bada32, c563a1dc) claimed the same suggestions/questions/injury scope on 2026-11-14, in addition to this one.</td><td>A single owner of the final integration and nav update.</td><td>YES</td><td>project owner</td><td><a href="https://github.com/sassnarep3-star/Own8/actions" target="_blank" rel="noopener noreferrer">Source ↗</a> <code>COORDINATION.md</code></td></tr></tbody></table></div><p class="note">A question is only marked answered when an official source settles it. &#x27;What is missing&#x27; is the work needed to answer it — it is not a guess at the answer.</p>
+<h2>How missing information would be discovered</h2>
+<ul>
+<li><strong>Depth and string order:</strong> needs an official depth chart or official participation counts.
+Both were searched on 2026-11-14 and do not exist on nfl.com (see the injuries page). Until a citable
+official source appears, the field stays blank.</li>
+<li><strong>Prices and settlement:</strong> needs an operator-native, timestamped source with explicit
+void/push rules. No official NFL page provides odds, so this must come from the project owner, not from
+an aggregator.</li>
+<li><strong>Correlation and joint outcomes:</strong> needs per-game player logs aligned to fixed thresholds.
+Official season totals are not sufficient; the per-game logs must be transcribed with their own source links.</li>
+<li><strong>Skill definition:</strong> needs a written rule, not more data. This is a decision, not a search.</li>
+</ul></main>
+<footer>Paper research only · No wagering, no cash rewards, no profitability claim ·
+Sources retrieved 2026-11-14 · Blank means unverified, never inferred</footer>
+</body></html>

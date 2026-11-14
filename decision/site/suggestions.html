@@ -1,0 +1,92 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Suggestions for review · Own8 decision support</title>
+<style>
+:root{--bg:#0d1117;--panel:#151b23;--line:#232c38;--ink:#e6edf3;--mut:#8b98a8;--acc:#3fb950;--warn:#d29922;--bad:#f85149}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header{position:sticky;top:0;z-index:9;background:rgba(13,17,23,.94);border-bottom:1px solid var(--line);backdrop-filter:blur(8px)}
+.bar{max-width:1180px;margin:0 auto;padding:.7rem 1rem;display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
+.brand{font-weight:700;letter-spacing:.02em;color:var(--ink);text-decoration:none}
+.brand b{color:var(--acc)}
+nav{display:flex;gap:.15rem;flex-wrap:wrap;margin-left:auto}
+nav a{color:var(--mut);text-decoration:none;padding:.32rem .6rem;border-radius:7px;font-size:13.5px}
+nav a:hover{background:var(--panel);color:var(--ink)}
+nav a[aria-current=page]{background:#1f6feb22;color:#79c0ff;box-shadow:inset 0 0 0 1px #1f6feb55}
+main{max-width:1180px;margin:0 auto;padding:1.6rem 1rem 4rem}
+h1{font-size:1.72rem;line-height:1.25;margin:.2rem 0 .5rem;letter-spacing:-.01em}
+h2{font-size:1.14rem;margin:2rem 0 .6rem;padding-bottom:.35rem;border-bottom:1px solid var(--line)}
+h3{font-size:1rem;margin:1.3rem 0 .4rem}
+p{margin:.55rem 0}
+.lead{color:var(--mut);font-size:1.02rem;max-width:74ch}
+.note{color:var(--mut);font-size:12.8px;margin:.45rem 0 0}
+a{color:#79c0ff}
+code{background:#1b2230;padding:.1rem .32rem;border-radius:5px;font-size:12.5px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:.8rem;margin:1.1rem 0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:.85rem .9rem}
+.card .k{font-size:1.5rem;font-weight:700;letter-spacing:-.02em}
+.card .l{color:var(--mut);font-size:12.6px;text-transform:uppercase;letter-spacing:.05em}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:11px;margin:.7rem 0}
+table{border-collapse:collapse;width:100%;font-size:13.6px}
+caption{text-align:left;padding:.65rem .8rem;color:var(--mut);font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;border-bottom:1px solid var(--line)}
+th,td{padding:.5rem .7rem;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
+th{background:#101720;color:var(--mut);font-weight:600;font-size:12.4px;text-transform:uppercase;letter-spacing:.04em;white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:hover{background:#111823}
+td.blank{color:#5a6472;text-align:center}
+.chip{display:inline-block;padding:.1rem .45rem;border-radius:999px;font-size:11.4px;font-weight:600;white-space:nowrap;border:1px solid}
+.chip.good{color:#3fb950;border-color:#3fb95055;background:#3fb95015}
+.chip.warn{color:#d29922;border-color:#d2992255;background:#d2992215}
+.chip.bad{color:#f85149;border-color:#f8514955;background:#f8514915}
+.box{background:#10202b;border:1px solid #1f6feb44;border-left:3px solid #1f6feb;border-radius:9px;padding:.8rem 1rem;margin:1rem 0}
+.box.warn{background:#241d10;border-color:#d2992244;border-left-color:#d29922}
+.box.bad{background:#2a1414;border-color:#f8514944;border-left-color:#f85149}
+.box b{display:block;margin-bottom:.2rem}
+.opt{border:1px solid var(--line);border-radius:9px;padding:.6rem .8rem;margin:.45rem 0;background:#111823}
+.opt .t{font-weight:600}
+.opt.rec{border-color:#3fb95066;box-shadow:inset 3px 0 0 #3fb950}
+footer{border-top:1px solid var(--line);color:var(--mut);font-size:12.5px;padding:1.1rem 1rem;text-align:center}
+ul{margin:.4rem 0 .4rem 1.1rem;padding:0} li{margin:.22rem 0}
+</style></head><body>
+<header><div class="bar"><a class="brand" href="index.html"><b>8</b> OWN8 · DECISION SUPPORT</a>
+<nav aria-label="Section navigation"><a href="index.html">Start here</a><a href="executive-summary.html">Executive summary</a><a href="out-of-sample.html">Week 9 test</a><a aria-current=page href="suggestions.html">Suggestions</a><a href="questions.html">Open questions</a><a href="availability.html">Injuries &amp; depth</a><a href="anti-luck.html">Anti-luck rules</a><a href="flagged.html">Flagged for review</a></nav></div></header>
+<main><h1>Suggestions for review</h1><p class="lead">Every proposal is listed with its evidence, its options, its cost and its risk. None has been implemented — the choice is yours.</p><div class="box"><b>ALL PROPOSED — awaiting selection. Nothing in this register has been implemented.</b><p>Suggestions are project design, not official NFL guidance. Each is tied to a measured finding or an observed official page response.</p></div><h2>How to choose</h2><ol><li>1. Read the problem and the evidence link.</li><li>2. Compare the options on impact, cost and risk.</li><li>3. Pick one option (or reject the suggestion) and record the date and reason.</li><li>4. Only then open an implementation task in COORDINATION.md.</li></ol><h2>SG-01 · Score every published benchmark against a fixed naive baseline, on the same rows</h2>
+<p><strong>Problem.</strong> The site currently publishes accuracy-looking numbers without a baseline, so a reader cannot tell skill from a dumb rule. Measured Week 9: B0 favourite 86.7%, naive point-differential rule 86.7%, naive win-percentage rule 92.3%.</p>
+<p><strong>Evidence.</strong> decision/results/w9-out-of-sample.json baseline_winner_rules; analysis/leaderboard.json (baseline absent).</p>
+<div class="opt"><span class="t">Option A — Keep as-is</span><p>Readers may mistake a baseline artefact for skill.</p><p class="note">Cost: None · Risk: High — this is the project&#x27;s core failure mode.</p></div><div class="opt"><span class="t">Option B — Always show a baseline column next to every score</span><p>Skill and luck become visually separable at a glance.</p><p class="note">Cost: Low — one extra computed column per table. · Risk: Low.</p></div><div class="opt rec"><span class="t">Option C — B + a per-row verdict label (&quot;beats baseline / ties baseline / loses&quot;)</span><p>Makes the conclusion explicit instead of inferable.</p><p class="note">Cost: Low. · Risk: Low.</p></div>
+<p><strong>Recommended.</strong> C · <strong>Decision needed.</strong> Approve the baseline set (point differential, win percentage, always-home) as the canonical comparison group.</p>
+<p class="note">Status: proposed only — not implemented. Gates affected: G6 ·
+Owner role: analysis · <a href="https://www.itl.nist.gov/div898/handbook/eda/section3/scatterp.htm" target="_blank" rel="noopener noreferrer">Official source ↗</a></p><h2>SG-02 · Split the competition into a price-free accuracy track and a separate betting track</h2>
+<p><strong>Problem.</strong> G5 (verified operator price), G7 (net expected value) and G8 (settled ledger) are permanently BLOCKED because no verified prices exist. Result: 0 of 8 strategies can ever be rewarded, and the leaderboard is an empty table by construction.</p>
+<p><strong>Evidence.</strong> analysis/validation-gates.json (G5/G7/G8 BLOCKED, eligible_strategies 0); data/flagged.json A01, A08.</p>
+<div class="opt"><span class="t">Option A — Leave all gates coupled</span><p>Leaderboard stays permanently empty; no research is ever rewarded.</p><p class="note">Cost: None · Risk: High — the reward mechanism the project asks for cannot function.</p></div><div class="opt rec"><span class="t">Option B — Track 1 = forecast accuracy and calibration (no prices); Track 2 = betting edge (prices required)</span><p>Track 1 becomes judgeable immediately from official results; Track 2 stays honestly blocked.</p><p class="note">Cost: Medium — two scoring specs. · Risk: Low.</p></div><div class="opt"><span class="t">Option C — B + publish Track 1 scores for the existing 15 Week 9 lines as a pilot</span><p>First real, verifiable leaderboard entries this week.</p><p class="note">Cost: Medium. · Risk: Medium — must be labelled a single-slate pilot, not a ranking.</p></div>
+<p><strong>Recommended.</strong> B, then C as a labelled pilot · <strong>Decision needed.</strong> Choose whether price-free accuracy is a legitimate basis for paper reward points.</p>
+<p class="note">Status: proposed only — not implemented. Gates affected: G6, G8 ·
+Owner role: rules owner · <a href="https://www.nfl.com/scores/2026/week-9" target="_blank" rel="noopener noreferrer">Official source ↗</a></p><h2>SG-03 · Make the site regenerate on a schedule and show its own staleness</h2>
+<p><strong>Problem.</strong> The published dashboard is frozen at 2026-11-04 (Week 9 pre-game) while the league is in Week 10. There is no on-page indicator of how stale the numbers are, and no scheduled refresh touches them.</p>
+<p><strong>Evidence.</strong> data/audit-snapshot.json as_of=2026-11-04 vs official Week 9 finals on https://www.nfl.com/scores/2026/week-9 (retrieved 2026-11-14); .github/workflows/audit.yml runs a validator, uploads an artifact, and never republishes the site.</p>
+<div class="opt"><span class="t">Option A — Nothing</span><p>Site silently drifts further from reality every week.</p><p class="note">Cost: None · Risk: High.</p></div><div class="opt"><span class="t">Option B — Add a &quot;data as of / weeks behind&quot; banner computed from the snapshot date</span><p>Reader instantly knows the numbers are historical.</p><p class="note">Cost: Low. · Risk: Low.</p></div><div class="opt rec"><span class="t">Option C — B + a scheduled job that re-runs verification and fails loudly when the snapshot lags</span><p>Drift becomes impossible to miss.</p><p class="note">Cost: Medium — workflow change on main. · Risk: Medium — needs a maintainer to fix failures.</p></div>
+<p><strong>Recommended.</strong> C · <strong>Decision needed.</strong> Approve a publish path that updates the site (not just an artifact) and a maximum acceptable staleness.</p>
+<p class="note">Status: proposed only — not implemented. Gates affected: G2 ·
+Owner role: integration owner · <a href="https://www.nfl.com/scores/2026/week-9" target="_blank" rel="noopener noreferrer">Official source ↗</a></p><h2>SG-04 · Replace the depth-chart ambition with an honest availability signal</h2>
+<p><strong>Problem.</strong> The requested 2nd/3rd/4th-string tracking cannot be built from official sources: nfl.com returns 404 for depth charts and publishes no snap counts or role data. Only position, roster status and injury designation are official.</p>
+<p><strong>Evidence.</strong> decision/data/availability-probe.json (AV-1..AV-6, each an observed page response on 2026-11-14).</p>
+<div class="opt"><span class="t">Option A — Estimate depth order from roster/injury lists</span><p>Requires inference; violates the project&#x27;s own no-inference rule and would be indistinguishable from a guess.</p><p class="note">Cost: Low. · Risk: Critical — fabricated provenance.</p></div><div class="opt rec"><span class="t">Option B — Publish an official availability table only (position, designation, participation) and leave string depth blank + flagged</span><p>Truthful and useful: which positions a club has lost, not who replaces whom.</p><p class="note">Cost: Low — data already captured this session (114 rows). · Risk: Low.</p></div><div class="opt"><span class="t">Option C — B + positional concentration metric (count of Out/Doubtful/Questionable per position group per team)</span><p>Turns availability into a comparable, source-linked number without inventing depth.</p><p class="note">Cost: Low-medium. · Risk: Low.</p></div>
+<p><strong>Recommended.</strong> B now, C next · <strong>Decision needed.</strong> Confirm the project will accept &quot;positions lost&quot; instead of &quot;2nd/3rd-string replacement&quot; until an official depth source exists.</p>
+<p class="note">Status: proposed only — not implemented. Gates affected: G4 ·
+Owner role: data owner · <a href="https://www.nfl.com/injuries/league/2026/reg10" target="_blank" rel="noopener noreferrer">Official source ↗</a></p><h2>SG-05 · Adopt a standing anti-luck evaluation protocol as a written rule</h2>
+<p><strong>Problem.</strong> A single week produced p=0.007 against a coin flip for the benchmark, which looks like skill and is a false positive by construction when 12+ variants are registered.</p>
+<p><strong>Evidence.</strong> decision/results/w9-out-of-sample.json (binomial_p_vs_coinflip 0.007, winner_accuracy 0.867 tied with baseline); analysis/strategies.json (8 registered variants).</p>
+<div class="opt"><span class="t">Option A — Quote raw p-values per slate</span><p>Guarantees eventual false promotion.</p><p class="note">Cost: None · Risk: Critical.</p></div><div class="opt"><span class="t">Option B — Minimum sample floor + pre-registered family + baseline comparison, no exceptions</span><p>Most published numbers would become &quot;insufficient evidence&quot;, which is correct.</p><p class="note">Cost: Medium — governance. · Risk: Low.</p></div><div class="opt rec"><span class="t">Option C — B + publish a running &quot;number of variants tested&quot; counter used in the adjustment</span><p>Makes multiplicity visible to the reader.</p><p class="note">Cost: Medium. · Risk: Low.</p></div>
+<p><strong>Recommended.</strong> C · <strong>Decision needed.</strong> Set the minimum sample floor (e.g. one full season of slates) before any skill label is allowed.</p>
+<p class="note">Status: proposed only — not implemented. Gates affected: G6, G7 ·
+Owner role: rules owner · <a href="https://www.itl.nist.gov/div898/handbook/prc/section4/prc473.htm" target="_blank" rel="noopener noreferrer">Official source ↗</a></p><h2>SG-06 · Put every open question, and its owner, on one decision page</h2>
+<p><strong>Problem.</strong> Answers are scattered across 6+ session namespaces (origination/, strict/, desk/, evidence-lab/, advisory/, review/) with no single place showing what is decided, what is pending and what is unknowable.</p>
+<p><strong>Evidence.</strong> COORDINATION.md; README.md repository layout; decision/data/open-questions.json.</p>
+<div class="opt"><span class="t">Option A — Leave it in the board</span><p>Only an agent can find an answer; a human cannot.</p><p class="note">Cost: None · Risk: Medium.</p></div><div class="opt rec"><span class="t">Option B — One Decision page: status per question, owner role, source, blocking flag</span><p>The requested &quot;review and choose the best path&quot; becomes one screen.</p><p class="note">Cost: Low — this session produced the data. · Risk: Low.</p></div>
+<p><strong>Recommended.</strong> B · <strong>Decision needed.</strong> Confirm the page becomes the canonical place to record decisions.</p>
+<p class="note">Status: proposed only — not implemented. Gates affected: none ·
+Owner role: integration owner · <a href="https://www.nfl.com/standings/" target="_blank" rel="noopener noreferrer">Official source ↗</a></p></main>
+<footer>Paper research only · No wagering, no cash rewards, no profitability claim ·
+Sources retrieved 2026-11-14 · Blank means unverified, never inferred</footer>
+</body></html>

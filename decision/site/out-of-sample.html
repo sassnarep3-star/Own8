@@ -1,0 +1,70 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 9: the first real test · Own8 decision support</title>
+<style>
+:root{--bg:#0d1117;--panel:#151b23;--line:#232c38;--ink:#e6edf3;--mut:#8b98a8;--acc:#3fb950;--warn:#d29922;--bad:#f85149}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header{position:sticky;top:0;z-index:9;background:rgba(13,17,23,.94);border-bottom:1px solid var(--line);backdrop-filter:blur(8px)}
+.bar{max-width:1180px;margin:0 auto;padding:.7rem 1rem;display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
+.brand{font-weight:700;letter-spacing:.02em;color:var(--ink);text-decoration:none}
+.brand b{color:var(--acc)}
+nav{display:flex;gap:.15rem;flex-wrap:wrap;margin-left:auto}
+nav a{color:var(--mut);text-decoration:none;padding:.32rem .6rem;border-radius:7px;font-size:13.5px}
+nav a:hover{background:var(--panel);color:var(--ink)}
+nav a[aria-current=page]{background:#1f6feb22;color:#79c0ff;box-shadow:inset 0 0 0 1px #1f6feb55}
+main{max-width:1180px;margin:0 auto;padding:1.6rem 1rem 4rem}
+h1{font-size:1.72rem;line-height:1.25;margin:.2rem 0 .5rem;letter-spacing:-.01em}
+h2{font-size:1.14rem;margin:2rem 0 .6rem;padding-bottom:.35rem;border-bottom:1px solid var(--line)}
+h3{font-size:1rem;margin:1.3rem 0 .4rem}
+p{margin:.55rem 0}
+.lead{color:var(--mut);font-size:1.02rem;max-width:74ch}
+.note{color:var(--mut);font-size:12.8px;margin:.45rem 0 0}
+a{color:#79c0ff}
+code{background:#1b2230;padding:.1rem .32rem;border-radius:5px;font-size:12.5px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:.8rem;margin:1.1rem 0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:.85rem .9rem}
+.card .k{font-size:1.5rem;font-weight:700;letter-spacing:-.02em}
+.card .l{color:var(--mut);font-size:12.6px;text-transform:uppercase;letter-spacing:.05em}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:11px;margin:.7rem 0}
+table{border-collapse:collapse;width:100%;font-size:13.6px}
+caption{text-align:left;padding:.65rem .8rem;color:var(--mut);font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;border-bottom:1px solid var(--line)}
+th,td{padding:.5rem .7rem;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
+th{background:#101720;color:var(--mut);font-weight:600;font-size:12.4px;text-transform:uppercase;letter-spacing:.04em;white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:hover{background:#111823}
+td.blank{color:#5a6472;text-align:center}
+.chip{display:inline-block;padding:.1rem .45rem;border-radius:999px;font-size:11.4px;font-weight:600;white-space:nowrap;border:1px solid}
+.chip.good{color:#3fb950;border-color:#3fb95055;background:#3fb95015}
+.chip.warn{color:#d29922;border-color:#d2992255;background:#d2992215}
+.chip.bad{color:#f85149;border-color:#f8514955;background:#f8514915}
+.box{background:#10202b;border:1px solid #1f6feb44;border-left:3px solid #1f6feb;border-radius:9px;padding:.8rem 1rem;margin:1rem 0}
+.box.warn{background:#241d10;border-color:#d2992244;border-left-color:#d29922}
+.box.bad{background:#2a1414;border-color:#f8514944;border-left-color:#f85149}
+.box b{display:block;margin-bottom:.2rem}
+.opt{border:1px solid var(--line);border-radius:9px;padding:.6rem .8rem;margin:.45rem 0;background:#111823}
+.opt .t{font-weight:600}
+.opt.rec{border-color:#3fb95066;box-shadow:inset 3px 0 0 #3fb950}
+footer{border-top:1px solid var(--line);color:var(--mut);font-size:12.5px;padding:1.1rem 1rem;text-align:center}
+ul{margin:.4rem 0 .4rem 1.1rem;padding:0} li{margin:.22rem 0}
+</style></head><body>
+<header><div class="bar"><a class="brand" href="index.html"><b>8</b> OWN8 · DECISION SUPPORT</a>
+<nav aria-label="Section navigation"><a href="index.html">Start here</a><a href="executive-summary.html">Executive summary</a><a aria-current=page href="out-of-sample.html">Week 9 test</a><a href="suggestions.html">Suggestions</a><a href="questions.html">Open questions</a><a href="availability.html">Injuries &amp; depth</a><a href="anti-luck.html">Anti-luck rules</a><a href="flagged.html">Flagged for review</a></nav></div></header>
+<main><h1>Week 9: the first real test</h1><p class="lead">The site published 15 explicitly unvalidated Week 9 lines. Those games are now final. This is what happened.</p><div class="box bad"><b>Result</b><p>Benchmark favourite hit
+13 of 15 (86.7%).
+Naive point-differential rule: 86.7% on the same games.
+Naive win-percentage rule: 92.3%.
+The benchmark does not beat the simplest rule available.</p></div>
+<h2>Accuracy versus a fixed baseline</h2>
+<p>A hit rate means nothing without a comparison. These four rules were scored on the identical 15 games.</p><div class="tbl"><table><caption>Winner-pick rules, Week 9, n=15</caption><thead><tr><th scope="col">Rule</th><th scope="col">Correct</th><th scope="col">Scored</th><th scope="col">Accuracy</th><th scope="col">p vs coin flip (raw)</th><th scope="col">Source</th></tr></thead><tbody><tr><td>always pick home</td><td>5</td><td>15</td><td>33.3%</td><td>0.3018</td><td><a href="https://www.nfl.com/scores/2026/week-9" target="_blank" rel="noopener noreferrer">Week 9 ↗</a></td></tr><tr><td>better win pct</td><td>12</td><td>13</td><td>92.3%</td><td>0.0034</td><td><a href="https://www.nfl.com/scores/2026/week-9" target="_blank" rel="noopener noreferrer">Week 9 ↗</a></td></tr><tr><td>better point diff per game</td><td>13</td><td>15</td><td>86.7%</td><td>0.0074</td><td><a href="https://www.nfl.com/scores/2026/week-9" target="_blank" rel="noopener noreferrer">Week 9 ↗</a></td></tr><tr><td>b0 model favourite</td><td>13</td><td>15</td><td>86.7%</td><td>0.0074</td><td><a href="https://www.nfl.com/scores/2026/week-9" target="_blank" rel="noopener noreferrer">Week 9 ↗</a></td></tr></tbody></table></div><p class="note">Raw p-values are shown only to demonstrate the trap: several rules clear p&lt;0.05 on one slate. None of them is evidence of skill. Games with no side taken are excluded and counted.</p><h2>Error, not just winners</h2>
+<div class="cards">
+<div class="card"><div class="k">9.46</div><div class="l">Margin MAE (points)</div></div>
+<div class="card"><div class="k">11.03</div><div class="l">Total MAE (points)</div></div>
+<div class="card"><div class="k">11.17</div><div class="l">Naive total MAE</div></div>
+<div class="card"><div class="k">+3.23</div><div class="l">Signed margin bias</div></div>
+</div>
+<p>B0 applies NO venue adjustment by design. Across Week 9 it projected a mean home margin of -1.367 against a realised -4.6; the positive signed bias means it under-weighted the home side, consistent with a missing home-field term. One week cannot fix the size of that term and no value is assumed here.</p>
+<h2>Every game, worst error first</h2><div class="tbl"><table><caption>Week 9 out-of-sample detail</caption><thead><tr><th scope="col">Game</th><th scope="col">Projected home margin</th><th scope="col">Actual home margin</th><th scope="col">Abs error</th><th scope="col">Projected total</th><th scope="col">Actual total</th><th scope="col">Projected winner</th><th scope="col">Actual winner</th><th scope="col">Pick</th><th scope="col">Source</th></tr></thead><tbody><tr><td>NYJ at KC</td><td>+3.7</td><td>+23</td><td>19.3</td><td>43.7</td><td>47</td><td>home</td><td>home</td><td><span class="chip warn">HIT</span></td><td><a href="https://www.nfl.com/games/jets-at-chiefs-2026-reg-9" target="_blank" rel="noopener noreferrer">Game ↗</a></td></tr><tr><td>GB at NE</td><td>+0.9</td><td>-18</td><td>18.9</td><td>42.6</td><td>72</td><td>home</td><td>away</td><td><span class="chip warn">MISS</span></td><td><a href="https://www.nfl.com/games/packers-at-patriots-2026-reg-9" target="_blank" rel="noopener noreferrer">Game ↗</a></td></tr><tr><td>HOU at LAC</td><td>-5.1</td><td>-22</td><td>16.9</td><td>43.5</td><td>66</td><td>away</td><td>away</td><td><span class="chip warn">HIT</span></td><td><a href="https://www.nfl.com/games/texans-at-chargers-2026-reg-9" target="_blank" rel="noopener noreferrer">Game ↗</a></td></tr><tr><td>BUF at MIN</td><td>-0.4</td><td>-17</td><td>16.6</td><td>46.2</td><td>29</td><td>away</td><td>away</td><td><span class="chip warn">HIT</span></td><td><a href="https://www.nfl.com/games/bills-at-vikings-2026-reg-9" target="_blank" rel="noopener noreferrer">Game ↗</a></td></tr><tr><td>LV at SF</td><td>+4.7</td><td>+21</td><td>16.3</td><td>52.2</td><td>55</td><td>home</td><td>home</td><td><span class="chip warn">HIT</span></td><td><a href="https://www.nfl.com/games/raiders-at-49ers-2026-reg-9" target="_blank" rel="noopener noreferrer">Game ↗</a></td></tr><tr><td>JAX at BAL</td><td>-7.6</td><td>-23</td><td>15.4</td><td>45.8</td><td>43</td><td>away</td><td>away</td><td><span class="chip warn">HIT</span></td><td><a href="https://www.nfl.com/games/jaguars-at-ravens-2026-reg-9" target="_blank" rel="noopener noreferrer">Game ↗</a></td></tr><tr><td>CIN at ATL</td><td>-4.6</td><td>-17</td><td>12.4</td><td>48.5</td><td>51</td><td>away</td><td>away</td><td><span class="chip warn">HIT</span></td><td><a href="https://www.nfl.com/games/bengals-at-falcons-2026-reg-9" target="_blank" rel="noopener noreferrer">Game ↗</a></td></tr><tr><td>AZ at SEA</td><td>+5.6</td><td>+14</td><td>8.4</td><td>47.3</td><td>20</td><td>home</td><td>home</td><td><span class="chip warn">HIT</span></td><td><a href="https://www.nfl.com/games/cardinals-at-seahawks-2026-reg-9" target="_blank" rel="noopener noreferrer">Game ↗</a></td></tr><tr><td>NYG at PHI</td><td>-4.2</td><td>-8</td><td>3.8</td><td>44.3</td><td>30</td><td>away</td><td>away</td><td><span class="chip warn">HIT</span></td><td><a href="https://www.nfl.com/games/giants-at-eagles-2026-reg-9" target="_blank" rel="noopener noreferrer">Game ↗</a></td></tr><tr><td>DET at MIA</td><td>-6.2</td><td>-10</td><td>3.8</td><td>48.6</td><td>28</td><td>away</td><td>away</td><td><span class="chip warn">HIT</span></td><td><a href="https://www.nfl.com/games/lions-at-dolphins-2026-reg-9" target="_blank" rel="noopener noreferrer">Game ↗</a></td></tr><tr><td>LA at WAS</td><td>-3.3</td><td>-7</td><td>3.7</td><td>47.0</td><td>33</td><td>away</td><td>away</td><td><span class="chip warn">HIT</span></td><td><a href="https://www.nfl.com/games/rams-at-commanders-2026-reg-9" target="_blank" rel="noopener noreferrer">Game ↗</a></td></tr><tr><td>DEN at CAR</td><td>-1.5</td><td>-5</td><td>3.5</td><td>47.6</td><td>47</td><td>away</td><td>away</td><td><span class="chip warn">HIT</span></td><td><a href="https://www.nfl.com/games/broncos-at-panthers-2026-reg-9" target="_blank" rel="noopener noreferrer">Game ↗</a></td></tr><tr><td>TB at CHI</td><td>+1.7</td><td>+3</td><td>1.3</td><td>43.9</td><td>51</td><td>home</td><td>home</td><td><span class="chip warn">HIT</span></td><td><a href="https://www.nfl.com/games/buccaneers-at-bears-2026-reg-9" target="_blank" rel="noopener noreferrer">Game ↗</a></td></tr><tr><td>CLE at NO</td><td>-0.2</td><td>+1</td><td>1.2</td><td>44.9</td><td>45</td><td>away</td><td>home</td><td><span class="chip warn">MISS</span></td><td><a href="https://www.nfl.com/games/browns-at-saints-2026-reg-9" target="_blank" rel="noopener noreferrer">Game ↗</a></td></tr><tr><td>DAL at IND</td><td>-4.2</td><td>-4</td><td>0.2</td><td>50.9</td><td>50</td><td>away</td><td>away</td><td><span class="chip warn">HIT</span></td><td><a href="https://www.nfl.com/games/cowboys-at-colts-2026-reg-9" target="_blank" rel="noopener noreferrer">Game ↗</a></td></tr></tbody></table></div><p class="note">Predictions are the frozen pre-kickoff values from analysis/model-lines-week9.json; actuals are official final scores. No line, price or edge exists for these games, so no ROI is shown.</p><h2>What this does and does not prove</h2><ul><li>One week of 15 games cannot distinguish skill from luck; the honest band on a 15-game hit rate is enormous.</li><li>No operator price existed for these games, so no ROI, no edge and no reward can be computed. Moneyline/return claims remain blocked.</li><li>The only defensible skill test is the benchmark&#x27;s error versus a fixed naive rule on identical games. On Week 9 that gap is zero against point differential and negative against win percentage.</li><li>Six of fifteen games missed the margin by more than two touchdowns, which is where a real model difference would have to show up.</li></ul><div class="box warn"><b>Read this before quoting the number</b><p>The 13/15 hit rate is NOT evidence of skill: a rule that simply picks the team with the better season point differential is scored on the same 15 games in the same output. The B0 edge over that rule, if any, is the only part that could be skill; with n=15 the confidence interval on any difference spans zero. Nothing here clears a validation gate.</p></div></main>
+<footer>Paper research only · No wagering, no cash rewards, no profitability claim ·
+Sources retrieved 2026-11-14 · Blank means unverified, never inferred</footer>
+</body></html>
