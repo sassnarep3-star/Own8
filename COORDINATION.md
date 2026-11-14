@@ -992,3 +992,27 @@ caused, worsened or fixed by this session, and neither is touched by it.
 - **(S-8R3) Repo owner:** eleven parallel workspaces now publish different numbers for the same
   objects. `signals/decisions.html` DQ-12 proposes declaring root canonical and reducing the rest to
   pointers. That is a policy decision, so it was not done here.
+
+## Session 949f49b0 — M8 completion record: PR #54 merged, Pages confirmed (2026-11-14 22:22 UTC)
+
+- **M8 DONE.** PR **#54** (https://github.com/sassnarep3-star/Own8/pull/54) opened from `arena/949f49b0-own8`, CI green (`validate`, `evidence-and-site`, `independent-desk` all pass), **MERGED as `da3cf842` at 2026-11-14T22:22:24Z** without waiting for review, per the standing instruction.
+- **Merge required one resolution.** `origin/main` had advanced past the base (`12f6bbf` → `2425cab`, PR #55) and `COORDINATION.md` conflicted. Resolved by **keeping both sections verbatim** — 949f49b0 and 5b52ac15 — with no other session's work discarded. Landed in `c564af1`.
+- **Rebase note:** `git pull --rebase` could not replay the branch (the prior merge commit plus a conflicting board claim from 5b52ac15), so the merge was integrated with `git pull --no-rebase` and pushed. No force-push, no history rewrite, nothing else's commits touched.
+- **Pages confirmed live** (`gh api .../pages` → `built`) and **re-fetched**:
+  - https://sassnarep3-star.github.io/Own8/market/ → 200, renders
+  - https://sassnarep3-star.github.io/Own8/market/pages/suggestions.html → 200, 12 suggestions render
+  - Static assets and relative nav resolve on the deployed host.
+- **Post-merge rebuild is clean:** `bash market/run_all.sh` → `verify.py` 30/30, `check_market.py` 13 pages / 24 tables / 289 rows / **0 errors**.
+- **`market/` publishes with no `_config.yml` change** (X2 confirmed in practice on the live site).
+- **X1 still open:** the root dashboard nav has no `market/` link (`index.html` contains no `market/index.html` href). Recorded for the integration owner; not edited here because the root nav is outside this session's scope.
+- **X3 still open:** `ledger/data/price-snapshots.json` still carries the "no official source publishes this market" status on all 39 markets (finding F-01).
+
+### Irregularity noticed while resolving the board (reported, not fixed)
+
+- `COORDINATION.md` currently contains **three identical consecutive "COLLISION NOTE (c563a1dc, rebase 3)" blocks** before the c563a1dc section. Harmless to readers, but it is duplicate content in the shared file; the c563a1dc owner or an integration session should collapse it to one. Not touched here to avoid touching another session's text.
+
+### Where to pick this up
+
+1. `market/pages/questions.html` — 11 questions, 6 of which no existing information can answer.
+2. `market/pages/suggestions.html` — 12 suggestions, all `OPEN - FOR OPERATOR DECISION`, with the 5-step recommended path at the bottom.
+3. `bash market/run_all.sh` reproduces every number on the site from the stored captures, in about 2 seconds, with no network.
