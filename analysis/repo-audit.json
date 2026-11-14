@@ -45,8 +45,8 @@
     },
     {
       "path": "COORDINATION.md",
-      "lines": 491,
-      "sha256": "df95570cee2d9ad1efea480e6c97d1208e2956952b0b2b6c6fe7cb229bf57169",
+      "lines": 511,
+      "sha256": "ac82c61ead5c040ea57244d9e2253d6cdfd2b36ee4e722210103edf71a13f76d",
       "review": "Executable/source or generated output \u2014 static checks; not official factual evidence",
       "source_url": "https://www.nfl.com/standings/"
     },
@@ -128,20 +128,6 @@
       "source_url": "https://www.nfl.com/standings/"
     },
     {
-      "path": "analysis/link-check.json",
-      "lines": null,
-      "sha256": null,
-      "review": "Generated artifact \u2014 hashes/line counts omitted to avoid a self-referential audit manifest",
-      "source_url": "https://www.nfl.com/standings/"
-    },
-    {
-      "path": "analysis/link-check.json",
-      "lines": null,
-      "sha256": null,
-      "review": "Generated artifact \u2014 hashes/line counts omitted to avoid a self-referential audit manifest",
-      "source_url": "https://www.nfl.com/standings/"
-    },
-    {
       "path": "analysis/live-official-check-2026-11-04.json",
       "lines": null,
       "sha256": null,
@@ -185,20 +171,6 @@
     },
     {
       "path": "analysis/prop-signals.json",
-      "lines": null,
-      "sha256": null,
-      "review": "Generated artifact \u2014 hashes/line counts omitted to avoid a self-referential audit manifest",
-      "source_url": "https://www.nfl.com/standings/"
-    },
-    {
-      "path": "analysis/repo-audit.json",
-      "lines": null,
-      "sha256": null,
-      "review": "Generated artifact \u2014 hashes/line counts omitted to avoid a self-referential audit manifest",
-      "source_url": "https://www.nfl.com/standings/"
-    },
-    {
-      "path": "analysis/repo-audit.json",
       "lines": null,
       "sha256": null,
       "review": "Generated artifact \u2014 hashes/line counts omitted to avoid a self-referential audit manifest",
@@ -3187,20 +3159,6 @@
       "source_url": "https://www.nfl.com/standings/"
     },
     {
-      "path": "pages/repo-review.html",
-      "lines": null,
-      "sha256": null,
-      "review": "Generated artifact \u2014 hashes/line counts omitted to avoid a self-referential audit manifest",
-      "source_url": "https://www.nfl.com/standings/"
-    },
-    {
-      "path": "pages/repo-review.html",
-      "lines": null,
-      "sha256": null,
-      "review": "Generated artifact \u2014 hashes/line counts omitted to avoid a self-referential audit manifest",
-      "source_url": "https://www.nfl.com/standings/"
-    },
-    {
       "path": "pages/responsible-gambling.html",
       "lines": null,
       "sha256": null,
@@ -3329,14 +3287,14 @@
     {
       "path": "requirements/pages/combos.html",
       "lines": 13,
-      "sha256": "220b1a5d3a6cea1741d98c7f4885992a9f990312104aaaf58837a92a74fa599c",
+      "sha256": "3b2987c9e263f47e62ba36d9883cb4acc3dfdf8ae92c3cf328ecb306c78d3496",
       "review": "Executable/source or generated output \u2014 static checks; not official factual evidence",
       "source_url": "https://www.nfl.com/standings/"
     },
     {
       "path": "requirements/pages/correlations.html",
       "lines": 13,
-      "sha256": "428b54c69c2875e3448b01ca3fa39a62228cac18696476c2818b12ebfbf4225f",
+      "sha256": "42f22b18d39c443237ad77850320a75f10fe4ec56ab032212281f255d149c049",
       "review": "Executable/source or generated output \u2014 static checks; not official factual evidence",
       "source_url": "https://www.nfl.com/standings/"
     },
