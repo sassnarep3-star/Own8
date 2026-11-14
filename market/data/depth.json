@@ -22,7 +22,7 @@
    "what": "official injury report",
    "http_result": "200 - 8 chunks, 345 rows across 28 clubs",
    "yields": "player, position, injury, practice participation, game status (Out / Doubtful / Questionable / blank)",
-   "cannot": "whether the listed player is a starter, or who replaces him"
+   "cannot": "whether the listed player is a starter, or who replaces him. Shape note: 185 of the 345 stored rows carry a practice status with no injury designation and no game status (finding F-07), so per-club row counts should be read as 'rows on the report', not as 'players with a disclosed injury'"
   },
   {
    "source": "https://www.nfl.com/games/commanders-at-giants-2026-reg-10",
