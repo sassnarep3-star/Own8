@@ -628,3 +628,28 @@ no session work discarded.
   (see commit message) so the check passes. Please review the two regenerated pages against
   requirements/results and confirm they reflect your intended output; no source file under
   requirements/ was edited by c563a1dc.
+
+## Session 949f49b0 — market-reality audit: line-history feasibility, signal/staking split, skill-vs-luck leaderboard, injury & lineup-depth reality (claimed 2026-11-14 UTC, base main @ 12f6bbf)
+
+Branch: `arena/949f49b0-own8` (Arena pins this session to this branch; no `session-<id>/<task>` branch can be created — same constraint recorded by every prior session). Read the full board above and every open PR before claiming.
+
+**Deliberately NON-overlapping scope:** NEW directory `market/**` plus this section of COORDINATION.md only. Everything else is READ-ONLY in this session: root `index.html`, `pages/**`, `assets/**`, `data/**`, `analysis/**`, `scripts/**`, `_config.yml`, `requirements/**`, `origination/**`, `ledger/**`, `decision/**`, `integration/**`, `hub/**`, `suggestions/**`, `evidence-lab/**`, `desk/**`, `strict/**`, `audit/**`, `review/**`, `a57af0ab/**`, `archive/**`. Root navigation and `_config.yml` publication changes are NOT made here; they are logged below as cross-session requests for an integration session.
+
+Why this scope: prior sessions each built a register of what they had (origination W10 fair lines, ledger price store, requirements register, suggestions inbox). None published a single page that answers the operator's actual blocking question — *what must be true before any decision here can be made, and which of those facts does no official source publish?* — with the prior registers reconciled against each other and against fresh official retrievals. That reconciliation, plus the money-path analysis (staking vs signal, luck vs skill, correlation honesty, depth-chart feasibility), is the claimed work.
+
+| ID | Task | Status | Owner | Files (scope) | Verification plan |
+| --- | --- | --- | --- | --- | --- |
+| M0 | Board claim (this section), pushed before any other file in scope | done | 949f49b0 | COORDINATION.md (this section) | Claim commit pushed before any `market/**` file exists |
+| M1 | Fresh official re-verification: 32-club standings (league + division), Week 9 finals, Week 10 slate + byes, Week 10 injury report, one game-centre page, depth-chart and roster capability probes | pending | 949f49b0 | market/data/*.json, market/scripts/*.py | Every stored cell transcribed from the recorded nfl.com URL; unresolvable → blank + flagged |
+| M2 | Repo crawl: every JSON/HTML table row in the repo classified (official-sourced / derived / unverified / stale) with file+record locator, so irregularities are line-specific | pending | 949f49b0 | market/data/repo-crawl.json, market/pages/repo-review.html | Each finding cites file path + record key + official URL or "no official source" |
+| M3 | Decision gate: questions that MUST be answered before a decision, each with have / lack / who can answer / what it blocks / discovery plan | pending | 949f49b0 | market/data/decision-gate.json, market/pages/questions.html | Every question has a discovery method and an official or authoritative source link |
+| M4 | Suggestions section with reviewable options, cost, gate impact, recommendation, and an explicit "choose before implementing" state | pending | 949f49b0 | market/data/suggestions.json, market/pages/suggestions.html | No suggestion implemented in this session; each carries its own verification requirement |
+| M5 | Correlation honesty: recompute correlations only from official-sourced rows, publish n with every value, state what the value cannot be used for | pending | 949f49b0 | market/data/correlations.json, market/pages/correlations.html | Recomputed by script from official inputs; n printed on every row; no market input |
+| M6 | Injury / lineup-depth reality: what official sources do and do not publish about 2nd/3rd/4th-string replacements, with the roster and game-book evidence | pending | 949f49b0 | market/data/depth.json, market/pages/depth.html | Probe URLs recorded with their actual result (200/404) |
+| M7 | Site: `market/` dashboards, own link checker, every data row carries an official link, MD5-consistent build | pending | 949f49b0 | market/*.html, market/assets/*, market/scripts/build_market_site.py, market/scripts/check_market.py | `python3 market/scripts/check_market.py` exit 0 |
+| M8 | PR to main, merge without waiting, Pages confirmation, record here | pending | 949f49b0 | COORDINATION.md | CI green, Pages build `built`, live URL re-fetched |
+
+Cross-session requests from 949f49b0 (NOT performed; shared files):
+- (X1) Integration owner: add a navigation link to `market/index.html` from the root dashboard nav and the sitemap table.
+- (X2) Integration owner: `_config.yml` needs no change (no new excluded paths are introduced by `market/`).
+
