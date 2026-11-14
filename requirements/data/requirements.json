@@ -32,8 +32,8 @@
    "requirement": "An open-question register that states, per question, what we have, what we lack, what would answer it, and how to obtain the missing information.",
    "status": "MET",
    "evidence": "requirements/data/questions.json + requirements/pages/questions.html",
-   "what_exists": "22 questions (Q-01..Q-22). Every row carries: what we already have with a source link, what we lack, the exact official page or action that would resolve it, and the decision it blocks. Seven rows are marked ANSWERED from official sources inside this session; fifteen remain OPEN.",
-   "what_is_missing": "Answering the OPEN rows depends on data that no official NFL page publishes (depth-chart order, sportsbook prices, closing lines), so the register states the dependency rather than guessing.",
+   "what_exists": "22 questions (Q-01 to Q-22). Every row carries: what we already have with a source link, what we lack, the exact official page or action that would resolve it, and the decision it blocks. Of those, 12 are ANSWERED from official sources inside this session, 7 remain OPEN, 2 are marked IMPOSSIBLE because no official source can answer them, and 1 is partial.",
+   "what_is_missing": "The OPEN rows depend on data that no official NFL page publishes (depth-chart order, sportsbook prices, closing lines) or on time (a settled forecast ledger). The register states each dependency rather than guessing around it.",
    "review": "The 'what would resolve it' column names a page or an action; it does not guarantee the page stays available or that the action is permitted.",
    "source_url": "https://www.nfl.com/injuries/"
   },
@@ -131,7 +131,7 @@
    "requirement": "Identify when a backup, not a starter, is playing, on both sides of the ball.",
    "status": "NOT POSSIBLE",
    "evidence": "requirements/pages/availability.html + requirements/results/availability.json + https://www.nfl.com/injuries/",
-   "what_exists": "A documented, tested finding that the official depth-chart URL returns HTTP 404 (the page prints '404 - Flag on the Play.'), that official roster pages publish only a status code such as ACT, and that the only official page naming a game's actual starters is the NFL Game Book PDF, one per game. The mechanism is demonstrated on one real game: the official game book for JAX at BAL lists J.Fagnano as the Ravens starting quarterback with Lamar Jackson absent, which is exactly the starter-versus-backup signal the requirement asks for.",
+   "what_exists": "A documented, tested finding that the official depth-chart URL returns HTTP 404 (the page prints '404 - Flag on the Play.'), that official roster pages publish only a status code such as ACT, and that the only official page naming a game's actual starters is the NFL Game Book PDF, one per game. The mechanism is demonstrated on one real game: the Game Book for JAX at BAL lists 12 J.Fagnano in the Ravens' quarterback slot, and Lamar Jackson appears nowhere in that game's lineups or substitutions. The NFL's own news page separately records that Jackson was placed on injured reserve.",
    "what_is_missing": "A starter designation the NFL publishes before kickoff. It does not exist on nfl.com, so a pregame 'this is a 3rd-string tackle' label cannot be produced from an official source. Any such label would have to be inferred, which this project's no-inference rule forbids.",
    "review": "The requirement is therefore split into what is possible (post-game starter confirmation from game books; injury-driven absence lists transcribed exactly) and what is impossible (a pregame depth-chart label), and the impossible half is not faked.",
    "source_url": "https://www.nfl.com/teams/kansas-city-chiefs/depth-chart"

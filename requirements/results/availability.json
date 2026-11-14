@@ -41,7 +41,7 @@
    "capability": "Starters actually on the field, and the substitution list",
    "url": "https://static.www.nfl.com/image/upload/v1793965716/gamecenter/ab380826-4feb-11f1-abca-2c54536568a9.pdf",
    "published": true,
-   "observed": "Official NFL Game Book PDF, linked from every game page. Contains a Lineups block with the 11 offensive and 11 defensive starters per club plus their jersey numbers, a Substitutions list, a Did Not Play list and a Not Active list. For JAX at BAL it lists the Ravens quarterback as 12 J.Fagnano and places Lamar Jackson outside the lineup.",
+   "observed": "Official NFL Game Book PDF, linked from every game page. Contains a Lineups block with the 11 offensive and 11 defensive starters per club plus their jersey numbers, a Substitutions list, a Did Not Play list and a Not Active list. For JAX at BAL it names 12 J.Fagnano in the Ravens' quarterback slot, and Lamar Jackson does not appear in the lineup or the substitution list.",
    "checked_at": "2026-11-14",
    "consequence": "This is the only official source that establishes who actually started. It is post-game, so it fixes attribution and grading but cannot inform a pregame line."
   },

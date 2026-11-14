@@ -54,7 +54,7 @@
     "B": "Extract only the quarterback and offensive line positions first, as a pilot on four games.",
     "C": "Do nothing and keep the limitation documented."
    },
-   "recommended": "B. The mechanism is already proven on JAX at BAL, where the game book shows J.Fagnano starting at quarterback with Lamar Jackson absent. A four-game pilot costs an afternoon and proves or kills the approach.",
+   "recommended": "B. The mechanism is already shown working on JAX at BAL: the official Game Book names 12 J.Fagnano at quarterback for the Ravens and does not list Lamar Jackson anywhere in the lineup or substitutions. A four-game pilot costs an afternoon and proves or kills the approach.",
    "cost": "One afternoon for the pilot, roughly a full day per 40 games for the full season. The PDFs are stable and machine-readable in the text layer.",
    "risk": "The game book is published after the game, so it cannot help a pregame line. It only fixes retrospective attribution and postgame grading.",
    "evidence_that_would_justify": "A pilot that recovers every starter for four games without a single inference.",
