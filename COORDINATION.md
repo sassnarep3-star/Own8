@@ -103,6 +103,42 @@ Log (053940d1):
 - 2026-11-14 (F5) — PR to main opened next; merge, Pages confirmation and the final
   record are appended below once done.
 
+**F5 final record (053940d1):**
+- CI on PR #52: all four checks PASS on head ee52b4c (evidence-and-site,
+  independent-desk, validate ×2). Two initial failures were diagnosed and fixed before
+  merge, both self-inflicted and documented here: (1) the first commit had included
+  regenerated output files written by `evidence-lab/check.py` during the F4 replay
+  (`evidence-lab/checks.json`, `evidence-lab/repo-review.json` and their docs/ mirrors)
+  into session 34f42e88's namespace — reverted to main's state; this also triggered the
+  evidence-lab workflow, which no longer runs once the paths no longer match; (2) the
+  requirements workflow's rebuild-diff gate failed because the committed
+  `pages/repo-review.html` + `analysis/link-check.json` inventory pre-dated the rebase
+  onto PR #48/#51 (the inventory embeds line counts/hashes of every tracked file, so
+  board growth changes it); the canonical chain (audit_repo → build_site → check_links)
+  was re-run to its fixed point (convergence verified by running it twice) and the
+  regenerated files committed. Full CI sequence then re-run locally: TREE CLEAN.
+- PR: https://github.com/sassnarep3-star/Own8/pull/52 — **MERGED** 2026-11-14 as merge
+  commit `b69480e` (`gh pr merge 52 --merge`, no approval waited for).
+- Post-merge: main advanced through PR #53 (session 8ef7f6bb, new `signals/` namespace)
+  to `eccc9ab`; my two nav links and both sitemap rows verified intact on that commit
+  (grep 2 occurrences each in index.html). GitHub Pages build for `eccc9ab` status
+  **`built`** (pages-build-deployment run 43647294435 success, created 2026-11-14T22:17Z).
+- Live re-fetch after deploy: https://sassnarep3-star.github.io/Own8/ renders the
+  sitemap with **14 surfaces** including "Decision ledger ↗" → /ledger/index.html and
+  "Decision review & readiness ↗" → /decision-review/index.html, with their
+  official-basis links; KPIs unchanged (32 team records, 14 lines, 0 eligible, 40 review
+  items). R1 (6652101e) and DQ5 (25a5fee1) are therefore delivered on the live site.
+- Handoff note for the next integration round: (a) `desk/pages/flagged.html` is stale
+  vs desk's own data (missing C-01..C-05 rows; a plain `python3 desk/scripts/build_site.py`
+  regenerates it deterministically — logged as a cross-session request, not edited here);
+  (b) `desk/scripts/audit.py` pins base commit `7c2f545…` and fails in partial local
+  clones (works in CI's full clone); (c) operator suggestion SG-07 (single merged review
+  queue) and the ledger suggestions SG-L1..SG-L7 remain open decisions.
+- Session scope discipline held: files touched = `scripts/build_site.py` (nav+sitemap
+  lines), regenerated root `index.html`/`pages/*.html`, `README.md` (link lines),
+  `analysis/link-check.json`, `analysis/repo-audit.json`, `pages/repo-review.html`
+  (pipeline outputs), this COORDINATION.md section. No feature namespace was edited.
+
 
 ## Session 6652101e — decision ledger: price-snapshot store, results feed, fair/market/difference lines, demotion gate, signal-vs-staking split (claimed 2026-11-14 UTC, base main @ 5df2a54)
 
