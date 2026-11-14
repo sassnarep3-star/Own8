@@ -251,7 +251,7 @@
   {
    "id": "SG-07",
    "title": "Publish one canonical hub and label everything else as an input",
-   "problem": "Fourteen site surfaces, six suggestion registers and two Week 10 line sets. A reader cannot tell which number to believe.",
+   "problem": "16 site surfaces, 6 suggestion registers and two Week 10 line sets. A reader cannot tell which number to believe.",
    "options": {
     "A": "market/ becomes the canonical decision surface and every other namespace keeps its own pages, linked and labelled 'input'.",
     "B": "Merge everything into the root dashboard.",

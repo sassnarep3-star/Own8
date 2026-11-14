@@ -273,7 +273,8 @@ s_rows = [
      badge("VERIFIED"), a("https://www.nfl.com/standings/league/2026/REG", "standings")],
     ["9", f"{len(crawl['findings'])} repository findings, of which 2 are high severity",
      f"{crawl['files_scanned']} JSON files and {crawl['row_like_dicts_total']} row-like objects crawled. {crawl['unsourced_rows_total']} row-like objects carry no source link. "
-     "There are six separate suggestion registers and six separate question registers in one repository, and two independent Week 10 line sets that disagree.",
+     f"There are {len(depth['register_duplication']['suggestions'])} separate suggestion registers and "
+     f"{len(depth['register_duplication']['questions'])} separate question registers in one repository, and two independent Week 10 line sets that disagree.",
      badge("OPEN — FOR REVIEW"), a("https://github.com/sassnarep3-star/Own8", "repository")],
     ["10", "Nothing here is a recommendation",
      "No strategy is promoted. No stake is suggested. No reward is defined. The reward question is a policy decision with legal implications and is put to the operator as SG-05 "
@@ -628,11 +629,15 @@ body = (notice(f"Every JSON file in the repository outside this workspace was op
 nfl.com publishes FanDuel moneyline, spread and total for every game of the season, locked weekly. The same game appears in both places.</p>
 <p>Why it matters: every gate downstream of that file treats the absence of a price as an unavailability of reality rather than a missing capture. Nine strategies are
 unranked on that basis alone.</p></div>
-<div class="card"><h3>F-02 · Six suggestion registers and six question registers</h3>
+<div class="card"><h3>F-02 · {len(depth["register_duplication"]["suggestions"])} suggestion registers and {len(depth["register_duplication"]["questions"])} question registers</h3>
 <p class="meta">severity high · governance</p>
-<p>Six different files in this repository each present themselves as the place where suggestions are recorded, and six present themselves as the place where questions
-are recorded. A reader who answers a question in one of them has answered it in one-sixth of the repository. This is not a data bug; it is the reason a decision can
-appear open forever.</p></div>"""
+<p>{len(depth["register_duplication"]["suggestions"])} different files in this repository each present themselves as the place where suggestions are recorded, and
+{len(depth["register_duplication"]["questions"])} present themselves as the place where questions are recorded. A reader who answers a question in one of them has
+answered it in one-{len(depth["register_duplication"]["questions"])}th of the repository. This is not a data bug; it is the reason a decision can appear open forever.</p>
+<p class="meta">Files counted as question registers</p>
+<p><code>{e(", ".join(depth["register_duplication"]["questions"]))}</code></p>
+<p class="meta">Files counted as suggestion registers</p>
+<p><code>{e(", ".join(depth["register_duplication"]["suggestions"]))}</code></p></div>"""
     + sec("Files with unsourced rows")
     + table(["File", "Row-like objects", "Without a source link", "Open"], inv_rows,
             "Provenance gaps by file",

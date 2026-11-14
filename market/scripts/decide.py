@@ -235,7 +235,8 @@ def main():
       "https://www.itl.nist.gov/div898/handbook/prc/section1/prc14.htm", "P2")
 
     s("SG-07", "Publish one canonical hub and label everything else as an input",
-      "Fourteen site surfaces, six suggestion registers and two Week 10 line sets. A reader cannot tell which number to believe.",
+      f"{crawl.get('site_surfaces', 16)} site surfaces, {crawl.get('suggestion_registers', 6)} suggestion registers and two Week 10 line sets. "
+      "A reader cannot tell which number to believe.",
       {"A": "market/ becomes the canonical decision surface and every other namespace keeps its own pages, linked and labelled 'input'.",
        "B": "Merge everything into the root dashboard.",
        "C": "Leave as is and add a disclaimer."},

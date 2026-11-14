@@ -208,6 +208,26 @@ def depth():
              cannot="the same coverage for every position. It is a narrative source: uneven, club-dependent, and it does not exist for most offensive-line or secondary changes"),
     ]
 
+    # Count how many separate files in the repo present themselves as the canonical
+    # suggestion / question register. Recorded from the crawl, never hard-coded.
+    import re as _re
+    from collections import Counter as _Counter
+    regs = {"suggestions": [], "questions": []}
+    skip = {"archive", ".git", "node_modules", "__pycache__", "market"}
+    for fp in REPO.rglob("*.json"):
+        if any(part in skip for part in fp.relative_to(REPO).parts):
+            continue
+        try:
+            dd = json.loads(fp.read_text())
+        except Exception:
+            continue
+        if isinstance(dd, dict):
+            for k in regs:
+                v = dd.get(k)
+                if isinstance(v, list) and v:
+                    regs[k].append(str(fp.relative_to(REPO)))
+    regs = {k: sorted(v) for k, v in regs.items()}
+
     cases = [
         dict(team="SEA", position="QB", starter_out="Sam Darnold (ribs, quadricep) - Out",
              replacement="Drew Lock", depth_note="Lock's 2nd straight start, 3rd overall this season",
@@ -244,6 +264,7 @@ def depth():
         "club_injury_load": clubs,
         "qb_unavailable": qb_out,
         "verified_replacement_cases": cases,
+        "register_duplication": regs,
         "what_the_operator_asked_for": "Track injuries and know when a 2nd, 3rd or 4th string player must replace a starter, on offence and defence.",
         "what_is_deliverable_today": [
             "which players are officially OUT / DOUBTFUL / QUESTIONABLE before kickoff, by team and position group (this page, 345 official rows)",
