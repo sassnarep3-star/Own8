@@ -6,15 +6,14 @@
   "by_severity": {
    "critical": 0,
    "high": 4,
-   "medium": 6,
-   "low": 3,
+   "medium": 5,
+   "low": 4,
    "info": 1
   },
   "blocking_none": "No flag blocks publication. Flags block strategy promotion, not the site.",
   "checks_passed": 50,
   "checks_failed": 0,
-  "note": "Published on the Flagged for Review page with its source link. A flag marked needs review does not stop the deploy; it stops any claim that the affected number is validated.",
-  "checks_passed_note": "The 50 automated checks are the capture-and-reconciliation checks in requirements/results/checks.json; they are not a claim that every published value was independently re-read."
+  "note": "Published on the Flagged for Review page with its source link. A flag marked needs review does not stop the deploy; it stops any claim that the affected number is validated."
  },
  "flags": [
   {
@@ -55,14 +54,15 @@
   },
   {
    "id": "REQ-F-04",
-   "severity": "medium",
+   "severity": "low",
    "area": "pages/schedule.html",
    "state": "needs review",
-   "finding": "The published Week 9 kickoff times are one hour earlier than the times rendered on the official schedule page for the same games: the site prints 7:15 PM for JAX at BAL where nfl.com prints 8:15 PM, and 12:00 PM where nfl.com prints 1:00 PM.",
-   "evidence": "analysis/model-lines-week9.json holds kickoff_et values carried from an earlier capture; https://www.nfl.com/schedules/2026/by-week/week-9 rendered 2026-11-14 prints 8:15 PM and 1:00 PM for those games. The gap is consistent across rows, which points at a timezone or conversion difference in the inherited pipeline rather than at a typo.",
-   "affected": "The schedule page's kickoff column and any reader using it to time a decision.",
-   "not_affected": "Scores, dates, venues or any model input.",
-   "disposition": "Flagged, not silently corrected: the correct source value cannot be established for every row from a single retrieved chunk, so the column is marked. Recommendation: regenerate that column from the official schedule page rather than from the inherited analysis file.",
+   "finding": "Kickoff times for COMPLETED games cannot be verified from the official schedule page, because nfl.com stops rendering the time once a game is final. It shows only the date, for example 'Nov 5' and 'Nov 8'. The published Week 9 kickoff column is therefore an inherited value that this session could only partially corroborate.",
+   "evidence": "https://www.nfl.com/schedules/2026/by-week/week-9 retrieved 2026-11-14 renders 'Final / Nov 5' and 'Final / Nov 8' with no time of day for the completed games. The published site prints 8:15 PM for JAX at BAL; the official Game Book for that game states 'Start Time: 8:16 PM EST', which corroborates it to within the scheduled-versus-actual difference. The other 14 Week 9 kickoff times have no second official source in this session.",
+   "affected": "Reader confidence in the Week 9 kickoff column for games that have already been played.",
+   "not_affected": "Scores, dates, venues or any model input. The 13 unplayed Week 10 kickoff times were transcribed fresh from https://www.nfl.com/schedules/2026/by-week/week-10, where the time is still rendered.",
+   "disposition": "Flagged rather than corrected, because the remaining 14 values cannot be confirmed from an official page in its current state. A reviewer can confirm any of them against the Game Book for that game, which carries a start time.",
+   "correction_note": "An earlier draft of this flag asserted that the site printed times one hour earlier than the official page. That assertion was not verified: the site actually prints 8:15 PM for JAX at BAL, which matches the official schedule and the Game Book. The draft was caught and replaced before publication, and it is recorded here rather than quietly deleted.",
    "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9"
   },
   {
@@ -111,8 +111,8 @@
    "affected": "The landing page's strategy count and any reader trying to identify the canonical site.",
    "not_affected": "The substantive conclusion, which every registry agrees on: zero eligible strategies.",
    "disposition": "Both published as they are and flagged; unifying them is suggestion SG-02, an operator decision.",
-   "source_url": "https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages",
-   "note_reference": "This flag is about our own publication surface, so its reference is GitHub's Pages documentation, not an NFL page. No NFL fact is involved."
+   "note_reference": "This flag is about our own publication surface, so its reference is GitHub's Pages documentation rather than an NFL page. No NFL fact is involved.",
+   "source_url": "https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages"
   },
   {
    "id": "REQ-F-09",

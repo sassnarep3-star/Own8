@@ -176,15 +176,16 @@
   },
   {
    "id": "Q-15",
-   "question": "Is the repository's own verification tooling reliable enough to trust a PASS?",
-   "state": "ANSWERED",
-   "have": "Evidence that it is not, in one specific place: scripts/build_site.py renders Week 9 kickoff times from analysis/model-lines-week9.json, and those values are one hour earlier than the times rendered on the official schedule page for the same games (8:15 PM and 1:00 PM official against 7:15 PM and 12:00 PM published).",
-   "lack": "A provenance field for that column, so the discrepancy cannot be resolved from the artifact.",
-   "answer": "A build check passing does not mean a published value is correct. The affected column is now flagged on the site and named as a review item, and it should be re-derived from the official schedule page rather than from the inherited analysis file.",
-   "resolution": "Compare https://www.nfl.com/schedules/2026/by-week/week-9 against analysis/model-lines-week9.json field by field.",
+   "question": "Can the published Week 9 kickoff times be confirmed from an official page now that the games are final?",
+   "state": "OPEN",
+   "have": "The Week 9 kickoff column is published on the schedule page. The official Week 9 schedule now renders only the date for completed games ('Final / Nov 5', 'Final / Nov 8'), so it no longer carries a time of day. The official Game Book for JAX at BAL states a start time of 8:16 PM EST, which corroborates the published 8:15 PM scheduled time to within the scheduled-versus-actual difference.",
+   "lack": "A second official source for the other 14 Week 9 kickoff times in their scheduled form.",
+   "answer": "Partly answered, and the register says so instead of assuming. One value is corroborated by an independent official document; fourteen are not. A reader deciding on a kickoff time for a played game is looking at history, not at a decision input, so this is a low-severity gap.",
+   "resolution": "Each Game Book PDF linked from the corresponding https://www.nfl.com/games/<slug> page carries a Start Time.",
    "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9",
-   "blocks": "Trusting any inherited time-like field without re-reading the official page.",
-   "flag": "REQ-F-04"
+   "blocks": null,
+   "flag": "REQ-F-04",
+   "correction_note": "An earlier draft of this entry asserted a one-hour discrepancy between the site and the official page. That was wrong and was caught before publication: the site prints 8:15 PM, the official schedule prints 8:15 PM for the same game, and the Game Book start time is 8:16 PM EST."
   },
   {
    "id": "Q-16",

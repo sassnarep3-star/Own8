@@ -681,6 +681,13 @@ page("flagged", "Flagged for review",
      "Irregularities and unverified items, each with the file or official page that shows it. None of these blocks publication.",
      note("A flag marked needs review does not stop the deploy. It stops any claim that the affected number is validated. "
           "Nothing on this page was fixed by guessing.", "What a flag means") +
+     sec("One correction to this session's own work, recorded rather than deleted") +
+     "<p>An earlier draft of flag REQ-F-04 asserted that the published Week 9 kickoff times were one hour earlier than the official "
+     "schedule page. On re-checking, the published values match the official schedule (8:15 PM for JAX at BAL) and match the official "
+     "Game Book start time to within the scheduled-versus-actual minute. The draft was wrong, it was caught before release, and the flag "
+     "now records what is actually true: completed games no longer show a time on the official schedule, so fourteen of the fifteen "
+     "values can no longer be confirmed from that page. The correction is kept here because a review page that silently edits its own "
+     "mistakes is not reviewable.</p>" +
      table(["ID", "Severity", "Finding", "Evidence", "Where", "Disposition", "State", "Source"], flag_rows,
            "Review register",
            "Flags are ordered by severity then by where they live. Each one names the exact file or URL that demonstrates it, so a reviewer "
