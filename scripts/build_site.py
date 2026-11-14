@@ -24,6 +24,8 @@ def wrap(slug,title,desc,body):
  nav += f'<a href="{pre}decision/site/index.html"><span>↗</span>Decision support (parallel session)</a>'
  nav += f'<a href="{pre}desk/index.html"><span>↗</span>Independent desk (parallel session)</a>'
  nav += f'<a href="{pre}origination/index.html"><span>↗</span>Origination lab</a>'
+ nav += f'<a href="{pre}ledger/index.html"><span>↗</span>Decision ledger</a>'
+ nav += f'<a href="{pre}decision-review/index.html"><span>↗</span>Decision review &amp; readiness</a>'
  nav += f'<a href="{pre}hub/index.html"><span>↗</span>NFL hub (parallel session)</a>'
  nav += f'<a href="{pre}review/index.html"><span>↗</span>Repo review (parallel session)</a>'
  nav += f'<a href="{pre}suggestions/index.html"><span>↗</span>Suggestions register (parallel session)</a>'
@@ -44,7 +46,9 @@ cross=[['Requirements & decision review','requirements/index.html','16 requireme
  ['Decision support','decision/site/index.html','Parallel session: suggestions, decision-readiness and lineup-impact signals.','session a57af0ab / e00061c1 \u00b7 2026-11-14',src[0]['url']],
  ['Independent evidence lab','strict/site/index.html','Independent evidence-and-audit workspace with its own gates.','session 5c4b8a3e \u00b7 2026-11-04','https://www.nfl.com/standings/league/2026/REG'],
  ['Independent desk','desk/index.html','Independent verification desk with its own findings register.','session 566bc2e7 \u00b7 2026-11-04','https://www.nfl.com/standings/league/2026/REG'],
- ['Origination lab','origination/index.html','The line-origination and walk-forward validation workspace.','session 4bc92a5f \u00b7 2026-11-04','https://www.nfl.com/schedules/2026/by-week/week-9'],
+ ['Origination lab','origination/index.html','The line-origination and walk-forward validation workspace.','session 4bc92a5f / e8155046 \u00b7 2026-11-14','https://www.nfl.com/schedules/2026/by-week/week-9'],
+ ['Decision ledger','ledger/index.html','Price-snapshot store (opening/closing, fail-closed), verified 137-game results feed, fair/market/difference columns, demotion gate, signal-vs-staking leaderboard.','session 6652101e \u00b7 2026-11-14','https://www.nfl.com/scores/2026/week-10'],
+ ['Decision review & readiness','decision-review/index.html','Evidence-bounded decision/readiness matrix: 17 questions, 9 proposals, availability schema and acceptance gates; current player/depth values blank.','session 25a5fee1 \u00b7 2026-11-14','https://www.nfl.com/standings/'],
  ['Baseline audit','audit/index.html','An earlier independent baseline audit, preserved unchanged for reference.','session 74efc1ec \u00b7 2026-11-04','https://www.nfl.com/standings/league/2026/REG'],
  ['NFL hub','hub/index.html','Parallel session: repository review, official-standings refresh, injury tracker, suggestions and questions.','session 101b20bc \u00b7 2026-11-14',src[0]['url']],
  ['Independent repository review','review/index.html','Parallel session: independent re-review RV-01..RV-06 with evidence files.','session aa2d8cbe \u00b7 2026-11-14',src[0]['url']],

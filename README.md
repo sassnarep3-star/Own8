@@ -4,6 +4,8 @@
 
 **Live:** https://sassnarep3-star.github.io/Own8/  
 **Requirements & decision review:** https://sassnarep3-star.github.io/Own8/requirements/index.html  
+**Decision ledger (price store, results feed, fair/market/difference, demotion gate, signal-vs-staking):** https://sassnarep3-star.github.io/Own8/ledger/index.html  
+**Decision review & readiness:** https://sassnarep3-star.github.io/Own8/decision-review/index.html  
 **Executive brief:** https://sassnarep3-star.github.io/Own8/pages/executive-summary.html  
 **Flagged for Review:** https://sassnarep3-star.github.io/Own8/pages/flagged.html
 
