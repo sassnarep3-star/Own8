@@ -1,0 +1,3172 @@
+{
+ "generated": "2026-11-14",
+ "session": "8ef7f6bb",
+ "title": "Baseline ladder \u2014 skill measured against do-nothing rules, and what luck could explain",
+ "inputs": {
+  "scores": "origination/data/games-2026-w1-w9.json (136 verified official rows)",
+  "predictions": "origination/results/walkforward-games-w10.json (weeks 3-9, walk-forward)",
+  "scores_source": "https://www.nfl.com/scores/2026/week-1 ... week-9",
+  "evaluation_weeks": [
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9
+  ]
+ },
+ "assumed_price_block": {
+  "assumed_price": -110,
+  "decimal_equivalent": 1.909091,
+  "breakeven_hit_rate": 0.52381,
+  "is_this_a_market_quote": false,
+  "why_assumed": "No official NFL source publishes a price for any market (probe P5/P6/P12). A standard -110 is therefore imposed as a stated assumption so that hit rate can be compared with the rate required to break even. It is not a quote, not a recommendation, and not evidence about any real sportsbook.",
+  "push_note": "pushes are excluded from the denominator and returned, not counted as wins"
+ },
+ "ladder": [
+  {
+   "id": "B01",
+   "label": "Pick'em \u2014 every game predicted level, no team knowledge",
+   "kind": "spread",
+   "n": 104,
+   "note": "The floor. Any rule that cannot beat this has learned nothing.",
+   "uses_future_games": false,
+   "eligible_as_a_rule": true,
+   "metric": "mean absolute error, home margin (points)",
+   "value": 10.0769,
+   "rmse": 12.7325,
+   "betting": {
+    "n_bets": 0,
+    "pushes": 0,
+    "wins": 0,
+    "losses": 0,
+    "hit_rate": null,
+    "hit_rate_ci95": [
+     null,
+     null
+    ],
+    "assumed_price": -110,
+    "breakeven_hit_rate": 0.52381,
+    "roi_per_unit_assumed_price": null,
+    "net_units_assumed_price": 0.0,
+    "beats_breakeven_point": null,
+    "beats_breakeven_ci_low": null,
+    "p_value_vs_coin": null,
+    "by_game_day": {},
+    "worst_day_hit_rate": null
+   }
+  },
+  {
+   "id": "B02",
+   "label": "League mean + home edge \u2014 the repository's existing baseline",
+   "kind": "spread",
+   "n": 104,
+   "note": "Everything already published in origination/ is measured against this arm.",
+   "uses_future_games": false,
+   "eligible_as_a_rule": true,
+   "metric": "mean absolute error, home margin (points)",
+   "value": 10.1551,
+   "rmse": 12.8284,
+   "betting": {
+    "n_bets": 98,
+    "pushes": 0,
+    "wins": 42,
+    "losses": 56,
+    "hit_rate": 0.428571,
+    "hit_rate_ci95": [
+     0.335116,
+     0.527416
+    ],
+    "assumed_price": -110,
+    "breakeven_hit_rate": 0.52381,
+    "roi_per_unit_assumed_price": -0.181818,
+    "net_units_assumed_price": -17.8182,
+    "beats_breakeven_point": false,
+    "beats_breakeven_ci_low": false,
+    "p_value_vs_coin": 0.935354,
+    "by_game_day": {
+     "2026-09-24": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-09-27": {
+      "wins": 11,
+      "losses": 3,
+      "hit_rate": 0.7857
+     },
+     "2026-09-28": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-01": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-04": {
+      "wins": 6,
+      "losses": 8,
+      "hit_rate": 0.4286
+     },
+     "2026-10-05": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-08": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-11": {
+      "wins": 4,
+      "losses": 9,
+      "hit_rate": 0.3077
+     },
+     "2026-10-12": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-15": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-18": {
+      "wins": 5,
+      "losses": 7,
+      "hit_rate": 0.4167
+     },
+     "2026-10-19": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-22": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-25": {
+      "wins": 4,
+      "losses": 8,
+      "hit_rate": 0.3333
+     },
+     "2026-10-26": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-29": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-11-01": {
+      "wins": 4,
+      "losses": 8,
+      "hit_rate": 0.3333
+     },
+     "2026-11-02": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-11-05": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-11-08": {
+      "wins": 3,
+      "losses": 5,
+      "hit_rate": 0.375
+     }
+    },
+    "worst_day_hit_rate": 0.0
+   }
+  },
+  {
+   "id": "B03",
+   "label": "Recent form \u2014 last 5 games, points for/against + home edge",
+   "kind": "spread",
+   "n": 104,
+   "note": "Walk-forward, no leakage. Tests whether recency adds anything over B02.",
+   "uses_future_games": false,
+   "eligible_as_a_rule": true,
+   "metric": "mean absolute error, home margin (points)",
+   "value": 9.3976,
+   "rmse": 12.4138,
+   "betting": {
+    "n_bets": 104,
+    "pushes": 0,
+    "wins": 53,
+    "losses": 51,
+    "hit_rate": 0.509615,
+    "hit_rate_ci95": [
+     0.414922,
+     0.603624
+    ],
+    "assumed_price": -110,
+    "breakeven_hit_rate": 0.52381,
+    "roi_per_unit_assumed_price": -0.027098,
+    "net_units_assumed_price": -2.8182,
+    "beats_breakeven_point": false,
+    "beats_breakeven_ci_low": false,
+    "p_value_vs_coin": 0.460974,
+    "by_game_day": {
+     "2026-09-24": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-09-27": {
+      "wins": 5,
+      "losses": 9,
+      "hit_rate": 0.3571
+     },
+     "2026-09-28": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-01": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-04": {
+      "wins": 6,
+      "losses": 8,
+      "hit_rate": 0.4286
+     },
+     "2026-10-05": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-08": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-11": {
+      "wins": 7,
+      "losses": 6,
+      "hit_rate": 0.5385
+     },
+     "2026-10-12": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-15": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-18": {
+      "wins": 6,
+      "losses": 6,
+      "hit_rate": 0.5
+     },
+     "2026-10-19": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-22": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-25": {
+      "wins": 6,
+      "losses": 6,
+      "hit_rate": 0.5
+     },
+     "2026-10-26": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-29": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-11-01": {
+      "wins": 7,
+      "losses": 5,
+      "hit_rate": 0.5833
+     },
+     "2026-11-02": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-11-05": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-11-08": {
+      "wins": 10,
+      "losses": 3,
+      "hit_rate": 0.7692
+     },
+     "2026-11-09": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     }
+    },
+    "worst_day_hit_rate": 0.0
+   }
+  },
+  {
+   "id": "B04",
+   "label": "Always bet the home side (no magnitude)",
+   "kind": "spread",
+   "n": 104,
+   "note": "Pure side rule. Measures the home-field advantage as a betting rule.",
+   "uses_future_games": false,
+   "eligible_as_a_rule": true,
+   "metric": "mean absolute error, home margin (points)",
+   "value": 10.1154,
+   "rmse": 12.7762,
+   "betting": {
+    "n_bets": 103,
+    "pushes": 1,
+    "wins": 49,
+    "losses": 54,
+    "hit_rate": 0.475728,
+    "hit_rate_ci95": [
+     0.3819,
+     0.571302
+    ],
+    "assumed_price": -110,
+    "breakeven_hit_rate": 0.52381,
+    "roi_per_unit_assumed_price": -0.091792,
+    "net_units_assumed_price": -9.4545,
+    "beats_breakeven_point": false,
+    "beats_breakeven_ci_low": false,
+    "p_value_vs_coin": 0.722699,
+    "by_game_day": {
+     "2026-09-24": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-09-27": {
+      "wins": 10,
+      "losses": 4,
+      "hit_rate": 0.7143
+     },
+     "2026-09-28": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-01": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-04": {
+      "wins": 7,
+      "losses": 7,
+      "hit_rate": 0.5
+     },
+     "2026-10-05": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-08": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-11": {
+      "wins": 5,
+      "losses": 8,
+      "hit_rate": 0.3846
+     },
+     "2026-10-12": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-15": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-18": {
+      "wins": 4,
+      "losses": 8,
+      "hit_rate": 0.3333
+     },
+     "2026-10-19": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-22": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-25": {
+      "wins": 4,
+      "losses": 8,
+      "hit_rate": 0.3333
+     },
+     "2026-10-26": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-29": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-11-01": {
+      "wins": 9,
+      "losses": 3,
+      "hit_rate": 0.75
+     },
+     "2026-11-02": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-11-05": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-11-08": {
+      "wins": 4,
+      "losses": 8,
+      "hit_rate": 0.3333
+     },
+     "2026-11-09": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     }
+    },
+    "worst_day_hit_rate": 0.0
+   }
+  },
+  {
+   "id": "B05",
+   "label": "Full-season averages \u2014 DELIBERATE LEAKAGE, not a candidate",
+   "kind": "spread",
+   "n": 104,
+   "note": "Uses games the forecaster could not have seen. Published only as the ceiling that leakage buys; never eligible, never promoted.",
+   "uses_future_games": true,
+   "eligible_as_a_rule": false,
+   "metric": "mean absolute error, home margin (points)",
+   "value": 8.0189,
+   "rmse": 10.2457,
+   "betting": {
+    "n_bets": 104,
+    "pushes": 0,
+    "wins": 43,
+    "losses": 61,
+    "hit_rate": 0.413462,
+    "hit_rate_ci95": [
+     0.323549,
+     0.509539
+    ],
+    "assumed_price": -110,
+    "breakeven_hit_rate": 0.52381,
+    "roi_per_unit_assumed_price": -0.210664,
+    "net_units_assumed_price": -21.9091,
+    "beats_breakeven_point": false,
+    "beats_breakeven_ci_low": false,
+    "p_value_vs_coin": 0.969037,
+    "by_game_day": {
+     "2026-09-24": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-09-27": {
+      "wins": 2,
+      "losses": 12,
+      "hit_rate": 0.1429
+     },
+     "2026-09-28": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-01": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-04": {
+      "wins": 4,
+      "losses": 10,
+      "hit_rate": 0.2857
+     },
+     "2026-10-05": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-08": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-11": {
+      "wins": 5,
+      "losses": 8,
+      "hit_rate": 0.3846
+     },
+     "2026-10-12": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-15": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-18": {
+      "wins": 5,
+      "losses": 7,
+      "hit_rate": 0.4167
+     },
+     "2026-10-19": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-22": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-25": {
+      "wins": 6,
+      "losses": 6,
+      "hit_rate": 0.5
+     },
+     "2026-10-26": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-29": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-11-01": {
+      "wins": 7,
+      "losses": 5,
+      "hit_rate": 0.5833
+     },
+     "2026-11-02": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-11-05": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-11-08": {
+      "wins": 7,
+      "losses": 6,
+      "hit_rate": 0.5385
+     },
+     "2026-11-09": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     }
+    },
+    "worst_day_hit_rate": 0.0
+   }
+  },
+  {
+   "id": "B06",
+   "label": "Pick'em total \u2014 league mean of every game already played",
+   "kind": "total",
+   "n": 104,
+   "note": "The floor for totals. A total rule must beat the running league average.",
+   "uses_future_games": false,
+   "eligible_as_a_rule": true,
+   "metric": "mean absolute error, game total (points)",
+   "value": 11.2198,
+   "rmse": 13.4939,
+   "betting": {
+    "n_bets": 104,
+    "pushes": 0,
+    "wins": 51,
+    "losses": 53,
+    "hit_rate": 0.490385,
+    "hit_rate_ci95": [
+     0.396376,
+     0.585078
+    ],
+    "assumed_price": -110,
+    "breakeven_hit_rate": 0.52381,
+    "roi_per_unit_assumed_price": -0.063811,
+    "net_units_assumed_price": -6.6364,
+    "beats_breakeven_point": false,
+    "beats_breakeven_ci_low": false,
+    "p_value_vs_coin": 0.615604,
+    "by_game_day": {
+     "2026-09-24": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-09-27": {
+      "wins": 7,
+      "losses": 7,
+      "hit_rate": 0.5
+     },
+     "2026-09-28": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-01": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-04": {
+      "wins": 6,
+      "losses": 8,
+      "hit_rate": 0.4286
+     },
+     "2026-10-05": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-08": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-11": {
+      "wins": 7,
+      "losses": 6,
+      "hit_rate": 0.5385
+     },
+     "2026-10-12": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-15": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-18": {
+      "wins": 4,
+      "losses": 8,
+      "hit_rate": 0.3333
+     },
+     "2026-10-19": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-22": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-25": {
+      "wins": 7,
+      "losses": 5,
+      "hit_rate": 0.5833
+     },
+     "2026-10-26": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-29": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-11-01": {
+      "wins": 5,
+      "losses": 7,
+      "hit_rate": 0.4167
+     },
+     "2026-11-02": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-11-05": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-11-08": {
+      "wins": 8,
+      "losses": 5,
+      "hit_rate": 0.6154
+     },
+     "2026-11-09": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     }
+    },
+    "worst_day_hit_rate": 0.0
+   }
+  },
+  {
+   "id": "B07",
+   "label": "League mean total \u2014 the repository's existing baseline",
+   "kind": "total",
+   "n": 104,
+   "note": "The existing originator's total benchmark.",
+   "uses_future_games": false,
+   "eligible_as_a_rule": true,
+   "metric": "mean absolute error, game total (points)",
+   "value": 11.2198,
+   "rmse": 13.4939,
+   "betting": {
+    "n_bets": 104,
+    "pushes": 0,
+    "wins": 51,
+    "losses": 53,
+    "hit_rate": 0.490385,
+    "hit_rate_ci95": [
+     0.396376,
+     0.585078
+    ],
+    "assumed_price": -110,
+    "breakeven_hit_rate": 0.52381,
+    "roi_per_unit_assumed_price": -0.063811,
+    "net_units_assumed_price": -6.6364,
+    "beats_breakeven_point": false,
+    "beats_breakeven_ci_low": false,
+    "p_value_vs_coin": 0.615604,
+    "by_game_day": {
+     "2026-09-24": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-09-27": {
+      "wins": 7,
+      "losses": 7,
+      "hit_rate": 0.5
+     },
+     "2026-09-28": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-01": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-04": {
+      "wins": 6,
+      "losses": 8,
+      "hit_rate": 0.4286
+     },
+     "2026-10-05": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-08": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-11": {
+      "wins": 7,
+      "losses": 6,
+      "hit_rate": 0.5385
+     },
+     "2026-10-12": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-15": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-18": {
+      "wins": 4,
+      "losses": 8,
+      "hit_rate": 0.3333
+     },
+     "2026-10-19": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-22": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-25": {
+      "wins": 7,
+      "losses": 5,
+      "hit_rate": 0.5833
+     },
+     "2026-10-26": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-29": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-11-01": {
+      "wins": 5,
+      "losses": 7,
+      "hit_rate": 0.4167
+     },
+     "2026-11-02": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-11-05": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-11-08": {
+      "wins": 8,
+      "losses": 5,
+      "hit_rate": 0.6154
+     },
+     "2026-11-09": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     }
+    },
+    "worst_day_hit_rate": 0.0
+   }
+  },
+  {
+   "id": "B08",
+   "label": "Recent form total \u2014 last 5 games, points for/against",
+   "kind": "total",
+   "n": 104,
+   "note": "Tests recency for totals.",
+   "uses_future_games": false,
+   "eligible_as_a_rule": true,
+   "metric": "mean absolute error, game total (points)",
+   "value": 11.9322,
+   "rmse": 14.1443,
+   "betting": {
+    "n_bets": 104,
+    "pushes": 0,
+    "wins": 54,
+    "losses": 50,
+    "hit_rate": 0.519231,
+    "hit_rate_ci95": [
+     0.424245,
+     0.612847
+    ],
+    "assumed_price": -110,
+    "breakeven_hit_rate": 0.52381,
+    "roi_per_unit_assumed_price": -0.008741,
+    "net_units_assumed_price": -0.9091,
+    "beats_breakeven_point": false,
+    "beats_breakeven_ci_low": false,
+    "p_value_vs_coin": 0.384396,
+    "by_game_day": {
+     "2026-09-24": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-09-27": {
+      "wins": 8,
+      "losses": 6,
+      "hit_rate": 0.5714
+     },
+     "2026-09-28": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-01": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-04": {
+      "wins": 6,
+      "losses": 8,
+      "hit_rate": 0.4286
+     },
+     "2026-10-05": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-08": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-11": {
+      "wins": 7,
+      "losses": 6,
+      "hit_rate": 0.5385
+     },
+     "2026-10-12": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-15": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-18": {
+      "wins": 7,
+      "losses": 5,
+      "hit_rate": 0.5833
+     },
+     "2026-10-19": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-22": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-25": {
+      "wins": 6,
+      "losses": 6,
+      "hit_rate": 0.5
+     },
+     "2026-10-26": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-29": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-11-01": {
+      "wins": 5,
+      "losses": 7,
+      "hit_rate": 0.4167
+     },
+     "2026-11-02": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-11-05": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-11-08": {
+      "wins": 7,
+      "losses": 6,
+      "hit_rate": 0.5385
+     },
+     "2026-11-09": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     }
+    },
+    "worst_day_hit_rate": 0.0
+   }
+  },
+  {
+   "id": "B09",
+   "label": "Coin flip \u2014 0.50 on every game",
+   "kind": "moneyline",
+   "n": 104,
+   "note": "The floor for probabilities. Brier of a constant 0.5 is 0.25 by construction.",
+   "uses_future_games": false,
+   "eligible_as_a_rule": true,
+   "metric": "Brier score, home win probability",
+   "value": 0.247596,
+   "log_loss": 0.693147,
+   "betting": {
+    "n_bets": 103,
+    "pushes": 0,
+    "wins": 50,
+    "losses": 53,
+    "hit_rate": 0.485437,
+    "hit_rate_ci95": [
+     0.391191,
+     0.58073
+    ],
+    "assumed_price": -110,
+    "breakeven_hit_rate": 0.52381,
+    "roi_per_unit_assumed_price": -0.073257,
+    "net_units_assumed_price": -7.5455,
+    "beats_breakeven_point": false,
+    "beats_breakeven_ci_low": false,
+    "p_value_vs_coin": 0.653157,
+    "by_game_day": {
+     "2026-09-24": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-09-27": {
+      "wins": 10,
+      "losses": 4,
+      "hit_rate": 0.7143
+     },
+     "2026-09-28": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-01": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-04": {
+      "wins": 7,
+      "losses": 7,
+      "hit_rate": 0.5
+     },
+     "2026-10-05": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-08": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-11": {
+      "wins": 5,
+      "losses": 8,
+      "hit_rate": 0.3846
+     },
+     "2026-10-12": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-15": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-18": {
+      "wins": 5,
+      "losses": 7,
+      "hit_rate": 0.4167
+     },
+     "2026-10-19": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-22": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-25": {
+      "wins": 4,
+      "losses": 8,
+      "hit_rate": 0.3333
+     },
+     "2026-10-26": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-29": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-11-01": {
+      "wins": 8,
+      "losses": 4,
+      "hit_rate": 0.6667
+     },
+     "2026-11-02": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-11-05": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-11-08": {
+      "wins": 4,
+      "losses": 9,
+      "hit_rate": 0.3077
+     }
+    },
+    "worst_day_hit_rate": 0.0,
+    "profit_requires_breakeven": "at an assumed -110 the rule must win 52.3810% of these 103 bets"
+   }
+  },
+  {
+   "id": "B10",
+   "label": "League mean + home edge \u2014 existing baseline",
+   "kind": "moneyline",
+   "n": 104,
+   "note": "The existing originator's probability benchmark.",
+   "uses_future_games": false,
+   "eligible_as_a_rule": true,
+   "metric": "Brier score, home win probability",
+   "value": 0.250693,
+   "log_loss": 0.699355,
+   "betting": {
+    "n_bets": 103,
+    "pushes": 0,
+    "wins": 44,
+    "losses": 59,
+    "hit_rate": 0.427184,
+    "hit_rate_ci95": [
+     0.335968,
+     0.523637
+    ],
+    "assumed_price": -110,
+    "breakeven_hit_rate": 0.52381,
+    "roi_per_unit_assumed_price": -0.184466,
+    "net_units_assumed_price": -19.0,
+    "beats_breakeven_point": false,
+    "beats_breakeven_ci_low": false,
+    "p_value_vs_coin": 0.942766,
+    "by_game_day": {
+     "2026-09-24": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-09-27": {
+      "wins": 10,
+      "losses": 4,
+      "hit_rate": 0.7143
+     },
+     "2026-09-28": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-01": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-04": {
+      "wins": 7,
+      "losses": 7,
+      "hit_rate": 0.5
+     },
+     "2026-10-05": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-08": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-11": {
+      "wins": 5,
+      "losses": 8,
+      "hit_rate": 0.3846
+     },
+     "2026-10-12": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-15": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-18": {
+      "wins": 5,
+      "losses": 7,
+      "hit_rate": 0.4167
+     },
+     "2026-10-19": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-22": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-25": {
+      "wins": 4,
+      "losses": 8,
+      "hit_rate": 0.3333
+     },
+     "2026-10-26": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-29": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-11-01": {
+      "wins": 4,
+      "losses": 8,
+      "hit_rate": 0.3333
+     },
+     "2026-11-02": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-11-05": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-11-08": {
+      "wins": 4,
+      "losses": 9,
+      "hit_rate": 0.3077
+     }
+    },
+    "worst_day_hit_rate": 0.0,
+    "profit_requires_breakeven": "at an assumed -110 the rule must win 52.3810% of these 103 bets"
+   }
+  },
+  {
+   "id": "B11",
+   "label": "Recent form \u2014 last 5 games",
+   "kind": "moneyline",
+   "n": 104,
+   "note": "Recency as a probability rule.",
+   "uses_future_games": false,
+   "eligible_as_a_rule": true,
+   "metric": "Brier score, home win probability",
+   "value": 0.23114,
+   "log_loss": 0.655362,
+   "betting": {
+    "n_bets": 103,
+    "pushes": 0,
+    "wins": 65,
+    "losses": 38,
+    "hit_rate": 0.631068,
+    "hit_rate_ci95": [
+     0.534741,
+     0.71797
+    ],
+    "assumed_price": -110,
+    "breakeven_hit_rate": 0.52381,
+    "roi_per_unit_assumed_price": 0.204766,
+    "net_units_assumed_price": 21.0909,
+    "beats_breakeven_point": true,
+    "beats_breakeven_ci_low": true,
+    "p_value_vs_coin": 0.005032,
+    "by_game_day": {
+     "2026-09-24": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-09-27": {
+      "wins": 9,
+      "losses": 5,
+      "hit_rate": 0.6429
+     },
+     "2026-09-28": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-01": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-04": {
+      "wins": 10,
+      "losses": 4,
+      "hit_rate": 0.7143
+     },
+     "2026-10-05": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-08": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-11": {
+      "wins": 10,
+      "losses": 3,
+      "hit_rate": 0.7692
+     },
+     "2026-10-12": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-15": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-18": {
+      "wins": 7,
+      "losses": 5,
+      "hit_rate": 0.5833
+     },
+     "2026-10-19": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-22": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-25": {
+      "wins": 7,
+      "losses": 5,
+      "hit_rate": 0.5833
+     },
+     "2026-10-26": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-29": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-11-01": {
+      "wins": 8,
+      "losses": 4,
+      "hit_rate": 0.6667
+     },
+     "2026-11-02": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-11-05": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-11-08": {
+      "wins": 10,
+      "losses": 3,
+      "hit_rate": 0.7692
+     }
+    },
+    "worst_day_hit_rate": 0.0,
+    "profit_requires_breakeven": "at an assumed -110 the rule must win 52.3810% of these 103 bets"
+   }
+  },
+  {
+   "id": "S1",
+   "label": "Ridge margin ratings + home edge (LOO-CV lambda)",
+   "kind": "spread",
+   "n": 104,
+   "note": "Registered strategy, scored on exactly the games above.",
+   "uses_future_games": false,
+   "eligible_as_a_rule": true,
+   "metric": "mean absolute error, home margin (points)",
+   "value": 9.6569,
+   "rmse": 12.3869,
+   "betting": {
+    "n_bets": 104,
+    "pushes": 0,
+    "wins": 62,
+    "losses": 42,
+    "hit_rate": 0.596154,
+    "hit_rate_ci95": [
+     0.500059,
+     0.685399
+    ],
+    "assumed_price": -110,
+    "breakeven_hit_rate": 0.52381,
+    "roi_per_unit_assumed_price": 0.138112,
+    "net_units_assumed_price": 14.3636,
+    "beats_breakeven_point": true,
+    "beats_breakeven_ci_low": false,
+    "p_value_vs_coin": 0.030963,
+    "by_game_day": {
+     "2026-09-24": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-09-27": {
+      "wins": 11,
+      "losses": 3,
+      "hit_rate": 0.7857
+     },
+     "2026-09-28": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-01": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-04": {
+      "wins": 7,
+      "losses": 7,
+      "hit_rate": 0.5
+     },
+     "2026-10-05": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-08": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-11": {
+      "wins": 5,
+      "losses": 8,
+      "hit_rate": 0.3846
+     },
+     "2026-10-12": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-15": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-18": {
+      "wins": 4,
+      "losses": 8,
+      "hit_rate": 0.3333
+     },
+     "2026-10-19": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-22": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-25": {
+      "wins": 5,
+      "losses": 7,
+      "hit_rate": 0.4167
+     },
+     "2026-10-26": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-29": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-11-01": {
+      "wins": 9,
+      "losses": 3,
+      "hit_rate": 0.75
+     },
+     "2026-11-02": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-11-05": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-11-08": {
+      "wins": 12,
+      "losses": 1,
+      "hit_rate": 0.9231
+     },
+     "2026-11-09": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     }
+    },
+    "worst_day_hit_rate": 0.0
+   }
+  },
+  {
+   "id": "S2",
+   "label": "Offence/defence points ridge -> margin",
+   "kind": "spread",
+   "n": 104,
+   "note": "Registered strategy, scored on exactly the games above.",
+   "uses_future_games": false,
+   "eligible_as_a_rule": true,
+   "metric": "mean absolute error, home margin (points)",
+   "value": 9.7847,
+   "rmse": 12.4562,
+   "betting": {
+    "n_bets": 104,
+    "pushes": 0,
+    "wins": 61,
+    "losses": 43,
+    "hit_rate": 0.586538,
+    "hit_rate_ci95": [
+     0.490461,
+     0.676451
+    ],
+    "assumed_price": -110,
+    "breakeven_hit_rate": 0.52381,
+    "roi_per_unit_assumed_price": 0.119755,
+    "net_units_assumed_price": 12.4545,
+    "beats_breakeven_point": true,
+    "beats_breakeven_ci_low": false,
+    "p_value_vs_coin": 0.047522,
+    "by_game_day": {
+     "2026-09-24": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-09-27": {
+      "wins": 11,
+      "losses": 3,
+      "hit_rate": 0.7857
+     },
+     "2026-09-28": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-01": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-04": {
+      "wins": 7,
+      "losses": 7,
+      "hit_rate": 0.5
+     },
+     "2026-10-05": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-08": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-11": {
+      "wins": 5,
+      "losses": 8,
+      "hit_rate": 0.3846
+     },
+     "2026-10-12": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-15": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-18": {
+      "wins": 4,
+      "losses": 8,
+      "hit_rate": 0.3333
+     },
+     "2026-10-19": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-22": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-25": {
+      "wins": 5,
+      "losses": 7,
+      "hit_rate": 0.4167
+     },
+     "2026-10-26": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-29": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-11-01": {
+      "wins": 9,
+      "losses": 3,
+      "hit_rate": 0.75
+     },
+     "2026-11-02": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-11-05": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-11-08": {
+      "wins": 12,
+      "losses": 1,
+      "hit_rate": 0.9231
+     },
+     "2026-11-09": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     }
+    },
+    "worst_day_hit_rate": 0.0
+   }
+  },
+  {
+   "id": "S3",
+   "label": "Naive season point differential per game (unshrunk)",
+   "kind": "spread",
+   "n": 104,
+   "note": "Registered strategy, scored on exactly the games above.",
+   "uses_future_games": false,
+   "eligible_as_a_rule": true,
+   "metric": "mean absolute error, home margin (points)",
+   "value": 11.1585,
+   "rmse": 14.3259,
+   "betting": {
+    "n_bets": 104,
+    "pushes": 0,
+    "wins": 36,
+    "losses": 68,
+    "hit_rate": 0.346154,
+    "hit_rate_ci95": [
+     0.261677,
+     0.441591
+    ],
+    "assumed_price": -110,
+    "breakeven_hit_rate": 0.52381,
+    "roi_per_unit_assumed_price": -0.339161,
+    "net_units_assumed_price": -35.2727,
+    "beats_breakeven_point": false,
+    "beats_breakeven_ci_low": false,
+    "p_value_vs_coin": 0.999446,
+    "by_game_day": {
+     "2026-09-24": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-09-27": {
+      "wins": 3,
+      "losses": 11,
+      "hit_rate": 0.2143
+     },
+     "2026-09-28": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-01": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-04": {
+      "wins": 3,
+      "losses": 11,
+      "hit_rate": 0.2143
+     },
+     "2026-10-05": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-08": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-11": {
+      "wins": 4,
+      "losses": 9,
+      "hit_rate": 0.3077
+     },
+     "2026-10-12": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-15": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-18": {
+      "wins": 4,
+      "losses": 8,
+      "hit_rate": 0.3333
+     },
+     "2026-10-19": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-22": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-25": {
+      "wins": 2,
+      "losses": 10,
+      "hit_rate": 0.1667
+     },
+     "2026-10-26": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-29": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-11-01": {
+      "wins": 6,
+      "losses": 6,
+      "hit_rate": 0.5
+     },
+     "2026-11-02": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-11-05": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-11-08": {
+      "wins": 9,
+      "losses": 4,
+      "hit_rate": 0.6923
+     },
+     "2026-11-09": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     }
+    },
+    "worst_day_hit_rate": 0.0
+   }
+  },
+  {
+   "id": "S4",
+   "label": "Offence/defence points ridge -> total",
+   "kind": "total",
+   "n": 104,
+   "note": "Registered strategy, scored on exactly the games above.",
+   "uses_future_games": false,
+   "eligible_as_a_rule": true,
+   "metric": "mean absolute error, game total (points)",
+   "value": 11.2197,
+   "rmse": 13.5473,
+   "betting": {
+    "n_bets": 104,
+    "pushes": 0,
+    "wins": 53,
+    "losses": 51,
+    "hit_rate": 0.509615,
+    "hit_rate_ci95": [
+     0.414922,
+     0.603624
+    ],
+    "assumed_price": -110,
+    "breakeven_hit_rate": 0.52381,
+    "roi_per_unit_assumed_price": -0.027098,
+    "net_units_assumed_price": -2.8182,
+    "beats_breakeven_point": false,
+    "beats_breakeven_ci_low": false,
+    "p_value_vs_coin": 0.460974,
+    "by_game_day": {
+     "2026-09-24": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-09-27": {
+      "wins": 7,
+      "losses": 7,
+      "hit_rate": 0.5
+     },
+     "2026-09-28": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-01": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-04": {
+      "wins": 6,
+      "losses": 8,
+      "hit_rate": 0.4286
+     },
+     "2026-10-05": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-08": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-11": {
+      "wins": 7,
+      "losses": 6,
+      "hit_rate": 0.5385
+     },
+     "2026-10-12": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-15": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-18": {
+      "wins": 6,
+      "losses": 6,
+      "hit_rate": 0.5
+     },
+     "2026-10-19": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-22": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-25": {
+      "wins": 8,
+      "losses": 4,
+      "hit_rate": 0.6667
+     },
+     "2026-10-26": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-29": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-11-01": {
+      "wins": 5,
+      "losses": 7,
+      "hit_rate": 0.4167
+     },
+     "2026-11-02": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-11-05": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-11-08": {
+      "wins": 7,
+      "losses": 6,
+      "hit_rate": 0.5385
+     },
+     "2026-11-09": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     }
+    },
+    "worst_day_hit_rate": 0.0
+   }
+  },
+  {
+   "id": "S5",
+   "label": "Naive PF/PA per game averages -> total",
+   "kind": "total",
+   "n": 104,
+   "note": "Registered strategy, scored on exactly the games above.",
+   "uses_future_games": false,
+   "eligible_as_a_rule": true,
+   "metric": "mean absolute error, game total (points)",
+   "value": 11.837,
+   "rmse": 14.1344,
+   "betting": {
+    "n_bets": 104,
+    "pushes": 0,
+    "wins": 56,
+    "losses": 48,
+    "hit_rate": 0.538462,
+    "hit_rate_ci95": [
+     0.442993,
+     0.63119
+    ],
+    "assumed_price": -110,
+    "breakeven_hit_rate": 0.52381,
+    "roi_per_unit_assumed_price": 0.027972,
+    "net_units_assumed_price": 2.9091,
+    "beats_breakeven_point": true,
+    "beats_breakeven_ci_low": false,
+    "p_value_vs_coin": 0.246323,
+    "by_game_day": {
+     "2026-09-24": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-09-27": {
+      "wins": 8,
+      "losses": 6,
+      "hit_rate": 0.5714
+     },
+     "2026-09-28": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-01": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-04": {
+      "wins": 6,
+      "losses": 8,
+      "hit_rate": 0.4286
+     },
+     "2026-10-05": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-08": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-11": {
+      "wins": 7,
+      "losses": 6,
+      "hit_rate": 0.5385
+     },
+     "2026-10-12": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-15": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-18": {
+      "wins": 7,
+      "losses": 5,
+      "hit_rate": 0.5833
+     },
+     "2026-10-19": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-22": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-25": {
+      "wins": 8,
+      "losses": 4,
+      "hit_rate": 0.6667
+     },
+     "2026-10-26": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-29": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-11-01": {
+      "wins": 6,
+      "losses": 6,
+      "hit_rate": 0.5
+     },
+     "2026-11-02": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-11-05": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-11-08": {
+      "wins": 7,
+      "losses": 6,
+      "hit_rate": 0.5385
+     },
+     "2026-11-09": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     }
+    },
+    "worst_day_hit_rate": 0.0
+   }
+  },
+  {
+   "id": "S6",
+   "label": "Win probability = Phi(S1 margin / LOO sigma)",
+   "kind": "moneyline",
+   "n": 104,
+   "note": "Registered strategy, scored on exactly the games above.",
+   "uses_future_games": false,
+   "eligible_as_a_rule": true,
+   "metric": "Brier score, home win probability",
+   "value": 0.237091,
+   "log_loss": 0.671835,
+   "betting": {
+    "n_bets": 103,
+    "pushes": 0,
+    "wins": 63,
+    "losses": 40,
+    "hit_rate": 0.61165,
+    "hit_rate_ci95": [
+     0.515134,
+     0.700138
+    ],
+    "assumed_price": -110,
+    "breakeven_hit_rate": 0.52381,
+    "roi_per_unit_assumed_price": 0.167696,
+    "net_units_assumed_price": 17.2727,
+    "beats_breakeven_point": true,
+    "beats_breakeven_ci_low": false,
+    "p_value_vs_coin": 0.014841,
+    "by_game_day": {
+     "2026-09-24": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-09-27": {
+      "wins": 11,
+      "losses": 3,
+      "hit_rate": 0.7857
+     },
+     "2026-09-28": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-01": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-04": {
+      "wins": 7,
+      "losses": 7,
+      "hit_rate": 0.5
+     },
+     "2026-10-05": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-08": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-11": {
+      "wins": 6,
+      "losses": 7,
+      "hit_rate": 0.4615
+     },
+     "2026-10-12": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-15": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-18": {
+      "wins": 5,
+      "losses": 7,
+      "hit_rate": 0.4167
+     },
+     "2026-10-19": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-22": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-25": {
+      "wins": 6,
+      "losses": 6,
+      "hit_rate": 0.5
+     },
+     "2026-10-26": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-29": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-11-01": {
+      "wins": 9,
+      "losses": 3,
+      "hit_rate": 0.75
+     },
+     "2026-11-02": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-11-05": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-11-08": {
+      "wins": 11,
+      "losses": 2,
+      "hit_rate": 0.8462
+     }
+    },
+    "worst_day_hit_rate": 0.0,
+    "profit_requires_breakeven": "at an assumed -110 the rule must win 52.3810% of these 103 bets"
+   }
+  },
+  {
+   "id": "S7",
+   "label": "Win probability = Phi(S2 margin / LOO sigma)",
+   "kind": "moneyline",
+   "n": 104,
+   "note": "Registered strategy, scored on exactly the games above.",
+   "uses_future_games": false,
+   "eligible_as_a_rule": true,
+   "metric": "Brier score, home win probability",
+   "value": 0.240255,
+   "log_loss": 0.678298,
+   "betting": {
+    "n_bets": 103,
+    "pushes": 0,
+    "wins": 61,
+    "losses": 42,
+    "hit_rate": 0.592233,
+    "hit_rate_ci95": [
+     0.495676,
+     0.682157
+    ],
+    "assumed_price": -110,
+    "breakeven_hit_rate": 0.52381,
+    "roi_per_unit_assumed_price": 0.130627,
+    "net_units_assumed_price": 13.4545,
+    "beats_breakeven_point": true,
+    "beats_breakeven_ci_low": false,
+    "p_value_vs_coin": 0.03781,
+    "by_game_day": {
+     "2026-09-24": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-09-27": {
+      "wins": 11,
+      "losses": 3,
+      "hit_rate": 0.7857
+     },
+     "2026-09-28": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-01": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-04": {
+      "wins": 7,
+      "losses": 7,
+      "hit_rate": 0.5
+     },
+     "2026-10-05": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-08": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-11": {
+      "wins": 5,
+      "losses": 8,
+      "hit_rate": 0.3846
+     },
+     "2026-10-12": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-15": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-18": {
+      "wins": 5,
+      "losses": 7,
+      "hit_rate": 0.4167
+     },
+     "2026-10-19": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-22": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-25": {
+      "wins": 6,
+      "losses": 6,
+      "hit_rate": 0.5
+     },
+     "2026-10-26": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-29": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-11-01": {
+      "wins": 9,
+      "losses": 3,
+      "hit_rate": 0.75
+     },
+     "2026-11-02": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-11-05": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-11-08": {
+      "wins": 11,
+      "losses": 2,
+      "hit_rate": 0.8462
+     }
+    },
+    "worst_day_hit_rate": 0.0,
+    "profit_requires_breakeven": "at an assumed -110 the rule must win 52.3810% of these 103 bets"
+   }
+  },
+  {
+   "id": "S8",
+   "label": "Win probability = Phi(S3 margin / S1 sigma)",
+   "kind": "moneyline",
+   "n": 104,
+   "note": "Registered strategy, scored on exactly the games above.",
+   "uses_future_games": false,
+   "eligible_as_a_rule": true,
+   "metric": "Brier score, home win probability",
+   "value": 0.242051,
+   "log_loss": 0.691911,
+   "betting": {
+    "n_bets": 103,
+    "pushes": 0,
+    "wins": 64,
+    "losses": 39,
+    "hit_rate": 0.621359,
+    "hit_rate_ci95": [
+     0.524919,
+     0.709073
+    ],
+    "assumed_price": -110,
+    "breakeven_hit_rate": 0.52381,
+    "roi_per_unit_assumed_price": 0.186231,
+    "net_units_assumed_price": 19.1818,
+    "beats_breakeven_point": true,
+    "beats_breakeven_ci_low": true,
+    "p_value_vs_coin": 0.008805,
+    "by_game_day": {
+     "2026-09-24": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-09-27": {
+      "wins": 8,
+      "losses": 6,
+      "hit_rate": 0.5714
+     },
+     "2026-09-28": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-01": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-04": {
+      "wins": 10,
+      "losses": 4,
+      "hit_rate": 0.7143
+     },
+     "2026-10-05": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-08": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-11": {
+      "wins": 9,
+      "losses": 4,
+      "hit_rate": 0.6923
+     },
+     "2026-10-12": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-15": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-18": {
+      "wins": 7,
+      "losses": 5,
+      "hit_rate": 0.5833
+     },
+     "2026-10-19": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-22": {
+      "wins": 0,
+      "losses": 1,
+      "hit_rate": 0.0
+     },
+     "2026-10-25": {
+      "wins": 6,
+      "losses": 6,
+      "hit_rate": 0.5
+     },
+     "2026-10-26": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-10-29": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-11-01": {
+      "wins": 7,
+      "losses": 5,
+      "hit_rate": 0.5833
+     },
+     "2026-11-02": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-11-05": {
+      "wins": 1,
+      "losses": 0,
+      "hit_rate": 1.0
+     },
+     "2026-11-08": {
+      "wins": 11,
+      "losses": 2,
+      "hit_rate": 0.8462
+     }
+    },
+    "worst_day_hit_rate": 0.0,
+    "profit_requires_breakeven": "at an assumed -110 the rule must win 52.3810% of these 103 bets"
+   }
+  }
+ ],
+ "luck_decomposition": [
+  {
+   "id": "B02",
+   "label": "League mean + home edge \u2014 the repository's existing baseline",
+   "kind": "spread",
+   "n_bets": 98,
+   "hit_rate": 0.428571,
+   "hit_rate_ci95": [
+    0.335116,
+    0.527416
+   ],
+   "coin_flip_p_value": 0.935354,
+   "beats_coin_at_5pct": false,
+   "edge_over_breakeven_points": -9.5239,
+   "edge_over_coin_points": -7.1429,
+   "games_needed_to_confirm_this_edge": null,
+   "sd_of_hit_rate_if_coin": 0.050508,
+   "one_sd_window": [
+    0.449492,
+    0.550508
+   ]
+  },
+  {
+   "id": "B03",
+   "label": "Recent form \u2014 last 5 games, points for/against + home edge",
+   "kind": "spread",
+   "n_bets": 104,
+   "hit_rate": 0.509615,
+   "hit_rate_ci95": [
+    0.414922,
+    0.603624
+   ],
+   "coin_flip_p_value": 0.460974,
+   "beats_coin_at_5pct": false,
+   "edge_over_breakeven_points": -1.4195,
+   "edge_over_coin_points": 0.9615,
+   "games_needed_to_confirm_this_edge": 33434,
+   "sd_of_hit_rate_if_coin": 0.049029,
+   "one_sd_window": [
+    0.450971,
+    0.549029
+   ]
+  },
+  {
+   "id": "B04",
+   "label": "Always bet the home side (no magnitude)",
+   "kind": "spread",
+   "n_bets": 103,
+   "hit_rate": 0.475728,
+   "hit_rate_ci95": [
+    0.3819,
+    0.571302
+   ],
+   "coin_flip_p_value": 0.722699,
+   "beats_coin_at_5pct": false,
+   "edge_over_breakeven_points": -4.8082,
+   "edge_over_coin_points": -2.4272,
+   "games_needed_to_confirm_this_edge": null,
+   "sd_of_hit_rate_if_coin": 0.049266,
+   "one_sd_window": [
+    0.450734,
+    0.549266
+   ]
+  },
+  {
+   "id": "B05",
+   "label": "Full-season averages \u2014 DELIBERATE LEAKAGE, not a candidate",
+   "kind": "spread",
+   "n_bets": 104,
+   "hit_rate": 0.413462,
+   "hit_rate_ci95": [
+    0.323549,
+    0.509539
+   ],
+   "coin_flip_p_value": 0.969037,
+   "beats_coin_at_5pct": false,
+   "edge_over_breakeven_points": -11.0348,
+   "edge_over_coin_points": -8.6538,
+   "games_needed_to_confirm_this_edge": null,
+   "sd_of_hit_rate_if_coin": 0.049029,
+   "one_sd_window": [
+    0.450971,
+    0.549029
+   ]
+  },
+  {
+   "id": "B06",
+   "label": "Pick'em total \u2014 league mean of every game already played",
+   "kind": "total",
+   "n_bets": 104,
+   "hit_rate": 0.490385,
+   "hit_rate_ci95": [
+    0.396376,
+    0.585078
+   ],
+   "coin_flip_p_value": 0.615604,
+   "beats_coin_at_5pct": false,
+   "edge_over_breakeven_points": -3.3425,
+   "edge_over_coin_points": -0.9615,
+   "games_needed_to_confirm_this_edge": null,
+   "sd_of_hit_rate_if_coin": 0.049029,
+   "one_sd_window": [
+    0.450971,
+    0.549029
+   ]
+  },
+  {
+   "id": "B07",
+   "label": "League mean total \u2014 the repository's existing baseline",
+   "kind": "total",
+   "n_bets": 104,
+   "hit_rate": 0.490385,
+   "hit_rate_ci95": [
+    0.396376,
+    0.585078
+   ],
+   "coin_flip_p_value": 0.615604,
+   "beats_coin_at_5pct": false,
+   "edge_over_breakeven_points": -3.3425,
+   "edge_over_coin_points": -0.9615,
+   "games_needed_to_confirm_this_edge": null,
+   "sd_of_hit_rate_if_coin": 0.049029,
+   "one_sd_window": [
+    0.450971,
+    0.549029
+   ]
+  },
+  {
+   "id": "B08",
+   "label": "Recent form total \u2014 last 5 games, points for/against",
+   "kind": "total",
+   "n_bets": 104,
+   "hit_rate": 0.519231,
+   "hit_rate_ci95": [
+    0.424245,
+    0.612847
+   ],
+   "coin_flip_p_value": 0.384396,
+   "beats_coin_at_5pct": false,
+   "edge_over_breakeven_points": -0.4579,
+   "edge_over_coin_points": 1.9231,
+   "games_needed_to_confirm_this_edge": 8355,
+   "sd_of_hit_rate_if_coin": 0.049029,
+   "one_sd_window": [
+    0.450971,
+    0.549029
+   ]
+  },
+  {
+   "id": "B09",
+   "label": "Coin flip \u2014 0.50 on every game",
+   "kind": "moneyline",
+   "n_bets": 103,
+   "hit_rate": 0.485437,
+   "hit_rate_ci95": [
+    0.391191,
+    0.58073
+   ],
+   "coin_flip_p_value": 0.653157,
+   "beats_coin_at_5pct": false,
+   "edge_over_breakeven_points": -3.8373,
+   "edge_over_coin_points": -1.4563,
+   "games_needed_to_confirm_this_edge": null,
+   "sd_of_hit_rate_if_coin": 0.049266,
+   "one_sd_window": [
+    0.450734,
+    0.549266
+   ]
+  },
+  {
+   "id": "B10",
+   "label": "League mean + home edge \u2014 existing baseline",
+   "kind": "moneyline",
+   "n_bets": 103,
+   "hit_rate": 0.427184,
+   "hit_rate_ci95": [
+    0.335968,
+    0.523637
+   ],
+   "coin_flip_p_value": 0.942766,
+   "beats_coin_at_5pct": false,
+   "edge_over_breakeven_points": -9.6626,
+   "edge_over_coin_points": -7.2816,
+   "games_needed_to_confirm_this_edge": null,
+   "sd_of_hit_rate_if_coin": 0.049266,
+   "one_sd_window": [
+    0.450734,
+    0.549266
+   ]
+  },
+  {
+   "id": "B11",
+   "label": "Recent form \u2014 last 5 games",
+   "kind": "moneyline",
+   "n_bets": 103,
+   "hit_rate": 0.631068,
+   "hit_rate_ci95": [
+    0.534741,
+    0.71797
+   ],
+   "coin_flip_p_value": 0.005032,
+   "beats_coin_at_5pct": true,
+   "edge_over_breakeven_points": 10.7258,
+   "edge_over_coin_points": 13.1068,
+   "games_needed_to_confirm_this_edge": 176,
+   "sd_of_hit_rate_if_coin": 0.049266,
+   "one_sd_window": [
+    0.450734,
+    0.549266
+   ]
+  },
+  {
+   "id": "S1",
+   "label": "Ridge margin ratings + home edge (LOO-CV lambda)",
+   "kind": "spread",
+   "n_bets": 104,
+   "hit_rate": 0.596154,
+   "hit_rate_ci95": [
+    0.500059,
+    0.685399
+   ],
+   "coin_flip_p_value": 0.030963,
+   "beats_coin_at_5pct": true,
+   "edge_over_breakeven_points": 7.2344,
+   "edge_over_coin_points": 9.6154,
+   "games_needed_to_confirm_this_edge": 331,
+   "sd_of_hit_rate_if_coin": 0.049029,
+   "one_sd_window": [
+    0.450971,
+    0.549029
+   ]
+  },
+  {
+   "id": "S2",
+   "label": "Offence/defence points ridge -> margin",
+   "kind": "spread",
+   "n_bets": 104,
+   "hit_rate": 0.586538,
+   "hit_rate_ci95": [
+    0.490461,
+    0.676451
+   ],
+   "coin_flip_p_value": 0.047522,
+   "beats_coin_at_5pct": true,
+   "edge_over_breakeven_points": 6.2728,
+   "edge_over_coin_points": 8.6538,
+   "games_needed_to_confirm_this_edge": 409,
+   "sd_of_hit_rate_if_coin": 0.049029,
+   "one_sd_window": [
+    0.450971,
+    0.549029
+   ]
+  },
+  {
+   "id": "S3",
+   "label": "Naive season point differential per game (unshrunk)",
+   "kind": "spread",
+   "n_bets": 104,
+   "hit_rate": 0.346154,
+   "hit_rate_ci95": [
+    0.261677,
+    0.441591
+   ],
+   "coin_flip_p_value": 0.999446,
+   "beats_coin_at_5pct": false,
+   "edge_over_breakeven_points": -17.7656,
+   "edge_over_coin_points": -15.3846,
+   "games_needed_to_confirm_this_edge": null,
+   "sd_of_hit_rate_if_coin": 0.049029,
+   "one_sd_window": [
+    0.450971,
+    0.549029
+   ]
+  },
+  {
+   "id": "S4",
+   "label": "Offence/defence points ridge -> total",
+   "kind": "total",
+   "n_bets": 104,
+   "hit_rate": 0.509615,
+   "hit_rate_ci95": [
+    0.414922,
+    0.603624
+   ],
+   "coin_flip_p_value": 0.460974,
+   "beats_coin_at_5pct": false,
+   "edge_over_breakeven_points": -1.4195,
+   "edge_over_coin_points": 0.9615,
+   "games_needed_to_confirm_this_edge": 33434,
+   "sd_of_hit_rate_if_coin": 0.049029,
+   "one_sd_window": [
+    0.450971,
+    0.549029
+   ]
+  },
+  {
+   "id": "S5",
+   "label": "Naive PF/PA per game averages -> total",
+   "kind": "total",
+   "n_bets": 104,
+   "hit_rate": 0.538462,
+   "hit_rate_ci95": [
+    0.442993,
+    0.63119
+   ],
+   "coin_flip_p_value": 0.246323,
+   "beats_coin_at_5pct": false,
+   "edge_over_breakeven_points": 1.4652,
+   "edge_over_coin_points": 3.8462,
+   "games_needed_to_confirm_this_edge": 2086,
+   "sd_of_hit_rate_if_coin": 0.049029,
+   "one_sd_window": [
+    0.450971,
+    0.549029
+   ]
+  },
+  {
+   "id": "S6",
+   "label": "Win probability = Phi(S1 margin / LOO sigma)",
+   "kind": "moneyline",
+   "n_bets": 103,
+   "hit_rate": 0.61165,
+   "hit_rate_ci95": [
+    0.515134,
+    0.700138
+   ],
+   "coin_flip_p_value": 0.014841,
+   "beats_coin_at_5pct": true,
+   "edge_over_breakeven_points": 8.784,
+   "edge_over_coin_points": 11.165,
+   "games_needed_to_confirm_this_edge": 244,
+   "sd_of_hit_rate_if_coin": 0.049266,
+   "one_sd_window": [
+    0.450734,
+    0.549266
+   ]
+  },
+  {
+   "id": "S7",
+   "label": "Win probability = Phi(S2 margin / LOO sigma)",
+   "kind": "moneyline",
+   "n_bets": 103,
+   "hit_rate": 0.592233,
+   "hit_rate_ci95": [
+    0.495676,
+    0.682157
+   ],
+   "coin_flip_p_value": 0.03781,
+   "beats_coin_at_5pct": true,
+   "edge_over_breakeven_points": 6.8423,
+   "edge_over_coin_points": 9.2233,
+   "games_needed_to_confirm_this_edge": 360,
+   "sd_of_hit_rate_if_coin": 0.049266,
+   "one_sd_window": [
+    0.450734,
+    0.549266
+   ]
+  },
+  {
+   "id": "S8",
+   "label": "Win probability = Phi(S3 margin / S1 sigma)",
+   "kind": "moneyline",
+   "n_bets": 103,
+   "hit_rate": 0.621359,
+   "hit_rate_ci95": [
+    0.524919,
+    0.709073
+   ],
+   "coin_flip_p_value": 0.008805,
+   "beats_coin_at_5pct": true,
+   "edge_over_breakeven_points": 9.7549,
+   "edge_over_coin_points": 12.1359,
+   "games_needed_to_confirm_this_edge": 206,
+   "sd_of_hit_rate_if_coin": 0.049266,
+   "one_sd_window": [
+    0.450734,
+    0.549266
+   ]
+  }
+ ],
+ "head_to_head": [
+  {
+   "kind": "spread",
+   "strategy": "S1",
+   "vs": "B01",
+   "mae_strategy": 9.6569,
+   "mae_baseline": 10.0769,
+   "mae_improvement_points": 0.42,
+   "strategy_beats_arm": true
+  },
+  {
+   "kind": "spread",
+   "strategy": "S1",
+   "vs": "B02",
+   "mae_strategy": 9.6569,
+   "mae_baseline": 10.1551,
+   "mae_improvement_points": 0.4982,
+   "strategy_beats_arm": true
+  },
+  {
+   "kind": "spread",
+   "strategy": "S1",
+   "vs": "B03",
+   "mae_strategy": 9.6569,
+   "mae_baseline": 9.3976,
+   "mae_improvement_points": -0.2593,
+   "strategy_beats_arm": false
+  },
+  {
+   "kind": "spread",
+   "strategy": "S1",
+   "vs": "B04",
+   "mae_strategy": 9.6569,
+   "mae_baseline": 10.1154,
+   "mae_improvement_points": 0.4585,
+   "strategy_beats_arm": true
+  },
+  {
+   "kind": "spread",
+   "strategy": "S2",
+   "vs": "B01",
+   "mae_strategy": 9.7847,
+   "mae_baseline": 10.0769,
+   "mae_improvement_points": 0.2922,
+   "strategy_beats_arm": true
+  },
+  {
+   "kind": "spread",
+   "strategy": "S2",
+   "vs": "B02",
+   "mae_strategy": 9.7847,
+   "mae_baseline": 10.1551,
+   "mae_improvement_points": 0.3704,
+   "strategy_beats_arm": true
+  },
+  {
+   "kind": "spread",
+   "strategy": "S2",
+   "vs": "B03",
+   "mae_strategy": 9.7847,
+   "mae_baseline": 9.3976,
+   "mae_improvement_points": -0.3871,
+   "strategy_beats_arm": false
+  },
+  {
+   "kind": "spread",
+   "strategy": "S2",
+   "vs": "B04",
+   "mae_strategy": 9.7847,
+   "mae_baseline": 10.1154,
+   "mae_improvement_points": 0.3307,
+   "strategy_beats_arm": true
+  },
+  {
+   "kind": "spread",
+   "strategy": "S3",
+   "vs": "B01",
+   "mae_strategy": 11.1585,
+   "mae_baseline": 10.0769,
+   "mae_improvement_points": -1.0816,
+   "strategy_beats_arm": false
+  },
+  {
+   "kind": "spread",
+   "strategy": "S3",
+   "vs": "B02",
+   "mae_strategy": 11.1585,
+   "mae_baseline": 10.1551,
+   "mae_improvement_points": -1.0034,
+   "strategy_beats_arm": false
+  },
+  {
+   "kind": "spread",
+   "strategy": "S3",
+   "vs": "B03",
+   "mae_strategy": 11.1585,
+   "mae_baseline": 9.3976,
+   "mae_improvement_points": -1.7609,
+   "strategy_beats_arm": false
+  },
+  {
+   "kind": "spread",
+   "strategy": "S3",
+   "vs": "B04",
+   "mae_strategy": 11.1585,
+   "mae_baseline": 10.1154,
+   "mae_improvement_points": -1.0431,
+   "strategy_beats_arm": false
+  },
+  {
+   "kind": "total",
+   "strategy": "S4",
+   "vs": "B06",
+   "mae_strategy": 11.2197,
+   "mae_baseline": 11.2198,
+   "mae_improvement_points": 0.0001,
+   "strategy_beats_arm": true
+  },
+  {
+   "kind": "total",
+   "strategy": "S4",
+   "vs": "B07",
+   "mae_strategy": 11.2197,
+   "mae_baseline": 11.2198,
+   "mae_improvement_points": 0.0001,
+   "strategy_beats_arm": true
+  },
+  {
+   "kind": "total",
+   "strategy": "S4",
+   "vs": "B08",
+   "mae_strategy": 11.2197,
+   "mae_baseline": 11.9322,
+   "mae_improvement_points": 0.7125,
+   "strategy_beats_arm": true
+  },
+  {
+   "kind": "total",
+   "strategy": "S5",
+   "vs": "B06",
+   "mae_strategy": 11.837,
+   "mae_baseline": 11.2198,
+   "mae_improvement_points": -0.6172,
+   "strategy_beats_arm": false
+  },
+  {
+   "kind": "total",
+   "strategy": "S5",
+   "vs": "B07",
+   "mae_strategy": 11.837,
+   "mae_baseline": 11.2198,
+   "mae_improvement_points": -0.6172,
+   "strategy_beats_arm": false
+  },
+  {
+   "kind": "total",
+   "strategy": "S5",
+   "vs": "B08",
+   "mae_strategy": 11.837,
+   "mae_baseline": 11.9322,
+   "mae_improvement_points": 0.0952,
+   "strategy_beats_arm": true
+  },
+  {
+   "kind": "moneyline",
+   "strategy": "S6",
+   "vs": "B09",
+   "brier_strategy": 0.237091,
+   "brier_baseline": 0.247596,
+   "brier_improvement": 0.010505,
+   "strategy_beats_arm": true
+  },
+  {
+   "kind": "moneyline",
+   "strategy": "S6",
+   "vs": "B10",
+   "brier_strategy": 0.237091,
+   "brier_baseline": 0.250693,
+   "brier_improvement": 0.013602,
+   "strategy_beats_arm": true
+  },
+  {
+   "kind": "moneyline",
+   "strategy": "S6",
+   "vs": "B11",
+   "brier_strategy": 0.237091,
+   "brier_baseline": 0.23114,
+   "brier_improvement": -0.005951,
+   "strategy_beats_arm": false
+  },
+  {
+   "kind": "moneyline",
+   "strategy": "S7",
+   "vs": "B09",
+   "brier_strategy": 0.240255,
+   "brier_baseline": 0.247596,
+   "brier_improvement": 0.007341,
+   "strategy_beats_arm": true
+  },
+  {
+   "kind": "moneyline",
+   "strategy": "S7",
+   "vs": "B10",
+   "brier_strategy": 0.240255,
+   "brier_baseline": 0.250693,
+   "brier_improvement": 0.010438,
+   "strategy_beats_arm": true
+  },
+  {
+   "kind": "moneyline",
+   "strategy": "S7",
+   "vs": "B11",
+   "brier_strategy": 0.240255,
+   "brier_baseline": 0.23114,
+   "brier_improvement": -0.009115,
+   "strategy_beats_arm": false
+  },
+  {
+   "kind": "moneyline",
+   "strategy": "S8",
+   "vs": "B09",
+   "brier_strategy": 0.242051,
+   "brier_baseline": 0.247596,
+   "brier_improvement": 0.005545,
+   "strategy_beats_arm": true
+  },
+  {
+   "kind": "moneyline",
+   "strategy": "S8",
+   "vs": "B10",
+   "brier_strategy": 0.242051,
+   "brier_baseline": 0.250693,
+   "brier_improvement": 0.008642,
+   "strategy_beats_arm": true
+  },
+  {
+   "kind": "moneyline",
+   "strategy": "S8",
+   "vs": "B11",
+   "brier_strategy": 0.242051,
+   "brier_baseline": 0.23114,
+   "brier_improvement": -0.010911,
+   "strategy_beats_arm": false
+  }
+ ],
+ "findings": {
+  "best_spread_rule": "B03",
+  "best_spread_rule_label": "Recent form \u2014 last 5 games, points for/against + home edge",
+  "best_spread_mae": 9.3976,
+  "leakage_ceiling_mae": 8.0189,
+  "leakage_is_worth_points": -1.3787,
+  "arms_profitable_at_assumed_price": [
+   "B11",
+   "S1",
+   "S2",
+   "S5",
+   "S6",
+   "S7",
+   "S8"
+  ],
+  "arms_whose_hit_rate_beats_coin_at_5pct": [
+   "B11",
+   "S1",
+   "S2",
+   "S6",
+   "S7",
+   "S8"
+  ],
+  "how_to_read": "An arm is not a signal because its ROI is positive. It is a signal only if its hit-rate confidence interval clears the break-even rate. At these sample sizes almost nothing can clear it, and that is the finding."
+ },
+ "caveats": [
+  "Every strategy here was selected from a family of 12 after the fact; a family-wise correction is required before any of it can be called a discovery (origination gate G5).",
+  "The assumed -110 ignores pushes correctly at the bet level but ignores vig on pushes, line movement, limits and availability. It is a hurdle, not a simulation of a book.",
+  "Week 10 finals did not exist at capture time (probe P11), so none of this is graded on the current slate.",
+  "B05 uses future games on purpose. It is published as a leakage ceiling and is excluded from every 'best rule' and 'profitable' computation."
+ ]
+}

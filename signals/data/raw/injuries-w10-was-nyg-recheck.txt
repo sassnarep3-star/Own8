@@ -1,0 +1,34 @@
+# Raw transcription — official Week 10 injury report, re-read for the availability tier study
+# Source: https://www.nfl.com/injuries/league/2026/reg10
+# Retrieval: 2026-11-14 UTC (page title rendered "Week 10 of the 2026 Season")
+# Only the two clubs whose Game Books are transcribed in this directory are re-read here, so the
+# injury status can be joined line by line to the official lineup. All other clubs are already
+# transcribed in requirements/data/raw-injuries-w10.txt and were not touched by this session.
+# Format: team|player|position|injury|practice_status|game_status   (empty = rendered blank)
+WAS|John Bates|TE||Full Participation in Practice|
+WAS|Treylon Burks|WR||Did Not Participate In Practice|
+WAS|Jayden Daniels|QB||Full Participation in Practice|
+WAS|Matt Gulbin|C||Full Participation in Practice|
+WAS|Chig Okonkwo|TE||Full Participation in Practice|
+WAS|Lucas Patrick|C|Concussion|Did Not Participate In Practice|Out
+WAS|Amik Robertson|CB||Limited Participation in Practice|
+WAS|Shy Tuttle|DT||Full Participation in Practice|
+WAS|Colson Yankoff|TE|Knee|Did Not Participate In Practice|Out
+NYG|Abdul Carter|LB||Full Participation in Practice|
+NYG|Jermaine Eluemunor|T||Full Participation in Practice|
+NYG|Malik Harrison|LB|Groin|Limited Participation in Practice|Questionable
+NYG|Colton Hood|CB||Full Participation in Practice|
+NYG|Theo Johnson|TE||Full Participation in Practice|
+NYG|Charlie Jones|WR||Full Participation in Practice|
+NYG|J.J. McCarthy|QB||Full Participation in Practice|
+NYG|Darnell Mooney|WR||Full Participation in Practice|
+NYG|Malik Nabers|WR||Full Participation in Practice|
+NYG|Cam Skattebo|RB||Full Participation in Practice|
+NYG|Andrew Thomas|T||Full Participation in Practice|
+# --- page-level observations that are part of the evidence, not values ---
+# obs1| The URL /injuries/league/2026/reg11 was ALSO requested and returned this same Week 10 page
+#       (title and heading re-rendered as "WEEK 10"). No Week 11 injury report was observable at
+#       capture time. A Week 11 availability join is therefore not possible yet.
+# obs2| Game Status is rendered blank for many rows. Blank is kept blank; it is not read as "active".
+# obs3| The page prints Player, Position, Injuries, Practice Status, Game Status only. It does not
+#       print depth order, starter designation, or snap counts.

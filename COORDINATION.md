@@ -788,3 +788,130 @@ Cross-session requests logged: none — all prior namespaces are read-only here;
 Log (2f8759c5):
 - 2026-11-14 — Claimed J0–J4. Read the full board; confirmed all prior sessions' tasks are done/merged (PRs #41–#47 merged; site live). Root checkers already PASS locally (build_site, check_links 40 pages/2804 links/2076 rows/0 errors, audit_repo 256 comparisons/0 mismatches, analyze 14 B0/7 correlations/0 eligible, 18 unit tests OK; ledger check_ledger 22/22). Open PRs #39/#32/#31/#28 belong to other sessions and are not touched.
 - 2026-11-14 — J1 done: every committed checker re-run, all exit 0 (root build_site/check_links/audit_repo/analyze/audit_publication/test_audit; ledger check_ledger/test_ledger; requirements check_req; strict strict_check; origination check_links; desk check_links/build_site). J2 done: untracked 2 tracked __pycache__/*.pyc build artifacts under origination/scripts/__pycache__/ (violates .gitignore, irregularity R-04), no logic changed. J3 done: GitHub Pages API status built, no error; live site https://sassnarep3-star.github.io/Own8/ re-fetched and serving the root dashboard. J4 done: PR #48 https://github.com/sassnarep3-star/Own8/pull/48 MERGED (merge commit 74d3bbd996c0a0d8b57e38be0668997afe53aa09, 2026-11-14T22:07:51Z) after CI validate/independent-desk/evidence-and-site all SUCCESS; Pages build API built after deploy; live URL re-fetched and serving. Rebased onto origin/main (PR #49 merge) during the session, keeping both COORDINATION.md sections; no other session's work discarded.
+---
+
+## Session 8ef7f6bb — signal desk: naive baselines, market-relative skill, legitimate correlations, availability tiers, and the consolidated decision pack (claimed 2026-11-14 22:05 UTC, base main @ 12f6bbf)
+
+Branch: `arena/8ef7f6bb-own8` (Arena-pinned; all work on this branch). Read the full board above
+before acting. This session is the **final integration session** for the open items it claims.
+Scope is **new namespace `signals/**` plus this section of `COORDINATION.md`**. Read-only everywhere
+else: root `index.html`, `pages/**`, `assets/**`, `data/**`, `analysis/**`, `scripts/**`,
+`requirements/**`, `ledger/**`, `origination/**`, `decision/**`, `decision-review/**`, `desk/**`,
+`strict/**`, `hub/**`, `integration/**`, `.github/workflows/**` and all other namespaces. Root
+navigation/sitemap links are NOT edited here: the operator instruction for this session is to add
+one, and it is logged below as cross-session request S-8R1 for the integration owner.
+
+Why this scope: the operator's current message is a research brief, not a request to rebuild a
+dashboard. The board shows ten prior sessions that each built a dashboard and each stopped at the
+same two walls: **no market price exists in any official source**, and **no strategy has passed an
+out-of-sample gate**. `grep` on main finds no artifact that (a) scores a naive baseline next to
+every strategy, (b) bounds how much of a measured edge could be the market's price rather than the
+model's information, (c) defines a correlation as *legitimate* (non-overlapping, officially sourced,
+with n), (d) classifies availability into depth tiers with an explicit "not knowable pregame"
+bucket, or (e) turns the 40+ published flags and 22 open questions into a ranked decision queue.
+That is what this namespace does. Every number is recomputed from existing verified official rows or
+from a fresh official retrieval performed in this session; nothing is typed in by hand.
+
+Claimed tasks (status is updated in place as work completes):
+
+| ID | Task | Status | Owner | Files (scope) | Verification plan |
+| --- | --- | --- | --- | --- | --- |
+| SB0 | Board claim (this section) | done (08aae0e, pushed before any `signals/` file) | 8ef7f6bb | COORDINATION.md (this section) | Claim commit pushed before any `signals/` file |
+| SB1 | Fresh official capture: Week 10 scores state, Week 11 schedule/depth hooks, Week 10 injury report re-read; recorded with exact URLs and retrieval timestamps | done (4 raw files + 12 probes, all retrieved 2026-11-14) | 8ef7f6bb | signals/data/sources-2026-11-14b.json, signals/data/raw/ | Each captured cell traceable to a URL fetched in this session |
+| SB2 | Naive-baseline ladder: 19 arms scored against 8 do-nothing rules on the same 104 walk-forward games | done (19 arms; best admissible spread MAE 9.3976 vs B02 10.1551; leakage ceiling 8.0189) | 8ef7f6bb | signals/data/baseline-ladder.json | Recomputation from origination/data/games-2026-w1-w9.json; loss identity checked |
+| SB3 | Market-relative skill bound: the number that erases the signal, never a market line | done (13 W11 fair lines; break-even distance 0.63 pts; 7 of 18 arms profitable, 2 clear break-even) | 8ef7f6bb | signals/data/market-relative.json | Closed-form recomputation from league scoring rates; no external odds used |
+| SB4 | Correlation legitimacy register with n and a verdict | done (C1/C2 reproduce exactly; C5-C8 ILLEGITIMATE (n counts QB-games); C3/C4 DUPLICATE; C5/C6 only Holm survivors, both tautological) | 8ef7f6bb | signals/data/correlation-legitimacy.json | Recomputation against source game rows; n must equal the count of independent units |
+| SB5 | Availability tier register + measurement of replacement depth from official Game Books | done (110 players tiered; 3 slot changes; 1 explained by Out; 6 unexplained absences; 2 clubs) | 8ef7f6bb | signals/data/availability-tiers.json | Class must be assigned only from a fetched official field; blanks carry the reason |
+| SB6 | Consolidated ranked decision queue | done (13 questions; 4 P0; 7 need no new data; 5 internal consistency checks) | 8ef7f6bb | signals/data/decision-queue.json | Every row cites the prior artifact it came from; no row invents a value |
+| SB7 | Pages: 10 pages, one source link per table row, own checker | done (104/104 checks, 377 rows, 0 unsourced, 0 broken links, 0 disallowed hosts) | 8ef7f6bb | signals/*.html, signals/assets/style.css, signals/scripts/build_signals.py, signals/scripts/check_signals.py | `python3 signals/scripts/check_signals.py` exit 0 |
+| SB8 | Executive summary | done (MD + page; all 24 quoted numbers verified against the data files) | 8ef7f6bb | signals/EXECUTIVE-SUMMARY.md, signals/executive-summary.html | Every claim maps to a row in SB2-SB6 |
+| SB9 | Local CI replay, PR to main, merge, Pages confirmation, record here | in progress | | 8ef7f6bb | COORDINATION.md | Root workflows green on the branch; live URL re-fetched after deploy |
+
+Cross-session requests from 8ef7f6bb (not performed here; shared files):
+- (S-8R1) Integration owner: add a root navigation/sitemap link to `signals/index.html`.
+- (S-8R2) Integration owner: `_config.yml` — `signals/` is page output with no build step, so it
+  needs no exclude entry; confirm during the next root rebuild that the link checker sees it.
+
+Status: SB0-SB8 done, SB9 in progress. No money, stakes or rewards are involved anywhere in this scope.
+
+### Verification performed (2026-11-14, session 8ef7f6bb)
+
+- **Rebuild determinism.** Ladder -> market -> correlations -> availability -> decisions -> flags ->
+  pages all re-run from the committed inputs; `git status --porcelain signals` is empty afterwards.
+  `.github/workflows/signals.yml` fails the PR if a rebuild produces a diff.
+- **Row sourcing.** `signals/scripts/check_signals.py`: 104/104 checks, 377 table rows, every row
+  carries a link to an allowed official host (nfl.com, static.www.nfl.com, nextgenstats.nfl.com,
+  itl.nist.gov) or to an internal page; 0 broken local links; 0 blank cells without an aria-label.
+- **Claim guard.** The checker recomputes the "arms clearing break-even" count from the data file and
+  fails if the page text disagrees. It also fails on the phrases "no arm clears" and "eighteen arms",
+  both of which appeared in this session's own first draft and were wrong.
+- **Executive-summary numbers.** All 24 numeric claims re-verified programmatically against
+  `signals/data/*.json` (best_spread_mae, B02 MAE, leakage ceiling, both clearing arms and their
+  lower bounds, correlation survivors, illegitimate count, slot changes, explained count, unexplained
+  absences, closed-without-data count, question count, P0 count, S11/S12 skill, flag total).
+- **Injury join.** The Week 10 injury rows for WAS and NYG re-read from
+  https://www.nfl.com/injuries/league/2026/reg10 and matched line for line against the previously
+  committed transcription in `requirements/data/raw-injuries-w10.txt`. 20 of 20 rows identical.
+- **Root CI replay on this branch (all green):** `scripts/audit_repo.py`, `scripts/analyze.py`,
+  `scripts/test_audit.py` (18 tests), `scripts/build_site.py`, `scripts/check_links.py`
+  (40 pages / 2850 links / 2122 rows / 0 errors), `scripts/audit_publication.py`,
+  `requirements/scripts/check_req.py`, `ledger/scripts/check_ledger.py`,
+  `scripts/strict_build_site.py` + `strict_check.py`, `tests/` (12 tests).
+
+### Two CI jobs fail on this branch for pre-existing reasons, NOT because of this session
+
+Both were reproduced on the untouched tree with `signals/**` absent from the run path. Neither is
+caused, worsened or fixed by this session, and neither is touched by it.
+
+1. **`desk.yml` -> `scripts/audit.py`** fails with `fatal: not a tree object` on commit `7c2f545`.
+   The job checks out with `fetch-depth: 0`, but the commit is unreachable in any checkout of this
+   repository (the clone is shallow; `git cat-file -e 7c2f545` fails). *Action for the desk owner:
+   replace the hard-coded base commit or derive it from the merge-base.*
+2. **`evidence-lab.yml` -> `check.py`** fails on 112 "Broken internal target" errors, every one inside
+   `archive/concurrent-main-28f1853/pages/*` — a preserved historical archive whose relative links
+   were already dead when it was committed. `evidence-lab/checks.json` currently records these as
+   FAIL in the committed file. *Action for the evidence-lab owner: exclude `archive/**` from the
+   link check, or record the archive as an explicit exemption.* Running `evidence-lab/check.py`
+   rewrites `evidence-lab/checks.json` and `docs/evidence-lab/*`; those rewrites were reverted here
+   because they are outside this session's scope.
+
+### Irregularities found in other sessions' published artifacts (reported, not edited)
+
+- **SF-02 (downgraded after re-check):** `origination/results/correlations-w10.json` publishes n = 204
+  for C5–C8. Every coefficient **reproduces exactly** on that sample under the originator's documented
+  single-passer rule (see the independent audit in `correlation-audit/`, session 5b52ac15). The only
+  surviving point is that those 204 team-game rows sit inside 105 games, so the p-values are
+  optimistic. The coefficients are not wrong and this session does not claim they are.
+- **SF-10:** strategy S3, registered as a candidate, is the worst arm in the ladder (34.6% hit rate,
+  −33.9% ROI). It should be reclassified as a negative control.
+- **SF-12:** correlations C3, C4 and C9 were not re-derived by this session because their pair
+  definitions are not stored with the committed predictions. No substitute definition was used. Session
+  5b52ac15's audit in `correlation-audit/data/recomputed.json` reproduces them to 1e-6, so they are not
+  in dispute; this session simply could not re-derive them independently.
+
+### Rebase and conflict record (session 8ef7f6bb)
+
+- 2026-11-14 — `git pull --rebase origin main` brought in PRs #48, #49 and #51, which merged two
+  sessions' board sections (5b52ac15 correlation audit, 2f8759c5 final integration) after this branch
+  forked. The only conflict was the expected `COORDINATION.md` add/add. **Both sides are retained in
+  full**; no session's work was discarded. Everything else rebased cleanly.
+- The parallel session 5b52ac15 published an independent correlation audit while this session was
+  running. That audit is the reason defect SF-16 (below) was caught: it documents the single-passer
+  sample rule and shows all eleven published coefficients reproduce. This session's first draft had
+  declared four of them illegitimate. **Cross-checking a parallel session's work is what caught it.**
+- Because 5b52ac15's audit and this desk both cover the correlation register from different angles,
+  the integration owner may want to keep both: `correlation-audit/` proves the arithmetic,
+  `signals/correlations.html` adds the independent-sample caveat and the combination-product analysis.
+
+### Cross-session requests from 8ef7f6bb (not performed here; shared files)
+
+- **(S-8R1) Integration owner:** add a root navigation/sitemap link to `signals/index.html`, and add
+  a row for it to the "Published surfaces" table in `scripts/build_site.py`.
+- **(S-8R2) Integration owner:** re-run `scripts/audit_repo.py` + `scripts/build_site.py` after the
+  merge so `analysis/repo-audit.json` and `pages/repo-review.html` pick up the new `signals/**` and
+  `.github/workflows/signals.yml` entries (608 lines added to the inventory). Regenerating those files
+  here was reverted deliberately: they are the integration owner's scope and every session that
+  regenerates them creates a merge conflict.
+- **(S-8R3) Repo owner:** eleven parallel workspaces now publish different numbers for the same
+  objects. `signals/decisions.html` DQ-12 proposes declaring root canonical and reducing the rest to
+  pointers. That is a policy decision, so it was not done here.

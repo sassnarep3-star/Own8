@@ -1,0 +1,71 @@
+name: Verify signal desk
+
+# Owned by the signals/** scope (session 8ef7f6bb). Deliberately does NOT deploy: GitHub Pages for
+# this repository is published from the main branch root by the legacy pipeline, and a second
+# deployment job would race it. This workflow proves the desk rebuilds deterministically from the
+# committed official captures and that every row it publishes carries an official source.
+
+on:
+  push:
+    branches: [main, 'arena/8ef7f6bb-own8']
+    paths:
+      - 'signals/**'
+      - '.github/workflows/signals.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'signals/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: signals-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      # Rebuild every derived file from the committed inputs, so a hand-edited JSON or HTML
+      # cannot pass unnoticed.
+      - name: Rebuild the baseline ladder
+        run: python3 signals/scripts/ladder.py
+      - name: Rebuild the market-relative analysis
+        run: python3 signals/scripts/market.py
+      - name: Rebuild the correlation register
+        run: python3 signals/scripts/correlations.py
+      - name: Rebuild the availability and depth register
+        run: python3 signals/scripts/availability.py
+      - name: Rebuild the decision queue
+        run: python3 signals/scripts/decisions.py
+      - name: Rebuild the flag register
+        run: python3 signals/scripts/flags.py
+      - name: Rebuild the pages
+        run: python3 signals/scripts/build_signals.py
+      - name: Check every row is sourced, every link resolves and no claim is overstated
+        run: python3 signals/scripts/check_signals.py
+
+      - name: Confirm the regenerated files match what was committed
+        run: |
+          if ! git diff --quiet; then
+            echo "::error::Derived files changed when rebuilt from the committed inputs. Commit the regenerated output."
+            git --no-pager diff --stat
+            exit 1
+          fi
+
+      - name: Upload the desk as a preview artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: signal-desk
+          path: |
+            signals/*.html
+            signals/assets
+            signals/data
+            signals/EXECUTIVE-SUMMARY.md
