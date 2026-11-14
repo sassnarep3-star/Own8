@@ -35,7 +35,7 @@ def dump(name, obj):
 inj = json.load(open(os.path.join(RES, "injuries-w10.json"), encoding="utf-8"))
 grading = json.load(open(os.path.join(RES, "w9-grading.json"), encoding="utf-8"))
 week10 = json.load(open(os.path.join(RES, "week10-lines.json"), encoding="utf-8"))
-checks = json.load(open(os.path.join(RES, "checks.json"), encoding="utf-8"))
+checks = json.load(open(os.path.join(RES, "checks-capture.json"), encoding="utf-8"))
 stand = {}
 for line in open(os.path.join(REQ, "data", "raw-standings-2026-11-14.txt"), encoding="utf-8"):
     if line.startswith("#") or not line.strip():
@@ -291,9 +291,8 @@ dump("luck.json", luck)
 
 # ------------------------------------------------------------------- D. checks + summary
 failed = [c for c in CHECKS if not c["pass"]]
-prev = checks["checks"]
-with open(os.path.join(RES, "checks.json"), "w", encoding="utf-8") as fh:
-    json.dump(dict(summary=checks["summary"], checks=prev + CHECKS), fh, indent=1)
+with open(os.path.join(RES, "checks-availability.json"), "w", encoding="utf-8") as fh:
+    json.dump(dict(checks=CHECKS), fh, indent=1)
     fh.write("\n")
 print(json.dumps(dict(new_checks=len(CHECKS), failed=len(failed),
                       r_pd=round(r_pd, 4), noise_share=round(noise_share, 4),

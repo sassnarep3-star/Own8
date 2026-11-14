@@ -37,6 +37,8 @@ jobs:
         run: python requirements/scripts/verify_capture.py
       - name: Re-run the availability and luck analysis
         run: python requirements/scripts/analyze_availability.py
+      - name: Merge the check families into one result file
+        run: python requirements/scripts/build_checks.py
       - name: Rebuild the review flags
         run: python requirements/scripts/build_flags.py
       - name: Rebuild the section pages

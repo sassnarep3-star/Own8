@@ -11,7 +11,7 @@
    "info": 1
   },
   "blocking_none": "No flag blocks publication. Flags block strategy promotion, not the site.",
-  "checks_passed": 50,
+  "checks_passed": 57,
   "checks_failed": 0,
   "note": "Published on the Flagged for Review page with its source link. A flag marked needs review does not stop the deploy; it stops any claim that the affected number is validated."
  },

@@ -447,7 +447,7 @@ summary = dict(
     home_covers=home_covers, overs=overs, brier_moneyline=round(brier_ml, 4),
     sigma_margin=round(sd_margin, 4), sigma_total=round(sd_total, 4),
 )
-dump("checks.json", dict(summary=summary, checks=CHECKS))
+dump("checks-capture.json", dict(summary=summary, checks=CHECKS))
 print(json.dumps(summary, indent=1))
 if summary["checks_failed"]:
     print("FAILED CHECKS:")
