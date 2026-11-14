@@ -1,0 +1,24 @@
+{
+  "purpose": "Test whether any official NFL page exposes an opening or closing betting line, spread, total or moneyline for a Week 10 game, so that the price-snapshot store can hold verified values.",
+  "probed_by": "session 6652101e",
+  "probed_on": "2026-11-14",
+  "url": "https://www.nfl.com/games/patriots-at-lions-2026-reg-10",
+  "page_title_as_returned": "New England Patriots at Detroit Lions 2026 REG 10 - Game Center",
+  "chunks_read": 2,
+  "terms_searched_in_rendered_text": ["spread", "odds", "line", "moneyline", "over/under", "total", "sportsbook", "betting"],
+  "result": "No spread, total, moneyline, odds or betting-line text appeared in the rendered page. The page shows team records, leaders, injury lists, previous matchups, standings and game info (location MUNICH, stadium FC Bayern Munich Stadium).",
+  "conclusion": "No official value could be recorded from this page. Recorded as blank, not as proof that no official page anywhere carries a line (see flag LF-05).",
+  "other_checks": [
+    {
+      "url": "https://www.nfl.com/scores/2026/week-10",
+      "result": "Re-read on 2026-11-14. Shows 'Thursday Night Football, November 12th', Commanders 24 (Winner Indicator), Giants 21, 'Final'. No betting line appears in the first chunk read.",
+      "used_for": "Re-verification of the Thursday game in the results feed."
+    }
+  ],
+  "secondary_context": {
+    "url": "https://www.espn.com/nfl/story/_/id/49740505/nfl-renews-draftkings-fanduel-deals-adds-fanatics",
+    "type": "SECONDARY (press report, not an NFL page)",
+    "says": "DraftKings, FanDuel and Fanatics are official NFL betting operators with access to official league data, distributed by NFL partner Genius Sports.",
+    "relevance": "Explains why a licensed feed would be the only route to market lines. Does not itself provide any line. Not used as a value source."
+  }
+}

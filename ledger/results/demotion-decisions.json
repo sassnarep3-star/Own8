@@ -1,0 +1,122 @@
+{
+  "rules_file": "ledger/data/demotion-rules.json",
+  "strategies_evaluated": 14,
+  "live_strategies": 0,
+  "action_counts": {
+    "NO_ACTION": 14
+  },
+  "decisions": [
+    {
+      "id": "S6",
+      "status_before": "PAPER-ELIGIBLE",
+      "status_after": "PAPER-ELIGIBLE",
+      "action": "NO_ACTION",
+      "reasons": [],
+      "note": "Not LIVE. This gate never changes PAPER or BLOCKED strategies."
+    },
+    {
+      "id": "S1",
+      "status_before": "PAPER-ELIGIBLE",
+      "status_after": "PAPER-ELIGIBLE",
+      "action": "NO_ACTION",
+      "reasons": [],
+      "note": "Not LIVE. This gate never changes PAPER or BLOCKED strategies."
+    },
+    {
+      "id": "S7",
+      "status_before": "PAPER-ELIGIBLE",
+      "status_after": "PAPER-ELIGIBLE",
+      "action": "NO_ACTION",
+      "reasons": [],
+      "note": "Not LIVE. This gate never changes PAPER or BLOCKED strategies."
+    },
+    {
+      "id": "S2",
+      "status_before": "PAPER-ELIGIBLE",
+      "status_after": "PAPER-ELIGIBLE",
+      "action": "NO_ACTION",
+      "reasons": [],
+      "note": "Not LIVE. This gate never changes PAPER or BLOCKED strategies."
+    },
+    {
+      "id": "S9",
+      "status_before": "BLOCKED",
+      "status_after": "BLOCKED",
+      "action": "NO_ACTION",
+      "reasons": [],
+      "note": "Not LIVE. This gate never changes PAPER or BLOCKED strategies."
+    },
+    {
+      "id": "S10",
+      "status_before": "BLOCKED",
+      "status_after": "BLOCKED",
+      "action": "NO_ACTION",
+      "reasons": [],
+      "note": "Not LIVE. This gate never changes PAPER or BLOCKED strategies."
+    },
+    {
+      "id": "S4",
+      "status_before": "BLOCKED",
+      "status_after": "BLOCKED",
+      "action": "NO_ACTION",
+      "reasons": [],
+      "note": "Not LIVE. This gate never changes PAPER or BLOCKED strategies."
+    },
+    {
+      "id": "S11",
+      "status_before": "BLOCKED",
+      "status_after": "BLOCKED",
+      "action": "NO_ACTION",
+      "reasons": [],
+      "note": "Not LIVE. This gate never changes PAPER or BLOCKED strategies."
+    },
+    {
+      "id": "S12",
+      "status_before": "BLOCKED",
+      "status_after": "BLOCKED",
+      "action": "NO_ACTION",
+      "reasons": [],
+      "note": "Not LIVE. This gate never changes PAPER or BLOCKED strategies."
+    },
+    {
+      "id": "S5",
+      "status_before": "BLOCKED",
+      "status_after": "BLOCKED",
+      "action": "NO_ACTION",
+      "reasons": [],
+      "note": "Not LIVE. This gate never changes PAPER or BLOCKED strategies."
+    },
+    {
+      "id": "S8",
+      "status_before": "BLOCKED",
+      "status_after": "BLOCKED",
+      "action": "NO_ACTION",
+      "reasons": [],
+      "note": "Not LIVE. This gate never changes PAPER or BLOCKED strategies."
+    },
+    {
+      "id": "S3",
+      "status_before": "BLOCKED",
+      "status_after": "BLOCKED",
+      "action": "NO_ACTION",
+      "reasons": [],
+      "note": "Not LIVE. This gate never changes PAPER or BLOCKED strategies."
+    },
+    {
+      "id": "M1",
+      "status_before": "BLOCKED",
+      "status_after": "BLOCKED",
+      "action": "NO_ACTION",
+      "reasons": [],
+      "note": "Not LIVE. This gate never changes PAPER or BLOCKED strategies."
+    },
+    {
+      "id": "M2",
+      "status_before": "BLOCKED",
+      "status_after": "BLOCKED",
+      "action": "NO_ACTION",
+      "reasons": [],
+      "note": "Not LIVE. This gate never changes PAPER or BLOCKED strategies."
+    }
+  ]
+}

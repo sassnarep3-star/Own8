@@ -1,0 +1,558 @@
+{
+  "generated": "2026-11-14",
+  "description": "Signal and staking are separate blocks. Rank uses ONLY the signal block (PASS under the fail-closed gates, then skill_pct_lcb). A staking result cannot lift a FAIL signal into a rank.",
+  "ranking_rule": "rank = PASS strategies ordered by signal.skill_pct_lcb descending; medals Gold/Silver/Bronze for ranks 1-3.",
+  "rows": [
+    {
+      "id": "S6",
+      "product": "Single: moneyline (Brier score)",
+      "strategy": "Win probability = Phi(S1 margin / LOO sigma)",
+      "signal": {
+        "n": 104,
+        "skill_pct": 5.4258370301626755,
+        "skill_pct_lcb": 2.660465314394691,
+        "p_holm": 0.0011998800119988001,
+        "gates_failed_fail_closed": [],
+        "verdict": "PASS",
+        "rank": 1,
+        "medal": "Gold"
+      },
+      "staking": {
+        "units_staked": null,
+        "roi_pct": null,
+        "closing_line_value_pct": null,
+        "reason": "No official price exists for any market, so no stake or return can be computed (LF-01). Staking fields are not read by the ranking."
+      },
+      "consistency": {
+        "origination_rank": 1,
+        "origination_medal": "Gold",
+        "matches_origination_rank": true
+      },
+      "source_urls": [
+        "https://www.nfl.com/scores/2026/week-1",
+        "https://www.nfl.com/scores/2026/week-2",
+        "https://www.nfl.com/scores/2026/week-3",
+        "https://www.nfl.com/scores/2026/week-4",
+        "https://www.nfl.com/scores/2026/week-5",
+        "https://www.nfl.com/scores/2026/week-6",
+        "https://www.nfl.com/scores/2026/week-7",
+        "https://www.nfl.com/scores/2026/week-8",
+        "https://www.nfl.com/scores/2026/week-9",
+        "https://www.nfl.com/standings/league/2026/REG"
+      ]
+    },
+    {
+      "id": "S1",
+      "product": "Single: point spread (margin, abs error)",
+      "strategy": "Ridge margin ratings + home edge (lambda by LOO-CV)",
+      "signal": {
+        "n": 104,
+        "skill_pct": 4.905424167348169,
+        "skill_pct_lcb": 2.5615903591229126,
+        "p_holm": 0.0011998800119988001,
+        "gates_failed_fail_closed": [],
+        "verdict": "PASS",
+        "rank": 2,
+        "medal": "Silver"
+      },
+      "staking": {
+        "units_staked": null,
+        "roi_pct": null,
+        "closing_line_value_pct": null,
+        "reason": "No official price exists for any market, so no stake or return can be computed (LF-01). Staking fields are not read by the ranking."
+      },
+      "consistency": {
+        "origination_rank": 2,
+        "origination_medal": "Silver",
+        "matches_origination_rank": true
+      },
+      "source_urls": [
+        "https://www.nfl.com/scores/2026/week-1",
+        "https://www.nfl.com/scores/2026/week-2",
+        "https://www.nfl.com/scores/2026/week-3",
+        "https://www.nfl.com/scores/2026/week-4",
+        "https://www.nfl.com/scores/2026/week-5",
+        "https://www.nfl.com/scores/2026/week-6",
+        "https://www.nfl.com/scores/2026/week-7",
+        "https://www.nfl.com/scores/2026/week-8",
+        "https://www.nfl.com/scores/2026/week-9",
+        "https://www.nfl.com/standings/league/2026/REG"
+      ]
+    },
+    {
+      "id": "S7",
+      "product": "Single: moneyline (Brier score)",
+      "strategy": "Win probability = Phi(S2 margin / sigma)",
+      "signal": {
+        "n": 104,
+        "skill_pct": 4.163662606849684,
+        "skill_pct_lcb": 1.7300852703293808,
+        "p_holm": 0.0053994600539946005,
+        "gates_failed_fail_closed": [],
+        "verdict": "PASS",
+        "rank": 3,
+        "medal": "Bronze"
+      },
+      "staking": {
+        "units_staked": null,
+        "roi_pct": null,
+        "closing_line_value_pct": null,
+        "reason": "No official price exists for any market, so no stake or return can be computed (LF-01). Staking fields are not read by the ranking."
+      },
+      "consistency": {
+        "origination_rank": 3,
+        "origination_medal": "Bronze",
+        "matches_origination_rank": true
+      },
+      "source_urls": [
+        "https://www.nfl.com/scores/2026/week-1",
+        "https://www.nfl.com/scores/2026/week-2",
+        "https://www.nfl.com/scores/2026/week-3",
+        "https://www.nfl.com/scores/2026/week-4",
+        "https://www.nfl.com/scores/2026/week-5",
+        "https://www.nfl.com/scores/2026/week-6",
+        "https://www.nfl.com/scores/2026/week-7",
+        "https://www.nfl.com/scores/2026/week-8",
+        "https://www.nfl.com/scores/2026/week-9",
+        "https://www.nfl.com/standings/league/2026/REG"
+      ]
+    },
+    {
+      "id": "S2",
+      "product": "Single: point spread (margin, abs error)",
+      "strategy": "Offence/defence points ridge -> margin",
+      "signal": {
+        "n": 104,
+        "skill_pct": 3.6475040470517075,
+        "skill_pct_lcb": 1.6973232469074464,
+        "p_holm": 0.0011998800119988001,
+        "gates_failed_fail_closed": [],
+        "verdict": "PASS",
+        "rank": 4,
+        "medal": ""
+      },
+      "staking": {
+        "units_staked": null,
+        "roi_pct": null,
+        "closing_line_value_pct": null,
+        "reason": "No official price exists for any market, so no stake or return can be computed (LF-01). Staking fields are not read by the ranking."
+      },
+      "consistency": {
+        "origination_rank": 4,
+        "origination_medal": "",
+        "matches_origination_rank": true
+      },
+      "source_urls": [
+        "https://www.nfl.com/scores/2026/week-1",
+        "https://www.nfl.com/scores/2026/week-2",
+        "https://www.nfl.com/scores/2026/week-3",
+        "https://www.nfl.com/scores/2026/week-4",
+        "https://www.nfl.com/scores/2026/week-5",
+        "https://www.nfl.com/scores/2026/week-6",
+        "https://www.nfl.com/scores/2026/week-7",
+        "https://www.nfl.com/scores/2026/week-8",
+        "https://www.nfl.com/scores/2026/week-9",
+        "https://www.nfl.com/standings/league/2026/REG"
+      ]
+    },
+    {
+      "id": "S9",
+      "product": "Parlay: 2-leg cross-game moneyline (Brier on joint event)",
+      "strategy": "Product of S6 leg probabilities (independence across games)",
+      "signal": {
+        "n": 51,
+        "skill_pct": 6.3836868851329855,
+        "skill_pct_lcb": 1.274461495654124,
+        "p_holm": 0.0999900009999,
+        "gates_failed_fail_closed": [
+          "G5",
+          "G6",
+          "G7"
+        ],
+        "verdict": "FAIL G5,G6,G7",
+        "rank": null,
+        "medal": ""
+      },
+      "staking": {
+        "units_staked": null,
+        "roi_pct": null,
+        "closing_line_value_pct": null,
+        "reason": "No official price exists for any market, so no stake or return can be computed (LF-01). Staking fields are not read by the ranking."
+      },
+      "consistency": {
+        "origination_rank": null,
+        "origination_medal": null,
+        "matches_origination_rank": true
+      },
+      "source_urls": [
+        "https://www.nfl.com/scores/2026/week-1",
+        "https://www.nfl.com/scores/2026/week-2",
+        "https://www.nfl.com/scores/2026/week-3",
+        "https://www.nfl.com/scores/2026/week-4",
+        "https://www.nfl.com/scores/2026/week-5",
+        "https://www.nfl.com/scores/2026/week-6",
+        "https://www.nfl.com/scores/2026/week-7",
+        "https://www.nfl.com/scores/2026/week-8",
+        "https://www.nfl.com/scores/2026/week-9",
+        "https://www.nfl.com/standings/league/2026/REG"
+      ]
+    },
+    {
+      "id": "S10",
+      "product": "Same-game parlay: side + total (Brier on joint event)",
+      "strategy": "Bivariate-normal joint probability using margin/total residual correlation from prior weeks",
+      "signal": {
+        "n": 104,
+        "skill_pct": 0.8852541489988763,
+        "skill_pct_lcb": -0.5993078613052475,
+        "p_holm": 0.7818218178182181,
+        "gates_failed_fail_closed": [
+          "G4",
+          "G5",
+          "G7"
+        ],
+        "verdict": "FAIL G4,G5,G7",
+        "rank": null,
+        "medal": ""
+      },
+      "staking": {
+        "units_staked": null,
+        "roi_pct": null,
+        "closing_line_value_pct": null,
+        "reason": "No official price exists for any market, so no stake or return can be computed (LF-01). Staking fields are not read by the ranking."
+      },
+      "consistency": {
+        "origination_rank": null,
+        "origination_medal": null,
+        "matches_origination_rank": true
+      },
+      "source_urls": [
+        "https://www.nfl.com/scores/2026/week-1",
+        "https://www.nfl.com/scores/2026/week-2",
+        "https://www.nfl.com/scores/2026/week-3",
+        "https://www.nfl.com/scores/2026/week-4",
+        "https://www.nfl.com/scores/2026/week-5",
+        "https://www.nfl.com/scores/2026/week-6",
+        "https://www.nfl.com/scores/2026/week-7",
+        "https://www.nfl.com/scores/2026/week-8",
+        "https://www.nfl.com/scores/2026/week-9",
+        "https://www.nfl.com/standings/league/2026/REG"
+      ]
+    },
+    {
+      "id": "S4",
+      "product": "Single: game total (abs error)",
+      "strategy": "Offence/defence points ridge -> total",
+      "signal": {
+        "n": 104,
+        "skill_pct": 0.0010296971742712994,
+        "skill_pct_lcb": -1.599023860248784,
+        "p_holm": 1.0,
+        "gates_failed_fail_closed": [
+          "G4",
+          "G5",
+          "G6"
+        ],
+        "verdict": "FAIL G4,G5,G6",
+        "rank": null,
+        "medal": ""
+      },
+      "staking": {
+        "units_staked": null,
+        "roi_pct": null,
+        "closing_line_value_pct": null,
+        "reason": "No official price exists for any market, so no stake or return can be computed (LF-01). Staking fields are not read by the ranking."
+      },
+      "consistency": {
+        "origination_rank": null,
+        "origination_medal": null,
+        "matches_origination_rank": true
+      },
+      "source_urls": [
+        "https://www.nfl.com/scores/2026/week-1",
+        "https://www.nfl.com/scores/2026/week-2",
+        "https://www.nfl.com/scores/2026/week-3",
+        "https://www.nfl.com/scores/2026/week-4",
+        "https://www.nfl.com/scores/2026/week-5",
+        "https://www.nfl.com/scores/2026/week-6",
+        "https://www.nfl.com/scores/2026/week-7",
+        "https://www.nfl.com/scores/2026/week-8",
+        "https://www.nfl.com/scores/2026/week-9",
+        "https://www.nfl.com/standings/league/2026/REG"
+      ]
+    },
+    {
+      "id": "S11",
+      "product": "Player prop: QB passing yards (abs error)",
+      "strategy": "QB passing yards: empirical-Bayes shrunk QB average",
+      "signal": {
+        "n": 146,
+        "skill_pct": -0.17233678488188653,
+        "skill_pct_lcb": -2.6799761347806297,
+        "p_holm": 1.0,
+        "gates_failed_fail_closed": [
+          "G4",
+          "G5",
+          "G6"
+        ],
+        "verdict": "FAIL G4,G5,G6",
+        "rank": null,
+        "medal": ""
+      },
+      "staking": {
+        "units_staked": null,
+        "roi_pct": null,
+        "closing_line_value_pct": null,
+        "reason": "No official price exists for any market, so no stake or return can be computed (LF-01). Staking fields are not read by the ranking."
+      },
+      "consistency": {
+        "origination_rank": null,
+        "origination_medal": null,
+        "matches_origination_rank": true
+      },
+      "source_urls": [
+        "https://www.nfl.com/scores/2026/week-1",
+        "https://www.nfl.com/scores/2026/week-2",
+        "https://www.nfl.com/scores/2026/week-3",
+        "https://www.nfl.com/scores/2026/week-4",
+        "https://www.nfl.com/scores/2026/week-5",
+        "https://www.nfl.com/scores/2026/week-6",
+        "https://www.nfl.com/scores/2026/week-7",
+        "https://www.nfl.com/scores/2026/week-8",
+        "https://www.nfl.com/scores/2026/week-9",
+        "https://www.nfl.com/standings/league/2026/REG"
+      ]
+    },
+    {
+      "id": "S12",
+      "product": "Player prop: QB passing yards (abs error)",
+      "strategy": "S11 + shrunk opponent pass-defence adjustment",
+      "signal": {
+        "n": 146,
+        "skill_pct": -0.5728906383557555,
+        "skill_pct_lcb": -3.39551739483352,
+        "p_holm": 1.0,
+        "gates_failed_fail_closed": [
+          "G4",
+          "G5",
+          "G6"
+        ],
+        "verdict": "FAIL G4,G5,G6",
+        "rank": null,
+        "medal": ""
+      },
+      "staking": {
+        "units_staked": null,
+        "roi_pct": null,
+        "closing_line_value_pct": null,
+        "reason": "No official price exists for any market, so no stake or return can be computed (LF-01). Staking fields are not read by the ranking."
+      },
+      "consistency": {
+        "origination_rank": null,
+        "origination_medal": null,
+        "matches_origination_rank": true
+      },
+      "source_urls": [
+        "https://www.nfl.com/scores/2026/week-1",
+        "https://www.nfl.com/scores/2026/week-2",
+        "https://www.nfl.com/scores/2026/week-3",
+        "https://www.nfl.com/scores/2026/week-4",
+        "https://www.nfl.com/scores/2026/week-5",
+        "https://www.nfl.com/scores/2026/week-6",
+        "https://www.nfl.com/scores/2026/week-7",
+        "https://www.nfl.com/scores/2026/week-8",
+        "https://www.nfl.com/scores/2026/week-9",
+        "https://www.nfl.com/standings/league/2026/REG"
+      ]
+    },
+    {
+      "id": "S5",
+      "product": "Single: game total (abs error)",
+      "strategy": "Naive PF/PA per game averages -> total",
+      "signal": {
+        "n": 104,
+        "skill_pct": -5.501433590059814,
+        "skill_pct_lcb": -13.196970582412378,
+        "p_holm": 1.0,
+        "gates_failed_fail_closed": [
+          "G4",
+          "G5",
+          "G6"
+        ],
+        "verdict": "FAIL G4,G5,G6",
+        "rank": null,
+        "medal": ""
+      },
+      "staking": {
+        "units_staked": null,
+        "roi_pct": null,
+        "closing_line_value_pct": null,
+        "reason": "No official price exists for any market, so no stake or return can be computed (LF-01). Staking fields are not read by the ranking."
+      },
+      "consistency": {
+        "origination_rank": null,
+        "origination_medal": null,
+        "matches_origination_rank": true
+      },
+      "source_urls": [
+        "https://www.nfl.com/scores/2026/week-1",
+        "https://www.nfl.com/scores/2026/week-2",
+        "https://www.nfl.com/scores/2026/week-3",
+        "https://www.nfl.com/scores/2026/week-4",
+        "https://www.nfl.com/scores/2026/week-5",
+        "https://www.nfl.com/scores/2026/week-6",
+        "https://www.nfl.com/scores/2026/week-7",
+        "https://www.nfl.com/scores/2026/week-8",
+        "https://www.nfl.com/scores/2026/week-9",
+        "https://www.nfl.com/standings/league/2026/REG"
+      ]
+    },
+    {
+      "id": "S8",
+      "product": "Single: moneyline (Brier score)",
+      "strategy": "Win probability = Phi(S3 margin / S1 sigma)",
+      "signal": {
+        "n": 104,
+        "skill_pct": 3.4472705273317583,
+        "skill_pct_lcb": -13.999560261927064,
+        "p_holm": 1.0,
+        "gates_failed_fail_closed": [
+          "G4",
+          "G5",
+          "G6",
+          "G7"
+        ],
+        "verdict": "FAIL G4,G5,G6,G7",
+        "rank": null,
+        "medal": ""
+      },
+      "staking": {
+        "units_staked": null,
+        "roi_pct": null,
+        "closing_line_value_pct": null,
+        "reason": "No official price exists for any market, so no stake or return can be computed (LF-01). Staking fields are not read by the ranking."
+      },
+      "consistency": {
+        "origination_rank": null,
+        "origination_medal": null,
+        "matches_origination_rank": true
+      },
+      "source_urls": [
+        "https://www.nfl.com/scores/2026/week-1",
+        "https://www.nfl.com/scores/2026/week-2",
+        "https://www.nfl.com/scores/2026/week-3",
+        "https://www.nfl.com/scores/2026/week-4",
+        "https://www.nfl.com/scores/2026/week-5",
+        "https://www.nfl.com/scores/2026/week-6",
+        "https://www.nfl.com/scores/2026/week-7",
+        "https://www.nfl.com/scores/2026/week-8",
+        "https://www.nfl.com/scores/2026/week-9",
+        "https://www.nfl.com/standings/league/2026/REG"
+      ]
+    },
+    {
+      "id": "S3",
+      "product": "Single: point spread (margin, abs error)",
+      "strategy": "Naive season point differential per game (unshrunk)",
+      "signal": {
+        "n": 104,
+        "skill_pct": -9.88055948236898,
+        "skill_pct_lcb": -24.389454461217632,
+        "p_holm": 1.0,
+        "gates_failed_fail_closed": [
+          "G4",
+          "G5",
+          "G6"
+        ],
+        "verdict": "FAIL G4,G5,G6",
+        "rank": null,
+        "medal": ""
+      },
+      "staking": {
+        "units_staked": null,
+        "roi_pct": null,
+        "closing_line_value_pct": null,
+        "reason": "No official price exists for any market, so no stake or return can be computed (LF-01). Staking fields are not read by the ranking."
+      },
+      "consistency": {
+        "origination_rank": null,
+        "origination_medal": null,
+        "matches_origination_rank": true
+      },
+      "source_urls": [
+        "https://www.nfl.com/scores/2026/week-1",
+        "https://www.nfl.com/scores/2026/week-2",
+        "https://www.nfl.com/scores/2026/week-3",
+        "https://www.nfl.com/scores/2026/week-4",
+        "https://www.nfl.com/scores/2026/week-5",
+        "https://www.nfl.com/scores/2026/week-6",
+        "https://www.nfl.com/scores/2026/week-7",
+        "https://www.nfl.com/scores/2026/week-8",
+        "https://www.nfl.com/scores/2026/week-9",
+        "https://www.nfl.com/standings/league/2026/REG"
+      ]
+    },
+    {
+      "id": "M1",
+      "product": "Single / parlay vs sportsbook prices",
+      "strategy": "Bet when originated line differs from the market line by a threshold",
+      "signal": {
+        "n": null,
+        "skill_pct": null,
+        "skill_pct_lcb": null,
+        "p_holm": null,
+        "gates_failed_fail_closed": [
+          "G8"
+        ],
+        "verdict": "NOT SCORED - fails G8",
+        "rank": null,
+        "medal": ""
+      },
+      "staking": {
+        "units_staked": null,
+        "roi_pct": null,
+        "closing_line_value_pct": null,
+        "reason": "No official price exists for any market, so no stake or return can be computed (LF-01). Staking fields are not read by the ranking."
+      },
+      "consistency": {
+        "origination_rank": null,
+        "origination_medal": null,
+        "matches_origination_rank": true
+      },
+      "source_urls": [
+        "https://www.nfl.com/schedules/2026/by-week/week-10"
+      ]
+    },
+    {
+      "id": "M2",
+      "product": "Player-prop combos vs sportsbook prop lines",
+      "strategy": "Correlated prop combos priced against book prop lines",
+      "signal": {
+        "n": null,
+        "skill_pct": null,
+        "skill_pct_lcb": null,
+        "p_holm": null,
+        "gates_failed_fail_closed": [
+          "G8"
+        ],
+        "verdict": "NOT SCORED - fails G8",
+        "rank": null,
+        "medal": ""
+      },
+      "staking": {
+        "units_staked": null,
+        "roi_pct": null,
+        "closing_line_value_pct": null,
+        "reason": "No official price exists for any market, so no stake or return can be computed (LF-01). Staking fields are not read by the ranking."
+      },
+      "consistency": {
+        "origination_rank": null,
+        "origination_medal": null,
+        "matches_origination_rank": true
+      },
+      "source_urls": [
+        "https://www.nfl.com/schedules/2026/by-week/week-10"
+      ]
+    }
+  ]
+}
