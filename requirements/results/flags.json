@@ -1,0 +1,189 @@
+{
+ "summary": {
+  "as_of": "2026-11-14",
+  "session": "f6e60a81",
+  "total": 14,
+  "by_severity": {
+   "critical": 0,
+   "high": 4,
+   "medium": 6,
+   "low": 3,
+   "info": 1
+  },
+  "blocking_none": "No flag blocks publication. Flags block strategy promotion, not the site.",
+  "checks_passed": 50,
+  "checks_failed": 0,
+  "note": "Published on the Flagged for Review page with its source link. A flag marked needs review does not stop the deploy; it stops any claim that the affected number is validated.",
+  "checks_passed_note": "The 50 automated checks are the capture-and-reconciliation checks in requirements/results/checks.json; they are not a claim that every published value was independently re-read."
+ },
+ "flags": [
+  {
+   "id": "REQ-F-01",
+   "severity": "high",
+   "area": "origination/",
+   "state": "needs review",
+   "finding": "The originated Week 9 spread text names the FAVOURITE, not the home team, while the numeric field beside it is the home margin. Negative fair_margin_home_S1 means the home team is favoured, yet the text reads the away club. Example: JAX at BAL has fair_margin_home_S1 = -4.9049 and the rendered text 'JAX -4.9'.",
+   "evidence": "origination/results/w9-lines.json, field-by-field across all 15 rows: the club named first in fair_spread_text is the away club on all 7 rows where the home side is stronger, and the home club on all 8 where the home side is weaker.",
+   "affected": "Any downstream page that prints fair_spread_text without restating the convention.",
+   "not_affected": "requirements/results/w9-grading.json, which grades the numeric home margin directly and states its own convention.",
+   "disposition": "Published here for review. The inherited file was not edited. Suggested fix: rename the field to fair_spread_text_named_favourite, or re-render it from the home perspective.",
+   "source_url": "https://www.nfl.com/scores/2026/week-9"
+  },
+  {
+   "id": "REQ-F-02",
+   "severity": "high",
+   "area": "sources",
+   "state": "needs review",
+   "finding": "There is no official pregame depth chart anywhere on nfl.com, so the requirement to identify 2nd, 3rd and 4th string replacements cannot be satisfied before kickoff from an official source.",
+   "evidence": "https://www.nfl.com/teams/kansas-city-chiefs/depth-chart returns HTTP 404 with the body '404 - Flag on the Play.' retrieved 2026-11-14. The roster page publishes a status of ACT and no depth order. The only official page that names starters is the Game Book PDF, which is published after the game.",
+   "affected": "The availability half of the project, and any injury-adjusted line.",
+   "not_affected": "The injury tracker itself, which is fully official, and postgame attribution.",
+   "disposition": "Documented on the availability page rather than worked around. Recommendation SG-03 proposes a game-book pilot as the only official route.",
+   "source_url": "https://www.nfl.com/teams/kansas-city-chiefs/depth-chart"
+  },
+  {
+   "id": "REQ-F-03",
+   "severity": "medium",
+   "area": "data/",
+   "state": "needs review",
+   "finding": "Third-party data is still present in the repository: data/market-lines.json holds sportsbook prices from a non-official source, and the inherited player and team captures are unverified third-party extracts.",
+   "evidence": "_config.yml excludes those paths from publication, and scripts/audit_publication.py asserts that no published page links to an excluded file.",
+   "affected": "Nothing published. The files remain in Git history and in the working tree.",
+   "not_affected": "Every number on the published site, which is either an official value or a value this repository computed from official values.",
+   "disposition": "Excluded and flagged. Deletion is a history-rewrite decision for the operator (suggestion SG-04 covers the wider question).",
+   "source_url": "https://www.nfl.com/standings/league/2026/REG"
+  },
+  {
+   "id": "REQ-F-04",
+   "severity": "medium",
+   "area": "pages/schedule.html",
+   "state": "needs review",
+   "finding": "The published Week 9 kickoff times are one hour earlier than the times rendered on the official schedule page for the same games: the site prints 7:15 PM for JAX at BAL where nfl.com prints 8:15 PM, and 12:00 PM where nfl.com prints 1:00 PM.",
+   "evidence": "analysis/model-lines-week9.json holds kickoff_et values carried from an earlier capture; https://www.nfl.com/schedules/2026/by-week/week-9 rendered 2026-11-14 prints 8:15 PM and 1:00 PM for those games. The gap is consistent across rows, which points at a timezone or conversion difference in the inherited pipeline rather than at a typo.",
+   "affected": "The schedule page's kickoff column and any reader using it to time a decision.",
+   "not_affected": "Scores, dates, venues or any model input.",
+   "disposition": "Flagged, not silently corrected: the correct source value cannot be established for every row from a single retrieved chunk, so the column is marked. Recommendation: regenerate that column from the official schedule page rather than from the inherited analysis file.",
+   "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9"
+  },
+  {
+   "id": "REQ-F-05",
+   "severity": "low",
+   "area": "origination/data/games-2026-w1-w8.json",
+   "state": "needs review",
+   "finding": "The inherited Week 1 heading 'Sunday Night Football, September 9th' conflicts with its own recorded date, 2026-09-09, which is a Wednesday.",
+   "evidence": "The heading and the date are both stored in the same row. Week 1 games are recorded with dates of 2026-09-13, so the 09-09 date is the outlier.",
+   "affected": "The date field of one game row.",
+   "not_affected": "Any score, or any reconciliation: the standings reconciliation passes 352 of 352 cells with this row as recorded.",
+   "disposition": "Left as inherited and flagged. A fresh retrieval of the Week 1 scores page would settle it; this session did not make that retrieval, so it does not claim a correction.",
+   "source_url": "https://www.nfl.com/scores/2026/week-1"
+  },
+  {
+   "id": "REQ-F-06",
+   "severity": "low",
+   "area": "standings",
+   "state": "needs review",
+   "finding": "Two columns of the official standings table render values but are not named by the page's own legend, and are transcribed verbatim without a label.",
+   "evidence": "The LEGEND block names W, L, T, PCT, HOME, ROAD, DIV, CONF, PF, PA, NET PTS and STRK only. Two further record-format columns sit between conference percentage and streak.",
+   "affected": "Nothing: the unnamed columns are not used in any calculation.",
+   "not_affected": "The 352-cell reconciliation, which covers only the named columns.",
+   "disposition": "Left unlabelled. Inferring a meaning for them and publishing it as fact would breach the no-inference rule.",
+   "source_url": "https://www.nfl.com/standings/league/2026/REG"
+  },
+  {
+   "id": "REQ-F-07",
+   "severity": "medium",
+   "area": "repository",
+   "state": "needs review",
+   "finding": "The repository published a game log that stopped at Week 8 for ten days while Week 9 and part of Week 10 had been played, and nothing in the build failed.",
+   "evidence": "origination/data/games-2026-w1-w8.json has max(week) = 8. The official standings retrieved 2026-11-14 already include the completed WAS 24 NYG 21 Week 10 game. The build and link checks passed throughout.",
+   "affected": "Every derived number before this session: the Week 9 lines were originated against an eight-week log.",
+   "not_affected": "Correctness of those numbers as of their date; they were right for the data they had.",
+   "disposition": "Fixed for this session: the log now runs to 137 games and reconciles 352 of 352 cells. The absence of an automated staleness check is the underlying defect, raised as suggestion SG-12.",
+   "source_url": "https://www.nfl.com/standings/league/2026/REG"
+  },
+  {
+   "id": "REQ-F-08",
+   "severity": "medium",
+   "area": "repository",
+   "state": "needs review",
+   "finding": "Two parallel strategy registries disagree: 12 strategies with 8 gates in origination/ and 8 strategies at root, plus nine separately published site surfaces.",
+   "evidence": "origination/results/leaderboard.json family_size = 12; analysis/strategies.json lists 8. Root index.html, pages/, desk/, strict/site/, evidence-lab/, docs/evidence-lab/, origination/, hub/ and archive/ all render.",
+   "affected": "The landing page's strategy count and any reader trying to identify the canonical site.",
+   "not_affected": "The substantive conclusion, which every registry agrees on: zero eligible strategies.",
+   "disposition": "Both published as they are and flagged; unifying them is suggestion SG-02, an operator decision.",
+   "source_url": "https://sassnarep3-star.github.io/Own8/"
+  },
+  {
+   "id": "REQ-F-09",
+   "severity": "high",
+   "area": "the whole project",
+   "state": "needs review",
+   "finding": "No official source publishes a betting line, a price or a closing line, so edge, expected value, ROI, closing-line value and every rank or reward defined in money can never be populated under this project's own rules.",
+   "evidence": "nfl.com renders schedules, scores, standings, statistics and injuries. No price or spread appears on any page retrieved in this session, including the scores, schedule, standings, injuries and player statistics pages.",
+   "affected": "Every market-dependent strategy, all eight gates that reference a price, and the entire reward column.",
+   "not_affected": "Line origination itself, which is possible and is done here, and the descriptive statistics.",
+   "disposition": "Stated on the strategies, gates, leaderboard and lines pages rather than filled with third-party prices. Suggestion SG-04 asks the operator to decide whether a licensed feed may ever be admitted, and says plainly that doing so breaks the all-official rule.",
+   "source_url": "https://www.nfl.com/schedules/2026/by-week/week-10"
+  },
+  {
+   "id": "REQ-F-10",
+   "severity": "low",
+   "area": "naming",
+   "state": "needs review",
+   "finding": "Two official nfl.com pages use different club codes for the same club: the standings and team pages render LA, while the scores page renders LAR.",
+   "evidence": "https://www.nfl.com/standings/league/2026/REG prints LA in the club row; https://www.nfl.com/scores/2026/week-9 prints LAR in the same club's score block.",
+   "affected": "Any join keyed on the club code across those two pages.",
+   "not_affected": "This session's reconciliation, which normalises LAR to LA explicitly and records the normalisation rather than hiding it.",
+   "disposition": "Normalised in code and documented. A future session should use nfl.com team slugs rather than codes as the join key.",
+   "source_url": "https://www.nfl.com/standings/league/2026/REG"
+  },
+  {
+   "id": "REQ-F-11",
+   "severity": "medium",
+   "area": "analysis/",
+   "state": "needs review",
+   "finding": "The inherited Week 9 line model's win-probability scale is a leave-one-out posterior standard deviation of 12.85, while the pooled population standard deviation of the same 121-game log is 12.98. The two are close, which is reassuring, but the value is a model output rather than a published quantity and the NFL publishes no margin distribution.",
+   "evidence": "origination/results/w9-lines.json sigma_margin = 12.846892776986893 on every row; recomputing stdev over origination/data/games-2026-w1-w8.json margins gives 12.9824.",
+   "affected": "Any win probability quoted from that file.",
+   "not_affected": "The spread and total numbers, which do not depend on sigma.",
+   "disposition": "Stated as a project assumption on the methodology and lines pages. Suggestion SG-11 proposes publishing a reliability diagram before any fitted calibration.",
+   "source_url": "https://www.itl.nist.gov/div898/handbook/prc/section1/prc14.htm"
+  },
+  {
+   "id": "REQ-F-12",
+   "severity": "high",
+   "area": "competition",
+   "state": "needs review",
+   "finding": "A leaderboard award cannot honestly be made yet. No strategy passes any gate, and the one out-of-sample grade that does exist covers 15 games, which is far too few to separate skill from luck.",
+   "evidence": "requirements/results/w9-grading.json: 5 of 15 home covers (p = 0.30 against a coin flip), 7 of 15 overs (p = 1.00), moneyline Brier 0.1899 against a 0.25 coin-flip reference. 0 of 20 registered strategies pass.",
+   "affected": "Ranks, medals, rewards and any claim of a skill-based edge.",
+   "not_affected": "The published calibration numbers themselves, which are honest as far as they go.",
+   "disposition": "Leaderboard published with every rank and reward cell blank and every row marked BLOCKED. Suggestion SG-01 asks the operator to fix the definition of winning before anything is ranked.",
+   "source_url": "https://www.nfl.com/scores/2026/week-9"
+  },
+  {
+   "id": "REQ-F-13",
+   "severity": "medium",
+   "area": "requirements/data/raw-injuries-w10.txt",
+   "state": "needs review",
+   "finding": "The injury transcription had to normalise one club header. The source renders the Rams table as 'Rams' and the Chargers as 'Chargers', while every other table header is a nickname that differs from the club code. Codes were taken from the same page's team links, which point at /teams/<slug>.",
+   "evidence": "The rendered page shows club nicknames as table headers and links each to an official club URL; the abbreviation is not printed in the table header itself.",
+   "affected": "The team column of the injury register.",
+   "not_affected": "Player names, positions, designations or counts.",
+   "disposition": "Normalisation documented in the header of the transcription file. A reviewer can check any row against the live page in one click because every row carries the source URL.",
+   "source_url": "https://www.nfl.com/injuries/"
+  },
+  {
+   "id": "REQ-F-14",
+   "severity": "info",
+   "area": "session",
+   "state": "needs review",
+   "finding": "A second session (101b20bc) published an overlapping analysis and site at hub/ on the same day this one was working. Both are now in the repository.",
+   "evidence": "hub/data/injuries-w10.csv holds 67 injury rows from chunks 0 to 1 of 8; this session's requirements/data/raw-injuries-w10.txt holds 345 rows from all 8 chunks. hub/ reports NYG and WAS as having two games since Week 8, which this session's 137-game log also shows.",
+   "affected": "A reader who compares the two sets of counts.",
+   "not_affected": "Either session's correctness. The smaller set is explicitly partial and says so.",
+   "disposition": "hub/ left untouched. This session's larger capture is published alongside it, the difference is stated on the availability page, and no file from the other session was edited or deleted. Recorded in COORDINATION.md.",
+   "source_url": "https://www.nfl.com/injuries/"
+  }
+ ]
+}

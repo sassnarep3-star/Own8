@@ -265,6 +265,41 @@
    "check": "no injury row has an inferred game status",
    "pass": true,
    "detail": ""
+  },
+  {
+   "check": "availability register covers every club playing in Week 10",
+   "pass": true,
+   "detail": "28 clubs"
+  },
+  {
+   "check": "no replacement is named anywhere in the register",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "quarterbacks ruled out are enumerated from the official report",
+   "pass": true,
+   "detail": "2: MIN Kyler Murray, SEA Sam Darnold"
+  },
+  {
+   "check": "every projected Week 10 game has an availability annotation",
+   "pass": true,
+   "detail": "13"
+  },
+  {
+   "check": "capability matrix records at least one official page that does not publish depth order",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "luck decomposition covers all 32 clubs",
+   "pass": true,
+   "detail": "32"
+  },
+  {
+   "check": "point differential and win percentage are positively associated",
+   "pass": true,
+   "detail": "r=0.8781"
   }
  ]
 }
