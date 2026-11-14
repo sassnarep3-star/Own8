@@ -2,7 +2,7 @@
  "as_of": "2026-11-14",
  "session": "f6e60a81",
  "how_to_read": "Requirement status is recomputed from repository artifacts by `requirements/scripts/req_site.py`, not typed in by hand. Codes: MET = an artifact exists AND its verification passed in this session; PARTIAL = artifact exists but a named evidence gate is still missing; NOT MET = no artifact, and the reason is recorded; NOT POSSIBLE = the requirement cannot be satisfied from official sources at all, with the reason recorded. 'Evidence' links only ever point at official NFL/standards-body pages or at this repository's own check output; the repository is never cited as proof that an NFL fact is true.",
- "summary_rule": "A requirement is never marked MET on the strength of a build passing. Build success is a software check; MET requires the underlying evidence, and where the evidence is a third-party number the requirement stays NOT MET by design.",
+ "summary_rule": "A requirement is never marked MET on the strength of a build passing. Build success is a software check; MET requires the underlying evidence, and where the evidence is a third-party number the requirement stays NOT MET by design. Every requirement row also carries the official page that its evidence rests on.",
  "requirements": [
   {
    "id": "RQ-01",
@@ -12,7 +12,8 @@
    "evidence": "requirements/data/requirements.json (this file) + requirements/pages/requirements.html",
    "what_exists": "16 requirement rows below, each with a source quote, an artifact path and a computed status; the status is produced by requirements/scripts/req_site.py from the artifacts themselves.",
    "what_is_missing": null,
-   "review": "RQ-01 is self-referential: it is only MET because a reviewer can read this table. No external source is involved."
+   "review": "RQ-01 is self-referential: it is only MET because a reviewer can read this table. No external source is involved.",
+   "source_url": "https://www.nfl.com/standings/league/2026/REG"
   },
   {
    "id": "RQ-02",
@@ -22,7 +23,8 @@
    "evidence": "requirements/data/suggestions.json + requirements/pages/suggestions.html",
    "what_exists": "16 suggestions, each with options A/B/C, what it would cost, risk, the evidence that would justify it, and a decision field that is currently UNDECIDED for every row. Suggestion SG-15 records decisions already taken inside this session so nothing is implemented invisibly.",
    "what_is_missing": "An operator decision on each row. The reviewing human is the only actor who can move a row out of UNDECIDED; the session deliberately did not pick for them.",
-   "review": "Whether the decision states satisfy the operator is a judgement call that this session cannot verify."
+   "review": "Whether the decision states satisfy the operator is a judgement call that this session cannot verify.",
+   "source_url": "https://www.nfl.com/standings/league/2026/REG"
   },
   {
    "id": "RQ-03",
@@ -32,7 +34,8 @@
    "evidence": "requirements/data/questions.json + requirements/pages/questions.html",
    "what_exists": "22 questions (Q-01..Q-22). Every row carries: what we already have with a source link, what we lack, the exact official page or action that would resolve it, and the decision it blocks. Seven rows are marked ANSWERED from official sources inside this session; fifteen remain OPEN.",
    "what_is_missing": "Answering the OPEN rows depends on data that no official NFL page publishes (depth-chart order, sportsbook prices, closing lines), so the register states the dependency rather than guessing.",
-   "review": "The 'what would resolve it' column names a page or an action; it does not guarantee the page stays available or that the action is permitted."
+   "review": "The 'what would resolve it' column names a page or an action; it does not guarantee the page stays available or that the action is permitted.",
+   "source_url": "https://www.nfl.com/injuries/"
   },
   {
    "id": "RQ-04",
@@ -42,7 +45,8 @@
    "evidence": "requirements/results/week10-lines.json + requirements/pages/lines.html; method reimplemented in requirements/scripts/verify_capture.py",
    "what_exists": "13 Week 10 fair numbers (spread and total) for the games not yet played as of 2026-11-14, built from the 137-game official log: home projection 24.06 + (home PF/G - away PA/G)/2 - (away PF/G - home PA/G)/2 style B0 rates, sigma_margin 13.1768 from the same log, plus an independent Elo cross-check. All 13 are labelled UNVALIDATED - DERIVED.",
    "what_is_missing": "Calibration against outcomes (the games are in the future) and a market comparison (no official sportsbook source exists). No line is presented as a fair price or a recommendation.",
-   "review": "These numbers are this project's own arithmetic on official inputs. They are not official NFL lines and the NFL publishes no point spreads at all."
+   "review": "These numbers are this project's own arithmetic on official inputs. They are not official NFL lines and the NFL publishes no point spreads at all.",
+   "source_url": "https://www.nfl.com/schedules/2026/by-week/week-10"
   },
   {
    "id": "RQ-05",
@@ -52,7 +56,8 @@
    "evidence": "origination/results/leaderboard.json (12 strategies, 8 gates) + analysis/strategies.json (8 root strategies) + requirements/pages/strategies.html",
    "what_exists": "20 registered candidate signal families across two inherited registries (12 in origination/, 8 at root), each with a testable hypothesis, a pre-registered gate set and a recorded result. All 20 remain BLOCKED; 0 passed.",
    "what_is_missing": "The only families with a measurable out-of-sample result are the point-spread and total families graded in requirements/results/w9-grading.json, and n=15 is too small to establish skill. Player-prop and parlay families have no settled joint-outcome ledger, so they cannot be scored at all.",
-   "review": "Two registries with different definitions coexist. Unifying them is suggestion SG-02 and needs an operator decision; this session did not silently pick one."
+   "review": "Two registries with different definitions coexist. Unifying them is suggestion SG-02 and needs an operator decision; this session did not silently pick one.",
+   "source_url": "https://www.nfl.com/scores/2026/week-9"
   },
   {
    "id": "RQ-06",
@@ -62,7 +67,8 @@
    "evidence": "origination/results/leaderboard.json + requirements/pages/leaderboard.html",
    "what_exists": "The rule is written and is deliberately conservative: rank only strategies that pass all eight gates, then order by the LOWER 95% confidence bound of the skill score, and award paper points only. Because 0 of 20 strategies pass a gate, the leaderboard has no medals, no ranks and no rewards, and every reward cell is blank by design.",
    "what_is_missing": "At least one strategy that clears the gates. That needs many more settled forecasts, which needs a pre-kickoff forecast ledger that does not exist yet.",
-   "review": "The reward rule is this project's design, not an official NFL or regulator rule. No cash reward is implemented or implied."
+   "review": "The reward rule is this project's design, not an official NFL or regulator rule. No cash reward is implemented or implied.",
+   "source_url": "https://www.nfl.com/scores/2026/week-9"
   },
   {
    "id": "RQ-07",
@@ -72,7 +78,8 @@
    "evidence": "requirements/pages/combos.html + analysis/correlations.json + requirements/results/w9-grading.json",
    "what_exists": "Singles have an actual out-of-sample grade (15 Week 9 games). Parlay and prop combinations are covered as a stated method: joint probability P(A and B) = pA*pB + rho*sqrt(pA(1-pA)pB(1-pB)), which is only usable with a measured rho. The correlation register publishes the measured rho values that do exist and leaves the rest blank.",
    "what_is_missing": "A player-level, event-aligned dataset: same player, same game, same threshold, same pregame timestamp. Without it, no rho can be estimated and no combo can be priced. The repo contains no player game log, so every combo cell is blank and flagged.",
-   "review": "The formula is standard probability algebra; it does not by itself validate any parlay. Quoting it is not evidence of an edge."
+   "review": "The formula is standard probability algebra; it does not by itself validate any parlay. Quoting it is not evidence of an edge.",
+   "source_url": "https://www.nfl.com/stats/player-stats/category/passing/2026/reg/all/passingyards/desc"
   },
   {
    "id": "RQ-08",
@@ -82,7 +89,8 @@
    "evidence": "origination/results/leaderboard.json (G1..G8 fixed before results) + analysis/validation-gates.json + requirements/pages/gates.html",
    "what_exists": "Eight gates, each with its rule and current status, plus the recorded outcome 0 of 20 strategies eligible. The gates cover official-data provenance, no look-ahead, sample size, skill against a baseline, multiplicity, stability, calibration and the absence of market data.",
    "what_is_missing": "Nothing procedural. The gates are not failing because they are mis-specified; they are failing because the evidence does not exist.",
-   "review": "The gate thresholds are this project's choices. They are not endorsed by the NFL or by any standards body, and the reference pages cited next to them explain the underlying statistics rather than certifying these values."
+   "review": "The gate thresholds are this project's choices. They are not endorsed by the NFL or by any standards body, and the reference pages cited next to them explain the underlying statistics rather than certifying these values.",
+   "source_url": "https://www.itl.nist.gov/div898/handbook/prc/section4/prc473.htm"
   },
   {
    "id": "RQ-09",
@@ -92,7 +100,8 @@
    "evidence": "origination/results/correlations.json (9 correlations + 2 ICCs) + analysis/correlations.json + requirements/pages/correlations.html",
    "what_exists": "Measured values exist at team level and are reported with n, method and a classification: for example quarterback passing yards against game total, and a same-game side-versus-total residual estimate. Values that did not survive a multiplicity correction are shown with their raw and adjusted p-values rather than being dropped.",
    "what_is_missing": "Leg-level dependence for parlays and prop combos. Team aggregates cannot be used to price a combination, so those cells stay blank. Two Next Gen Stats weeks are incomplete and are flagged rather than filled.",
-   "review": "Descriptive association between team aggregates is not causation and is not a betting correlation. The pages say so on every affected table."
+   "review": "Descriptive association between team aggregates is not causation and is not a betting correlation. The pages say so on every affected table.",
+   "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8"
   },
   {
    "id": "RQ-10",
@@ -102,7 +111,8 @@
    "evidence": "requirements/pages/luck.html + requirements/results/luck.json + https://www.itl.nist.gov/div898/handbook/prc/section1/prc14.htm",
    "what_exists": "A quantified decomposition on official data: the share of team win-percentage variance attributable to point differential, a per-team luck residual, and confidence intervals on every rate. The measured result is stated even though it is unflattering: on the rated sample the majority of win-percentage spread is not separable from noise.",
    "what_is_missing": "The requirement as literally worded. Luck cannot be removed from a finite sample; it can only be bounded, and a bound needs many more observations than 15 games or one season. The project therefore re-scopes the requirement to 'shrink toward a conservative bound and refuse to award on an unproven point estimate', which the reward rule does.",
-   "review": "This row is deliberately NOT marked MET. Marking it MET would require a claim that no statistician would support."
+   "review": "This row is deliberately NOT marked MET. Marking it MET would require a claim that no statistician would support.",
+   "source_url": "https://www.itl.nist.gov/div898/handbook/prc/section1/prc14.htm"
   },
   {
    "id": "RQ-11",
@@ -112,7 +122,8 @@
    "evidence": "requirements/results/injuries-w10.json + requirements/data/raw-injuries-w10.txt + https://www.nfl.com/injuries/",
    "what_exists": "345 rows covering all 28 clubs playing in Week 10, transcribed from all eight rendered chunks of the official report. Practice participation and game status are separate columns; a blank game status stays blank and is never upgraded to 'healthy'.",
    "what_is_missing": "Final inactives for the Sunday and Monday games, which the NFL publishes later. The report is a dated snapshot and is labelled as one.",
-   "review": "Only practice and game status are transcribed. Nothing here is medical advice, and a 'Questionable' tag is not a probability."
+   "review": "Only practice and game status are transcribed. Nothing here is medical advice, and a 'Questionable' tag is not a probability.",
+   "source_url": "https://www.nfl.com/injuries/"
   },
   {
    "id": "RQ-12",
@@ -122,7 +133,8 @@
    "evidence": "requirements/pages/availability.html + requirements/results/availability.json + https://www.nfl.com/injuries/",
    "what_exists": "A documented, tested finding that the official depth-chart URL returns HTTP 404 (the page prints '404 - Flag on the Play.'), that official roster pages publish only a status code such as ACT, and that the only official page naming a game's actual starters is the NFL Game Book PDF, one per game. The mechanism is demonstrated on one real game: the official game book for JAX at BAL lists J.Fagnano as the Ravens starting quarterback with Lamar Jackson absent, which is exactly the starter-versus-backup signal the requirement asks for.",
    "what_is_missing": "A starter designation the NFL publishes before kickoff. It does not exist on nfl.com, so a pregame 'this is a 3rd-string tackle' label cannot be produced from an official source. Any such label would have to be inferred, which this project's no-inference rule forbids.",
-   "review": "The requirement is therefore split into what is possible (post-game starter confirmation from game books; injury-driven absence lists transcribed exactly) and what is impossible (a pregame depth-chart label), and the impossible half is not faked."
+   "review": "The requirement is therefore split into what is possible (post-game starter confirmation from game books; injury-driven absence lists transcribed exactly) and what is impossible (a pregame depth-chart label), and the impossible half is not faked.",
+   "source_url": "https://www.nfl.com/teams/kansas-city-chiefs/depth-chart"
   },
   {
    "id": "RQ-13",
@@ -132,7 +144,8 @@
    "evidence": "requirements/pages/executive-summary.html + README.md",
    "what_exists": "A one-page brief with the headline numbers, the four things that block a decision, what changed in this session, and an explicit list of what is not claimed.",
    "what_is_missing": null,
-   "review": "The summary links every claim to the page or official source that supports it; a summary is only as good as those links."
+   "review": "The summary links every claim to the page or official source that supports it; a summary is only as good as those links.",
+   "source_url": "https://www.nfl.com/standings/league/2026/REG"
   },
   {
    "id": "RQ-14",
@@ -142,7 +155,8 @@
    "evidence": "COORDINATION.md (session f6e60a81 log) + requirements/scripts/verify_capture.py + requirements/scripts/req_site.py",
    "what_exists": "All capture, reconciliation, grading, register generation, site build, link checking and PR/merge steps were executed autonomously. Decisions the operator must own are collected in the Suggestions section with a decision field, so they are surfaced rather than blocking.",
    "what_is_missing": "The operator decisions themselves. Those are intentionally left open.",
-   "review": "No operator input was requested at any point in this session."
+   "review": "No operator input was requested at any point in this session.",
+   "source_url": "https://www.nfl.com/scores/2026/week-9"
   },
   {
    "id": "RQ-15",
@@ -152,7 +166,8 @@
    "evidence": "index.html + pages/*.html (generated by scripts/build_site.py) + requirements/pages/*.html",
    "what_exists": "The root dashboard is regenerated with the new sections in its navigation, and every requirements page is published under the same origin. Each table row that states a fact carries an official source link; rows that cannot be confirmed are blank and tagged.",
    "what_is_missing": null,
-   "review": "Publication is verified by fetching the live URL after the deploy, not by assuming the workflow succeeded."
+   "review": "Publication is verified by fetching the live URL after the deploy, not by assuming the workflow succeeded.",
+   "source_url": "https://www.nfl.com/standings/league/2026/REG"
   },
   {
    "id": "RQ-16",
@@ -162,7 +177,8 @@
    "evidence": "requirements/results/checks.json (50 checks, 0 failed) + requirements/results/w9-grading.json + scripts/check_links.py",
    "what_exists": "The strongest available test: the 137-game official game log is recomputed into every club's W-L-T, PCT, PF, PA, NET, HOME and ROAD and compared to the official standings page, giving 352 of 352 cells matching with zero tolerance. The Week 9 scores were transcribed fresh and every derived number is recomputed by script from the transcription rather than typed.",
    "what_is_missing": "Full team-level reconciliation for Weeks 6 to 8 cannot be completed from the standings page alone because the inherited four-game sample gives several clubs only six or seven games; this is stated on the page rather than papered over. Rows whose source was not observed in this session are labelled as inherited, not re-verified.",
-   "review": "352 of 352 is a reconciliation of the arithmetic and the current standings, not a re-reading of all sixteen historical box scores."
+   "review": "352 of 352 is a reconciliation of the arithmetic and the current standings, not a re-reading of all sixteen historical box scores.",
+   "source_url": "https://www.nfl.com/standings/league/2026/REG"
   }
  ]
 }

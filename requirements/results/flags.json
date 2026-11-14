@@ -111,7 +111,8 @@
    "affected": "The landing page's strategy count and any reader trying to identify the canonical site.",
    "not_affected": "The substantive conclusion, which every registry agrees on: zero eligible strategies.",
    "disposition": "Both published as they are and flagged; unifying them is suggestion SG-02, an operator decision.",
-   "source_url": "https://sassnarep3-star.github.io/Own8/"
+   "source_url": "https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages",
+   "note_reference": "This flag is about our own publication surface, so its reference is GitHub's Pages documentation, not an NFL page. No NFL fact is involved."
   },
   {
    "id": "REQ-F-09",

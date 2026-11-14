@@ -2,7 +2,14 @@
  "as_of": "2026-11-14",
  "session": "f6e60a81",
  "how_this_works": "This is the review section. Nothing in the list is implemented except where a row explicitly says it was done inside this session and is labelled as such. Every other row is a proposal with three options, an honest cost, the risk of taking it, the evidence that would justify it, and a decision field that only the operator can change. The default is 'UNDECIDED'. Several rows are deliberately the conservative option and say so.",
- "decision_values": ["UNDECIDED", "ADOPT A", "ADOPT B", "ADOPT C", "REJECT", "DEFER"],
+ "decision_values": [
+  "UNDECIDED",
+  "ADOPT A",
+  "ADOPT B",
+  "ADOPT C",
+  "REJECT",
+  "DEFER"
+ ],
  "suggestions": [
   {
    "id": "SG-01",
@@ -121,7 +128,7 @@
    "evidence_that_would_justify": "The index page being the top result a reader lands on.",
    "decision": "UNDECIDED",
    "owner_if_adopted": "next integration session",
-   "source_url": "https://sassnarep3-star.github.io/Own8/"
+   "source_url": "https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages"
   },
   {
    "id": "SG-08",

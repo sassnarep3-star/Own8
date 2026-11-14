@@ -156,10 +156,11 @@
    "have": "At least nine parallel surfaces: the root dashboard, pages/, desk/, strict/site/, evidence-lab/, docs/evidence-lab/, origination/, hub/, and archive/. Several are merges of separate sessions.",
    "lack": "A single declared entry point, and navigation that reaches every namespace.",
    "answer": "The root index.html is what GitHub Pages serves at the repository URL under the current configuration, so it is canonical by deployment rather than by agreement. The other namespaces remain reachable by direct URL.",
-   "resolution": "Publish the current deployment configuration and a navigation index of every namespace. This session added requirements/ to the root navigation instead of creating a tenth surface.",
-   "source_url": "https://sassnarep3-star.github.io/Own8/",
+   "resolution": "Publish the current deployment configuration and a navigation index of every namespace. This session added requirements/ to the root navigation instead of creating a tenth surface. The deployment mechanics are documented by GitHub, not by the NFL, and are cited as such.",
+   "source_url": "https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages",
    "blocks": "Any statement of 'the site' in an executive summary.",
-   "suggestion": "SG-07"
+   "suggestion": "SG-07",
+   "note_not_official": "The canonical-site question is about this repository's own publication, so its reference is GitHub's Pages documentation rather than an NFL page. No NFL fact is involved."
   },
   {
    "id": "Q-14",
