@@ -285,15 +285,18 @@
       "id": "Q15",
       "category": "Publication and review",
       "question": "How can a reviewer distinguish facts, derived calculations, proposals, and unresolved issues on the site?",
-      "known_answer": "The current root dashboard already separates verified observations, derived B0 benchmarks, proposed strategy methods, and flagged gaps. Before this change, its navigation did not contain a dedicated decision/suggestions section.",
-      "missing_information": "A single reviewer-facing queue that connects each decision question to its evidence, owner/status, proposed next step, and measurable acceptance test; a clear root-navigation route.",
-      "suggested_discovery": "Publish a dedicated decision-review section with source links on every row, a visible status legend, non-blocking flags, and explicit approval state. Keep verified facts separate from proposals and link the section from the canonical dashboard.",
+      "known_answer": "At main commit 0db0fb0 (the integration base for this branch), the root dashboard exposes a Requirements & decision review link to requirements/index.html and a separate decision/site/index.html link. It does not link to this branch's decision-review/ subtree.",
+      "missing_information": "A decision whether to link this separate module or consolidate it with the existing requirements/ and decision/site/ surfaces; a verified Pages route and a single reviewer-facing queue connecting questions, evidence, owner/status, next steps, and acceptance tests.",
+      "suggested_discovery": "After the active root-integration owner hands off or approves the shared files, either link decision-review/ from the canonical dashboard and refresh the repository inventory, or explicitly consolidate the material into an existing workspace. This session records the request and does not edit those claimed root files.",
       "decision_gate": "A published row must not imply approval, verification, a live feed, or strategy eligibility unless the underlying gate and source check actually passed.",
-      "status": "PARTIAL — dedicated review section added in this change; root link pending final build",
+      "status": "PARTIAL — standalone module built; root link and live route are not confirmed",
       "repo_evidence": [
+        "COORDINATION.md",
         "scripts/build_site.py",
         "index.html",
-        "pages/flagged.html"
+        "requirements/index.html",
+        "decision/site/index.html",
+        "decision-review/index.html"
       ],
       "source_ids": [
         "github-pages-publishing",
@@ -323,15 +326,18 @@
       "id": "Q17",
       "category": "Site and source of truth",
       "question": "Which published workspace is authoritative, current, and linked from the main dashboard?",
-      "known_answer": "The root README identifies a canonical dashboard and the task board records additional isolated workspaces such as origination, strict evidence, desk, and evidence-lab. The current canonical root navigation exposes the main pages and the strict evidence lab; this review has not independently checked the live route/status of every separate workspace.",
-      "missing_information": "One public module catalog with each workspace URL, owner/status, as-of date, data/source scope, verification level, and an explicit authoritative-vs-auxiliary designation; direct-live URL checks for each route.",
-      "suggested_discovery": "Add a single module index after each workspace owner confirms its current status and publication route. Label research-only, historical, auxiliary, archived, and canonical surfaces; link only to current source-of-truth tables and avoid duplicating data without a reconciliation plan.",
+      "known_answer": "The root README identifies the canonical dashboard. At main commit 0db0fb0, root navigation links to requirements/index.html, decision/site/index.html, strict/site/index.html, and desk/index.html, but not to decision-review/. This branch contains the separate decision-review subtree; its public route is not yet verified.",
+      "missing_information": "A decision to link or consolidate this separate module; owner/status and as-of metadata for each workspace; direct Pages route checks; and a repository inventory refreshed after any new module is committed.",
+      "suggested_discovery": "After Session f6e60a81's R6/R7 root scope is handed off, request a root link and repository-audit refresh or consolidate this material into an existing workspace. Verify the public route after deployment; until then, label this module as a branch deliverable, not a live authoritative surface.",
       "decision_gate": "No separate module is presented as current or authoritative solely because its files exist in the repository; verify its published route and dated evidence boundary first.",
-      "status": "PARTIAL — root dashboard is canonical; other routes need a consolidated status index",
+      "status": "OPEN — decision-review root link and live route need cross-scope handoff/verification",
       "repo_evidence": [
         "README.md",
         "scripts/build_site.py",
-        "COORDINATION.md"
+        "index.html",
+        "COORDINATION.md",
+        "decision-review/index.html",
+        "analysis/repo-audit.json"
       ],
       "source_ids": [
         "github-pages-publishing",

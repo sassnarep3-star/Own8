@@ -1,6 +1,6 @@
 # Own8 decision-review subsite
 
-A standalone, source-linked dashboard for the open decision questions, missing information, suggested discovery work, lineup/injury requirements, and unresolved irregularities in Own8. It is intended to be linked from the canonical dashboard and published under `/Own8/decision-review/` using the repository's existing root GitHub Pages source.
+A standalone, source-linked dashboard for the open decision questions, missing information, suggested discovery work, lineup/injury requirements, and unresolved irregularities in Own8. It is intended for `/Own8/decision-review/` under the repository's existing root GitHub Pages source, but its public route is not yet verified. The current root integration files are within Session f6e60a81's R6/R7 claim, so this session does not edit them; DQ-F07 and the coordination board record the handoff request for a root navigation link and inventory refresh.
 
 ## Rebuild and check
 

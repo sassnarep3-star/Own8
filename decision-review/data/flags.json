@@ -1,6 +1,6 @@
 {
   "review_as_of": "2026-11-14",
-  "status_label": "NEEDS REVIEW — these are not verified values and do not block publishing the research pages; they do block affected signals.",
+  "status_label": "NEEDS REVIEW — these flags do not block publishing the research pages; they block affected signals or integrations as stated.",
   "flags": [
     {
       "id": "DQ-F01",
@@ -55,6 +55,15 @@
       "safe_handling": "Keep the leaderboard paper-only and unranked. Do not offer cash, cash-equivalent, other value, or facilitate wagering on the basis of this repository review. Obtain product-specific legal/regulatory guidance before any such change.",
       "repo_evidence": ["analysis/leaderboard.json", "research/leaderboard-rules.md"],
       "source_ids": ["gra-class-licences", "gra-betting-faq", "gra-remote-gambling"]
+    },
+    {
+      "id": "DQ-F07",
+      "priority": "MEDIUM",
+      "issue": "Root navigation and repository inventory require a cross-session handoff",
+      "finding": "At main commit 0db0fb0, scripts/build_site.py links to requirements/ and decision/site/ but not decision-review/. Session f6e60a81's R6/R7 claim includes scripts/build_site.py, index.html, pages/**, and publication checks; PR #38 merged, while its board still lists R7 as in progress. The decision-review module's public route has not been confirmed.",
+      "safe_handling": "Do not edit the claimed root files while the handoff is active. Keep the module's public deployment status unverified, and request either a root link plus inventory refresh or an explicit consolidation decision after handoff.",
+      "repo_evidence": ["COORDINATION.md", "scripts/build_site.py", "index.html", "analysis/repo-audit.json"],
+      "source_ids": ["github-pages-publishing"]
     }
   ]
 }

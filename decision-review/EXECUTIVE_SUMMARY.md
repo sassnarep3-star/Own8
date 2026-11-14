@@ -35,7 +35,7 @@ The inspected Week 10 injury-report table displayed player, position, injury, pr
 
 ## Release boundary
 
-This decision-review module organizes verified repository state, official source references, missing questions, and proposed next steps. Its sources are collection/verification targets unless the exact field and date are stated as checked. Recommendations are project design, not NFL/NIST/GRA endorsements. Build success does not mean any betting strategy passed validation. Luck cannot be eliminated.
+This decision-review module organizes verified repository state, official source references, missing questions, and proposed next steps. Its sources are collection/verification targets unless the exact field and date are stated as checked. Recommendations are project design, not NFL/NIST/GRA endorsements. Build success does not mean any betting strategy passed validation. Luck cannot be eliminated. This branch's root-navigation link and public Pages route are not confirmed: the canonical root files remain within another active session's R6/R7 scope. DQ-F07 records the handoff request; do not infer publication from files in the branch.
 
 ## Primary official references checked
 
