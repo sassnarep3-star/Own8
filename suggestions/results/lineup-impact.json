@@ -1,0 +1,61 @@
+{
+  "as_of": "2026-11-14",
+  "session": "aa2d8cbe",
+  "note": "Lineup-impact signal framework: what the system should track when starters are replaced by backups (2nd/3rd/4th string) on offense and defense. Verified rows carry values transcribed from the official Week 9 injury report on 2026-11-14; the 'string' designation (starter/2nd/3rd/4th) is NOT official and is left blank/unverified unless a separate official roster/depth-chart source confirms it. Empty cells are intentionally blank: unavailable or unverified.",
+  "signals": [
+    {
+      "id": "LI-01",
+      "signal": "Quarterback starter availability (offense)",
+      "what_to_capture": "Starter and backup QB names, practice status, injury type, and game status; resolve the active QB string.",
+      "verified_example": "BAL: Lamar Jackson (QB) Thumb / Out; Tyler Huntley (QB) Toe / Out; Joe Fagnano (QB) Full Participation. With the top two QBs Out, the 3rd-string QB is the likely starter.",
+      "string_designation": "",
+      "status": "VERIFIED (injury/status) / UNVERIFIED (string)",
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg9"
+    },
+    {
+      "id": "LI-02",
+      "signal": "Defensive backfield availability (defense)",
+      "what_to_capture": "Starter and backup CB/S names, practice status, injury type, and game status.",
+      "verified_example": "JAX: Eric Murray (S) Did Not Participate; Antonio Johnson (S) Limited Participation. BAL: Jaylinn Hawkins (S) Knee / Out; Nate Wiggins (CB) Stinger, Illness / Questionable.",
+      "string_designation": "",
+      "status": "VERIFIED (injury/status) / UNVERIFIED (string)",
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg9"
+    },
+    {
+      "id": "LI-03",
+      "signal": "Defensive line availability (defense)",
+      "what_to_capture": "Starter and backup DT/DE names, practice status, injury type, and game status.",
+      "verified_example": "BAL: Calais Campbell (DT) Full Participation; John Jenkins (DT) Limited. JAX: DaVon Hamilton (DT) Did Not Participate; Travon Walker (DE) Rib / Questionable.",
+      "string_designation": "",
+      "status": "VERIFIED (injury/status) / UNVERIFIED (string)",
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg9"
+    },
+    {
+      "id": "LI-04",
+      "signal": "Offensive skill availability (offense)",
+      "what_to_capture": "Starter and backup WR/RB/TE names, practice status, injury type, and game status.",
+      "verified_example": "BAL: Mark Andrews (TE) Full; Justice Hill (RB) Full; Adam Randall (RB) Neck / Questionable. JAX: Bhayshul Tuten (RB) Ankle, Foot / Questionable; Jakobi Meyers (WR) Limited.",
+      "string_designation": "",
+      "status": "VERIFIED (injury/status) / UNVERIFIED (string)",
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg9"
+    },
+    {
+      "id": "LI-05",
+      "signal": "Depth-chart string designation (starter / 2nd / 3rd / 4th)",
+      "what_to_capture": "An official roster or depth-chart that labels each player's string at each position.",
+      "verified_example": "",
+      "string_designation": "",
+      "status": "UNVERIFIED",
+      "source_url": "https://www.nfl.com/teams/baltimore-ravens/"
+    },
+    {
+      "id": "LI-06",
+      "signal": "Injury-to-projection adjustment",
+      "what_to_capture": "A documented adjustment from availability evidence to a numerical projection, with the source of each input.",
+      "verified_example": "",
+      "string_designation": "",
+      "status": "BLOCKED (no roster adjustment implemented; prior claim A07)",
+      "source_url": "https://www.nfl.com/standings/league/2026/REG"
+    }
+  ]
+}
