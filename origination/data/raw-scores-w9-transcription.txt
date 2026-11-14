@@ -1,0 +1,27 @@
+# Verbatim transcription of https://www.nfl.com/scores/2026/week-9 (3 chunks), fetched 2026-11-14 UTC by session e8155046.
+# Format: week|section heading as rendered|away|away_score|home|home_score|winner_indicator_team|game_slug (https://www.nfl.com/games/<slug>)
+# All 15 Week 9 games rendered "Final" with visible scores on first render (no Hidden Score, no skeleton render).
+# Cross-check: the 15 away/home pairs and slugs are identical to the Week 9 schedule transcription captured 2026-11-04
+# by session 4bc92a5f (data/raw-schedule-w9-transcription.txt) — two independent official nfl.com pages agree on the slate.
+# Irregularity note (W9-IR-1): the Rams team block on this render prints the abbreviation "LA"
+# ("RAMSLos Angeles RamsLALos Angeles Rams"); the dataset convention (SLUG_TO_ABBR, slug los-angeles-rams) is "LAR".
+# The winner indicator is recorded as LAR — same team, same slug; the "LA" render variant is logged as an irregularity, not a different team.
+# Irregularity note (W9-IR-2): the Madrid game heading renders as "Sunday, November 8th, International Game" on the scores page,
+# while the Week 9 schedule page (2026-11-04) rendered the same game as "International Game, November 8th (Madrid)". Both recorded verbatim from their own page.
+9|Thursday Night Football, November 5th|JAX|33|BAL|10|JAX|jaguars-at-ravens-2026-reg-9
+9|Sunday, November 8th, International Game|CIN|34|ATL|17|CIN|bengals-at-falcons-2026-reg-9
+9|Sunday, November 8th|DEN|26|CAR|21|DEN|broncos-at-panthers-2026-reg-9
+9|Sunday, November 8th|DAL|27|IND|23|DAL|cowboys-at-colts-2026-reg-9
+9|Sunday, November 8th|NYJ|12|KC|35|KC|jets-at-chiefs-2026-reg-9
+9|Sunday, November 8th|DET|19|MIA|9|DET|lions-at-dolphins-2026-reg-9
+9|Sunday, November 8th|CLE|22|NO|23|NO|browns-at-saints-2026-reg-9
+9|Sunday, November 8th|NYG|19|PHI|11|NYG|giants-at-eagles-2026-reg-9
+9|Sunday, November 8th|LAR|20|WAS|13|LAR|rams-at-commanders-2026-reg-9
+9|Sunday, November 8th|HOU|44|LAC|22|HOU|texans-at-chargers-2026-reg-9
+9|Sunday, November 8th|LV|17|SF|38|SF|raiders-at-49ers-2026-reg-9
+9|Sunday, November 8th|GB|45|NE|27|GB|packers-at-patriots-2026-reg-9
+9|Sunday, November 8th|AZ|3|SEA|17|SEA|cardinals-at-seahawks-2026-reg-9
+9|Sunday Night Football, November 8th|TB|24|CHI|27|CHI|buccaneers-at-bears-2026-reg-9
+9|Monday Night Football, November 9th|BUF|23|MIN|6|BUF|bills-at-vikings-2026-reg-9
+BYE|9|PIT|6-2-0
+BYE|9|TEN|1-7-0

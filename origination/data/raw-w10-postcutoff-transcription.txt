@@ -1,0 +1,7 @@
+# Verbatim transcription of the one Week 10 game already FINAL when the W1-W9 log cutoff was taken:
+# https://www.nfl.com/schedules/2026/by-week/week-10 (chunk 0) and https://www.nfl.com/scores/2026/week-10 — both render
+# "Commanders 24, Giants 21, FINAL, Thursday, November 12th" with slug commanders-at-giants-2026-reg-10 (fetched 2026-11-14 UTC, session e8155046).
+# Use: standings reconciliation ONLY (the 2026-11-14 standings capture includes this result for WAS and NYG).
+# This game is EXCLUDED from the W1-W9 game log and from Week 10 line origination (already played before origination).
+# Format: week|heading as rendered on schedule page|away|away_score|home|home_score|winner_indicator_team|game_slug
+10|Thursday Night Football, November 12th|WAS|24|NYG|21|WAS|commanders-at-giants-2026-reg-10
