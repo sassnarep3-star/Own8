@@ -1,0 +1,175 @@
+{
+ "as_of": "2026-11-14",
+ "purpose": "Everything that must be answered before a decision is reasonably made, separated into answered, open and unanswerable-from-official-data.",
+ "summary": {
+  "total": 10,
+  "answered": 5,
+  "open": 5,
+  "blocking": 8
+ },
+ "questions": [
+  {
+   "id": "Q-01",
+   "question": "Which exact games did the Week 9 benchmarks cover, and did they win?",
+   "status": "ANSWERED",
+   "answer": "All 15 Week 9 games. The frozen B0 favourite hit 13 of 15 winners (86.7%).",
+   "have": "Official Week 9 finals from https://www.nfl.com/scores/2026/week-9 and the frozen pre-game lines in analysis/model-lines-week9.json.",
+   "missing": "Nothing for this narrow question.",
+   "how_discovered": "Compared published projection to official final score per game; script: decision/scripts/score_w9.py.",
+   "blocks": "Any promotion decision",
+   "blocking": true,
+   "owner": "analysis",
+   "sources": [
+    "https://www.nfl.com/scores/2026/week-9",
+    "analysis/model-lines-week9.json",
+    "decision/results/w9-out-of-sample.json"
+   ]
+  },
+  {
+   "id": "Q-02",
+   "question": "Was the 86.7% a real signal?",
+   "status": "ANSWERED",
+   "answer": "No, as far as one week can tell: a naive \"better point differential\" rule also scored 86.7% on the same 15 games and \"better win percentage\" scored 92.3%.",
+   "have": "Baseline rules computed on identical rows in the same output file.",
+   "missing": "Many more slates to estimate any real difference.",
+   "how_discovered": "decision/scripts/score_w9.py baseline_winner_rules.",
+   "blocks": "Any skill claim",
+   "blocking": true,
+   "owner": "analysis",
+   "sources": [
+    "decision/results/w9-out-of-sample.json",
+    "https://www.nfl.com/standings/league/2026/REG"
+   ]
+  },
+  {
+   "id": "Q-03",
+   "question": "Can we track 2nd/3rd/4th-string backups replacing starters from official data?",
+   "status": "ANSWERED (NO)",
+   "answer": "No. nfl.com publishes no depth chart (league and club URLs both return 404) and no snap-count or role data. Only position, roster status and injury designation are official.",
+   "have": "Official injury report with position, injuries, practice status and game status for Week 10 (114 rows captured).",
+   "missing": "Official depth ordering and per-game participation counts \u2014 NOT FOUND as of 2026-11-14.",
+   "how_discovered": "Direct retrieval probes AV-1..AV-6 recorded in decision/data/availability-probe.json.",
+   "blocks": "Availability-adjusted modelling (G4)",
+   "blocking": true,
+   "owner": "data owner",
+   "sources": [
+    "https://www.nfl.com/teams/depth-chart",
+    "https://www.nfl.com/stats/player-stats/",
+    "https://www.nfl.com/injuries/league/2026/reg10"
+   ]
+  },
+  {
+   "id": "Q-04",
+   "question": "Is the published dashboard current?",
+   "status": "ANSWERED",
+   "answer": "No. It is frozen at 2026-11-04 (Week 9 pre-game). The league has completed Week 9 and is in Week 10; WAS 24-21 NYG has already been played.",
+   "have": "Official Week 9 finals and the Week 10 schedule (14 games, 4 byes).",
+   "missing": "An automated publish path that refreshes the site on a schedule.",
+   "how_discovered": "Compared snapshot as_of to https://www.nfl.com/scores/2026/week-9 and https://www.nfl.com/schedules/2026/by-week/week-10.",
+   "blocks": "Reader trust in any number on the site",
+   "blocking": true,
+   "owner": "integration owner",
+   "sources": [
+    "https://www.nfl.com/scores/2026/week-9",
+    "https://www.nfl.com/schedules/2026/by-week/week-10"
+   ]
+  },
+  {
+   "id": "Q-05",
+   "question": "What does a strategy have to beat to be called skilful?",
+   "status": "OPEN",
+   "answer": "Undefined. No minimum sample, no fixed baseline set, no required confidence interval is written into the rules.",
+   "have": "Proposed scoring text in analysis/leaderboard.json and gate rules in analysis/validation-gates.json.",
+   "missing": "An approved, written definition: baseline set, minimum slates, and the statistic that must exceed it.",
+   "how_discovered": "Reading the current registry; no numeric threshold appears anywhere.",
+   "blocks": "Leaderboard, rewards, any skill label",
+   "blocking": true,
+   "owner": "rules owner",
+   "sources": [
+    "https://www.itl.nist.gov/div898/handbook/prc/section1/prc14.htm",
+    "https://www.itl.nist.gov/div898/handbook/prc/section4/prc473.htm"
+   ]
+  },
+  {
+   "id": "Q-06",
+   "question": "Where do verified operator prices and settlement rules come from?",
+   "status": "OPEN \u2014 no official source exists",
+   "answer": "Unknown. Sportsbook prices are commercial, not official NFL publications, and the project forbids third-party odds.",
+   "have": "A rule that only verified operator-native prices count.",
+   "missing": "A legitimate, citable price source with timestamps, plus settlement/void rules per operator.",
+   "how_discovered": "data/flagged.json A01/A05/A08; analysis/validation-gates.json G5/G7/G8 BLOCKED.",
+   "blocks": "Every betting-side gate (G5, G7, G8) and therefore all rewards",
+   "blocking": true,
+   "owner": "project owner",
+   "sources": [
+    "https://www.nfl.com/scores/",
+    "https://www.itl.nist.gov/div898/handbook/prc/section1/prc14.htm",
+    "data/flagged.json",
+    "analysis/validation-gates.json"
+   ]
+  },
+  {
+   "id": "Q-07",
+   "question": "What happens when a game ties, and how are dropped games reported?",
+   "status": "OPEN",
+   "answer": "Undefined in the current registry, although ties occur (NYG and WAS each have one in 2026).",
+   "have": "Official standings showing T=1 for NYG and WAS.",
+   "missing": "An explicit per-market tie rule (push / void / refund) and a count of games dropped.",
+   "how_discovered": "data/audit-snapshot.json; score script excludes zero-margin games and counts them.",
+   "blocks": "Accuracy comparability",
+   "blocking": false,
+   "owner": "rules owner",
+   "sources": [
+    "https://www.nfl.com/standings/league/2026/REG"
+   ]
+  },
+  {
+   "id": "Q-08",
+   "question": "Is a same-game parlay correlation available from official data?",
+   "status": "OPEN \u2014 cannot be computed yet",
+   "answer": "Not from official NFL pages alone: it needs paired player-level outcomes against fixed thresholds and event-level alignment.",
+   "have": "Official season totals only; no per-game logs transcribed with thresholds.",
+   "missing": "Timestamp-aligned per-game player logs, market thresholds, and joint outcomes.",
+   "how_discovered": "analysis/correlations.json leaves all leg-dependence cells null; no game-log source retained.",
+   "blocks": "Parlay and prop-combo strategies (S7, S8)",
+   "blocking": true,
+   "owner": "data owner",
+   "sources": [
+    "https://nextgenstats.nfl.com/stats/passing/2026/REG/9",
+    "https://www.nfl.com/stats/player-stats/"
+   ]
+  },
+  {
+   "id": "Q-09",
+   "question": "How large is the home-field effect the current benchmark ignores?",
+   "status": "PARTIALLY ANSWERED \u2014 insufficient sample",
+   "answer": "Week 9 alone shows B0 under-weighting the home side by about 3.2 points of mean margin; one week is not an estimate.",
+   "have": "Per-game projected versus realised home margins for 15 games.",
+   "missing": "Multiple seasons of the same comparison before any venue term is fitted.",
+   "how_discovered": "decision/results/w9-out-of-sample.json home_field_diagnostic.",
+   "blocks": "Line origination accuracy",
+   "blocking": false,
+   "owner": "analysis",
+   "sources": [
+    "decision/results/w9-out-of-sample.json",
+    "https://www.nfl.com/standings/"
+   ]
+  },
+  {
+   "id": "Q-10",
+   "question": "Which other agent sessions are producing overlapping deliverables?",
+   "status": "ANSWERED \u2014 coordination risk",
+   "answer": "Four parallel sessions (a57af0ab, aa2d8cbe, d6bada32, c563a1dc) claimed the same suggestions/questions/injury scope on 2026-11-14, in addition to this one.",
+   "have": "Their claim sections and CI runs on their branches.",
+   "missing": "A single owner of the final integration and nav update.",
+   "how_discovered": "git fetch of all remote branches; GitHub Actions run list; COORDINATION.md on each branch.",
+   "blocks": "Clean merge and a non-duplicated site",
+   "blocking": true,
+   "owner": "project owner",
+   "sources": [
+    "https://github.com/sassnarep3-star/Own8/actions",
+    "COORDINATION.md"
+   ]
+  }
+ ]
+}

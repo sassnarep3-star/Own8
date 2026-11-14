@@ -1,0 +1,9 @@
+{
+ "checked_at": "2026-11-14",
+ "scope": "decision/site only; external liveness not tested",
+ "pages": 8,
+ "links_checked": 268,
+ "table_rows_checked": 181,
+ "errors": [],
+ "status": "PASS"
+}

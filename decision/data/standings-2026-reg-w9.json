@@ -1,0 +1,589 @@
+{
+ "as_of": "2026-11-14",
+ "capture": "Official page retrieval (tool-based extraction); no automated HTTP from build shell",
+ "source_primary": "https://www.nfl.com/standings/league/2026/REG",
+ "source_crosscheck": "https://www.nfl.com/standings/division/2026/REG",
+ "scope": "Regular season through Week 9 (2026-11-13).",
+ "standings": [
+  {
+   "team": "BUF",
+   "W": 7,
+   "L": 1,
+   "T": 0,
+   "GP": 8,
+   "PCT": 0.875,
+   "PF": 256,
+   "PA": 187,
+   "NET": 69,
+   "STRK": "4W",
+   "sources": [
+    "https://www.nfl.com/standings/league/2026/REG",
+    "https://www.nfl.com/standings/division/2026/REG"
+   ],
+   "checked_at": "2026-11-14",
+   "status": "VERIFIED"
+  },
+  {
+   "team": "SF",
+   "W": 7,
+   "L": 1,
+   "T": 0,
+   "GP": 8,
+   "PCT": 0.875,
+   "PF": 235,
+   "PA": 156,
+   "NET": 79,
+   "STRK": "1W",
+   "sources": [
+    "https://www.nfl.com/standings/league/2026/REG",
+    "https://www.nfl.com/standings/division/2026/REG"
+   ],
+   "checked_at": "2026-11-14",
+   "status": "VERIFIED"
+  },
+  {
+   "team": "CHI",
+   "W": 7,
+   "L": 2,
+   "T": 0,
+   "GP": 9,
+   "PCT": 0.778,
+   "PF": 241,
+   "PA": 184,
+   "NET": 57,
+   "STRK": "4W",
+   "sources": [
+    "https://www.nfl.com/standings/league/2026/REG",
+    "https://www.nfl.com/standings/division/2026/REG"
+   ],
+   "checked_at": "2026-11-14",
+   "status": "VERIFIED"
+  },
+  {
+   "team": "DEN",
+   "W": 7,
+   "L": 2,
+   "T": 0,
+   "GP": 9,
+   "PCT": 0.778,
+   "PF": 198,
+   "PA": 186,
+   "NET": 12,
+   "STRK": "5W",
+   "sources": [
+    "https://www.nfl.com/standings/league/2026/REG",
+    "https://www.nfl.com/standings/division/2026/REG"
+   ],
+   "checked_at": "2026-11-14",
+   "status": "VERIFIED"
+  },
+  {
+   "team": "CIN",
+   "W": 6,
+   "L": 2,
+   "T": 0,
+   "GP": 8,
+   "PCT": 0.75,
+   "PF": 240,
+   "PA": 175,
+   "NET": 65,
+   "STRK": "4W",
+   "sources": [
+    "https://www.nfl.com/standings/league/2026/REG",
+    "https://www.nfl.com/standings/division/2026/REG"
+   ],
+   "checked_at": "2026-11-14",
+   "status": "VERIFIED"
+  },
+  {
+   "team": "DET",
+   "W": 6,
+   "L": 2,
+   "T": 0,
+   "GP": 8,
+   "PCT": 0.75,
+   "PF": 222,
+   "PA": 189,
+   "NET": 33,
+   "STRK": "4W",
+   "sources": [
+    "https://www.nfl.com/standings/league/2026/REG",
+    "https://www.nfl.com/standings/division/2026/REG"
+   ],
+   "checked_at": "2026-11-14",
+   "status": "VERIFIED"
+  },
+  {
+   "team": "JAX",
+   "W": 6,
+   "L": 2,
+   "T": 0,
+   "GP": 8,
+   "PCT": 0.75,
+   "PF": 229,
+   "PA": 121,
+   "NET": 108,
+   "STRK": "2W",
+   "sources": [
+    "https://www.nfl.com/standings/league/2026/REG",
+    "https://www.nfl.com/standings/division/2026/REG"
+   ],
+   "checked_at": "2026-11-14",
+   "status": "VERIFIED"
+  },
+  {
+   "team": "KC",
+   "W": 6,
+   "L": 2,
+   "T": 0,
+   "GP": 8,
+   "PCT": 0.75,
+   "PF": 202,
+   "PA": 143,
+   "NET": 59,
+   "STRK": "1W",
+   "sources": [
+    "https://www.nfl.com/standings/league/2026/REG",
+    "https://www.nfl.com/standings/division/2026/REG"
+   ],
+   "checked_at": "2026-11-14",
+   "status": "VERIFIED"
+  },
+  {
+   "team": "MIN",
+   "W": 6,
+   "L": 2,
+   "T": 0,
+   "GP": 8,
+   "PCT": 0.75,
+   "PF": 146,
+   "PA": 116,
+   "NET": 30,
+   "STRK": "2L",
+   "sources": [
+    "https://www.nfl.com/standings/league/2026/REG",
+    "https://www.nfl.com/standings/division/2026/REG"
+   ],
+   "checked_at": "2026-11-14",
+   "status": "VERIFIED"
+  },
+  {
+   "team": "PIT",
+   "W": 6,
+   "L": 2,
+   "T": 0,
+   "GP": 8,
+   "PCT": 0.75,
+   "PF": 180,
+   "PA": 144,
+   "NET": 36,
+   "STRK": "4W",
+   "sources": [
+    "https://www.nfl.com/standings/league/2026/REG",
+    "https://www.nfl.com/standings/division/2026/REG"
+   ],
+   "checked_at": "2026-11-14",
+   "status": "VERIFIED"
+  },
+  {
+   "team": "GB",
+   "W": 6,
+   "L": 3,
+   "T": 0,
+   "GP": 9,
+   "PCT": 0.667,
+   "PF": 216,
+   "PA": 191,
+   "NET": 25,
+   "STRK": "2W",
+   "sources": [
+    "https://www.nfl.com/standings/league/2026/REG",
+    "https://www.nfl.com/standings/division/2026/REG"
+   ],
+   "checked_at": "2026-11-14",
+   "status": "VERIFIED"
+  },
+  {
+   "team": "NYG",
+   "W": 5,
+   "L": 3,
+   "T": 1,
+   "GP": 9,
+   "PCT": 0.611,
+   "PF": 203,
+   "PA": 196,
+   "NET": 7,
+   "STRK": "1L",
+   "sources": [
+    "https://www.nfl.com/standings/league/2026/REG",
+    "https://www.nfl.com/standings/division/2026/REG"
+   ],
+   "checked_at": "2026-11-14",
+   "status": "VERIFIED"
+  },
+  {
+   "team": "CLE",
+   "W": 5,
+   "L": 4,
+   "T": 0,
+   "GP": 9,
+   "PCT": 0.556,
+   "PF": 161,
+   "PA": 196,
+   "NET": -35,
+   "STRK": "2L",
+   "sources": [
+    "https://www.nfl.com/standings/league/2026/REG",
+    "https://www.nfl.com/standings/division/2026/REG"
+   ],
+   "checked_at": "2026-11-14",
+   "status": "VERIFIED"
+  },
+  {
+   "team": "LA",
+   "W": 5,
+   "L": 4,
+   "T": 0,
+   "GP": 9,
+   "PCT": 0.556,
+   "PF": 214,
+   "PA": 181,
+   "NET": 33,
+   "STRK": "3W",
+   "sources": [
+    "https://www.nfl.com/standings/league/2026/REG",
+    "https://www.nfl.com/standings/division/2026/REG"
+   ],
+   "checked_at": "2026-11-14",
+   "status": "VERIFIED"
+  },
+  {
+   "team": "NE",
+   "W": 5,
+   "L": 4,
+   "T": 0,
+   "GP": 9,
+   "PCT": 0.556,
+   "PF": 211,
+   "PA": 207,
+   "NET": 4,
+   "STRK": "1L",
+   "sources": [
+    "https://www.nfl.com/standings/league/2026/REG",
+    "https://www.nfl.com/standings/division/2026/REG"
+   ],
+   "checked_at": "2026-11-14",
+   "status": "VERIFIED"
+  },
+  {
+   "team": "SEA",
+   "W": 5,
+   "L": 4,
+   "T": 0,
+   "GP": 9,
+   "PCT": 0.556,
+   "PF": 202,
+   "PA": 162,
+   "NET": 40,
+   "STRK": "1W",
+   "sources": [
+    "https://www.nfl.com/standings/league/2026/REG",
+    "https://www.nfl.com/standings/division/2026/REG"
+   ],
+   "checked_at": "2026-11-14",
+   "status": "VERIFIED"
+  },
+  {
+   "team": "BAL",
+   "W": 4,
+   "L": 5,
+   "T": 0,
+   "GP": 9,
+   "PCT": 0.444,
+   "PF": 189,
+   "PA": 236,
+   "NET": -47,
+   "STRK": "4L",
+   "sources": [
+    "https://www.nfl.com/standings/league/2026/REG",
+    "https://www.nfl.com/standings/division/2026/REG"
+   ],
+   "checked_at": "2026-11-14",
+   "status": "VERIFIED"
+  },
+  {
+   "team": "DAL",
+   "W": 4,
+   "L": 5,
+   "T": 0,
+   "GP": 9,
+   "PCT": 0.444,
+   "PF": 246,
+   "PA": 236,
+   "NET": 10,
+   "STRK": "1W",
+   "sources": [
+    "https://www.nfl.com/standings/league/2026/REG",
+    "https://www.nfl.com/standings/division/2026/REG"
+   ],
+   "checked_at": "2026-11-14",
+   "status": "VERIFIED"
+  },
+  {
+   "team": "LV",
+   "W": 4,
+   "L": 5,
+   "T": 0,
+   "GP": 9,
+   "PCT": 0.444,
+   "PF": 238,
+   "PA": 268,
+   "NET": -30,
+   "STRK": "1L",
+   "sources": [
+    "https://www.nfl.com/standings/league/2026/REG",
+    "https://www.nfl.com/standings/division/2026/REG"
+   ],
+   "checked_at": "2026-11-14",
+   "status": "VERIFIED"
+  },
+  {
+   "team": "WAS",
+   "W": 3,
+   "L": 5,
+   "T": 1,
+   "GP": 9,
+   "PCT": 0.389,
+   "PF": 196,
+   "PA": 223,
+   "NET": -27,
+   "STRK": "1W",
+   "sources": [
+    "https://www.nfl.com/standings/league/2026/REG",
+    "https://www.nfl.com/standings/division/2026/REG"
+   ],
+   "checked_at": "2026-11-14",
+   "status": "VERIFIED"
+  },
+  {
+   "team": "CAR",
+   "W": 3,
+   "L": 5,
+   "T": 0,
+   "GP": 8,
+   "PCT": 0.375,
+   "PF": 199,
+   "PA": 219,
+   "NET": -20,
+   "STRK": "3L",
+   "sources": [
+    "https://www.nfl.com/standings/league/2026/REG",
+    "https://www.nfl.com/standings/division/2026/REG"
+   ],
+   "checked_at": "2026-11-14",
+   "status": "VERIFIED"
+  },
+  {
+   "team": "HOU",
+   "W": 3,
+   "L": 5,
+   "T": 0,
+   "GP": 8,
+   "PCT": 0.375,
+   "PF": 209,
+   "PA": 192,
+   "NET": 17,
+   "STRK": "1W",
+   "sources": [
+    "https://www.nfl.com/standings/league/2026/REG",
+    "https://www.nfl.com/standings/division/2026/REG"
+   ],
+   "checked_at": "2026-11-14",
+   "status": "VERIFIED"
+  },
+  {
+   "team": "NO",
+   "W": 3,
+   "L": 5,
+   "T": 0,
+   "GP": 8,
+   "PCT": 0.375,
+   "PF": 185,
+   "PA": 216,
+   "NET": -31,
+   "STRK": "1W",
+   "sources": [
+    "https://www.nfl.com/standings/league/2026/REG",
+    "https://www.nfl.com/standings/division/2026/REG"
+   ],
+   "checked_at": "2026-11-14",
+   "status": "VERIFIED"
+  },
+  {
+   "team": "AZ",
+   "W": 3,
+   "L": 6,
+   "T": 0,
+   "GP": 9,
+   "PCT": 0.333,
+   "PF": 178,
+   "PA": 255,
+   "NET": -77,
+   "STRK": "1L",
+   "sources": [
+    "https://www.nfl.com/standings/league/2026/REG",
+    "https://www.nfl.com/standings/division/2026/REG"
+   ],
+   "checked_at": "2026-11-14",
+   "status": "VERIFIED"
+  },
+  {
+   "team": "ATL",
+   "W": 3,
+   "L": 6,
+   "T": 0,
+   "GP": 9,
+   "PCT": 0.333,
+   "PF": 188,
+   "PA": 223,
+   "NET": -35,
+   "STRK": "2L",
+   "sources": [
+    "https://www.nfl.com/standings/league/2026/REG",
+    "https://www.nfl.com/standings/division/2026/REG"
+   ],
+   "checked_at": "2026-11-14",
+   "status": "VERIFIED"
+  },
+  {
+   "team": "TB",
+   "W": 3,
+   "L": 6,
+   "T": 0,
+   "GP": 9,
+   "PCT": 0.333,
+   "PF": 202,
+   "PA": 178,
+   "NET": 24,
+   "STRK": "1L",
+   "sources": [
+    "https://www.nfl.com/standings/league/2026/REG",
+    "https://www.nfl.com/standings/division/2026/REG"
+   ],
+   "checked_at": "2026-11-14",
+   "status": "VERIFIED"
+  },
+  {
+   "team": "IND",
+   "W": 2,
+   "L": 7,
+   "T": 0,
+   "GP": 9,
+   "PCT": 0.222,
+   "PF": 184,
+   "PA": 249,
+   "NET": -65,
+   "STRK": "5L",
+   "sources": [
+    "https://www.nfl.com/standings/league/2026/REG",
+    "https://www.nfl.com/standings/division/2026/REG"
+   ],
+   "checked_at": "2026-11-14",
+   "status": "VERIFIED"
+  },
+  {
+   "team": "NYJ",
+   "W": 2,
+   "L": 7,
+   "T": 0,
+   "GP": 9,
+   "PCT": 0.222,
+   "PF": 182,
+   "PA": 223,
+   "NET": -41,
+   "STRK": "4L",
+   "sources": [
+    "https://www.nfl.com/standings/league/2026/REG",
+    "https://www.nfl.com/standings/division/2026/REG"
+   ],
+   "checked_at": "2026-11-14",
+   "status": "VERIFIED"
+  },
+  {
+   "team": "PHI",
+   "W": 2,
+   "L": 7,
+   "T": 0,
+   "GP": 9,
+   "PCT": 0.222,
+   "PF": 148,
+   "PA": 221,
+   "NET": -73,
+   "STRK": "7L",
+   "sources": [
+    "https://www.nfl.com/standings/league/2026/REG",
+    "https://www.nfl.com/standings/division/2026/REG"
+   ],
+   "checked_at": "2026-11-14",
+   "status": "VERIFIED"
+  },
+  {
+   "team": "MIA",
+   "W": 1,
+   "L": 7,
+   "T": 0,
+   "GP": 8,
+   "PCT": 0.125,
+   "PF": 126,
+   "PA": 200,
+   "NET": -74,
+   "STRK": "2L",
+   "sources": [
+    "https://www.nfl.com/standings/league/2026/REG",
+    "https://www.nfl.com/standings/division/2026/REG"
+   ],
+   "checked_at": "2026-11-14",
+   "status": "VERIFIED"
+  },
+  {
+   "team": "TEN",
+   "W": 1,
+   "L": 7,
+   "T": 0,
+   "GP": 8,
+   "PCT": 0.125,
+   "PF": 144,
+   "PA": 199,
+   "NET": -55,
+   "STRK": "2L",
+   "sources": [
+    "https://www.nfl.com/standings/league/2026/REG",
+    "https://www.nfl.com/standings/division/2026/REG"
+   ],
+   "checked_at": "2026-11-14",
+   "status": "VERIFIED"
+  },
+  {
+   "team": "LAC",
+   "W": 0,
+   "L": 8,
+   "T": 0,
+   "GP": 8,
+   "PCT": 0.0,
+   "PF": 121,
+   "PA": 219,
+   "NET": -98,
+   "STRK": "8L",
+   "sources": [
+    "https://www.nfl.com/standings/league/2026/REG",
+    "https://www.nfl.com/standings/division/2026/REG"
+   ],
+   "checked_at": "2026-11-14",
+   "status": "VERIFIED"
+  }
+ ],
+ "limitations": [
+  "ATL W/L split across two render chunks of the same official page and is cross-confirmed by the Week 10 schedule page (ATL 3-6).",
+  "Home/road/division/conference tail columns recorded only where read; not used by this layer."
+ ]
+}

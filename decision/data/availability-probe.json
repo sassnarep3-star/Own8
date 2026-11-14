@@ -1,0 +1,55 @@
+{
+ "as_of": "2026-11-14",
+ "question": "Could the project track \"2nd/3rd/4th-string backups replacing starters\" from official NFL sources?",
+ "answer": "No. Verified on 2026-11-14: nfl.com publishes no depth chart (AV-1, AV-2) and no snap/share data (AV-4, AV-5). Only position and roster status (AV-3) plus injury/participation status (AV-6) are official.",
+ "consequence": "Any 2nd/3rd/4th-string claim would have to come from a non-official source. Under this project's own rule (never infer, blank if unconfirmed) those fields MUST stay blank and be flagged, not estimated.",
+ "what_would_unblock_it": [
+  "An official, retrievable, timestamped depth chart (team-controlled or league-controlled) with a stable URL -- NOT FOUND as of 2026-11-14.",
+  "Official per-game participation counts (snaps) -- NOT FOUND in the nfl.com stats taxonomy.",
+  "Operator-declared inactives list ~90 minutes pre-kickoff -- the only official pre-game availability signal observed; see AV-6 for practice/game status."
+ ],
+ "probe": [
+  {
+   "id": "AV-1",
+   "page": "https://www.nfl.com/teams/depth-chart",
+   "observed": "Page renders \"404 - Flag on the Play.\"",
+   "result": "NOT FOUND",
+   "meaning": "nfl.com does not publish a league-wide depth chart."
+  },
+  {
+   "id": "AV-2",
+   "page": "https://www.nfl.com/teams/kansas-city-chiefs/depth-chart",
+   "observed": "Page renders \"404 - Flag on the Play.\"",
+   "result": "NOT FOUND",
+   "meaning": "A club-level depth chart URL does not exist on nfl.com either; the URL pattern is not valid."
+  },
+  {
+   "id": "AV-3",
+   "page": "https://www.nfl.com/teams/kansas-city-chiefs/roster",
+   "observed": "Roster table with columns: player, number, POSITION, roster status (ACT), height, weight, experience, college.",
+   "result": "FOUND (positions only)",
+   "meaning": "Positions and roster status are official; there is NO ordering, NO \"starter/2nd/3rd/4th string\" field."
+  },
+  {
+   "id": "AV-4",
+   "page": "https://www.nfl.com/stats/player-stats/category/snap-counts/2026/reg/all/defensivesnaps/desc",
+   "observed": "Page renders \"404 - Flag on the Play.\"",
+   "result": "NOT FOUND",
+   "meaning": "Snap-count categories are not part of the official player-stats taxonomy; a snap-share proxy cannot be built from nfl.com."
+  },
+  {
+   "id": "AV-5",
+   "page": "https://www.nfl.com/stats/player-stats/",
+   "observed": "Official categories listed: Passing, Rushing, Receiving, Fumbles, Tackles, Interceptions, Field Goals, Kickoffs, Kickoff Returns, Punting, Punt Returns.",
+   "result": "FOUND (taxonomy)",
+   "meaning": "No snap counts, no routes run, no target share, no alignment data. Starter-vs-backup usage cannot be derived from this taxonomy."
+  },
+  {
+   "id": "AV-6",
+   "page": "https://www.nfl.com/injuries/league/2026/reg10",
+   "observed": "Per-player rows with POSITION, Injuries, Practice Status, Game Status; blank cells where the club designation is blank.",
+   "result": "FOUND",
+   "meaning": "Injury availability IS official and current. It does not say which string a player is."
+  }
+ ]
+}

@@ -1,0 +1,228 @@
+{
+ "as_of": "2026-11-14",
+ "status": "ALL PROPOSED \u2014 awaiting selection. Nothing in this register has been implemented.",
+ "note": "Suggestions are project design, not official NFL guidance. Each is tied to a measured finding or an observed official page response.",
+ "decision_path": [
+  "1. Read the problem and the evidence link.",
+  "2. Compare the options on impact, cost and risk.",
+  "3. Pick one option (or reject the suggestion) and record the date and reason.",
+  "4. Only then open an implementation task in COORDINATION.md."
+ ],
+ "suggestions": [
+  {
+   "id": "SG-01",
+   "title": "Score every published benchmark against a fixed naive baseline, on the same rows",
+   "problem": "The site currently publishes accuracy-looking numbers without a baseline, so a reader cannot tell skill from a dumb rule. Measured Week 9: B0 favourite 86.7%, naive point-differential rule 86.7%, naive win-percentage rule 92.3%.",
+   "evidence": "decision/results/w9-out-of-sample.json baseline_winner_rules; analysis/leaderboard.json (baseline absent).",
+   "options": [
+    {
+     "option": "A",
+     "label": "Keep as-is",
+     "impact": "Readers may mistake a baseline artefact for skill.",
+     "cost": "None",
+     "risk": "High \u2014 this is the project's core failure mode."
+    },
+    {
+     "option": "B",
+     "label": "Always show a baseline column next to every score",
+     "impact": "Skill and luck become visually separable at a glance.",
+     "cost": "Low \u2014 one extra computed column per table.",
+     "risk": "Low."
+    },
+    {
+     "option": "C",
+     "label": "B + a per-row verdict label (\"beats baseline / ties baseline / loses\")",
+     "impact": "Makes the conclusion explicit instead of inferable.",
+     "cost": "Low.",
+     "risk": "Low."
+    }
+   ],
+   "recommendation": "C",
+   "decision_needed": "Approve the baseline set (point differential, win percentage, always-home) as the canonical comparison group.",
+   "gates_unblocked": [
+    "G6"
+   ],
+   "implemented_here": false,
+   "owner_role": "analysis",
+   "source": "https://www.itl.nist.gov/div898/handbook/eda/section3/scatterp.htm"
+  },
+  {
+   "id": "SG-02",
+   "title": "Split the competition into a price-free accuracy track and a separate betting track",
+   "problem": "G5 (verified operator price), G7 (net expected value) and G8 (settled ledger) are permanently BLOCKED because no verified prices exist. Result: 0 of 8 strategies can ever be rewarded, and the leaderboard is an empty table by construction.",
+   "evidence": "analysis/validation-gates.json (G5/G7/G8 BLOCKED, eligible_strategies 0); data/flagged.json A01, A08.",
+   "options": [
+    {
+     "option": "A",
+     "label": "Leave all gates coupled",
+     "impact": "Leaderboard stays permanently empty; no research is ever rewarded.",
+     "cost": "None",
+     "risk": "High \u2014 the reward mechanism the project asks for cannot function."
+    },
+    {
+     "option": "B",
+     "label": "Track 1 = forecast accuracy and calibration (no prices); Track 2 = betting edge (prices required)",
+     "impact": "Track 1 becomes judgeable immediately from official results; Track 2 stays honestly blocked.",
+     "cost": "Medium \u2014 two scoring specs.",
+     "risk": "Low."
+    },
+    {
+     "option": "C",
+     "label": "B + publish Track 1 scores for the existing 15 Week 9 lines as a pilot",
+     "impact": "First real, verifiable leaderboard entries this week.",
+     "cost": "Medium.",
+     "risk": "Medium \u2014 must be labelled a single-slate pilot, not a ranking."
+    }
+   ],
+   "recommendation": "B, then C as a labelled pilot",
+   "decision_needed": "Choose whether price-free accuracy is a legitimate basis for paper reward points.",
+   "gates_unblocked": [
+    "G6",
+    "G8"
+   ],
+   "implemented_here": false,
+   "owner_role": "rules owner",
+   "source": "https://www.nfl.com/scores/2026/week-9"
+  },
+  {
+   "id": "SG-03",
+   "title": "Make the site regenerate on a schedule and show its own staleness",
+   "problem": "The published dashboard is frozen at 2026-11-04 (Week 9 pre-game) while the league is in Week 10. There is no on-page indicator of how stale the numbers are, and no scheduled refresh touches them.",
+   "evidence": "data/audit-snapshot.json as_of=2026-11-04 vs official Week 9 finals on https://www.nfl.com/scores/2026/week-9 (retrieved 2026-11-14); .github/workflows/audit.yml runs a validator, uploads an artifact, and never republishes the site.",
+   "options": [
+    {
+     "option": "A",
+     "label": "Nothing",
+     "impact": "Site silently drifts further from reality every week.",
+     "cost": "None",
+     "risk": "High."
+    },
+    {
+     "option": "B",
+     "label": "Add a \"data as of / weeks behind\" banner computed from the snapshot date",
+     "impact": "Reader instantly knows the numbers are historical.",
+     "cost": "Low.",
+     "risk": "Low."
+    },
+    {
+     "option": "C",
+     "label": "B + a scheduled job that re-runs verification and fails loudly when the snapshot lags",
+     "impact": "Drift becomes impossible to miss.",
+     "cost": "Medium \u2014 workflow change on main.",
+     "risk": "Medium \u2014 needs a maintainer to fix failures."
+    }
+   ],
+   "recommendation": "C",
+   "decision_needed": "Approve a publish path that updates the site (not just an artifact) and a maximum acceptable staleness.",
+   "gates_unblocked": [
+    "G2"
+   ],
+   "implemented_here": false,
+   "owner_role": "integration owner",
+   "source": "https://www.nfl.com/scores/2026/week-9"
+  },
+  {
+   "id": "SG-04",
+   "title": "Replace the depth-chart ambition with an honest availability signal",
+   "problem": "The requested 2nd/3rd/4th-string tracking cannot be built from official sources: nfl.com returns 404 for depth charts and publishes no snap counts or role data. Only position, roster status and injury designation are official.",
+   "evidence": "decision/data/availability-probe.json (AV-1..AV-6, each an observed page response on 2026-11-14).",
+   "options": [
+    {
+     "option": "A",
+     "label": "Estimate depth order from roster/injury lists",
+     "impact": "Requires inference; violates the project's own no-inference rule and would be indistinguishable from a guess.",
+     "cost": "Low.",
+     "risk": "Critical \u2014 fabricated provenance."
+    },
+    {
+     "option": "B",
+     "label": "Publish an official availability table only (position, designation, participation) and leave string depth blank + flagged",
+     "impact": "Truthful and useful: which positions a club has lost, not who replaces whom.",
+     "cost": "Low \u2014 data already captured this session (114 rows).",
+     "risk": "Low."
+    },
+    {
+     "option": "C",
+     "label": "B + positional concentration metric (count of Out/Doubtful/Questionable per position group per team)",
+     "impact": "Turns availability into a comparable, source-linked number without inventing depth.",
+     "cost": "Low-medium.",
+     "risk": "Low."
+    }
+   ],
+   "recommendation": "B now, C next",
+   "decision_needed": "Confirm the project will accept \"positions lost\" instead of \"2nd/3rd-string replacement\" until an official depth source exists.",
+   "gates_unblocked": [
+    "G4"
+   ],
+   "implemented_here": false,
+   "owner_role": "data owner",
+   "source": "https://www.nfl.com/injuries/league/2026/reg10"
+  },
+  {
+   "id": "SG-05",
+   "title": "Adopt a standing anti-luck evaluation protocol as a written rule",
+   "problem": "A single week produced p=0.007 against a coin flip for the benchmark, which looks like skill and is a false positive by construction when 12+ variants are registered.",
+   "evidence": "decision/results/w9-out-of-sample.json (binomial_p_vs_coinflip 0.007, winner_accuracy 0.867 tied with baseline); analysis/strategies.json (8 registered variants).",
+   "options": [
+    {
+     "option": "A",
+     "label": "Quote raw p-values per slate",
+     "impact": "Guarantees eventual false promotion.",
+     "cost": "None",
+     "risk": "Critical."
+    },
+    {
+     "option": "B",
+     "label": "Minimum sample floor + pre-registered family + baseline comparison, no exceptions",
+     "impact": "Most published numbers would become \"insufficient evidence\", which is correct.",
+     "cost": "Medium \u2014 governance.",
+     "risk": "Low."
+    },
+    {
+     "option": "C",
+     "label": "B + publish a running \"number of variants tested\" counter used in the adjustment",
+     "impact": "Makes multiplicity visible to the reader.",
+     "cost": "Medium.",
+     "risk": "Low."
+    }
+   ],
+   "recommendation": "C",
+   "decision_needed": "Set the minimum sample floor (e.g. one full season of slates) before any skill label is allowed.",
+   "gates_unblocked": [
+    "G6",
+    "G7"
+   ],
+   "implemented_here": false,
+   "owner_role": "rules owner",
+   "source": "https://www.itl.nist.gov/div898/handbook/prc/section4/prc473.htm"
+  },
+  {
+   "id": "SG-06",
+   "title": "Put every open question, and its owner, on one decision page",
+   "problem": "Answers are scattered across 6+ session namespaces (origination/, strict/, desk/, evidence-lab/, advisory/, review/) with no single place showing what is decided, what is pending and what is unknowable.",
+   "evidence": "COORDINATION.md; README.md repository layout; decision/data/open-questions.json.",
+   "options": [
+    {
+     "option": "A",
+     "label": "Leave it in the board",
+     "impact": "Only an agent can find an answer; a human cannot.",
+     "cost": "None",
+     "risk": "Medium."
+    },
+    {
+     "option": "B",
+     "label": "One Decision page: status per question, owner role, source, blocking flag",
+     "impact": "The requested \"review and choose the best path\" becomes one screen.",
+     "cost": "Low \u2014 this session produced the data.",
+     "risk": "Low."
+    }
+   ],
+   "recommendation": "B",
+   "decision_needed": "Confirm the page becomes the canonical place to record decisions.",
+   "gates_unblocked": [],
+   "implemented_here": false,
+   "owner_role": "integration owner",
+   "source": "https://www.nfl.com/standings/"
+  }
+ ]
+}
