@@ -64,7 +64,9 @@ def main():
     # 1. pages exist, parses
     for slug in PAGES:
         p = S / f"{slug}.html"
-        if not check(f"page exists: {slug}.html", p.exists(), str(p)):
+        # relative path only: an absolute path makes the committed result file non-reproducible on
+        # any other machine, which is exactly what broke CI on the first push of this workflow.
+        if not check(f"page exists: {slug}.html", p.exists(), f"signals/{slug}.html"):
             ok_all = False
             continue
         s = p.read_text()
@@ -212,6 +214,18 @@ def main():
         if not check(f"no stale correlation verdict: {slug}.html", bad is None,
                      bad.group(0) if bad else ""):
             ok_all = False
+
+    # 12. portability: no committed output may embed the build machine's absolute path, or the CI
+    # reproducibility check fails on the next machine. This defect broke the first CI run.
+    import os
+    home = os.path.expanduser("~")
+    leaky = []
+    for f in sorted(D.glob("*.json")) + sorted(S.glob("*.html")):
+        if home and home != "/" and home in f.read_text():
+            leaky.append(f.name)
+    if not check("no build-machine absolute path in committed output", not leaky,
+                 str(leaky)):
+        ok_all = False
 
     passed = sum(1 for r in results if r["pass"])
     out = {

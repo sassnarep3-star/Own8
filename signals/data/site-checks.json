@@ -1,7 +1,7 @@
 {
  "generated": "2026-11-14",
- "checks_run": 114,
- "passed": 114,
+ "checks_run": 115,
+ "passed": 115,
  "failed": 0,
  "rows_checked": 378,
  "status": "PASS",
@@ -9,7 +9,7 @@
   {
    "check": "page exists: index.html",
    "pass": true,
-   "detail": "/home/user/Own8/signals/index.html"
+   "detail": "signals/index.html"
   },
   {
    "check": "table markup balanced: index.html",
@@ -44,7 +44,7 @@
   {
    "check": "page exists: executive-summary.html",
    "pass": true,
-   "detail": "/home/user/Own8/signals/executive-summary.html"
+   "detail": "signals/executive-summary.html"
   },
   {
    "check": "table markup balanced: executive-summary.html",
@@ -79,7 +79,7 @@
   {
    "check": "page exists: baselines.html",
    "pass": true,
-   "detail": "/home/user/Own8/signals/baselines.html"
+   "detail": "signals/baselines.html"
   },
   {
    "check": "table markup balanced: baselines.html",
@@ -114,7 +114,7 @@
   {
    "check": "page exists: market.html",
    "pass": true,
-   "detail": "/home/user/Own8/signals/market.html"
+   "detail": "signals/market.html"
   },
   {
    "check": "table markup balanced: market.html",
@@ -149,7 +149,7 @@
   {
    "check": "page exists: correlations.html",
    "pass": true,
-   "detail": "/home/user/Own8/signals/correlations.html"
+   "detail": "signals/correlations.html"
   },
   {
    "check": "table markup balanced: correlations.html",
@@ -184,7 +184,7 @@
   {
    "check": "page exists: availability.html",
    "pass": true,
-   "detail": "/home/user/Own8/signals/availability.html"
+   "detail": "signals/availability.html"
   },
   {
    "check": "table markup balanced: availability.html",
@@ -219,7 +219,7 @@
   {
    "check": "page exists: decisions.html",
    "pass": true,
-   "detail": "/home/user/Own8/signals/decisions.html"
+   "detail": "signals/decisions.html"
   },
   {
    "check": "table markup balanced: decisions.html",
@@ -254,7 +254,7 @@
   {
    "check": "page exists: suggestions.html",
    "pass": true,
-   "detail": "/home/user/Own8/signals/suggestions.html"
+   "detail": "signals/suggestions.html"
   },
   {
    "check": "table markup balanced: suggestions.html",
@@ -289,7 +289,7 @@
   {
    "check": "page exists: flagged.html",
    "pass": true,
-   "detail": "/home/user/Own8/signals/flagged.html"
+   "detail": "signals/flagged.html"
   },
   {
    "check": "table markup balanced: flagged.html",
@@ -324,7 +324,7 @@
   {
    "check": "page exists: sources.html",
    "pass": true,
-   "detail": "/home/user/Own8/signals/sources.html"
+   "detail": "signals/sources.html"
   },
   {
    "check": "table markup balanced: sources.html",
@@ -575,6 +575,11 @@
    "check": "no stale correlation verdict: sources.html",
    "pass": true,
    "detail": ""
+  },
+  {
+   "check": "no build-machine absolute path in committed output",
+   "pass": true,
+   "detail": "[]"
   }
  ]
 }
