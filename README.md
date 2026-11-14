@@ -36,6 +36,7 @@ Start here: [executive summary](https://sassnarep3-star.github.io/Own8/requireme
 ```sh
 python3 requirements/scripts/verify_capture.py      # capture checks, 352-cell reconciliation, W9 grading, W10 lines
 python3 requirements/scripts/analyze_availability.py # availability register + luck decomposition
+python3 requirements/scripts/build_checks.py         # merge every check family into one result file
 python3 requirements/scripts/build_flags.py          # review register
 python3 requirements/scripts/req_site.py             # the section pages
 python3 requirements/scripts/check_req.py            # every row sourced, every link resolves
