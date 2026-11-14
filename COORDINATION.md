@@ -8,6 +8,37 @@ editing it. Make small, frequent commits; `git pull --rebase` before every push.
 If a claim is >60 minutes old with no commits, another session may take it over
 and note the handoff here.
 
+## Session 1052cf22 — final integration round 4: request sweep (correlation-audit + signals navigation), operator-requirement coverage, re-verification, deploy (claimed 2026-11-14 22:05 UTC; re-based onto main @ eccc9ab after parallel-merge collisions, see log)
+
+Branch: `arena/1052cf22-own8` (Arena-pinned; all work on this branch). Scope: root
+navigation/publication surface — `scripts/build_site.py`, regenerated `index.html` + `pages/**`,
+`scripts/check_links.py` / `scripts/audit_publication.py` / `scripts/audit_repo.py` /
+`scripts/analyze.py` (runs only, plus their regenerated `analysis/**` outputs per request S-8R2),
+`README.md` (link lines), `_config.yml` (publication lines only if needed), plus NEW namespace
+`session-1052cf22/**` (this session's verification evidence), plus this section of
+COORDINATION.md. All feature namespaces are read-only inputs (`ledger/**`, `origination/**`,
+`requirements/**`, `decision/**`, `decision-review/**`, `hub/**`, `review/**`, `suggestions/**`,
+`integration/**`, `a57af0ab/**`, `strict/**`, `desk/**`, `audit/**`, `evidence-lab/**`,
+`correlation-audit/**`, `signals/**`, `verification/**`).
+
+**Parallel-session collision record (per merge protocol, nothing of any other session discarded):**
+this session and 053940d1 ("final integration round 3") independently claimed overlapping root-nav
+integration work from the same base (12f6bbf). 053940d1's F3 landed first (PR #52, commit 208871f:
+`ledger/` + `decision-review/` nav + sitemap + README links). On discovering this during the
+required pre-push rebase, this session re-based its own branch onto `eccc9ab`, **dropped its
+duplicate nav/sitemap/README edits in favour of 053940d1's merged versions**, and re-applied only
+its unique deltas (listed under N2). Both sessions also posted disposition comments on stale PR #39
+and each found it already closed by the other — outcome identical (closed as superseded), both
+comments retained on the PR. 2f8759c5 (J0-J4) and 5b52ac15 (X0-X5) records likewise kept intact.
+
+| ID | Task | Status | Owner | Files (scope) | Verification plan |
+| --- | --- | --- | --- | --- | --- |
+| N0 | Board claim + collision record (this section) | done (claim pushed before any work on this tree) | 1052cf22 | COORDINATION.md (this section) | Claim commit pushed first |
+| N1 | Stale PR #39 (f6e60a81) disposition | done — CLOSED 2026-11-14T22:04:39Z as superseded (053940d1 F1 + this session both verified its three intents are on main via #41/#42/#43; both resolution comments on the PR: https://github.com/sassnarep3-star/Own8/pull/39#issuecomment-6885044598) | 1052cf22 / 053940d1 | COORDINATION.md | Each intent shown present on main before close |
+| N2 | Open integration-request sweep: (a) `correlation-audit/` nav + sitemap links (5b52ac15 request); (b) `signals/` nav + sitemap row (S-8R1); (c) `audit_repo`+`analyze` regeneration so repo-review picks up `signals/**` + `correlation-audit/**` (S-8R2); (d) operator-requirement coverage table (all eight feature requirements) on the executive summary; (e) review KPI counts all registers (55, salvage of PR #39's last delta); (f) parallel review registers surfaced on the Flagged for Review page | done — commits `ff4246b`+follow-ups: nav + sitemap + README links for correlation-audit/, signals/ and market/ (requests 5b52ac15, S-8R1, X1); 12-row coverage table (price rows wording reconciled with market/'s verified nfl.com picks-article lines per SG-03/X3, without adopting unverified values); KPI 55 = 40 root + 15 requirements flags (PR #39 salvage); Parallel review registers section (6 registers linked); repo-review now inventories signals/** + correlation-audit/** (471 entries) | 1052cf22 | scripts/build_site.py, index.html, pages/**, analysis/**, README.md | check_links 40 pages / 3029 links / 2185 rows / 0 errors; audit_publication 61 HTML / 1233 URLs PASS; requirements replay byte-identical |
+| N3 | Re-verification on the integrated tree: full checker replay (root, requirements, ledger, origination, correlation-audit, signals, decision-review), live official spot re-reads, requirement-coverage evidence | done — 0 mismatches (191 standings cells, Thursday final WAS 24 NYG 21, 14-game slate + 4 byes, 15/15 team strips); all checkers PASS incl. signals 115/115, ledger 22+23, correlation-audit 8 tests, decision-review; evidence in session-1052cf22/verification.json | 1052cf22 | session-1052cf22/** | every checked value cites its official URL; mismatches blanked + flagged, never inferred; 0 new irregularities |
+| N4 | PR to main, merge without waiting, GitHub Pages confirmation, live URL re-fetch, final record | pending | 1052cf22 | COORDINATION.md | CI green; `gh pr merge <n> --merge`; Pages API `built`; live pages re-fetched |
+
 ## Session 053940d1 — final integration round 3: ledger + decision-review navigation, PR #39 disposition, independent re-verification, deploy confirmation (claimed 2026-11-14 UTC, base main @ 12f6bbf)
 
 Branch: `arena/053940d1-own8` (Arena-pinned; all work on this branch). Read the full board
