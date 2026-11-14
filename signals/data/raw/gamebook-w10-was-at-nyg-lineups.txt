@@ -1,0 +1,133 @@
+# Raw transcription — official NFL Game Book, Week 10, Washington Commanders at New York Giants
+# Source page: https://www.nfl.com/games/commanders-at-giants-2026-reg-10
+# Game Book PDF: https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf
+# Retrieval: 2026-11-14 UTC, chunk 0 of 8 (the "Lineups" block is entirely inside chunk 0)
+# Transcribed verbatim in rendered order. Format: side|unit|slot|jersey|abbrev_name
+# Nothing is inferred: a slot that the PDF does not print is not created here.
+# NOTE ON LABELS: the PDF prints "Offense" and "Defense" columns. The left-most listed player in
+# each column is the player the NFL lists in that starting slot. It does NOT print a string ordinal
+# (1st/2nd/3rd string), and this transcription does not add one.
+meta|game|WAS at NYG
+meta|season_type|REG
+meta|week|10
+meta|date_rendered|Thursday, 11/12/2026
+meta|start_time_rendered|8:15 PM EST
+meta|venue|MetLife Stadium, East Rutherford, NJ
+meta|final_score_visitor_WAS|24
+meta|final_score_home_NYG|21
+meta|quarter_scores_WAS|0,10,7,7,0
+meta|quarter_scores_NYG|0,7,7,7,0
+
+# ---------------- WASHINGTON COMMANDERS (visitor) ----------------
+side|WAS|offense|WR|14|A.Williams
+side|WAS|offense|TE|87|J.Bates
+side|WAS|offense|LT|74|B.Coleman
+side|WAS|offense|LG|75|C.Paul
+side|WAS|offense|C|67|N.Allegretti
+side|WAS|offense|RG|76|S.Cosmi
+side|WAS|offense|RT|72|J.Conerly
+side|WAS|offense|TE|82|B.Sinnott
+side|WAS|offense|WR|13|T.Burks
+side|WAS|offense|QB|5|J.Daniels
+side|WAS|offense|RB|1|R.White
+side|WAS|defense|OLB|98|O.Oweh
+side|WAS|defense|DT|97|T.Settle
+side|WAS|defense|DT|96|S.Tuttle
+side|WAS|defense|OLB|45|K.Chaisson
+side|WAS|defense|LB|52|S.Styles
+side|WAS|defense|LB|4|F.Luvu
+side|WAS|defense|CB|23|T.Amos
+side|WAS|defense|CB|2|A.Robertson
+side|WAS|defense|S|39|J.Reaves
+side|WAS|defense|S|25|N.Cross
+side|WAS|defense|S|20|Q.Martin
+sub|WAS|CB|0|M.Sainristil
+sub|WAS|WR|3|S.Diggs
+sub|WAS|P|10|T.Way
+sub|WAS|WR|11|L.McCaffrey
+sub|WAS|WR|12|V.Jefferson
+sub|WAS|S|18|T.Owens
+sub|WAS|K|19|D.Stevens
+sub|WAS|CB|24|F.Moreau
+sub|WAS|CB|29|R.Douglas
+sub|WAS|RB|30|A.Ekeler
+sub|WAS|RB|34|R.Henry
+sub|WAS|S|35|P.Butler
+sub|WAS|OLB|48|J.Josephs
+sub|WAS|LB|51|A.Kaho
+sub|WAS|LB|56|K.Medrano
+sub|WAS|LB|58|J.Magee
+sub|WAS|LS|69|T.Ott
+sub|WAS|T/G|71|A.Wylie
+sub|WAS|TE|85|C.Okonkwo
+sub|WAS|DE|90|C.Omenihu
+sub|WAS|DE|91|D.Wise
+sub|WAS|OLB|92|D.Armstrong
+sub|WAS|DT|95|J.Newton
+dnp|WAS|QB|8|M.Mariota
+dnp|WAS|C/G|61|J.Good-Jones
+dnp|WAS|C|66|M.Gulbin
+ina|WAS|3QB|16|A.Kaliakmanis
+ina|WAS|CB|37|I.Yiadom
+ina|WAS|DT|50|R.Barber
+ina|WAS|G|62|T.Togiai
+ina|WAS|G|63|L.Patrick
+ina|WAS|TE|80|C.Yankoff
+
+# ---------------- NEW YORK GIANTS (home) ----------------
+side|NYG|offense|WR|17|D.Mooney
+side|NYG|offense|TE|84|T.Johnson
+side|NYG|offense|LT|78|A.Thomas
+side|NYG|offense|LG|76|J.Runyan
+side|NYG|offense|C|60|B.Hudson
+side|NYG|offense|RG|65|F.Mauigoa
+side|NYG|offense|RT|72|J.Eluemunor
+side|NYG|offense|LB|52|A.Reese
+side|NYG|offense|WR|1|M.Nabers
+side|NYG|offense|TE|9|I.Likely
+side|NYG|offense|QB|18|J.McCarthy
+side|NYG|offense|RB|44|C.Skattebo
+side|NYG|defense|OLB|5|K.Thibodeaux
+side|NYG|defense|DL|93|S.Harris
+side|NYG|defense|DL|97|B.Jamison-Travis
+side|NYG|defense|DL|98|D.Reader
+side|NYG|defense|OLB|3|A.Carter
+side|NYG|defense|LB|41|M.McFadden
+side|NYG|defense|LB|52|A.Reese
+side|NYG|defense|CB|20|G.Newsome
+side|NYG|defense|CB|2|D.Banks
+side|NYG|defense|S|8|J.Holland
+side|NYG|defense|S|24|A.Washington
+sub|NYG|CB|12|C.Hood
+sub|NYG|P|15|J.Stout
+sub|NYG|QB|19|J.Winston
+sub|NYG|CB|22|A.Phillips
+sub|NYG|S|25|J.Pinnock
+sub|NYG|RB|26|D.Singletary
+sub|NYG|S|27|T.Nubin
+sub|NYG|DB|28|E.Campbell
+sub|NYG|RB|30|G.Desrosiers
+sub|NYG|CB|31|N.Jones
+sub|NYG|K|34|D.Zvada
+sub|NYG|FB|45|P.Ricard
+sub|NYG|LB|46|Z.Barnes
+sub|NYG|OLB|48|T.Ford
+sub|NYG|LB|51|J.Kelly
+sub|NYG|LB|55|C.Martin
+sub|NYG|LS|58|B.Mann
+sub|NYG|OL|64|A.Stinnie
+sub|NYG|OL|71|M.Mbow
+sub|NYG|WR|81|J.Hyatt
+sub|NYG|TE|85|C.Manhertz
+sub|NYG|WR|88|M.Fields
+sub|NYG|WR|89|C.Jones
+sub|NYG|DL|91|D.Alexander
+sub|NYG|OLB|96|D.Smoot
+dnp|NYG|C|61|J.Schmitz
+ina|NYG|CB|21|P.Adebo
+ina|NYG|CB|35|N.Reed
+ina|NYG|LB|54|M.Harrison
+ina|NYG|OL|67|J.Sills
+ina|NYG|OL|74|J.Davis
+ina|NYG|TE|86|T.Fidone
+ina|NYG|DL|99|B.Okoye

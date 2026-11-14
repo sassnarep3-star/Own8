@@ -1,0 +1,130 @@
+# Raw transcription — official NFL Game Book, Week 5, New York Giants at Washington Commanders
+# Source page: https://www.nfl.com/games/giants-at-commanders-2026-reg-5
+# Game Book PDF: https://static.www.nfl.com/image/upload/v1791805921/gamecenter/aa94b906-4feb-11f1-abca-2c54536568a9.pdf
+# Retrieval: 2026-11-14 UTC, chunk 0 of 10 (the "Lineups" block is entirely inside chunk 0)
+# Transcribed verbatim in rendered order. Format: side|unit|slot|jersey|abbrev_name
+# Nothing is inferred: a slot that the PDF does not print is not created here.
+# This game is used ONLY as the baseline for "did the Week 10 starter change, and is the
+# replacement the club's own listed backup or a deeper body". It is not used as a value source.
+meta|game|NYG at WAS
+meta|season_type|REG
+meta|week|5
+meta|date_rendered|Sunday, 10/11/2026
+meta|start_time_rendered|1:02 PM EDT
+meta|venue|Northwest Stadium, Landover, MD
+meta|final_score_visitor_NYG|27
+meta|final_score_home_WAS|27
+meta|overtime|yes
+
+# ---------------- NEW YORK GIANTS (visitor in W5) ----------------
+side|NYG|offense|WR|1|M.Nabers
+side|NYG|offense|LT|78|A.Thomas
+side|NYG|offense|LG|76|J.Runyan
+side|NYG|offense|C|60|B.Hudson
+side|NYG|offense|RG|65|F.Mauigoa
+side|NYG|offense|RT|72|J.Eluemunor
+side|NYG|offense|TE|9|I.Likely
+side|NYG|offense|WR|17|D.Mooney
+side|NYG|offense|QB|19|J.Winston
+side|NYG|offense|FB|45|P.Richard
+side|NYG|offense|RB|44|C.Skattebo
+side|NYG|defense|OLB|3|A.Carter
+side|NYG|defense|DL|93|S.Harris
+side|NYG|defense|DL|98|D.Reader
+side|NYG|defense|DL|91|D.Alexander
+side|NYG|defense|OLB|5|K.Thibodeaux
+side|NYG|defense|LB|49|T.Edmunds
+side|NYG|defense|LB|52|A.Reese
+side|NYG|defense|CB|20|G.Newsome
+side|NYG|defense|CB|2|D.Banks
+side|NYG|defense|S|8|J.Holland
+side|NYG|defense|S|27|T.Nubin
+sub|NYG|CB|12|C.Hood
+sub|NYG|P|15|J.Stout
+sub|NYG|QB|18|J.McCarthy
+sub|NYG|CB|22|A.Phillips
+sub|NYG|RB|23|N.Harris
+sub|NYG|S|24|A.Washington
+sub|NYG|DB|28|E.Campbell
+sub|NYG|RB|29|T.Tracy
+sub|NYG|CB|31|N.Jones
+sub|NYG|K|34|D.Zvada
+sub|NYG|LB|41|M.McFadden
+sub|NYG|LB|46|Z.Barnes
+sub|NYG|OLB|48|T.Ford
+sub|NYG|LB|51|J.Kelly
+sub|NYG|OL|53|J.Ward
+sub|NYG|LS|58|B.Mann
+sub|NYG|C|61|J.Schmitz
+sub|NYG|OL|64|A.Stinnie
+sub|NYG|OL|71|M.Mbow
+sub|NYG|WR|83|D.Cambre
+sub|NYG|TE|84|T.Johnson
+sub|NYG|TE|85|C.Manhertz
+sub|NYG|TE|86|T.Fidone
+sub|NYG|WR|88|M.Fields
+sub|NYG|WR|89|C.Jones
+sub|NYG|DL|99|B.Okoye
+dnp|NYG|QB|16|A.Kaliakmanis
+dnp|NYG|C|66|M.Gulbin
+ina|NYG|3QB|13|J.Haener
+ina|NYG|S|25|J.Pinnock
+ina|NYG|RB|26|D.Singletary
+ina|NYG|CB|35|N.Reed
+ina|NYG|OL|74|J.Davis
+ina|NYG|DL|97|B.Jamison-Travis
+
+# ---------------- WASHINGTON COMMANDERS (home in W5) ----------------
+side|WAS|offense|WR|17|T.McLaurin
+side|WAS|offense|TE|85|C.Okonkwo
+side|WAS|offense|LT|74|B.Coleman
+side|WAS|offense|LG|75|C.Paul
+side|WAS|offense|C|63|L.Patrick
+side|WAS|offense|RG|76|S.Cosmi
+side|WAS|offense|RT|72|J.Conerly
+side|WAS|offense|TE|87|J.Bates
+side|WAS|offense|WR|13|T.Burks
+side|WAS|offense|QB|5|J.Daniels
+side|WAS|offense|RB|22|J.Croskey-Merritt
+side|WAS|defense|OLB|45|K.Chaisson
+side|WAS|defense|DT|94|D.Payne
+side|WAS|defense|DT|97|T.Settle
+side|WAS|defense|DT|99|J.Kinlaw
+side|WAS|defense|OLB|98|O.Oweh
+side|WAS|defense|LB|52|S.Styles
+side|WAS|defense|LB|4|F.Luvu
+side|WAS|defense|CB|29|R.Douglas
+side|WAS|defense|CB|2|A.Robertson
+side|WAS|defense|S|39|J.Reaves
+side|WAS|defense|S|20|Q.Martin
+sub|WAS|CB|0|M.Sainristil
+sub|WAS|RB|1|R.White
+sub|WAS|WR|6|D.Brown
+sub|WAS|P|10|T.Way
+sub|WAS|WR|11|L.McCaffrey
+sub|WAS|WR|12|V.Jefferson
+sub|WAS|WR|14|A.Williams
+sub|WAS|K|19|D.Stevens
+sub|WAS|CB|24|F.Moreau
+sub|WAS|RB|30|A.Ekeler
+sub|WAS|S|36|D.Hall
+sub|WAS|CB|37|I.Yiadom
+sub|WAS|OLB|41|J.Jean-Baptiste
+sub|WAS|OLB|48|J.Josephs
+sub|WAS|LB|56|K.Medrano
+sub|WAS|LB|57|A.Keys
+sub|WAS|C/G|67|N.Allegretti
+sub|WAS|LS|69|T.Ott
+sub|WAS|T/G|71|A.Wylie
+sub|WAS|TE|80|C.Yankoff
+sub|WAS|TE|82|B.Sinnott
+sub|WAS|DE|91|D.Wise
+sub|WAS|OLB|92|D.Armstrong
+sub|WAS|DT|96|S.Tuttle
+ina|WAS|WR|3|S.Diggs
+ina|WAS|QB|8|M.Mariota
+ina|WAS|S|18|T.Owens
+ina|WAS|S|25|N.Cross
+ina|WAS|S|35|P.Butler
+ina|WAS|G|62|T.Togiai
+ina|WAS|DE|90|C.Omenihu

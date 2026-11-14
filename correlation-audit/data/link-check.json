@@ -1,0 +1,9 @@
+{
+ "links_checked": 161,
+ "failures": [],
+ "hosts_allowed": [
+  "https://www.nfl.com/",
+  "https://nextgenstats.nfl.com/",
+  "https://github.com/sassnarep3-star/Own8/blob/main/"
+ ]
+}

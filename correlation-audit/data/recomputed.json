@@ -1,0 +1,309 @@
+{
+ "method": "stdlib recomputation; see scripts/recompute_correlations.py",
+ "rows": [
+  {
+   "id": "C1",
+   "pair": "Home points vs away points (same game)",
+   "kind": "r",
+   "published": {
+    "value": 0.0760445744236895,
+    "n": 136,
+    "p_holm": 0.6263539126722222,
+    "ci95": [
+     -0.09348499173746531,
+     0.24128876781727385
+    ],
+    "source": "nfl.com scores W1-W9 (origination/data/games-2026-w1-w9.json)",
+    "scope": "136 games W1-W9"
+   },
+   "recomputed": {
+    "value": 0.0760445744236895,
+    "n": 136,
+    "p_holm": 0.6263539126722222,
+    "ci95": [
+     -0.09348499173746531,
+     0.24128876781727385
+    ]
+   },
+   "status": "MATCH"
+  },
+  {
+   "id": "C2",
+   "pair": "Home margin residual vs total residual (walk-forward)",
+   "kind": "r",
+   "published": {
+    "value": -0.22485662207812362,
+    "n": 104,
+    "p_holm": 0.10750621248579506,
+    "ci95": [
+     -0.4001178499305261,
+     -0.03372902199960296
+    ],
+    "source": "nfl.com scores W1-W9 (origination/data/games-2026-w1-w9.json)",
+    "scope": "104 games W3-W9"
+   },
+   "recomputed": {
+    "value": -0.22485662207812362,
+    "n": 104,
+    "p_holm": 0.10750621248579506,
+    "ci95": [
+     -0.4001178499305261,
+     -0.03372902199960296
+    ]
+   },
+   "status": "MATCH"
+  },
+  {
+   "id": "C3",
+   "pair": "Favourite margin residual vs total residual (walk-forward)",
+   "kind": "r",
+   "published": {
+    "value": -0.1046150459203741,
+    "n": 104,
+    "p_holm": 0.6263539126722222,
+    "ci95": [
+     -0.29133359215837723,
+     0.08978207633136603
+    ],
+    "source": "nfl.com scores W1-W9 (origination/data/games-2026-w1-w9.json)",
+    "scope": "104 games W3-W9"
+   },
+   "recomputed": {
+    "value": -0.1046150459203741,
+    "n": 104,
+    "p_holm": 0.6263539126722222,
+    "ci95": [
+     -0.29133359215837723,
+     0.08978207633136603
+    ]
+   },
+   "status": "MATCH"
+  },
+  {
+   "id": "C4",
+   "pair": "Size of predicted spread vs total residual",
+   "kind": "r",
+   "published": {
+    "value": -0.12441961120151707,
+    "n": 104,
+    "p_holm": 0.6263539126722222,
+    "ci95": [
+     -0.30958953011762286,
+     0.06984215577468396
+    ],
+    "source": "nfl.com scores W1-W9 (origination/data/games-2026-w1-w9.json)",
+    "scope": "104 games W3-W9"
+   },
+   "recomputed": {
+    "value": -0.12441961120151707,
+    "n": 104,
+    "p_holm": 0.6263539126722222,
+    "ci95": [
+     -0.30958953011762286,
+     0.06984215577468396
+    ]
+   },
+   "status": "MATCH"
+  },
+  {
+   "id": "C5",
+   "pair": "QB passing yards vs own team points",
+   "kind": "r",
+   "published": {
+    "value": 0.39530568721236886,
+    "n": 204,
+    "p_holm": 2.4650603336340282e-08,
+    "ci95": [
+     0.27274557573530733,
+     0.5052404860029661
+    ],
+    "source": "Next Gen Stats weekly passing W1,W3-W8 + nfl.com scores",
+    "scope": "204 QB-games"
+   },
+   "recomputed": {
+    "value": 0.39530568721236886,
+    "n": 204,
+    "p_holm": 2.4650603336340282e-08,
+    "ci95": [
+     0.27274557573530733,
+     0.5052404860029661
+    ]
+   },
+   "status": "MATCH"
+  },
+  {
+   "id": "C6",
+   "pair": "QB passing yards vs game total",
+   "kind": "r",
+   "published": {
+    "value": 0.4360167159205006,
+    "n": 204,
+    "p_holm": 3.1221025764693877e-10,
+    "ci95": [
+     0.31767291382487134,
+     0.54098498872196
+    ],
+    "source": "Next Gen Stats weekly passing W1,W3-W8 + nfl.com scores",
+    "scope": "204 QB-games"
+   },
+   "recomputed": {
+    "value": 0.4360167159205006,
+    "n": 204,
+    "p_holm": 3.1221025764693877e-10,
+    "ci95": [
+     0.31767291382487134,
+     0.54098498872196
+    ]
+   },
+   "status": "MATCH"
+  },
+  {
+   "id": "C7",
+   "pair": "QB passing yards vs own team margin",
+   "kind": "r",
+   "published": {
+    "value": 0.10135782896881917,
+    "n": 204,
+    "p_holm": 0.597269596439248,
+    "ci95": [
+     -0.03652186911824458,
+     0.23545067796271038
+    ],
+    "source": "Next Gen Stats weekly passing W1,W3-W8 + nfl.com scores",
+    "scope": "204 QB-games"
+   },
+   "recomputed": {
+    "value": 0.10135782896881917,
+    "n": 204,
+    "p_holm": 0.597269596439248,
+    "ci95": [
+     -0.03652186911824458,
+     0.23545067796271038
+    ]
+   },
+   "status": "MATCH"
+  },
+  {
+   "id": "C8",
+   "pair": "QB pass attempts vs own team margin",
+   "kind": "r",
+   "published": {
+    "value": -0.1968690329861727,
+    "n": 204,
+    "p_holm": 0.02810201161777126,
+    "ci95": [
+     -0.3254389984838384,
+     -0.06115164556853003
+    ],
+    "source": "Next Gen Stats weekly passing W1,W3-W8 + nfl.com scores",
+    "scope": "204 QB-games"
+   },
+   "recomputed": {
+    "value": -0.1968690329861727,
+    "n": 204,
+    "p_holm": 0.02810201161777126,
+    "ci95": [
+     -0.3254389984838384,
+     -0.06115164556853003
+    ]
+   },
+   "status": "MATCH"
+  },
+  {
+   "id": "C9",
+   "pair": "Opposing QBs' passing yards (same game)",
+   "kind": "r",
+   "published": {
+    "value": 0.5027795502111612,
+    "n": 99,
+    "p_holm": 4.208055384147258e-07,
+    "ci95": [
+     0.33901669916332583,
+     0.6369692327344232
+    ],
+    "source": "Next Gen Stats weekly passing W1,W3-W8 + nfl.com scores",
+    "scope": "99 games"
+   },
+   "recomputed": {
+    "value": 0.5027795502111612,
+    "n": 99,
+    "p_holm": 4.208055384147258e-07,
+    "ci95": [
+     0.33901669916332583,
+     0.6369692327344232
+    ]
+   },
+   "status": "MATCH"
+  },
+  {
+   "id": "C10",
+   "pair": "Total residuals of different games in the same week (ICC)",
+   "kind": "icc",
+   "published": {
+    "value": -0.04466248997767068,
+    "n": 104,
+    "p_holm": null,
+    "ci95": null,
+    "source": "nfl.com scores W1-W9 (origination/data/games-2026-w1-w9.json)",
+    "scope": "7 weeks x 14-16 games"
+   },
+   "recomputed": {
+    "value": -0.04466248997767068,
+    "n": 104,
+    "p_holm": null,
+    "ci95": null
+   },
+   "status": "MATCH"
+  },
+  {
+   "id": "C11",
+   "pair": "Win-probability residuals of different games in the same week (ICC)",
+   "kind": "icc",
+   "published": {
+    "value": 0.03837239960414259,
+    "n": 104,
+    "p_holm": null,
+    "ci95": null,
+    "source": "nfl.com scores W1-W9 (origination/data/games-2026-w1-w9.json)",
+    "scope": "7 weeks x 14-16 games"
+   },
+   "recomputed": {
+    "value": 0.03837239960414259,
+    "n": 104,
+    "p_holm": null,
+    "ci95": null
+   },
+   "status": "MATCH"
+  }
+ ],
+ "tolerance_abs": 1e-06,
+ "holm_official_family": {
+  "family": [
+   "C1",
+   "C5",
+   "C6",
+   "C7",
+   "C8",
+   "C9"
+  ],
+  "p_holm": {
+   "C1": 0.3795719956257382,
+   "C5": 1.5406627085212676e-08,
+   "C6": 2.0814017176462585e-10,
+   "C7": 0.298634798219624,
+   "C8": 0.01405100580888563,
+   "C9": 2.404603076655576e-07
+  }
+ },
+ "p_two_sided": {
+  "C1": 0.3795719956257382,
+  "C2": 0.021501242497159012,
+  "C3": 0.2913205658635003,
+  "C4": 0.2087846375574074,
+  "C5": 3.0813254170425353e-09,
+  "C6": 3.469002862743764e-11,
+  "C7": 0.149317399109812,
+  "C8": 0.004683668602961877,
+  "C9": 6.01150769163894e-08
+ }
+}
