@@ -1,0 +1,578 @@
+{
+  "sources": [
+    {
+      "id": "S1",
+      "url": "https://www.nfl.com/standings/",
+      "supports": "Official 2026 standings, all 32 rows (W, L, T, PF, PA, NET, HOME, ROAD, DIV, CONF, STRK). Snapshot 2026-11-14.",
+      "method": "Fetched 2 chunks on 2026-11-14; hand-transcribed to hub/data/standings-official.csv; arithmetic checked by scripts/check_hub.py.",
+      "limits": "Unlabeled page columns (non-conference, division %, conference %, last-five) were not carried into the tables."
+    },
+    {
+      "id": "S2",
+      "url": "https://www.nfl.com/injuries/league/2026/reg10",
+      "supports": "Official Week 10 injury report: game blocks A-D complete, block E partial.",
+      "method": "Fetched chunks 0 and 1 of 8 on 2026-11-14; rows with a practice or game status were transcribed.",
+      "limits": "Chunks 2-7 not ingested. Page shows pre-game designations; no kickoff-time status captured."
+    },
+    {
+      "id": "S3",
+      "url": "https://www.nfl.com/games/jaguars-at-ravens-2026-reg-9",
+      "supports": "Week 9 JAX at BAL: Final, JAX 33 - BAL 10, Nov 5.",
+      "method": "Fetched chunk 0 of 2 on 2026-11-14.",
+      "limits": "Only this one game was checked against its official game page."
+    },
+    {
+      "id": "S4",
+      "url": "https://www.nfl.com/teams/buffalo-bills/roster",
+      "supports": "Team roster page structure: ACT/INA status per player; no depth-chart order shown.",
+      "method": "Fetched chunk 0 of 3 on 2026-11-14.",
+      "limits": "One team checked only. Depth-chart pages were NOT located or verified."
+    },
+    {
+      "id": "S5",
+      "url": "https://ask.gov.sg/mha/questions/cmqu6lgkk008f4401iyk6rjzx",
+      "supports": "Singapore Ministry of Home Affairs: unlicensed gambling including remote gambling is an offence; Singapore Pools is the only operator licensed to provide remote gambling services in Singapore.",
+      "method": "Fetched on 2026-11-14.",
+      "limits": "General information page, not a legal opinion on any individual's situation."
+    },
+    {
+      "id": "S6",
+      "url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "supports": "Week 9 schedule: 15 games, PIT and TEN on bye. Cited by origination/ (session 4bc92a5f); NOT re-fetched in this session.",
+      "method": "Carried from origination/ and checked by reconciliation: 30 teams show exactly one game since Week 8 in S1.",
+      "limits": "Not re-fetched."
+    },
+    {
+      "id": "S7",
+      "url": "https://www.nfl.com/scores/2026/week-8",
+      "supports": "Weeks 1-8 game log (121 games) used by origination/. Cited, NOT re-fetched in this session.",
+      "method": "Repo file origination/data/games-2026-w1-w8.json reconciled to S1.",
+      "limits": "Weeks 1-8 were verified by the earlier session; the official pages were not re-captured here."
+    },
+    {
+      "id": "S8",
+      "url": "https://www.nfl.com/injuries/league/2026/reg9",
+      "supports": "Week 9 injury report, cited by data/injuries-2026-week9-candidates.json (two games). NOT re-fetched in this session.",
+      "method": "Referenced only.",
+      "limits": "Not re-fetched."
+    },
+    {
+      "id": "S9",
+      "url": "https://github.com/sassnarep3-star/Own8/blob/arena/101b20bc-own8/COORDINATION.md",
+      "supports": "Repository review items about the coordination board (duplicate sessions row).",
+      "method": "Read locally with grep/sed on 2026-11-14.",
+      "limits": "Repository review only; not an official source."
+    }
+  ],
+  "review": [
+    {
+      "id": "R-01",
+      "severity": "High",
+      "item": "Official game log in the repo stops at Week 8.",
+      "detail": "origination/data/games-2026-w1-w8.json has 121 games, max week 8. nfl.com standings (S1) show 30 teams with exactly one game since Week 8, and NYG and WAS with two. This matches Week 9 (15 games, PIT and TEN on bye) plus the Week 10 Thursday game. The repo's team records are therefore out of date.",
+      "links": [
+        "https://www.nfl.com/standings/",
+        "https://www.nfl.com/scores/2026/week-8",
+        "https://github.com/sassnarep3-star/Own8/blob/arena/101b20bc-own8/origination/data/games-2026-w1-w8.json"
+      ]
+    },
+    {
+      "id": "R-02",
+      "severity": "High",
+      "item": "Week 9 'fair lines' price games that are already final.",
+      "detail": "origination/results/w9-lines.json has 15 Week 9 lines. The JAX at BAL game is Final, JAX 33 - BAL 10 (S3), but the repo has no grading of the lines. The lines are no longer forecasts and cannot be scored until a pre-game timestamp is recorded.",
+      "links": [
+        "https://www.nfl.com/games/jaguars-at-ravens-2026-reg-9",
+        "https://github.com/sassnarep3-star/Own8/blob/arena/101b20bc-own8/origination/results/w9-lines.json"
+      ]
+    },
+    {
+      "id": "R-03",
+      "severity": "High",
+      "item": "Third-party sportsbook prices are committed in the repo.",
+      "detail": "data/market-lines.json holds Week 9 spreads attributed to a third-party aggregator and to FanDuel. The file's own warning says it is NOT an official source. The repo's README says no market data is used. The file is excluded from the Pages build, but it is still tracked in Git.",
+      "links": [
+        "https://github.com/sassnarep3-star/Own8/blob/arena/101b20bc-own8/data/market-lines.json",
+        "https://www.nfl.com/standings/"
+      ]
+    },
+    {
+      "id": "R-04",
+      "severity": "Medium",
+      "item": "Python bytecode is tracked in Git.",
+      "detail": "Two .pyc files under origination/scripts/__pycache__/ are tracked, even though .gitignore lists __pycache__/. Confirmed with git ls-files.",
+      "links": [
+        "https://github.com/sassnarep3-star/Own8/tree/arena/101b20bc-own8/origination/scripts/__pycache__",
+        "https://github.com/sassnarep3-star/Own8/blob/arena/101b20bc-own8/.gitignore"
+      ]
+    },
+    {
+      "id": "R-05",
+      "severity": "Medium",
+      "item": "Several parallel websites and copies of the same data.",
+      "detail": "The repo holds a root site (index.html, pages/), docs/, desk/, strict/, origination/, evidence-lab/, audit/, verification/, and archive/ (142 tracked files). Each has its own claims and status pages. Nothing in the repo points to one canonical site.",
+      "links": [
+        "https://github.com/sassnarep3-star/Own8/tree/arena/101b20bc-own8",
+        "https://github.com/sassnarep3-star/Own8/blob/arena/101b20bc-own8/COORDINATION.md"
+      ]
+    },
+    {
+      "id": "R-06",
+      "severity": "Low",
+      "item": "Duplicate session row on the coordination board.",
+      "detail": "COORDINATION.md lists session 95e9626f twice in the Sessions table, once as 'active (integration)' and once as 'merged to main (PR #5)'.",
+      "links": [
+        "https://github.com/sassnarep3-star/Own8/blob/arena/101b20bc-own8/COORDINATION.md"
+      ]
+    },
+    {
+      "id": "R-07",
+      "severity": "Low",
+      "item": "Date heading does not match the weekday.",
+      "detail": "origination records the nfl.com heading 'Sunday Night Football, September 9th' for NE at SEA. 2026-09-09 is a Wednesday (checked with Python's calendar). The heading was recorded by the earlier session and was NOT re-fetched here.",
+      "links": [
+        "https://www.nfl.com/scores/2026/week-1"
+      ]
+    },
+    {
+      "id": "R-08",
+      "severity": "High",
+      "item": "No depth-chart or backup data exists anywhere in the repo.",
+      "detail": "A repo-wide search (outside archive/) finds 'depth chart' only in COORDINATION.md. The team roster page (S4) shows status only, not depth order. The second- and third-string replacement analysis the project needs has no data source yet.",
+      "links": [
+        "https://www.nfl.com/teams/buffalo-bills/roster",
+        "https://github.com/sassnarep3-star/Own8/blob/arena/101b20bc-own8/COORDINATION.md"
+      ]
+    },
+    {
+      "id": "R-09",
+      "severity": "Medium",
+      "item": "Injury coverage is limited to two Week 9 games.",
+      "detail": "data/injuries-2026-week9-candidates.json covers only CIN at ATL and NYG at PHI, and it is dated 2026-11-04. There is no Week 10 file in the repo before this session's hub/data/injuries-w10.csv.",
+      "links": [
+        "https://github.com/sassnarep3-star/Own8/blob/arena/101b20bc-own8/data/injuries-2026-week9-candidates.json",
+        "https://www.nfl.com/injuries/league/2026/reg10"
+      ]
+    },
+    {
+      "id": "R-10",
+      "severity": "Low",
+      "item": "Team abbreviation for the Rams differs between sources.",
+      "detail": "nfl.com standings use LA. origination's game log uses LAR (recorded from the scores text). The two must be mapped before any join.",
+      "links": [
+        "https://www.nfl.com/standings/",
+        "https://github.com/sassnarep3-star/Own8/blob/arena/101b20bc-own8/origination/data/games-2026-w1-w8.json"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "Q-01",
+      "question": "What is the latest official game result set in the repo?",
+      "status": "Partly answered",
+      "answer": "Weeks 1-8 only (121 games). Official standings show Week 9 and part of Week 10 have been played.",
+      "needed": "Capture Week 9 and Week 10 scores from official pages.",
+      "where": "https://www.nfl.com/scores/2026/week-9 and https://www.nfl.com/scores/2026/week-10 (not yet captured)",
+      "links": [
+        "https://www.nfl.com/standings/",
+        "https://www.nfl.com/scores/2026/week-8"
+      ]
+    },
+    {
+      "id": "Q-02",
+      "question": "How did the Week 9 fair lines perform against official results?",
+      "status": "Unanswered",
+      "answer": "Not graded. Only one result (JAX 33 - BAL 10) was checked.",
+      "needed": "Official final scores for all 15 Week 9 games, plus a rule for pre-game timestamps.",
+      "where": "nfl.com game pages (Week 9)",
+      "links": [
+        "https://www.nfl.com/games/jaguars-at-ravens-2026-reg-9"
+      ]
+    },
+    {
+      "id": "Q-03",
+      "question": "What were the Week 10 results so far?",
+      "status": "Partly answered",
+      "answer": "Standings changed for NYG and WAS (two games each since Week 8). Winners and scores were not captured.",
+      "needed": "Official Week 10 score pages.",
+      "where": "https://www.nfl.com/scores/2026/week-10 (not captured)",
+      "links": [
+        "https://www.nfl.com/standings/"
+      ]
+    },
+    {
+      "id": "Q-04",
+      "question": "What is the full Week 10 injury status for every game?",
+      "status": "Partly answered",
+      "answer": "Blocks A-D (four games) are transcribed. Block E (JAX at TEN) is partial. The remaining games are not transcribed.",
+      "needed": "Chunks 2-7 of the official Week 10 injury page, transcribed.",
+      "where": "https://www.nfl.com/injuries/league/2026/reg10",
+      "links": [
+        "https://www.nfl.com/injuries/league/2026/reg10"
+      ]
+    },
+    {
+      "id": "Q-05",
+      "question": "Who are each team's 2nd- and 3rd-string players, i.e. which backups replace starters?",
+      "status": "Unanswered",
+      "answer": "No depth-chart source is in the repo or has been verified. The roster page shows status only.",
+      "needed": "An official depth-chart source with dates and a per-team, per-position order. Structure is not yet verified.",
+      "where": "To be located on nfl.com (not verified).",
+      "links": [
+        "https://www.nfl.com/teams/buffalo-bills/roster"
+      ]
+    },
+    {
+      "id": "Q-06",
+      "question": "Who is the confirmed starting QB for each game?",
+      "status": "Unanswered",
+      "answer": "Injury designations show some QBs Out (for example, Kyler Murray, MIN, Out). Starters were not confirmed for any game.",
+      "needed": "Official game-day starter or inactive lists, captured close to kickoff.",
+      "where": "nfl.com game pages on game day (not verified)",
+      "links": [
+        "https://www.nfl.com/injuries/league/2026/reg10"
+      ]
+    },
+    {
+      "id": "Q-07",
+      "question": "Which official game-day inactives apply?",
+      "status": "Unanswered",
+      "answer": "No inactive lists have been captured.",
+      "needed": "Official inactive lists per game, captured at the official cut-off time.",
+      "where": "Official Week 10 schedule page (game links): https://www.nfl.com/schedules/2026/by-week/week-10. Whether inactive lists appear there has not been verified.",
+      "links": [
+        "https://www.nfl.com/schedules/2026/by-week/week-10"
+      ]
+    },
+    {
+      "id": "Q-08",
+      "question": "Can sportsbook prices be used to validate lines?",
+      "status": "Unanswered",
+      "answer": "No official NFL source publishes betting lines (see the file's own warning in data/market-lines.json). Prices in the repo are unverified.",
+      "needed": "A decision from you on whether any licensed price source may be used, and for which jurisdiction.",
+      "where": "Decision required (see Suggestions).",
+      "links": [
+        "https://github.com/sassnarep3-star/Own8/blob/arena/101b20bc-own8/data/market-lines.json"
+      ]
+    },
+    {
+      "id": "Q-09",
+      "question": "Is betting on NFL games lawful for the user in Singapore?",
+      "status": "Partly answered",
+      "answer": "Singapore MHA says all gambling is prohibited unless licensed, class-licensed or exempted; Singapore Pools is the only operator licensed to provide remote gambling services in Singapore.",
+      "needed": "A personal legal opinion from a Singapore-qualified adviser. This hub does not give one.",
+      "where": "https://ask.gov.sg/mha/questions/cmqu6lgkk008f4401iyk6rjzx",
+      "links": [
+        "https://ask.gov.sg/mha/questions/cmqu6lgkk008f4401iyk6rjzx"
+      ]
+    },
+    {
+      "id": "Q-10",
+      "question": "How much history is needed to validate a strategy?",
+      "status": "Partly answered",
+      "answer": "The gates in origination require at least 80 games for single-bet strategies. The repo has 121 games from 2026 only, and no earlier seasons.",
+      "needed": "Official game logs for earlier seasons, plus a fixed out-of-sample test window.",
+      "where": "nfl.com scores pages by season (not captured)",
+      "links": [
+        "https://github.com/sassnarep3-star/Own8/blob/arena/101b20bc-own8/origination/results/leaderboard.json"
+      ]
+    },
+    {
+      "id": "Q-11",
+      "question": "What counts as 'winning' on the leaderboard?",
+      "status": "Unanswered",
+      "answer": "The origination gates use loss-reduction tests. A paper-points reward system is proposed but not defined.",
+      "needed": "Your decision on the scoring metric (see Suggestions).",
+      "where": "Decision required.",
+      "links": [
+        "https://github.com/sassnarep3-star/Own8/blob/arena/101b20bc-own8/origination/results/leaderboard.json"
+      ]
+    },
+    {
+      "id": "Q-12",
+      "question": "Are the Next Gen Stats passing rows complete?",
+      "status": "Partly answered",
+      "answer": "Week 2 is missing (page did not render in origination's capture). Other weeks are present.",
+      "needed": "A successful capture of the Week 2 page.",
+      "where": "https://nextgenstats.nfl.com/stats/passing/2026/REG/2",
+      "links": [
+        "https://nextgenstats.nfl.com/stats/passing/2026/REG/2"
+      ]
+    },
+    {
+      "id": "Q-13",
+      "question": "Which website is the canonical one?",
+      "status": "Unanswered",
+      "answer": "At least nine parallel sites exist in the repo.",
+      "needed": "Your decision (see Suggestions).",
+      "where": "Decision required.",
+      "links": [
+        "https://github.com/sassnarep3-star/Own8/tree/arena/101b20bc-own8"
+      ]
+    }
+  ],
+  "suggestions": [
+    {
+      "id": "SG-01",
+      "title": "Refresh official data to the current week",
+      "why": "The repo stops at Week 8 while the official standings show Week 9 and part of Week 10 are final.",
+      "options": [
+        "A. Capture Weeks 9-10 scores from nfl.com and extend the game log.",
+        "B. Freeze at Week 8 and label every output as stale.",
+        "C. Start a fresh season file and keep 2026 Weeks 1-8 as a historical snapshot."
+      ],
+      "needs": "Official score pages for Weeks 9-10 (nfl.com/scores/2026/week-9 and week-10).",
+      "effort": "Medium",
+      "sources": [
+        "https://www.nfl.com/standings/"
+      ],
+      "status": "Awaiting your decision. Not implemented."
+    },
+    {
+      "id": "SG-02",
+      "title": "Handle the Week 9 lines that are already final",
+      "why": "The 15 Week 9 fair lines price games that have been played (R-02).",
+      "options": [
+        "A. Retire them and label them as history.",
+        "B. Grade them against official final scores, reporting the result but not as a forecast.",
+        "C. Re-originate Week 10 lines with a recorded pre-game timestamp."
+      ],
+      "needs": "Your choice. Option C requires a timestamp source.",
+      "effort": "Low to medium",
+      "sources": [
+        "https://www.nfl.com/games/jaguars-at-ravens-2026-reg-9"
+      ],
+      "status": "Awaiting your decision. Not implemented."
+    },
+    {
+      "id": "SG-03",
+      "title": "Build a depth-chart and backup tracker",
+      "why": "Needed to find which 2nd- or 3rd-string players replace starters (R-08, Q-05).",
+      "options": [
+        "A. Locate an official NFL depth-chart page and verify its structure first.",
+        "B. Use official game-day inactive lists only (narrower, but official).",
+        "C. Use injury designations only (already partly captured)."
+      ],
+      "needs": "Verification that an official depth-chart source exists and is stable.",
+      "effort": "Medium to high",
+      "sources": [
+        "https://www.nfl.com/teams/buffalo-bills/roster",
+        "https://www.nfl.com/injuries/league/2026/reg10"
+      ],
+      "status": "Awaiting your decision. Not implemented."
+    },
+    {
+      "id": "SG-04",
+      "title": "Complete the Week 10 injury transcription",
+      "why": "Only four full game blocks and one partial block are transcribed (Q-04).",
+      "options": [
+        "A. Transcribe chunks 2-7 now.",
+        "B. Keep the partial scope and refresh on each game day."
+      ],
+      "needs": "Your choice. Option A adds about six more page chunks to transcribe.",
+      "effort": "Medium",
+      "sources": [
+        "https://www.nfl.com/injuries/league/2026/reg10"
+      ],
+      "status": "Awaiting your decision. Not implemented."
+    },
+    {
+      "id": "SG-05",
+      "title": "Choose one canonical website",
+      "why": "At least nine parallel sites exist (R-05, Q-13).",
+      "options": [
+        "A. Make this hub canonical and archive the rest.",
+        "B. Keep all sites and link them from one index.",
+        "C. Keep the root site and retire the others."
+      ],
+      "needs": "Your decision.",
+      "effort": "Low (A, C) to medium (B)",
+      "sources": [
+        "https://github.com/sassnarep3-star/Own8/blob/arena/101b20bc-own8/COORDINATION.md"
+      ],
+      "status": "Awaiting your decision. Not implemented."
+    },
+    {
+      "id": "SG-06",
+      "title": "Handle the tracked sportsbook file and bytecode",
+      "why": "Unverified third-party prices and compiled Python files are in Git (R-03, R-04).",
+      "options": [
+        "A. Move data/market-lines.json to archive/ and untrack the .pyc files.",
+        "B. Delete both.",
+        "C. Leave both, flagged."
+      ],
+      "needs": "Your decision. No history rewrite is proposed.",
+      "effort": "Low",
+      "sources": [
+        "https://github.com/sassnarep3-star/Own8/blob/arena/101b20bc-own8/data/market-lines.json"
+      ],
+      "status": "Awaiting your decision. Not implemented."
+    },
+    {
+      "id": "SG-07",
+      "title": "Pre-register the leaderboard scoring rule",
+      "why": "Needed before any new results are scored, so a rule cannot be chosen after the outcome is known.",
+      "options": [
+        "A. Paper points on Brier score.",
+        "B. Paper points on absolute error.",
+        "C. Paper ROI in units, only if licensed prices are approved (Q-08)."
+      ],
+      "needs": "Your choice of metric and reward structure. No rewards are awarded by this hub.",
+      "effort": "Low",
+      "sources": [
+        "https://github.com/sassnarep3-star/Own8/blob/arena/101b20bc-own8/origination/results/leaderboard.json"
+      ],
+      "status": "Awaiting your decision. Not implemented."
+    },
+    {
+      "id": "SG-08",
+      "title": "Extend the history for validation",
+      "why": "Current gates need more games and out-of-sample seasons (Q-10).",
+      "options": [
+        "A. Add the 2025 season.",
+        "B. Add 2024-2025.",
+        "C. Add 2015-2025."
+      ],
+      "needs": "Your choice of range. Each season requires official score pages.",
+      "effort": "High",
+      "sources": [
+        "https://www.nfl.com/scores/2026/week-8"
+      ],
+      "status": "Awaiting your decision. Not implemented."
+    },
+    {
+      "id": "SG-09",
+      "title": "Map injury designations to a weighting scheme",
+      "why": "Needed before injury status can change a line.",
+      "options": [
+        "A. Display only, no weights.",
+        "B. Weights fitted on history (needs SG-08).",
+        "C. Expert-set priors, flagged as subjective."
+      ],
+      "needs": "Your choice. Option B depends on SG-08.",
+      "effort": "Medium",
+      "sources": [
+        "https://www.nfl.com/injuries/league/2026/reg10"
+      ],
+      "status": "Awaiting your decision. Not implemented."
+    },
+    {
+      "id": "SG-10",
+      "title": "Decide how the Singapore legal position limits the project",
+      "why": "Affects whether any wagering-related output is shown (Q-08, Q-09).",
+      "options": [
+        "A. Research only, no wagering output.",
+        "B. Research output plus a note that only licensed local operators apply.",
+        "C. Get a personal legal opinion before any further work."
+      ],
+      "needs": "Your decision and, for C, your own adviser.",
+      "effort": "Low",
+      "sources": [
+        "https://ask.gov.sg/mha/questions/cmqu6lgkk008f4401iyk6rjzx"
+      ],
+      "status": "Awaiting your decision. Not implemented."
+    }
+  ],
+  "flags": [
+    {
+      "id": "F-01",
+      "area": "Standings",
+      "item": "Team records in the repo are out of date (R-01).",
+      "status": "Needs review",
+      "links": [
+        "https://www.nfl.com/standings/"
+      ]
+    },
+    {
+      "id": "F-02",
+      "area": "Lines",
+      "item": "Week 9 fair lines price completed games (R-02).",
+      "status": "Needs review",
+      "links": [
+        "https://www.nfl.com/games/jaguars-at-ravens-2026-reg-9"
+      ]
+    },
+    {
+      "id": "F-03",
+      "area": "Odds",
+      "item": "Third-party prices in data/market-lines.json are not verified (R-03).",
+      "status": "Needs review",
+      "links": [
+        "https://github.com/sassnarep3-star/Own8/blob/arena/101b20bc-own8/data/market-lines.json"
+      ]
+    },
+    {
+      "id": "F-04",
+      "area": "Injuries",
+      "item": "Week 10 report partially transcribed: block E (JAX at TEN) is incomplete and blocks F onward are missing.",
+      "status": "Needs review",
+      "links": [
+        "https://www.nfl.com/injuries/league/2026/reg10"
+      ]
+    },
+    {
+      "id": "F-05",
+      "area": "Injuries",
+      "item": "Thursday Nov 12 block (WAS and NYG) shows pre-game designations; the game is now played and the final was not captured.",
+      "status": "Needs review",
+      "links": [
+        "https://www.nfl.com/injuries/league/2026/reg10",
+        "https://www.nfl.com/standings/"
+      ]
+    },
+    {
+      "id": "F-06",
+      "area": "Depth",
+      "item": "No backup or depth-chart source has been verified (R-08).",
+      "status": "Needs review",
+      "links": [
+        "https://www.nfl.com/teams/buffalo-bills/roster"
+      ]
+    },
+    {
+      "id": "F-07",
+      "area": "Repo",
+      "item": "Tracked bytecode and duplicate coordination row (R-04, R-06).",
+      "status": "Needs review",
+      "links": [
+        "https://github.com/sassnarep3-star/Own8/blob/arena/101b20bc-own8/COORDINATION.md"
+      ]
+    },
+    {
+      "id": "F-08",
+      "area": "Date",
+      "item": "nfl.com heading weekday does not match the date (R-07). Not re-fetched.",
+      "status": "Needs review",
+      "links": [
+        "https://www.nfl.com/scores/2026/week-1"
+      ]
+    },
+    {
+      "id": "F-09",
+      "area": "Legal",
+      "item": "Singapore legal position is general information only (Q-09).",
+      "status": "Needs review",
+      "links": [
+        "https://ask.gov.sg/mha/questions/cmqu6lgkk008f4401iyk6rjzx"
+      ]
+    },
+    {
+      "id": "F-10",
+      "area": "Rams",
+      "item": "Team abbreviation LA vs LAR (R-10).",
+      "status": "Needs review",
+      "links": [
+        "https://www.nfl.com/standings/"
+      ]
+    },
+    {
+      "id": "F-11",
+      "area": "NGS",
+      "item": "Week 2 Next Gen Stats passing page did not render (Q-12). Blank, not filled.",
+      "status": "Needs review",
+      "links": [
+        "https://nextgenstats.nfl.com/stats/passing/2026/REG/2"
+      ]
+    }
+  ]
+}
