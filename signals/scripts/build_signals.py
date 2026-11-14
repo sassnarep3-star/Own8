@@ -34,14 +34,15 @@ WEEK = "WEEK 11"
 
 NAV = [
     ("index", "Overview", "01"),
-    ("baselines", "Baseline ladder", "02"),
-    ("market", "Price hurdle", "03"),
-    ("correlations", "Correlations", "04"),
-    ("availability", "Availability & depth", "05"),
-    ("decisions", "Decision queue", "06"),
-    ("suggestions", "Suggestions", "07"),
-    ("flagged", "Flagged for review", "08"),
-    ("sources", "Sources", "09"),
+    ("executive-summary", "Executive summary", "02"),
+    ("baselines", "Baseline ladder", "03"),
+    ("market", "Price hurdle", "04"),
+    ("correlations", "Correlations", "05"),
+    ("availability", "Availability & depth", "06"),
+    ("decisions", "Decision queue", "07"),
+    ("suggestions", "Suggestions", "08"),
+    ("flagged", "Flagged for review", "09"),
+    ("sources", "Sources", "10"),
 ]
 
 
@@ -758,9 +759,121 @@ def build_sources():
          "supported.", body)
 
 
+# ============================================================ 1b. executive summary
+def build_exec():
+    f = LADDER["findings"]
+    mk = MARKET["market_verdict"]
+    v = next(c for c in MARKET["interval_vs_breakeven"] if c["arm"] == "S8")
+    b11 = next(c for c in MARKET["interval_vs_breakeven"] if c["arm"] == "B11")
+    body = kv([
+        ("104", "Games of evidence", "walk-forward, weeks 3–9, official finals"),
+        (f"{len(LADDER['ladder'])}", "Arms on one ladder", "eight do-nothing rules, eleven strategies"),
+        (f"{mk['count_of_arms_clearing']}", "Arms clearing break-even", "neither promotable"),
+        ("0", "Strategies promoted", "the ladder does not separate skill from noise"),
+    ])
+    body += '<div class="hero"><div><span class="pill">THE ONE-PARAGRAPH VERSION</span>'
+    body += '<h2>Two arms clear the hurdle.<br>Neither can be promoted.</h2>'
+    body += ('<p>Without a price, a hit rate cannot become a return. This session measured every '
+             'strategy against eight do-nothing rules on identical games, computed the number that '
+             'would erase each signal, rebuilt the correlation register with the honest sample size, '
+             'and proved on two clubs that the depth of a replacement is measurable from the official '
+             'Game Book — after the game, never before kickoff.</p>'
+             '<a class="button" href="market.html">See the number that erases it <span>↗</span></a></div>'
+             '<div class="hero-stat"><span>LARGEST CLEARING MARGIN</span><strong>'
+             f'{b11["gap_points"]:.2f}<span>pts</span></strong>'
+             '<p>And it belongs to a naive five-game recency rule, not a strategy.</p>'
+             '<div class="progress"><i></i></div><small>Over break-even, at an assumed -110.</small></div></div>')
+
+    body += "<h2>What is now established</h2>"
+    rows = [
+        ["1", "The best admissible spread rule beats the league-mean baseline",
+         f"{f['best_spread_mae']} vs {next(a for a in LADDER['ladder'] if a['id'] == 'B02')['value']} "
+         f"points mean absolute error on 104 games", badge("ESTABLISHED", "good"),
+         url("https://www.nfl.com/scores/2026/week-3")],
+        ["2", "Deliberate leakage is worth less than expected",
+         f"Using future games scores {f['leakage_ceiling_mae']} — {abs(f['leakage_is_worth_points'])} "
+         f"points better. The honest models are close to the ceiling.",
+         badge("ESTABLISHED, EXCLUDED", "warn"), url("https://www.nfl.com/scores/2026/week-3")],
+        ["3", "Break-even at an assumed -110",
+         f"{MARKET['book_arithmetic']['breakeven_hit_rate'] * 100:.3f}% hit rate; the price consumes "
+         f"{MARKET['book_arithmetic']['book_hold_pct_at_minus_110']:.2f}% of turnover",
+         badge("ARITHMETIC", "good"),
+         url("https://www.itl.nist.gov/div898/handbook/prc/section1/prc14.htm")],
+        ["4", "Arms whose interval lower bound clears break-even",
+         f"{mk['count_of_arms_clearing']} of {len(MARKET['interval_vs_breakeven'])}: B11 "
+         f"{b11['hit_rate'] * 100:.2f}% (low {b11['ci_low'] * 100:.2f}%) and S8 "
+         f"{v['hit_rate'] * 100:.2f}% (low {v['ci_low'] * 100:.2f}%)",
+         badge("NOT PROMOTED", "warn"),
+         url("https://www.itl.nist.gov/div898/handbook/prc/section4/prc473.htm")],
+        ["5", "Correlations that reproduce exactly",
+         f"{len(CORR['summary']['agree_on_value_and_n'])}: "
+         + ", ".join(CORR["summary"]["agree_on_value_and_n"]) + " (value and n)",
+         badge("ESTABLISHED", "good"), url("https://www.nfl.com/scores/2026/week-1")],
+        ["6", "Correlations illegitimate as published",
+         f"{len(CORR['summary']['illegitimate_as_published'])}: "
+         + ", ".join(CORR["summary"]["illegitimate_as_published"])
+         + " — n counts QB-games, not games",
+         badge("CORRECTED", "warn"),
+         url("https://nextgenstats.nfl.com/stats/passing/2026/REG/9")],
+        ["7", "Correlations surviving a Holm correction",
+         ", ".join(CORR["summary"]["survive_holm_at_5pct"])
+         + " — and both relate an offence's component to that offence's own output",
+         badge("UNUSABLE", "warn"),
+         url("https://www.itl.nist.gov/div898/handbook/prc/section4/prc473.htm")],
+        ["8", "Replacement depth is measurable from the Game Book",
+         f"{AVAIL['summary']['slots_changed']} slot changes, "
+         f"{AVAIL['summary']['changes_with_official_out_or_doubtful_flag']} explained by an official "
+         f"Out flag, {AVAIL['summary']['unexplained_absences']} unexplained absences — two clubs",
+         badge("METHOD PROVEN", "good"), url(AVAIL["depth_changes"][0]["source_url"])],
+    ]
+    body += table(["#", "Finding", "Number", "Status", "Source"], rows,
+                  "Established findings")
+
+    body += "<h2>What is not established, and why</h2>"
+    nots = [
+        ["Edge", "No arm clears break-even by a margin that survives testing nineteen arms.",
+         "The largest clearing margin is 1.09 points and belongs to a naive rule.", None],
+        ["Market comparison", "No official NFL page publishes a spread, total or price.",
+         "Every market column in the repository is blank by policy, not omission.", None],
+        ["Out-of-sample", "Week 11 games were unplayed at capture; 13 of 14 Week 10 games were too.",
+         "13 fair lines originated, zero graded.", None],
+        ["Player props", "Both prop strategies score worse than a naive baseline.",
+         "−0.17% and −0.57% skill, and no prop line exists to bet against.", None],
+        ["Depth model", "Two clubs and two weeks is a method demonstration, not a model.",
+         "Nothing here generalises to 32 clubs.", None],
+    ]
+    body += table(["Area", "What is missing", "Why it matters", ""],
+                  [[a, b_, c_, url("https://www.nfl.com/standings/")] for a, b_, c_, _ in nots],
+                  "Open gaps")
+
+    body += "<h2>The decision actually facing the operator</h2>"
+    body += ('<p style="max-width:900px">There are two live options and the project has oscillated '
+             'between them for ten sessions. <strong>Option one: get a price.</strong> One timestamped '
+             'feed with a named venue and opening and closing numbers. That unblocks every price column, '
+             'the staking half of the leaderboard, closing-line value, and any real promotion decision. '
+             '<strong>Option two: do not get a price,</strong> in which case the honest ceiling is the '
+             'audited research desk that roughly exists now. What is not a live option is adding a '
+             'twelfth dashboard.</p>')
+    body += '<div class="section-links">'
+    body += ('<a href="decisions.html"><strong>Answer the blocking question first</strong>'
+             '<p>Thirteen questions ranked by what blocks a decision. Seven need no new data.</p></a>')
+    body += ('<a href="suggestions.html"><strong>Or read what each change would cost</strong>'
+             '<p>Eight proposals with cost, risk and an open decision on every row.</p></a>')
+    body += "</div>"
+    body += note("Corrections to this session's own work, published deliberately",
+                 "The first draft claimed no arm clears the break-even rate. Two do, and the claim is "
+                 "now computed from the data at build time. The first draft measured replacement depth "
+                 "by matching two Game Books row by row, which invented about twenty replacements "
+                 "because the books order positions differently. The first draft computed the "
+                 "break-even cushion from win probability instead of cover probability. All three are "
+                 "on the flagged page with their evidence.")
+    page("executive-summary", "Executive summary",
+         "What is established, what is not, and the single decision that separates the two.", body)
+
+
 def main():
     (S / "assets").mkdir(parents=True, exist_ok=True)
-    for fn in (build_index, build_baselines, build_market, build_correlations,
+    for fn in (build_index, build_exec, build_baselines, build_market, build_correlations,
                build_availability, build_decisions, build_suggestions, build_flagged, build_sources):
         fn()
         print("built", fn.__name__)

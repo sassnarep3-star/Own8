@@ -32,7 +32,7 @@ ALLOWED_HOSTS = {
     "www.nfl.com", "nfl.com", "static.www.nfl.com", "nextgenstats.nfl.com",
     "www.itl.nist.gov", "itl.nist.gov",
 }
-INTERNAL = {"decisions.html", "baselines.html", "market.html", "correlations.html",
+INTERNAL = {"executive-summary.html", "decisions.html", "baselines.html", "market.html", "correlations.html",
             "availability.html", "suggestions.html", "flagged.html", "sources.html",
             "index.html", "assets/style.css", "assets/app.js", "../index.html"}
 
@@ -43,7 +43,7 @@ FORBIDDEN = [
     (r"\bcan'?t lose\b", "a cannot-lose claim"),
 ]
 
-PAGES = ["index", "baselines", "market", "correlations", "availability",
+PAGES = ["index", "executive-summary", "baselines", "market", "correlations", "availability",
          "decisions", "suggestions", "flagged", "sources"]
 
 results = []

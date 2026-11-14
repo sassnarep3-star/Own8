@@ -1,9 +1,9 @@
 {
  "generated": "2026-11-14",
- "checks_run": 95,
- "passed": 95,
+ "checks_run": 104,
+ "passed": 104,
  "failed": 0,
- "rows_checked": 364,
+ "rows_checked": 377,
  "status": "PASS",
  "results": [
   {
@@ -38,6 +38,41 @@
   },
   {
    "check": "no a cannot-lose claim: index.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "page exists: executive-summary.html",
+   "pass": true,
+   "detail": "/home/user/Own8/signals/executive-summary.html"
+  },
+  {
+   "check": "table markup balanced: executive-summary.html",
+   "pass": true,
+   "detail": "tables 2/2 rows 15/15 cells 60/60"
+  },
+  {
+   "check": "as-of date present: executive-summary.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no a guarantee claim: executive-summary.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no a risk-free claim: executive-summary.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no a certainty claim: executive-summary.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no a cannot-lose claim: executive-summary.html",
    "pass": true,
    "detail": ""
   },
@@ -324,7 +359,7 @@
   {
    "check": "every data row carries a source link",
    "pass": true,
-   "detail": "364 rows checked; unsourced: []"
+   "detail": "377 rows checked; unsourced: []"
   },
   {
    "check": "no broken local link",
@@ -398,6 +433,16 @@
   },
   {
    "check": "arm count wording matches the file: index.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no false 'no arm clears' claim: executive-summary.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "arm count wording matches the file: executive-summary.html",
    "pass": true,
    "detail": ""
   },
