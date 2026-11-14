@@ -105,7 +105,7 @@ def build():
         ["I1 · Repo review", badge("done") + " Checker matrix + 10 findings with evidence", '<a href="review.html">review.html ↗</a>'],
         ["I2 · Freshness + fresh capture", badge("done") + " W9 finals, W10 slate, standings, 345-row injuries, 137-game reconciliation", '<a href="freshness.html">freshness.html ↗</a>'],
         ["I3 · Pages deploy health", badge(health["result"].split(" —")[0]) + " API `errored` → recovered; 6 green builds 14 Nov", '''<a href="review.html">evidence ↗</a>'''],
-        ["I4 · Final integration", badge("in progress") + " Nav links, all checkers, PR → main, merge, Pages confirm", '<a href="https://github.com/sassnarep3-star/Own8/blob/main/COORDINATION.md" target="_blank" rel="noopener noreferrer">board record ↗</a>'],
+        ["I4 · Final integration", badge("done") + " PR #43 merged (08b42d2) · Pages deploy success · live site re-fetched", '<a href="https://github.com/sassnarep3-star/Own8/pull/43" target="_blank" rel="noopener noreferrer">PR #43 ↗</a>'],
     ]
     surface_rows = []
     for r in fresh["rows"]:
