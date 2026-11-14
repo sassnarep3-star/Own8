@@ -367,9 +367,31 @@ bet_rows = []
 for r in w9["rows"]:
     for b in r["bets"]:
         line = b.get("line")
+        if b["market"] == "moneyline":
+            # Fair probability on the side taken, ours vs the de-vigged price. De-vigging is
+            # multiplicative on the implied probabilities published for the same game.
+            def imp(ml):
+                return 100.0 / (ml + 100.0) if ml > 0 else abs(ml) / (abs(ml) + 100.0)
+
+            ph = r["fair_p_home"]
+            ah, aa = imp(r["market_ml_home"]), imp(r["market_ml_away"])
+            mh = ah / (ah + aa)
+            ours_p = ph if b["model_side"] == "home" else 1 - ph
+            theirs_p = mh if b["model_side"] == "home" else 1 - mh
+            taken = f'{r[b["model_side"]]} ({b["model_side"]} ML)'
+            ours = f'p={ours_p:.3f}'
+            theirs = f'p={theirs_p:.3f} (de-vigged)' if r.get("fair_p_home") is not None else "—"
+        elif b["market"] == "side":
+            taken = f'{r[b["model_side"]]} {line:+}'
+            ours = f'{b["fair_value"]:+.2f} (home)'
+            theirs = f'{b["market_value"]:+.2f} (home)'
+        else:
+            taken = f'{b["model_side"].capitalize()} {line}'
+            ours = f'{b["fair_value"]:.2f} (total)'
+            theirs = f'{b["market_value"]:.2f} (total)'
         bet_rows.append([
             str(len(bet_rows) + 1), f'{r["away"]} @ {r["home"]}', b["market"].capitalize(),
-            b["model_side"], "—" if line is None else f"{line}",
+            taken, ours, theirs,
             badge(b["result"], "good" if b["result"] == "win" else "bad"),
             f'{b["profit_units"]:+.3f}u',
             f'{r["market_spread_home"]:+.1f}' if b["market"] == "side" else (f'{r["market_total"]:.1f}' if b["market"] == "total" else "—"),
@@ -387,9 +409,12 @@ body = (notice(f"Fifteen games, three markets, one flat stake of 1 unit each, {o
       '<li><strong>Sample size.</strong> Below 30 settled bets in a market, no ROI is called interpretable at all. The string UNDERPOWERED is attached to the row rather than left to the reader.</li>'
       '<li><strong>Exact binomial test against break-even.</strong> The p-value is two-sided and exact, not a normal approximation.</li></ul></div>'
     + sec("Every settled bet")
-    + table(["#", "Game", "Market", "Side taken", "Line", "Result", "Profit", "Market line", "Official final", "Official price"], bet_rows,
+    + table(["#", "Game", "Market", "What we took", "Our fair number", "Market's number", "Result", "Profit", "Published line", "Official final", "Official price"], bet_rows,
             f"All {len(bet_rows)} settled bets, Week 9",
-            "Spreads and totals are priced at −110 because nfl.com publishes the number but not the price; that assumption is stated on every such row and is the reason S1–S5 are not ranked.")
+            "Reading the two number columns: for a <strong>side</strong> both are home handicaps, so a more negative number means we made the home team stronger than the market did; "
+            "for a <strong>total</strong> both are points; for a <strong>moneyline</strong> both are probabilities on the side taken, and the market figure has had the book margin removed "
+            "multiplicatively from the two published prices. Our probability minus the market's is the per-bet skill whose average the strategy board reports. "
+            "Spreads and totals are priced at −110 because nfl.com publishes the number but not the price; that assumption is stated on the row and is the reason S1–S5 are not ranked.")
     + sec("Week 10")
     + notice("Zero bets graded. At the time of capture none of the 14 Week 10 games had been played, so there is nothing to settle. "
              "The prices are stored and will grade the moment official finals exist. An empty results table is the correct output here; "
