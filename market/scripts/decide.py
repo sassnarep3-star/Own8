@@ -51,7 +51,7 @@ def main():
       f"Week 9, the only week with both an official price and an official result: our spread MAE {h2h['side']['own_mae']} vs the market's {h2h['side']['market_mae']}; "
       f"our number was closer in {h2h['side']['games_own_closer']} of {h2h['n']} games; mean paired difference +{h2h['side']['mean_paired_diff_own_minus_market']} pts "
       f"with a 95% interval of [{h2h['side']['paired_diff_ci95'][0]}, {h2h['side']['paired_diff_ci95'][1]}]; moneyline Brier {h2h['moneyline']['own_brier']} vs {h2h['moneyline']['market_devig_brier']} de-vigged.",
-      "n. Fifteen games cannot settle this either way, and Week 10 had not been played at capture time.",
+      "A sample large enough to separate a small edge from zero. Fifteen games cannot settle this either way, and Week 10 had not been played at capture time.",
       "NO - not from information that exists today. The direction is unfavourable and the interval is wide.",
       h2h["side"] and "https://www.nfl.com/scores/2026/week-9",
       "Score 60+ priced games. That means collecting the weekly picks article every week from here, which is a repeatable 15-minute job, and grading only after finals. No new data source is needed.",
@@ -117,11 +117,11 @@ def main():
       "Nothing to discover. The rule is implemented; the wait is calendar time.",
       "any claim of a profitable strategy before a season of data", "nobody - it is arithmetic")
 
-    q("Q-08", "Which of the 14 published site surfaces is authoritative?",
+    q("Q-08", f"Which of the {crawl.get('site_surfaces', 14)} published site surfaces is authoritative?",
       "A reader who finds two different Week 10 lines, or six suggestion registers, cannot act on either.",
-      f"{len(crawl['findings'])} findings from a line-by-line crawl; F-02 records six suggestion registers and six question registers; "
+      f"{len(crawl['findings'])} findings from a line-by-line crawl; F-02 records {crawl.get('suggestion_registers', 6)} suggestion registers and {crawl.get('question_registers', 6)} question registers; "
       "F-03 records two independent Week 10 line originations that differ by a mean of 0.2 points and a max of 1.6 points on the same 13 games; "
-      f"F-05 records {len([x for x in crawl['findings'] if x['id']=='F-05'])} navigation surfaces.",
+      f"F-05 records {crawl.get('site_surfaces', 14)} separately published site surfaces.",
       "A named canonical surface. This is a governance decision, not a data problem.",
       "NO - only the project owner can name it.",
       "https://github.com/sassnarep3-star/Own8",
