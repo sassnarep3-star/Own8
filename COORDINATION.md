@@ -23,7 +23,7 @@ Why this scope: the operator's requirements that no artifact yet covers are (a) 
 | K4 | Demotion gate: pre-registered rule set that moves a LIVE strategy back to PAPER, with evaluator and unit tests on synthetic fixtures (fixtures are labelled as tests, never as data) | done (rules D1-D8 + P1 written before any live window; 23 unit tests pass; 0 LIVE strategies so 0 demotions; thresholds await operator decision SG-L2) | 6652101e | ledger/scripts/demotion_gate.py, ledger/scripts/test_ledger.py, ledger/data/demotion-rules.json | Rule thresholds written before evaluation; current registry = 0 LIVE strategies |
 | K5 | Signal vs staking split: leaderboard with a SIGNAL block (skill vs baseline, LCB, gate status) and a STAKING block that cannot change rank | done (12 scored + 2 not scored; signal ranks match origination for all 14; staking blank, excluded from rank by test) | 6652101e | ledger/results/leaderboard-split.json, ledger/leaderboard-split.html | Signal values copied from origination/results/validation-w10.json and leaderboard-w10.json |
 | K6 | Ledger pages (index, prices, results, lines, gates, leaderboard, flagged, suggestions) with a source link on every table row; own link check | done (8 pages; check_ledger.py 22 checks, 0 failed; every data row has an allowed official link) | 6652101e | ledger/*.html, ledger/assets/style.css, ledger/scripts/build_ledger.py, ledger/scripts/check_ledger.py | python3 ledger/scripts/check_ledger.py exit 0 |
-| K7 | Local CI replay, PR to main, merge, Pages confirmation, record here | in progress (local replay done; PR and merge next) | 6652101e | COORDINATION.md | Root checks from .github/workflows run on the branch; live URL re-fetched after deploy |
+| K7 | Local CI replay, PR to main, merge, Pages confirmation, record here | done — PR #46 MERGED 2026-11-14T21:40:23Z (merge commit `95d5201`); 3/3 PR checks pass (validate, independent-desk, evidence-and-site); Pages build for 95d5201 `built`; live URLs re-fetched: https://sassnarep3-star.github.io/Own8/ledger/index.html and https://sassnarep3-star.github.io/Own8/ledger/flagged.html | 6652101e | COORDINATION.md | Root checks from .github/workflows run on the branch; live URL re-fetched after deploy |
 
 Sources used (all read-only inputs or official pages):
 - https://www.nfl.com/games/patriots-at-lions-2026-reg-10 (price probe; game-centre team strip also checked, see LF-04)
@@ -56,7 +56,14 @@ Cross-session requests from 6652101e (not performed; shared files):
 - (R2) Integration owner: consider adding ledger/ to the requirements register (new suggestions SG-L1..L7 are the operator decision points).
 - (R3) origination owner (if still active): G7 applicability for S9/S10 (LF-07) and the total model failure (LF-02) are recorded in ledger/flagged.html; no change to origination files was made.
 
-Status: K0-K6 done; K7 (PR, merge, Pages confirmation) next. Nothing blocking. No money, stakes or rewards are involved.
+Status: K0-K7 done. PR #46 merged into main (merge commit 95d5201) with CI green; GitHub Pages built for that commit; ledger pages served live. Nothing blocking. Open for the operator: SG-L1..SG-L7 on ledger/suggestions.html (none implemented). No money, stakes or rewards are involved.
+
+Log (6652101e):
+- 2026-11-14 — Claimed K0-K7 (41882bf) before any ledger file was written. Read the full board and open PRs #6, #8, #16, #28, #31, #32, #39 first; none claims ledger/**.
+- 2026-11-14 — K1-K6 built and committed (038c8c7). Official probe of one nfl.com game page (no line text); re-read of the Thursday scores page (WAS 24 NYG 21 Final); NIST pages re-read to correct two wrong section labels found in my own draft (multiplicity page is 7.4.7.3 Bonferroni; CI page is 7.1.4).
+- 2026-11-14 — Found and fixed my own errors before merge: a tie-handling check that wrongly failed the W5 NYG-WAS 27-27 tie (the feed is correct); a stale duplicate block in the price-store builder; a duplicate G7 flag.
+- 2026-11-14 — PR #46 opened, CI green, merged with `gh pr merge 46 --merge` (no approval waited for; no shared file changed). Pages build for 95d5201 status `built`.
+- Handoff note for the integration owner: root navigation link to ledger/index.html is still missing (SG-L7). Not added by this session.
 
 ## Session e8155046 — Week 10 line origination + skill-vs-luck validation refresh (claimed 2026-11-14 UTC, base main @ 9d182b8)
 
