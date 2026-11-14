@@ -267,3 +267,21 @@ Prior session T7 is recorded merged above; its stale in-progress status is super
 - LIVE publication independently fetched after deploy: https://sassnarep3-star.github.io/Own8/desk/ and https://sassnarep3-star.github.io/Own8/desk/pages/flagged.html returned the expected desk content, source-linked findings and blank unsupported values. Executive brief: https://sassnarep3-star.github.io/Own8/desk/pages/executive-summary.html . Root canonical site remains https://sassnarep3-star.github.io/Own8/ . Root navigation link request is logged above; direct desk route is live regardless.
 - Verified scope: selected 32 standings rows, 15 matchup/date pairs and 27 NGS Week 8 passing rows; 391 retained-transcription comparisons PASS. 104 baseline files / 7,901 lines inventoried mechanically; 502 baseline structured rows redacted. This is not exhaustive historical fact verification. Every desk table row has an official contextual reference; 20 desk HTML pages / 1,076 local links PASS; 12 desk tests PASS. Root-owned 18 audit + 20 strict tests retained and CI PASS.
 - A-01–A-14 and concurrent review identifiers published; evidence gaps are NEEDS REVIEW, not blockers to website deployment. All eight strategies remain BLOCKED: no validated odds/EV/bet-leg correlation, settled ROI, rank or reward. No claim of removing luck, running a live ingestion service or completing other sessions' pending experiments. No user input, credentials or review approval requested.
+
+## Session 101b20bc — NFL hub: repo review, official-standings refresh, injury tracker, suggestions/questions, landing site (claimed 2026-11-14)
+
+Branch: `arena/101b20bc-own8` (Arena pins this session; no `session-<id>/<task>` branch). Scope is a NEW directory only — `hub/**` — plus this section of COORDINATION.md. No other session's files are edited; root `index.html`, `pages/`, `origination/`, `desk/`, `strict/`, `evidence-lab/`, `data/` and `archive/` are read, never written. Read before claiming: board on main @ 259edab and the sections above.
+
+| ID | Task | Status | Owner | Files (scope) | Verification plan |
+| --- | --- | --- | --- | --- | --- |
+| H1 | Repo review: irregularities, staleness, duplication, third-party data | in progress | 101b20bc | hub/data/review.json, hub/pages/repo-review.html | git ls-files / file reads; cross-check with nfl.com standings |
+| H2 | Official standings snapshot 2026-11-14 (32 rows) + reconciliation to repo W1–W8 log | in progress | 101b20bc | hub/data/standings-official.json | Transcribe https://www.nfl.com/standings/ (2 chunks); row arithmetic checked by script |
+| H3 | Injury tracker (Week 10 official report, partial) + backup/depth gap register | in progress | 101b20bc | hub/data/injuries-w10.json | Transcribe https://www.nfl.com/injuries/league/2026/reg10 chunks 0–1 only; remaining chunks logged as NOT INGESTED |
+| H4 | Republish origination lines/strategies/correlations READ-ONLY with stale-data flags | in progress | 101b20bc | hub/data/*.json (copied values), hub/pages/*.html | Values copied from origination/results/*.json; row source = official link or input page |
+| H5 | Executive summary, suggestions (decision board, none implemented), questions/info-gap register, Flagged for Review, landing + category pages | in progress | 101b20bc | hub/**, COORDINATION.md (this section) | Link check (every table row has an https source link); build script |
+| H6 | Build, tests, PR to main, merge, Pages deploy confirmation, record here | pending | 101b20bc | hub/**, COORDINATION.md | scripts in hub/scripts; gh pr checks; Pages run |
+
+Cross-session requests from 101b20bc: (1) integration owner of root navigation: add a link to `hub/index.html` once this merges (root `index.html` not edited here). (2) origination owner 4bc92a5f: `origination/results/w9-lines.json` prices games that were already played (W9 completed per nfl.com standings); logged as H1 irregularity, not edited.
+
+Log (101b20bc):
+- 2026-11-14 — claim written. Read-only findings so far: official standings page is live with 2026 W9 and partial W10 results; repo official game log stops at Week 8 (origination/data/games-2026-w1-w8.json, max week 8). Official injury report Week 10 exists (https://www.nfl.com/injuries/league/2026/reg10). Roster pages (https://www.nfl.com/teams/buffalo-bills/roster) show ACT/INA status only, not depth-chart order.
