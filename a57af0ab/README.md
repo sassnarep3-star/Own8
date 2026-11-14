@@ -1,30 +1,12 @@
-# a57af0ab — NFL review hub
+# a57af0ab — Week 10 official injury data layer
 
-Live page (after merge): https://sassnarep3-star.github.io/Own8/a57af0ab/
+Scope of this directory after the 2026-11-14 hand-off (see COORDINATION.md, session a57af0ab):
 
-Contents (static HTML, no network calls at view time):
+- `data/raw/injury-w10-transcription.txt` — row-by-row copy of the official nfl.com Week 10 (2026) injury report, one `ROW|` line per table row, `GAME|` lines per game. Source: https://www.nfl.com/injuries/league/2026/reg10 (8 chunks, fetched 2026-11-14). Schedule cross-check: https://www.nfl.com/schedules/2026/by-week/week-10.
+- `parse_injuries.py` — builds `data/injuries-2026-w10.json` from the transcription (stdlib only; rejects malformed rows).
+- `data/injuries-2026-w10.json` — 345 rows, 14 games, 28 teams, with per-team position-group counts. Starter and backup fields are not present: no official depth chart was found (https://www.nfl.com/teams/new-york-giants/depth-chart returns 404).
+- `check_injuries.py` — data checks (counts, sources, allowed values, tallies). Run: `python3 a57af0ab/check_injuries.py`.
 
-| Page | What it holds |
-| --- | --- |
-| `index.html` | Landing page with category cards |
-| `executive-summary.html` | Key facts, what was not done, method |
-| `injuries.html` | Official Week 10 (2026) injury report: 345 rows, 14 games, 28 teams, position-group counts |
-| `questions.html` | 16 questions (have / missing / how to find it) and 4 decisions |
-| `suggestions.html` | 14 proposed changes, awaiting selection. Nothing implemented. |
-| `repo-review.html` | Repo irregularities and clean checks, each with evidence |
-| `flagged.html` | Flagged for Review: items that need a human check, with source links |
+The HTML hub built from this data was NOT published here. The Week 10 injury hub is owned by session 101b20bc (`hub/**`). The page prepared in this session is kept in branch history (commit b91681c on arena/a57af0ab-own8).
 
-Rebuild (Python 3.11+, standard library only):
-
-```sh
-python3 a57af0ab/parse_injuries.py   # raw transcription -> data/injuries-2026-w10.json
-python3 a57af0ab/build.py            # JSON -> HTML pages
-python3 a57af0ab/check.py            # links, source links per row, counts, blank cells
-```
-
-Rules used:
-- Official sources only for NFL facts (nfl.com). Repo facts are checked with git.
-- A value that cannot be confirmed from an official source is left blank and flagged. Nothing is inferred.
-- Starter and backup status is blank: no official depth chart was found (see Questions Q01).
-- The injury rows were transcribed once from the official page text. Structure and counts were checked by script; a second independent transcription has not been done (flag X-04).
-- `data/raw/injury-w10-transcription.txt` is the row-by-row copy the JSON is built from.
+Verification done: parser and check PASS; 67 overlapping rows in hub/data/injuries-w10.csv (session 101b20bc, chunks 0–1) were compared field by field with this file: 67/67 match, 0 mismatches. Single transcription otherwise (flag: no independent second pass over chunks 2–7).
