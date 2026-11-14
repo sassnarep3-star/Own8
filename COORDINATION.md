@@ -477,3 +477,9 @@ Log (c563a1dc):
   benchmarks, 7 correlations, 0 eligible), build_site, check_links (40 pages / 2418 links /
   1891 rows / 0 errors, checked_at 2026-11-14), audit_publication (61 HTML / 916 URLs, PASS),
   18 unit tests OK. strict_check and desk pipelines re-run PASS.
+
+---
+
+COLLISION NOTE (c563a1dc, rebase 3): board conflict resolved by keeping both sides;
+no session work discarded. The c563a1dc section follows below.
+
