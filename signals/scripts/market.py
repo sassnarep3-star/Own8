@@ -263,6 +263,27 @@ def main():
     }
 
     s1 = next(a for a in LADDER["ladder"] if a["id"] == "S1")["betting"]
+
+    # Which arms have a hit-rate interval whose LOWER BOUND clears the break-even rate? This is the
+    # only defensible promotion test available without a price, and it is computed rather than
+    # asserted, because the answer is not what a first draft of this file assumed.
+    clears = []
+    for a in LADDER["ladder"]:
+        b = a["betting"]
+        lo = b["hit_rate_ci95"][0]
+        if lo is None:
+            continue
+        clears.append({
+            "arm": a["id"], "label": a["label"], "kind": a["kind"],
+            "n_bets": b["n_bets"], "hit_rate": b["hit_rate"], "ci_low": lo,
+            "breakeven": round(BREAKEVEN, 6),
+            "gap_points": round((lo - BREAKEVEN) * 100, 4),
+            "clears": lo > BREAKEVEN,
+            "uses_future_games": a.get("uses_future_games", False),
+            "is_a_registered_strategy": a["id"].startswith("S"),
+        })
+    winners = [c for c in clears if c["clears"]]
+
     verdict = {
         "best_signal_arm": "S1",
         "hit_rate": s1["hit_rate"],
@@ -270,13 +291,23 @@ def main():
         "breakeven": round(BREAKEVEN, 6),
         "ci_low_clears_breakeven": s1["hit_rate_ci95"][0] > BREAKEVEN,
         "gap_ci_low_to_breakeven_points": round((s1["hit_rate_ci95"][0] - BREAKEVEN) * 100, 4),
-        "verdict": ("NOT PLAYABLE AS A STAKING RULE. The point estimate clears break-even and so "
-                    "does the interval low bound — but this is the best of twelve strategies chosen "
-                    "after the fact, so the effective significance is much weaker than a single "
-                    "test (gate G5). The correct action is to keep it on paper and require the "
-                    "out-of-sample week-11 grading before any stake."
-                    if s1["hit_rate_ci95"][0] > BREAKEVEN else
-                    "NOT PLAYABLE. The hit-rate interval straddles break-even."),
+        "arms_whose_interval_clears_breakeven": [c["arm"] for c in winners],
+        "count_of_arms_clearing": len(winners),
+        "verdict": (
+            "NO ARM IS PROMOTED. " + str(len(winners)) + " of the " + str(len(clears)) + " arms that placed any bet have a "
+            "hit-rate interval whose lower bound clears the " + f"{BREAKEVEN * 100:.2f}%" + " break-even "
+            "rate: " + ", ".join(f"{c['arm']} ({c['hit_rate'] * 100:.2f}%, low bound {c['ci_low'] * 100:.2f}%)"
+                                 for c in winners) + ". Neither is promotable. "
+            + " ".join(
+                f"{c['arm']} is {'a naive rule that is not a registered strategy' if not c['is_a_registered_strategy'] else 'a registered strategy'}"
+                f" whose interval clears by only {c['gap_points']:.2f} percentage points, out of "
+                f"{len(clears)} arms tested (B01 is excluded because it placed none); at that margin a "
+                f"family correction removes it."
+                for c in winners)
+            + " The point is not that these are bad numbers. It is that a 0.1-to-1.0 point margin over "
+              "break-even, on about 100 bets, selected from nineteen arms, is indistinguishable from luck, and "
+              "the repository would be manufacturing a signal by promoting it. What promotion requires "
+              "is a price and an out-of-sample season, not a slightly higher hit rate."),
     }
 
     out = {
@@ -306,6 +337,7 @@ def main():
         "vig_arithmetic": vig,
         "book_arithmetic": book,
         "market_verdict": verdict,
+        "interval_vs_breakeven": clears,
         "caveats": [
             "The Week 11 numbers are originated before those games are played. They are "
             "predictions, not results, and they carry no market comparison.",

@@ -1,0 +1,485 @@
+{
+ "generated": "2026-11-14",
+ "checks_run": 95,
+ "passed": 95,
+ "failed": 0,
+ "rows_checked": 364,
+ "status": "PASS",
+ "results": [
+  {
+   "check": "page exists: index.html",
+   "pass": true,
+   "detail": "/home/user/Own8/signals/index.html"
+  },
+  {
+   "check": "table markup balanced: index.html",
+   "pass": true,
+   "detail": "tables 1/1 rows 7/7 cells 24/24"
+  },
+  {
+   "check": "as-of date present: index.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no a guarantee claim: index.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no a risk-free claim: index.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no a certainty claim: index.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no a cannot-lose claim: index.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "page exists: baselines.html",
+   "pass": true,
+   "detail": "/home/user/Own8/signals/baselines.html"
+  },
+  {
+   "check": "table markup balanced: baselines.html",
+   "pass": true,
+   "detail": "tables 3/3 rows 67/67 cells 541/541"
+  },
+  {
+   "check": "as-of date present: baselines.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no a guarantee claim: baselines.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no a risk-free claim: baselines.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no a certainty claim: baselines.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no a cannot-lose claim: baselines.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "page exists: market.html",
+   "pass": true,
+   "detail": "/home/user/Own8/signals/market.html"
+  },
+  {
+   "check": "table markup balanced: market.html",
+   "pass": true,
+   "detail": "tables 4/4 rows 79/79 cells 637/637"
+  },
+  {
+   "check": "as-of date present: market.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no a guarantee claim: market.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no a risk-free claim: market.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no a certainty claim: market.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no a cannot-lose claim: market.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "page exists: correlations.html",
+   "pass": true,
+   "detail": "/home/user/Own8/signals/correlations.html"
+  },
+  {
+   "check": "table markup balanced: correlations.html",
+   "pass": true,
+   "detail": "tables 3/3 rows 24/24 cells 171/171"
+  },
+  {
+   "check": "as-of date present: correlations.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no a guarantee claim: correlations.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no a risk-free claim: correlations.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no a certainty claim: correlations.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no a cannot-lose claim: correlations.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "page exists: availability.html",
+   "pass": true,
+   "detail": "/home/user/Own8/signals/availability.html"
+  },
+  {
+   "check": "table markup balanced: availability.html",
+   "pass": true,
+   "detail": "tables 5/5 rows 133/133 cells 1114/1114"
+  },
+  {
+   "check": "as-of date present: availability.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no a guarantee claim: availability.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no a risk-free claim: availability.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no a certainty claim: availability.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no a cannot-lose claim: availability.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "page exists: decisions.html",
+   "pass": true,
+   "detail": "/home/user/Own8/signals/decisions.html"
+  },
+  {
+   "check": "table markup balanced: decisions.html",
+   "pass": true,
+   "detail": "tables 2/2 rows 22/22 cells 152/152"
+  },
+  {
+   "check": "as-of date present: decisions.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no a guarantee claim: decisions.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no a risk-free claim: decisions.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no a certainty claim: decisions.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no a cannot-lose claim: decisions.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "page exists: suggestions.html",
+   "pass": true,
+   "detail": "/home/user/Own8/signals/suggestions.html"
+  },
+  {
+   "check": "table markup balanced: suggestions.html",
+   "pass": true,
+   "detail": "tables 1/1 rows 9/9 cells 72/72"
+  },
+  {
+   "check": "as-of date present: suggestions.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no a guarantee claim: suggestions.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no a risk-free claim: suggestions.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no a certainty claim: suggestions.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no a cannot-lose claim: suggestions.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "page exists: flagged.html",
+   "pass": true,
+   "detail": "/home/user/Own8/signals/flagged.html"
+  },
+  {
+   "check": "table markup balanced: flagged.html",
+   "pass": true,
+   "detail": "tables 1/1 rows 16/16 cells 120/120"
+  },
+  {
+   "check": "as-of date present: flagged.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no a guarantee claim: flagged.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no a risk-free claim: flagged.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no a certainty claim: flagged.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no a cannot-lose claim: flagged.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "page exists: sources.html",
+   "pass": true,
+   "detail": "/home/user/Own8/signals/sources.html"
+  },
+  {
+   "check": "table markup balanced: sources.html",
+   "pass": true,
+   "detail": "tables 2/2 rows 29/29 cells 135/135"
+  },
+  {
+   "check": "as-of date present: sources.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no a guarantee claim: sources.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no a risk-free claim: sources.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no a certainty claim: sources.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no a cannot-lose claim: sources.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "every data row carries a source link",
+   "pass": true,
+   "detail": "364 rows checked; unsourced: []"
+  },
+  {
+   "check": "no broken local link",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "check": "every blank cell is labelled for assistive tech",
+   "pass": true,
+   "detail": "0 unlabelled blanks"
+  },
+  {
+   "check": "every external link is an allowed official host",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "check": "data file present: baseline-ladder.json",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "data file present: market-relative.json",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "data file present: correlation-legitimacy.json",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "data file present: availability-tiers.json",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "data file present: decision-queue.json",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "data file present: flags.json",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "decision queue internal consistency",
+   "pass": true,
+   "detail": "0 failed"
+  },
+  {
+   "check": "flags published and own-work corrections included",
+   "pass": true,
+   "detail": "total 15, own-work ['SF-04', 'SF-15', 'SF-11']"
+  },
+  {
+   "check": "no 'verified' claim about a line/price: market.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "promotion claim matches the computed interval data",
+   "pass": true,
+   "detail": "declared 2, found 2 clearing arms"
+  },
+  {
+   "check": "no false 'no arm clears' claim: index.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "arm count wording matches the file: index.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no false 'no arm clears' claim: baselines.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "arm count wording matches the file: baselines.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no false 'no arm clears' claim: market.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "arm count wording matches the file: market.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no false 'no arm clears' claim: correlations.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "arm count wording matches the file: correlations.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no false 'no arm clears' claim: availability.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "arm count wording matches the file: availability.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no false 'no arm clears' claim: decisions.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "arm count wording matches the file: decisions.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no false 'no arm clears' claim: suggestions.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "arm count wording matches the file: suggestions.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no false 'no arm clears' claim: flagged.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "arm count wording matches the file: flagged.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no false 'no arm clears' claim: sources.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "arm count wording matches the file: sources.html",
+   "pass": true,
+   "detail": ""
+  }
+ ]
+}
