@@ -1,0 +1,631 @@
+{
+  "dataset": "w10-position-group-exposure",
+  "captured": "2026-11-14 (UTC, read between 00:50 and 01:15)",
+  "source_url": "https://www.nfl.com/injuries/league/2026/reg10",
+  "method": "Counts of Out / Doubtful / Questionable by team, from the official report. Starter-vs-backup replacement is NOT computed: no official depth chart was reachable.",
+  "teams": [
+    {
+      "team": "ARI",
+      "game_id": "G10",
+      "game": "LAR at ARI",
+      "listed_rows": 9,
+      "out": 3,
+      "doubtful": 0,
+      "questionable": 6,
+      "did_not_practice": 3,
+      "out_or_doubtful_by_group": {
+        "OL": [
+          "Hjalte Froholdt (C, Out)",
+          "Jon Gaines II (G, Out)"
+        ],
+        "DL": [
+          "Zachary Carter (DT, Out)"
+        ]
+      },
+      "starter_backup_replacements": null,
+      "replacement_status": "UNVERIFIED - no official depth-chart source",
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg10"
+    },
+    {
+      "team": "ATL",
+      "game_id": "G03",
+      "game": "KC at ATL",
+      "listed_rows": 8,
+      "out": 1,
+      "doubtful": 1,
+      "questionable": 3,
+      "did_not_practice": 3,
+      "out_or_doubtful_by_group": {
+        "WR": [
+          "Zachariah Branch (WR, Out)"
+        ],
+        "LB": [
+          "Divine Deablo (LB, Doubtful)"
+        ]
+      },
+      "starter_backup_replacements": null,
+      "replacement_status": "UNVERIFIED - no official depth-chart source",
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg10"
+    },
+    {
+      "team": "BAL",
+      "game_id": "G14",
+      "game": "LAC at BAL",
+      "listed_rows": 1,
+      "out": 0,
+      "doubtful": 0,
+      "questionable": 0,
+      "did_not_practice": 0,
+      "out_or_doubtful_by_group": {},
+      "starter_backup_replacements": null,
+      "replacement_status": "UNVERIFIED - no official depth-chart source",
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg10"
+    },
+    {
+      "team": "BUF",
+      "game_id": "G06",
+      "game": "BUF at NYJ",
+      "listed_rows": 7,
+      "out": 0,
+      "doubtful": 1,
+      "questionable": 4,
+      "did_not_practice": 3,
+      "out_or_doubtful_by_group": {
+        "OL": [
+          "Spencer Brown (T, Doubtful)"
+        ]
+      },
+      "starter_backup_replacements": null,
+      "replacement_status": "UNVERIFIED - no official depth-chart source",
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg10"
+    },
+    {
+      "team": "CAR",
+      "game_id": "G08",
+      "game": "CAR at NO",
+      "listed_rows": 7,
+      "out": 1,
+      "doubtful": 2,
+      "questionable": 4,
+      "did_not_practice": 1,
+      "out_or_doubtful_by_group": {
+        "RB/FB": [
+          "Jonathon Brooks (RB, Doubtful)"
+        ],
+        "LB": [
+          "Bobby Okereke (LB, Out)"
+        ],
+        "CB": [
+          "Mike Jackson (CB, Doubtful)"
+        ]
+      },
+      "starter_backup_replacements": null,
+      "replacement_status": "UNVERIFIED - no official depth-chart source",
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg10"
+    },
+    {
+      "team": "CIN",
+      "game_id": "G13",
+      "game": "PIT at CIN",
+      "listed_rows": 7,
+      "out": 1,
+      "doubtful": 3,
+      "questionable": 0,
+      "did_not_practice": 3,
+      "out_or_doubtful_by_group": {
+        "WR": [
+          "Andrei Iosivas (WR, Doubtful)"
+        ],
+        "OL": [
+          "Brian Parker II (G, Doubtful)"
+        ],
+        "CB": [
+          "Jalen Davis (CB, Doubtful)"
+        ],
+        "S": [
+          "Kyle Dugger (S, Out)"
+        ]
+      },
+      "starter_backup_replacements": null,
+      "replacement_status": "UNVERIFIED - no official depth-chart source",
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg10"
+    },
+    {
+      "team": "CLE",
+      "game_id": "G09",
+      "game": "HOU at CLE",
+      "listed_rows": 5,
+      "out": 2,
+      "doubtful": 0,
+      "questionable": 1,
+      "did_not_practice": 2,
+      "out_or_doubtful_by_group": {
+        "RB/FB": [
+          "Michael Burton (FB, Out)"
+        ],
+        "S": [
+          "Ronnie Hickman Jr. (S, Out)"
+        ]
+      },
+      "starter_backup_replacements": null,
+      "replacement_status": "UNVERIFIED - no official depth-chart source",
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg10"
+    },
+    {
+      "team": "DAL",
+      "game_id": "G12",
+      "game": "SF at DAL",
+      "listed_rows": 13,
+      "out": 5,
+      "doubtful": 1,
+      "questionable": 5,
+      "did_not_practice": 9,
+      "out_or_doubtful_by_group": {
+        "RB/FB": [
+          "Tyler Goodson (RB, Out)"
+        ],
+        "WR": [
+          "Jonathan Mingo (WR, Out)"
+        ],
+        "TE": [
+          "Jake Ferguson (TE, Out)"
+        ],
+        "LB": [
+          "Donovan Ezeiruaku (LB, Out)"
+        ],
+        "S": [
+          "P.J. Locke (S, Out)",
+          "Juanyeh Thomas (S, Doubtful)"
+        ]
+      },
+      "starter_backup_replacements": null,
+      "replacement_status": "UNVERIFIED - no official depth-chart source",
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg10"
+    },
+    {
+      "team": "DET",
+      "game_id": "G02",
+      "game": "NE at DET",
+      "listed_rows": 5,
+      "out": 3,
+      "doubtful": 0,
+      "questionable": 2,
+      "did_not_practice": 3,
+      "out_or_doubtful_by_group": {
+        "OL": [
+          "Cade Mays (C, Out)"
+        ],
+        "CB": [
+          "D.J. Reed (CB, Out)"
+        ],
+        "S": [
+          "Kerby Joseph (S, Out)"
+        ]
+      },
+      "starter_backup_replacements": null,
+      "replacement_status": "UNVERIFIED - no official depth-chart source",
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg10"
+    },
+    {
+      "team": "GB",
+      "game_id": "G04",
+      "game": "MIN at GB",
+      "listed_rows": 14,
+      "out": 4,
+      "doubtful": 1,
+      "questionable": 7,
+      "did_not_practice": 5,
+      "out_or_doubtful_by_group": {
+        "RB/FB": [
+          "Josh Jacobs (RB, Out)"
+        ],
+        "TE": [
+          "Josh Whyle (TE, Out)"
+        ],
+        "OL": [
+          "Sean Rhyan (C, Out)"
+        ],
+        "LB": [
+          "Zaire Franklin (LB, Doubtful)",
+          "Micah Parsons (LB, Out)"
+        ]
+      },
+      "starter_backup_replacements": null,
+      "replacement_status": "UNVERIFIED - no official depth-chart source",
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg10"
+    },
+    {
+      "team": "HOU",
+      "game_id": "G09",
+      "game": "HOU at CLE",
+      "listed_rows": 11,
+      "out": 5,
+      "doubtful": 0,
+      "questionable": 6,
+      "did_not_practice": 7,
+      "out_or_doubtful_by_group": {
+        "WR": [
+          "Marvin Harrison Jr. (WR, Out)"
+        ],
+        "TE": [
+          "Brevin Jordan (TE, Out)"
+        ],
+        "OL": [
+          "Keylan Rutledge (G, Out)"
+        ],
+        "DL": [
+          "Danielle Hunter (DE, Out)"
+        ],
+        "LB": [
+          "Azeez Al-Shaair (LB, Out)"
+        ]
+      },
+      "starter_backup_replacements": null,
+      "replacement_status": "UNVERIFIED - no official depth-chart source",
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg10"
+    },
+    {
+      "team": "IND",
+      "game_id": "G07",
+      "game": "MIA at IND",
+      "listed_rows": 8,
+      "out": 6,
+      "doubtful": 0,
+      "questionable": 2,
+      "did_not_practice": 6,
+      "out_or_doubtful_by_group": {
+        "TE": [
+          "Mo Alie-Cox (TE, Out)"
+        ],
+        "OL": [
+          "Jalen Travis (T, Out)"
+        ],
+        "DL": [
+          "Jerry Tillery (DT, Out)"
+        ],
+        "LB": [
+          "Jaylon Carlies (LB, Out)",
+          "Akeem Davis-Gaither (LB, Out)"
+        ],
+        "ST": [
+          "Luke Rhodes (LS, Out)"
+        ]
+      },
+      "starter_backup_replacements": null,
+      "replacement_status": "UNVERIFIED - no official depth-chart source",
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg10"
+    },
+    {
+      "team": "JAX",
+      "game_id": "G05",
+      "game": "JAX at TEN",
+      "listed_rows": 9,
+      "out": 3,
+      "doubtful": 0,
+      "questionable": 1,
+      "did_not_practice": 0,
+      "out_or_doubtful_by_group": {
+        "DL": [
+          "Jordan Davis (DT, Out)",
+          "BJ Green II (DE, Out)"
+        ],
+        "S": [
+          "Jessie Bates (S, Out)"
+        ]
+      },
+      "starter_backup_replacements": null,
+      "replacement_status": "UNVERIFIED - no official depth-chart source",
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg10"
+    },
+    {
+      "team": "KC",
+      "game_id": "G03",
+      "game": "KC at ATL",
+      "listed_rows": 6,
+      "out": 3,
+      "doubtful": 0,
+      "questionable": 3,
+      "did_not_practice": 3,
+      "out_or_doubtful_by_group": {
+        "OL": [
+          "Jaylon Moore (T, Out)"
+        ],
+        "DL": [
+          "Omarr Norman-Lott (DT, Out)",
+          "Peter Woods (DT, Out)"
+        ]
+      },
+      "starter_backup_replacements": null,
+      "replacement_status": "UNVERIFIED - no official depth-chart source",
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg10"
+    },
+    {
+      "team": "LAC",
+      "game_id": "G14",
+      "game": "LAC at BAL",
+      "listed_rows": 12,
+      "out": 0,
+      "doubtful": 0,
+      "questionable": 0,
+      "did_not_practice": 7,
+      "out_or_doubtful_by_group": {},
+      "starter_backup_replacements": null,
+      "replacement_status": "UNVERIFIED - no official depth-chart source",
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg10"
+    },
+    {
+      "team": "LAR",
+      "game_id": "G10",
+      "game": "LAR at ARI",
+      "listed_rows": 12,
+      "out": 2,
+      "doubtful": 0,
+      "questionable": 5,
+      "did_not_practice": 7,
+      "out_or_doubtful_by_group": {
+        "TE": [
+          "Terrance Ferguson (TE, Out)"
+        ],
+        "OL": [
+          "Steve Avila (G, Out)"
+        ]
+      },
+      "starter_backup_replacements": null,
+      "replacement_status": "UNVERIFIED - no official depth-chart source",
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg10"
+    },
+    {
+      "team": "LV",
+      "game_id": "G11",
+      "game": "SEA at LV",
+      "listed_rows": 2,
+      "out": 0,
+      "doubtful": 0,
+      "questionable": 2,
+      "did_not_practice": 1,
+      "out_or_doubtful_by_group": {},
+      "starter_backup_replacements": null,
+      "replacement_status": "UNVERIFIED - no official depth-chart source",
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg10"
+    },
+    {
+      "team": "MIA",
+      "game_id": "G07",
+      "game": "MIA at IND",
+      "listed_rows": 5,
+      "out": 2,
+      "doubtful": 1,
+      "questionable": 1,
+      "did_not_practice": 3,
+      "out_or_doubtful_by_group": {
+        "WR": [
+          "Chris Bell (WR, Doubtful)",
+          "Jared Wayne (WR, Out)"
+        ],
+        "OL": [
+          "Aaron Brewer (C, Out)"
+        ]
+      },
+      "starter_backup_replacements": null,
+      "replacement_status": "UNVERIFIED - no official depth-chart source",
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg10"
+    },
+    {
+      "team": "MIN",
+      "game_id": "G04",
+      "game": "MIN at GB",
+      "listed_rows": 10,
+      "out": 5,
+      "doubtful": 0,
+      "questionable": 3,
+      "did_not_practice": 5,
+      "out_or_doubtful_by_group": {
+        "QB": [
+          "Kyler Murray (QB, Out)"
+        ],
+        "WR": [
+          "Jauan Jennings (WR, Out)"
+        ],
+        "TE": [
+          "T.J. Hockenson (TE, Out)"
+        ],
+        "DL": [
+          "Tyrion Ingram-Dawkins (DT, Out)"
+        ],
+        "LB": [
+          "Blake Cashman (LB, Out)"
+        ]
+      },
+      "starter_backup_replacements": null,
+      "replacement_status": "UNVERIFIED - no official depth-chart source",
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg10"
+    },
+    {
+      "team": "NE",
+      "game_id": "G02",
+      "game": "NE at DET",
+      "listed_rows": 13,
+      "out": 3,
+      "doubtful": 0,
+      "questionable": 9,
+      "did_not_practice": 3,
+      "out_or_doubtful_by_group": {
+        "RB/FB": [
+          "TreVeyon Henderson (RB, Out)"
+        ],
+        "OL": [
+          "Ben Brown (C, Out)"
+        ],
+        "CB": [
+          "Carlton Davis III (CB, Out)"
+        ]
+      },
+      "starter_backup_replacements": null,
+      "replacement_status": "UNVERIFIED - no official depth-chart source",
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg10"
+    },
+    {
+      "team": "NO",
+      "game_id": "G08",
+      "game": "CAR at NO",
+      "listed_rows": 6,
+      "out": 4,
+      "doubtful": 0,
+      "questionable": 2,
+      "did_not_practice": 4,
+      "out_or_doubtful_by_group": {
+        "RB/FB": [
+          "CJ Donaldson (RB, Out)"
+        ],
+        "OL": [
+          "Taliese Fuaga (T, Out)",
+          "Erik McCoy (C, Out)"
+        ],
+        "DL": [
+          "Christen Miller (DT, Out)"
+        ]
+      },
+      "starter_backup_replacements": null,
+      "replacement_status": "UNVERIFIED - no official depth-chart source",
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg10"
+    },
+    {
+      "team": "NYG",
+      "game_id": "G01",
+      "game": "WAS at NYG",
+      "listed_rows": 1,
+      "out": 0,
+      "doubtful": 0,
+      "questionable": 1,
+      "did_not_practice": 0,
+      "out_or_doubtful_by_group": {},
+      "starter_backup_replacements": null,
+      "replacement_status": "UNVERIFIED - no official depth-chart source",
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg10"
+    },
+    {
+      "team": "NYJ",
+      "game_id": "G06",
+      "game": "BUF at NYJ",
+      "listed_rows": 9,
+      "out": 1,
+      "doubtful": 0,
+      "questionable": 8,
+      "did_not_practice": 1,
+      "out_or_doubtful_by_group": {
+        "LB": [
+          "Trevin Wallace (LB, Out)"
+        ]
+      },
+      "starter_backup_replacements": null,
+      "replacement_status": "UNVERIFIED - no official depth-chart source",
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg10"
+    },
+    {
+      "team": "PIT",
+      "game_id": "G13",
+      "game": "PIT at CIN",
+      "listed_rows": 1,
+      "out": 0,
+      "doubtful": 0,
+      "questionable": 1,
+      "did_not_practice": 0,
+      "out_or_doubtful_by_group": {},
+      "starter_backup_replacements": null,
+      "replacement_status": "UNVERIFIED - no official depth-chart source",
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg10"
+    },
+    {
+      "team": "SEA",
+      "game_id": "G11",
+      "game": "SEA at LV",
+      "listed_rows": 6,
+      "out": 4,
+      "doubtful": 0,
+      "questionable": 0,
+      "did_not_practice": 5,
+      "out_or_doubtful_by_group": {
+        "QB": [
+          "Sam Darnold (QB, Out)"
+        ],
+        "OL": [
+          "Charles Cross (T, Out)",
+          "Quenton Nelson (G, Out)"
+        ],
+        "DL": [
+          "Leonard Williams (DT, Out)"
+        ]
+      },
+      "starter_backup_replacements": null,
+      "replacement_status": "UNVERIFIED - no official depth-chart source",
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg10"
+    },
+    {
+      "team": "SF",
+      "game_id": "G12",
+      "game": "SF at DAL",
+      "listed_rows": 8,
+      "out": 1,
+      "doubtful": 0,
+      "questionable": 7,
+      "did_not_practice": 2,
+      "out_or_doubtful_by_group": {
+        "WR": [
+          "Mike Evans (WR, Out)"
+        ]
+      },
+      "starter_backup_replacements": null,
+      "replacement_status": "UNVERIFIED - no official depth-chart source",
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg10"
+    },
+    {
+      "team": "TEN",
+      "game_id": "G05",
+      "game": "JAX at TEN",
+      "listed_rows": 6,
+      "out": 5,
+      "doubtful": 0,
+      "questionable": 1,
+      "did_not_practice": 5,
+      "out_or_doubtful_by_group": {
+        "WR": [
+          "Carnell Tate (WR, Out)"
+        ],
+        "OL": [
+          "Peter Skoronski (G, Out)"
+        ],
+        "LB": [
+          "Cody Barton (LB, Out)",
+          "Anthony Hill Jr. (LB, Out)"
+        ],
+        "ST": [
+          "Tommy Townsend (P, Out)"
+        ]
+      },
+      "starter_backup_replacements": null,
+      "replacement_status": "UNVERIFIED - no official depth-chart source",
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg10"
+    },
+    {
+      "team": "WAS",
+      "game_id": "G01",
+      "game": "WAS at NYG",
+      "listed_rows": 4,
+      "out": 2,
+      "doubtful": 0,
+      "questionable": 0,
+      "did_not_practice": 3,
+      "out_or_doubtful_by_group": {
+        "TE": [
+          "Colson Yankoff (TE, Out)"
+        ],
+        "OL": [
+          "Lucas Patrick (C, Out)"
+        ]
+      },
+      "starter_backup_replacements": null,
+      "replacement_status": "UNVERIFIED - no official depth-chart source",
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg10"
+    }
+  ]
+}

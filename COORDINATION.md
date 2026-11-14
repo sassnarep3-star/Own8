@@ -324,11 +324,31 @@ Branch: `arena/d6bada32-own8` (Arena pins this session to that branch; no `sessi
 
 | ID | Task | Status | Owner | Files (scope) | Verification plan |
 | --- | --- | --- | --- | --- | --- |
-| H1 | Suggestions & decision hub: suggestions register (options, recommendation, awaiting user choice — nothing implemented), questions / information-gap register, current-status executive summary, repo-review irregularity log | in progress | d6bada32 | advisory/**, COORDINATION.md (this section) | Every row links an official nfl.com page or a repo file path; unverifiable items blank + flagged |
-| H2 | 2026 Week 10 official injury capture (rows with Injuries, non-Full practice, or Game Status) + position-group deficiency tracker; starter/backup replacement fields left blank because no official depth-chart source was reachable | in progress | d6bada32 | injury-depth/**, COORDINATION.md (this section) | Source: https://www.nfl.com/injuries/league/2026/reg10 (8 chunks); each row checked against its chunk; player_url from the page |
-| H3 | Repo review: stale-data check (W9 games final on nfl.com/scores/2026/week-9 while repo model lines are "Week 9 pre-game"); open-PR and claim inventory | in progress | d6bada32 | advisory/irregularities (within H1) | nfl.com scores/injuries pages; `gh pr list`; file reads |
+| H1 | Suggestions & decision hub: suggestions register (options, recommendation, awaiting user choice — nothing implemented), questions / information-gap register, current-status executive summary, repo-review irregularity log | done (15 flags published as NEEDS REVIEW on advisory/flagged.html) | d6bada32 | advisory/**, COORDINATION.md (this section) | Every row links an official nfl.com page or a repo file path; unverifiable items blank + flagged |
+| H2 | 2026 Week 10 official injury capture (rows with Injuries, non-Full practice, or Game Status) + position-group deficiency tracker; starter/backup replacement fields left blank because no official depth-chart source was reachable | done (205 rows / 14 games; single-pass transcription — second pass open as F-14) | d6bada32 | injury-depth/**, COORDINATION.md (this section) | Source: https://www.nfl.com/injuries/league/2026/reg10 (8 chunks); each row checked against its chunk; player_url from the page |
+| H3 | Repo review: stale-data check (W9 games final on nfl.com/scores/2026/week-9 while repo model lines are "Week 9 pre-game"); open-PR and claim inventory | done (flags F-02..F-04, F-10..F-12, F-15) | d6bada32 | advisory/irregularities (within H1) | nfl.com scores/injuries pages; `gh pr list`; file reads |
 
 Not claimed here (remain open for other sessions; listed as suggestions in advisory/): Week 10 line origination and skill-vs-luck re-validation (origination/** owned by 4bc92a5f, done through W9 inputs); official depth-chart source (not found — see advisory/ gap G-03); integration nav link on the root dashboard (root integration owner).
 
 Log:
 - 2026-11-14 00:55 UTC — d6bada32 claimed H1–H3. Read full board (sections above) and open PRs #6, #8, #16, #28, #31, #32. Confirmed via nfl.com: Week 9 games are Final (https://www.nfl.com/scores/2026/week-9); current official injury report is Week 10 (https://www.nfl.com/injuries/league/2026/reg10). Repo's data/*, origination/* W9 slates and model-lines are therefore not current — logged as irregularity H3-01.
+
+### d6bada32 — results record (2026-11-14)
+
+Files touched (own scope only): `advisory/**` (new), `injury-depth/**` (new), this section of COORDINATION.md. No other file edited. Root index/nav NOT edited (see request S-10 below).
+
+Sources (official unless stated): NFL.com Week 10 injury report https://www.nfl.com/injuries/league/2026/reg10 (all 8 chunks); NFL.com injury index https://www.nfl.com/injuries/ ; NFL.com Week 9 scores https://www.nfl.com/scores/2026/week-9 (chunk 0 of 3); NFL.com Week 10 scores https://www.nfl.com/scores/2026/week-10 (chunk 0 of 3); NFL.com Commanders roster https://www.nfl.com/teams/washington-commanders/roster/ (chunk 0 of 3); NFL.com Commanders depth-chart URL https://www.nfl.com/teams/washington-commanders/depth-chart (404 — not available); Singapore GRA "Unlawful Remote Gambling Activities" https://www.gra.gov.sg/harm-minimisation/unlawful-remote-gambling-activities and https://www.gra.gov.sg/ . Full table with read-method per source: https://github.com/sassnarep3-star/Own8/blob/arena/d6bada32-own8/advisory/sources.html (SRC-01 … SRC-15).
+
+Verification performed: `python3 injury-depth/build.py` → 14 games, 205 rows, validation PASS (format, team membership, position codes, duplicates). `python3 advisory/check_links.py` → 6 files, 608 links, 310 data rows, 0 problems (every table row has a source link; https + allowlisted hosts only; anchors resolve). Single-pass transcription: a second-pass comparison has NOT been done (F-14).
+
+Irregularities for review (all on https://sassnarep3-star.github.io/Own8/advisory/flagged.html once live): F-01 Singapore law — unlicensed remote gambling unlawful for persons in Singapore; Singapore Pools only licensed remote operator (GRA). F-02/F-03/F-04 repo Week 8/9 files stale vs. nfl.com (W9 Final). F-05 no official depth chart reachable. F-06 Lamar Jackson absence headlines conflict (6–10 vs 6–9 weeks). F-07 BJ Green II Full practice + Out. F-08 Thursday rows pre-game though Final. F-09 display name vs. URL slug differences. F-10 board row 34f42e88 V1 still 'in progress'. F-11 six open PRs (#6, #8, #16 draft, #28, #31, #32). F-12 seven executive-summary copies. F-13 report pagination. F-14 single-pass transcription. F-15 data/market-lines.json holds third-party spreads, not official, and points to Netherlands books.
+
+Cross-session requests:
+- S-10 (root integration owner): add nav links to /advisory/index.html and /injury-depth/index.html; include advisory/flagged.html items on the root Flagged for Review page.
+- For the origination owner (4bc92a5f): origination/ has no Week 10 lines; Week 9 lines were produced 2026-11-04 before Week 9 games began 2026-11-05.
+- For the owner of data/market-lines.json (repo root): see F-15 (quarantine proposed; not edited here).
+
+Not claimed or changed: Week 10 line origination; second-pass verification of the injury rows; depth-chart source discovery (Q-02); all open PRs (S-07).
+
+- 2026-11-14 — d6bada32 H1–H3 DONE on branch arena/d6bada32-own8 (commits pushed). Scoped PR to main follows; merge and Pages deploy results recorded below when complete.
+
