@@ -8,6 +8,23 @@ editing it. Make small, frequent commits; `git pull --rebase` before every push.
 If a claim is >60 minutes old with no commits, another session may take it over
 and note the handoff here.
 
+## Session 6652101e — decision ledger: price-snapshot store, results feed, fair/market/difference lines, demotion gate, signal-vs-staking split (claimed 2026-11-14 UTC, base main @ 5df2a54)
+
+Branch: `arena/6652101e-own8` (Arena-pinned; all work on this branch). Read the full board above before acting. Scope is **new namespace `ledger/**` plus this section of COORDINATION.md only**. Read-only everywhere else: root `index.html`, `pages/**`, `assets/**`, `data/**`, `analysis/**`, `scripts/**`, `origination/**`, `requirements/**`, `decision/**`, `integration/**` and all other namespaces. Root navigation/sitemap links and `requirements/` suggestion entries are NOT edited here; they are logged as cross-session requests below for the integration owner.
+
+Why this scope: the operator's requirements that no artifact yet covers are (a) a price-snapshot store with opening and closing numbers per originated market, (b) a fair line / market line / difference column set, (c) a demotion gate that sends a live strategy back to paper, (d) a leaderboard that separates signal from staking, and (e) originate-side-then-total-then-moneyline ordering recorded per market. `grep` on main finds no `demotion`, `staking` split or price-snapshot artifact outside archive/.
+
+| ID | Task | Status | Owner | Files (scope) | Verification plan |
+| --- | --- | --- | --- | --- | --- |
+| K0 | Board claim (this section) | done (pushed before any other work) | 6652101e | COORDINATION.md (this section) | Claim commit pushed before any other ledger file |
+| K1 | Price-snapshot store: one row per originated market (side, total, moneyline in that order) for every Week 10 game, opening and closing numbers fail-closed (null unless an official URL is recorded) | in progress | 6652101e | ledger/data/price-snapshots.json, ledger/schema.md | Official-page probe of nfl.com game pages recorded in ledger/data/price-probe.json; any value without an official URL is rejected by ledger/scripts/build_ledger.py |
+| K2 | Verified results feed (official final scores per game, with nfl.com URL) that backtests and ROI can join to | in progress | 6652101e | ledger/data/results-feed.json | Rows copied from origination/data/games-2026-w1-w9.json (136 verified games) and checked by re-reading that file; no new values typed by hand |
+| K3 | Fair line / market line / difference as three separate columns for each Week 10 game; market and difference stay blank with reason | in progress | 6652101e | ledger/data/lines-columns.json | Fair values copied from origination/results/w10-lines.json; difference computed only when a market value exists |
+| K4 | Demotion gate: pre-registered rule set that moves a LIVE strategy back to PAPER, with evaluator and unit tests on synthetic fixtures (fixtures are labelled as tests, never as data) | in progress | 6652101e | ledger/scripts/demotion_gate.py, ledger/scripts/test_demotion_gate.py, ledger/data/demotion-rules.json | Rule thresholds written before evaluation; current registry state = 0 LIVE strategies, so 0 demotions recorded |
+| K5 | Signal vs staking split: leaderboard with a SIGNAL block (skill vs baseline, LCB, gate status) and a STAKING block that cannot change rank | in progress | 6652101e | ledger/results/leaderboard-split.json | Signal values copied from origination/results/leaderboard-w10.json; staking block blank because no official prices exist |
+| K6 | Ledger pages (index, prices, results, lines, gates, leaderboard, flagged) with a source link on every table row; own link check | in progress | 6652101e | ledger/*.html, ledger/assets/*, ledger/scripts/build_ledger.py, ledger/scripts/check_ledger.py | `python3 ledger/scripts/check_ledger.py` must exit 0; unverified values blank and flagged |
+| K7 | Local CI replay, PR to main, merge, Pages confirmation, record here | pending | 6652101e | COORDINATION.md | Root checks from .github/workflows run on the branch; live URL re-fetched after deploy |
+
 ## Session e8155046 — Week 10 line origination + skill-vs-luck validation refresh (claimed 2026-11-14 UTC, base main @ 9d182b8)
 
 Branch: `arena/e8155046-own8` (Arena-pinned; no `session-<id>/<task>` branch can be created). Read the whole board above first, including every 2026-11-14 claim, before acting on this one.
