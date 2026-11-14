@@ -2432,6 +2432,17 @@
    "action_owner": "root dashboard owner / integration session"
   },
   {
+   "id": "F-07",
+   "severity": "medium",
+   "area": "data shape",
+   "title": "185 of 345 injury rows carry a practice status but no injury designation and no game status",
+   "evidence": "Of those, 140 are recorded as 'Full Participation in Practice'. Clubs with the most such rows: LAC 19, SEA 11, NYG 10. An official injury report normally lists a body part for every player on it, so a block of rows with practice status only is more likely a capture artefact than a real report shape. The file belongs to the requirements session (f6e60a81), so it is flagged here and not edited. This workspace reads the same file, so its per-club row counts inherit whatever shape it has.",
+   "file": "requirements/results/injuries-w10.json",
+   "record": "items[] where injury is null",
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg10",
+   "action_owner": "requirements owner (f6e60a81)"
+  },
+  {
    "id": "F-05",
    "severity": "medium",
    "area": "navigation",

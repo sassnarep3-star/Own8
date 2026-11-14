@@ -561,7 +561,9 @@ body = (notice(depth["headline"], "The short answer", "warn")
     + sec(f"Official injury rows, by club ({sum(c['rows'] for c in depth['club_injury_load'])} rows)")
     + table(["Club", "Rows", "Offence", "Defence", "Specialists", "Out", "Doubtful", "Questionable", "Official source"],
             club_rows, "Week 10 injury report by club",
-            "Positions are grouped as offence, defence and specialists using a fixed list in market/scripts/analyze.py. A position that is not on that list is counted as unclassified rather than guessed.")
+            "Positions are grouped as offence, defence and specialists using a fixed list in market/scripts/analyze.py; anything else counts as unclassified rather than being guessed. "
+            "<strong>Rows means rows on the report, not players with a disclosed injury:</strong> 185 of the 345 stored rows carry a practice status with no injury designation and no game status "
+            "(repository finding F-07). The per-club counts inherit that shape and should not be read as an injury burden ranking.")
     + sec("Confirmed replacement cases, with official URLs")
     + table(["Club", "Pos", "Starter unavailable", "Replacement named", "How deep the replacement is", "Official confirmation", "Source"],
             case_rows, "Verified quarterback replacement events, Week 10")

@@ -147,6 +147,27 @@ def main():
          "scripts/build_site.py", "model-lines page builder", "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
          "root dashboard owner / integration session")
 
+    # 5b. Injury-capture shape check on the shared file this workspace reads.
+    inj = json.loads((REPO / "requirements/results/injuries-w10.json").read_text())["items"]
+    n = len(inj)
+    no_inj = [r for r in inj if r["injury"] is None]
+    no_inj_full = [r for r in no_inj if r["practice"] == "Full Participation in Practice"]
+    no_status = [r for r in inj if r["game_status"] is None]
+    per_team_none = {}
+    for r in no_inj:
+        per_team_none[r["team"]] = per_team_none.get(r["team"], 0) + 1
+    worst = sorted(per_team_none.items(), key=lambda kv: -kv[1])[:3]
+    flag("F-07", "medium", "data shape",
+         f"{len(no_inj)} of {n} injury rows carry a practice status but no injury designation and no game status",
+         f"Of those, {len(no_inj_full)} are recorded as 'Full Participation in Practice'. Clubs with the most such rows: "
+         + ", ".join(f"{t} {c}" for t, c in worst) +
+         ". An official injury report normally lists a body part for every player on it, so a block of rows with practice "
+         "status only is more likely a capture artefact than a real report shape. The file belongs to the requirements "
+         "session (f6e60a81), so it is flagged here and not edited. This workspace reads the same file, so its per-club row "
+         "counts inherit whatever shape it has.",
+         "requirements/results/injuries-w10.json", "items[] where injury is null",
+         "https://www.nfl.com/injuries/league/2026/reg10", "requirements owner (f6e60a81)")
+
     # 6. Duplicate namespace inventory: count published HTML surfaces.
     surfaces = sorted(({p2.parent.name for p2 in REPO.glob("*/index.html")} |
                        {p2.parent.parent.name for p2 in REPO.glob("*/site/index.html")}) - {"market"})
