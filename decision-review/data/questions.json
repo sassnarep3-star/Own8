@@ -1,0 +1,348 @@
+{
+  "review_as_of": "2026-11-14",
+  "project_snapshot_as_of": "2026-11-04",
+  "questions": [
+    {
+      "id": "Q01",
+      "category": "Evidence and scope",
+      "question": "What information is currently established well enough to support decisions?",
+      "known_answer": "The canonical audit records a bounded 2026-11-04 snapshot: 32 standings core rows, 15 schedule entries, 12 complete Week 8 score rows, 28 JAX/BAL Week 9 practice entries, and two news bodies. The repository explicitly says this is not exhaustive verification of every inherited file.",
+      "missing_information": "A complete, current, field-level source manifest for the current week; freshness and coverage for every feature used by each strategy; raw or otherwise reproducible source capture for each decision timestamp.",
+      "suggested_discovery": "Keep verified source fields separate from derived values and verification targets. For each field, store publisher, exact URL, retrieved-at time, as-of time, field scope, parser/check status, and an explicit blank reason when unavailable.",
+      "decision_gate": "Do not promote a row or feature unless its exact field and information cutoff are verified. A source link alone is not proof.",
+      "status": "PARTIAL — bounded snapshot only",
+      "repo_evidence": [
+        "data/sources.json",
+        "data/audit-snapshot.json",
+        "README.md"
+      ],
+      "source_ids": [
+        "nfl-standings",
+        "nfl-schedule-week11",
+        "nfl-injuries-week11-request"
+      ]
+    },
+    {
+      "id": "Q02",
+      "category": "Line definition",
+      "question": "What does an Own8-originated line mean, and which quantities may be published?",
+      "known_answer": "The canonical B0 calculation averages team points-for and opponent points-against per game. The methodology says it has no fitted venue, opponent, roster, or uncertainty adjustment and does not infer win or cover probabilities. It is labeled an illustrative, unvalidated benchmark.",
+      "missing_information": "A market-by-market definition, calibrated predictive distribution, neutral-site/venue policy, uncertainty interval, and a documented conversion from forecast to spread, total, or win probability.",
+      "suggested_discovery": "Define separate outputs for expected score/margin, cover probability, total probability, moneyline probability, and player-prop distributions. Document signs, pushes/ties, and abstention rules before comparing a model to a market quote.",
+      "decision_gate": "A mean score or margin must never be labeled a fair probability, fair price, or betting edge without a validated distribution and the relevant line/price.",
+      "status": "PARTIAL — descriptive B0 only",
+      "repo_evidence": [
+        "research/methodology.md",
+        "analysis/model-lines-week9.json",
+        "scripts/analyze.py"
+      ],
+      "source_ids": [
+        "nfl-standings",
+        "nist-confidence-intervals"
+      ]
+    },
+    {
+      "id": "Q03",
+      "category": "Markets and grading",
+      "question": "Which exact bet markets, lines, prices, and settlement rules are being evaluated?",
+      "known_answer": "The strategy registry covers single spreads, totals and moneylines, player props, cross-game parlays, and same-game player-prop combinations. The canonical model output leaves market lines, prices, edges, and probabilities blank; G5 is BLOCKED.",
+      "missing_information": "An authorized operator and market identifier; timestamped quote; odds format; applicable line; limits if relevant; and exact push, void, cancellation, and settlement rules. No operator-native quote was verified in the canonical snapshot.",
+      "suggested_discovery": "Keep the NFL schedule/score source for event identity and final outcomes. Add a separately authorized, operator-native quote source only after its terms, timestamps, and settlement fields are documented; otherwise leave price and expected value blank.",
+      "decision_gate": "No market edge, ROI, or graded bet is publishable without the exact contemporaneous quote and settlement rule.",
+      "status": "BLOCKED — market evidence absent",
+      "repo_evidence": [
+        "analysis/strategies.json",
+        "analysis/model-lines-week9.json",
+        "analysis/validation-gates.json"
+      ],
+      "source_ids": [
+        "nfl-scores-week10",
+        "nfl-schedule-week11"
+      ]
+    },
+    {
+      "id": "Q04",
+      "category": "Results and sample history",
+      "question": "What official results and player outcomes can be used to train, test, and settle a forecast?",
+      "known_answer": "The prior audit captured only a bounded subset; its source register says 12 Week 8 score rows were complete and two were withheld. The canonical audit does not claim a complete historical, timestamp-aligned player-game dataset.",
+      "missing_information": "Complete game/player outcomes for the chosen periods, stable game/player identifiers, correction history, and pre-kickoff feature timestamps aligned to each forecast.",
+      "suggested_discovery": "Choose an official result/gamebook/stat source, record coverage and revisions, and reconcile every selected row to the NFL game identifier. If an official field or historical version cannot be found, leave it blank and flag that coverage gap.",
+      "decision_gate": "Do not call an in-sample or incomplete sample a backtest; do not grade a forecast against an unverified or later-revised outcome without recording the revision.",
+      "status": "PARTIAL — bounded results only",
+      "repo_evidence": [
+        "data/audit-snapshot.json",
+        "data/sources.json",
+        "analysis/verification.json"
+      ],
+      "source_ids": [
+        "nfl-scores-week10",
+        "nfl-schedule-week11",
+        "nfl-player-stats"
+      ]
+    },
+    {
+      "id": "Q05",
+      "category": "Freshness and cutoff",
+      "question": "How current is each input, and was it available before the forecast cutoff?",
+      "known_answer": "The canonical source manifest is dated 2026-11-04. This review is dated 2026-11-14. An official Week 11 schedule page was retrieved, but requesting the Week 11 injury-report URL returned extracted Week 10 content at a Week 10 result URL.",
+      "missing_information": "A verified Week 11 injury report and final player availability; per-field publication and retrieval timestamps; freshness limits; and reliable automated checks for moved, missing, or stale pages.",
+      "suggested_discovery": "Persist retrieved-at and source as-of timestamps separately. Verify the returned page title/week against the requested week. If a page resolves to a prior week or the cutoff cannot be established, mark the feed stale and block affected signals.",
+      "decision_gate": "A future or post-kickoff update cannot be used as a pregame feature. Unknown or stale availability means no lineup-sensitive output.",
+      "status": "UNVERIFIED — current injury page mismatch",
+      "repo_evidence": [
+        "data/sources.json",
+        "data/audit-snapshot.json",
+        "README.md"
+      ],
+      "source_ids": [
+        "nfl-schedule-week11",
+        "nfl-injuries-week11-request",
+        "nfl-injuries-week10"
+      ]
+    },
+    {
+      "id": "Q06",
+      "category": "Availability and injuries",
+      "question": "What is the official game-status/availability state for every relevant player at forecast time?",
+      "known_answer": "The prior snapshot contains 28 selected JAX/BAL Week 9 practice entries, with blank injury/game-status cells retained. The official report page returned in this review shows player, position, injury, practice-status, and game-status columns for Week 10.",
+      "missing_information": "Current-week reports for all teams, report publication time, final game status, official inactive/active confirmation where available, and a safe rule for injury information that is missing or delayed.",
+      "suggested_discovery": "Poll official NFL injury/report pages on a schedule that matches their publication cadence, preserve each version, and reconcile rows to official player/team identifiers. Treat practice participation as practice information only; never convert a blank status or 'No Injuries Reported' into clearance.",
+      "decision_gate": "A current injury or inactive status must be directly supported by an official report for the correct game/week and cutoff; otherwise the player-sensitive model abstains.",
+      "status": "PARTIAL — prior-week practice entries only",
+      "repo_evidence": [
+        "data/audit-snapshot.json",
+        "data/injuries-2026-week9-candidates.json",
+        "pages/injuries.html"
+      ],
+      "source_ids": [
+        "nfl-injuries-week11-request",
+        "nfl-injuries-week10",
+        "nfl-team-directory"
+      ]
+    },
+    {
+      "id": "Q07",
+      "category": "Depth chart and replacements",
+      "question": "Who is the verified starter and who is the verified second-, third-, or fourth-string replacement for each role?",
+      "known_answer": "No current team/player depth-tier or 'replaces' mapping is captured in the canonical audit. The inspected NFL Week 10 injury report has no depth-tier or replacement-mapping column. The NFL team directory links to official club sources but does not establish depth order.",
+      "missing_information": "A dated official team depth chart or explicit official lineup announcement for each team/position, the source publication time, and the player-to-replaced-player relation. Coverage for 2nd/3rd/4th-string tiers is unknown.",
+      "suggested_discovery": "Use a team-published official chart/announcement only when one exists and retain the original URL/date. Add explicit tier values Starter/2/3/4/Unknown and a `replaces_player_id` field. If a chart is unavailable or ambiguous, store null and publish a review flag; never infer tier from roster order, a practice report, or a player's reputation.",
+      "decision_gate": "No replacement adjustment or claim about a backup's tier until a dated official source identifies the role. Unknown depth is not evidence that a starter is healthy or that a backup is weak.",
+      "status": "UNVERIFIED — no depth-tier evidence captured",
+      "repo_evidence": [
+        "data/audit-snapshot.json",
+        "analysis/audit-inventory.json",
+        "pages/injuries.html"
+      ],
+      "source_ids": [
+        "nfl-team-directory",
+        "nfl-injuries-week10",
+        "nfl-injuries-week11-request"
+      ]
+    },
+    {
+      "id": "Q08",
+      "category": "Offense and defense coverage",
+      "question": "Does the lineup monitor cover replacement effects on both offense and defense, by position group?",
+      "known_answer": "The current canonical B0 method says it has no roster adjustment. No verified current replacement rows for offensive or defensive position groups are part of the bounded audit.",
+      "missing_information": "A complete team-week table covering offensive roles (QB, offensive line, RB, WR, TE), defensive roles (front/edge, LB, CB, safety), and special teams where relevant; official position labels; participation/usage evidence; and season/sample context.",
+      "suggested_discovery": "Add a schema-level coverage matrix, not guessed player values. Keep `unit` and `position_group` as project taxonomy fields, preserve the official position label, and separately record starter, replacement tier, availability, actual participation, and source time. If a source field is absent, leave its value blank.",
+      "decision_gate": "The dashboard must show unknown coverage for a team/game/position rather than treating unobserved positions as healthy or fully staffed.",
+      "status": "UNVERIFIED — neither unit has current replacement coverage",
+      "repo_evidence": [
+        "research/methodology.md",
+        "data/audit-snapshot.json",
+        "analysis/validation-gates.json"
+      ],
+      "source_ids": [
+        "nfl-injuries-week10",
+        "nfl-team-directory",
+        "nfl-player-stats"
+      ]
+    },
+    {
+      "id": "Q09",
+      "category": "Replacement impact",
+      "question": "What evidence would justify calling an offensive or defensive unit 'deficient' after a starter is replaced?",
+      "known_answer": "No backup-adjustment coefficient or verified player-level impact estimate is present in the canonical B0 model. Official NFL and Next Gen Stats pages provide stats/metric definitions, but this review did not estimate replacement impact.",
+      "missing_information": "A pre-registered performance metric by role, actual participation/usage, opponent and game context, a stable comparison baseline, sufficient observations, uncertainty, and evidence that the model improves out of sample when replacement information is added.",
+      "suggested_discovery": "Do not label a unit deficient from a depth tier or injury count. Define role-specific metrics, compare a replacement's observed contribution with a pre-specified team/role baseline, account for exposure and opponent/context, quantify uncertainty, and test the incremental feature in chronological holdouts.",
+      "decision_gate": "No numeric injury adjustment, player ranking, or 'deficiency' label until both the underlying observations and the incremental predictive contribution are verified and validated.",
+      "status": "BLOCKED — no impact estimates",
+      "repo_evidence": [
+        "research/methodology.md",
+        "analysis/validation-gates.json",
+        "analysis/strategies.json"
+      ],
+      "source_ids": [
+        "nfl-player-stats",
+        "ngs-glossary",
+        "nist-confidence-intervals"
+      ]
+    },
+    {
+      "id": "Q10",
+      "category": "Data automation",
+      "question": "Can required official fields be refreshed automatically without manual entry, under permitted access and source terms?",
+      "known_answer": "The repository describes a scheduled build/check of a dated snapshot, not unattended fresh official-data capture, market ingestion, or future settlement. The recorded capture method for the canonical source audit is page extraction, not retained raw HTTP.",
+      "missing_information": "An official data feed or stable permitted retrieval method for every required field, update cadence, licensing/terms, parser reliability, outage behavior, and automated source-version verification.",
+      "suggested_discovery": "Automate only official endpoints or approved methods whose access and terms are confirmed. Add freshness/coverage monitors and immutable provenance. If any required field cannot be refreshed without manual entry or a permitted official source, expose the gap and fail closed rather than silently substituting a third party.",
+      "decision_gate": "Do not describe the product as live or fully automated until the data itself—not only the static-site build—has a tested refresh and failure path.",
+      "status": "BLOCKED — build automation is not data automation",
+      "repo_evidence": [
+        "README.md",
+        "data/sources.json",
+        ".github/workflows/audit.yml"
+      ],
+      "source_ids": [
+        "nfl-schedule-week11",
+        "nfl-injuries-week11-request",
+        "github-pages-publishing"
+      ]
+    },
+    {
+      "id": "Q11",
+      "category": "Correlation and combinations",
+      "question": "What are the event-level correlations/joint probabilities for parlay and player-prop legs?",
+      "known_answer": "The canonical correlation file contains three descriptive team-level statistics. Its four bet-event dependence rows have null coefficients and sample sizes. Team-level associations are not event-level leg correlation.",
+      "missing_information": "Timestamp-aligned player/game/market thresholds and paired outcomes, pushes/voids, selection cutoffs, and a validated joint distribution for each combination family.",
+      "suggested_discovery": "Define the joint event before measuring it. Build aligned game/player threshold outcomes; estimate event-specific dependence and joint probabilities with uncertainty; validate the full payout-relevant joint distribution. Do not multiply marginal probabilities or assume independence when dependence is unknown.",
+      "decision_gate": "Parlays and same-game prop combinations stay blocked until the exact joint events, prices, and calibration are validated. Pairwise correlation alone does not establish a three-or-more-leg joint distribution.",
+      "status": "BLOCKED — bet-event dependence is null",
+      "repo_evidence": [
+        "analysis/correlations.json",
+        "research/correlation-policy.md",
+        "analysis/validation-gates.json"
+      ],
+      "source_ids": [
+        "nfl-scores-week10",
+        "nfl-player-stats",
+        "ngs-glossary",
+        "nist-association"
+      ]
+    },
+    {
+      "id": "Q12",
+      "category": "Skill versus luck",
+      "question": "What demonstrates selective, repeatable skill rather than a lucky short run?",
+      "known_answer": "The canonical validation gates G2, G3, G4, G5, G6, G7, and G8 are blocked. There is no verified chronological untouched test or prospective settled paper ledger in the canonical analysis; luck cannot be eliminated.",
+      "missing_information": "A pre-registered candidate family, frozen baseline, chronological development and untouched test, complete forecast timestamps, outcome/price evidence, calibration/uncertainty, multiple-testing control, and independent reproduction.",
+      "suggested_discovery": "Pre-register hypotheses, all variants and cutoffs; train only on earlier data; lock the final holdout; evaluate paired proper scores and calibration with dependence-aware uncertainty and family-wise adjustment. Report abstentions and all attempted variants, not just winners.",
+      "decision_gate": "No strategy is called skill-qualified or rewarded unless every applicable gate is PASS on the locked evidence. A finite test reduces uncertainty; it cannot remove luck or guarantee future profit.",
+      "status": "BLOCKED — no qualification evidence",
+      "repo_evidence": [
+        "analysis/validation-gates.json",
+        "research/validation-gates.md",
+        "research/leaderboard-rules.md"
+      ],
+      "source_ids": [
+        "nist-confidence-intervals",
+        "nist-multiple-comparisons",
+        "nist-association"
+      ]
+    },
+    {
+      "id": "Q13",
+      "category": "Leaderboard and rewards",
+      "question": "What is ranked, when can a strategy earn recognition, and what does a reward mean?",
+      "known_answer": "Eight strategy designs are registered; the canonical leaderboard has zero eligible strategies, null rank/performance/reward fields, and no awarded rewards. Its scoring rule is marked proposed, not implemented.",
+      "missing_information": "An approved definition of the competition unit, entry/withdrawal rules, frozen scoring and sample requirements, reward type/value, dispute process, integrity controls, and legal/regulatory review for any item of value.",
+      "suggested_discovery": "Start with a non-wagering, paper-only leaderboard. Publish no rank until immutable timestamped forecasts are graded and all applicable validation gates pass. Keep point rewards non-transferable and unredeemable unless an independent legal review explicitly approves another design.",
+      "decision_gate": "No cash, cash-equivalent, or other item-of-value prize and no real-money wagering is launched from this code review. Legal classification must be reviewed independently first.",
+      "status": "BLOCKED — no eligible entries or approved rewards",
+      "repo_evidence": [
+        "analysis/leaderboard.json",
+        "analysis/strategies.json",
+        "research/leaderboard-rules.md"
+      ],
+      "source_ids": [
+        "nist-confidence-intervals",
+        "nist-multiple-comparisons",
+        "gra-class-licences",
+        "gra-betting-faq"
+      ]
+    },
+    {
+      "id": "Q14",
+      "category": "Legal and responsible research",
+      "question": "What jurisdiction, operator, user eligibility, and prize classification apply before any wagering or valued reward?",
+      "known_answer": "The repository has no project-specific legal classification. This review makes no conclusion about the legality of a paper contest, points, prizes, or wagering in Singapore or elsewhere.",
+      "missing_information": "The service/operator location, intended users, product mechanics, whether anyone pays or facilitates bets, whether points can be exchanged for value, and qualified legal/regulatory advice for relevant jurisdictions.",
+      "suggested_discovery": "Keep this project research-only and non-monetary. Before any real-money betting, facilitation, or reward of value, obtain advice from qualified counsel and consult the appropriate regulator for each relevant jurisdiction.",
+      "decision_gate": "Do not infer legality from the user's approximate location or from a generic responsible-gambling link. No launch or prize decision is made here.",
+      "status": "UNVERIFIED — no legal determination",
+      "repo_evidence": [
+        "research/responsible-gambling.md",
+        "README.md"
+      ],
+      "source_ids": [
+        "gra-class-licences",
+        "gra-betting-faq",
+        "gra-remote-gambling"
+      ]
+    },
+    {
+      "id": "Q15",
+      "category": "Publication and review",
+      "question": "How can a reviewer distinguish facts, derived calculations, proposals, and unresolved issues on the site?",
+      "known_answer": "At main commit 0db0fb0 (the integration base for this branch), the root dashboard exposes a Requirements & decision review link to requirements/index.html and a separate decision/site/index.html link. It does not link to this branch's decision-review/ subtree.",
+      "missing_information": "A decision whether to link this separate module or consolidate it with the existing requirements/ and decision/site/ surfaces; a verified Pages route and a single reviewer-facing queue connecting questions, evidence, owner/status, next steps, and acceptance tests.",
+      "suggested_discovery": "After the active root-integration owner hands off or approves the shared files, either link decision-review/ from the canonical dashboard and refresh the repository inventory, or explicitly consolidate the material into an existing workspace. This session records the request and does not edit those claimed root files.",
+      "decision_gate": "A published row must not imply approval, verification, a live feed, or strategy eligibility unless the underlying gate and source check actually passed.",
+      "status": "PARTIAL — standalone module built; root link and live route are not confirmed",
+      "repo_evidence": [
+        "COORDINATION.md",
+        "scripts/build_site.py",
+        "index.html",
+        "requirements/index.html",
+        "decision/site/index.html",
+        "decision-review/index.html"
+      ],
+      "source_ids": [
+        "github-pages-publishing",
+        "nfl-standings"
+      ]
+    },
+    {
+      "id": "Q16",
+      "category": "Security and public data",
+      "question": "What is safe to publish on a public GitHub Pages site?",
+      "known_answer": "GitHub documents Pages sites as publicly available on the internet. No operator credentials or private inputs are needed for this research-only module.",
+      "missing_information": "A reviewed publication allowlist for any future raw captures, licensing constraints, personal/sensitive data, and secrets; no such additional material is included here.",
+      "suggested_discovery": "Publish only public official facts, source metadata, derived project calculations, and clearly labeled gaps. Keep credentials, private data, and non-public feeds out of the repository and Pages artifact.",
+      "decision_gate": "The publication check must reject secrets and any non-public or unauthorized source payload before deployment.",
+      "status": "PARTIAL — current module uses public references and no credentials",
+      "repo_evidence": [
+        "_config.yml",
+        ".github/workflows/audit.yml",
+        "decision-review/README.md"
+      ],
+      "source_ids": [
+        "github-pages-publishing",
+        "nfl-injuries-week10"
+      ]
+    },
+    {
+      "id": "Q17",
+      "category": "Site and source of truth",
+      "question": "Which published workspace is authoritative, current, and linked from the main dashboard?",
+      "known_answer": "The root README identifies the canonical dashboard. At main commit 0db0fb0, root navigation links to requirements/index.html, decision/site/index.html, strict/site/index.html, and desk/index.html, but not to decision-review/. This branch contains the separate decision-review subtree; its public route is not yet verified.",
+      "missing_information": "A decision to link or consolidate this separate module; owner/status and as-of metadata for each workspace; direct Pages route checks; and a repository inventory refreshed after any new module is committed.",
+      "suggested_discovery": "After Session f6e60a81's R6/R7 root scope is handed off, request a root link and repository-audit refresh or consolidate this material into an existing workspace. Verify the public route after deployment; until then, label this module as a branch deliverable, not a live authoritative surface.",
+      "decision_gate": "No separate module is presented as current or authoritative solely because its files exist in the repository; verify its published route and dated evidence boundary first.",
+      "status": "OPEN — decision-review root link and live route need cross-scope handoff/verification",
+      "repo_evidence": [
+        "README.md",
+        "scripts/build_site.py",
+        "index.html",
+        "COORDINATION.md",
+        "decision-review/index.html",
+        "analysis/repo-audit.json"
+      ],
+      "source_ids": [
+        "github-pages-publishing",
+        "nfl-standings"
+      ]
+    }
+  ]
+}

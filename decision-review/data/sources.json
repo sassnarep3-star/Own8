@@ -1,0 +1,164 @@
+{
+  "checked_at": "2026-11-14",
+  "method": "Official pages retrieved with functions.fetch_page for bounded source checks. The tool returned extracted page text, not retained raw HTTP or full-site archives. A retrieval confirms the returned content only; it does not certify every field or the project's model.",
+  "official_host_allowlist": [
+    "nfl.com",
+    "nextgenstats.nfl.com",
+    "itl.nist.gov",
+    "gra.gov.sg",
+    "sso.agc.gov.sg",
+    "docs.github.com"
+  ],
+  "sources": [
+    {
+      "id": "nfl-injuries-week11-request",
+      "publisher": "National Football League",
+      "label": "NFL 2026 Week 11 injury-report request",
+      "url": "https://www.nfl.com/injuries/league/2026/reg11",
+      "checked_at": "2026-11-14",
+      "retrieval_status": "MISMATCH — result returned Week 10",
+      "observed": "The extracted page title said Week 10 of the 2026 season and the result URL was /injuries/league/2026/reg10, although /reg11 was requested.",
+      "scope_limit": "No Week 11 injury or game-status row was confirmed by this request. Treat every current Week 11 availability value as unknown."
+    },
+    {
+      "id": "nfl-injuries-week10",
+      "publisher": "National Football League",
+      "label": "NFL 2026 Week 10 injury report (returned page)",
+      "url": "https://www.nfl.com/injuries/league/2026/reg10",
+      "checked_at": "2026-11-14",
+      "retrieval_status": "RETRIEVED — bounded field inspection",
+      "observed": "The returned report displays Player, Position, Injuries, Practice Status, and Game Status columns.",
+      "scope_limit": "The inspected table did not expose a depth-chart tier or a replacement-for mapping. This is an observation about the returned report, not a claim that separate team publications never provide one. No Week 11 availability values are inferred."
+    },
+    {
+      "id": "nfl-schedule-week11",
+      "publisher": "National Football League",
+      "label": "NFL 2026 Week 11 schedule",
+      "url": "https://www.nfl.com/schedules/2026/by-week/week-11",
+      "checked_at": "2026-11-14",
+      "retrieval_status": "RETRIEVED — page title and selected schedule text",
+      "observed": "The page identifies the 2026 Week 11 schedule and links to NFL game pages.",
+      "scope_limit": "This session did not transcribe every game row; the URL is a source target for schedule and game-key collection, not a full-slate audit."
+    },
+    {
+      "id": "nfl-scores-week10",
+      "publisher": "National Football League",
+      "label": "NFL 2026 Week 10 scores",
+      "url": "https://www.nfl.com/scores/2026/week-10",
+      "checked_at": "2026-11-14",
+      "retrieval_status": "RETRIEVED — page title and selected content",
+      "observed": "The page is an NFL scores/results surface with links to individual NFL game pages.",
+      "scope_limit": "Scores are outcome evidence, not operator odds, prices, settlement terms, or a proof of predictive skill. This session did not audit every Week 10 score."
+    },
+    {
+      "id": "nfl-standings",
+      "publisher": "National Football League",
+      "label": "NFL standings",
+      "url": "https://www.nfl.com/standings/",
+      "checked_at": "2026-11-14",
+      "retrieval_status": "RETRIEVED — page title and selected table content",
+      "observed": "The page identifies standings and links to division, conference, and league views.",
+      "scope_limit": "This session did not re-transcribe the 32-team table. Do not treat this link as a fresh verification of the project's 2026-11-04 snapshot."
+    },
+    {
+      "id": "nfl-team-directory",
+      "publisher": "National Football League",
+      "label": "NFL directory of official team sites",
+      "url": "https://www.nfl.com/teams/",
+      "checked_at": "2026-11-14",
+      "retrieval_status": "RETRIEVED — page title and selected content",
+      "observed": "The NFL page labels itself as official sites of all 32 teams and links to team profiles and club websites.",
+      "scope_limit": "The directory is a route to official team sources; it is not itself evidence of a team's current depth chart or starter order."
+    },
+    {
+      "id": "nfl-player-stats",
+      "publisher": "National Football League",
+      "label": "NFL 2026 player-stat categories",
+      "url": "https://www.nfl.com/stats/player-stats/",
+      "checked_at": "2026-11-14",
+      "retrieval_status": "RETRIEVED — page title, categories, and selected content",
+      "observed": "The page lists passing, rushing, receiving, tackles, interceptions, and other player-stat categories.",
+      "scope_limit": "No player-season or player-game value was transcribed for this review. A stat category alone does not establish playing time, role, depth tier, or a replacement's causal impact."
+    },
+    {
+      "id": "ngs-glossary",
+      "publisher": "NFL Next Gen Stats",
+      "label": "Next Gen Stats glossary",
+      "url": "https://nextgenstats.nfl.com/glossary",
+      "checked_at": "2026-11-14",
+      "retrieval_status": "RETRIEVED — metric definitions",
+      "observed": "The glossary describes player-tracking context and metric definitions including completion probability, expected completion percentage, air yards, separation, and box defenders.",
+      "scope_limit": "Definitions are not player observations, forecast inputs, or evidence that a metric predicts a bet outcome. No NGS numeric value was transcribed here."
+    },
+    {
+      "id": "nist-association",
+      "publisher": "U.S. National Institute of Standards and Technology",
+      "label": "NIST: scatter plots and association",
+      "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/scatterp.htm",
+      "checked_at": "2026-11-14",
+      "retrieval_status": "RETRIEVED — methodology text",
+      "observed": "NIST describes scatter plots as tools for identifying relationships and states that association does not prove causality.",
+      "scope_limit": "This is statistical context; it does not estimate any Own8 correlation or validate a betting strategy."
+    },
+    {
+      "id": "nist-confidence-intervals",
+      "publisher": "U.S. National Institute of Standards and Technology",
+      "label": "NIST: confidence intervals",
+      "url": "https://www.itl.nist.gov/div898/handbook/prc/section1/prc14.htm",
+      "checked_at": "2026-11-14",
+      "retrieval_status": "RETRIEVED — methodology text",
+      "observed": "NIST describes intervals as ranges used to express uncertainty in estimating a population parameter and explains repeated-sampling interpretation.",
+      "scope_limit": "No Own8 interval or strategy performance is computed from this page."
+    },
+    {
+      "id": "nist-multiple-comparisons",
+      "publisher": "U.S. National Institute of Standards and Technology",
+      "label": "NIST: Bonferroni method for multiple comparisons",
+      "url": "https://www.itl.nist.gov/div898/handbook/prc/section4/prc473.htm",
+      "checked_at": "2026-11-14",
+      "retrieval_status": "RETRIEVED — methodology text",
+      "observed": "NIST describes a family-wise coverage method for a finite set of comparisons and notes that no one comparison method is uniformly best.",
+      "scope_limit": "Own8's proposed trial family and thresholds are project design, not NIST rules or endorsements."
+    },
+    {
+      "id": "gra-class-licences",
+      "publisher": "Singapore Gambling Regulatory Authority",
+      "label": "GRA: class licences and remote games of chance",
+      "url": "https://www.gra.gov.sg/licenses-approvals/class-licences",
+      "checked_at": "2026-11-14",
+      "retrieval_status": "RETRIEVED — regulatory guidance text",
+      "observed": "GRA describes remote games of chance as having chance-based elements and prizes that may be money, money-equivalent, or something of value; it advises seeking legal advice if uncertain about classification.",
+      "scope_limit": "This project has not been legally classified. The page is a review trigger, not a determination that the project is or is not regulated."
+    },
+    {
+      "id": "gra-betting-faq",
+      "publisher": "Singapore Gambling Regulatory Authority",
+      "label": "GRA: lottery and betting FAQ",
+      "url": "https://www.gra.gov.sg/licenses-approvals/licences-for-other-gambling-operators/lottery-betting/faq-for-lottery-and-betting",
+      "checked_at": "2026-11-14",
+      "retrieval_status": "RETRIEVED — regulatory guidance text",
+      "observed": "GRA's FAQ describes activities that may constitute betting operations and explains that a prize can include money, money-equivalent, or another thing of value.",
+      "scope_limit": "No legal conclusion is made about a paper leaderboard, points, or any future reward structure. Obtain qualified advice before offering value or facilitating wagering."
+    },
+    {
+      "id": "gra-remote-gambling",
+      "publisher": "Singapore Gambling Regulatory Authority",
+      "label": "GRA: unlawful remote gambling activities",
+      "url": "https://www.gra.gov.sg/harm-minimisation/unlawful-remote-gambling-activities",
+      "checked_at": "2026-11-14",
+      "retrieval_status": "RETRIEVED — regulatory guidance text",
+      "observed": "GRA provides official guidance on unlawful remote gambling activity in or from Singapore.",
+      "scope_limit": "This page is not used to assess an individual's location, eligibility, or the project's legal status."
+    },
+    {
+      "id": "github-pages-publishing",
+      "publisher": "GitHub Docs",
+      "label": "GitHub Pages publishing sources",
+      "url": "https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site",
+      "checked_at": "2026-11-14",
+      "retrieval_status": "RETRIEVED — platform documentation",
+      "observed": "GitHub documents branch-root or /docs publishing and custom Actions publishing, and states that Pages sites are publicly available on the internet.",
+      "scope_limit": "Repository permissions, a successful build, and public deployment must be verified separately; documentation does not prove this site's current deployment status."
+    }
+  ]
+}
