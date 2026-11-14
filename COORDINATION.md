@@ -672,3 +672,22 @@ Cross-session requests from 5b52ac15 (not edited here):
 - Origination owner (`origination/**`): remove the "Official source" label from C2–C4 and C10–C11, or move them to a labelled derived block; reconcile the "Official NFL data only" header with the model-derived rows (F-01).
 - 2026-11-14 — X5 done. PR #49 https://github.com/sassnarep3-star/Own8/pull/49 (`arena/5b52ac15-own8` → `main`) MERGED 2026-11-14T22:05:32Z, merge commit `59a3982`. PR checks: validate, independent-desk, evidence-and-site all pass. GitHub Pages build for `59a3982` status `built`. Live pages re-fetched and render: correlation-audit/index.html (11 rows, 11/11 MATCH, 6 values shown, 5 withheld) and correlation-audit/flagged.html (F-01..F-07). Board recorded in a follow-up board-only PR per the precedent of PR #47.
 
+
+## Session 2f8759c5 — final integration, full line-by-line verification, and Pages publication (claimed 2026-11-14 UTC)
+
+Branch: `arena/2f8759c5-own8` (Arena-pinned; all work on this branch). Base commit `12f6bbf` (merge of PR #47). Scope: this section of COORDINATION.md; root-level hygiene (untrack the `__pycache__/*.pyc` build artifacts under `origination/scripts/__pycache__/` that violate `.gitignore`); run-every-checker verification; confirm GitHub Pages live; open PR to main; merge; record result here. No feature namespace is edited — every prior session's work is treated as read-only and re-verified via its own checkers.
+
+Why this scope: the operator's full requirement set (price-snapshot store, verified results feed, side→total→moneyline origination order, fair/market/difference columns, signal-vs-staking leaderboard split, replacement-depth tracking, official-only correlations with n, demotion gate, suggestions section, executive summary, live GitHub Pages site) is implemented across the merged namespaces (`ledger/`, `origination/`, `requirements/`, root dashboard, and parallel sessions' surfaces). Two hard limits are documented rather than faked: (a) no official source publishes betting prices, so all opening/closing/market values stay blank/fail-closed; (b) no official nfl.com depth chart exists (404), so 2nd/3rd/4th-string replacement depth is not obtainable pregame and stays blank. Nothing is inferred.
+
+| ID | Task | Status | Owner | Files (scope) | Verification plan |
+| --- | --- | --- | --- | --- | --- |
+| J0 | Board claim (this section) | in progress | 2f8759c5 | COORDINATION.md (this section) | Claim commit pushed before any other work |
+| J1 | Re-run every committed checker from a clean checkout (root + ledger + requirements + origination + strict + desk + evidence-lab) and record exit codes | planned | 2f8759c5 | COORDINATION.md (results) | Each checker exit 0; pre-existing failures recorded as irregularities, not silently ignored |
+| J2 | Repo hygiene: untrack `__pycache__/*.pyc` under `origination/scripts/__pycache__/` (violates `.gitignore`; logged irregularity R-04 by session 101b20bc) | planned | 2f8759c5 | `origination/scripts/__pycache__/*.pyc` (untrack only — no logic changed) | `git ls-files | grep pyc` returns empty; `.gitignore` already excludes `__pycache__/` and `*.pyc` |
+| J3 | Confirm GitHub Pages is built and live on main (source branch main, path /) | planned | 2f8759c5 | `gh api repos/.../pages` + live fetch of https://sassnarep3-star.github.io/Own8/ | Pages API status `built`; live URL returns the root dashboard |
+| J4 | Open PR from `arena/2f8759c5-own8` to main, merge without waiting, confirm Pages deploy, record PR link + merge result here | planned | 2f8759c5 | COORDINATION.md (this section) | PR merge commit recorded; Pages build API `built` after deploy; live URL re-fetched |
+
+Cross-session requests logged: none — all prior namespaces are read-only here; the `.pyc` cleanup touches only build artifacts under `origination/` and changes no session logic (origination owner 4bc92a5f notified via this section).
+
+Log (2f8759c5):
+- 2026-11-14 — Claimed J0–J4. Read the full board; confirmed all prior sessions' tasks are done/merged (PRs #41–#47 merged; site live). Root checkers already PASS locally (build_site, check_links 40 pages/2804 links/2076 rows/0 errors, audit_repo 256 comparisons/0 mismatches, analyze 14 B0/7 correlations/0 eligible, 18 unit tests OK; ledger check_ledger 22/22). Open PRs #39/#32/#31/#28 belong to other sessions and are not touched.
