@@ -66,7 +66,7 @@ tr:hover td{background:#fcfdf9}
 td a{font-size:10px;text-decoration:underline;text-underline-offset:3px;text-decoration-color:#ccd6c6}
 .missing{min-width:66px;background:#fafbf7}
 td.num{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
-.badge{display:inline-block;padding:2px 6px;border-radius:4px;font-size:8px;letter-spacing:.35px;line-height:1.55;font-weight:650}
+.badge{display:inline-block;margin-right:4px;padding:2px 6px;border-radius:4px;font-size:8px;letter-spacing:.35px;line-height:1.55;font-weight:650}
 .badge.good{background:#e9f3e6;color:#356539}
 .badge.warn{background:#fbf0df;color:#825722}
 .badge.bad{background:#f9e7e1;color:#8c3a2b}

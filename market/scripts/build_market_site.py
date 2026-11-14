@@ -675,8 +675,8 @@ for q in dg["questions"]:
     kind = ("good" if q["answerable_from_current_information"].startswith("YES")
             else "warn" if q["answerable_from_current_information"].startswith("PARTLY") else "bad")
     q_html.append(f"""<div class="card"><h3>{e(q['id'])} · {e(q['question'])}</h3>
-<p class="meta">{badge(q['answerable_from_current_information'].split(' - ')[0], kind)} {badge('owner: ' + q['who_can_answer'], 'neutral')}</p>
-<p><strong>Why it blocks a decision.</strong> {e(q['why_it_blocks_a_decision'])}</p>
+<p class="meta">{badge(q['answerable_from_current_information'].split(' - ')[0].split(' for ')[0].split(' YES')[0], kind)} {badge('owner: ' + q['who_can_answer'], 'neutral')}</p>
+<p><strong>Answerable from today's information:</strong> {e(q['answerable_from_current_information'])}</p><p><strong>Why it blocks a decision.</strong> {e(q['why_it_blocks_a_decision'])}</p>
 <ul><li><strong>What we have.</strong> {e(q['what_we_have'])}</li>
 <li><strong>What we lack.</strong> {e(q['what_we_lack'])}</li>
 <li><strong>How to discover it.</strong> {e(q['discovery_plan'])}</li>
