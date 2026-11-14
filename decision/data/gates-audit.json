@@ -1,0 +1,103 @@
+{
+ "as_of": "2026-11-14",
+ "measured": {
+  "as_of": "2026-11-14",
+  "what_this_tests": "Whether the site's frozen, explicitly-UNVALIDATED Week 9 benchmarks happened to point the right way. This is one week, n=15. It is a measurement, not a gate, and it cannot promote or demote a strategy by itself.",
+  "n_games": 15,
+  "margin_mae": 9.4589,
+  "total_mae": 11.0339,
+  "margin_bias": 3.2327,
+  "naive_total_mae": 11.1733,
+  "total_mae_vs_naive_delta": -0.1394,
+  "winner_correct": 13,
+  "winner_scored": 15,
+  "winner_accuracy": 0.8667,
+  "binomial_p_vs_coinflip": 0.00738525390625,
+  "home_wins": 5,
+  "away_wins": 10,
+  "home_win_rate": 0.3333,
+  "interpretation": [
+   "One week of 15 games cannot distinguish skill from luck; the honest band on a 15-game hit rate is enormous.",
+   "No operator price existed for these games, so no ROI, no edge and no reward can be computed. Moneyline/return claims remain blocked.",
+   "B0 uses pre-Week-9 season means with zero venue adjustment, so it systematically under-predicts a home-field effect if one exists."
+  ],
+  "baseline_winner_rules": {
+   "always_pick_home": {
+    "hits": 5,
+    "scored": 15,
+    "accuracy": 0.3333,
+    "p_vs_coinflip": 0.3017578125
+   },
+   "better_win_pct": {
+    "hits": 12,
+    "scored": 13,
+    "accuracy": 0.9231,
+    "p_vs_coinflip": 0.00341796875
+   },
+   "better_point_diff_per_game": {
+    "hits": 13,
+    "scored": 15,
+    "accuracy": 0.8667,
+    "p_vs_coinflip": 0.00738525390625
+   },
+   "b0_model_favourite": {
+    "hits": 13,
+    "scored": 15,
+    "accuracy": 0.8667,
+    "p_vs_coinflip": 0.00738525390625
+   }
+  },
+  "anti_luck_conclusion": "The 13/15 hit rate is NOT evidence of skill: a rule that simply picks the team with the better season point differential is scored on the same 15 games in the same output. The B0 edge over that rule, if any, is the only part that could be skill; with n=15 the confidence interval on any difference spans zero. Nothing here clears a validation gate."
+ },
+ "defects": [
+  {
+   "id": "GA-1",
+   "severity": "high",
+   "defect": "The registry scores strategies with Brier/ROI but the only published lines are spread/total point estimates with no probability. A spread benchmark cannot produce a Brier score without a calibrated market or a probability model.",
+   "evidence": "analysis/leaderboard.json: brier, roi and reward_points are null for all 8 rows; analysis/model-lines-week9.json: win_probability null for all 15 games.",
+   "fix": "Score the benchmark on the metrics it can actually produce (margin MAE, total MAE, winner accuracy vs. baseline) and only use Brier once an explicit probability model exists.",
+   "source": "https://www.itl.nist.gov/div898/handbook/prc/section1/prc14.htm"
+  },
+  {
+   "id": "GA-2",
+   "severity": "high",
+   "defect": "Winner accuracy is reported without a baseline. Measured on Week 9 (n=15), the frozen B0 favourite scored 13/15 = 86.7% while a trivial \"pick the better point differential\" rule scored the SAME 86.7% and \"pick the better record\" scored 92.3%.",
+   "evidence": "decision/results/w9-out-of-sample.json: baseline_winner_rules.",
+   "fix": "Require every headline number to appear next to a fixed, pre-declared naive baseline computed on the identical games. A strategy that does not beat the dumbest comparable rule is not a strategy.",
+   "source": "https://www.itl.nist.gov/div898/handbook/eda/section3/scatterp.htm"
+  },
+  {
+   "id": "GA-3",
+   "severity": "high",
+   "defect": "A single week (n=15) produced p=0.007 against a coin flip for these benchmarks, which LOOKS like strong skill and is not: with 12+ strategy variants being registered, an occasional p<0.01 is expected by construction.",
+   "evidence": "decision/results/w9-out-of-sample.json: binomial_p_vs_coinflip=0.007 with winner_accuracy 0.867, versus 0.867 from a baseline rule.",
+   "fix": "Never evaluate a single slate. Require the pre-registered family-wise adjustment over all registered variants before any p-value is quoted, and publish the baseline alongside it.",
+   "source": "https://www.itl.nist.gov/div898/handbook/prc/section4/prc473.htm"
+  },
+  {
+   "id": "GA-4",
+   "severity": "medium",
+   "defect": "Reward formula rewards an improvement in Brier lower bound, but there is no defined zero point and no way to award zero. If all strategies fail, the leaderboard is empty rather than informative about which failed least badly.",
+   "evidence": "analysis/leaderboard.json: scoring text; analysis/validation-gates.json: eligible_strategies=0.",
+   "fix": "Publish a diagnostic ranking of blocked strategies by out-of-sample error with intervals, clearly separated from any reward or promotion. Information beats an empty table.",
+   "source": "https://www.itl.nist.gov/div898/handbook/prc/section1/prc14.htm"
+  },
+  {
+   "id": "GA-5",
+   "severity": "medium",
+   "defect": "No strategy takes a side for ties, but NFL ties occur (NYG, WAS already have ties in 2026). Undefined tie handling silently drops games and can bias accuracy.",
+   "evidence": "data/audit-snapshot.json: NYG and WAS each carry T=1 for 2026.",
+   "fix": "Declare tie policy explicitly per market (push/void/refund) before scoring, and report the number of games dropped for any reason.",
+   "source": "https://www.nfl.com/standings/league/2026/REG"
+  },
+  {
+   "id": "GA-6",
+   "severity": "medium",
+   "defect": "Market-based gates (G5 price, G7 net EV, G8 ledger) are unreachable because no verified operator prices exist, which permanently blocks 100% of strategies regardless of model quality.",
+   "evidence": "analysis/validation-gates.json: G5/G7/G8 BLOCKED; data/flagged.json A01/A05/A08 record the reason.",
+   "fix": "Split the competition into a track that is judgeable without prices (forecast accuracy, calibration) and a separate betting track gated on prices. Otherwise no research can ever be rewarded.",
+   "source": "https://www.nfl.com/scores/2026/week-9"
+  }
+ ],
+ "strongest_available_signal": "Even under the most favourable read (n=15, one week), the benchmarks tie a naive rule and lose to a simpler one. That is the single most decision-relevant result available today."
+}

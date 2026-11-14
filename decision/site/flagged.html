@@ -1,0 +1,67 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flagged for review · Own8 decision support</title>
+<style>
+:root{--bg:#0d1117;--panel:#151b23;--line:#232c38;--ink:#e6edf3;--mut:#8b98a8;--acc:#3fb950;--warn:#d29922;--bad:#f85149}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header{position:sticky;top:0;z-index:9;background:rgba(13,17,23,.94);border-bottom:1px solid var(--line);backdrop-filter:blur(8px)}
+.bar{max-width:1180px;margin:0 auto;padding:.7rem 1rem;display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
+.brand{font-weight:700;letter-spacing:.02em;color:var(--ink);text-decoration:none}
+.brand b{color:var(--acc)}
+nav{display:flex;gap:.15rem;flex-wrap:wrap;margin-left:auto}
+nav a{color:var(--mut);text-decoration:none;padding:.32rem .6rem;border-radius:7px;font-size:13.5px}
+nav a:hover{background:var(--panel);color:var(--ink)}
+nav a[aria-current=page]{background:#1f6feb22;color:#79c0ff;box-shadow:inset 0 0 0 1px #1f6feb55}
+main{max-width:1180px;margin:0 auto;padding:1.6rem 1rem 4rem}
+h1{font-size:1.72rem;line-height:1.25;margin:.2rem 0 .5rem;letter-spacing:-.01em}
+h2{font-size:1.14rem;margin:2rem 0 .6rem;padding-bottom:.35rem;border-bottom:1px solid var(--line)}
+h3{font-size:1rem;margin:1.3rem 0 .4rem}
+p{margin:.55rem 0}
+.lead{color:var(--mut);font-size:1.02rem;max-width:74ch}
+.note{color:var(--mut);font-size:12.8px;margin:.45rem 0 0}
+a{color:#79c0ff}
+code{background:#1b2230;padding:.1rem .32rem;border-radius:5px;font-size:12.5px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:.8rem;margin:1.1rem 0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:.85rem .9rem}
+.card .k{font-size:1.5rem;font-weight:700;letter-spacing:-.02em}
+.card .l{color:var(--mut);font-size:12.6px;text-transform:uppercase;letter-spacing:.05em}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:11px;margin:.7rem 0}
+table{border-collapse:collapse;width:100%;font-size:13.6px}
+caption{text-align:left;padding:.65rem .8rem;color:var(--mut);font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;border-bottom:1px solid var(--line)}
+th,td{padding:.5rem .7rem;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
+th{background:#101720;color:var(--mut);font-weight:600;font-size:12.4px;text-transform:uppercase;letter-spacing:.04em;white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:hover{background:#111823}
+td.blank{color:#5a6472;text-align:center}
+.chip{display:inline-block;padding:.1rem .45rem;border-radius:999px;font-size:11.4px;font-weight:600;white-space:nowrap;border:1px solid}
+.chip.good{color:#3fb950;border-color:#3fb95055;background:#3fb95015}
+.chip.warn{color:#d29922;border-color:#d2992255;background:#d2992215}
+.chip.bad{color:#f85149;border-color:#f8514955;background:#f8514915}
+.box{background:#10202b;border:1px solid #1f6feb44;border-left:3px solid #1f6feb;border-radius:9px;padding:.8rem 1rem;margin:1rem 0}
+.box.warn{background:#241d10;border-color:#d2992244;border-left-color:#d29922}
+.box.bad{background:#2a1414;border-color:#f8514944;border-left-color:#f85149}
+.box b{display:block;margin-bottom:.2rem}
+.opt{border:1px solid var(--line);border-radius:9px;padding:.6rem .8rem;margin:.45rem 0;background:#111823}
+.opt .t{font-weight:600}
+.opt.rec{border-color:#3fb95066;box-shadow:inset 3px 0 0 #3fb950}
+footer{border-top:1px solid var(--line);color:var(--mut);font-size:12.5px;padding:1.1rem 1rem;text-align:center}
+ul{margin:.4rem 0 .4rem 1.1rem;padding:0} li{margin:.22rem 0}
+</style></head><body>
+<header><div class="bar"><a class="brand" href="index.html"><b>8</b> OWN8 · DECISION SUPPORT</a>
+<nav aria-label="Section navigation"><a href="index.html">Start here</a><a href="executive-summary.html">Executive summary</a><a href="out-of-sample.html">Week 9 test</a><a href="suggestions.html">Suggestions</a><a href="questions.html">Open questions</a><a href="availability.html">Injuries &amp; depth</a><a href="anti-luck.html">Anti-luck rules</a><a aria-current=page href="flagged.html">Flagged for review</a></nav></div></header>
+<main><h1>Flagged for review</h1><p class="lead">Irregularities and unverified items, each with the source that shows the problem.</p><div class="box warn"><b>Non-blocking by design</b>
+<p>Nothing on this page prevents publication. Each item is shown with its source so it can be reviewed
+after the site is live and changed on request. An item is removed only when its source confirms a fix.</p></div>
+<h2>Register</h2><div class="tbl"><table><caption>Flagged for review</caption><thead><tr><th scope="col">ID</th><th scope="col">Priority</th><th scope="col">Finding</th><th scope="col">Where it lives</th><th scope="col">Source</th></tr></thead><tbody><tr><td>FL-01</td><td>high</td><td>The published dashboard is frozen at 2026-11-04 (Week 9 pre-game) while Week 9 is final and Week 10 has started.</td><td>data/audit-snapshot.json</td><td><a href="https://www.nfl.com/scores/2026/week-9" target="_blank" rel="noopener noreferrer">Week 9 finals ↗</a></td></tr><tr><td>FL-02</td><td>high</td><td>No official depth chart exists on nfl.com, so 2nd/3rd/4th-string tracking is unverifiable and must stay blank.</td><td>decision/data/availability-probe.json</td><td><a href="https://www.nfl.com/teams/depth-chart" target="_blank" rel="noopener noreferrer">404 page ↗</a></td></tr><tr><td>FL-03</td><td>high</td><td>The 15 published Week 9 lines are superseded: the games are final and the numbers should be read as historical.</td><td>analysis/model-lines-week9.json</td><td><a href="https://www.nfl.com/scores/2026/week-9" target="_blank" rel="noopener noreferrer">Week 9 finals ↗</a></td></tr><tr><td>FL-04</td><td>high</td><td>Four parallel sessions claimed the same suggestions / questions / injury scope on 2026-11-14, risking duplicated and conflicting pages.</td><td>COORDINATION.md</td><td><a href="https://github.com/sassnarep3-star/Own8/actions" target="_blank" rel="noopener noreferrer">CI runs ↗</a></td></tr><tr><td>FL-05</td><td>medium</td><td>Week 10 injury report was partially transcribed here (114 rows, 18 clubs); clubs not read are absent, not empty.</td><td>decision/data/injuries-2026-week10.json</td><td><a href="https://www.nfl.com/injuries/league/2026/reg10" target="_blank" rel="noopener noreferrer">Report ↗</a></td></tr><tr><td>FL-06</td><td>medium</td><td>No verified operator price exists for any published line, so no ROI, edge or reward can be computed for any strategy.</td><td>analysis/validation-gates.json</td><td><a href="https://www.nfl.com/scores/" target="_blank" rel="noopener noreferrer">NFL scores ↗</a></td></tr><tr><td>FL-07</td><td>medium</td><td>Leaderboard scoring requires a Brier score but the published benchmarks emit no probabilities.</td><td>analysis/leaderboard.json</td><td><a href="https://www.itl.nist.gov/div898/handbook/prc/section1/prc14.htm" target="_blank" rel="noopener noreferrer">NIST ↗</a></td></tr><tr><td>FL-08</td><td>low</td><td>Automated publishing is not wired: workflows validate and upload an artifact but do not republish the site, so it cannot refresh itself.</td><td>.github/workflows/audit.yml</td><td><a href="https://github.com/sassnarep3-star/Own8/actions" target="_blank" rel="noopener noreferrer">Actions ↗</a></td></tr></tbody></table></div><p class="note">Priorities: high = misleading if ignored; medium = limits what can be concluded; low = hygiene.</p><h2>Unverified values, deliberately left blank</h2>
+<ul>
+<li><strong>Starter / 2nd / 3rd / 4th string designation.</strong> No official source. <a href="https://www.nfl.com/teams/depth-chart" target="_blank" rel="noopener noreferrer">Checked ↗</a>.</li>
+<li><strong>Snap counts and routes run.</strong> Absent from the official stats taxonomy. <a href="https://www.nfl.com/stats/player-stats/" target="_blank" rel="noopener noreferrer">Checked ↗</a>.</li>
+<li><strong>Market lines, prices and edges.</strong> No official NFL price source exists.</li>
+<li><strong>Parlay and prop-combo correlations.</strong> Needs aligned per-game outcomes that are not yet transcribed.</li>
+</ul>
+<p>Each of these stays blank on every page in this section. A blank is a statement that the value could
+not be confirmed, not a zero.</p></main>
+<footer>Paper research only · No wagering, no cash rewards, no profitability claim ·
+Sources retrieved 2026-11-14 · Blank means unverified, never inferred</footer>
+</body></html>
