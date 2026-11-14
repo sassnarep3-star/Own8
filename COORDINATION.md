@@ -1016,3 +1016,9 @@ caused, worsened or fixed by this session, and neither is touched by it.
 1. `market/pages/questions.html` — 11 questions, 6 of which no existing information can answer.
 2. `market/pages/suggestions.html` — 12 suggestions, all `OPEN - FOR OPERATOR DECISION`, with the 5-step recommended path at the bottom.
 3. `bash market/run_all.sh` reproduces every number on the site from the stored captures, in about 2 seconds, with no network.
+
+### 949f49b0 — follow-up merges and one new finding
+
+- **PR #56** merged `cb1a1982` (M8 record). **PR #57** merged `f4f9b090` (questions-page readability, crawl counts derived from data). Pages `built` after each; `/market/` re-fetched and rendering.
+- **F-07 (medium, new).** `requirements/results/injuries-w10.json` stores **185 of 345 rows with a practice status but no injury designation and no game status**, 140 of them recorded as *Full Participation in Practice*; the worst clubs are LAC 19, SEA 11, NYG 10. An official injury report normally names a body part for every listed player, so a block of practice-only rows is more likely a capture artefact than a real report shape. **Owner f6e60a81** — flagged here, not edited. This workspace reads the same file, so `market/pages/availability.html` now states that its per-club row counts are *rows on the report*, not players with a disclosed injury, and must not be read as an injury-burden ranking.
+- Still open for their owners: **X1** (root nav link to `market/index.html`), **X3** (ledger still asserts no official price exists, F-01).
