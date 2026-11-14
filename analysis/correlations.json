@@ -1,11 +1,11 @@
 {
-  "as_of": "2026-11-04",
+  "as_of": "2026-11-14",
   "method": "Team descriptive statistics only. Game-level correlations left null.",
   "correlations": [
     {
       "pair": "Net points/game vs win fraction",
       "type": "Pearson",
-      "r": 0.843142,
+      "r": 0.87806,
       "n": 32,
       "confidence_interval": null,
       "classification": "DERIVED \u2014 DESCRIPTIVE",
@@ -15,7 +15,7 @@
     {
       "pair": "Net points/game rank vs win fraction rank",
       "type": "Spearman (average ties)",
-      "r": 0.845063,
+      "r": 0.865784,
       "n": 32,
       "confidence_interval": null,
       "classification": "DERIVED \u2014 DESCRIPTIVE",
@@ -25,7 +25,7 @@
     {
       "pair": "Points for/game vs win fraction",
       "type": "Pearson",
-      "r": 0.61779,
+      "r": 0.698372,
       "n": 32,
       "confidence_interval": null,
       "classification": "DERIVED \u2014 DESCRIPTIVE",

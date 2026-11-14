@@ -446,3 +446,34 @@ Log (c563a1dc):
   2026-11-04. Open stale PRs observed (#6, #8, #16, #28, #31, #32 — last updated 2026-11-04);
   their scopes (lab/**, root sign fix, competition ledger, evidence-lab records) are not
   touched; this session integrates only its claimed canonical scope. Claimed C1–C4 above.
+
+## Session c563a1dc — progress log (2026-11-14)
+
+- C1 DONE (verification refresh, 2026-11-14): Fresh official retrievals via fetch_page —
+  nfl.com/standings (2 chunks, 32 rows), nfl.com/schedules/2026/by-week/week-10 (3 chunks,
+  14 games + byes CHI/DEN/PHI/TB), nfl.com/scores/2026/week-9 (2 chunks, 15 games),
+  nfl.com/injuries/league/2026/reg10 (8 chunks, bounded 6-game sample, 149 rows),
+  nextgenstats.nfl.com/stats/passing/2026/REG/9 (30 QB rows). Script
+  scripts/refresh_2026_11_14.py transcribes and checks: 202 checks all PASS, including
+  arithmetic (PF-PA=NET, PCT, HOME+ROAD=GP, DIV%/CONF%), cross-capture (every 2026-11-14
+  standings row = 2026-11-04 post-W8 record + W9 result + W10 WAS-NYG result), schedule
+  partition, score coverage, injury vocabulary, NGS parse. Canonical snapshot updated to
+  as_of 2026-11-14; previous snapshot archived at data/audit-snapshot-2026-11-04.json.
+  New evidence: data/ngs-passing-2026-week9.json + raw transcription; data/live-verify-2026-11-14.json.
+  Flags added: C-01..C-05 (refresh, bounded injury sample, news dates, NGS evidence, LAR/LA alias).
+  IR-c56-01: NGS renders the Rams as LAR while nfl.com standings/schedules use LA (surface-native
+  codes kept; alias applied only to the internal consistency check).
+- C2 DONE: data/suggestions.json (12 suggestions S-01..S-12: freshness, roster-depth/backups,
+  competition layer, correlations, gate enforcement, UX, freshness indicator, full injury
+  coverage, decision log, player-prop signals, market reference, weekly correlation refresh) and
+  data/decisions.json (10 decision questions D-01..D-10 with information held, missing, and impact).
+  Each row links an official context/verification target; no unsupported values.
+- C3 DONE: scripts/build_site.py adds Suggestions (16) and Decision framework (17) pages to the
+  nav; all pages regenerated with the 2026-11-14 snapshot (Week 10 slate, Week 9 scores, W10
+  injury sample, refreshed exec summary). analyze.py outputs renamed model-lines.json /
+  prop-signals.json (stale week9 files removed); audit_repo.py standings check now arithmetic-only
+  (the W8-diff check is obsolete after the refresh); test_audit.py and check_links.py updated.
+  Full pipeline: audit_repo (256 field checks, 0 mismatches, 471 entries), analyze (14 B0
+  benchmarks, 7 correlations, 0 eligible), build_site, check_links (40 pages / 2418 links /
+  1891 rows / 0 errors, checked_at 2026-11-14), audit_publication (61 HTML / 916 URLs, PASS),
+  18 unit tests OK. strict_check and desk pipelines re-run PASS.

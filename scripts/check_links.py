@@ -45,11 +45,11 @@ for p,d in docs.items():
   if not target.exists(): errors.append(f'{p.name}: missing {url}')
   if u.fragment and (target not in docs or unquote(u.fragment) not in docs[target].ids): errors.append(f'{p.name}: missing anchor {url}')
 # Audit-independent canonical output assertions.
-lines=json.loads((R/'analysis/model-lines-week9.json').read_text())['games']
+lines=json.loads((R/'analysis/model-lines.json').read_text())['games']
 for g in lines:
  if g['candidate'] or g['gates_all_pass'] or any(g[k] is not None for k in ('market_spread_home','edge_pts','market_price','moneyline','win_probability')): errors.append(g['game']+': evidence boundary violated')
 for c in json.loads((R/'analysis/correlations.json').read_text())['correlations']:
  if c['type']=='Bernoulli leg dependence' and (c['r'] is not None or c['n'] is not None): errors.append('Unverified leg estimate populated')
-result=dict(checked_at='2026-11-04',scope='Canonical root + pages + docs redirects + preserved baseline audit; external HTTP checks not performed by this checker',pages=len(files),links_checked=links,table_rows_checked=rows,errors=errors,status='PASS' if not errors else 'FAIL')
+result=dict(checked_at=json.loads((R/'data/audit-snapshot.json').read_text())['as_of'],scope='Canonical root + pages + docs redirects + preserved baseline audit; external HTTP checks not performed by this checker',pages=len(files),links_checked=links,table_rows_checked=rows,errors=errors,status='PASS' if not errors else 'FAIL')
 (R/'analysis/link-check.json').write_text(json.dumps(result,indent=2)+'\n'); print(json.dumps(result,indent=2))
 raise SystemExit(bool(errors))

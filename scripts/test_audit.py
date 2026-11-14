@@ -53,17 +53,22 @@ class EvidenceTests(unittest.TestCase):
   for r in ts:
    self.assertEqual(r['PF']-r['PA'],r['NET']);self.assertAlmostEqual((r['W']+.5*r['T'])/(r['W']+r['L']+r['T']),r['PCT'],delta=.00051)
  def test_schedule(self):
-  games=self.s['schedule'];self.assertEqual(len(games),15)
-  teams=[g[k] for g in games for k in ('away','home')];self.assertEqual(len(set(teams)),30)
+  games=self.s['schedule'];self.assertEqual(len(games),14)
+  teams=[g[k] for g in games for k in ('away','home')];self.assertEqual(len(set(teams)),28)
   for g in games: self.assertIsNone(g['venue'])
  def test_score_blanks(self):
   for g in self.s['scores']:
    if g['status']!='VERIFIED': self.assertIsNone(g['away_score']);self.assertIsNone(g['home_score'])
  def test_injuries(self):
-  self.assertEqual(len(self.s['injuries']),28)
-  for r in self.s['injuries']: self.assertIsNone(r['game_status']);self.assertIsNone(r['injury'])
+  self.assertEqual(len(self.s['injuries']),149)
+  prac={'Full Participation in Practice','Limited Participation in Practice','Did Not Participate In Practice'}
+  game={'Out','Doubtful','Questionable'}
+  for r in self.s['injuries']:
+   self.assertIn(r['practice'],prac)
+   if r['game_status'] is not None: self.assertIn(r['game_status'],game)
+   if r['injury'] is not None: self.assertTrue(len(r['injury'])>0)
  def test_no_candidates(self):
-  for g in json.loads((R/'analysis/model-lines-week9.json').read_text())['games']:
+  for g in json.loads((R/'analysis/model-lines.json').read_text())['games']:
    self.assertFalse(g['candidate']);self.assertFalse(g['gates_all_pass']);self.assertIsNone(g['edge_pts'])
  def test_no_fabricated_rewards(self):
   for r in json.loads((R/'analysis/leaderboard.json').read_text())['standings']:

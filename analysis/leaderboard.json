@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-11-04",
+  "as_of": "2026-11-14",
   "note": "No eligible strategies, no verified prospective forecasts or settled paper ledger. Unobserved performance is null, not zero. No ranks, tiers or rewards awarded.",
   "scoring": "Proposed: reward 100 * positive family-adjusted lower bound of paired mean Brier improvement over a pre-registered baseline, only after all gates PASS. Use week/game blocks and a frozen trial count; no ROI-only ranking. No skill or luck-free claim.",
   "standings": [

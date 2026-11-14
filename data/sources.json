@@ -1,38 +1,38 @@
 {
-  "captured_at": "2026-11-04",
-  "method": "functions.fetch_page; bounded field audit, not raw HTTP archiving",
+  "captured_at": "2026-11-14",
+  "method": "functions.fetch_page; refreshed 2026-11-14 UTC; bounded field audit, not raw HTTP archiving",
   "sources": [
     {
       "id": "standings",
       "label": "NFL standings",
       "url": "https://www.nfl.com/standings/",
       "official": true,
-      "checked_at": "2026-11-04",
-      "used_for": "32 rows: W, L, T, PCT, PF, PA, NET, STRK; 256 field comparisons. Tail record labels withheld."
+      "checked_at": "2026-11-14",
+      "used_for": "32 rows: W, L, T, PCT, PF, PA, NET, STRK; arithmetic + cross-capture checks (2026-11-14 refresh)."
     },
     {
       "id": "schedule",
       "label": "NFL Week 9 schedule",
-      "url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "url": "https://www.nfl.com/schedules/2026/by-week/week-10",
       "official": true,
-      "checked_at": "2026-11-04",
-      "used_for": "15 matchup/date/time/network entries. ET also supported by injury-page EST labels. Venues withheld. Madrid designation checked."
+      "checked_at": "2026-11-14",
+      "used_for": "14 Week 10 matchup/date/time/network entries + byes CHI/DEN/PHI/TB; Madrid designation NE@DET."
     },
     {
       "id": "scores",
       "label": "NFL Week 8 scores",
-      "url": "https://www.nfl.com/scores/2026/week-8",
+      "url": "https://www.nfl.com/scores/2026/week-9",
       "official": true,
-      "checked_at": "2026-11-04",
-      "used_for": "12 complete score/date rows observed; 2 incomplete captures withheld."
+      "checked_at": "2026-11-14",
+      "used_for": "15 complete Week 9 score/date rows + WAS-NYG Week 10 result (completed Thu 2026-11-12)."
     },
     {
       "id": "injuries",
       "label": "NFL Week 9 injuries",
-      "url": "https://www.nfl.com/injuries/league/2026/reg9",
+      "url": "https://www.nfl.com/injuries/league/2026/reg10",
       "official": true,
-      "checked_at": "2026-11-04",
-      "used_for": "28 JAX/BAL practice rows; blank injury/game status preserved. Other teams show No Injuries Reported; not interpreted as clearance."
+      "checked_at": "2026-11-14",
+      "used_for": "Bounded 140-row sample across 6 Week 10 games; blank injury/game status preserved. Not a complete report."
     },
     {
       "id": "hurts",
@@ -97,6 +97,14 @@
       "official": true,
       "checked_at": "2026-11-04",
       "used_for": "Branch/root publishing versus custom Actions; configuration requires admin/maintainer access. Actual permission errors are recorded in COORDINATION.md, not inferred from documentation."
+    },
+    {
+      "id": "ngs-passing-w9",
+      "label": "NFL Next Gen Stats passing, Week 9 2026",
+      "url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/9",
+      "official": true,
+      "checked_at": "2026-11-14",
+      "used_for": "30 QB rows (ATT/YDS/TD/INT/RATE/CPOE/xCPOE etc.); transcription retained; no values promoted to canonical tables."
     }
   ]
 }

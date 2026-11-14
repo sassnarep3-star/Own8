@@ -32,7 +32,7 @@ jobs:
           cp index.html _site/
           cp -r pages assets docs _site/
           cp data/audit-snapshot.json data/sources.json data/flagged.json _site/data/
-          cp analysis/audit-inventory.json analysis/repo-audit.json analysis/correlations.json analysis/model-lines-week9.json analysis/prop-signals-week9.json analysis/strategies.json analysis/leaderboard.json analysis/validation-gates.json analysis/link-check.json _site/analysis/
+          cp analysis/audit-inventory.json analysis/repo-audit.json analysis/correlations.json analysis/model-lines.json analysis/prop-signals.json analysis/strategies.json analysis/leaderboard.json analysis/validation-gates.json analysis/link-check.json _site/analysis/
           if [ -d audit ]; then cp -r audit _site/; fi
           if [ -d strict ]; then cp -r strict _site/; fi
           if [ -d verification ]; then cp -r verification _site/; fi

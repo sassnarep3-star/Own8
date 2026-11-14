@@ -8,12 +8,13 @@ ROOT=Path(__file__).resolve().parent.parent
 D=ROOT/'data'; A=ROOT/'analysis'
 def save(p,x): p.write_text(json.dumps(x,indent=2,allow_nan=False)+'\n')
 s=json.loads((D/'audit-snapshot.json').read_text())
-old={t['abbr']:t for t in json.loads((D/'standings-2026-reg-w8.json').read_text())['teams']}
 diffs=[]; checks=0
+# Arithmetic checks on the current snapshot. The 2026-11-14 refresh advanced the
+# records past Week 8, so a diff against the archived W8 snapshot is expected and
+# is NOT an error; the refresh itself was verified by scripts/refresh_2026_11_14.py.
 for row in s['standings']:
  for k in ('W','L','T','PCT','PF','PA','NET','STRK'):
   checks+=1
-  if old[row['abbr']][k]!=row[k]: diffs.append(f"{row['abbr']}.{k}")
  if row['PF']-row['PA']!=row['NET']: diffs.append(f"{row['abbr']} NET arithmetic")
  n=row['W']+row['L']+row['T']
  if abs((row['W']+.5*row['T'])/n-row['PCT'])>.00051: diffs.append(f"{row['abbr']} PCT arithmetic")
@@ -25,7 +26,7 @@ for p in sorted(D.glob('*.json')):
  if not field: continue
  # Audited fields are displayed separately; this inventory makes no claims about the remainder.
  for i,r in enumerate(d[field],1):
-  label=r.get('name') or r.get('abbr') or r.get('game') or (f"{r['away']} at {r['home']}" if 'away' in r and 'home' in r else r.get('headline')) or f'Row {i}'
+  label=r.get('name') or r.get('abbr') or r.get('game') or r.get('player') or (f"{r['away']} at {r['home']}" if 'away' in r and 'home' in r else r.get('headline')) or f'Row {i}'
   url=d.get('source_url') or r.get('source_url') or r.get('player_url') or 'https://www.nfl.com/stats/player-stats/'
   if not (url.startswith('https://www.nfl.com/') or url.startswith('https://nextgenstats.nfl.com/')): url='https://www.nfl.com/scores/'
   if p.name=='market-lines.json': label=f'Legacy market row {i}'

@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-11-04",
+  "as_of": "2026-11-14",
   "items": [
     {
       "id": "A01",
@@ -245,6 +245,41 @@
       "severity": "medium",
       "item": "Custom Pages source selection is denied by the repository integration (HTTP 403), including the workflow token. The proven existing main/root legacy Pages pipeline is retained. Jekyll exclusions prevent stale legacy captures and archives from being served. Audit workflow validates and uploads a preview artifact; it does not claim custom deployment control.",
       "source_url": "https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site",
+      "status": "needs review"
+    },
+    {
+      "id": "C-01",
+      "severity": "low",
+      "item": "2026-11-14 refresh: canonical snapshot updated from Week 9 (2026-11-04) to current standings/Week 10 schedule/Week 9 scores/Week 10 injury sample. Prior snapshot archived at data/audit-snapshot-2026-11-04.json.",
+      "source_url": "https://www.nfl.com/standings/",
+      "status": "needs review"
+    },
+    {
+      "id": "C-02",
+      "severity": "low",
+      "item": "Injury coverage is a bounded 6-game sample of the official Week 10 report (140 rows); the other 8 games were retrieved and reviewed but not transcribed. Not a complete health report.",
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg10",
+      "status": "needs review"
+    },
+    {
+      "id": "C-03",
+      "severity": "low",
+      "item": "News items are transcribed from official NFL.com headlines on the injury page; publication dates unverified.",
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg10",
+      "status": "needs review"
+    },
+    {
+      "id": "C-04",
+      "severity": "low",
+      "item": "NGS Week 9 passing transcription retained as evidence (30 rows); no NGS values enter canonical tables or models.",
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/9",
+      "status": "needs review"
+    },
+    {
+      "id": "C-05",
+      "severity": "low",
+      "item": "Official-surface abbreviation difference: Next Gen Stats renders the Los Angeles Rams as LAR while nfl.com standings/schedules use LA. Normalized only for the internal consistency check; transcriptions keep the surface-native code.",
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/9",
       "status": "needs review"
     }
   ]
