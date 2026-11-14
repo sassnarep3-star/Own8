@@ -172,10 +172,10 @@
    "id": "IR-2d40-03",
    "severity": "high",
    "area": "process",
-   "finding": "Fourteen published surfaces exist (root, origination, desk, strict, evidence-lab + docs mirror, audit, verification, decision, hub, requirements, suggestions, review, a57af0ab data layer, this integration section). Five sessions independently published suggestions/questions/injury pages on 2026-11-14 (recorded as FL-04 by e00061c1). A consolidation decision (requirements SG-07) is open and belongs to the project owner; no session may pick a winner unilaterally.",
+   "finding": "At least fourteen published surfaces exist (root, origination, desk, strict, evidence-lab + docs mirror, audit, verification, decision, hub, requirements, suggestions, review, a57af0ab data layer, this integration section). Five sessions independently published suggestions/questions/injury pages on 2026-11-14 (recorded as FL-04 by e00061c1). A consolidation decision (requirements SG-07) is open and belongs to the project owner; no session may pick a winner unilaterally. On 2026-11-14 PR #41 additionally added root pages/suggestions.html and pages/decisions.html, and sessions 25a5fee1 and e8155046 published further decision/suggestion layers \u2014 the duplication grew again after this review.",
    "evidence": "COORDINATION.md sections e00061c1, aa2d8cbe, 101b20bc, a57af0ab, f6e60a81",
    "owner": "project owner",
-   "status": "needs review",
+   "status": "decision issued: requirements/ canonical (FL-04, see COORDINATION.md)",
    "link": "https://github.com/sassnarep3-star/Own8/blob/main/COORDINATION.md"
   },
   {
@@ -222,10 +222,10 @@
    "id": "IR-2d40-08",
    "severity": "medium",
    "area": "currency",
-   "finding": "Root dashboard labels still read 'Snapshot \u00b7 04 NOV 2026 / WEEK 09' at main 0db0fb0 while the league is in Week 10 (WAS 24-21 NYG played 2026-11-12). PR #39 (f6e60a81, all checks green) fixes the as-of labels, KPI counts and merged review queue and is pending merge.",
+   "finding": "Root dashboard labels read 'Snapshot \u00b7 04 NOV 2026 / WEEK 09' at main 0db0fb0 while the league was in Week 10. PR #41 (c563a1dc, merged 2026-11-14) landed the canonical snapshot refresh \u2014 labels, KPIs and data are now 14 Nov / Week 10. PR #39 (f6e60a81, opened before #41, green) contains an overlapping currency fix and its owner must reconcile or close it.",
    "evidence": "index.html labels; https://www.nfl.com/schedules/2026/by-week/week-10",
    "owner": "f6e60a81",
-   "status": "fix in flight (PR #39)",
+   "status": "resolved by PR #41; PR #39 overlap open",
    "link": "https://github.com/sassnarep3-star/Own8/blob/main/index.html"
   },
   {
@@ -242,10 +242,10 @@
    "id": "IR-2d40-10",
    "severity": "high",
    "area": "data currency",
-   "finding": "Official evidence captures across the repo stop at Week 9-era data (2026-11-04) except the 2026-11-14 captures in requirements/, decision/, hub/, suggestions/, review/ and this section. The root game log (121 games) ends at Week 8; Week 9 (15 games) and Week 10 TNF are final on nfl.com.",
+   "finding": "As of 2026-11-14 01:20 UTC the root data layer was refreshed (PR #41) to current Week 10 state, and fresh captures exist in requirements/, decision/, hub/, suggestions/, review/ and this section. Remaining stale tails: origination/'s game log still ends at Week 8 (its owner's scope), and desk/, strict/, evidence-lab/, audit/, verification/ are honest 04 Nov dated snapshots.",
    "evidence": "https://www.nfl.com/scores/2026/week-9 ; https://www.nfl.com/standings/",
    "owner": "integration owner",
-   "status": "documented on freshness page; fresh captures published under integration/data/ and requirements/data/",
+   "status": "mostly resolved (2026-11-14 refresh); origination log tail open",
    "link": "https://www.nfl.com/scores/2026/week-9"
   }
  ]

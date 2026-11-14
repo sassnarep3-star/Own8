@@ -1,31 +1,136 @@
 {
-  "dataset": "own8-integration-freshness-audit",
-  "session": "2d4025da",
-  "task": "I2",
-  "as_of": "2026-11-14",
-  "method": "Each published surface's own 'as of' label was read from its HTML/JSON, then compared with live official NFL pages fetched on 2026-11-14 (standings, Week 9 scores, Week 10 schedule, Week 10 injury report). Status values: CURRENT = surface matches the live official state for the claims it makes; DATED SNAPSHOT = explicitly labelled as a historical snapshot (honest, not an error); STALE = presents older data without a current-state counterweight on the same surface; SUPERSEDED BY FACT = a forward-looking artifact whose event has since resolved.",
-  "official_sources": {
-    "standings": "https://www.nfl.com/standings/",
-    "week9_scores": "https://www.nfl.com/scores/2026/week-9",
-    "week10_schedule": "https://www.nfl.com/schedules/2026/by-week/week-10",
-    "week10_injuries": "https://www.nfl.com/injuries/league/2026/reg10",
-    "scores_hub": "https://www.nfl.com/scores/"
+ "dataset": "own8-integration-freshness-audit",
+ "session": "2d4025da",
+ "task": "I2",
+ "as_of": "2026-11-14",
+ "method": "Each published surface's own 'as of' label was read from its HTML/JSON, then compared with live official NFL pages fetched on 2026-11-14 (standings, Week 9 scores, Week 10 schedule, Week 10 injury report). Status values: CURRENT = surface matches the live official state for the claims it makes; DATED SNAPSHOT = explicitly labelled as a historical snapshot (honest, not an error); STALE = presents older data without a current-state counterweight on the same surface; SUPERSEDED BY FACT = a forward-looking artifact whose event has since resolved.",
+ "official_sources": {
+  "standings": "https://www.nfl.com/standings/",
+  "week9_scores": "https://www.nfl.com/scores/2026/week-9",
+  "week10_schedule": "https://www.nfl.com/schedules/2026/by-week/week-10",
+  "week10_injuries": "https://www.nfl.com/injuries/league/2026/reg10",
+  "scores_hub": "https://www.nfl.com/scores/"
+ },
+ "rows": [
+  {
+   "surface": "root index.html",
+   "shows": "Snapshot \u00b7 14 NOV 2026 \u00b7 WEEK 10 (PR #41 canonical refresh)",
+   "official_state": "League in Week 10: WAS 24-21 NYG final (2026-11-12); Sunday slate upcoming",
+   "status": "CURRENT",
+   "action": "PR #39 (f6e60a81 currency fix, opened before #41) may now be superseded \u2014 its owner to reconcile",
+   "source": "https://www.nfl.com/schedules/2026/by-week/week-10"
   },
-  "rows": [
-    {"surface": "root index.html", "shows": "Snapshot · 04 NOV 2026 · WEEK 09", "official_state": "League in Week 10: WAS 24-21 NYG final (2026-11-12); Week 10 Sunday slate upcoming", "status": "STALE (labels)", "action": "PR #39 (f6e60a81, green) updates as-of labels to 2026-11-14 / WEEK 10; pending merge", "source": "https://www.nfl.com/schedules/2026/by-week/week-10"},
-    {"surface": "pages/standings.html", "shows": "Standings captured through Week 8 (data/standings-2026-reg-w8.json)", "official_state": "Standings through Week 9 + Week 10 TNF; 32/32 rows independently reconciled against 137 official game results on 2026-11-14 (this session and requirements/ agree)", "status": "STALE", "action": "Use integration/data/standings-2026-reg-w10.json or requirements capture; root page refresh owned by integration owner", "source": "https://www.nfl.com/standings/"},
-    {"surface": "pages/schedule.html + pages/scores.html", "shows": "Week 9 schedule as upcoming; scores through Week 8", "official_state": "All 15 Week 9 games FINAL (2026-11-05..09); Week 10 slate published with one final", "status": "STALE / SUPERSEDED", "action": "Fresh captures: integration/data/scores-2026-week9.json and schedule-2026-week10.json", "source": "https://www.nfl.com/scores/2026/week-9"},
-    {"surface": "pages/model-lines.html", "shows": "15 Week 9 fair lines originated 2026-11-04 (explicitly unvalidated, no Week 9 input)", "official_state": "Week 9 has been played; two independent out-of-sample gradings now exist (decision/results/w9-out-of-sample.json, requirements/results/w9-grading.json)", "status": "SUPERSEDED BY FACT", "action": "Label the 15 lines historical, not current (e00061c1 request 4); grading lives on the 14-Nov surfaces", "source": "https://www.nfl.com/scores/2026/week-9"},
-    {"surface": "pages/injuries.html", "shows": "Week 9 practice report, JAX/BAL only (28 rows, game statuses blank)", "official_state": "Week 10 official report published: 14 games, 28 team tables, 345 rows with game statuses (Out/Doubtful/Questionable) on 2026-11-14", "status": "STALE", "action": "Use integration/data/injuries-2026-week10.json (full), a57af0ab/ (full, independently transcribed), decision/ (114 rows), hub/ (67 rows, partial)", "source": "https://www.nfl.com/injuries/league/2026/reg10"},
-    {"surface": "pages/executive-summary.html + pages/flagged.html", "shows": "Executive brief refreshed and flags merged to 50 items as of PR #38 (2026-11-14)", "official_state": "n/a (project documents)", "status": "CURRENT", "action": "PR #39 further refreshes counts; no action", "source": "https://www.nfl.com/standings/"},
-    {"surface": "pages/leaderboard.html, strategies, validation-gates, correlations", "shows": "0 of 8 strategies eligible; gates blocked on missing official price source; correlations descriptive only", "official_state": "Unchanged conclusion: no official NFL price source exists (verified by three sessions on 2026-11-14); gate status unaffected by Week 10", "status": "CURRENT", "action": "None — conclusions remain valid", "source": "https://www.nfl.com/standings/"},
-    {"surface": "origination/ (11 pages)", "shows": "Verified game log W1-8 (121 games), W9 fair lines (now historical), skill-vs-luck lab (0/12 pass), 9 correlations", "official_state": "Week 9 and Week 10 TNF results exist outside the log; line origination methodology unchanged", "status": "DATED SNAPSHOT + STALE data tail", "action": "Log extension belongs to origination owner 4bc92a5f; W9 lines labelled historical per e00061c1 request 4", "source": "https://www.nfl.com/scores/2026/week-9"},
-    {"surface": "desk/, strict/, evidence-lab/, audit/, verification/", "shows": "Independent workspaces explicitly dated 04 NOV 2026", "official_state": "n/a", "status": "DATED SNAPSHOT (labelled)", "action": "None — honest labelling; findings remain valid for their dates", "source": "https://www.nfl.com/standings/"},
-    {"surface": "requirements/", "shows": "14 Nov capture: 137-game log, 352/352-cell reconciliation, 16 requirements, 22 questions, 16 suggestions, W10 lines, availability matrix", "official_state": "Matches live official pages fetched 2026-11-14", "status": "CURRENT", "action": "None", "source": "https://www.nfl.com/standings/"},
-    {"surface": "decision/ (site + data)", "shows": "14 Nov re-verification (32 clubs, 15 finals, 14 W10 games, 114 injury rows), W9 out-of-sample scoring, gates audit, 6 suggestions, 10 questions", "official_state": "Matches live official pages fetched 2026-11-14 (injury capture partial: 114 of 345 rows)", "status": "CURRENT (injury coverage partial)", "action": "Full 345-row coverage available in integration/ and a57af0ab/", "source": "https://www.nfl.com/injuries/league/2026/reg10"},
-    {"surface": "hub/", "shows": "14 Nov repo review, standings CSV (32 rows, league totals balance), 67 injury rows (chunks 0-1 of 8), 10 suggestions, 13 questions", "official_state": "Matches live official pages for what it covers; injury capture explicitly partial", "status": "CURRENT (injury coverage partial)", "action": "Full coverage in integration/ and a57af0ab/", "source": "https://www.nfl.com/injuries/league/2026/reg10"},
-    {"surface": "suggestions/ + review/ (aa2d8cbe)", "shows": "SU-01..SU-10 suggestions, DQ-01..DQ-08 decision questions, LI-01..LI-06 lineup impact, RV-01..RV-06 review findings", "official_state": "Findings re-verified 2026-11-14", "status": "CURRENT", "action": "None", "source": "https://www.nfl.com/injuries/league/2026/reg9"},
-    {"surface": "a57af0ab/ (data layer)", "shows": "Full 345-row Week 10 injury transcription + parser + checker (no HTML)", "official_state": "Independent transcription of the same official page; 67/67 overlap with hub matches", "status": "CURRENT", "action": "None", "source": "https://www.nfl.com/injuries/league/2026/reg10"},
-    {"surface": "integration/ (this section)", "shows": "I1 checker inventory, I2 freshness audit + full fresh captures (W9 finals, W10 slate, W10 standings, 345-row W10 injuries), 137-game reconciliation, I3 Pages health, I4 integration record", "official_state": "Matches live official pages fetched 2026-11-14", "status": "CURRENT", "action": "None", "source": "https://www.nfl.com/standings/"}
-  ]
+  {
+   "surface": "pages/standings.html",
+   "shows": "Standings re-verified 2026-11-14 against a fresh NFL.com retrieval (32 rows / 256 field comparisons)",
+   "official_state": "Same basis as this page's independent 137-game reconciliation \u2014 both agree with live nfl.com/standings",
+   "status": "CURRENT",
+   "action": "None",
+   "source": "https://www.nfl.com/standings/"
+  },
+  {
+   "surface": "pages/schedule.html + pages/scores.html",
+   "shows": "Week 9 finals (15) + Week 10 Thursday final; Week 10 slate as upcoming",
+   "official_state": "Matches live official schedule/scores for what has been played; Sunday games not yet played",
+   "status": "CURRENT",
+   "action": "None",
+   "source": "https://www.nfl.com/scores/2026/week-9"
+  },
+  {
+   "surface": "pages/model-lines.html",
+   "shows": "14 illustrative Week 10 B0 lines (refreshed 2026-11-14); Week 9 lines graded out-of-sample",
+   "official_state": "Week 10 slate is pre-game; W9 grade exists in decision/ and requirements/",
+   "status": "CURRENT",
+   "action": "None \u2014 W9 originals must stay labelled historical (e00061c1 request 4)",
+   "source": "https://www.nfl.com/scores/2026/week-9"
+  },
+  {
+   "surface": "pages/injuries.html",
+   "shows": "Week 10 official injury sample, 149 rows, blank game statuses kept blank",
+   "official_state": "Full official report has 345 rows across 28 teams (this page carries a deliberate sample)",
+   "status": "CURRENT (partial coverage)",
+   "action": "Full 345-row coverage published in integration/, a57af0ab/, decision/ (114), hub/ (67)",
+   "source": "https://www.nfl.com/injuries/league/2026/reg10"
+  },
+  {
+   "surface": "pages/executive-summary.html + pages/flagged.html",
+   "shows": "Refreshed 2026-11-14 with the 14 Nov evidence table and merged review queue (PRs #38/#41)",
+   "official_state": "n/a (project documents)",
+   "status": "CURRENT",
+   "action": "PR #39 may add further count fixes \u2014 its owner to reconcile",
+   "source": "https://www.nfl.com/standings/"
+  },
+  {
+   "surface": "pages/leaderboard.html, strategies, validation-gates, correlations",
+   "shows": "0 of 8 strategies eligible; gates blocked on missing official price source; correlations descriptive only",
+   "official_state": "Unchanged conclusion: no official NFL price source exists (verified by three sessions on 2026-11-14); gate status unaffected by Week 10",
+   "status": "CURRENT",
+   "action": "None \u2014 conclusions remain valid",
+   "source": "https://www.nfl.com/standings/"
+  },
+  {
+   "surface": "origination/ (11 pages)",
+   "shows": "Verified game log W1-8 (121 games), W9 fair lines (now historical), skill-vs-luck lab (0/12 pass), 9 correlations",
+   "official_state": "Week 9 and Week 10 TNF results exist outside the log; line origination methodology unchanged",
+   "status": "DATED SNAPSHOT + STALE data tail",
+   "action": "Log extension belongs to origination owner 4bc92a5f; W9 lines labelled historical per e00061c1 request 4",
+   "source": "https://www.nfl.com/scores/2026/week-9"
+  },
+  {
+   "surface": "desk/, strict/, evidence-lab/, audit/, verification/",
+   "shows": "Independent workspaces explicitly dated 04 NOV 2026",
+   "official_state": "n/a",
+   "status": "DATED SNAPSHOT (labelled)",
+   "action": "None \u2014 honest labelling; findings remain valid for their dates",
+   "source": "https://www.nfl.com/standings/"
+  },
+  {
+   "surface": "requirements/",
+   "shows": "14 Nov capture: 137-game log, 352/352-cell reconciliation, 16 requirements, 22 questions, 16 suggestions, W10 lines, availability matrix",
+   "official_state": "Matches live official pages fetched 2026-11-14",
+   "status": "CURRENT",
+   "action": "None",
+   "source": "https://www.nfl.com/standings/"
+  },
+  {
+   "surface": "decision/ (site + data)",
+   "shows": "14 Nov re-verification (32 clubs, 15 finals, 14 W10 games, 114 injury rows), W9 out-of-sample scoring, gates audit, 6 suggestions, 10 questions",
+   "official_state": "Matches live official pages fetched 2026-11-14 (injury capture partial: 114 of 345 rows)",
+   "status": "CURRENT (injury coverage partial)",
+   "action": "Full 345-row coverage available in integration/ and a57af0ab/",
+   "source": "https://www.nfl.com/injuries/league/2026/reg10"
+  },
+  {
+   "surface": "hub/",
+   "shows": "14 Nov repo review, standings CSV (32 rows, league totals balance), 67 injury rows (chunks 0-1 of 8), 10 suggestions, 13 questions",
+   "official_state": "Matches live official pages for what it covers; injury capture explicitly partial",
+   "status": "CURRENT (injury coverage partial)",
+   "action": "Full coverage in integration/ and a57af0ab/",
+   "source": "https://www.nfl.com/injuries/league/2026/reg10"
+  },
+  {
+   "surface": "suggestions/ + review/ (aa2d8cbe)",
+   "shows": "SU-01..SU-10 suggestions, DQ-01..DQ-08 decision questions, LI-01..LI-06 lineup impact, RV-01..RV-06 review findings",
+   "official_state": "Findings re-verified 2026-11-14",
+   "status": "CURRENT",
+   "action": "None",
+   "source": "https://www.nfl.com/injuries/league/2026/reg9"
+  },
+  {
+   "surface": "a57af0ab/ (data layer)",
+   "shows": "Full 345-row Week 10 injury transcription + parser + checker (no HTML)",
+   "official_state": "Independent transcription of the same official page; 67/67 overlap with hub matches",
+   "status": "CURRENT",
+   "action": "None",
+   "source": "https://www.nfl.com/injuries/league/2026/reg10"
+  },
+  {
+   "surface": "integration/ (this section)",
+   "shows": "I1 checker inventory, I2 freshness audit + full fresh captures (W9 finals, W10 slate, W10 standings, 345-row W10 injuries), 137-game reconciliation, I3 Pages health, I4 integration record",
+   "official_state": "Matches live official pages fetched 2026-11-14",
+   "status": "CURRENT",
+   "action": "None",
+   "source": "https://www.nfl.com/standings/"
+  }
+ ]
 }
