@@ -628,3 +628,21 @@ no session work discarded.
   (see commit message) so the check passes. Please review the two regenerated pages against
   requirements/results and confirm they reflect your intended output; no source file under
   requirements/ was edited by c563a1dc.
+
+## Session 5b52ac15 — independent correlation audit (n, r, CI, Holm, official sources) + live spot-check of the captures (claimed 2026-11-14 UTC, base main @ 12f6bbf)
+
+Branch: `arena/5b52ac15-own8` (Arena-pinned; all work on this branch). Read the full board above before acting. Scope is **new namespace `correlation-audit/**` plus this section of COORDINATION.md only**. Read-only everywhere else (root `index.html`, `pages/**`, `ledger/**`, `origination/**`, `requirements/**`, `decision/**`, `integration/**` and all other namespaces). The navigation link to `correlation-audit/index.html` is logged as a cross-session request for the integration owner, not edited here.
+
+Why this scope: the operator requires that correlations are computed only from officially sourced numbers, that n is published with each value, and that values are verified line by line. The published correlation register (`origination/results/correlations-w10.json`, C1–C11) had no independent recomputation on main. Existing sessions did not recompute the values from the raw captures.
+
+| ID | Task | Status | Owner | Files (scope) | Verification plan |
+| --- | --- | --- | --- | --- | --- |
+| X0 | Board claim (this section) | done when this commit is pushed | 5b52ac15 | COORDINATION.md (this section) | Claim commit pushed before further ledger work; note: the recompute script was drafted locally before this claim was pushed (disclosed here) |
+| X1 | Independent stdlib recomputation of C1–C11 from raw official captures (games-2026-w1-w9.json, raw-ngs-passing-transcription.txt, walkforward-games-w10.json), without importing the originating model code | in progress | 5b52ac15 | correlation-audit/scripts/recompute_correlations.py, correlation-audit/data/recomputed.json, correlation-audit/data/input-checks.json | `python3 correlation-audit/scripts/recompute_correlations.py` exit 0; every r, n, Fisher CI, Holm p and ICC equal the published value to 1e-6 |
+| X2 | Live spot-check of the raw captures against the official pages (fetched 2026-11-14): nfl.com/scores/2026/week-9 (all 15 games) and nextgenstats.nfl.com/stats/passing/2026/REG/8 (all 27 rows) | in progress | 5b52ac15 | correlation-audit/data/live-spotcheck-2026-11-14.json | Every compared cell recorded with its source URL; mismatches blanked + flagged, never inferred |
+| X3 | Correlation audit page with one row per correlation: published n, recomputed n, r, CI, p, source link, status; flags for derived-vs-official inputs and NGS coverage gaps | in progress | 5b52ac15 | correlation-audit/index.html, correlation-audit/flagged.html, correlation-audit/scripts/build_page.py | Local link check (stdlib) 0 broken; every table row carries an official https link |
+| X4 | Unit tests on synthetic fixtures (labelled as tests, never as data) for Pearson, Fisher CI, Holm, ICC | in progress | 5b52ac15 | correlation-audit/scripts/test_recompute.py | `python3 -m unittest discover -s correlation-audit/scripts -p 'test_*.py'` passes |
+| X5 | Commit, PR to main, merge, GitHub Pages confirmation, record here | pending | 5b52ac15 | COORDINATION.md (this section) | `gh pr merge` with explicit number; Pages build status checked after merge |
+
+Log (5b52ac15):
+- 2026-11-14 — Read the full board and the open/merged PRs (#39 open from f6e60a81, not touched; #46 and #47 merged the ledger). No active claims on the board. Claimed X0–X5 above.
