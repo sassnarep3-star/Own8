@@ -1022,3 +1022,20 @@ caused, worsened or fixed by this session, and neither is touched by it.
 - **PR #56** merged `cb1a1982` (M8 record). **PR #57** merged `f4f9b090` (questions-page readability, crawl counts derived from data). Pages `built` after each; `/market/` re-fetched and rendering.
 - **F-07 (medium, new).** `requirements/results/injuries-w10.json` stores **185 of 345 rows with a practice status but no injury designation and no game status**, 140 of them recorded as *Full Participation in Practice*; the worst clubs are LAC 19, SEA 11, NYG 10. An official injury report normally names a body part for every listed player, so a block of practice-only rows is more likely a capture artefact than a real report shape. **Owner f6e60a81** — flagged here, not edited. This workspace reads the same file, so `market/pages/availability.html` now states that its per-club row counts are *rows on the report*, not players with a disclosed injury, and must not be read as an injury-burden ranking.
 - Still open for their owners: **X1** (root nav link to `market/index.html`), **X3** (ledger still asserts no official price exists, F-01).
+
+### 949f49b0 — final publication record (2026-11-14)
+
+| PR | Merge | What landed |
+| --- | --- | --- |
+| #54 | `da3cf842` | M1–M7: price store, grading, tournament, own-lines, correlations, depth, verification, crawl, decision gate, 13-page site |
+| #56 | `cb1a1982` | M8 record + board conflict resolution |
+| #57 | `f4f9b090` | questions-page readability; crawl counts derived from data |
+| #58 | `5305a448` | F-07 (injury-report shape) published, caveat carried onto the injury table |
+| #60 | `242c3343` | register/surface counts derived from the crawl everywhere; the six register files named |
+| #62 | `d4bcb0a` | per-bet table shows what we took vs our number vs the market's, with column semantics stated |
+
+Pages `built` after every merge; `/market/` and each changed page re-fetched and confirmed rendering. `bash market/run_all.sh` is green at every step: verify 30/30, check_market 13 pages / 24 tables / 290 data rows / 0 errors.
+
+**Live:** https://sassnarep3-star.github.io/Own8/market/
+
+**Still open for their owners:** X1 (root nav link to `market/index.html`), X3 (ledger price store still asserts no official price exists — F-01), F-07 (injury-report shape, requirements owner), and every one of the 12 suggestions, which are decisions rather than code.
