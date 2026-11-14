@@ -1,0 +1,115 @@
+{
+  "as_of": "2026-11-14",
+  "session": "c563a1dc",
+  "purpose": "Dedicated section of improvement suggestions. Each suggestion is a proposal for review; none is implemented. Official links are context/verification targets, not endorsements.",
+  "suggestions": [
+    {
+      "id": "S-01",
+      "category": "Data freshness",
+      "suggestion": "Schedule an automated weekly refresh of the canonical snapshot (standings, schedule, scores, injuries) from official pages, producing dated snapshots and a change log.",
+      "rationale": "The canonical snapshot is a point-in-time extract; official pages change. A recurring, dated refresh keeps every table current and auditable.",
+      "priority": "High",
+      "status": "Proposed — not implemented",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "id": "S-02",
+      "category": "Roster depth & backups",
+      "suggestion": "Add a roster-depth tracking module that records starters versus 2nd/3rd/4th-string replacements on offense and defense, using official sources (injury reports, transaction reports, and official gamebooks that list starters).",
+      "rationale": "The project must know deficiencies caused by backups replacing starters. Practice reports alone do not establish depth-chart roles; official gamebooks list starters and are the verifiable source.",
+      "priority": "High",
+      "status": "Proposed — not implemented",
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg10"
+    },
+    {
+      "id": "S-03",
+      "category": "Competition layer",
+      "suggestion": "Implement the leaderboard competition with pre-registered trials, proper scoring (Brier / log loss), fixed baselines, family-wise uncertainty adjustment, and paper-point rewards only after every applicable gate PASSes.",
+      "rationale": "Rewards must be skill-based and selective. Pre-registration and family-wise adjustment prevent luck-chasing and multiple-testing artifacts.",
+      "priority": "High",
+      "status": "Proposed — not implemented",
+      "source_url": "https://www.itl.nist.gov/div898/handbook/prc/section1/prc14.htm"
+    },
+    {
+      "id": "S-04",
+      "category": "Correlations",
+      "suggestion": "Compute bet-leg correlation values from aligned event-level data (same-game margin vs total residuals; cross-game independence tests) rather than team aggregates; keep unverified cells blank.",
+      "rationale": "Pairwise team correlations cannot price parlays or props. Event-level dependence is required, and unknown dependence must never be treated as independence.",
+      "priority": "High",
+      "status": "Proposed — not implemented",
+      "source_url": "https://www.itl.nist.gov/div898/handbook/eda/section3/scatterp.htm"
+    },
+    {
+      "id": "S-05",
+      "category": "Validation enforcement",
+      "suggestion": "Add a pre-decision checklist gate: no strategy, line, or flag promotion without all applicable validation gates G1-G8 PASS.",
+      "rationale": "Fail-closed enforcement prevents promotion on missing, conditional, stale or unverified evidence.",
+      "priority": "High",
+      "status": "Proposed — not implemented",
+      "source_url": "https://www.itl.nist.gov/div898/handbook/prc/section1/prc14.htm"
+    },
+    {
+      "id": "S-06",
+      "category": "Dashboard UX",
+      "suggestion": "Add CSV export of verified table rows and a per-table 'last verified' timestamp; keep the existing row search/filter.",
+      "rationale": "Improves decision-making usability and makes data currency visible at the point of use.",
+      "priority": "Medium",
+      "status": "Proposed — partially implemented (search exists; export/timestamps not)",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "id": "S-07",
+      "category": "Evidence freshness",
+      "suggestion": "Show a snapshot-age indicator on every page and table caption (the nav footer already carries the snapshot date).",
+      "rationale": "Users must know data currency before making decisions based on the tables.",
+      "priority": "Medium",
+      "status": "Proposed — not implemented",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "id": "S-08",
+      "category": "Injury coverage",
+      "suggestion": "Transcribe the full official injury report for all games each week, with a normalized status vocabulary (Out / Doubtful / Questionable / full / limited / did not participate) and a roster-impact flag by position group.",
+      "rationale": "Current coverage is a bounded sample; full weekly coverage improves availability decisions and backup-replacement detection.",
+      "priority": "Medium",
+      "status": "Proposed — not implemented",
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg10"
+    },
+    {
+      "id": "S-09",
+      "category": "Decision governance",
+      "suggestion": "Maintain an auditable decision log recording each decision, its evidence, alternatives considered, and the outcome.",
+      "rationale": "Makes the suggestion -> review -> decision -> implementation path reviewable and repeatable.",
+      "priority": "Medium",
+      "status": "Proposed — not implemented",
+      "source_url": "https://www.itl.nist.gov/div898/handbook/prc/section4/prc473.htm"
+    },
+    {
+      "id": "S-10",
+      "category": "Player-prop signals",
+      "suggestion": "Develop player-prop signals from Next Gen Stats (CPOE, intended air yards, separation, target share) with lagged features, validated out-of-sample.",
+      "rationale": "Supports the single-bet, parlay and player-prop strategy families with official, verifiable inputs.",
+      "priority": "Medium",
+      "status": "Proposed — not implemented",
+      "source_url": "https://nextgenstats.nfl.com/glossary"
+    },
+    {
+      "id": "S-11",
+      "category": "Market reference",
+      "suggestion": "Add a market-reference layer only if official or verifiable odds become available; otherwise keep all market values blank and blocked.",
+      "rationale": "Prevents promotion of unverified third-party prices (a prior audit finding). No -110 defaults or inferred prices.",
+      "priority": "High",
+      "status": "Proposed — not implemented",
+      "source_url": "https://www.nfl.com/scores/"
+    },
+    {
+      "id": "S-12",
+      "category": "Correlation refresh",
+      "suggestion": "Refresh the NGS weekly passing correlation library each week to build event-level evidence over time.",
+      "rationale": "Builds the aligned, timestamped dependence dataset needed to price combinations and validate independence assumptions.",
+      "priority": "Low",
+      "status": "Proposed — not implemented",
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/9"
+    }
+  ]
+}

@@ -1,0 +1,1053 @@
+{
+  "as_of": "2026-11-14",
+  "session": "c563a1dc",
+  "sources": {
+    "standings": {
+      "url": "https://www.nfl.com/standings/",
+      "rows": 32,
+      "chunks": 2
+    },
+    "schedule_week10": {
+      "url": "https://www.nfl.com/schedules/2026/by-week/week-10",
+      "games": 14,
+      "byes": [
+        "CHI",
+        "DEN",
+        "PHI",
+        "TB"
+      ],
+      "chunks": 3
+    },
+    "scores_week9": {
+      "url": "https://www.nfl.com/scores/2026/week-9",
+      "games": 15,
+      "chunks": 2
+    },
+    "injuries_week10": {
+      "url": "https://www.nfl.com/injuries/league/2026/reg10",
+      "sample_rows": 149,
+      "games_transcribed": 6,
+      "chunks": 8
+    },
+    "ngs_passing_week9": {
+      "url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/9",
+      "rows": 30,
+      "chunks": 2
+    }
+  },
+  "checks_total": 202,
+  "checks_passed": 202,
+  "checks": [
+    {
+      "check": "standings:BUF PF-PA=NET",
+      "result": "PASS",
+      "detail": "PF 256 - PA 187 = 69 vs NET 69"
+    },
+    {
+      "check": "standings:BUF PCT",
+      "result": "PASS",
+      "detail": "PCT 0.875 vs 0.875"
+    },
+    {
+      "check": "standings:BUF HOME+ROAD=GP",
+      "result": "PASS",
+      "detail": "3-1-0+4-0-0 vs GP 8"
+    },
+    {
+      "check": "standings:BUF DIV%",
+      "result": "PASS",
+      "detail": "DIV% 0.0"
+    },
+    {
+      "check": "standings:BUF CONF%",
+      "result": "PASS",
+      "detail": "CONF% 0.8"
+    },
+    {
+      "check": "standings:NE PF-PA=NET",
+      "result": "PASS",
+      "detail": "PF 211 - PA 207 = 4 vs NET 4"
+    },
+    {
+      "check": "standings:NE PCT",
+      "result": "PASS",
+      "detail": "PCT 0.556 vs 0.556"
+    },
+    {
+      "check": "standings:NE HOME+ROAD=GP",
+      "result": "PASS",
+      "detail": "3-1-0+2-3-0 vs GP 9"
+    },
+    {
+      "check": "standings:NE DIV%",
+      "result": "PASS",
+      "detail": "DIV% 1.0"
+    },
+    {
+      "check": "standings:NE CONF%",
+      "result": "PASS",
+      "detail": "CONF% 0.833"
+    },
+    {
+      "check": "standings:NYJ PF-PA=NET",
+      "result": "PASS",
+      "detail": "PF 182 - PA 223 = -41 vs NET -41"
+    },
+    {
+      "check": "standings:NYJ PCT",
+      "result": "PASS",
+      "detail": "PCT 0.222 vs 0.222"
+    },
+    {
+      "check": "standings:NYJ HOME+ROAD=GP",
+      "result": "PASS",
+      "detail": "1-3-0+1-4-0 vs GP 9"
+    },
+    {
+      "check": "standings:NYJ DIV%",
+      "result": "PASS",
+      "detail": "DIV% 0.0"
+    },
+    {
+      "check": "standings:NYJ CONF%",
+      "result": "PASS",
+      "detail": "CONF% 0.333"
+    },
+    {
+      "check": "standings:MIA PF-PA=NET",
+      "result": "PASS",
+      "detail": "PF 126 - PA 200 = -74 vs NET -74"
+    },
+    {
+      "check": "standings:MIA PCT",
+      "result": "PASS",
+      "detail": "PCT 0.125 vs 0.125"
+    },
+    {
+      "check": "standings:MIA HOME+ROAD=GP",
+      "result": "PASS",
+      "detail": "0-4-0+1-3-0 vs GP 8"
+    },
+    {
+      "check": "standings:MIA DIV%",
+      "result": "PASS",
+      "detail": "DIV% 0.5"
+    },
+    {
+      "check": "standings:MIA CONF%",
+      "result": "PASS",
+      "detail": "CONF% 0.2"
+    },
+    {
+      "check": "standings:PIT PF-PA=NET",
+      "result": "PASS",
+      "detail": "PF 180 - PA 144 = 36 vs NET 36"
+    },
+    {
+      "check": "standings:PIT PCT",
+      "result": "PASS",
+      "detail": "PCT 0.75 vs 0.750"
+    },
+    {
+      "check": "standings:PIT HOME+ROAD=GP",
+      "result": "PASS",
+      "detail": "4-0-0+2-2-0 vs GP 8"
+    },
+    {
+      "check": "standings:PIT DIV%",
+      "result": "PASS",
+      "detail": "DIV% 0.667"
+    },
+    {
+      "check": "standings:PIT CONF%",
+      "result": "PASS",
+      "detail": "CONF% 0.6"
+    },
+    {
+      "check": "standings:CIN PF-PA=NET",
+      "result": "PASS",
+      "detail": "PF 240 - PA 175 = 65 vs NET 65"
+    },
+    {
+      "check": "standings:CIN PCT",
+      "result": "PASS",
+      "detail": "PCT 0.75 vs 0.750"
+    },
+    {
+      "check": "standings:CIN HOME+ROAD=GP",
+      "result": "PASS",
+      "detail": "2-1-0+4-1-0 vs GP 8"
+    },
+    {
+      "check": "standings:CIN DIV%",
+      "result": "PASS",
+      "detail": "DIV% 0.5"
+    },
+    {
+      "check": "standings:CIN CONF%",
+      "result": "PASS",
+      "detail": "CONF% 0.667"
+    },
+    {
+      "check": "standings:CLE PF-PA=NET",
+      "result": "PASS",
+      "detail": "PF 161 - PA 196 = -35 vs NET -35"
+    },
+    {
+      "check": "standings:CLE PCT",
+      "result": "PASS",
+      "detail": "PCT 0.556 vs 0.556"
+    },
+    {
+      "check": "standings:CLE HOME+ROAD=GP",
+      "result": "PASS",
+      "detail": "3-0-0+2-4-0 vs GP 9"
+    },
+    {
+      "check": "standings:CLE DIV%",
+      "result": "PASS",
+      "detail": "DIV% 0.667"
+    },
+    {
+      "check": "standings:CLE CONF%",
+      "result": "PASS",
+      "detail": "CONF% 0.5"
+    },
+    {
+      "check": "standings:BAL PF-PA=NET",
+      "result": "PASS",
+      "detail": "PF 189 - PA 236 = -47 vs NET -47"
+    },
+    {
+      "check": "standings:BAL PCT",
+      "result": "PASS",
+      "detail": "PCT 0.444 vs 0.444"
+    },
+    {
+      "check": "standings:BAL HOME+ROAD=GP",
+      "result": "PASS",
+      "detail": "1-3-0+3-2-0 vs GP 9"
+    },
+    {
+      "check": "standings:BAL DIV%",
+      "result": "PASS",
+      "detail": "DIV% 0.0"
+    },
+    {
+      "check": "standings:BAL CONF%",
+      "result": "PASS",
+      "detail": "CONF% 0.333"
+    },
+    {
+      "check": "standings:JAX PF-PA=NET",
+      "result": "PASS",
+      "detail": "PF 229 - PA 121 = 108 vs NET 108"
+    },
+    {
+      "check": "standings:JAX PCT",
+      "result": "PASS",
+      "detail": "PCT 0.75 vs 0.750"
+    },
+    {
+      "check": "standings:JAX HOME+ROAD=GP",
+      "result": "PASS",
+      "detail": "4-1-0+2-1-0 vs GP 8"
+    },
+    {
+      "check": "standings:JAX DIV%",
+      "result": "PASS",
+      "detail": "DIV% 0.5"
+    },
+    {
+      "check": "standings:JAX CONF%",
+      "result": "PASS",
+      "detail": "CONF% 0.714"
+    },
+    {
+      "check": "standings:HOU PF-PA=NET",
+      "result": "PASS",
+      "detail": "PF 209 - PA 192 = 17 vs NET 17"
+    },
+    {
+      "check": "standings:HOU PCT",
+      "result": "PASS",
+      "detail": "PCT 0.375 vs 0.375"
+    },
+    {
+      "check": "standings:HOU HOME+ROAD=GP",
+      "result": "PASS",
+      "detail": "0-4-0+3-1-0 vs GP 8"
+    },
+    {
+      "check": "standings:HOU DIV%",
+      "result": "PASS",
+      "detail": "DIV% 0.667"
+    },
+    {
+      "check": "standings:HOU CONF%",
+      "result": "PASS",
+      "detail": "CONF% 0.5"
+    },
+    {
+      "check": "standings:IND PF-PA=NET",
+      "result": "PASS",
+      "detail": "PF 184 - PA 249 = -65 vs NET -65"
+    },
+    {
+      "check": "standings:IND PCT",
+      "result": "PASS",
+      "detail": "PCT 0.222 vs 0.222"
+    },
+    {
+      "check": "standings:IND HOME+ROAD=GP",
+      "result": "PASS",
+      "detail": "1-3-0+1-4-0 vs GP 9"
+    },
+    {
+      "check": "standings:IND DIV%",
+      "result": "PASS",
+      "detail": "DIV% 0.333"
+    },
+    {
+      "check": "standings:IND CONF%",
+      "result": "PASS",
+      "detail": "CONF% 0.167"
+    },
+    {
+      "check": "standings:TEN PF-PA=NET",
+      "result": "PASS",
+      "detail": "PF 144 - PA 199 = -55 vs NET -55"
+    },
+    {
+      "check": "standings:TEN PCT",
+      "result": "PASS",
+      "detail": "PCT 0.125 vs 0.125"
+    },
+    {
+      "check": "standings:TEN HOME+ROAD=GP",
+      "result": "PASS",
+      "detail": "0-4-0+1-3-0 vs GP 8"
+    },
+    {
+      "check": "standings:TEN DIV%",
+      "result": "PASS",
+      "detail": "DIV% 0.5"
+    },
+    {
+      "check": "standings:TEN CONF%",
+      "result": "PASS",
+      "detail": "CONF% 0.167"
+    },
+    {
+      "check": "standings:DEN PF-PA=NET",
+      "result": "PASS",
+      "detail": "PF 198 - PA 186 = 12 vs NET 12"
+    },
+    {
+      "check": "standings:DEN PCT",
+      "result": "PASS",
+      "detail": "PCT 0.778 vs 0.778"
+    },
+    {
+      "check": "standings:DEN HOME+ROAD=GP",
+      "result": "PASS",
+      "detail": "4-0-0+3-2-0 vs GP 9"
+    },
+    {
+      "check": "standings:DEN DIV%",
+      "result": "PASS",
+      "detail": "DIV% 0.667"
+    },
+    {
+      "check": "standings:DEN CONF%",
+      "result": "PASS",
+      "detail": "CONF% 0.75"
+    },
+    {
+      "check": "standings:KC PF-PA=NET",
+      "result": "PASS",
+      "detail": "PF 202 - PA 143 = 59 vs NET 59"
+    },
+    {
+      "check": "standings:KC PCT",
+      "result": "PASS",
+      "detail": "PCT 0.75 vs 0.750"
+    },
+    {
+      "check": "standings:KC HOME+ROAD=GP",
+      "result": "PASS",
+      "detail": "4-0-0+2-2-0 vs GP 8"
+    },
+    {
+      "check": "standings:KC DIV%",
+      "result": "PASS",
+      "detail": "DIV% 0.75"
+    },
+    {
+      "check": "standings:KC CONF%",
+      "result": "PASS",
+      "detail": "CONF% 0.857"
+    },
+    {
+      "check": "standings:LV PF-PA=NET",
+      "result": "PASS",
+      "detail": "PF 238 - PA 268 = -30 vs NET -30"
+    },
+    {
+      "check": "standings:LV PCT",
+      "result": "PASS",
+      "detail": "PCT 0.444 vs 0.444"
+    },
+    {
+      "check": "standings:LV HOME+ROAD=GP",
+      "result": "PASS",
+      "detail": "1-3-0+3-2-0 vs GP 9"
+    },
+    {
+      "check": "standings:LV DIV%",
+      "result": "PASS",
+      "detail": "DIV% 0.5"
+    },
+    {
+      "check": "standings:LV CONF%",
+      "result": "PASS",
+      "detail": "CONF% 0.5"
+    },
+    {
+      "check": "standings:LAC PF-PA=NET",
+      "result": "PASS",
+      "detail": "PF 121 - PA 219 = -98 vs NET -98"
+    },
+    {
+      "check": "standings:LAC PCT",
+      "result": "PASS",
+      "detail": "PCT 0.0 vs 0.000"
+    },
+    {
+      "check": "standings:LAC HOME+ROAD=GP",
+      "result": "PASS",
+      "detail": "0-4-0+0-4-0 vs GP 8"
+    },
+    {
+      "check": "standings:LAC DIV%",
+      "result": "PASS",
+      "detail": "DIV% 0.0"
+    },
+    {
+      "check": "standings:LAC CONF%",
+      "result": "PASS",
+      "detail": "CONF% 0.0"
+    },
+    {
+      "check": "standings:NYG PF-PA=NET",
+      "result": "PASS",
+      "detail": "PF 203 - PA 196 = 7 vs NET 7"
+    },
+    {
+      "check": "standings:NYG PCT",
+      "result": "PASS",
+      "detail": "PCT 0.611 vs 0.611"
+    },
+    {
+      "check": "standings:NYG HOME+ROAD=GP",
+      "result": "PASS",
+      "detail": "3-2-0+2-1-1 vs GP 9"
+    },
+    {
+      "check": "standings:NYG DIV%",
+      "result": "PASS",
+      "detail": "DIV% 0.625"
+    },
+    {
+      "check": "standings:NYG CONF%",
+      "result": "PASS",
+      "detail": "CONF% 0.5"
+    },
+    {
+      "check": "standings:DAL PF-PA=NET",
+      "result": "PASS",
+      "detail": "PF 246 - PA 236 = 10 vs NET 10"
+    },
+    {
+      "check": "standings:DAL PCT",
+      "result": "PASS",
+      "detail": "PCT 0.444 vs 0.444"
+    },
+    {
+      "check": "standings:DAL HOME+ROAD=GP",
+      "result": "PASS",
+      "detail": "1-3-0+3-2-0 vs GP 9"
+    },
+    {
+      "check": "standings:DAL DIV%",
+      "result": "PASS",
+      "detail": "DIV% 0.667"
+    },
+    {
+      "check": "standings:DAL CONF%",
+      "result": "PASS",
+      "detail": "CONF% 0.333"
+    },
+    {
+      "check": "standings:WAS PF-PA=NET",
+      "result": "PASS",
+      "detail": "PF 196 - PA 223 = -27 vs NET -27"
+    },
+    {
+      "check": "standings:WAS PCT",
+      "result": "PASS",
+      "detail": "PCT 0.389 vs 0.389"
+    },
+    {
+      "check": "standings:WAS HOME+ROAD=GP",
+      "result": "PASS",
+      "detail": "2-2-1+1-3-0 vs GP 9"
+    },
+    {
+      "check": "standings:WAS DIV%",
+      "result": "PASS",
+      "detail": "DIV% 0.5"
+    },
+    {
+      "check": "standings:WAS CONF%",
+      "result": "PASS",
+      "detail": "CONF% 0.438"
+    },
+    {
+      "check": "standings:PHI PF-PA=NET",
+      "result": "PASS",
+      "detail": "PF 148 - PA 221 = -73 vs NET -73"
+    },
+    {
+      "check": "standings:PHI PCT",
+      "result": "PASS",
+      "detail": "PCT 0.222 vs 0.222"
+    },
+    {
+      "check": "standings:PHI HOME+ROAD=GP",
+      "result": "PASS",
+      "detail": "1-4-0+1-3-0 vs GP 9"
+    },
+    {
+      "check": "standings:PHI DIV%",
+      "result": "PASS",
+      "detail": "DIV% 0.25"
+    },
+    {
+      "check": "standings:PHI CONF%",
+      "result": "PASS",
+      "detail": "CONF% 0.143"
+    },
+    {
+      "check": "standings:CHI PF-PA=NET",
+      "result": "PASS",
+      "detail": "PF 241 - PA 184 = 57 vs NET 57"
+    },
+    {
+      "check": "standings:CHI PCT",
+      "result": "PASS",
+      "detail": "PCT 0.778 vs 0.778"
+    },
+    {
+      "check": "standings:CHI HOME+ROAD=GP",
+      "result": "PASS",
+      "detail": "4-1-0+3-1-0 vs GP 9"
+    },
+    {
+      "check": "standings:CHI DIV%",
+      "result": "PASS",
+      "detail": "DIV% 0.0"
+    },
+    {
+      "check": "standings:CHI CONF%",
+      "result": "PASS",
+      "detail": "CONF% 0.714"
+    },
+    {
+      "check": "standings:DET PF-PA=NET",
+      "result": "PASS",
+      "detail": "PF 222 - PA 189 = 33 vs NET 33"
+    },
+    {
+      "check": "standings:DET PCT",
+      "result": "PASS",
+      "detail": "PCT 0.75 vs 0.750"
+    },
+    {
+      "check": "standings:DET HOME+ROAD=GP",
+      "result": "PASS",
+      "detail": "4-0-0+2-2-0 vs GP 8"
+    },
+    {
+      "check": "standings:DET DIV%",
+      "result": "PASS",
+      "detail": "DIV% 1.0"
+    },
+    {
+      "check": "standings:DET CONF%",
+      "result": "PASS",
+      "detail": "CONF% 0.8"
+    },
+    {
+      "check": "standings:MIN PF-PA=NET",
+      "result": "PASS",
+      "detail": "PF 146 - PA 116 = 30 vs NET 30"
+    },
+    {
+      "check": "standings:MIN PCT",
+      "result": "PASS",
+      "detail": "PCT 0.75 vs 0.750"
+    },
+    {
+      "check": "standings:MIN HOME+ROAD=GP",
+      "result": "PASS",
+      "detail": "3-1-0+3-1-0 vs GP 8"
+    },
+    {
+      "check": "standings:MIN DIV%",
+      "result": "PASS",
+      "detail": "DIV% 0.667"
+    },
+    {
+      "check": "standings:MIN CONF%",
+      "result": "PASS",
+      "detail": "CONF% 0.8"
+    },
+    {
+      "check": "standings:GB PF-PA=NET",
+      "result": "PASS",
+      "detail": "PF 216 - PA 191 = 25 vs NET 25"
+    },
+    {
+      "check": "standings:GB PCT",
+      "result": "PASS",
+      "detail": "PCT 0.667 vs 0.667"
+    },
+    {
+      "check": "standings:GB HOME+ROAD=GP",
+      "result": "PASS",
+      "detail": "3-1-0+3-2-0 vs GP 9"
+    },
+    {
+      "check": "standings:GB DIV%",
+      "result": "PASS",
+      "detail": "DIV% 0.333"
+    },
+    {
+      "check": "standings:GB CONF%",
+      "result": "PASS",
+      "detail": "CONF% 0.571"
+    },
+    {
+      "check": "standings:CAR PF-PA=NET",
+      "result": "PASS",
+      "detail": "PF 199 - PA 219 = -20 vs NET -20"
+    },
+    {
+      "check": "standings:CAR PCT",
+      "result": "PASS",
+      "detail": "PCT 0.375 vs 0.375"
+    },
+    {
+      "check": "standings:CAR HOME+ROAD=GP",
+      "result": "PASS",
+      "detail": "1-3-0+2-2-0 vs GP 8"
+    },
+    {
+      "check": "standings:CAR DIV%",
+      "result": "PASS",
+      "detail": "DIV% 0.5"
+    },
+    {
+      "check": "standings:CAR CONF%",
+      "result": "PASS",
+      "detail": "CONF% 0.5"
+    },
+    {
+      "check": "standings:NO PF-PA=NET",
+      "result": "PASS",
+      "detail": "PF 185 - PA 216 = -31 vs NET -31"
+    },
+    {
+      "check": "standings:NO PCT",
+      "result": "PASS",
+      "detail": "PCT 0.375 vs 0.375"
+    },
+    {
+      "check": "standings:NO HOME+ROAD=GP",
+      "result": "PASS",
+      "detail": "1-4-0+2-1-0 vs GP 8"
+    },
+    {
+      "check": "standings:NO DIV%",
+      "result": "PASS",
+      "detail": "DIV% 0.0"
+    },
+    {
+      "check": "standings:NO CONF%",
+      "result": "PASS",
+      "detail": "CONF% 0.25"
+    },
+    {
+      "check": "standings:TB PF-PA=NET",
+      "result": "PASS",
+      "detail": "PF 202 - PA 178 = 24 vs NET 24"
+    },
+    {
+      "check": "standings:TB PCT",
+      "result": "PASS",
+      "detail": "PCT 0.333 vs 0.333"
+    },
+    {
+      "check": "standings:TB HOME+ROAD=GP",
+      "result": "PASS",
+      "detail": "1-4-0+2-2-0 vs GP 9"
+    },
+    {
+      "check": "standings:TB DIV%",
+      "result": "PASS",
+      "detail": "DIV% 1.0"
+    },
+    {
+      "check": "standings:TB CONF%",
+      "result": "PASS",
+      "detail": "CONF% 0.5"
+    },
+    {
+      "check": "standings:ATL PF-PA=NET",
+      "result": "PASS",
+      "detail": "PF 188 - PA 223 = -35 vs NET -35"
+    },
+    {
+      "check": "standings:ATL PCT",
+      "result": "PASS",
+      "detail": "PCT 0.333 vs 0.333"
+    },
+    {
+      "check": "standings:ATL HOME+ROAD=GP",
+      "result": "PASS",
+      "detail": "1-4-0+2-2-0 vs GP 9"
+    },
+    {
+      "check": "standings:ATL DIV%",
+      "result": "PASS",
+      "detail": "DIV% 0.333"
+    },
+    {
+      "check": "standings:ATL CONF%",
+      "result": "PASS",
+      "detail": "CONF% 0.5"
+    },
+    {
+      "check": "standings:SF PF-PA=NET",
+      "result": "PASS",
+      "detail": "PF 235 - PA 156 = 79 vs NET 79"
+    },
+    {
+      "check": "standings:SF PCT",
+      "result": "PASS",
+      "detail": "PCT 0.875 vs 0.875"
+    },
+    {
+      "check": "standings:SF HOME+ROAD=GP",
+      "result": "PASS",
+      "detail": "5-0-0+2-1-0 vs GP 8"
+    },
+    {
+      "check": "standings:SF DIV%",
+      "result": "PASS",
+      "detail": "DIV% 1.0"
+    },
+    {
+      "check": "standings:SF CONF%",
+      "result": "PASS",
+      "detail": "CONF% 0.8"
+    },
+    {
+      "check": "standings:SEA PF-PA=NET",
+      "result": "PASS",
+      "detail": "PF 202 - PA 162 = 40 vs NET 40"
+    },
+    {
+      "check": "standings:SEA PCT",
+      "result": "PASS",
+      "detail": "PCT 0.556 vs 0.556"
+    },
+    {
+      "check": "standings:SEA HOME+ROAD=GP",
+      "result": "PASS",
+      "detail": "4-2-0+1-2-0 vs GP 9"
+    },
+    {
+      "check": "standings:SEA DIV%",
+      "result": "PASS",
+      "detail": "DIV% 0.667"
+    },
+    {
+      "check": "standings:SEA CONF%",
+      "result": "PASS",
+      "detail": "CONF% 0.4"
+    },
+    {
+      "check": "standings:LA PF-PA=NET",
+      "result": "PASS",
+      "detail": "PF 214 - PA 181 = 33 vs NET 33"
+    },
+    {
+      "check": "standings:LA PCT",
+      "result": "PASS",
+      "detail": "PCT 0.556 vs 0.556"
+    },
+    {
+      "check": "standings:LA HOME+ROAD=GP",
+      "result": "PASS",
+      "detail": "2-3-0+3-1-0 vs GP 9"
+    },
+    {
+      "check": "standings:LA DIV%",
+      "result": "PASS",
+      "detail": "DIV% 0.0"
+    },
+    {
+      "check": "standings:LA CONF%",
+      "result": "PASS",
+      "detail": "CONF% 0.6"
+    },
+    {
+      "check": "standings:AZ PF-PA=NET",
+      "result": "PASS",
+      "detail": "PF 178 - PA 255 = -77 vs NET -77"
+    },
+    {
+      "check": "standings:AZ PCT",
+      "result": "PASS",
+      "detail": "PCT 0.333 vs 0.333"
+    },
+    {
+      "check": "standings:AZ HOME+ROAD=GP",
+      "result": "PASS",
+      "detail": "0-3-0+3-3-0 vs GP 9"
+    },
+    {
+      "check": "standings:AZ DIV%",
+      "result": "PASS",
+      "detail": "DIV% 0.25"
+    },
+    {
+      "check": "standings:AZ CONF%",
+      "result": "PASS",
+      "detail": "CONF% 0.286"
+    },
+    {
+      "check": "cross:BUF W9 record",
+      "result": "PASS",
+      "detail": "6-1-0 + W9 -> 7-1-0"
+    },
+    {
+      "check": "cross:NE W9 record",
+      "result": "PASS",
+      "detail": "5-3-0 + W9 -> 5-4-0"
+    },
+    {
+      "check": "cross:NYJ W9 record",
+      "result": "PASS",
+      "detail": "2-6-0 + W9 -> 2-7-0"
+    },
+    {
+      "check": "cross:MIA W9 record",
+      "result": "PASS",
+      "detail": "1-6-0 + W9 -> 1-7-0"
+    },
+    {
+      "check": "cross:PIT bye record",
+      "result": "PASS",
+      "detail": "6-2-0 + bye -> 6-2-0"
+    },
+    {
+      "check": "cross:CIN W9 record",
+      "result": "PASS",
+      "detail": "5-2-0 + W9 -> 6-2-0"
+    },
+    {
+      "check": "cross:CLE W9 record",
+      "result": "PASS",
+      "detail": "5-3-0 + W9 -> 5-4-0"
+    },
+    {
+      "check": "cross:BAL W9 record",
+      "result": "PASS",
+      "detail": "4-4-0 + W9 -> 4-5-0"
+    },
+    {
+      "check": "cross:JAX W9 record",
+      "result": "PASS",
+      "detail": "5-2-0 + W9 -> 6-2-0"
+    },
+    {
+      "check": "cross:HOU W9 record",
+      "result": "PASS",
+      "detail": "2-5-0 + W9 -> 3-5-0"
+    },
+    {
+      "check": "cross:IND W9 record",
+      "result": "PASS",
+      "detail": "2-6-0 + W9 -> 2-7-0"
+    },
+    {
+      "check": "cross:TEN bye record",
+      "result": "PASS",
+      "detail": "1-7-0 + bye -> 1-7-0"
+    },
+    {
+      "check": "cross:DEN W9 record",
+      "result": "PASS",
+      "detail": "6-2-0 + W9 -> 7-2-0"
+    },
+    {
+      "check": "cross:KC W9 record",
+      "result": "PASS",
+      "detail": "5-2-0 + W9 -> 6-2-0"
+    },
+    {
+      "check": "cross:LV W9 record",
+      "result": "PASS",
+      "detail": "4-4-0 + W9 -> 4-5-0"
+    },
+    {
+      "check": "cross:LAC W9 record",
+      "result": "PASS",
+      "detail": "0-7-0 + W9 -> 0-8-0"
+    },
+    {
+      "check": "cross:NYG W9+W10 record",
+      "result": "PASS",
+      "detail": "4-2-1 + W9+W10 -> 5-3-1"
+    },
+    {
+      "check": "cross:DAL W9 record",
+      "result": "PASS",
+      "detail": "3-5-0 + W9 -> 4-5-0"
+    },
+    {
+      "check": "cross:WAS W9+W10 record",
+      "result": "PASS",
+      "detail": "2-4-1 + W9+W10 -> 3-5-1"
+    },
+    {
+      "check": "cross:PHI W9 record",
+      "result": "PASS",
+      "detail": "2-6-0 + W9 -> 2-7-0"
+    },
+    {
+      "check": "cross:CHI W9 record",
+      "result": "PASS",
+      "detail": "6-2-0 + W9 -> 7-2-0"
+    },
+    {
+      "check": "cross:DET W9 record",
+      "result": "PASS",
+      "detail": "5-2-0 + W9 -> 6-2-0"
+    },
+    {
+      "check": "cross:MIN W9 record",
+      "result": "PASS",
+      "detail": "6-1-0 + W9 -> 6-2-0"
+    },
+    {
+      "check": "cross:GB W9 record",
+      "result": "PASS",
+      "detail": "5-3-0 + W9 -> 6-3-0"
+    },
+    {
+      "check": "cross:CAR W9 record",
+      "result": "PASS",
+      "detail": "3-4-0 + W9 -> 3-5-0"
+    },
+    {
+      "check": "cross:NO W9 record",
+      "result": "PASS",
+      "detail": "2-5-0 + W9 -> 3-5-0"
+    },
+    {
+      "check": "cross:TB W9 record",
+      "result": "PASS",
+      "detail": "3-5-0 + W9 -> 3-6-0"
+    },
+    {
+      "check": "cross:ATL W9 record",
+      "result": "PASS",
+      "detail": "3-5-0 + W9 -> 3-6-0"
+    },
+    {
+      "check": "cross:SF W9 record",
+      "result": "PASS",
+      "detail": "6-1-0 + W9 -> 7-1-0"
+    },
+    {
+      "check": "cross:SEA W9 record",
+      "result": "PASS",
+      "detail": "4-4-0 + W9 -> 5-4-0"
+    },
+    {
+      "check": "cross:LA W9 record",
+      "result": "PASS",
+      "detail": "4-4-0 + W9 -> 5-4-0"
+    },
+    {
+      "check": "cross:AZ W9 record",
+      "result": "PASS",
+      "detail": "3-5-0 + W9 -> 3-6-0"
+    },
+    {
+      "check": "schedule: 14 games / 28 teams",
+      "result": "PASS",
+      "detail": "14 games, 28 unique teams"
+    },
+    {
+      "check": "schedule: 32 teams partition with byes",
+      "result": "PASS",
+      "detail": "byes ['CHI', 'DEN', 'PHI', 'TB']"
+    },
+    {
+      "check": "schedule: WAS-NYG listed",
+      "result": "PASS",
+      "detail": "WAS@NYG in slate"
+    },
+    {
+      "check": "scores: 15 Week 9 games",
+      "result": "PASS",
+      "detail": "15 games"
+    },
+    {
+      "check": "scores: W9 covers 30 teams + 2 byes",
+      "result": "PASS",
+      "detail": "byes PIT/TEN; uncovered {'PIT', 'TEN'}"
+    },
+    {
+      "check": "injuries: practice vocabulary",
+      "result": "PASS",
+      "detail": "149 rows, 0 bad practice values"
+    },
+    {
+      "check": "injuries: game-status vocabulary",
+      "result": "PASS",
+      "detail": "0 bad game-status values"
+    },
+    {
+      "check": "injuries: sample covers 6 games",
+      "result": "PASS",
+      "detail": "12 teams"
+    },
+    {
+      "check": "ngs: 30 rows parsed",
+      "result": "PASS",
+      "detail": "30 rows from raw transcription"
+    },
+    {
+      "check": "ngs: teams consistent with schedule/standings",
+      "result": "PASS",
+      "detail": "30 teams, all in standings (after LAR->LA alias)"
+    }
+  ],
+  "cross_check": "Every 2026-11-14 standings row = 2026-11-04 post-Week-8 record + Week 9 result (or bye)."
+}

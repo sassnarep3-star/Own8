@@ -408,3 +408,72 @@ Branch: `arena/25a5fee1-own8` (Arena-pinned; all work remains on this branch). S
 - 2026-11-14 UTC — DQ1–DQ4 completed in `decision-review/**`: 17 questions, 9 proposals (none approved/implemented), 10 availability schema fields, 7 site pages, 15 official-source records, and six initial research flags. The Week 11 injury URL request returned extracted Week 10 (`/reg10`) content; no current player, starter, backup, injury-clearance, depth-tier, or replacement value was entered. The snapshot remains dated 2026-11-04; this module does not describe it as live.
 - 2026-11-14 UTC — DQ5 cross-scope handoff: origin/main advanced to 0db0fb0 through PR #38 while this branch was preparing its required pre-push rebase. The latest main navigation links to `requirements/index.html`, `decision/site/index.html`, `strict/site/index.html`, and `desk/index.html`; it does not link to `decision-review/`. Session f6e60a81's R6/R7 claim covers `scripts/build_site.py`, `index.html`, `pages/**`, and publication checks; its PR #38 merged with CI checks successful, while its board still lists R7 (Pages confirmation) in progress. This session requests a `decision-review/` root link and repository-inventory refresh after handoff, or an explicit consolidation decision. The request is recorded here and as DQ-F07 on `decision-review/flagged.html`; no shared root files or generated audit files were modified after the scope overlap was discovered. The module's public route remains unverified.
 - Rebase note 2026-11-14 UTC: the required `git pull --rebase origin main` fetched 0db0fb0 and stopped on the COORDINATION.md add/add conflict. Resolution preserved the complete incoming main board (including PR #36/#38 records and Session f6e60a81) plus this session's section. The pre-conflict root integration commit was dropped from the rebased series to honor the active shared-file claim; the decision-review subtree and this section remain on this branch. No main-session source changes were discarded.
+
+---
+
+COLLISION NOTE (c563a1dc, second rebase): board conflict resolved by keeping both sides;
+no session work discarded. The c563a1dc section follows below.
+
+---
+
+COLLISION NOTE (c563a1dc): rebase of the c563a1dc claim onto main 0db0fb0 conflicted
+only on this board. Both sides are retained below: the merged sections above (sessions
+a57af0ab, 101b20bc, aa2d8cbe, f6e60a81, active 2026-11-14) and the c563a1dc section.
+No session work is discarded. c563a1dc re-verifies its own snapshot refresh and
+contributes the Suggestions + Decision Framework pages; where root files overlap with
+f6e60a81 R6, both sets of changes are merged rather than overwritten.
+
+## Session c563a1dc — verification refresh and decision-support integration (2026-11-14)
+
+Branch: `arena/c563a1dc-own8` (Arena-pinned; no additional branches). This session is the
+final integration session: all prior sessions (9cf451e4, 95e9626f, d22c14b9, c03eba88,
+74efc1ec, b79c8166, 4ec958b2, 4bc92a5f, dd321bf5, 5c4b8a3e, 566bc2e7, 34f42e88, b2783d1d)
+completed on 2026-11-04; no active claims remain. Scope claimed below is the canonical
+root integration scope: refreshed official-source verification as of 2026-11-14, plus
+the two decision-support sections the project requires (dedicated Suggestions section;
+Decision Framework of open questions / information held / information needed).
+
+| ID | Task | Status | Owner | Files (scope) | Verification plan |
+| --- | --- | --- | --- | --- | --- |
+| C1 | Live official verification refresh 2026-11-14: 32 standings rows, Week 10 schedule, Week 9 scores, Week 10 injury report, NGS Week 9 passing | in progress | c563a1dc | data/audit-snapshot.json, data/sources.json, data/flagged.json, data/live-verify-2026-11-14.json, scripts/live_verify_2026_11_14.py | Fresh fetch_page retrieval of https://www.nfl.com/standings/ (2 chunks), /schedules/2026/by-week/week-10 (3 chunks), /scores/2026/week-9 , /injuries/league/2026/reg10 , nextgenstats.nfl.com/stats/passing/2026/REG/9. Arithmetic + cross-check: new standings = 2026-11-04 W8 snapshot + Week 9 game results; PF−PA=NET; PCT; W+L+T=GP |
+| C2 | Dedicated Suggestions section + Decision Framework (open questions, information held vs missing, answers required) | in progress | c563a1dc | data/suggestions.json, data/decisions.json | Content grounded in verified evidence and flagged gaps; each row references an official context link; no unsupported values |
+| C3 | Integrate new pages + refreshed data into canonical dashboard: build_site.py nav/pages, regenerate all HTML, link check, unit tests | in progress | c563a1dc | scripts/build_site.py, index.html, pages/, assets/, analysis/ | `python3 scripts/build_site.py`; `python3 scripts/check_links.py`; `python3 -m unittest discover -s scripts -p 'test_audit.py'`; every data row keeps an official source link; blank-if-unverified |
+| C4 | PR to main, merge, confirm GitHub Pages deploy, record result | pending | c563a1dc | COORDINATION.md | gh pr create/merge; Pages build API status "built"; live fetch of site pages |
+
+Log (c563a1dc):
+- 2026-11-14 — c563a1dc started on branch arena/c563a1dc-own8 (branched from main @ 259edab =
+  PR #13 merge). Read full board. Confirmed no active claims: all prior sessions completed
+  2026-11-04. Open stale PRs observed (#6, #8, #16, #28, #31, #32 — last updated 2026-11-04);
+  their scopes (lab/**, root sign fix, competition ledger, evidence-lab records) are not
+  touched; this session integrates only its claimed canonical scope. Claimed C1–C4 above.
+
+## Session c563a1dc — progress log (2026-11-14)
+
+- C1 DONE (verification refresh, 2026-11-14): Fresh official retrievals via fetch_page —
+  nfl.com/standings (2 chunks, 32 rows), nfl.com/schedules/2026/by-week/week-10 (3 chunks,
+  14 games + byes CHI/DEN/PHI/TB), nfl.com/scores/2026/week-9 (2 chunks, 15 games),
+  nfl.com/injuries/league/2026/reg10 (8 chunks, bounded 6-game sample, 149 rows),
+  nextgenstats.nfl.com/stats/passing/2026/REG/9 (30 QB rows). Script
+  scripts/refresh_2026_11_14.py transcribes and checks: 202 checks all PASS, including
+  arithmetic (PF-PA=NET, PCT, HOME+ROAD=GP, DIV%/CONF%), cross-capture (every 2026-11-14
+  standings row = 2026-11-04 post-W8 record + W9 result + W10 WAS-NYG result), schedule
+  partition, score coverage, injury vocabulary, NGS parse. Canonical snapshot updated to
+  as_of 2026-11-14; previous snapshot archived at data/audit-snapshot-2026-11-04.json.
+  New evidence: data/ngs-passing-2026-week9.json + raw transcription; data/live-verify-2026-11-14.json.
+  Flags added: C-01..C-05 (refresh, bounded injury sample, news dates, NGS evidence, LAR/LA alias).
+  IR-c56-01: NGS renders the Rams as LAR while nfl.com standings/schedules use LA (surface-native
+  codes kept; alias applied only to the internal consistency check).
+- C2 DONE: data/suggestions.json (12 suggestions S-01..S-12: freshness, roster-depth/backups,
+  competition layer, correlations, gate enforcement, UX, freshness indicator, full injury
+  coverage, decision log, player-prop signals, market reference, weekly correlation refresh) and
+  data/decisions.json (10 decision questions D-01..D-10 with information held, missing, and impact).
+  Each row links an official context/verification target; no unsupported values.
+- C3 DONE: scripts/build_site.py adds Suggestions (16) and Decision framework (17) pages to the
+  nav; all pages regenerated with the 2026-11-14 snapshot (Week 10 slate, Week 9 scores, W10
+  injury sample, refreshed exec summary). analyze.py outputs renamed model-lines.json /
+  prop-signals.json (stale week9 files removed); audit_repo.py standings check now arithmetic-only
+  (the W8-diff check is obsolete after the refresh); test_audit.py and check_links.py updated.
+  Full pipeline: audit_repo (256 field checks, 0 mismatches, 471 entries), analyze (14 B0
+  benchmarks, 7 correlations, 0 eligible), build_site, check_links (40 pages / 2418 links /
+  1891 rows / 0 errors, checked_at 2026-11-14), audit_publication (61 HTML / 916 URLs, PASS),
+  18 unit tests OK. strict_check and desk pipelines re-run PASS.

@@ -1,126 +1,118 @@
 {
-  "as_of": "2026-11-04",
+  "as_of": "2026-11-14",
   "method": "No verified player game-log / active-status / event-distribution history: all prop fair lines and probabilities withheld.",
   "signals": [
     {
-      "game": "JAX at BAL",
+      "game": "WAS at NYG",
       "market_prop_line": null,
       "qb_proj_pass_yds": null,
       "correlation": null,
       "status": "UNVERIFIED \u2014 BLOCKED",
-      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9"
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-10"
     },
     {
-      "game": "CIN at ATL",
+      "game": "NE at DET",
       "market_prop_line": null,
       "qb_proj_pass_yds": null,
       "correlation": null,
       "status": "UNVERIFIED \u2014 BLOCKED",
-      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9"
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-10"
     },
     {
-      "game": "DEN at CAR",
+      "game": "KC at ATL",
       "market_prop_line": null,
       "qb_proj_pass_yds": null,
       "correlation": null,
       "status": "UNVERIFIED \u2014 BLOCKED",
-      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9"
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-10"
     },
     {
-      "game": "DAL at IND",
+      "game": "HOU at CLE",
       "market_prop_line": null,
       "qb_proj_pass_yds": null,
       "correlation": null,
       "status": "UNVERIFIED \u2014 BLOCKED",
-      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9"
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-10"
     },
     {
-      "game": "NYJ at KC",
+      "game": "MIN at GB",
       "market_prop_line": null,
       "qb_proj_pass_yds": null,
       "correlation": null,
       "status": "UNVERIFIED \u2014 BLOCKED",
-      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9"
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-10"
     },
     {
-      "game": "DET at MIA",
+      "game": "MIA at IND",
       "market_prop_line": null,
       "qb_proj_pass_yds": null,
       "correlation": null,
       "status": "UNVERIFIED \u2014 BLOCKED",
-      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9"
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-10"
     },
     {
-      "game": "CLE at NO",
+      "game": "CAR at NO",
       "market_prop_line": null,
       "qb_proj_pass_yds": null,
       "correlation": null,
       "status": "UNVERIFIED \u2014 BLOCKED",
-      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9"
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-10"
     },
     {
-      "game": "NYG at PHI",
+      "game": "BUF at NYJ",
       "market_prop_line": null,
       "qb_proj_pass_yds": null,
       "correlation": null,
       "status": "UNVERIFIED \u2014 BLOCKED",
-      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9"
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-10"
     },
     {
-      "game": "LA at WAS",
+      "game": "JAX at TEN",
       "market_prop_line": null,
       "qb_proj_pass_yds": null,
       "correlation": null,
       "status": "UNVERIFIED \u2014 BLOCKED",
-      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9"
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-10"
     },
     {
-      "game": "HOU at LAC",
+      "game": "LA at AZ",
       "market_prop_line": null,
       "qb_proj_pass_yds": null,
       "correlation": null,
       "status": "UNVERIFIED \u2014 BLOCKED",
-      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9"
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-10"
     },
     {
-      "game": "LV at SF",
+      "game": "SEA at LV",
       "market_prop_line": null,
       "qb_proj_pass_yds": null,
       "correlation": null,
       "status": "UNVERIFIED \u2014 BLOCKED",
-      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9"
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-10"
     },
     {
-      "game": "GB at NE",
+      "game": "SF at DAL",
       "market_prop_line": null,
       "qb_proj_pass_yds": null,
       "correlation": null,
       "status": "UNVERIFIED \u2014 BLOCKED",
-      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9"
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-10"
     },
     {
-      "game": "AZ at SEA",
+      "game": "PIT at CIN",
       "market_prop_line": null,
       "qb_proj_pass_yds": null,
       "correlation": null,
       "status": "UNVERIFIED \u2014 BLOCKED",
-      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9"
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-10"
     },
     {
-      "game": "TB at CHI",
+      "game": "LAC at BAL",
       "market_prop_line": null,
       "qb_proj_pass_yds": null,
       "correlation": null,
       "status": "UNVERIFIED \u2014 BLOCKED",
-      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9"
-    },
-    {
-      "game": "BUF at MIN",
-      "market_prop_line": null,
-      "qb_proj_pass_yds": null,
-      "correlation": null,
-      "status": "UNVERIFIED \u2014 BLOCKED",
-      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9"
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-10"
     }
   ]
 }

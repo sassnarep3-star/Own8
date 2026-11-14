@@ -1,0 +1,97 @@
+{
+  "as_of": "2026-11-14",
+  "session": "c563a1dc",
+  "purpose": "Decision Framework: the clear list of questions, the information already held (verified), and the information missing before any decision can be made. Official links are context/verification targets.",
+  "questions": [
+    {
+      "id": "D-01",
+      "area": "Strategy promotion",
+      "question": "Should any strategy be promoted to the live leaderboard with rewards?",
+      "have": "8 registered research designs (singles, parlays, player-prop combos); validation gates G1-G8 all BLOCKED except G1; 0 eligible strategies; no verified operator prices or out-of-sample skill evidence.",
+      "missing": "Verified timestamped operator prices, chronological out-of-sample evidence, aligned joint outcomes for combos, and an immutable prospective forecast ledger.",
+      "impact": "No rewards can be awarded. All strategies remain BLOCKED until the missing evidence exists.",
+      "source_url": "https://www.itl.nist.gov/div898/handbook/prc/section1/prc14.htm"
+    },
+    {
+      "id": "D-02",
+      "area": "Data sourcing",
+      "question": "Which sources can be trusted for live updates?",
+      "have": "nfl.com standings / Week 10 schedule / Week 9 scores / Week 10 injury report verified on 2026-11-14 (202 arithmetic and cross-capture checks PASS); NGS Week 9 passing verified; NIST statistical references checked.",
+      "missing": "An official real-time feed or API; retained raw HTTP capture. Dynamic official pages can change after retrieval.",
+      "impact": "Snapshots remain point-in-time extracts; freshness must be re-verified each cycle, and older snapshots are archived rather than deleted.",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "id": "D-03",
+      "area": "Line origination",
+      "question": "Can we originate our own NFL lines without market inputs?",
+      "have": "B0 benchmark method (derived from verified scoring rates); 14 Week 10 benchmark lines generated; zero venue adjustment by design.",
+      "missing": "Calibration against official lines; venue, roster, opponent-strength, pace and uncertainty adjustments; a frozen threshold set.",
+      "impact": "Originated lines remain illustrative derived benchmarks, not official lines, fair prices or recommendations.",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "id": "D-04",
+      "area": "Skill vs luck",
+      "question": "How do we establish skill and remove luck from strategy evaluation?",
+      "have": "No out-of-sample skill evidence exists; luck cannot be eliminated by any finite test; proposed proper scoring (Brier / log loss) against fixed baselines.",
+      "missing": "Prospective immutable ledger, pre-registered trials, family-wise adjusted evidence, and an untouched final test period.",
+      "impact": "No skill designation is made. Abstaining is the correct result when evidence is missing.",
+      "source_url": "https://www.itl.nist.gov/div898/handbook/prc/section1/prc14.htm"
+    },
+    {
+      "id": "D-05",
+      "area": "Correlations",
+      "question": "What correlation values are needed to price parlays and player-prop combos?",
+      "have": "3 descriptive team-level correlations (net points/game vs win fraction, rank correlation, points-for/game vs win fraction); all bet-leg dependence cells blank.",
+      "missing": "Aligned event-level paired outcomes, market thresholds, and joint-distribution evidence for multi-leg combinations.",
+      "impact": "Combinations cannot be priced. Unknown dependence is never treated as independence.",
+      "source_url": "https://www.itl.nist.gov/div898/handbook/eda/section3/scatterp.htm"
+    },
+    {
+      "id": "D-06",
+      "area": "Injuries & backups",
+      "question": "How should injuries and backup-replacement deficiencies (2nd/3rd/4th string on offense and defense) be incorporated?",
+      "have": "Week 10 injury report bounded sample (149 rows across 6 games); 10 official news headlines (QB situations, IR placements); NGS Week 9 passing data (30 QBs).",
+      "missing": "Depth-chart/backup tracking from official sources, final inactive lists, and official gamebook starter data.",
+      "impact": "Availability-dependent strategies remain blocked; practice participation is not game clearance.",
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg10"
+    },
+    {
+      "id": "D-07",
+      "area": "Rewards",
+      "question": "What reward structure should the leaderboard competition use?",
+      "have": "Proposed paper-points rule: reward 100 x the positive family-adjusted lower bound of paired mean Brier improvement over a pre-registered baseline, only after all gates PASS.",
+      "missing": "Any strategy passing all applicable gates; no cash rewards, bankroll allocation or wagering.",
+      "impact": "No rewards are awarded. The rule is project design only, not an official sporting rule.",
+      "source_url": "https://www.itl.nist.gov/div898/handbook/prc/section1/prc14.htm"
+    },
+    {
+      "id": "D-08",
+      "area": "Release policy",
+      "question": "What is the release and deployment policy?",
+      "have": "Site live on GitHub Pages; offline link checks PASS; review flags are non-blocking; snapshot archived per refresh.",
+      "missing": "None critical. Each release must re-verify the combined data and confirm no broken links before deploy.",
+      "impact": "Publish the research and all gaps; never publish actionable selections or reward a blocked strategy.",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "id": "D-09",
+      "area": "Strategy prioritization",
+      "question": "Which strategy families (single bet, parlay, player prop) should be prioritized?",
+      "have": "8 registered designs spanning singles (spread baseline, total/pace, moneyline calibration), parlays (cross-game joint value) and player props (QB efficiency, receiver opportunity, RB workload, same-game combos).",
+      "missing": "Evidence to rank them; no validated edge in any family; no bet-leg dependence dataset.",
+      "impact": "All families remain equally blocked until evidence appears; prioritization is a research question, not a promotion decision.",
+      "source_url": "https://www.nfl.com/scores/"
+    },
+    {
+      "id": "D-10",
+      "area": "Row-level verification",
+      "question": "How do we verify every table row against an official source?",
+      "have": "Every published data row carries an official source link; offline link checker; arithmetic and cross-capture checks (202 checks PASS on the 2026-11-14 refresh); unverified values left blank and flagged.",
+      "missing": "External HTTP liveness is not asserted by the offline checker; source links are verification targets, not proof of cell-level accuracy.",
+      "impact": "Unverified values stay blank and flagged for review; no value is inferred or filled in.",
+      "source_url": "https://www.nfl.com/standings/"
+    }
+  ]
+}

@@ -26,7 +26,7 @@ for g in snap['schedule']:
   'market_spread_home':None,'market_price':None,'edge_pts':None,'win_probability':None,'moneyline':None,
   'candidate':False,'candidate_side':None,'gates_all_pass':all_pass(gates),'gates':gates,
   'inputs_source_url':'https://www.nfl.com/standings/'})
-save('model-lines-week9.json',dict(as_of=snap['as_of'],method='B0: away=(away PF/GP + home PA/GP)/2; home=(home PF/GP + away PA/GP)/2. No fitted venue adjustment (zero by design). Home handicap=away projection-home projection. No opponent, roster or uncertainty calibration. Illustrative benchmark only; not betting fair value.',games=games))
+save('model-lines.json',dict(as_of=snap['as_of'],method='B0: away=(away PF/GP + home PA/GP)/2; home=(home PF/GP + away PA/GP)/2. No fitted venue adjustment (zero by design). Home handicap=away projection-home projection. No opponent, roster or uncertainty calibration. Illustrative benchmark only; not betting fair value.',games=games))
 vals=list(team.values()); pct=[(t['W']+.5*t['T'])/(t['W']+t['L']+t['T']) for t in vals]
 net=[t['NET']/(t['W']+t['L']+t['T']) for t in vals]; pf=[t['PF']/(t['W']+t['L']+t['T']) for t in vals]
 cs=[dict(pair='Net points/game vs win fraction',type='Pearson',r=round(pearson(net,pct),6)),dict(pair='Net points/game rank vs win fraction rank',type='Spearman (average ties)',r=round(pearson(ranks(net),ranks(pct)),6)),dict(pair='Points for/game vs win fraction',type='Pearson',r=round(pearson(pf,pct),6))]
@@ -38,6 +38,6 @@ spec=[('S1','Single: spread baseline','Single','B0 scoring means as a benchmark;
 strats=[dict(id=i,name=n,type=t,description=d,status='BLOCKED — research only',gates=gates,source_url=u) for i,n,t,d,u in spec]
 save('strategies.json',dict(as_of=snap['as_of'],strategies=strats))
 save('leaderboard.json',dict(as_of=snap['as_of'],note='No eligible strategies, no verified prospective forecasts or settled paper ledger. Unobserved performance is null, not zero. No ranks, tiers or rewards awarded.',scoring='Proposed: reward 100 * positive family-adjusted lower bound of paired mean Brier improvement over a pre-registered baseline, only after all gates PASS. Use week/game blocks and a frozen trial count; no ROI-only ranking. No skill or luck-free claim.',standings=[dict(strategy_id=s['id'],name=s['name'],type=s['type'],rank=None,realized_pts=None,roi=None,brier=None,reward_points=None,status=s['status'],source_url=s['source_url']) for s in strats]))
-save('prop-signals-week9.json',dict(as_of=snap['as_of'],method='No verified player game-log / active-status / event-distribution history: all prop fair lines and probabilities withheld.',signals=[dict(game=g['game'],market_prop_line=None,qb_proj_pass_yds=None,correlation=None,status='UNVERIFIED — BLOCKED',source_url=g['source_url']) for g in games]))
+save('prop-signals.json',dict(as_of=snap['as_of'],method='No verified player game-log / active-status / event-distribution history: all prop fair lines and probabilities withheld.',signals=[dict(game=g['game'],market_prop_line=None,qb_proj_pass_yds=None,correlation=None,status='UNVERIFIED — BLOCKED',source_url=g['source_url']) for g in games]))
 save('validation-gates.json',dict(as_of=snap['as_of'],gates=gates,eligible_strategies=0,candidates=0))
 print(f"Audited analysis: {len(games)} B0 benchmarks; {len(cs)} correlation rows; 0 eligible strategies; 0 candidates.")
