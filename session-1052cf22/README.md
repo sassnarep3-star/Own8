@@ -27,7 +27,7 @@ decision-review (7 pages). Machine record: [`verification.json`](verification.js
 
 | # | Requirement | Where | Status |
 | --- | --- | --- | --- |
-| 1 | Price-snapshot store (open + close per originated market) | `ledger/price-store.html` | PUBLISHED — 0/78 prices verified (fail-closed blank, LF-01) |
+| 1 | Price-snapshot store (open + close per originated market) | `ledger/price-store.html`, `market/pages/prices.html` | PUBLISHED — ledger 0/78 blank fail-closed (LF-01); market/ holds locked nfl.com picks-article lines (W9 15 rows, W10 14 rows); reconciliation open (SG-03) |
 | 2 | Verified results feed | `ledger/results-feed.html` | VERIFIED — 137 official rows |
 | 3 | Side → total → moneyline origination order | `ledger/price-store.html` | PUBLISHED — order recorded per market |
 | 4 | Fair / market / difference columns | `ledger/lines.html` | PUBLISHED — market+difference blank with reason |
