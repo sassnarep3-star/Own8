@@ -456,6 +456,24 @@
    "official_confirmation": "team announcement linked by the official news hub"
   }
  ],
+ "register_duplication": {
+  "suggestions": [
+   "data/suggestions.json",
+   "decision/data/suggestions-register.json",
+   "hub/data/content.json",
+   "ledger/data/suggestions.json",
+   "requirements/data/suggestions.json",
+   "suggestions/results/suggestions.json"
+  ],
+  "questions": [
+   "data/decisions.json",
+   "decision-review/data/questions.json",
+   "decision/data/open-questions.json",
+   "hub/data/content.json",
+   "requirements/data/questions.json",
+   "suggestions/results/decision-questions.json"
+  ]
+ },
  "what_the_operator_asked_for": "Track injuries and know when a 2nd, 3rd or 4th string player must replace a starter, on offence and defence.",
  "what_is_deliverable_today": [
   "which players are officially OUT / DOUBTFUL / QUESTIONABLE before kickoff, by team and position group (this page, 345 official rows)",
