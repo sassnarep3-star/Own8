@@ -1,0 +1,551 @@
+{
+ "gates_doc": "W3/W4 — Originate Week 10 NFL lines from the verified official 2026 game log (Weeks 1-9), and refresh the\nskill-vs-luck validation: walk-forward evaluation, proper scoring vs naive baselines, bootstrap CIs, permutation\ntests, multiple-testing control, standings luck decomposition, and the points-only leaderboard (singles, parlays,\nplayer-prop combos) for the extended window W3-W9.\n\nContinuation of session 4bc92a5f's O2/O3/O4 framework (same strategies, same gates), extended to Week 9 data by\nsession e8155046. No sportsbook / market data is used anywhere: every input row comes from an official NFL source\n(nfl.com scores, standings, schedule; Next Gen Stats). Strategies that would need market prices are listed but\ncannot pass gate G8 and are never scored.\n\nPre-registered gates (fixed in code before any result was seen; identical for every strategy):\n  G1 official data   every training/evaluation row is a verified official row (build_gamelog_w10.py fail-closed)\n  G2 no leakage      predictions for week w use only games from weeks < w (asserted at run time)\n  G3 sample size     >= 80 games (singles) | >= 40 independent pairs (parlays) | >= 100 player-games (props)\n  G4 skill           paired bootstrap 95% CI of mean(loss_model - loss_baseline) lies entirely below 0\n  G5 multiplicity    Holm-adjusted one-sided sign-flip permutation p < 0.05 across the whole family\n  G6 stability       mean loss improvement is positive in BOTH halves of the evaluation window\n                     (this refresh: half1 = W3-W6, half2 = W7-W9 — fixed before results were computed)\n  G7 calibration     probability products only: expected calibration error (5 bins) <= 0.10\n  G8 no market data  strategy can be priced and settled without sportsbook odds\nRanking (\"leaderboard\"): strategies passing ALL gates are ranked by the LOWER 95% bound of their skill score\n(% loss reduction vs baseline), so a lucky point estimate cannot buy a medal.\n\nStatus of Week 10 lines: PROSPECTIVE / UNVALIDATED — the W10 slate is played after origination; gates are\nre-evaluated only after W10 finals exist. The already-played W10 Thursday game (WAS 24 NYG 21) is excluded\nfrom line origination and recorded separately.\n",
+ "family_size": 12,
+ "seed": 20261104,
+ "bootstrap_reps": 10000,
+ "permutation_reps": 10000,
+ "eval_weeks": [
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9
+ ],
+ "half_split_week": 6,
+ "strategies": [
+  {
+   "id": "S6",
+   "product": "Single: moneyline (Brier score)",
+   "strategy": "Win probability = Phi(S1 margin / LOO sigma)",
+   "n": 104,
+   "loss_model": 0.23709072078747895,
+   "loss_baseline": 0.2506929095033012,
+   "mean_diff": -0.013602188715822323,
+   "ci95": [
+    -0.020778194752053367,
+    -0.0066695979029822005
+   ],
+   "skill_pct": 5.4258370301626755,
+   "skill_pct_lcb": 2.660465314394691,
+   "p_one_sided": 9.999000099990002e-05,
+   "half1_diff": -0.0041322856498244255,
+   "half2_diff": -0.027036237251307698,
+   "gates": {
+    "G1": true,
+    "G2": true,
+    "G3": true,
+    "G4": true,
+    "G6": true,
+    "G8": true,
+    "G7": true,
+    "G5": true
+   },
+   "ece": 0.05361974127422332,
+   "calibration_table": [
+    {
+     "bin": "0.0-0.2",
+     "n": 0,
+     "mean_pred": null,
+     "observed": null
+    },
+    {
+     "bin": "0.2-0.4",
+     "n": 1,
+     "mean_pred": 0.351,
+     "observed": 0.0
+    },
+    {
+     "bin": "0.4-0.6",
+     "n": 100,
+     "mean_pred": 0.516,
+     "observed": 0.475
+    },
+    {
+     "bin": "0.6-0.8",
+     "n": 3,
+     "mean_pred": 0.625,
+     "observed": 1.0
+    },
+    {
+     "bin": "0.8-1.0",
+     "n": 0,
+     "mean_pred": null,
+     "observed": null
+    }
+   ],
+   "logloss_model": 0.6718352407973179,
+   "logloss_baseline": 0.6993545600226495,
+   "straight_up_hit_rate": 0.6116504854368932,
+   "p_holm": 0.0011998800119988001,
+   "q_bh": 0.00039996000399960006,
+   "verdict": "PASS",
+   "rank": 1,
+   "medal": "Gold"
+  },
+  {
+   "id": "S1",
+   "product": "Single: point spread (margin, abs error)",
+   "strategy": "Ridge margin ratings + home edge (lambda by LOO-CV)",
+   "n": 104,
+   "loss_model": 9.656937598455492,
+   "loss_baseline": 10.155087725981183,
+   "mean_diff": -0.49815012752568855,
+   "ci95": [
+    -0.7482720978522283,
+    -0.2601317481492082
+   ],
+   "skill_pct": 4.905424167348169,
+   "skill_pct_lcb": 2.5615903591229126,
+   "p_one_sided": 9.999000099990002e-05,
+   "half1_diff": -0.16127110105461406,
+   "half2_diff": -0.9760482813567478,
+   "gates": {
+    "G1": true,
+    "G2": true,
+    "G3": true,
+    "G4": true,
+    "G6": true,
+    "G8": true,
+    "G7": null,
+    "G5": true
+   },
+   "rmse_model": 12.386914224216403,
+   "rmse_baseline": 12.828375267764883,
+   "p_holm": 0.0011998800119988001,
+   "q_bh": 0.00039996000399960006,
+   "verdict": "PASS",
+   "rank": 2,
+   "medal": "Silver"
+  },
+  {
+   "id": "S7",
+   "product": "Single: moneyline (Brier score)",
+   "strategy": "Win probability = Phi(S2 margin / sigma)",
+   "n": 104,
+   "loss_model": 0.24025490257228865,
+   "loss_baseline": 0.2506929095033012,
+   "mean_diff": -0.010438006931012468,
+   "ci95": [
+    -0.01671465534354054,
+    -0.004337201101076779
+   ],
+   "skill_pct": 4.163662606849684,
+   "skill_pct_lcb": 1.7300852703293808,
+   "p_one_sided": 0.0005999400059994001,
+   "half1_diff": -0.002626327443329647,
+   "half2_diff": -0.021519691785632282,
+   "gates": {
+    "G1": true,
+    "G2": true,
+    "G3": true,
+    "G4": true,
+    "G6": true,
+    "G8": true,
+    "G7": true,
+    "G5": true
+   },
+   "ece": 0.06696545855627557,
+   "calibration_table": [
+    {
+     "bin": "0.0-0.2",
+     "n": 0,
+     "mean_pred": null,
+     "observed": null
+    },
+    {
+     "bin": "0.2-0.4",
+     "n": 1,
+     "mean_pred": 0.399,
+     "observed": 0.0
+    },
+    {
+     "bin": "0.4-0.6",
+     "n": 99,
+     "mean_pred": 0.52,
+     "observed": 0.47
+    },
+    {
+     "bin": "0.6-0.8",
+     "n": 4,
+     "mean_pred": 0.607,
+     "observed": 1.0
+    },
+    {
+     "bin": "0.8-1.0",
+     "n": 0,
+     "mean_pred": null,
+     "observed": null
+    }
+   ],
+   "logloss_model": 0.6782980611252345,
+   "logloss_baseline": 0.6993545600226495,
+   "straight_up_hit_rate": 0.5922330097087378,
+   "p_holm": 0.0053994600539946005,
+   "q_bh": 0.0017998200179982003,
+   "verdict": "PASS",
+   "rank": 3,
+   "medal": "Bronze"
+  },
+  {
+   "id": "S2",
+   "product": "Single: point spread (margin, abs error)",
+   "strategy": "Offence/defence points ridge -> margin",
+   "n": 104,
+   "loss_model": 9.784680490194363,
+   "loss_baseline": 10.155087725981183,
+   "mean_diff": -0.37040723578681484,
+   "ci95": [
+    -0.5752669185744539,
+    -0.17236466471692338
+   ],
+   "skill_pct": 3.6475040470517075,
+   "skill_pct_lcb": 1.6973232469074464,
+   "p_one_sided": 9.999000099990002e-05,
+   "half1_diff": -0.11414128552820553,
+   "half2_diff": -0.7339473047583304,
+   "gates": {
+    "G1": true,
+    "G2": true,
+    "G3": true,
+    "G4": true,
+    "G6": true,
+    "G8": true,
+    "G7": null,
+    "G5": true
+   },
+   "rmse_model": 12.45622072590366,
+   "rmse_baseline": 12.828375267764883,
+   "p_holm": 0.0011998800119988001,
+   "q_bh": 0.00039996000399960006,
+   "verdict": "PASS",
+   "rank": 4,
+   "medal": ""
+  },
+  {
+   "id": "S9",
+   "product": "Parlay: 2-leg cross-game moneyline (Brier on joint event)",
+   "strategy": "Product of S6 leg probabilities (independence across games)",
+   "n": 51,
+   "loss_model": 0.2364370392324315,
+   "loss_baseline": 0.2525596569289413,
+   "mean_diff": -0.016122617696509686,
+   "ci95": [
+    -0.03133316321246009,
+    -0.0032187755811155096
+   ],
+   "skill_pct": 6.3836868851329855,
+   "skill_pct_lcb": 1.274461495654124,
+   "p_one_sided": 0.0124987501249875,
+   "half1_diff": 0.000980316362691027,
+   "half2_diff": -0.04055538063822498,
+   "gates": {
+    "G1": true,
+    "G2": true,
+    "G3": true,
+    "G4": true,
+    "G6": false,
+    "G8": true,
+    "G7": null,
+    "G5": false
+   },
+   "parlay_hit_rate": 0.37254901960784315,
+   "p_holm": 0.0999900009999,
+   "q_bh": 0.02999700029997,
+   "verdict": "FAIL G5,G6",
+   "rank": null,
+   "medal": ""
+  },
+  {
+   "id": "S10",
+   "product": "Same-game parlay: side + total (Brier on joint event)",
+   "strategy": "Bivariate-normal joint probability using margin/total residual correlation from prior weeks",
+   "n": 104,
+   "loss_model": 0.15724935639822296,
+   "loss_baseline": 0.15865384615384615,
+   "mean_diff": -0.001404489755623217,
+   "ci95": [
+    -0.003462258798127183,
+    0.0009508249722631329
+   ],
+   "skill_pct": 0.8852541489988763,
+   "skill_pct_lcb": -0.5993078613052475,
+   "p_one_sided": 0.1116888311168883,
+   "half1_diff": -0.0010628480146817076,
+   "half2_diff": -0.001889144318354196,
+   "gates": {
+    "G1": true,
+    "G2": true,
+    "G3": true,
+    "G4": false,
+    "G6": true,
+    "G8": true,
+    "G7": null,
+    "G5": false
+   },
+   "sgp_hit_rate": 0.19230769230769232,
+   "p_holm": 0.7818218178182181,
+   "q_bh": 0.2233776622337766,
+   "verdict": "FAIL G4,G5",
+   "rank": null,
+   "medal": ""
+  },
+  {
+   "id": "S4",
+   "product": "Single: game total (abs error)",
+   "strategy": "Offence/defence points ridge -> total",
+   "n": 104,
+   "loss_model": 11.219671726417962,
+   "loss_baseline": 11.219787256250298,
+   "mean_diff": -0.00011552983233686066,
+   "ci95": [
+    -0.18655441397200884,
+    0.17940707529659464
+   ],
+   "skill_pct": 0.0010296971742712994,
+   "skill_pct_lcb": -1.599023860248784,
+   "p_one_sided": 0.49945005499450057,
+   "half1_diff": -0.03456521462287357,
+   "half2_diff": 0.04875495324261056,
+   "gates": {
+    "G1": true,
+    "G2": true,
+    "G3": true,
+    "G4": false,
+    "G6": false,
+    "G8": true,
+    "G7": null,
+    "G5": false
+   },
+   "p_holm": 1.0,
+   "q_bh": 0.7360597273605972,
+   "verdict": "FAIL G4,G5,G6",
+   "rank": null,
+   "medal": ""
+  },
+  {
+   "id": "S11",
+   "product": "Player prop: QB passing yards (abs error)",
+   "strategy": "QB passing yards: empirical-Bayes shrunk QB average",
+   "n": 146,
+   "loss_model": 59.212763217552926,
+   "loss_baseline": 59.11089340434491,
+   "mean_diff": 0.10186981320800713,
+   "ci95": [
+    -1.385587838006361,
+    1.5841578362920608
+   ],
+   "skill_pct": -0.17233678488188653,
+   "skill_pct_lcb": -2.6799761347806297,
+   "p_one_sided": 0.5520447955204479,
+   "half1_diff": 0.2890367383238546,
+   "half2_diff": -0.217007170322696,
+   "gates": {
+    "G1": true,
+    "G2": true,
+    "G3": true,
+    "G4": false,
+    "G6": false,
+    "G8": true,
+    "G7": null,
+    "G5": false
+   },
+   "p_holm": 1.0,
+   "q_bh": 0.7360597273605972,
+   "verdict": "FAIL G4,G5,G6",
+   "rank": null,
+   "medal": ""
+  },
+  {
+   "id": "S12",
+   "product": "Player prop: QB passing yards (abs error)",
+   "strategy": "S11 + shrunk opponent pass-defence adjustment",
+   "n": 146,
+   "loss_model": 59.4495341789068,
+   "loss_baseline": 59.11089340434491,
+   "mean_diff": 0.3386407745619417,
+   "ci95": [
+    -1.3329633919013766,
+    2.0071206677860314
+   ],
+   "skill_pct": -0.5728906383557555,
+   "skill_pct_lcb": -3.39551739483352,
+   "p_one_sided": 0.647035296470353,
+   "half1_diff": 0.2837760169058476,
+   "half2_diff": 0.4321140653834353,
+   "gates": {
+    "G1": true,
+    "G2": true,
+    "G3": true,
+    "G4": false,
+    "G6": false,
+    "G8": true,
+    "G7": null,
+    "G5": false
+   },
+   "p_holm": 1.0,
+   "q_bh": 0.7764423557644236,
+   "verdict": "FAIL G4,G5,G6",
+   "rank": null,
+   "medal": ""
+  },
+  {
+   "id": "S5",
+   "product": "Single: game total (abs error)",
+   "strategy": "Naive PF/PA per game averages -> total",
+   "n": 104,
+   "loss_model": 11.837036401098901,
+   "loss_baseline": 11.219787256250298,
+   "mean_diff": 0.6172491448486043,
+   "ci95": [
+    -0.23563704632845567,
+    1.4806720236166047
+   ],
+   "skill_pct": -5.501433590059814,
+   "skill_pct_lcb": -13.196970582412378,
+   "p_one_sided": 0.921007899210079,
+   "half1_diff": 0.7224800269765518,
+   "half2_diff": 0.4679681260159349,
+   "gates": {
+    "G1": true,
+    "G2": true,
+    "G3": true,
+    "G4": false,
+    "G6": false,
+    "G8": true,
+    "G7": null,
+    "G5": false
+   },
+   "p_holm": 1.0,
+   "q_bh": 0.9210078992100789,
+   "verdict": "FAIL G4,G5,G6",
+   "rank": null,
+   "medal": ""
+  },
+  {
+   "id": "S8",
+   "product": "Single: moneyline (Brier score)",
+   "strategy": "Win probability = Phi(S3 margin / S1 sigma)",
+   "n": 104,
+   "loss_model": 0.2420508467198833,
+   "loss_baseline": 0.2506929095033012,
+   "mean_diff": -0.00864206278341778,
+   "ci95": [
+    -0.050618544444510374,
+    0.03509590493829293
+   ],
+   "skill_pct": 3.4472705273317583,
+   "skill_pct_lcb": -13.999560261927064,
+   "p_one_sided": 0.34926507349265073,
+   "half1_diff": 0.01697304823636964,
+   "half2_diff": -0.04497977841613946,
+   "gates": {
+    "G1": true,
+    "G2": true,
+    "G3": true,
+    "G4": false,
+    "G6": false,
+    "G8": true,
+    "G7": false,
+    "G5": false
+   },
+   "ece": 0.10892983600335832,
+   "calibration_table": [
+    {
+     "bin": "0.0-0.2",
+     "n": 12,
+     "mean_pred": 0.134,
+     "observed": 0.417
+    },
+    {
+     "bin": "0.2-0.4",
+     "n": 25,
+     "mean_pred": 0.305,
+     "observed": 0.34
+    },
+    {
+     "bin": "0.4-0.6",
+     "n": 30,
+     "mean_pred": 0.498,
+     "observed": 0.4
+    },
+    {
+     "bin": "0.6-0.8",
+     "n": 17,
+     "mean_pred": 0.688,
+     "observed": 0.588
+    },
+    {
+     "bin": "0.8-1.0",
+     "n": 20,
+     "mean_pred": 0.87,
+     "observed": 0.75
+    }
+   ],
+   "logloss_model": 0.6919109099235187,
+   "logloss_baseline": 0.6993545600226495,
+   "straight_up_hit_rate": 0.6213592233009708,
+   "p_holm": 1.0,
+   "q_bh": 0.5987401259874012,
+   "verdict": "FAIL G4,G5,G6,G7",
+   "rank": null,
+   "medal": ""
+  },
+  {
+   "id": "S3",
+   "product": "Single: point spread (margin, abs error)",
+   "strategy": "Naive season point differential per game (unshrunk)",
+   "n": 104,
+   "loss_model": 11.158467209233496,
+   "loss_baseline": 10.155087725981183,
+   "mean_diff": 1.0033794832523222,
+   "ci95": [
+    -0.4488753838815223,
+    2.476770496424882
+   ],
+   "skill_pct": -9.88055948236898,
+   "skill_pct_lcb": -24.389454461217632,
+   "p_one_sided": 0.9076092390760924,
+   "half1_diff": 3.032648391758036,
+   "half2_diff": -1.875350828813923,
+   "gates": {
+    "G1": true,
+    "G2": true,
+    "G3": true,
+    "G4": false,
+    "G6": false,
+    "G8": true,
+    "G7": null,
+    "G5": false
+   },
+   "rmse_model": 14.32592045174996,
+   "rmse_baseline": 12.828375267764883,
+   "p_holm": 1.0,
+   "q_bh": 0.9210078992100789,
+   "verdict": "FAIL G4,G5,G6",
+   "rank": null,
+   "medal": ""
+  }
+ ],
+ "not_scored": [
+  {
+   "id": "M1",
+   "product": "Single / parlay vs sportsbook prices",
+   "strategy": "Bet when originated line differs from the market line by a threshold",
+   "verdict": "NOT SCORED — fails G8: no official source publishes sportsbook prices; a licensed odds feed is required",
+   "gates": {
+    "G8": false
+   }
+  },
+  {
+   "id": "M2",
+   "product": "Player-prop combos vs sportsbook prop lines",
+   "strategy": "Correlated prop combos priced against book prop lines",
+   "verdict": "NOT SCORED — fails G8 (no official prop prices); correlations are still measured below",
+   "gates": {
+    "G8": false
+   }
+  }
+ ]
+}

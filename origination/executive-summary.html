@@ -1,0 +1,51 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Executive summary — Own8 line origination lab</title><link rel="stylesheet" href="assets/style.css"></head><body>
+<header><h1>Own8 · NFL line origination lab (2026, through Week 10)</h1><p>Official NFL data only · walk-forward validated · no sportsbook inputs · session e8155046 (W1–W10 data; framework from 4bc92a5f)</p></header>
+<nav><a href="index.html" class="">Summary</a><a href="executive-summary.html" class="on">Executive summary</a><a href="w10-lines.html" class="">Week 10 lines</a><a href="leaderboard.html" class="">Leaderboard</a><a href="correlations.html" class="">Correlations</a><a href="props.html" class="">QB props</a><a href="luck.html" class="">Skill vs luck</a><a href="backtest.html" class="">Backtest</a><a href="game-log.html" class="">Game log</a><a href="standings-check.html" class="">Standings check</a><a href="suggestions.html" class="">Suggestions</a><a href="questions.html" class="">Questions</a><a href="flagged.html" class="">Flagged for review</a><a href="sources.html" class="">Sources &amp; method</a></nav><main><h2 style="margin-top:4px">Executive summary</h2>
+<div class="note"><b>Purpose.</b> Everything a reviewer needs to decide what to trust, in one place. Every number below links to the official
+source or the machine-readable file behind it. Full detail lives on the linked pages.</div>
+<h3>1. Data integrity</h3>
+<div class="tablewrap"><table><thead><tr><th class="">Check</th><th class="">Result</th><th class="">Official source</th></tr></thead><tbody><tr><td class="">Game log W1–W9</td><td class="">136/136 games verified, 0 failed checks</td><td class=""><a href="https://www.nfl.com/scores/2026/week-9">scores W9</a> · <a href="https://www.nfl.com/standings/league/2026/REG">standings</a></td></tr><tr><td class="">Standings reconciliation</td><td class="">512/512 cells recompute from the log (incl. Thursday post-cutoff game for WAS/NYG)</td><td class=""><a href="https://www.nfl.com/standings/league/2026/REG">standings</a></td></tr><tr><td class="">W9 slate vs schedule</td><td class="">15/15 finals match the November 4th schedule transcription (independent check)</td><td class=""><a href="https://www.nfl.com/schedules/2026/by-week/week-9">schedule W9</a></td></tr><tr><td class="">W10 slate</td><td class="">13 lines originated + 1 completed game excluded; 4 byes; Munich international game rendered neutral</td><td class=""><a href="https://www.nfl.com/schedules/2026/by-week/week-10">schedule W10</a></td></tr></tbody></table></div>
+<h3>2. Validation: 4 of 12 strategies pass all gates (W3–W9 refresh)</h3>
+<p>The original run (Weeks 3–8, committed pre-Week-9) passed 0 of 12. Extending the walk-forward window to include Week 9 flips four
+singles strategies to PASS under the <i>same pre-registered gates</i> — G1–G8 unchanged, Holm across the same family of 12, seed 20261104,
+both halves of the window positive. The Week 9 slate was strongly model-favourable (see the backtest), so treat this as a
+<b>promising but recent</b> result: Week 10 is the prospective confirmation test, and parlays (S9, Holm p = 0.100)
+and props (S11/S12) still fail.</p>
+<div class="tablewrap"><table><thead><tr><th class="">Rank</th><th class="">ID</th><th class="">Medal</th><th class="">Product</th><th class="num">Skill</th><th class="num">Skill LCB</th><th class="num">Holm p</th><th class="num">n</th><th class="">Official source</th></tr></thead><tbody><tr><td class="">1</td><td class="">S6</td><td class="">Gold</td><td class="">Single: moneyline (Brier score)</td><td class="num">+5.43%</td><td class="num">+2.66%</td><td class="num">0.0012</td><td class="num">104</td><td class=""><a href="https://www.nfl.com/scores/2026/week-9">scores W9</a> · <a href="https://www.nfl.com/scores/2026/week-10">scores W10</a></td></tr><tr><td class="">2</td><td class="">S1</td><td class="">Silver</td><td class="">Single: point spread (margin, abs error)</td><td class="num">+4.91%</td><td class="num">+2.56%</td><td class="num">0.0012</td><td class="num">104</td><td class=""><a href="https://www.nfl.com/scores/2026/week-9">scores W9</a> · <a href="https://www.nfl.com/scores/2026/week-10">scores W10</a></td></tr><tr><td class="">3</td><td class="">S7</td><td class="">Bronze</td><td class="">Single: moneyline (Brier score)</td><td class="num">+4.16%</td><td class="num">+1.73%</td><td class="num">0.0054</td><td class="num">104</td><td class=""><a href="https://www.nfl.com/scores/2026/week-9">scores W9</a> · <a href="https://www.nfl.com/scores/2026/week-10">scores W10</a></td></tr></tbody></table></div>
+<p class="muted">Medals are research recognition for gate-passing strategies — not profit. No market price exists in any official source,
+so no ROI, edge or expected value is computed anywhere on this site (gate G8 / M1–M2 not scored).</p>
+<h3>3. The Week 10 slate</h3>
+<ol>
+<li><b>13 prospective lines</b> trained on all 136 verified games: e.g. JAX @ TEN at
+JAX -10.2, total 43.9. The neutral Munich game carries no home edge.
+Committed <code>59d1be6 2026-11-14T01:36:34+00:00</code> before Sunday kickoff; grade only after finals (pre-registered protocol: <a href="suggestions.html">SG-09</a>).</li>
+<li><b>Thursday excluded:</b> WAS 24–21 NYG was final before origination (OF-14) — recorded, never graded as a line.</li>
+<li><b>Cross-check:</b> f6e60a81's independent B0 origin agrees on the favourite in 13/13 games;
+mean home-margin difference 0.47 points.
+Two different models, one conclusion — side-by-side on <a href="w10-lines.html">Week 10 lines</a>.</li>
+</ol>
+<h3>4. Luck and correlations (what strategy can and cannot claim)</h3>
+<ol>
+<li><b>50% of win% variance is luck</b> after 8.5 games per team; true-talent spread ≈ ±17 win-pct points.
+Naive season point-diff ratings (S3) remain <i>worse</i> than the baseline (-22.7% originally, -9.9% now) — chasing records is betting on luck.</li>
+<li><b>Combo-relevant correlations surviving Holm:</b> QB yards↔own points +0.40, QB yards↔game total +0.44,
+opposing QBs' yards +0.50, QB attempts↔own margin -0.20. Same-game side vs total does <b>not</b> survive
+(raw p = 0.022); cross-game ICC ≈ 0 → cross-game parlays multiply legs, same-game legs need the joint-probability adjustment (<a href="correlations.html">Correlations</a>).</li>
+<li><b>Conditional QB props</b> for Week 10 (26 team-games) assume the most recent NGS passer starts; NGS Week 9 is an empty render (OF-13),
+so prop evaluation stays W4–W8 and both prop strategies still fail their gates.</li>
+</ol>
+<h3>5. What is deliberately missing (never inferred)</h3>
+<ol>
+<li><b>Market prices / edges</b> — no official NFL source publishes sportsbook lines; all price fields are null (OF-09).</li>
+<li><b>Depth-chart strings</b> — official depth-chart URLs 404 (OF-16); 2nd/3rd-string status stays blank.</li>
+<li><b>Week 9 NGS rows</b> — 4 empty renders (OF-13); blank, excluded from prop work.</li>
+<li><b>Named kickoff time zones</b> — rendered as "LOCAL" only (OF-03).</li>
+<li><b>Starter confirmation</b> — props are conditional; the injuries page is the official check (OF-06).</li>
+</ol>
+<h3>6. Open decisions</h3>
+<p>Before acting on any of this, the blocking questions — with what we have, what we lack, and how to discover it — are on
+<a href="questions.html">Questions</a>; pickable improvement paths are on <a href="suggestions.html">Suggestions</a>.</p>
+</main>
+<footer>Built 2026-11-14 01:49 UTC from <a href="https://github.com/sassnarep3-star/Own8/tree/main/origination">origination/</a> · reproduce: <code>python3 origination/scripts/build_gamelog_w10.py && python3 origination/scripts/model_w10.py && python3 origination/scripts/build_pages_w10.py && python3 origination/scripts/check_links.py</code> · <a href="../">Own8 main dashboard</a></footer>
+</body></html>

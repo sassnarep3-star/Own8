@@ -1,0 +1,280 @@
+{
+ "games": 136,
+ "verified_games": 136,
+ "checks_total": 114,
+ "checks_failed": [],
+ "standings_cells": "512/512",
+ "irregularities": [],
+ "league_checks": [
+  {
+   "check": "inherited W1-W8 log: 121 games, all verified",
+   "pass": true,
+   "detail": "121 games"
+  },
+  {
+   "check": "W9: 15 games transcribed",
+   "pass": true,
+   "detail": "15 games"
+  },
+  {
+   "check": "W9: 2 bye boxes transcribed (PIT, TEN)",
+   "pass": true,
+   "detail": "PIT,TEN"
+  },
+  {
+   "check": "W9 slate matches the independently captured W9 schedule page (pairs + slugs, 15/15)",
+   "pass": true,
+   "detail": "only_in_scores=[] only_in_schedule=[]"
+  },
+  {
+   "check": "combined log covers weeks 1-9 with no gap",
+   "pass": true,
+   "detail": "[1, 2, 3, 4, 5, 6, 7, 8, 9]"
+  },
+  {
+   "check": "W1: every one of 32 teams appears exactly once (games + byes)",
+   "pass": true,
+   "detail": "16 games, 0 byes"
+  },
+  {
+   "check": "W2: every one of 32 teams appears exactly once (games + byes)",
+   "pass": true,
+   "detail": "16 games, 0 byes"
+  },
+  {
+   "check": "W3: every one of 32 teams appears exactly once (games + byes)",
+   "pass": true,
+   "detail": "16 games, 0 byes"
+  },
+  {
+   "check": "W4: every one of 32 teams appears exactly once (games + byes)",
+   "pass": true,
+   "detail": "16 games, 0 byes"
+  },
+  {
+   "check": "W5: every one of 32 teams appears exactly once (games + byes)",
+   "pass": true,
+   "detail": "15 games, 2 byes"
+  },
+  {
+   "check": "W6: every one of 32 teams appears exactly once (games + byes)",
+   "pass": true,
+   "detail": "14 games, 4 byes"
+  },
+  {
+   "check": "W7: every one of 32 teams appears exactly once (games + byes)",
+   "pass": true,
+   "detail": "14 games, 4 byes"
+  },
+  {
+   "check": "W8: every one of 32 teams appears exactly once (games + byes)",
+   "pass": true,
+   "detail": "14 games, 4 byes"
+  },
+  {
+   "check": "W9: every one of 32 teams appears exactly once (games + byes)",
+   "pass": true,
+   "detail": "15 games, 2 byes"
+  },
+  {
+   "check": "post-cutoff: exactly 1 completed Week 10 game (WAS at NYG)",
+   "pass": true,
+   "detail": "WAS 24-21 NYG"
+  },
+  {
+   "check": "post-cutoff game URL slug matches teams + week",
+   "pass": true,
+   "detail": "expected commanders-at-giants-2026-reg-10"
+  },
+  {
+   "check": "post-cutoff winner indicator agrees with scores",
+   "pass": true,
+   "detail": "indicator=WAS expected=WAS"
+  },
+  {
+   "check": "standings 2026-11-14: 32 distinct teams transcribed",
+   "pass": true,
+   "detail": "32 teams"
+  },
+  {
+   "check": "standings arithmetic: sum(PF) == sum(PA)",
+   "pass": true,
+   "detail": "PF=6291 PA=6291"
+  },
+  {
+   "check": "standings arithmetic: sum(W) == sum(L)",
+   "pass": true,
+   "detail": "W=136 L=136"
+  },
+  {
+   "check": "standings PCT and NET arithmetic hold for all 32 teams",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "standings as-of: WAS row includes the Week 10 Thursday win (3-5-1, 9 gp)",
+   "pass": true,
+   "detail": "3-5-1 1W"
+  },
+  {
+   "check": "standings as-of: NYG row includes the Week 10 Thursday loss (5-3-1, 9 gp, 1L)",
+   "pass": true,
+   "detail": "5-3-1 1L"
+  },
+  {
+   "check": "W10 slate: 14 games transcribed",
+   "pass": true,
+   "detail": "14 games"
+  },
+  {
+   "check": "W10 slate: 4 bye boxes (CHI, DEN, PHI, TB)",
+   "pass": true,
+   "detail": "CHI,DEN,PHI,TB"
+  },
+  {
+   "check": "W10 slate: every one of 32 teams appears exactly once (games + byes)",
+   "pass": true,
+   "detail": "32 appearances"
+  },
+  {
+   "check": "W10 slug WAS@NYG matches teams + week",
+   "pass": true,
+   "detail": "expected commanders-at-giants-2026-reg-10"
+  },
+  {
+   "check": "W10 slug NE@DET matches teams + week",
+   "pass": true,
+   "detail": "expected patriots-at-lions-2026-reg-10"
+  },
+  {
+   "check": "W10 slug KC@ATL matches teams + week",
+   "pass": true,
+   "detail": "expected chiefs-at-falcons-2026-reg-10"
+  },
+  {
+   "check": "W10 slug HOU@CLE matches teams + week",
+   "pass": true,
+   "detail": "expected texans-at-browns-2026-reg-10"
+  },
+  {
+   "check": "W10 slug MIN@GB matches teams + week",
+   "pass": true,
+   "detail": "expected vikings-at-packers-2026-reg-10"
+  },
+  {
+   "check": "W10 slug MIA@IND matches teams + week",
+   "pass": true,
+   "detail": "expected dolphins-at-colts-2026-reg-10"
+  },
+  {
+   "check": "W10 slug CAR@NO matches teams + week",
+   "pass": true,
+   "detail": "expected panthers-at-saints-2026-reg-10"
+  },
+  {
+   "check": "W10 slug BUF@NYJ matches teams + week",
+   "pass": true,
+   "detail": "expected bills-at-jets-2026-reg-10"
+  },
+  {
+   "check": "W10 slug JAX@TEN matches teams + week",
+   "pass": true,
+   "detail": "expected jaguars-at-titans-2026-reg-10"
+  },
+  {
+   "check": "W10 slug LAR@AZ matches teams + week",
+   "pass": true,
+   "detail": "expected rams-at-cardinals-2026-reg-10"
+  },
+  {
+   "check": "W10 slug SEA@LV matches teams + week",
+   "pass": true,
+   "detail": "expected seahawks-at-raiders-2026-reg-10"
+  },
+  {
+   "check": "W10 slug SF@DAL matches teams + week",
+   "pass": true,
+   "detail": "expected 49ers-at-cowboys-2026-reg-10"
+  },
+  {
+   "check": "W10 slug PIT@CIN matches teams + week",
+   "pass": true,
+   "detail": "expected steelers-at-bengals-2026-reg-10"
+  },
+  {
+   "check": "W10 slug LAC@BAL matches teams + week",
+   "pass": true,
+   "detail": "expected chargers-at-ravens-2026-reg-10"
+  },
+  {
+   "check": "W10 bye box record CHI equals standings W-L-T (as of 2026-11-14)",
+   "pass": true,
+   "detail": "bye box 7-2-0 vs standings 7-2-0"
+  },
+  {
+   "check": "W10 bye box record DEN equals standings W-L-T (as of 2026-11-14)",
+   "pass": true,
+   "detail": "bye box 7-2-0 vs standings 7-2-0"
+  },
+  {
+   "check": "W10 bye box record PHI equals standings W-L-T (as of 2026-11-14)",
+   "pass": true,
+   "detail": "bye box 2-7-0 vs standings 2-7-0"
+  },
+  {
+   "check": "W10 bye box record TB equals standings W-L-T (as of 2026-11-14)",
+   "pass": true,
+   "detail": "bye box 3-6-0 vs standings 3-6-0"
+  },
+  {
+   "check": "W9 bye box record PIT equals standings W-L-T (as of 2026-11-14)",
+   "pass": true,
+   "detail": "bye box 6-2-0 vs standings 6-2-0"
+  },
+  {
+   "check": "W9 bye box record TEN equals standings W-L-T (as of 2026-11-14)",
+   "pass": true,
+   "detail": "bye box 1-7-0 vs standings 1-7-0"
+  },
+  {
+   "check": "W10 slate includes the completed Thursday game (excluded from lines by model_w10)",
+   "pass": true,
+   "detail": "Thursday Night Football, November 12th"
+  },
+  {
+   "check": "W10 slate: exactly one international (neutral) game — NE at DET, Munich",
+   "pass": true,
+   "detail": "International Game, November 15th"
+  },
+  {
+   "check": "division groups: 8 groups x 4 = 32 teams",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "standings reconciliation: every cell for all 32 teams matches (512/512 required)",
+   "pass": true,
+   "detail": "512/512 cells match"
+  },
+  {
+   "check": "unlabeled col14 behaves as non-conference record for all 32 teams",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "unlabeled col16 behaves as last-5 record for all 32 teams",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "combined log: 136 games (121 W1-W8 + 15 W9)",
+   "pass": true,
+   "detail": "136 games"
+  },
+  {
+   "check": "combined log: every row verified (fail-closed)",
+   "pass": true,
+   "detail": "136/136"
+  }
+ ]
+}

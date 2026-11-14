@@ -1,0 +1,24 @@
+# Verbatim transcription of https://www.nfl.com/schedules/2026/by-week/week-10 (3 chunks), fetched 2026-11-14 UTC by session e8155046.
+# section heading|away|home|day+date as rendered in link text|time as rendered|network as rendered|game_slug
+# Kickoff times copied as rendered (the page does not state a time zone for these renders — do not treat as verified ET).
+# The Thursday game (WAS at NYG) already renders FINAL with score 24-21 on this page; its time/network are not rendered (blank, never guessed).
+# The Munich game heading renders as "International Game, November 15th" (neutral site label "Munich" shown on the page).
+# Team records rendered next to each team are current records as rendered on 2026-11-14 (through Week 9 plus the Week 10 Thursday final for WAS/NYG).
+Thursday Night Football, November 12th|WAS|NYG|Thursday, November 12th|||commanders-at-giants-2026-reg-10
+International Game, November 15th|NE|DET|Sunday, November 15th|9:30 AM|FOX|patriots-at-lions-2026-reg-10
+Sunday, November 15th|KC|ATL|Sunday, November 15th|1:00 PM|CBS|chiefs-at-falcons-2026-reg-10
+Sunday, November 15th|HOU|CLE|Sunday, November 15th|1:00 PM|FOX|texans-at-browns-2026-reg-10
+Sunday, November 15th|MIN|GB|Sunday, November 15th|1:00 PM|FOX|vikings-at-packers-2026-reg-10
+Sunday, November 15th|MIA|IND|Sunday, November 15th|1:00 PM|CBS|dolphins-at-colts-2026-reg-10
+Sunday, November 15th|CAR|NO|Sunday, November 15th|1:00 PM|FOX|panthers-at-saints-2026-reg-10
+Sunday, November 15th|BUF|NYJ|Sunday, November 15th|1:00 PM|CBS|bills-at-jets-2026-reg-10
+Sunday, November 15th|JAX|TEN|Sunday, November 15th|1:00 PM|FOX|jaguars-at-titans-2026-reg-10
+Sunday, November 15th|LAR|AZ|Sunday, November 15th|4:05 PM|CBS|rams-at-cardinals-2026-reg-10
+Sunday, November 15th|SEA|LV|Sunday, November 15th|4:05 PM|CBS|seahawks-at-raiders-2026-reg-10
+Sunday, November 15th|SF|DAL|Sunday, November 15th|4:25 PM|FOX|49ers-at-cowboys-2026-reg-10
+Sunday Night Football, November 15th|PIT|CIN|Sunday, November 15th|8:20 PM|NBC|steelers-at-bengals-2026-reg-10
+Monday Night Football, November 16th|LAC|BAL|Monday, November 16th|8:15 PM|ESPN|chargers-at-ravens-2026-reg-10
+BYE|CHI|7-2-0
+BYE|DEN|7-2-0
+BYE|PHI|2-7-0
+BYE|TB|3-6-0

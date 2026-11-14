@@ -1,0 +1,63 @@
+{
+ "description": "Points-only leaderboard: strategies passing ALL gates G1-G8 are ranked by the lower 95% bound of skill (% loss reduction vs baseline); no strategy can buy a rank with a lucky point estimate. No market prices, no cash rewards.",
+ "generated_from": "origination/data/games-2026-w1-w9.json",
+ "eval_weeks": [
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9
+ ],
+ "ranking_rule": "skill_pct_lcb descending, PASS only",
+ "medals_available": [
+  "Gold",
+  "Silver",
+  "Bronze"
+ ],
+ "rows": [
+  {
+   "rank": 1,
+   "id": "S6",
+   "product": "Single: moneyline (Brier score)",
+   "strategy": "Win probability = Phi(S1 margin / LOO sigma)",
+   "skill_pct": 5.4258370301626755,
+   "skill_pct_lcb": 2.660465314394691,
+   "medal": "Gold",
+   "verdict": "PASS"
+  },
+  {
+   "rank": 2,
+   "id": "S1",
+   "product": "Single: point spread (margin, abs error)",
+   "strategy": "Ridge margin ratings + home edge (lambda by LOO-CV)",
+   "skill_pct": 4.905424167348169,
+   "skill_pct_lcb": 2.5615903591229126,
+   "medal": "Silver",
+   "verdict": "PASS"
+  },
+  {
+   "rank": 3,
+   "id": "S7",
+   "product": "Single: moneyline (Brier score)",
+   "strategy": "Win probability = Phi(S2 margin / sigma)",
+   "skill_pct": 4.163662606849684,
+   "skill_pct_lcb": 1.7300852703293808,
+   "medal": "Bronze",
+   "verdict": "PASS"
+  },
+  {
+   "rank": 4,
+   "id": "S2",
+   "product": "Single: point spread (margin, abs error)",
+   "strategy": "Offence/defence points ridge -> margin",
+   "skill_pct": 3.6475040470517075,
+   "skill_pct_lcb": 1.6973232469074464,
+   "medal": "",
+   "verdict": "PASS"
+  }
+ ],
+ "medals_awarded": 3,
+ "blocked_note": "0 medals if no strategy passes every gate — see validation-w10.json for gate detail."
+}
