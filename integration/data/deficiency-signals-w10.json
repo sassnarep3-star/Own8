@@ -1,0 +1,652 @@
+{
+ "dataset": "own8-integration-deficiency-signals-w10",
+ "generated_by": "integration/scripts/verify_fresh.py",
+ "as_of": "2026-11-14",
+ "source_url": "https://www.nfl.com/injuries/league/2026/reg10",
+ "caveat": "Position-level OUT/DOUBTFUL/QUESTIONABLE counts only. Who replaces an out starter (2nd/3rd/4th string order) is NOT published on the official injury page and is therefore left blank \u2014 see decision-support session e00061c1 task V5 (depth-chart availability).",
+ "signals": [
+  {
+   "team": "WAS",
+   "opponent": {
+    "abbr": "NYG",
+    "name": "Giants",
+    "record": "5-3-1"
+   },
+   "game": "WAS at NYG",
+   "out_positions": [
+    "C",
+    "TE"
+   ],
+   "doubtful_positions": [],
+   "questionable_positions": [],
+   "out_count": 2,
+   "qb_out": false,
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg10",
+   "derivation": "Counts and position sets computed ONLY from transcribed game_status cells; no replacement player is named (depth-chart string order is not published on this page)."
+  },
+  {
+   "team": "NYG",
+   "opponent": {
+    "abbr": "WAS",
+    "name": "Commanders",
+    "record": "3-5-1"
+   },
+   "game": "WAS at NYG",
+   "out_positions": [],
+   "doubtful_positions": [],
+   "questionable_positions": [
+    "LB"
+   ],
+   "out_count": 0,
+   "qb_out": false,
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg10",
+   "derivation": "Counts and position sets computed ONLY from transcribed game_status cells; no replacement player is named (depth-chart string order is not published on this page)."
+  },
+  {
+   "team": "NE",
+   "opponent": {
+    "abbr": "DET",
+    "name": "Lions",
+    "record": "6-2"
+   },
+   "game": "NE at DET",
+   "out_positions": [
+    "C",
+    "CB",
+    "RB"
+   ],
+   "doubtful_positions": [],
+   "questionable_positions": [
+    "CB",
+    "FB",
+    "G",
+    "RB",
+    "S",
+    "T",
+    "TE",
+    "WR"
+   ],
+   "out_count": 3,
+   "qb_out": false,
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg10",
+   "derivation": "Counts and position sets computed ONLY from transcribed game_status cells; no replacement player is named (depth-chart string order is not published on this page)."
+  },
+  {
+   "team": "DET",
+   "opponent": {
+    "abbr": "NE",
+    "name": "Patriots",
+    "record": "5-4"
+   },
+   "game": "NE at DET",
+   "out_positions": [
+    "C",
+    "CB",
+    "S"
+   ],
+   "doubtful_positions": [],
+   "questionable_positions": [
+    "RB",
+    "WR"
+   ],
+   "out_count": 3,
+   "qb_out": false,
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg10",
+   "derivation": "Counts and position sets computed ONLY from transcribed game_status cells; no replacement player is named (depth-chart string order is not published on this page)."
+  },
+  {
+   "team": "KC",
+   "opponent": {
+    "abbr": "ATL",
+    "name": "Falcons",
+    "record": "3-6"
+   },
+   "game": "KC at ATL",
+   "out_positions": [
+    "DT",
+    "T"
+   ],
+   "doubtful_positions": [],
+   "questionable_positions": [
+    "CB",
+    "RB"
+   ],
+   "out_count": 3,
+   "qb_out": false,
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg10",
+   "derivation": "Counts and position sets computed ONLY from transcribed game_status cells; no replacement player is named (depth-chart string order is not published on this page)."
+  },
+  {
+   "team": "ATL",
+   "opponent": {
+    "abbr": "KC",
+    "name": "Chiefs",
+    "record": "6-2"
+   },
+   "game": "KC at ATL",
+   "out_positions": [
+    "WR"
+   ],
+   "doubtful_positions": [
+    "LB"
+   ],
+   "questionable_positions": [
+    "DE",
+    "DT",
+    "LB"
+   ],
+   "out_count": 1,
+   "qb_out": false,
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg10",
+   "derivation": "Counts and position sets computed ONLY from transcribed game_status cells; no replacement player is named (depth-chart string order is not published on this page)."
+  },
+  {
+   "team": "MIN",
+   "opponent": {
+    "abbr": "GB",
+    "name": "Packers",
+    "record": "6-3"
+   },
+   "game": "MIN at GB",
+   "out_positions": [
+    "DT",
+    "LB",
+    "QB",
+    "TE",
+    "WR"
+   ],
+   "doubtful_positions": [],
+   "questionable_positions": [
+    "LB",
+    "S",
+    "WR"
+   ],
+   "out_count": 5,
+   "qb_out": true,
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg10",
+   "derivation": "Counts and position sets computed ONLY from transcribed game_status cells; no replacement player is named (depth-chart string order is not published on this page)."
+  },
+  {
+   "team": "GB",
+   "opponent": {
+    "abbr": "MIN",
+    "name": "Vikings",
+    "record": "6-2"
+   },
+   "game": "MIN at GB",
+   "out_positions": [
+    "C",
+    "LB",
+    "RB",
+    "TE"
+   ],
+   "doubtful_positions": [
+    "LB"
+   ],
+   "questionable_positions": [
+    "G",
+    "LB",
+    "RB",
+    "S",
+    "WR"
+   ],
+   "out_count": 4,
+   "qb_out": false,
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg10",
+   "derivation": "Counts and position sets computed ONLY from transcribed game_status cells; no replacement player is named (depth-chart string order is not published on this page)."
+  },
+  {
+   "team": "JAX",
+   "opponent": {
+    "abbr": "TEN",
+    "name": "Titans",
+    "record": "1-7"
+   },
+   "game": "JAX at TEN",
+   "out_positions": [
+    "DE",
+    "DT",
+    "S"
+   ],
+   "doubtful_positions": [],
+   "questionable_positions": [
+    "C"
+   ],
+   "out_count": 3,
+   "qb_out": false,
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg10",
+   "derivation": "Counts and position sets computed ONLY from transcribed game_status cells; no replacement player is named (depth-chart string order is not published on this page)."
+  },
+  {
+   "team": "TEN",
+   "opponent": {
+    "abbr": "JAX",
+    "name": "Jaguars",
+    "record": "6-2"
+   },
+   "game": "JAX at TEN",
+   "out_positions": [
+    "G",
+    "LB",
+    "P",
+    "WR"
+   ],
+   "doubtful_positions": [],
+   "questionable_positions": [
+    "RB"
+   ],
+   "out_count": 5,
+   "qb_out": false,
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg10",
+   "derivation": "Counts and position sets computed ONLY from transcribed game_status cells; no replacement player is named (depth-chart string order is not published on this page)."
+  },
+  {
+   "team": "BUF",
+   "opponent": {
+    "abbr": "NYJ",
+    "name": "Jets",
+    "record": "2-7"
+   },
+   "game": "BUF at NYJ",
+   "out_positions": [],
+   "doubtful_positions": [
+    "T"
+   ],
+   "questionable_positions": [
+    "CB",
+    "S",
+    "WR"
+   ],
+   "out_count": 0,
+   "qb_out": false,
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg10",
+   "derivation": "Counts and position sets computed ONLY from transcribed game_status cells; no replacement player is named (depth-chart string order is not published on this page)."
+  },
+  {
+   "team": "NYJ",
+   "opponent": {
+    "abbr": "BUF",
+    "name": "Bills",
+    "record": "7-1"
+   },
+   "game": "BUF at NYJ",
+   "out_positions": [
+    "LB"
+   ],
+   "doubtful_positions": [],
+   "questionable_positions": [
+    "CB",
+    "DE",
+    "DT",
+    "S",
+    "WR"
+   ],
+   "out_count": 1,
+   "qb_out": false,
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg10",
+   "derivation": "Counts and position sets computed ONLY from transcribed game_status cells; no replacement player is named (depth-chart string order is not published on this page)."
+  },
+  {
+   "team": "MIA",
+   "opponent": {
+    "abbr": "IND",
+    "name": "Colts",
+    "record": "2-7"
+   },
+   "game": "MIA at IND",
+   "out_positions": [
+    "C",
+    "WR"
+   ],
+   "doubtful_positions": [
+    "WR"
+   ],
+   "questionable_positions": [
+    "CB"
+   ],
+   "out_count": 2,
+   "qb_out": false,
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg10",
+   "derivation": "Counts and position sets computed ONLY from transcribed game_status cells; no replacement player is named (depth-chart string order is not published on this page)."
+  },
+  {
+   "team": "IND",
+   "opponent": {
+    "abbr": "MIA",
+    "name": "Dolphins",
+    "record": "1-7"
+   },
+   "game": "MIA at IND",
+   "out_positions": [
+    "DT",
+    "LB",
+    "LS",
+    "T",
+    "TE"
+   ],
+   "doubtful_positions": [],
+   "questionable_positions": [
+    "DE",
+    "TE"
+   ],
+   "out_count": 6,
+   "qb_out": false,
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg10",
+   "derivation": "Counts and position sets computed ONLY from transcribed game_status cells; no replacement player is named (depth-chart string order is not published on this page)."
+  },
+  {
+   "team": "CAR",
+   "opponent": {
+    "abbr": "NO",
+    "name": "Saints",
+    "record": "3-5"
+   },
+   "game": "CAR at NO",
+   "out_positions": [
+    "LB"
+   ],
+   "doubtful_positions": [
+    "CB",
+    "RB"
+   ],
+   "questionable_positions": [
+    "CB",
+    "G",
+    "LB",
+    "WR"
+   ],
+   "out_count": 1,
+   "qb_out": false,
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg10",
+   "derivation": "Counts and position sets computed ONLY from transcribed game_status cells; no replacement player is named (depth-chart string order is not published on this page)."
+  },
+  {
+   "team": "NO",
+   "opponent": {
+    "abbr": "CAR",
+    "name": "Panthers",
+    "record": "3-5"
+   },
+   "game": "CAR at NO",
+   "out_positions": [
+    "C",
+    "DT",
+    "RB",
+    "T"
+   ],
+   "doubtful_positions": [],
+   "questionable_positions": [
+    "CB",
+    "RB"
+   ],
+   "out_count": 4,
+   "qb_out": false,
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg10",
+   "derivation": "Counts and position sets computed ONLY from transcribed game_status cells; no replacement player is named (depth-chart string order is not published on this page)."
+  },
+  {
+   "team": "HOU",
+   "opponent": {
+    "abbr": "CLE",
+    "name": "Browns",
+    "record": "5-4"
+   },
+   "game": "HOU at CLE",
+   "out_positions": [
+    "DE",
+    "G",
+    "LB",
+    "TE",
+    "WR"
+   ],
+   "doubtful_positions": [],
+   "questionable_positions": [
+    "CB",
+    "DE",
+    "G",
+    "LB",
+    "RB",
+    "T"
+   ],
+   "out_count": 5,
+   "qb_out": false,
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg10",
+   "derivation": "Counts and position sets computed ONLY from transcribed game_status cells; no replacement player is named (depth-chart string order is not published on this page)."
+  },
+  {
+   "team": "CLE",
+   "opponent": {
+    "abbr": "HOU",
+    "name": "Texans",
+    "record": "3-5"
+   },
+   "game": "HOU at CLE",
+   "out_positions": [
+    "FB",
+    "S"
+   ],
+   "doubtful_positions": [],
+   "questionable_positions": [
+    "WR"
+   ],
+   "out_count": 2,
+   "qb_out": false,
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg10",
+   "derivation": "Counts and position sets computed ONLY from transcribed game_status cells; no replacement player is named (depth-chart string order is not published on this page)."
+  },
+  {
+   "team": "LA",
+   "opponent": {
+    "abbr": "AZ",
+    "name": "Cardinals",
+    "record": "3-6"
+   },
+   "game": "LA at AZ",
+   "out_positions": [
+    "G",
+    "TE"
+   ],
+   "doubtful_positions": [],
+   "questionable_positions": [
+    "CB",
+    "LB",
+    "LS",
+    "S",
+    "TE"
+   ],
+   "out_count": 2,
+   "qb_out": false,
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg10",
+   "derivation": "Counts and position sets computed ONLY from transcribed game_status cells; no replacement player is named (depth-chart string order is not published on this page)."
+  },
+  {
+   "team": "AZ",
+   "opponent": {
+    "abbr": "LA",
+    "name": "Rams",
+    "record": "5-4"
+   },
+   "game": "LA at AZ",
+   "out_positions": [
+    "C",
+    "DT",
+    "G"
+   ],
+   "doubtful_positions": [],
+   "questionable_positions": [
+    "CB",
+    "DT",
+    "S",
+    "T",
+    "TE"
+   ],
+   "out_count": 3,
+   "qb_out": false,
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg10",
+   "derivation": "Counts and position sets computed ONLY from transcribed game_status cells; no replacement player is named (depth-chart string order is not published on this page)."
+  },
+  {
+   "team": "SEA",
+   "opponent": {
+    "abbr": "LV",
+    "name": "Raiders",
+    "record": "4-5"
+   },
+   "game": "SEA at LV",
+   "out_positions": [
+    "DT",
+    "G",
+    "QB",
+    "T"
+   ],
+   "doubtful_positions": [],
+   "questionable_positions": [],
+   "out_count": 4,
+   "qb_out": true,
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg10",
+   "derivation": "Counts and position sets computed ONLY from transcribed game_status cells; no replacement player is named (depth-chart string order is not published on this page)."
+  },
+  {
+   "team": "LV",
+   "opponent": {
+    "abbr": "SEA",
+    "name": "Seahawks",
+    "record": "5-4"
+   },
+   "game": "SEA at LV",
+   "out_positions": [],
+   "doubtful_positions": [],
+   "questionable_positions": [
+    "DT",
+    "WR"
+   ],
+   "out_count": 0,
+   "qb_out": false,
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg10",
+   "derivation": "Counts and position sets computed ONLY from transcribed game_status cells; no replacement player is named (depth-chart string order is not published on this page)."
+  },
+  {
+   "team": "SF",
+   "opponent": {
+    "abbr": "DAL",
+    "name": "Cowboys",
+    "record": "4-5"
+   },
+   "game": "SF at DAL",
+   "out_positions": [
+    "WR"
+   ],
+   "doubtful_positions": [],
+   "questionable_positions": [
+    "CB",
+    "DT",
+    "LB",
+    "T"
+   ],
+   "out_count": 1,
+   "qb_out": false,
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg10",
+   "derivation": "Counts and position sets computed ONLY from transcribed game_status cells; no replacement player is named (depth-chart string order is not published on this page)."
+  },
+  {
+   "team": "DAL",
+   "opponent": {
+    "abbr": "SF",
+    "name": "49ers",
+    "record": "7-1"
+   },
+   "game": "SF at DAL",
+   "out_positions": [
+    "LB",
+    "RB",
+    "S",
+    "TE",
+    "WR"
+   ],
+   "doubtful_positions": [
+    "S"
+   ],
+   "questionable_positions": [
+    "CB",
+    "DT",
+    "S"
+   ],
+   "out_count": 5,
+   "qb_out": false,
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg10",
+   "derivation": "Counts and position sets computed ONLY from transcribed game_status cells; no replacement player is named (depth-chart string order is not published on this page)."
+  },
+  {
+   "team": "PIT",
+   "opponent": {
+    "abbr": "CIN",
+    "name": "Bengals",
+    "record": "6-2"
+   },
+   "game": "PIT at CIN",
+   "out_positions": [],
+   "doubtful_positions": [],
+   "questionable_positions": [
+    "DT"
+   ],
+   "out_count": 0,
+   "qb_out": false,
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg10",
+   "derivation": "Counts and position sets computed ONLY from transcribed game_status cells; no replacement player is named (depth-chart string order is not published on this page)."
+  },
+  {
+   "team": "CIN",
+   "opponent": {
+    "abbr": "PIT",
+    "name": "Steelers",
+    "record": "6-2"
+   },
+   "game": "PIT at CIN",
+   "out_positions": [
+    "S"
+   ],
+   "doubtful_positions": [
+    "CB",
+    "G",
+    "WR"
+   ],
+   "questionable_positions": [],
+   "out_count": 1,
+   "qb_out": false,
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg10",
+   "derivation": "Counts and position sets computed ONLY from transcribed game_status cells; no replacement player is named (depth-chart string order is not published on this page)."
+  },
+  {
+   "team": "LAC",
+   "opponent": {
+    "abbr": "BAL",
+    "name": "Ravens",
+    "record": "4-5"
+   },
+   "game": "LAC at BAL",
+   "out_positions": [],
+   "doubtful_positions": [],
+   "questionable_positions": [],
+   "out_count": 0,
+   "qb_out": false,
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg10",
+   "derivation": "Counts and position sets computed ONLY from transcribed game_status cells; no replacement player is named (depth-chart string order is not published on this page)."
+  },
+  {
+   "team": "BAL",
+   "opponent": {
+    "abbr": "LAC",
+    "name": "Chargers",
+    "record": "0-8"
+   },
+   "game": "LAC at BAL",
+   "out_positions": [],
+   "doubtful_positions": [],
+   "questionable_positions": [],
+   "out_count": 0,
+   "qb_out": false,
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg10",
+   "derivation": "Counts and position sets computed ONLY from transcribed game_status cells; no replacement player is named (depth-chart string order is not published on this page)."
+  }
+ ]
+}

@@ -1,0 +1,44 @@
+{
+ "dataset": "own8-integration-pages-health",
+ "session": "2d4025da",
+ "task": "I3",
+ "as_of": "2026-11-14",
+ "site_url": "https://sassnarep3-star.github.io/Own8/",
+ "observations": [
+  {
+   "at": "2026-11-14 ~00:50 UTC",
+   "source": "gh api repos/sassnarep3-star/Own8/pages",
+   "status": "errored",
+   "detail": "Pages API reported status=errored, error=null, build_type=legacy, source=main:/ \u2014 while a live fetch of the site URL still returned the current dashboard (HTTP content present via fetch_page). Matches the transient instant-error pattern recorded in PRs #31 and #32.",
+   "evidence_url": "https://github.com/sassnarep3-star/Own8/actions/workflows/pages-build-deployment.yml"
+  },
+  {
+   "at": "2026-11-14 00:56-01:08 UTC",
+   "source": "gh run list --workflow=pages-build-deployment",
+   "status": "success x6",
+   "detail": "Runs 43537428957 (e56afbb), 43537600217 (ac64d73), 43537701263 (9d182b8), 43538324155 (c2c0f48), 43538554506 (69f74c7), 43538733725 (0db0fb0) all concluded success; deployments 7780191805, 7780203425, 7780277431, 7780306176, 7780328429 created for environment github-pages.",
+   "evidence_url": "https://github.com/sassnarep3-star/Own8/actions/workflows/pages-build-deployment.yml"
+  },
+  {
+   "at": "2026-11-14 ~01:10 UTC",
+   "source": "gh api repos/sassnarep3-star/Own8/pages",
+   "status": "built",
+   "detail": "API recovered to status=built, error=null.",
+   "evidence_url": "https://github.com/sassnarep3-star/Own8/deployments"
+  },
+  {
+   "at": "2026-11-14 (session start)",
+   "source": "fetch_page https://sassnarep3-star.github.io/Own8/",
+   "status": "live",
+   "detail": "Dashboard rendered: title 'Research overview \u00b7 Own8', executive findings table, KPIs, links to pages/* all present.",
+   "evidence_url": "https://sassnarep3-star.github.io/Own8/"
+  }
+ ],
+ "diagnosis": "The repository's GitHub Pages publication is the legacy main/root pipeline (build_type=legacy, source branch main path /). The API 'errored' state observed at session start was a transient build failure already known from PR #31/#32 records; it self-recovered when the next pushes to main triggered fresh builds. No settings change was made or needed (settings writes previously returned HTTP 403 for other sessions \u2014 see dd321bf5/566bc2e7 board entries \u2014 and none was attempted here).",
+ "evidence_links": [
+  "https://github.com/sassnarep3-star/Own8/actions/workflows/pages-build-deployment.yml",
+  "https://github.com/sassnarep3-star/Own8/deployments",
+  "https://sassnarep3-star.github.io/Own8/"
+ ],
+ "result": "HEALTHY \u2014 status built; six consecutive successful builds and deployments on 2026-11-14; live URL serves the current dashboard."
+}

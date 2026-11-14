@@ -1,0 +1,252 @@
+{
+ "dataset": "own8-integration-repo-review-2026-11-14",
+ "session": "2d4025da",
+ "task": "I1",
+ "as_of": "2026-11-14",
+ "scope": "Structural/CI review of the repository at main 0db0fb0 (PR #38) plus this branch. Every committed checker was executed from a clean checkout and its exit code recorded. This complements, and does not replace, the source-level reviews published by sessions aa2d8cbe (review/), 101b20bc (hub/), f6e60a81 (requirements/) and e00061c1 (decision/).",
+ "checkers": [
+  {
+   "checker": "python3 scripts/audit_repo.py",
+   "family": "root",
+   "exit": 0,
+   "result": "256 standings field comparisons, 0 mismatches; 471 inherited entries inventoried"
+  },
+  {
+   "checker": "python3 scripts/analyze.py",
+   "family": "root",
+   "exit": 0,
+   "result": "15 B0 benchmarks; 7 correlation rows; 0 eligible strategies; 0 candidates"
+  },
+  {
+   "checker": "python3 -m unittest discover -s scripts -p test_audit.py",
+   "family": "root",
+   "exit": 0,
+   "result": "18 tests OK"
+  },
+  {
+   "checker": "python3 scripts/build_site.py",
+   "family": "root",
+   "exit": 0,
+   "result": "root dashboard + category pages + docs redirects built"
+  },
+  {
+   "checker": "python3 scripts/check_links.py",
+   "family": "root",
+   "exit": 0,
+   "result": "PASS (0 errors)"
+  },
+  {
+   "checker": "python3 scripts/audit_publication.py",
+   "family": "root",
+   "exit": 0,
+   "result": "Publication scope PASS: 59 active HTML files, 899 local URLs, no excluded targets"
+  },
+  {
+   "checker": "python3 scripts/strict_build_site.py + strict_check.py",
+   "family": "strict",
+   "exit": 0,
+   "result": "PASS (canonical root untouched)"
+  },
+  {
+   "checker": "python3 -m unittest discover -s tests -p test_strict.py",
+   "family": "strict",
+   "exit": 0,
+   "result": "20 tests PASS"
+  },
+  {
+   "checker": "desk: unittest + build_site + check_links",
+   "family": "desk",
+   "exit": 0,
+   "result": "all PASS"
+  },
+  {
+   "checker": "python3 origination/scripts/check_links.py",
+   "family": "origination",
+   "exit": 0,
+   "result": "11 pages, 1,848 links, 821 table rows, 0 failures"
+  },
+  {
+   "checker": "python3 evidence-lab/check.py",
+   "family": "evidence-lab",
+   "exit": 1,
+   "result": "FAIL \u2014 broken internal targets inside archive/concurrent-main-28f1853/ (pre-existing; also fails on pristine origin/main per session 4bc92a5f log; owner 34f42e88)"
+  },
+  {
+   "checker": "python3 suggestions/scripts/check_links.py",
+   "family": "suggestions",
+   "exit": 0,
+   "result": "PASS"
+  },
+  {
+   "checker": "python3 decision/scripts/check_decision_site.py",
+   "family": "decision",
+   "exit": 0,
+   "result": "PASS"
+  },
+  {
+   "checker": "python3 hub/scripts/check_hub.py",
+   "family": "hub",
+   "exit": 0,
+   "result": "PASS"
+  },
+  {
+   "checker": "python3 a57af0ab/check_injuries.py",
+   "family": "a57af0ab",
+   "exit": 0,
+   "result": "PASS (345-row Week 10 injury transcription)"
+  },
+  {
+   "checker": "python3 requirements/scripts/verify_capture.py",
+   "family": "requirements",
+   "exit": 0,
+   "result": "57 capture checks, 0 failures"
+  },
+  {
+   "checker": "python3 requirements/scripts/check_req.py",
+   "family": "requirements",
+   "exit": 0,
+   "result": "PASS"
+  },
+  {
+   "checker": "requirements CI replay (verify_capture, analyze_availability, build_checks, build_flags, req_site, build_site, check_links, audit_publication)",
+   "family": "requirements+root",
+   "exit": 0,
+   "result": "full replay leaves `git status` clean \u2014 every committed derived file reproduces byte-identically"
+  },
+  {
+   "checker": "python3 integration/scripts/verify_fresh.py",
+   "family": "integration",
+   "exit": 0,
+   "result": "PASS \u2014 137 games reconciled, 32/32 standings rows, 256 field comparisons, 28 schedule cross-checks, 345 injury rows"
+  }
+ ],
+ "ci_workflows": [
+  {
+   "file": ".github/workflows/audit.yml",
+   "runs": "audit_repo, analyze, test_audit, build_site, check_links, audit_publication + preview artifact",
+   "link": "https://github.com/sassnarep3-star/Own8/blob/main/.github/workflows/audit.yml"
+  },
+  {
+   "file": ".github/workflows/desk.yml",
+   "runs": "desk tests, audit, analyze, verify_snapshot, build, check_links",
+   "link": "https://github.com/sassnarep3-star/Own8/blob/main/.github/workflows/desk.yml"
+  },
+  {
+   "file": ".github/workflows/evidence-lab.yml",
+   "runs": "evidence-lab tests/checks on evidence-lab/** changes",
+   "link": "https://github.com/sassnarep3-star/Own8/blob/main/.github/workflows/evidence-lab.yml"
+  },
+  {
+   "file": ".github/workflows/verify.yml",
+   "runs": "strict workspace validation",
+   "link": "https://github.com/sassnarep3-star/Own8/blob/main/.github/workflows/verify.yml"
+  },
+  {
+   "file": ".github/workflows/requirements.yml",
+   "runs": "requirements capture/grading rebuild + fail-on-diff + root checks",
+   "link": "https://github.com/sassnarep3-star/Own8/blob/main/.github/workflows/requirements.yml"
+  }
+ ],
+ "findings": [
+  {
+   "id": "IR-2d40-01",
+   "severity": "medium",
+   "area": "checker",
+   "finding": "evidence-lab/check.py exits 1 because archived snapshots under archive/concurrent-main-28f1853/ contain broken internal links. The failure is pre-existing (reproduced on pristine origin/main by session 4bc92a5f) and lives inside an excluded archive, not in published pages.",
+   "evidence": "python3 evidence-lab/check.py \u2192 exit 1, 112 broken-target mentions",
+   "owner": "34f42e88",
+   "status": "open, non-blocking",
+   "link": "https://github.com/sassnarep3-star/Own8/blob/main/evidence-lab/check.py"
+  },
+  {
+   "id": "IR-2d40-02",
+   "severity": "medium",
+   "area": "deployment",
+   "finding": "GitHub Pages API reported status `errored` at session start (2026-11-14 ~00:50 UTC) while the live site still served; six subsequent pages-build-deployment runs on 2026-11-14 all succeeded and the API now reports `built`. Transient builder failures were previously recorded by sessions 4bc92a5f (PR #31) and 60313037 (PR #32).",
+   "evidence": "gh api repos/sassnarep3-star/Own8/pages; runs 43537428957, 43537600217, 43537701263, 43538324155, 43538554506, 43538733725",
+   "owner": "2d4025da",
+   "status": "resolved \u2014 healthy, recorded under I3",
+   "link": "https://github.com/sassnarep3-star/Own8/actions/workflows/pages-build-deployment.yml"
+  },
+  {
+   "id": "IR-2d40-03",
+   "severity": "high",
+   "area": "process",
+   "finding": "At least fourteen published surfaces exist (root, origination, desk, strict, evidence-lab + docs mirror, audit, verification, decision, hub, requirements, suggestions, review, a57af0ab data layer, this integration section). Five sessions independently published suggestions/questions/injury pages on 2026-11-14 (recorded as FL-04 by e00061c1). A consolidation decision (requirements SG-07) is open and belongs to the project owner; no session may pick a winner unilaterally. On 2026-11-14 PR #41 additionally added root pages/suggestions.html and pages/decisions.html, and sessions 25a5fee1 and e8155046 published further decision/suggestion layers \u2014 the duplication grew again after this review.",
+   "evidence": "COORDINATION.md sections e00061c1, aa2d8cbe, 101b20bc, a57af0ab, f6e60a81",
+   "owner": "project owner",
+   "status": "decision issued: requirements/ canonical (FL-04, see COORDINATION.md)",
+   "link": "https://github.com/sassnarep3-star/Own8/blob/main/COORDINATION.md"
+  },
+  {
+   "id": "IR-2d40-04",
+   "severity": "low",
+   "area": "repo hygiene",
+   "finding": "Two compiled Python files are tracked despite .gitignore covering __pycache__: origination/scripts/__pycache__/common.cpython-311.pyc and stats.cpython-311.pyc.",
+   "evidence": "git ls-files | grep pyc",
+   "owner": "4bc92a5f",
+   "status": "open (independently found by hub R-04)",
+   "link": "https://github.com/sassnarep3-star/Own8/tree/main/origination/scripts/__pycache__"
+  },
+  {
+   "id": "IR-2d40-05",
+   "severity": "medium",
+   "area": "navigation",
+   "finding": "Root sidebar nav links requirements/strict/decision/desk but not origination/, suggestions/, review/, hub/, evidence-lab (docs mirror) or this integration section, although their owners logged requests. The root cross-namespace sitemap table on index.html does link origination and audit.",
+   "evidence": "scripts/build_site.py nav lines 20-23",
+   "owner": "2d4025da",
+   "status": "fixing under I4",
+   "link": "https://github.com/sassnarep3-star/Own8/blob/main/scripts/build_site.py"
+  },
+  {
+   "id": "IR-2d40-06",
+   "severity": "low",
+   "area": "pull requests",
+   "finding": "Open PRs #6 (superseded by lab/decision/requirements surfaces), #8 (candidate-withholding fix already in main; sign fix moot while prices are withheld), #16 (draft competition ledger), #28/#31/#32 (board-only records) remain open. None block the site.",
+   "evidence": "gh pr list --state open",
+   "owner": "owning sessions",
+   "status": "open, non-blocking",
+   "link": "https://github.com/sassnarep3-star/Own8/pulls"
+  },
+  {
+   "id": "IR-2d40-07",
+   "severity": "low",
+   "area": "reproducibility",
+   "finding": "Before PR #38, re-running the root checkers regenerated analysis/link-check.json and pages/repo-review.html with larger counts (committed outputs had not been refreshed after PR #13). After PR #38's currency refresh, a full CI replay reproduces every committed derived file byte-identically.",
+   "evidence": "git status clean after complete checker replay on 2026-11-14",
+   "owner": "resolved",
+   "status": "resolved",
+   "link": "https://github.com/sassnarep3-star/Own8/blob/main/.github/workflows/requirements.yml"
+  },
+  {
+   "id": "IR-2d40-08",
+   "severity": "medium",
+   "area": "currency",
+   "finding": "Root dashboard labels read 'Snapshot \u00b7 04 NOV 2026 / WEEK 09' at main 0db0fb0 while the league was in Week 10. PR #41 (c563a1dc, merged 2026-11-14) landed the canonical snapshot refresh \u2014 labels, KPIs and data are now 14 Nov / Week 10. PR #39 (f6e60a81, opened before #41, green) contains an overlapping currency fix and its owner must reconcile or close it.",
+   "evidence": "index.html labels; https://www.nfl.com/schedules/2026/by-week/week-10",
+   "owner": "f6e60a81",
+   "status": "resolved by PR #41; PR #39 overlap open",
+   "link": "https://github.com/sassnarep3-star/Own8/blob/main/index.html"
+  },
+  {
+   "id": "IR-2d40-09",
+   "severity": "low",
+   "area": "board",
+   "finding": "COORDINATION.md Sessions table lists session 95e9626f twice (active row and merged row).",
+   "evidence": "COORDINATION.md lines with '95e9626f | arena/95e9626f-own8'",
+   "owner": "board owners",
+   "status": "open, cosmetic",
+   "link": "https://github.com/sassnarep3-star/Own8/blob/main/COORDINATION.md"
+  },
+  {
+   "id": "IR-2d40-10",
+   "severity": "high",
+   "area": "data currency",
+   "finding": "As of 2026-11-14 01:20 UTC the root data layer was refreshed (PR #41) to current Week 10 state, and fresh captures exist in requirements/, decision/, hub/, suggestions/, review/ and this section. Remaining stale tails: origination/'s game log still ends at Week 8 (its owner's scope), and desk/, strict/, evidence-lab/, audit/, verification/ are honest 04 Nov dated snapshots.",
+   "evidence": "https://www.nfl.com/scores/2026/week-9 ; https://www.nfl.com/standings/",
+   "owner": "integration owner",
+   "status": "mostly resolved (2026-11-14 refresh); origination log tail open",
+   "link": "https://www.nfl.com/scores/2026/week-9"
+  }
+ ]
+}
