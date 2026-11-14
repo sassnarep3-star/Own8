@@ -324,9 +324,9 @@ Branch: `arena/d6bada32-own8` (Arena pins this session to that branch; no `sessi
 
 | ID | Task | Status | Owner | Files (scope) | Verification plan |
 | --- | --- | --- | --- | --- | --- |
-| H1 | Suggestions & decision hub: suggestions register (options, recommendation, awaiting user choice — nothing implemented), questions / information-gap register, current-status executive summary, repo-review irregularity log | done (15 flags published as NEEDS REVIEW on advisory/flagged.html) | d6bada32 | advisory/**, COORDINATION.md (this section) | Every row links an official nfl.com page or a repo file path; unverifiable items blank + flagged |
-| H2 | 2026 Week 10 official injury capture (rows with Injuries, non-Full practice, or Game Status) + position-group deficiency tracker; starter/backup replacement fields left blank because no official depth-chart source was reachable | done (205 rows / 14 games; single-pass transcription — second pass open as F-14) | d6bada32 | injury-depth/**, COORDINATION.md (this section) | Source: https://www.nfl.com/injuries/league/2026/reg10 (8 chunks); each row checked against its chunk; player_url from the page |
-| H3 | Repo review: stale-data check (W9 games final on nfl.com/scores/2026/week-9 while repo model lines are "Week 9 pre-game"); open-PR and claim inventory | done (flags F-02..F-04, F-10..F-12, F-15) | d6bada32 | advisory/irregularities (within H1) | nfl.com scores/injuries pages; `gh pr list`; file reads |
+| H1 | Suggestions & decision hub (overlaps 101b20bc H1/H5) | SUPERSEDED — not merged; duplicate scope collision logged 2026-11-14 | d6bada32 | advisory/**, COORDINATION.md (this section) | Every row links an official nfl.com page or a repo file path; unverifiable items blank + flagged |
+| H2 | Week 10 injury capture (overlaps 101b20bc H3) | PARTIAL — 205-row draft kept on branch `arena/d6bada32-own8` only; NOT merged. Offered to 101b20bc as input (see log) | d6bada32 | injury-depth/**, COORDINATION.md (this section) | Source: https://www.nfl.com/injuries/league/2026/reg10 (8 chunks); each row checked against its chunk; player_url from the page |
+| H3 | Repo review (overlaps 101b20bc H1) | SUPERSEDED — findings sent to 101b20bc via Flagged list; not merged | d6bada32 | advisory/irregularities (within H1) | nfl.com scores/injuries pages; `gh pr list`; file reads |
 
 Not claimed here (remain open for other sessions; listed as suggestions in advisory/): Week 10 line origination and skill-vs-luck re-validation (origination/** owned by 4bc92a5f, done through W9 inputs); official depth-chart source (not found — see advisory/ gap G-03); integration nav link on the root dashboard (root integration owner).
 
@@ -351,4 +351,13 @@ Cross-session requests:
 Not claimed or changed: Week 10 line origination; second-pass verification of the injury rows; depth-chart source discovery (Q-02); all open PRs (S-07).
 
 - 2026-11-14 — d6bada32 H1–H3 DONE on branch arena/d6bada32-own8 (commits pushed). Scoped PR to main follows; merge and Pages deploy results recorded below when complete.
+
+### d6bada32 — scope collision and stop (2026-11-14)
+
+- EVENT: Session 101b20bc claimed `hub/**` (H1 repo review, H2 standings, H3 Week 10 injuries, H5 suggestions/questions/flags) in commit b983d15 (00:50:16 UTC), before this session's claim was pushed (cb275b4). Its hub reached main as PR #33 (merge e56afbb). This session's H1–H3 duplicated that scope. Per protocol, this is a scope overlap and is recorded here. No merge conflict in content: the only conflict was COORDINATION.md (both sections kept).
+- STOPPED: this session does NOT open a PR or merge its `advisory/**` and `injury-depth/**` pages to main. Publishing them would duplicate 101b20bc's live hub, and the 205-row injury draft is unverified. Branch `arena/d6bada32-own8` stays pushed for reference only.
+- CROSS-CHECK (no edits to 101b20bc files): compared the 205-row draft (injury-depth/data/w10_transcription.tsv) with hub/data/injuries-w10.csv on main (67 rows, blocks A–E). Matched by team+player+position: 67/67 agree on injury, practice status, and game status; 0 differ. This is agreement between two transcriptions, not verification against the live page. Remaining 138 draft rows (blocks not in 101b20bc's CSV) are unchecked by any second pass.
+- OFFERED to 101b20bc (owner of hub/**): the 205-row draft as a candidate input for H3 blocks F–N, to be verified against https://www.nfl.com/injuries/league/2026/reg10 before any row is published. Taken only if 101b20bc chooses; not written into hub/**.
+- Unresolved for the integration session: user requirement to publish a PR/merge from this session cannot be met without duplicating live content. Integration owner decides whether d6bada32 work is folded into hub/** or closed.
+- Governance note: this session's Week 10 draft was also not second-pass verified (F-14 still open in advisory/flagged.html on branch).
 
