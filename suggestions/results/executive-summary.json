@@ -1,0 +1,74 @@
+{
+  "as_of": "2026-11-14",
+  "session": "aa2d8cbe",
+  "title": "Own8 NFL research lab — executive summary",
+  "statement": "Evidence before edge. This summary outlines the important details of the project's verified foundation, its line-origination and strategy status, its gaps, and the recommended decision path. Every verified statement is tied to an official source; derived values are labeled as project calculations; missing values are blank and flagged, never inferred.",
+  "sections": [
+    {
+      "heading": "Verified foundation",
+      "points": [
+        "32/32 standings rows re-captured from the official NFL league standings on 2026-11-14; spot arithmetic (PCT = (W+0.5*T)/GP; PF-PA = NET) reconciles. Source: nfl.com/standings/league/2026/REG.",
+        "The official source register (data/sources.json) lists only live, official hosts: nfl.com, nextgenstats.nfl.com, itl.nist.gov, wsgc.wa.gov, docs.github.com."
+      ],
+      "source_url": "https://www.nfl.com/standings/league/2026/REG"
+    },
+    {
+      "heading": "Data currency (key risk)",
+      "points": [
+        "The canonical snapshot is dated 2026-11-04; the live official Week 9 schedule now shows Week 9 as complete with final scores, and a Week 10 injury report exists. The site's 'current' Week 9 view is two weeks stale (RV-01).",
+        "The official Week 9 injury page publishes injury types and game statuses that the canonical injuries page currently leaves blank, and covers all 14 games while the project transcribed only JAX/BAL (RV-03, RV-04)."
+      ],
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg9"
+    },
+    {
+      "heading": "Line origination",
+      "points": [
+        "The project originates its own illustrative B0 scoring benchmarks from audited points-for/against rates; these are derived project calculations, not official NFL lines, calibrated prices, or recommendations.",
+        "No roster/injury adjustment is implemented in the numerical projections; news-based adjustments are not applied (A07)."
+      ],
+      "source_url": "https://www.nfl.com/standings/league/2026/REG"
+    },
+    {
+      "heading": "Strategy library, gates and leaderboard",
+      "points": [
+        "Eight research strategies are registered (three singles, three player props, one parlay, one player-prop combo). All remain BLOCKED.",
+        "Validation gates: G1 PASS; G2-G8 BLOCKED. Eligible strategies: 0. Candidates: 0. No ranks, ROI, Brier score or reward is awarded.",
+        "No verified operator prices, out-of-sample prospective ledger, or bet-leg dependence dataset exists, so no strategy can be promoted (A01-A04)."
+      ],
+      "source_url": "https://www.itl.nist.gov/div898/handbook/prc/section1/prc14.htm"
+    },
+    {
+      "heading": "Correlations and skill vs luck",
+      "points": [
+        "Three team-aggregate correlations are published as DERIVED-DESCRIPTIVE only; four bet-leg correlations remain UNVERIFIED (r blank).",
+        "Luck cannot be eliminated or a strategy certified skill-only from the current snapshot; no out-of-sample, confidence-adjusted skill evidence exists (A04). A skill-vs-luck decomposition is proposed (SU-07)."
+      ],
+      "source_url": "https://www.itl.nist.gov/div898/handbook/eda/section3/scatterp.htm"
+    },
+    {
+      "heading": "Injuries and lineup-deficiency signals",
+      "points": [
+        "The system should track injuries and know deficiencies when 2nd/3rd/4th-string backups replace starters on offense and defense. A verified Week 9 example exists: BAL starter QB Lamar Jackson (Out) and backup Tyler Huntley (Out) leave 3rd-string QB Joe Fagnano (Full Participation) as the likely starter.",
+        "The depth-chart 'string' designation itself is not official and is left unverified until an official roster/depth-chart source is captured (LI-05)."
+      ],
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg9"
+    },
+    {
+      "heading": "Flagged irregularities",
+      "points": [
+        "This session's re-review flags RV-01 (staleness), RV-02 (injury-page title/body week mismatch), RV-03 (over-withholding of verified injury values), RV-04 (partial injury capture), RV-05 (schedule source drift). RV-06 is a positive standings reconciliation.",
+        "Prior register flags A01-A16 and F-01-F-13/F-20-F-25 remain needs-review on the published Flagged for Review page; they do not block publication but missing evidence blocks strategy eligibility."
+      ],
+      "source_url": "https://www.nfl.com/standings/league/2026/REG"
+    },
+    {
+      "heading": "Recommended decision path",
+      "points": [
+        "Before any decision, resolve the P1 decision questions (DQ-01 verified prices, DQ-02 complete current injuries, DQ-03 prospective out-of-sample ledger, DQ-08 fresh feed).",
+        "Adopt the suggestions in priority order: freshness gate (SU-01), populate verified injury values (SU-02), full-slate injury capture (SU-03), then lineup-deficiency signals (SU-04), completeness scoring (SU-05), correlation matrix (SU-06), skill-vs-luck (SU-07), settlement ledger (SU-08).",
+        "Use the suggestions section's status workflow (SU-09) so a reviewer can accept/reject each path before implementation."
+      ],
+      "source_url": "https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site"
+    }
+  ]
+}

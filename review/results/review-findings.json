@@ -1,0 +1,89 @@
+{
+  "as_of": "2026-11-14",
+  "session": "aa2d8cbe",
+  "scope": "Independent line-by-line re-review of the committed canonical workspace against official sources, re-verified live via fetch_page on 2026-11-14 UTC. Review is bounded: it re-checks the official sources the project cites and compares them to the committed snapshots. It is not an exhaustive certification of every inherited file.",
+  "method": "Re-fetched official pages with fetch_page (curl is blocked in the sandbox); compared rendered official content to committed JSON/HTML snapshots; left unconfirmed values blank and flagged. Every row links its official source. Source links are retrieval/verification targets, not proof of any derived number.",
+  "official_sources_checked": [
+    {"id": "standings", "label": "NFL standings (league, 2026 REG)", "url": "https://www.nfl.com/standings/league/2026/REG", "checked_at": "2026-11-14", "result": "32/32 teams captured across 2 retrieval chunks"},
+    {"id": "schedule-w9", "label": "NFL Week 9 schedule", "url": "https://www.nfl.com/schedules/2026/by-week/week-9", "checked_at": "2026-11-14", "result": "Week 9 games render as FINAL with scores; page embeds current records"},
+    {"id": "injuries-w9", "label": "NFL Week 9 injury report", "url": "https://www.nfl.com/injuries/league/2026/reg9", "checked_at": "2026-11-14", "result": "Full Week 9 report for all 14 games; injury types and game statuses published; <title> reads Week 10"},
+    {"id": "ngs-glossary", "label": "NFL Next Gen Stats glossary", "url": "https://nextgenstats.nfl.com/glossary", "checked_at": "2026-11-14 (referenced; methodology)", "result": "Official definitions referenced for signal design"}
+  ],
+  "findings": [
+    {
+      "id": "RV-01",
+      "severity": "high",
+      "area": "Data currency",
+      "finding": "The canonical snapshot is dated 2026-11-04, but the live official Week 9 schedule now renders every Week 9 game as FINAL with scores. As of 2026-11-14, Week 9 is complete and a Week 10 injury report exists. The canonical site presents Week 9 lines, injuries and availability as the current view.",
+      "evidence": "nfl.com/schedules/2026/by-week/week-9 shows JAX 33, BAL 10 FINAL (Nov 5); CIN 34, ATL 17 FINAL (Nov 8); etc.",
+      "impact": "Line-origination, injury and availability content is stale by two weeks; 'current' labels overstate freshness. Strategy promotion and availability gates that depend on 'current' inputs are affected.",
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "status": "needs review"
+    },
+    {
+      "id": "RV-02",
+      "severity": "medium",
+      "area": "Official page labeling",
+      "finding": "The official Week 9 injury page at /injuries/league/2026/reg9 renders a report body labeled 'WEEK 9', while the page <title> reads 'Week 10 of the 2026 Season'. The week selector lists WEEK 1..WEEK 10.",
+      "evidence": "Retrieved 2026-11-14: title 'Official NFL Injury Report for Players - Week 10 of the 2026 Season | NFL.com'; body header 'Injuries - WEEK 9'.",
+      "impact": "Automated week parsing keyed on the <title> could mislabel the report week. Any scraper should key on the body label or URL, not the title.",
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg9",
+      "status": "needs review"
+    },
+    {
+      "id": "RV-03",
+      "severity": "medium",
+      "area": "Over-withholding of verified official values",
+      "finding": "The canonical pages/injuries.html leaves the Injury and Game Status cells blank for the transcribed JAX/BAL rows, but the official Week 9 injury report publishes both the injury type and the game status for those same players.",
+      "evidence": "Official report: Lamar Jackson (QB) 'Thumb' / Out; Tyler Huntley (QB) 'Toe' / Out; Bhayshul Tuten (RB) 'Ankle, Foot' / Questionable; Travon Walker (DE) 'Rib' / Questionable; Jaylinn Hawkins (S) 'Knee' / Out; Nate Wiggins (CB) 'Stinger, Illness' / Questionable.",
+      "impact": "Verified official values were withheld. This does not create false precision, but it withholds available evidence needed for the availability gate (G4) and lineup-impact signals.",
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg9",
+      "status": "needs review"
+    },
+    {
+      "id": "RV-04",
+      "severity": "medium",
+      "area": "Injury capture completeness",
+      "finding": "The canonical injury capture transcribed only the JAX/BAL game (28 rows). The official Week 9 report contains all 14 Week 9 games, each with a full player table. Prior flag F-22 is confirmed by the live page.",
+      "evidence": "Live /reg9 page includes JAX@BAL, CIN@ATL, DAL@IND, NYJ@KC, DET@MIA, CLE@NO, LA@WAS, HOU@LAC, LV@SF, GB@NE, AZ@SEA, TB@CHI, BUF@MIN and the Madrid game.",
+      "impact": "Availability evidence is incomplete across the slate; per-game availability gates cannot be evaluated for the uncaptured games.",
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg9",
+      "status": "needs review"
+    },
+    {
+      "id": "RV-05",
+      "severity": "low",
+      "area": "Schedule/scores source drift",
+      "finding": "The Week 9 schedule source now embeds final scores and each team's current record. The canonical 'schedule & scores' snapshot was captured pre-game (15 matchups, byes PIT/TEN) and no longer matches the live page content.",
+      "evidence": "Live schedule page shows final scores (e.g., Jaguars 33, Ravens 10) and records (JAX 6-2, BAL 4-5) next to each Week 9 game.",
+      "impact": "The committed schedule snapshot and the live source have diverged. A fresh capture is required before any schedule-derived value is reused.",
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "status": "needs review"
+    },
+    {
+      "id": "RV-06",
+      "severity": "info",
+      "area": "Standings reconciliation (positive)",
+      "finding": "Re-captured the 32-team league standings on 2026-11-14. Spot arithmetic on the captured rows reconciles: PCT equals (W+0.5*T)/GP and PF-PA equals the NET column for the rows reviewed. No mismatch was found in the re-captured standings.",
+      "evidence": "32 rows captured across 2 chunks from nfl.com/standings/league/2026/REG; e.g., NYG 5-3-1, PCT 0.611 = 5.5/9; LAC 0-8, PCT 0.000.",
+      "impact": "The standings foundation is internally consistent on re-verification. This confirms the source is live and the field labels (W/L/T/PCT/PF/PA/NET/HOME/ROAD/DIV/CONF/STRK) are correct.",
+      "source_url": "https://www.nfl.com/standings/league/2026/REG",
+      "status": "verified"
+    }
+  ],
+  "reviewed_files": [
+    {"path": "README.md", "check": "Executive summary, evidence boundary, reproduce commands, layout; consistent with committed snapshot dates."},
+    {"path": "_config.yml", "check": "Pages exclusions list; confirms archive/, scripts/, research/ and legacy data surfaces are excluded from publication."},
+    {"path": "index.html", "check": "Canonical dashboard landing; nav, KPIs and executive-findings table; every row carries an official source link."},
+    {"path": "data/sources.json", "check": "Official source register; all listed URLs are live and on official hosts (nfl.com, nextgenstats.nfl.com, itl.nist.gov, wsgc.wa.gov, docs.github.com)."},
+    {"path": "data/flagged.json", "check": "Review register A01-A16, F-01-F-13, F-20-F-25; each item carries a source link and a needs-review status."},
+    {"path": "analysis/leaderboard.json", "check": "8 strategies, all BLOCKED; ranks/ROI/Brier/reward null; no skill or reward claim."},
+    {"path": "analysis/validation-gates.json", "check": "G1 PASS, G2-G8 BLOCKED; eligible strategies 0; candidates 0."},
+    {"path": "analysis/correlations.json", "check": "3 descriptive team correlations labeled DERIVED-DESCRIPTIVE; 4 bet-leg correlations UNVERIFIED with r=null."},
+    {"path": "pages/injuries.html", "check": "28 JAX/BAL practice rows with Injury and Game Status blank (see RV-03); 2 verified news bodies."},
+    {"path": ".github/workflows/audit.yml", "check": "Canonical CI: audit_repo, analyze, tests, build_site, check_links, audit_publication; stages preview artifact."},
+    {"path": ".github/workflows/verify.yml", "check": "Strict workspace CI: strict_build_site, tests, strict_check, deterministic output diff."},
+    {"path": ".github/workflows/desk.yml", "check": "Independent desk CI scoped to desk/."},
+    {"path": ".github/workflows/evidence-lab.yml", "check": "Evidence-lab CI scoped to evidence-lab/ and docs/evidence-lab/."}
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "as_of": "2026-11-14",
+  "session": "aa2d8cbe",
+  "note": "Improvement suggestions for the site and for decision-making. Suggestions are project-design proposals, not verified external facts. Each carries the official source or methodology reference it relies on, or is explicitly labeled project design. Status starts at 'proposed' so a reviewer can choose the best path before implementation.",
+  "suggestions": [
+    {
+      "id": "SU-01",
+      "priority": "P1",
+      "area": "Data currency",
+      "suggestion": "Add a visible data-freshness indicator and a freshness gate to every data-backed page: show the snapshot date vs today, and block strategy promotion when the snapshot exceeds a defined age (e.g., 7 days) or when a required source is stale.",
+      "why": "The canonical snapshot (2026-11-04) is now two weeks old and Week 9 is complete (RV-01). A freshness gate prevents 'current' labels from overstating freshness and makes staleness a hard, visible decision input.",
+      "files_scope": "root pages/generator + analysis gates (integration-owned); this workspace documents the proposal",
+      "verification_required": "Define the age threshold; link each freshness check to the official source's last-captured date.",
+      "source_url": "https://www.nfl.com/standings/league/2026/REG",
+      "status": "proposed"
+    },
+    {
+      "id": "SU-02",
+      "priority": "P1",
+      "area": "Injury / availability",
+      "suggestion": "Populate the officially-published injury type and game status instead of leaving those cells blank, and add a per-game availability completeness score (fields captured / fields available on the official page).",
+      "why": "The official Week 9 report publishes injury types and game statuses that the canonical injuries page currently blanks (RV-03). Filling verified fields strengthens the availability gate (G4) without adding unverified values.",
+      "files_scope": "root injuries data + generator (integration-owned); this workspace documents the proposal",
+      "verification_required": "Re-transcribe from the official injury page; blank any field the official page does not publish.",
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg9",
+      "status": "proposed"
+    },
+    {
+      "id": "SU-03",
+      "priority": "P1",
+      "area": "Injury / availability",
+      "suggestion": "Expand injury capture from the two model-evaluated games to the full slate each week, and schedule an automated weekly fetch of the official injury report.",
+      "why": "Only JAX/BAL of 14 Week 9 games were transcribed (RV-04, F-22). Full-slate capture makes per-game availability gates computable across the board.",
+      "files_scope": "root injuries data + capture pipeline (integration-owned); this workspace documents the proposal",
+      "verification_required": "Capture all games for a week; verify each row against the official page before publication.",
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg9",
+      "status": "proposed"
+    },
+    {
+      "id": "SU-04",
+      "priority": "P2",
+      "area": "Lineup-deficiency signals",
+      "suggestion": "Build a lineup-impact signal module that tracks, for offense and defense, which string (starter / 2nd / 3rd / 4th) is playing at each position, sourced from official injury reports plus official rosters/depth charts.",
+      "why": "The project goal requires knowing deficiencies when backups replace starters on offense and defense. The Week 9 report already yields a concrete verified case: BAL starter QB Lamar Jackson (Out) and backup Tyler Huntley (Out) leave 3rd-string QB Joe Fagnano (Full Participation) as the likely starter.",
+      "files_scope": "new signal module (integration-owned namespace); this workspace documents the proposal and the verified example",
+      "verification_required": "Resolve the starter/backup 'string' from an official roster/depth-chart source; leave unresolved strings blank and flagged.",
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg9",
+      "status": "proposed"
+    },
+    {
+      "id": "SU-05",
+      "priority": "P2",
+      "area": "Decision support",
+      "suggestion": "Add an evidence-completeness score per strategy (count of required gates PASS / total required) shown next to each strategy, so a reviewer can see exactly what is missing before any decision.",
+      "why": "Decision-making is blocked by gates, not by a single number. A per-strategy completeness score makes the decision input explicit and reviewable.",
+      "files_scope": "root leaderboard/gates generator (integration-owned); this workspace documents the proposal",
+      "verification_required": "Score must be derived from the committed gate statuses; no inferred PASS.",
+      "source_url": "https://www.itl.nist.gov/div898/handbook/prc/section1/prc14.htm",
+      "status": "proposed"
+    },
+    {
+      "id": "SU-06",
+      "priority": "P2",
+      "area": "Correlations",
+      "suggestion": "Publish a correlation matrix with confidence intervals and a multiplicity adjustment (e.g., Holm), clearly separating team-aggregate descriptive correlations, game-level correlations, and bet-leg dependence.",
+      "why": "Bet-leg correlation values are currently blank (UNVERIFIED). A structured matrix with CIs and multiplicity control makes the correlation library a real decision input and prevents over-reading descriptive aggregates as betting dependence.",
+      "files_scope": "root correlations generator (integration-owned); this workspace documents the proposal",
+      "verification_required": "Each value recomputed from official data; CI and adjustment method stated; unverified pairs stay blank.",
+      "source_url": "https://www.itl.nist.gov/div898/handbook/prc/section4/prc473.htm",
+      "status": "proposed"
+    },
+    {
+      "id": "SU-07",
+      "priority": "P2",
+      "area": "Skill vs luck",
+      "suggestion": "Add a skill-vs-luck decomposition (variance partition / intraclass correlation with bootstrap confidence intervals and permutation tests) that reports the share of outcome variance attributable to skill vs luck, with an explicit statement that luck cannot be eliminated.",
+      "why": "The goal is to remove luck and build selectively skill-based strategies. A reported, uncertainty-aware luck share is the honest version of that goal and prevents an unsupported 'luck-free' claim.",
+      "files_scope": "root analysis (integration-owned); this workspace documents the proposal",
+      "verification_required": "Recompute from official game data; report CIs; do not certify skill-only.",
+      "source_url": "https://www.itl.nist.gov/div898/handbook/prc/section1/prc14.htm",
+      "status": "proposed"
+    },
+    {
+      "id": "SU-08",
+      "priority": "P3",
+      "area": "Leaderboard / rewards",
+      "suggestion": "Add a pre-registered, immutable paper-tournament settlement ledger with exposure caps and drawdown stress tests; award paper points only after all applicable gates PASS.",
+      "why": "The leaderboard currently has no settled ledger and no rewards. A pre-registered settlement ledger is the prerequisite for a fair, skill-rewarding competition.",
+      "files_scope": "root leaderboard generator (integration-owned); this workspace documents the proposal",
+      "verification_required": "Settlement rules pre-registered before grading; no reward before gates PASS.",
+      "source_url": "https://www.itl.nist.gov/div898/handbook/prc/section4/prc473.htm",
+      "status": "proposed"
+    },
+    {
+      "id": "SU-09",
+      "priority": "P3",
+      "area": "Suggestions workflow",
+      "suggestion": "Add a review workflow to this suggestions section so each suggestion has a status (proposed / accepted / in progress / done / rejected) and a named reviewer, so a reviewer can choose the best path before implementation.",
+      "why": "The user asked for a dedicated suggestions section where someone can review suggestions and choose the best path before changes. This workspace is that section; a status workflow makes it usable.",
+      "files_scope": "suggestions/** (this workspace)",
+      "verification_required": "Status changes recorded in COORDINATION.md with the reviewer and rationale.",
+      "source_url": "https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site",
+      "status": "proposed"
+    },
+    {
+      "id": "SU-10",
+      "priority": "P3",
+      "area": "Decision support",
+      "suggestion": "Add a per-strategy decision-gate checklist that maps each strategy to its gate outcomes and the specific missing evidence blocking promotion.",
+      "why": "Ties strategy promotion to explicit, reviewable gates and makes the decision path transparent.",
+      "files_scope": "root validation-gates generator (integration-owned); this workspace documents the proposal",
+      "verification_required": "Checklist derived from committed gate statuses only.",
+      "source_url": "https://www.nfl.com/standings/league/2026/REG",
+      "status": "proposed"
+    }
+  ]
+}
