@@ -42,10 +42,37 @@ def e(x):
     return "" if x is None else html.escape(str(x))
 
 
-def a(url, label="Official source"):
+SHORT = [
+    ("nfl.com/standings", "NFL standings"),
+    ("nfl.com/scores", "NFL scores"),
+    ("nfl.com/schedules", "NFL schedule"),
+    ("nfl.com/injuries", "NFL injury report"),
+    ("nfl.com/games/", "NFL game page"),
+    ("nfl.com/teams/", "NFL club page"),
+    ("nfl.com/stats/", "NFL player stats"),
+    ("nfl.com/news/", "NFL news"),
+    ("static.www.nfl.com", "NFL Game Book"),
+    ("nextgenstats", "Next Gen Stats"),
+    ("itl.nist.gov", "NIST handbook"),
+    ("wsgc.wa.gov", "WA gambling commission"),
+    ("docs.github.com", "GitHub Docs"),
+]
+
+
+def label_for(url, label=None):
+    if label and label not in ("Official source",):
+        return label
+    for frag, short in SHORT:
+        if frag in url:
+            return short
+    return "Official source"
+
+
+def a(url, label=None):
     if not url:
         return ""
-    return f'<a href="{e(url)}" target="_blank" rel="noopener noreferrer">{e(label)} &#8599;</a>'
+    return (f'<a href="{e(url)}" target="_blank" rel="noopener noreferrer">'
+            f'{e(label_for(url, label))} &#8599;</a>')
 
 
 def badge(text):
@@ -156,8 +183,10 @@ status_rows = [[r["id"], r["requirement"], badge(r["status"]), r["what_is_missin
 overview_body = kpis + sec("What this section is for") + (
     "<p>This is the review layer the project was missing. It answers four questions in order: what was asked for, "
     "what is actually known, what is still unknown, and what the next decision should be. Nothing here is a pitch. "
-    "Three of the sixteen requirements cannot be met at all from official sources, and they are marked that way rather "
-    "than being quietly softened.</p>") + table(
+    f"{counts.get('NOT POSSIBLE', 0)} of the {len(REQS['requirements'])} requirements cannot be met at all from official sources, "
+    f"{counts.get('PARTIAL', 0)} are only partly met, and {counts.get('MET', 0)} are met with a check behind them. "
+    "The ones that cannot be met are marked that way rather than quietly softened, because a dashboard that overstates itself is worse "
+    "than no dashboard.</p>") + table(
     ["ID", "Requirement", "Status", "What is missing", "Evidence", "Official source"], status_rows,
     "Requirement status summary",
     "Status is recomputed from the artifacts by <code>requirements/scripts/req_site.py</code> and printed here unchanged. "
