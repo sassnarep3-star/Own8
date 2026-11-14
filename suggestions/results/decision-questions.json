@@ -1,0 +1,95 @@
+{
+  "as_of": "2026-11-14",
+  "session": "aa2d8cbe",
+  "note": "Decision-readiness register: the questions that must be answered, and the information we have and lack, before any decision can be reasonably made. 'We have' states what the project currently holds; 'We lack' states the missing information. Each row links the official source used for verification or the methodology reference. Unverified values are blank, not inferred.",
+  "questions": [
+    {
+      "id": "DQ-01",
+      "priority": "P1",
+      "question": "Do we have verified, timestamped, pre-kickoff market lines and prices?",
+      "we_have": "None. Third-party market values are withheld as unverified (F-05, F-23); no operator-native quote is held.",
+      "we_lack": "Operator-native, timestamped lines/prices with as-of history and settlement/void rules.",
+      "why_matters": "Without a verified price there is no defined betting edge; gate G5 (operator-native line/price/settlement) and G6 cannot pass.",
+      "discovery_action": "Secure an official/operator data feed or pre-register a paper price source before any edge claim.",
+      "source_url": "https://www.nfl.com/scores/",
+      "status": "open"
+    },
+    {
+      "id": "DQ-02",
+      "priority": "P1",
+      "question": "Are injury and availability inputs complete, current, and sourced?",
+      "we_have": "A partial Week 9 capture (JAX/BAL, 28 practice rows) dated 2026-11-04; injury types and game statuses left blank even though the official page publishes them (RV-03).",
+      "we_lack": "Full-slate, current injury reports with injury type and game status for all games (RV-04).",
+      "why_matters": "The availability gate (G4) depends on current final injuries/rosters; 'No Injuries Reported' is not clearance.",
+      "discovery_action": "Schedule a weekly automated fetch of nfl.com/injuries for the full slate; populate verified injury type and game status.",
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg9",
+      "status": "open"
+    },
+    {
+      "id": "DQ-03",
+      "priority": "P1",
+      "question": "Do we have chronological, out-of-sample game results to test skill?",
+      "we_have": "A Week 1-8 official game log (origination) and Week 9 now final on the official schedule.",
+      "we_lack": "A pre-registered prospective ledger with aligned leg outcomes and a frozen test count.",
+      "why_matters": "Gates G3 (chronological split) and G6 (out-of-sample calibration) cannot pass without prospective, out-of-sample evidence.",
+      "discovery_action": "Build a prospective, pre-registered ledger from official scores/schedules and grade it as games complete.",
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "status": "open"
+    },
+    {
+      "id": "DQ-04",
+      "priority": "P2",
+      "question": "Are bet-leg correlations (parlay and player-prop combinations) measurable?",
+      "we_have": "Three descriptive team-aggregate correlations; four bet-leg correlations are UNVERIFIED with r=null.",
+      "we_lack": "Timestamp-aligned paired leg outcomes and market thresholds.",
+      "why_matters": "Parlay and combo pricing require leg dependence; team-aggregate correlation is not a substitute (A03).",
+      "discovery_action": "Collect timestamp-aligned paired leg outcomes and thresholds; compute correlation with CIs and multiplicity control.",
+      "source_url": "https://www.itl.nist.gov/div898/handbook/eda/section3/scatterp.htm",
+      "status": "open"
+    },
+    {
+      "id": "DQ-05",
+      "priority": "P2",
+      "question": "Can luck be separated from skill, and by how much?",
+      "we_have": "Descriptive correlations; no confidence intervals on the aggregates; no variance partition.",
+      "we_lack": "A variance-partition / intraclass-correlation estimate with bootstrap CIs and permutation tests.",
+      "why_matters": "Skill designation requires quantifying and bounding the luck share; luck cannot be eliminated (A04).",
+      "discovery_action": "Implement bootstrap/permutation skill-vs-luck decomposition and report the luck share with a CI.",
+      "source_url": "https://www.itl.nist.gov/div898/handbook/prc/section1/prc14.htm",
+      "status": "open"
+    },
+    {
+      "id": "DQ-06",
+      "priority": "P2",
+      "question": "Are there validated roster / starter-backup (string) signals for offense and defense?",
+      "we_have": "Injury-report rows (practice status, and officially-published injury type/game status per RV-03).",
+      "we_lack": "A structured starter/2nd/3rd/4th-string depth chart sourced officially.",
+      "why_matters": "Lineup-deficiency signals (the project goal) require knowing which string is playing at each position.",
+      "discovery_action": "Capture official team rosters/depth charts and join to injury status; resolve the active string per position.",
+      "source_url": "https://www.nfl.com/teams/baltimore-ravens/",
+      "status": "open"
+    },
+    {
+      "id": "DQ-07",
+      "priority": "P3",
+      "question": "What are the settlement, void, and exposure rules for the competition?",
+      "we_have": "None defined.",
+      "we_lack": "Pre-registered settlement/void rules and exposure/drawdown limits.",
+      "why_matters": "Gates G7 (net EV after costs/pushes) and G8 (immutable ledger, exposure caps) and any reward require these.",
+      "discovery_action": "Pre-register paper settlement rules and exposure caps before grading.",
+      "source_url": "https://www.itl.nist.gov/div898/handbook/prc/section4/prc473.htm",
+      "status": "open"
+    },
+    {
+      "id": "DQ-08",
+      "priority": "P1",
+      "question": "Is the data feed fresh and unattended?",
+      "we_have": "A dated snapshot validated/rebuilt by daily CI; no live acquisition.",
+      "we_lack": "An unattended fresh capture pipeline with a currency guarantee.",
+      "why_matters": "Staleness (RV-01) blocks any 'current' claim and any strategy promotion that depends on current inputs.",
+      "discovery_action": "Add a scheduled fresh capture with a currency check and a visible freshness indicator (SU-01).",
+      "source_url": "https://www.nfl.com/standings/league/2026/REG",
+      "status": "open"
+    }
+  ]
+}
