@@ -1,0 +1,742 @@
+{
+ "dataset": "own8-integration-reconciliation-2026-11-14",
+ "generated_by": "integration/scripts/verify_fresh.py",
+ "sources": [
+  "https://www.nfl.com/scores/2026/week-1 (via origination log, W1-8)",
+  "https://www.nfl.com/scores/2026/week-9",
+  "https://www.nfl.com/schedules/2026/by-week/week-10",
+  "https://www.nfl.com/standings/",
+  "https://www.nfl.com/injuries/league/2026/reg10"
+ ],
+ "games_reconciled": 137,
+ "standings_rows_ok": 32,
+ "standings_rows_total": 32,
+ "field_comparisons": 256,
+ "schedule_record_crosschecks_ok": 28,
+ "injury_tables": 28,
+ "injury_rows": 345,
+ "status": "PASS",
+ "errors": [],
+ "checks": [
+  {
+   "check": "W1-8 game has both scores (NE@SEA w1)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (SF@LAR w1)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (ATL@PIT w1)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (AZ@LAC w1)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (BAL@IND w1)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (BUF@HOU w1)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (CHI@CAR w1)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (CLE@JAX w1)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (DAL@NYG w1)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (GB@MIN w1)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (MIA@LV w1)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (NO@DET w1)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (NYJ@TEN w1)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (TB@CIN w1)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (WAS@PHI w1)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (DEN@KC w1)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (DET@BUF w2)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (CAR@ATL w2)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (CIN@HOU w2)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (CLE@TB w2)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (GB@NYJ w2)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (IND@KC w2)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (JAX@DEN w2)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (LV@LAC w2)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (MIA@SF w2)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (MIN@CHI w2)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (NO@BAL w2)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (PHI@TEN w2)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (PIT@NE w2)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (SEA@AZ w2)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (WAS@DAL w2)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (NYG@LAR w2)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (ATL@GB w3)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (AZ@SF w3)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (BAL@DAL w3)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (CAR@CLE w3)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (CIN@PIT w3)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (HOU@IND w3)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (KC@MIA w3)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (LAC@BUF w3)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (LAR@DEN w3)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (LV@NO w3)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (MIN@TB w3)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (NE@JAX w3)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (NYJ@DET w3)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (SEA@WAS w3)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (TEN@NYG w3)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (PHI@CHI w3)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (PIT@CLE w4)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (AZ@NYG w4)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (DAL@HOU w4)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (DEN@SF w4)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (DET@CAR w4)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (GB@TB w4)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (IND@WAS w4)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (JAX@CIN w4)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (KC@LV w4)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (LAC@SEA w4)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (LAR@PHI w4)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (MIA@MIN w4)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (NE@BUF w4)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (NYJ@CHI w4)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (TEN@BAL w4)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (ATL@NO w4)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (TB@DAL w5)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (BAL@ATL w5)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (CHI@GB w5)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (CIN@MIA w5)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (CLE@NYJ w5)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (DEN@LAC w5)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (DET@AZ w5)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (HOU@TEN w5)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (IND@PIT w5)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (LV@NE w5)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (MIN@NO w5)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (NYG@WAS w5)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (PHI@JAX w5)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (SF@SEA w5)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (BUF@LAR w5)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (SEA@DEN w6)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (AZ@LAR w6)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (BAL@CLE w6)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (BUF@LV w6)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (CAR@PHI w6)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (CHI@ATL w6)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (DAL@GB w6)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (HOU@JAX w6)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (LAC@KC w6)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (NO@NYG w6)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (NYJ@NE w6)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (PIT@TB w6)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (TEN@IND w6)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (WAS@SF w6)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (NE@CHI w7)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (CIN@BAL w7)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (CLE@TEN w7)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (DEN@AZ w7)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (GB@DET w7)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (IND@MIN w7)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (KC@SEA w7)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (LAR@LV w7)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (MIA@NYJ w7)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (NYG@HOU w7)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (PIT@NO w7)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (SF@ATL w7)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (TB@CAR w7)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (DAL@PHI w7)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (CAR@GB w8)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (ATL@TB w8)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (AZ@DAL w8)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (BAL@BUF w8)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (CLE@PIT w8)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (IND@JAX w8)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (KC@DEN w8)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (LAC@LAR w8)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (LV@NYJ w8)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (MIN@DET w8)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (NE@MIA w8)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (PHI@WAS w8)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (TEN@CIN w8)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W1-8 game has both scores (CHI@SEA w8)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W9 final status (JAX@BAL)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W9 final status (CIN@ATL)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W9 final status (DEN@CAR)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W9 final status (DAL@IND)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W9 final status (NYJ@KC)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W9 final status (DET@MIA)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W9 final status (CLE@NO)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W9 final status (NYG@PHI)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W9 final status (LA@WAS)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W9 final status (HOU@LAC)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W9 final status (LV@SF)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W9 final status (GB@NE)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W9 final status (AZ@SEA)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W9 final status (TB@CHI)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "W9 final status (BUF@MIN)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "exactly one W10 final at capture",
+   "ok": true,
+   "detail": "found 1"
+  },
+  {
+   "check": "total games reconciled = 121 + 15 + 1",
+   "ok": true,
+   "detail": "got 137"
+  },
+  {
+   "check": "all 32 teams appear in results",
+   "ok": true,
+   "detail": "got 32"
+  },
+  {
+   "check": "standings rows fully reconciled (6 fields + 3 arithmetic each)",
+   "ok": true,
+   "detail": "32/32 rows ok; 0 field errors"
+  },
+  {
+   "check": "schedule-page records match standings (28 team slots)",
+   "ok": true,
+   "detail": "28/28"
+  },
+  {
+   "check": "14 games / 28 team tables",
+   "ok": true,
+   "detail": "14 games, 28 tables"
+  },
+  {
+   "check": "every injury row carries an official player URL",
+   "ok": true,
+   "detail": "345 rows"
+  },
+  {
+   "check": "game statuses only from the official set (or blank as printed)",
+   "ok": true,
+   "detail": "0 unexpected"
+  }
+ ]
+}
