@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Executive summary · NFL hub</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head><body>
+<header class="top"><div class="brand"><a href="../index.html">NFL hub</a><span>2026 season · data as of 2026-11-14</span></div>
+<nav><a href="../index.html">Dashboard</a><a href="../pages/executive-summary.html" class=on>Executive summary</a><a href="../pages/standings.html">Standings</a><a href="../pages/injuries.html">Injuries and depth</a><a href="../pages/lines.html">Lines</a><a href="../pages/strategies.html">Strategies</a><a href="../pages/correlations.html">Correlations</a><a href="../pages/suggestions.html">Suggestions</a><a href="../pages/questions.html">Questions</a><a href="../pages/repo-review.html">Repo review</a><a href="../pages/flagged.html">Flagged for review</a><a href="../pages/sources.html">Sources</a></nav></header>
+<main>
+<h1>Executive summary</h1>
+
+<p class="lead">Summary as of 2026-11-14. Each statement points to a page with its source.</p>
+<h2>1. The official picture is newer than the repo</h2>
+<ul>
+<li>The official standings pass arithmetic checks: league wins equal losses and points for equal points against (see <a href="standings.html">Standings</a>).</li>
+<li>Repo game log: <b>121 games</b>, Weeks 1-8. Official standings show <b>30 of 32 teams</b> have a game since Week 8. Week 9 has 15 games, and PIT and TEN had byes.</li>
+<li>Week 9 fair lines (<a href="lines.html">Lines</a>) price games that are already final. One checked result: JAX 33 - BAL 10 on Nov 5.</li>
+</ul>
+<h2>2. Strategy validation</h2>
+<ul>
+<li><b>0 of 12</b> strategies pass all validation gates. No medals, ranks or rewards. The two highest single-bet scores (S6 moneyline, S1 spread) are about 1.7% better than baseline, and their 95% intervals include zero.</li>
+<li>Sportsbook-priced strategies cannot be validated: no official source publishes betting lines (see <a href="questions.html">Questions</a> Q-08).</li>
+</ul>
+<h2>3. Correlations</h2>
+<ul>
+<li>Same-game team points: r = 0.10, not significant after multiplicity control. Cross-game total residuals in the same week: ICC about -0.04 (no weekly shared effect). Measured correlations are in <a href="correlations.html">Correlations</a>.</li>
+</ul>
+<h2>4. Injuries and depth</h2>
+<ul>
+<li>Week 10 official injury report: block A-D complete (four games); block E (JAX at TEN) partial. The remaining games are not yet captured.</li>
+<li>No second- or third-string depth data exists. Replacement analysis cannot be run yet. See <a href="suggestions.html">Suggestions</a> SG-03.</li>
+</ul>
+<h2>5. Decisions needed from you</h2>
+<ul>
+<li>Ten suggestions are listed on <a href="suggestions.html">Suggestions</a> with options. Nothing has been implemented.</li>
+<li>Singapore law: the MHA page says all gambling is prohibited unless licensed; Singapore Pools is the only licensed remote operator (<a href="questions.html">Q-09</a>). This is not a legal opinion.</li>
+</ul>
+<h2>6. Irregularities</h2>
+<ul>
+<li>Third-party odds are tracked in Git (R-03). Compiled Python files are tracked (R-04). Nine parallel sites exist (R-05). Full list: <a href="repo-review.html">Repo review</a>.</li>
+</ul>
+
+</main>
+<footer>Derived values are project calculations, not official NFL data, betting advice or a recommendation. Blank cells are unverified and flagged. No rewards are awarded. Responsible gaming: <a href="https://ask.gov.sg/mha/questions/cmqu6lgkk008f4401iyk6rjzx">Singapore MHA gambling information</a>.</footer>
+</body></html>
