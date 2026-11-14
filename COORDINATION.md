@@ -761,6 +761,47 @@ no session work discarded.
   requirements/results and confirm they reflect your intended output; no source file under
   requirements/ was edited by c563a1dc.
 
+## Session 949f49b0 — market-reality audit: line-history feasibility, signal/staking split, skill-vs-luck leaderboard, injury & lineup-depth reality (claimed 2026-11-14 UTC, base main @ 12f6bbf)
+
+Branch: `arena/949f49b0-own8` (Arena pins this session to this branch; no `session-<id>/<task>` branch can be created — same constraint recorded by every prior session). Read the full board above and every open PR before claiming.
+
+**Deliberately NON-overlapping scope:** NEW directory `market/**` plus this section of COORDINATION.md only. Everything else is READ-ONLY in this session: root `index.html`, `pages/**`, `assets/**`, `data/**`, `analysis/**`, `scripts/**`, `_config.yml`, `requirements/**`, `origination/**`, `ledger/**`, `decision/**`, `integration/**`, `hub/**`, `suggestions/**`, `evidence-lab/**`, `desk/**`, `strict/**`, `audit/**`, `review/**`, `a57af0ab/**`, `archive/**`. Root navigation and `_config.yml` publication changes are NOT made here; they are logged below as cross-session requests for an integration session.
+
+Why this scope: prior sessions each built a register of what they had (origination W10 fair lines, ledger price store, requirements register, suggestions inbox). None published a single page that answers the operator's actual blocking question — *what must be true before any decision here can be made, and which of those facts does no official source publish?* — with the prior registers reconciled against each other and against fresh official retrievals. That reconciliation, plus the money-path analysis (staking vs signal, luck vs skill, correlation honesty, depth-chart feasibility), is the claimed work.
+
+| ID | Task | Status | Owner | Files (scope) | Verification plan |
+| --- | --- | --- | --- | --- | --- |
+| M0 | Board claim (this section), pushed before any other file in scope | done | 949f49b0 | COORDINATION.md (this section) | Claim commit pushed before any `market/**` file exists |
+| M1 | Fresh official re-verification: 32-club standings (league + division), Week 9 finals, Week 10 slate + byes, Week 10 injury report, one game-centre page, depth-chart and roster capability probes | **done** | 949f49b0 | market/data/raw/official-standings-2026-11-14.json, market/data/verification.json, market/pages/verification.html | `market/scripts/verify.py` → **30/30 checks pass**, exits non-zero on any failure. 192 standings cells reconcile from the 136-game log plus the one played Week 10 game; 14/14 ML favourite agrees with spread favourite; 14/14 two-way implied sums > 1 |
+| M2 | Repo crawl: every JSON row in the repo classified (sourced / derived / unsourced / stale) with file+record locator, so irregularities are line-specific | **done** | 949f49b0 | market/data/repo-crawl.json, market/pages/review.html | Crawled **155 files, 7,125 row-like objects, 1,028 with no source link, 14 findings**. Every finding carries a file, a record locator and a resolving URL. Nothing outside `market/**` edited |
+| M3 | Decision gate: questions that MUST be answered before a decision, each with have / lack / who can answer / what it blocks / discovery plan | **done** | 949f49b0 | market/data/decision-gate.json (`questions`), market/pages/questions.html | **11 questions**: 1 answerable today, 4 partly, 6 not answerable from existing information. Each has an explicit discovery plan |
+| M4 | Suggestions section with reviewable options, cost, gate impact, recommendation, and an explicit "choose before implementing" state | **done** | 949f49b0 | market/data/decision-gate.json (`suggestions`, `recommended_path`), market/pages/suggestions.html | **12 suggestions**, 3–4 options each, one recommendation each, all state `OPEN - FOR OPERATOR DECISION`. **Nothing implemented** |
+| M5 | Correlation honesty: recompute only from official-sourced rows, publish n with every value, state what the value cannot be used for | **done** | 949f49b0 | market/data/correlations.json, market/pages/correlations.html | **7 values**, n on every row, Fisher-z intervals, Holm across the family; 3 survive. 3 further values listed as deliberately *not* computed, with the reason |
+| M6 | Injury / lineup-depth reality: what official sources do and do not publish about 2nd/3rd/4th-string replacements | **done** | 949f49b0 | market/data/depth.json, market/pages/availability.html | 345 official injury rows over 28 clubs, 6 QB replacement cases with official URLs, and a **6-row capability matrix recording the actual HTTP result** of each official URL. Depth-chart URL = official 404; conclusion: pregame depth order is not obtainable |
+| M7 | Site: `market/` dashboards, own link checker, every data row carries an official link | **done** | 949f49b0 | market/index.html, market/pages/*.html (13 pages), market/assets/*, market/scripts/build_market_site.py, market/scripts/check_market.py | `python3 market/scripts/check_market.py` → **13 pages, 24 tables, 289 data rows, 0 errors**. Row-level rule enforced by the checker, not by convention |
+| M8 | PR to main, merge without waiting, Pages confirmation, record here | in progress | 949f49b0 | COORDINATION.md | CI green, Pages build `built`, live URL re-fetched |
+
+### 949f49b0 — findings that change other sessions' premises (published, not edited)
+
+1. **F-01 (high).** `ledger/data/price-snapshots.json` marks all 39 markets blank with the status *"no official source publishes this market"*. **That is false.** nfl.com publishes FanDuel moneyline, spread and total for every 2026 game on its weekly picks article, locked 2 p.m. ET Thursday. 29 games / 87 markets transcribed verbatim to `market/data/raw/official-prices-w{9,10}.json`. See SG-03.
+2. **F-02 (high).** Six separate suggestion registers and six separate question registers exist in this repo. Answering a question in one answers it in one-sixth of the repository. See SG-07.
+3. **F-03 (medium).** Two independent Week 10 line originations (`origination/results/w10-lines.json`, `requirements/results/week10-lines.json`) agree on sign but differ by mean 0.20 / max 1.60 points on the same 13 games. Both are published as "the" Week 10 line.
+4. **The Week 9 money-path result, which every leaderboard in this repo should carry:** S6/S7/S8 picked **identical sides in all 15 games**, went 13–2, and returned **+21.0% ROI each** — while mean per-bet skill vs the de-vigged price was **−0.0928 / −0.1120 / +0.0282** (S6 and S7 Holm p = 0.002). **Profit ≠ skill.** Ranking by ROI promotes the worst-calibrated strategy of the three.
+
+### 949f49b0 — verification and irregularities
+
+- 30/30 checks pass, re-run 2026-11-14 against official URLs retrieved the same day.
+- **Known gap, stated on the site:** the 29 price rows were read once, by this session. Internal consistency is verified; independent re-reading is not (SG-09).
+- **Not obtainable, and never inferred:** opening price, closing price, spread/total juice, parlay price, prop price, pregame depth order.
+- Data-shape trap fixed and documented: `w10-lines.json` uses `fair_home_margin_S1` / `fair_handicap_home_pts` while `w9-lines.json` uses `fair_margin_home_S1` / `p_home_S6`. An earlier `model.py` printed own and published handicaps with opposite signs; the convention (`handicap_home = −margin_home`) is now recorded in `market/data/own-lines.json` itself.
+- Sign convention `LA` (standings) vs `LAR` (scores/schedule) is applied **inside one check only** and is itself a recorded check (V03a), never a silent normalisation.
+
+### 949f49b0 — cross-session requests (NOT performed; shared files)
+
+- **(X1)** Integration owner: add a nav link to `market/index.html` from the root dashboard nav and the sitemap table.
+- **(X2)** Integration owner: `_config.yml` needs **no** change; `market/` introduces no excluded path. `_config.yml` excludes `scripts`, and `market/scripts/*.py` is not matched by that rule — it publishes harmlessly as static text, alongside the pages.
+- **(X3)** Ledger owner (6652101e): apply SG-03 (replace the "no official price exists" claim with the verified rows).
+
 ## Session 5b52ac15 — independent correlation audit (n, r, CI, Holm, official sources) + live spot-check of the captures (claimed 2026-11-14 UTC, base main @ 12f6bbf)
 
 Branch: `arena/5b52ac15-own8` (Arena-pinned; all work on this branch). Read the full board above before acting. Scope is **new namespace `correlation-audit/**` plus this section of COORDINATION.md only**. Read-only everywhere else (root `index.html`, `pages/**`, `ledger/**`, `origination/**`, `requirements/**`, `decision/**`, `integration/**` and all other namespaces). The navigation link to `correlation-audit/index.html` is logged as a cross-session request for the integration owner, not edited here.

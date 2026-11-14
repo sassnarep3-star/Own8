@@ -1,0 +1,2457 @@
+{
+ "crawled_at": "2026-11-14",
+ "crawled_by": "session 949f49b0",
+ "site_surfaces": 16,
+ "suggestion_registers": 6,
+ "question_registers": 6,
+ "scope": "every *.json under the repository root except archive/, .git/, market/ and node_modules/",
+ "files_scanned": 166,
+ "files_with_unsourced_rows": 4,
+ "row_like_dicts_total": 7375,
+ "unsourced_rows_total": 1028,
+ "inventory": [
+  {
+   "file": "a57af0ab/data/injuries-2026-w10.json",
+   "bytes": 224990,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "captured_utc_date",
+    "games",
+    "games_on_report",
+    "position_group_definition",
+    "report_publish_time",
+    "rows",
+    "rows_total",
+    "source_report",
+    "source_schedule",
+    "starter_backup_status",
+    "teams",
+    "teams_on_bye_per_schedule"
+   ]
+  },
+  {
+   "file": "analysis/audit-inventory.json",
+   "bytes": 123774,
+   "row_like_dicts": 471,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "note",
+    "rows"
+   ]
+  },
+  {
+   "file": "analysis/correlations.json",
+   "bytes": 3430,
+   "row_like_dicts": 7,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "correlations",
+    "method"
+   ]
+  },
+  {
+   "file": "analysis/leaderboard.json",
+   "bytes": 3128,
+   "row_like_dicts": 8,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "note",
+    "scoring",
+    "standings"
+   ]
+  },
+  {
+   "file": "analysis/link-check.json",
+   "bytes": 272,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "checked_at",
+    "errors",
+    "links_checked",
+    "pages",
+    "scope",
+    "status",
+    "table_rows_checked"
+   ]
+  },
+  {
+   "file": "analysis/live-official-check-2026-11-04.json",
+   "bytes": 2808,
+   "row_like_dicts": 6,
+   "rows_with_no_source_url": 1,
+   "top_level_keys": [
+    "checked_at",
+    "checked_by",
+    "checks",
+    "dataset",
+    "method",
+    "summary"
+   ]
+  },
+  {
+   "file": "analysis/live-standings-check-2026-11-04.json",
+   "bytes": 659,
+   "row_like_dicts": 1,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "checked_at",
+    "dataset",
+    "fields_compared",
+    "mismatches",
+    "note",
+    "source_method",
+    "source_url",
+    "status",
+    "teams_compared"
+   ]
+  },
+  {
+   "file": "analysis/live-verify-2026-11-04.json",
+   "bytes": 3078,
+   "row_like_dicts": 1,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "checks",
+    "dataset",
+    "irregularities_new",
+    "method",
+    "status",
+    "verified_at",
+    "verified_by"
+   ]
+  },
+  {
+   "file": "analysis/live-verify-standings-2026-11-04.json",
+   "bytes": 297,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "arith",
+    "captured_file",
+    "live_source",
+    "mismatches",
+    "status",
+    "teams_compared",
+    "verified_at"
+   ]
+  },
+  {
+   "file": "analysis/model-lines.json",
+   "bytes": 34811,
+   "row_like_dicts": 14,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "games",
+    "method"
+   ]
+  },
+  {
+   "file": "analysis/prop-signals.json",
+   "bytes": 3676,
+   "row_like_dicts": 14,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "method",
+    "signals"
+   ]
+  },
+  {
+   "file": "analysis/repo-audit.json",
+   "bytes": 209420,
+   "row_like_dicts": 656,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "files",
+    "note",
+    "official_standings_fields_checked",
+    "standings_mismatches",
+    "unverified_score_rows",
+    "verified_score_rows"
+   ]
+  },
+  {
+   "file": "analysis/strategies.json",
+   "bytes": 15104,
+   "row_like_dicts": 8,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "strategies"
+   ]
+  },
+  {
+   "file": "analysis/validation-gates.json",
+   "bytes": 1482,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "candidates",
+    "eligible_strategies",
+    "gates"
+   ]
+  },
+  {
+   "file": "analysis/verification.json",
+   "bytes": 1181,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "column_notes",
+    "csv_source",
+    "json_source",
+    "mismatches",
+    "rows_compared",
+    "status",
+    "summary"
+   ]
+  },
+  {
+   "file": "audit/results.json",
+   "bytes": 10303,
+   "row_like_dicts": 15,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "audit_date",
+    "checks",
+    "findings",
+    "rows",
+    "scope"
+   ]
+  },
+  {
+   "file": "correlation-audit/data/input-checks.json",
+   "bytes": 1270,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "checks",
+    "pass",
+    "total",
+    "walk_forward_mismatches"
+   ]
+  },
+  {
+   "file": "correlation-audit/data/link-check.json",
+   "bytes": 182,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "failures",
+    "hosts_allowed",
+    "links_checked"
+   ]
+  },
+  {
+   "file": "correlation-audit/data/live-spotcheck-2026-11-14.json",
+   "bytes": 7197,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "method",
+    "nfl_scores_week9",
+    "ngs_week8"
+   ]
+  },
+  {
+   "file": "correlation-audit/data/recomputed.json",
+   "bytes": 6877,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "holm_official_family",
+    "method",
+    "p_two_sided",
+    "rows",
+    "tolerance_abs"
+   ]
+  },
+  {
+   "file": "data/audit-snapshot-2026-11-04.json",
+   "bytes": 30259,
+   "row_like_dicts": 91,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "capture_method",
+    "injuries",
+    "limitations",
+    "news",
+    "schedule",
+    "scores",
+    "session",
+    "standings"
+   ]
+  },
+  {
+   "file": "data/audit-snapshot.json",
+   "bytes": 74802,
+   "row_like_dicts": 221,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "capture_method",
+    "injuries",
+    "limitations",
+    "news",
+    "schedule",
+    "scores",
+    "session",
+    "standings"
+   ]
+  },
+  {
+   "file": "data/decisions.json",
+   "bytes": 6978,
+   "row_like_dicts": 10,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "purpose",
+    "questions",
+    "session"
+   ]
+  },
+  {
+   "file": "data/flagged.json",
+   "bytes": 15951,
+   "row_like_dicts": 40,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "items"
+   ]
+  },
+  {
+   "file": "data/injuries-2026-week8.json",
+   "bytes": 6214,
+   "row_like_dicts": 1,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "captured_at",
+    "dataset",
+    "note",
+    "rows",
+    "source_id",
+    "source_url"
+   ]
+  },
+  {
+   "file": "data/injuries-2026-week9-candidates.json",
+   "bytes": 1244,
+   "row_like_dicts": 1,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "captured_at",
+    "captured_by",
+    "dataset",
+    "games",
+    "official",
+    "scope_note",
+    "source_id",
+    "source_url"
+   ]
+  },
+  {
+   "file": "data/live-verify-2026-11-14.json",
+   "bytes": 23958,
+   "row_like_dicts": 6,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "checks",
+    "checks_passed",
+    "checks_total",
+    "cross_check",
+    "session",
+    "sources"
+   ]
+  },
+  {
+   "file": "data/market-lines.json",
+   "bytes": 1382,
+   "row_like_dicts": 1,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "captured_at",
+    "dataset",
+    "lines",
+    "source_url",
+    "warning"
+   ]
+  },
+  {
+   "file": "data/news-items.json",
+   "bytes": 1436,
+   "row_like_dicts": 2,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "captured_at",
+    "dataset",
+    "items",
+    "note"
+   ]
+  },
+  {
+   "file": "data/nextgen-passing-2026-week8.json",
+   "bytes": 7154,
+   "row_like_dicts": 1,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "captured_at",
+    "columns",
+    "columns_note",
+    "dataset",
+    "players",
+    "source_id",
+    "source_url"
+   ]
+  },
+  {
+   "file": "data/ngs-passing-2026-week9.json",
+   "bytes": 16176,
+   "row_like_dicts": 31,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "rows",
+    "source_url"
+   ]
+  },
+  {
+   "file": "data/player-interceptions-2026.json",
+   "bytes": 4370,
+   "row_like_dicts": 1,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "captured_at",
+    "columns",
+    "columns_note",
+    "dataset",
+    "players",
+    "source_id",
+    "source_url"
+   ]
+  },
+  {
+   "file": "data/player-passing-2026.json",
+   "bytes": 7840,
+   "row_like_dicts": 1,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "captured_at",
+    "columns",
+    "columns_note",
+    "dataset",
+    "players",
+    "source_id",
+    "source_url"
+   ]
+  },
+  {
+   "file": "data/player-receiving-2026.json",
+   "bytes": 6807,
+   "row_like_dicts": 1,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "captured_at",
+    "columns",
+    "columns_note",
+    "dataset",
+    "players",
+    "source_id",
+    "source_url"
+   ]
+  },
+  {
+   "file": "data/player-rushing-2026.json",
+   "bytes": 6051,
+   "row_like_dicts": 1,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "captured_at",
+    "columns",
+    "columns_note",
+    "dataset",
+    "players",
+    "source_id",
+    "source_url"
+   ]
+  },
+  {
+   "file": "data/schedule-2026-week9.json",
+   "bytes": 4306,
+   "row_like_dicts": 16,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "byes",
+    "captured_at",
+    "dataset",
+    "games",
+    "source_id",
+    "source_url",
+    "times_note"
+   ]
+  },
+  {
+   "file": "data/scores-2026-week8.json",
+   "bytes": 3566,
+   "row_like_dicts": 15,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "byes",
+    "captured_at",
+    "dataset",
+    "games",
+    "source_id",
+    "source_url"
+   ]
+  },
+  {
+   "file": "data/sources.json",
+   "bytes": 4572,
+   "row_like_dicts": 14,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "captured_at",
+    "method",
+    "sources"
+   ]
+  },
+  {
+   "file": "data/standings-2026-reg-w8.json",
+   "bytes": 12851,
+   "row_like_dicts": 1,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "captured_at",
+    "columns_note",
+    "dataset",
+    "source_id",
+    "source_url",
+    "teams"
+   ]
+  },
+  {
+   "file": "data/suggestions.json",
+   "bytes": 6772,
+   "row_like_dicts": 12,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "purpose",
+    "session",
+    "suggestions"
+   ]
+  },
+  {
+   "file": "data/team-passing-defense-2026.json",
+   "bytes": 6690,
+   "row_like_dicts": 1,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "captured_at",
+    "columns",
+    "columns_note",
+    "dataset",
+    "source_id",
+    "source_url",
+    "teams"
+   ]
+  },
+  {
+   "file": "data/team-passing-offense-2026.json",
+   "bytes": 7046,
+   "row_like_dicts": 1,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "captured_at",
+    "columns",
+    "columns_note",
+    "dataset",
+    "source_id",
+    "source_url",
+    "teams"
+   ]
+  },
+  {
+   "file": "data/team-rushing-defense-2026.json",
+   "bytes": 4959,
+   "row_like_dicts": 1,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "captured_at",
+    "columns",
+    "columns_note",
+    "dataset",
+    "source_id",
+    "source_url",
+    "teams"
+   ]
+  },
+  {
+   "file": "data/team-rushing-offense-2026.json",
+   "bytes": 4923,
+   "row_like_dicts": 1,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "captured_at",
+    "columns",
+    "columns_note",
+    "dataset",
+    "source_id",
+    "source_url",
+    "teams"
+   ]
+  },
+  {
+   "file": "decision/data/availability-probe.json",
+   "bytes": 3063,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "answer",
+    "as_of",
+    "consequence",
+    "probe",
+    "question",
+    "what_would_unblock_it"
+   ]
+  },
+  {
+   "file": "decision/data/gates-audit.json",
+   "bytes": 6145,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "defects",
+    "measured",
+    "strongest_available_signal"
+   ]
+  },
+  {
+   "file": "decision/data/injuries-2026-week10.json",
+   "bytes": 39191,
+   "row_like_dicts": 115,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "blanks_policy",
+    "rows",
+    "scope",
+    "source_url",
+    "week"
+   ]
+  },
+  {
+   "file": "decision/data/open-questions.json",
+   "bytes": 8303,
+   "row_like_dicts": 10,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "purpose",
+    "questions",
+    "summary"
+   ]
+  },
+  {
+   "file": "decision/data/results-2026-week9.json",
+   "bytes": 5121,
+   "row_like_dicts": 15,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "byes",
+    "games",
+    "note",
+    "source"
+   ]
+  },
+  {
+   "file": "decision/data/schedule-2026-week10.json",
+   "bytes": 4467,
+   "row_like_dicts": 15,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "byes",
+    "games",
+    "note",
+    "source_url",
+    "week"
+   ]
+  },
+  {
+   "file": "decision/data/standings-2026-reg-w9.json",
+   "bytes": 11214,
+   "row_like_dicts": 32,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "capture",
+    "limitations",
+    "scope",
+    "source_crosscheck",
+    "source_primary",
+    "standings"
+   ]
+  },
+  {
+   "file": "decision/data/suggestions-register.json",
+   "bytes": 10026,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "decision_path",
+    "note",
+    "status",
+    "suggestions"
+   ]
+  },
+  {
+   "file": "decision/results/link-check.json",
+   "bytes": 192,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "checked_at",
+    "errors",
+    "links_checked",
+    "pages",
+    "scope",
+    "status",
+    "table_rows_checked"
+   ]
+  },
+  {
+   "file": "decision/results/w9-out-of-sample.json",
+   "bytes": 10845,
+   "row_like_dicts": 15,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "games",
+    "summary"
+   ]
+  },
+  {
+   "file": "decision-review/data/availability.json",
+   "bytes": 7864,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "coverage_status",
+    "current_player_values",
+    "defensive_groups",
+    "fields",
+    "offensive_groups",
+    "review_as_of",
+    "schema_note",
+    "tier_note",
+    "tier_values"
+   ]
+  },
+  {
+   "file": "decision-review/data/flags.json",
+   "bytes": 5528,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "flags",
+    "review_as_of",
+    "status_label"
+   ]
+  },
+  {
+   "file": "decision-review/data/questions.json",
+   "bytes": 25945,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "project_snapshot_as_of",
+    "questions",
+    "review_as_of"
+   ]
+  },
+  {
+   "file": "decision-review/data/sources.json",
+   "bytes": 10123,
+   "row_like_dicts": 16,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "checked_at",
+    "method",
+    "official_host_allowlist",
+    "sources"
+   ]
+  },
+  {
+   "file": "decision-review/data/suggestions.json",
+   "bytes": 15553,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "decision_status",
+    "paths",
+    "recommendations",
+    "recommended_sequence",
+    "review_as_of"
+   ]
+  },
+  {
+   "file": "desk/analysis/dashboard.json",
+   "bytes": 20232,
+   "row_like_dicts": 29,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "correlations",
+    "eligible_count",
+    "lines",
+    "policy",
+    "settled_ledger_count",
+    "strategies"
+   ]
+  },
+  {
+   "file": "desk/analysis/input-manifest.json",
+   "bytes": 730,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "data/evidence/passing-excerpt.txt",
+    "data/evidence/schedule-excerpt.txt",
+    "data/evidence/standings-excerpt.txt",
+    "data/verified/passing.json",
+    "data/verified/schedule.json",
+    "data/verified/sources.json",
+    "data/verified/standings.json"
+   ]
+  },
+  {
+   "file": "desk/analysis/link-check.json",
+   "bytes": 290,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "checked_at",
+    "errors",
+    "links",
+    "pages",
+    "scope",
+    "status"
+   ]
+  },
+  {
+   "file": "desk/analysis/repository-audit.json",
+   "bytes": 220161,
+   "row_like_dicts": 606,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "baseline_commit",
+    "checked_at",
+    "files",
+    "legacy_rows",
+    "scope"
+   ]
+  },
+  {
+   "file": "desk/analysis/strict-upstream-verification.json",
+   "bytes": 1140,
+   "row_like_dicts": 3,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": "list[3]"
+  },
+  {
+   "file": "desk/analysis/verification.json",
+   "bytes": 305,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "checked_at",
+    "errors",
+    "scope",
+    "selected_cells_compared",
+    "status"
+   ]
+  },
+  {
+   "file": "desk/data/review-findings.json",
+   "bytes": 7306,
+   "row_like_dicts": 14,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": "list[14]"
+  },
+  {
+   "file": "desk/data/verified/passing.json",
+   "bytes": 6679,
+   "row_like_dicts": 28,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "checked_at",
+    "rows",
+    "scope",
+    "source_url"
+   ]
+  },
+  {
+   "file": "desk/data/verified/schedule.json",
+   "bytes": 6976,
+   "row_like_dicts": 16,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "checked_at",
+    "note",
+    "rows",
+    "source_url"
+   ]
+  },
+  {
+   "file": "desk/data/verified/sources.json",
+   "bytes": 2569,
+   "row_like_dicts": 8,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": "list[8]"
+  },
+  {
+   "file": "desk/data/verified/standings.json",
+   "bytes": 9305,
+   "row_like_dicts": 33,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "checked_at",
+    "method",
+    "rows",
+    "season",
+    "source_url"
+   ]
+  },
+  {
+   "file": "desk/public-data/dashboard.json",
+   "bytes": 20232,
+   "row_like_dicts": 29,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "correlations",
+    "eligible_count",
+    "lines",
+    "policy",
+    "settled_ledger_count",
+    "strategies"
+   ]
+  },
+  {
+   "file": "desk/public-data/input-manifest.json",
+   "bytes": 730,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "data/evidence/passing-excerpt.txt",
+    "data/evidence/schedule-excerpt.txt",
+    "data/evidence/standings-excerpt.txt",
+    "data/verified/passing.json",
+    "data/verified/schedule.json",
+    "data/verified/sources.json",
+    "data/verified/standings.json"
+   ]
+  },
+  {
+   "file": "desk/public-data/passing.json",
+   "bytes": 6679,
+   "row_like_dicts": 28,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "checked_at",
+    "rows",
+    "scope",
+    "source_url"
+   ]
+  },
+  {
+   "file": "desk/public-data/repository-audit.json",
+   "bytes": 220161,
+   "row_like_dicts": 606,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "baseline_commit",
+    "checked_at",
+    "files",
+    "legacy_rows",
+    "scope"
+   ]
+  },
+  {
+   "file": "desk/public-data/review-findings.json",
+   "bytes": 7306,
+   "row_like_dicts": 14,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": "list[14]"
+  },
+  {
+   "file": "desk/public-data/schedule.json",
+   "bytes": 6976,
+   "row_like_dicts": 16,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "checked_at",
+    "note",
+    "rows",
+    "source_url"
+   ]
+  },
+  {
+   "file": "desk/public-data/sources.json",
+   "bytes": 2569,
+   "row_like_dicts": 8,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": "list[8]"
+  },
+  {
+   "file": "desk/public-data/standings.json",
+   "bytes": 9305,
+   "row_like_dicts": 33,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "checked_at",
+    "method",
+    "rows",
+    "season",
+    "source_url"
+   ]
+  },
+  {
+   "file": "docs/evidence-lab/checks.json",
+   "bytes": 816,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "analysis_and_site_byte_reproducible",
+    "displayed_direct_fact_cells_checked",
+    "eligible_strategies",
+    "errors",
+    "external_scope",
+    "external_urls_not_live_checked",
+    "internal_links_checked",
+    "official_fact_rows_checked",
+    "official_hash_matched_files",
+    "repository_html_pages_checked",
+    "repository_review",
+    "status"
+   ]
+  },
+  {
+   "file": "docs/evidence-lab/evidence/manifest.json",
+   "bytes": 1677,
+   "row_like_dicts": 3,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "authority_basis",
+    "commit",
+    "files",
+    "repository",
+    "retrieved_at",
+    "scope"
+   ]
+  },
+  {
+   "file": "docs/evidence-lab/repo-review.json",
+   "bytes": 48390,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "findings",
+    "inventory",
+    "network_limit",
+    "scope"
+   ]
+  },
+  {
+   "file": "docs/evidence-lab/results.json",
+   "bytes": 162204,
+   "row_like_dicts": 167,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "correlations",
+    "eligible_strategies",
+    "games",
+    "manifest",
+    "metrics",
+    "models",
+    "official_games",
+    "scope",
+    "strategies",
+    "verification_scope"
+   ]
+  },
+  {
+   "file": "evidence-lab/checks.json",
+   "bytes": 816,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "analysis_and_site_byte_reproducible",
+    "displayed_direct_fact_cells_checked",
+    "eligible_strategies",
+    "errors",
+    "external_scope",
+    "external_urls_not_live_checked",
+    "internal_links_checked",
+    "official_fact_rows_checked",
+    "official_hash_matched_files",
+    "repository_html_pages_checked",
+    "repository_review",
+    "status"
+   ]
+  },
+  {
+   "file": "evidence-lab/evidence/manifest.json",
+   "bytes": 1677,
+   "row_like_dicts": 3,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "authority_basis",
+    "commit",
+    "files",
+    "repository",
+    "retrieved_at",
+    "scope"
+   ]
+  },
+  {
+   "file": "evidence-lab/repo-review.json",
+   "bytes": 48390,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "findings",
+    "inventory",
+    "network_limit",
+    "scope"
+   ]
+  },
+  {
+   "file": "evidence-lab/results.json",
+   "bytes": 162204,
+   "row_like_dicts": 167,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "correlations",
+    "eligible_strategies",
+    "games",
+    "manifest",
+    "metrics",
+    "models",
+    "official_games",
+    "scope",
+    "strategies",
+    "verification_scope"
+   ]
+  },
+  {
+   "file": "hub/data/content.json",
+   "bytes": 25055,
+   "row_like_dicts": 20,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "flags",
+    "questions",
+    "review",
+    "sources",
+    "suggestions"
+   ]
+  },
+  {
+   "file": "integration/data/deficiency-signals-w10.json",
+   "bytes": 16336,
+   "row_like_dicts": 29,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "caveat",
+    "dataset",
+    "generated_by",
+    "signals",
+    "source_url"
+   ]
+  },
+  {
+   "file": "integration/data/freshness.json",
+   "bytes": 7270,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "dataset",
+    "method",
+    "official_sources",
+    "rows",
+    "session",
+    "task"
+   ]
+  },
+  {
+   "file": "integration/data/injuries-2026-week10.json",
+   "bytes": 79974,
+   "row_like_dicts": 371,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "captured_at_utc",
+    "captured_by",
+    "dataset",
+    "games",
+    "news",
+    "notes",
+    "source_url",
+    "verification"
+   ]
+  },
+  {
+   "file": "integration/data/link-check.json",
+   "bytes": 77,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "detail",
+    "errors",
+    "pages",
+    "rows",
+    "status"
+   ]
+  },
+  {
+   "file": "integration/data/pages-health.json",
+   "bytes": 2700,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "dataset",
+    "diagnosis",
+    "evidence_links",
+    "observations",
+    "result",
+    "session",
+    "site_url",
+    "task"
+   ]
+  },
+  {
+   "file": "integration/data/reconciliation-2026-11-14.json",
+   "bytes": 14041,
+   "row_like_dicts": 1,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "checks",
+    "dataset",
+    "errors",
+    "field_comparisons",
+    "games_reconciled",
+    "generated_by",
+    "injury_rows",
+    "injury_tables",
+    "schedule_record_crosschecks_ok",
+    "sources",
+    "standings_rows_ok",
+    "standings_rows_total"
+   ]
+  },
+  {
+   "file": "integration/data/repo-review-2026-11-14.json",
+   "bytes": 11412,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "checkers",
+    "ci_workflows",
+    "dataset",
+    "findings",
+    "scope",
+    "session",
+    "task"
+   ]
+  },
+  {
+   "file": "integration/data/schedule-2026-week10.json",
+   "bytes": 6488,
+   "row_like_dicts": 15,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "byes",
+    "captured_at_utc",
+    "captured_by",
+    "dataset",
+    "games",
+    "notes",
+    "source_url",
+    "verification"
+   ]
+  },
+  {
+   "file": "integration/data/scores-2026-week9.json",
+   "bytes": 5318,
+   "row_like_dicts": 16,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "byes",
+    "captured_at_utc",
+    "captured_by",
+    "dataset",
+    "games",
+    "notes",
+    "source_url",
+    "verification"
+   ]
+  },
+  {
+   "file": "integration/data/standings-2026-reg-w10.json",
+   "bytes": 11145,
+   "row_like_dicts": 1,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "captured_at_utc",
+    "captured_by",
+    "dataset",
+    "notes",
+    "source_url",
+    "teams",
+    "verification"
+   ]
+  },
+  {
+   "file": "ledger/data/demotion-rules.json",
+   "bytes": 5731,
+   "row_like_dicts": 9,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "applicability",
+    "minimum_live_window_games",
+    "rules",
+    "scope",
+    "status",
+    "unresolved_before_adoption",
+    "written_before_evaluation",
+    "written_by"
+   ]
+  },
+  {
+   "file": "ledger/data/flags.json",
+   "bytes": 5794,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "description",
+    "flags",
+    "generated"
+   ]
+  },
+  {
+   "file": "ledger/data/lines-columns.json",
+   "bytes": 30764,
+   "row_like_dicts": 13,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "description",
+    "difference_rule",
+    "generated",
+    "recompute_mismatches",
+    "rows"
+   ]
+  },
+  {
+   "file": "ledger/data/price-probe.json",
+   "bytes": 1866,
+   "row_like_dicts": 3,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "chunks_read",
+    "conclusion",
+    "other_checks",
+    "page_title_as_returned",
+    "probed_by",
+    "probed_on",
+    "purpose",
+    "result",
+    "secondary_context",
+    "terms_searched_in_rendered_text",
+    "url"
+   ]
+  },
+  {
+   "file": "ledger/data/price-snapshots.json",
+   "bytes": 19579,
+   "row_like_dicts": 39,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "accepted_source_hosts",
+    "description",
+    "generated",
+    "markets",
+    "snapshots"
+   ]
+  },
+  {
+   "file": "ledger/data/results-feed.json",
+   "bytes": 107790,
+   "row_like_dicts": 137,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "counts",
+    "description",
+    "generated",
+    "rows"
+   ]
+  },
+  {
+   "file": "ledger/data/strategy-registry.json",
+   "bytes": 19431,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "description",
+    "generated",
+    "live_count",
+    "strategies"
+   ]
+  },
+  {
+   "file": "ledger/data/suggestions.json",
+   "bytes": 8639,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "generated",
+    "rule",
+    "suggestions",
+    "written_by"
+   ]
+  },
+  {
+   "file": "ledger/results/demotion-decisions.json",
+   "bytes": 3412,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "action_counts",
+    "decisions",
+    "live_strategies",
+    "rules_file",
+    "strategies_evaluated"
+   ]
+  },
+  {
+   "file": "ledger/results/leaderboard-split.json",
+   "bytes": 19493,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "description",
+    "generated",
+    "ranking_rule",
+    "rows"
+   ]
+  },
+  {
+   "file": "origination/data/games-2026-w1-w8.json",
+   "bytes": 136892,
+   "row_like_dicts": 122,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "byes",
+    "captured_at_utc",
+    "captured_by",
+    "dataset",
+    "games",
+    "notes",
+    "sources"
+   ]
+  },
+  {
+   "file": "origination/data/games-2026-w1-w9.json",
+   "bytes": 157551,
+   "row_like_dicts": 137,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "byes",
+    "captured_at_utc",
+    "captured_by",
+    "dataset",
+    "games",
+    "notes",
+    "sources"
+   ]
+  },
+  {
+   "file": "origination/results/correlations-w10.json",
+   "bytes": 8266,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "combo_pricing",
+    "correlations",
+    "cross_game_dependence",
+    "method"
+   ]
+  },
+  {
+   "file": "origination/results/correlations.json",
+   "bytes": 8259,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "combo_pricing",
+    "correlations",
+    "cross_game_dependence",
+    "method"
+   ]
+  },
+  {
+   "file": "origination/results/flagged.json",
+   "bytes": 10011,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "flags",
+    "source"
+   ]
+  },
+  {
+   "file": "origination/results/leaderboard-w10.json",
+   "bytes": 1703,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "blocked_note",
+    "description",
+    "eval_weeks",
+    "generated_from",
+    "medals_available",
+    "medals_awarded",
+    "ranking_rule",
+    "rows"
+   ]
+  },
+  {
+   "file": "origination/results/leaderboard.json",
+   "bytes": 14401,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "bootstrap_reps",
+    "family_size",
+    "gates_doc",
+    "not_scored",
+    "permutation_reps",
+    "seed",
+    "strategies"
+   ]
+  },
+  {
+   "file": "origination/results/luck-w10.json",
+   "bytes": 11187,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "summary",
+    "teams"
+   ]
+  },
+  {
+   "file": "origination/results/luck.json",
+   "bytes": 11147,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "summary",
+    "teams"
+   ]
+  },
+  {
+   "file": "origination/results/o1-checks.json",
+   "bytes": 3732,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "checks_failed",
+    "checks_total",
+    "games",
+    "irregularities",
+    "league_checks",
+    "standings_cells",
+    "verified_games"
+   ]
+  },
+  {
+   "file": "origination/results/standings-reconciliation-2026-11-14.json",
+   "bytes": 64378,
+   "row_like_dicts": 545,
+   "rows_with_no_source_url": 512,
+   "top_level_keys": [
+    "captured_at",
+    "cells_matching",
+    "cells_total",
+    "division_source_url",
+    "post_cutoff_game_source_url",
+    "source_url",
+    "teams"
+   ]
+  },
+  {
+   "file": "origination/results/standings-reconciliation.json",
+   "bytes": 63205,
+   "row_like_dicts": 545,
+   "rows_with_no_source_url": 512,
+   "top_level_keys": [
+    "cells_matching",
+    "cells_total",
+    "division_source_url",
+    "source_url",
+    "teams"
+   ]
+  },
+  {
+   "file": "origination/results/validation-w10.json",
+   "bytes": 15083,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "bootstrap_reps",
+    "eval_weeks",
+    "family_size",
+    "gates_doc",
+    "half_split_week",
+    "not_scored",
+    "permutation_reps",
+    "seed",
+    "strategies"
+   ]
+  },
+  {
+   "file": "origination/results/w10-crosscheck.json",
+   "bytes": 10137,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "description",
+    "favourite_agrees",
+    "games_compared",
+    "rows",
+    "source_crosscheck",
+    "source_origination"
+   ]
+  },
+  {
+   "file": "origination/results/w10-lines.json",
+   "bytes": 36735,
+   "row_like_dicts": 40,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "description",
+    "excluded_completed",
+    "games",
+    "model",
+    "originated_at",
+    "qb_props_conditional"
+   ]
+  },
+  {
+   "file": "origination/results/w2-checks.json",
+   "bytes": 7307,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "checks_failed",
+    "checks_total",
+    "games",
+    "irregularities",
+    "league_checks",
+    "standings_cells",
+    "verified_games"
+   ]
+  },
+  {
+   "file": "origination/results/w9-lines.json",
+   "bytes": 33717,
+   "row_like_dicts": 45,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "description",
+    "games",
+    "model",
+    "qb_props_conditional"
+   ]
+  },
+  {
+   "file": "origination/results/walkforward-games-w10.json",
+   "bytes": 76677,
+   "row_like_dicts": 104,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "data",
+    "description",
+    "games"
+   ]
+  },
+  {
+   "file": "origination/results/walkforward-games.json",
+   "bytes": 65528,
+   "row_like_dicts": 89,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "data",
+    "description",
+    "games"
+   ]
+  },
+  {
+   "file": "origination/results/walkforward-props-w10.json",
+   "bytes": 57395,
+   "row_like_dicts": 146,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "description",
+    "props"
+   ]
+  },
+  {
+   "file": "origination/results/walkforward-props.json",
+   "bytes": 57361,
+   "row_like_dicts": 146,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "description",
+    "props"
+   ]
+  },
+  {
+   "file": "requirements/data/questions.json",
+   "bytes": 22130,
+   "row_like_dicts": 22,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "codes",
+    "purpose",
+    "questions",
+    "session"
+   ]
+  },
+  {
+   "file": "requirements/data/requirements.json",
+   "bytes": 19876,
+   "row_like_dicts": 16,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "how_to_read",
+    "requirements",
+    "session",
+    "summary_rule"
+   ]
+  },
+  {
+   "file": "requirements/data/suggestions.json",
+   "bytes": 20434,
+   "row_like_dicts": 16,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "decision_values",
+    "how_this_works",
+    "session",
+    "suggestions"
+   ]
+  },
+  {
+   "file": "requirements/results/availability.json",
+   "bytes": 31425,
+   "row_like_dicts": 47,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "capability_matrix",
+    "capability_summary",
+    "games",
+    "headline",
+    "register",
+    "rules_applied",
+    "session",
+    "source",
+    "title",
+    "what_would_close_the_gap"
+   ]
+  },
+  {
+   "file": "requirements/results/checks-availability.json",
+   "bytes": 895,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "checks"
+   ]
+  },
+  {
+   "file": "requirements/results/checks-capture.json",
+   "bytes": 4556,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "checks",
+    "summary"
+   ]
+  },
+  {
+   "file": "requirements/results/checks.json",
+   "bytes": 5640,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "checks",
+    "summary"
+   ]
+  },
+  {
+   "file": "requirements/results/flags.json",
+   "bytes": 16946,
+   "row_like_dicts": 15,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "flags",
+    "summary"
+   ]
+  },
+  {
+   "file": "requirements/results/injuries-w10.json",
+   "bytes": 101148,
+   "row_like_dicts": 358,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "checked_at",
+    "clubs_listed",
+    "clubs_on_bye",
+    "games",
+    "items",
+    "qb_rows",
+    "qb_ruled_out",
+    "rows",
+    "scope_note",
+    "source",
+    "source_alt",
+    "title"
+   ]
+  },
+  {
+   "file": "requirements/results/luck.json",
+   "bytes": 13289,
+   "row_like_dicts": 33,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "cannot_do",
+    "clubs",
+    "expected_var_from_binomial_noise",
+    "games_in_log",
+    "limitation",
+    "luck_residual_note",
+    "mean_games_per_club",
+    "method",
+    "noise_share_of_spread",
+    "r_point_diff_win_pct",
+    "reading",
+    "rows"
+   ]
+  },
+  {
+   "file": "requirements/results/site-checks.json",
+   "bytes": 465,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "capture_checks",
+    "capture_failures",
+    "checked_at",
+    "errors",
+    "local_and_external_links",
+    "pages",
+    "question_states",
+    "questions",
+    "requirements",
+    "rows_with_official_link",
+    "scope",
+    "status"
+   ]
+  },
+  {
+   "file": "requirements/results/w9-grading.json",
+   "bytes": 16079,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "graded_at",
+    "interpretation",
+    "luck_note",
+    "model_source",
+    "n_games",
+    "note_on_lines",
+    "originated_at",
+    "probability_scores",
+    "rows",
+    "score_source",
+    "spread",
+    "title"
+   ]
+  },
+  {
+   "file": "requirements/results/week10-lines.json",
+   "bytes": 17647,
+   "row_like_dicts": 13,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "elo_ratings",
+    "games",
+    "inputs",
+    "method",
+    "originated_at",
+    "ratings_through_week9",
+    "sigma_margin",
+    "sigma_total",
+    "title"
+   ]
+  },
+  {
+   "file": "review/results/review-findings.json",
+   "bytes": 8534,
+   "row_like_dicts": 10,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "findings",
+    "method",
+    "official_sources_checked",
+    "reviewed_files",
+    "scope",
+    "session"
+   ]
+  },
+  {
+   "file": "signals/data/availability-tiers.json",
+   "bytes": 85296,
+   "row_like_dicts": 132,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "capability_matrix",
+    "caveats",
+    "depth_changes",
+    "generated",
+    "how_to_read",
+    "irregularities",
+    "next_task_to_scale",
+    "pregame_gaps",
+    "session",
+    "starter_set_churn",
+    "summary",
+    "tiers"
+   ]
+  },
+  {
+   "file": "signals/data/baseline-ladder.json",
+   "bytes": 65638,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "assumed_price_block",
+    "caveats",
+    "findings",
+    "generated",
+    "head_to_head",
+    "inputs",
+    "ladder",
+    "luck_decomposition",
+    "session",
+    "title"
+   ]
+  },
+  {
+   "file": "signals/data/correlation-legitimacy.json",
+   "bytes": 19708,
+   "row_like_dicts": 21,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "caveats",
+    "combination_products",
+    "comparison_with_published",
+    "correlations",
+    "generated",
+    "inputs",
+    "rules",
+    "session",
+    "summary",
+    "title"
+   ]
+  },
+  {
+   "file": "signals/data/decision-queue.json",
+   "bytes": 16924,
+   "row_like_dicts": 13,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "closed_without_new_data",
+    "consistency_checks",
+    "counts",
+    "generated",
+    "needs_a_purchase_or_a_feed",
+    "needs_only_mechanical_work",
+    "needs_time",
+    "queue",
+    "ranking_rule",
+    "session",
+    "the_one_line_answer",
+    "title"
+   ]
+  },
+  {
+   "file": "signals/data/flags.json",
+   "bytes": 13430,
+   "row_like_dicts": 16,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "counts",
+    "flags",
+    "generated",
+    "own_work_corrections",
+    "reading_rule",
+    "requires_operator_action",
+    "session",
+    "title",
+    "total"
+   ]
+  },
+  {
+   "file": "signals/data/market-relative.json",
+   "bytes": 43689,
+   "row_like_dicts": 14,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "assumed_price",
+    "assumed_price_is_a_quote",
+    "book_arithmetic",
+    "caveats",
+    "generated",
+    "interval_vs_breakeven",
+    "line_advantage_implied_by_hit_rate",
+    "market_verdict",
+    "model",
+    "no_market_data_statement",
+    "session",
+    "title"
+   ]
+  },
+  {
+   "file": "signals/data/site-checks.json",
+   "bytes": 12038,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "checks_run",
+    "failed",
+    "generated",
+    "passed",
+    "results",
+    "rows_checked",
+    "status"
+   ]
+  },
+  {
+   "file": "strict/browser-check.json",
+   "bytes": 507,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "browser",
+    "checked_at",
+    "checks",
+    "scope",
+    "status"
+   ]
+  },
+  {
+   "file": "strict/deployment.json",
+   "bytes": 1482,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "checked_at",
+    "concurrent_release_note",
+    "executive_summary_url",
+    "external_liveness_scope",
+    "flagged_url",
+    "live_observations",
+    "live_url",
+    "merge_commit",
+    "merged_at",
+    "pages_run_conclusion",
+    "pages_run_url",
+    "pages_source"
+   ]
+  },
+  {
+   "file": "strict/evidence/injuries-observed.json",
+   "bytes": 2903,
+   "row_like_dicts": 8,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "players",
+    "scope"
+   ]
+  },
+  {
+   "file": "strict/evidence/legacy-flags.json",
+   "bytes": 11375,
+   "row_like_dicts": 19,
+   "rows_with_no_source_url": 3,
+   "top_level_keys": [
+    "as_of",
+    "captured_at",
+    "dataset",
+    "items",
+    "note"
+   ]
+  },
+  {
+   "file": "strict/evidence/manifest.json",
+   "bytes": 1435,
+   "row_like_dicts": 3,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": "list[3]"
+  },
+  {
+   "file": "strict/evidence/schedule-observed.json",
+   "bytes": 4582,
+   "row_like_dicts": 15,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "capture_method",
+    "games"
+   ]
+  },
+  {
+   "file": "strict/evidence/standings-observed.json",
+   "bytes": 10123,
+   "row_like_dicts": 33,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "capture_method",
+    "checked_at",
+    "source_url",
+    "teams"
+   ]
+  },
+  {
+   "file": "strict/evidence/web-checks.json",
+   "bytes": 1127,
+   "row_like_dicts": 5,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "checked_at",
+    "checks"
+   ]
+  },
+  {
+   "file": "strict/flags.json",
+   "bytes": 10805,
+   "row_like_dicts": 17,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": "list[17]"
+  },
+  {
+   "file": "strict/link-check.json",
+   "bytes": 234,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "active_table_rows",
+    "checked_at",
+    "errors",
+    "external_http_liveness",
+    "html_pages",
+    "links_checked",
+    "status"
+   ]
+  },
+  {
+   "file": "strict/repository-inventory.json",
+   "bytes": 37222,
+   "row_like_dicts": 104,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": "list[104]"
+  },
+  {
+   "file": "strict/results.json",
+   "bytes": 151917,
+   "row_like_dicts": 139,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "benchmarks",
+    "correlations",
+    "current_lines",
+    "games",
+    "gates",
+    "historical_predictions",
+    "manifest",
+    "policy",
+    "qualified_strategies",
+    "real_money_wagers",
+    "rewards_awarded"
+   ]
+  },
+  {
+   "file": "suggestions/results/decision-questions.json",
+   "bytes": 6199,
+   "row_like_dicts": 8,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "note",
+    "questions",
+    "session"
+   ]
+  },
+  {
+   "file": "suggestions/results/executive-summary.json",
+   "bytes": 5395,
+   "row_like_dicts": 8,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "sections",
+    "session",
+    "statement",
+    "title"
+   ]
+  },
+  {
+   "file": "suggestions/results/lineup-impact.json",
+   "bytes": 3645,
+   "row_like_dicts": 6,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "note",
+    "session",
+    "signals"
+   ]
+  },
+  {
+   "file": "suggestions/results/suggestions.json",
+   "bytes": 9112,
+   "row_like_dicts": 10,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "note",
+    "session",
+    "suggestions"
+   ]
+  },
+  {
+   "file": "verification/pr6-row-sources.json",
+   "bytes": 15524,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "pages",
+    "ref",
+    "rows_without_official_link",
+    "scope",
+    "total_rows"
+   ]
+  }
+ ],
+ "findings": [
+  {
+   "id": "J-UNS-analysis/live-official-check-2026-11-04.json",
+   "severity": "medium",
+   "area": "provenance",
+   "title": "1 of 6 row-like objects carry no source URL",
+   "evidence": "first unsourced locator: checks[5]",
+   "file": "analysis/live-official-check-2026-11-04.json",
+   "record": "checks[5]",
+   "source_url": "https://github.com/sassnarep3-star/Own8/blob/main/analysis/live-official-check-2026-11-04.json",
+   "action_owner": "owner of that file"
+  },
+  {
+   "id": "J-UNS-origination/results/standings-reconciliation-2026-11-14.json",
+   "severity": "medium",
+   "area": "provenance",
+   "title": "512 of 545 row-like objects carry no source URL",
+   "evidence": "first unsourced locator: teams[0].cells[0]",
+   "file": "origination/results/standings-reconciliation-2026-11-14.json",
+   "record": "teams[0].cells[0]",
+   "source_url": "https://github.com/sassnarep3-star/Own8/blob/main/origination/results/standings-reconciliation-2026-11-14.json",
+   "action_owner": "owner of that file"
+  },
+  {
+   "id": "J-UNS-origination/results/standings-reconciliation.json",
+   "severity": "medium",
+   "area": "provenance",
+   "title": "512 of 545 row-like objects carry no source URL",
+   "evidence": "first unsourced locator: teams[0].cells[0]",
+   "file": "origination/results/standings-reconciliation.json",
+   "record": "teams[0].cells[0]",
+   "source_url": "https://github.com/sassnarep3-star/Own8/blob/main/origination/results/standings-reconciliation.json",
+   "action_owner": "owner of that file"
+  },
+  {
+   "id": "J-UNS-strict/evidence/legacy-flags.json",
+   "severity": "medium",
+   "area": "provenance",
+   "title": "3 of 19 row-like objects carry no source URL",
+   "evidence": "first unsourced locator: items[6]",
+   "file": "strict/evidence/legacy-flags.json",
+   "record": "items[6]",
+   "source_url": "https://github.com/sassnarep3-star/Own8/blob/main/strict/evidence/legacy-flags.json",
+   "action_owner": "owner of that file"
+  },
+  {
+   "id": "F-01",
+   "severity": "high",
+   "area": "market reality",
+   "title": "ledger/data/price-snapshots.json claims every market is blank because 'no official source publishes this market'",
+   "evidence": "39 of 39 markets blank; status text reads 'BLANK - no official source publishes this market'. nfl.com does publish FanDuel spread, total and moneyline for every 2026 week on its weekly picks article, e.g. Patriots +128 / Lions -152, Lions -2.5, O/U 50.5 for the same NE@DET game.",
+   "file": "ledger/data/price-snapshots.json",
+   "record": "markets[0..38].status",
+   "source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+   "action_owner": "ledger owner (6652101e) - not edited by this session"
+  },
+  {
+   "id": "F-02",
+   "severity": "high",
+   "area": "decision clarity",
+   "title": "6 separate suggestion registers and 6 separate question registers exist in this repo",
+   "evidence": "questions: data/decisions.json(10), decision/data/open-questions.json(10), decision-review/data/questions.json(17), hub/data/content.json(13), requirements/data/questions.json(22), suggestions/results/decision-questions.json(8); suggestions: data/suggestions.json(12), decision/data/suggestions-register.json(6), hub/data/content.json(10), ledger/data/suggestions.json(7), requirements/data/suggestions.json(16), suggestions/results/suggestions.json(10)",
+   "file": "multiple",
+   "record": "see evidence",
+   "source_url": "https://github.com/sassnarep3-star/Own8",
+   "action_owner": "project owner must name ONE canonical register"
+  },
+  {
+   "id": "F-03",
+   "severity": "medium",
+   "area": "duplicate modelling",
+   "title": "two independent Week 10 line originations with the same sign convention but different magnitudes",
+   "evidence": "n=13 games compared; mean |difference in home handicap| = 0.467 pts, max = 1.618 pts. Both are published as 'the' Week 10 line.",
+   "file": "origination/results/w10-lines.json vs requirements/results/week10-lines.json",
+   "record": "games[]",
+   "source_url": "https://www.nfl.com/schedules/2026/by-week/week-10",
+   "action_owner": "origination + requirements owners"
+  },
+  {
+   "id": "F-STALE-data/audit-snapshot-2026-11-04.json",
+   "severity": "low",
+   "area": "staleness",
+   "title": "data/audit-snapshot-2026-11-04.json is a superseded snapshot and still exists",
+   "evidence": "note: superseded 2026-11-14; file size 30259 bytes",
+   "file": "data/audit-snapshot-2026-11-04.json",
+   "record": "whole file",
+   "source_url": "https://github.com/sassnarep3-star/Own8/blob/main/data/audit-snapshot-2026-11-04.json",
+   "action_owner": "integration owner (excluded from publication today)"
+  },
+  {
+   "id": "F-STALE-data/scores-2026-week8.json",
+   "severity": "low",
+   "area": "staleness",
+   "title": "data/scores-2026-week8.json is a superseded snapshot and still exists",
+   "evidence": "note: Week 8 only; file size 3566 bytes",
+   "file": "data/scores-2026-week8.json",
+   "record": "whole file",
+   "source_url": "https://github.com/sassnarep3-star/Own8/blob/main/data/scores-2026-week8.json",
+   "action_owner": "integration owner (excluded from publication today)"
+  },
+  {
+   "id": "F-STALE-data/standings-2026-reg-w8.json",
+   "severity": "low",
+   "area": "staleness",
+   "title": "data/standings-2026-reg-w8.json is a superseded snapshot and still exists",
+   "evidence": "note: Week 8 only; file size 12851 bytes",
+   "file": "data/standings-2026-reg-w8.json",
+   "record": "whole file",
+   "source_url": "https://github.com/sassnarep3-star/Own8/blob/main/data/standings-2026-reg-w8.json",
+   "action_owner": "integration owner (excluded from publication today)"
+  },
+  {
+   "id": "F-STALE-analysis/model-lines.json",
+   "severity": "low",
+   "area": "staleness",
+   "title": "analysis/model-lines.json is a superseded snapshot and still exists",
+   "evidence": "note: Week 10 slate derived from a Week 8 snapshot; file size 34811 bytes",
+   "file": "analysis/model-lines.json",
+   "record": "whole file",
+   "source_url": "https://github.com/sassnarep3-star/Own8/blob/main/analysis/model-lines.json",
+   "action_owner": "integration owner (excluded from publication today)"
+  },
+  {
+   "id": "F-04",
+   "severity": "medium",
+   "area": "site copy",
+   "title": "root dashboard copy states no official market price exists",
+   "evidence": "scripts/build_site.py writes the line-origination page with all market columns blank and a note that no official price exists. That copy is now contradicted by the official picks article.",
+   "file": "scripts/build_site.py",
+   "record": "model-lines page builder",
+   "source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+   "action_owner": "root dashboard owner / integration session"
+  },
+  {
+   "id": "F-05",
+   "severity": "medium",
+   "area": "navigation",
+   "title": "16 separate site surfaces are published from one repository",
+   "evidence": "surfaces: audit, correlation-audit, decision, decision-review, desk, docs, evidence-lab, hub, integration, ledger, origination, requirements, review, signals, strict, suggestions",
+   "file": "repository root",
+   "record": "*/index.html",
+   "source_url": "https://github.com/sassnarep3-star/Own8",
+   "action_owner": "integration owner - needs one navigable hub"
+  },
+  {
+   "id": "F-06",
+   "severity": "low",
+   "area": "publication",
+   "title": "40 paths are excluded from the published site",
+   "evidence": "excluded: archive, scripts, research, COORDINATION.md, compute_correlations.py, .github, .gitignore, data/correlations.md, data/injuries-2026-week8.json, data/market-lines.json, data/news-items.json, data/nextgen-passing-2026-week8.json ...",
+   "file": "_config.yml",
+   "record": "exclude",
+   "source_url": "https://github.com/sassnarep3-star/Own8/blob/main/_config.yml",
+   "action_owner": "integration owner"
+  }
+ ]
+}

@@ -1,0 +1,141 @@
+{
+ "generated": "2026-11-14",
+ "generated_by": "session 949f49b0",
+ "rule": "computed ONLY from rows that carry an official source URL; n printed on every value; Holm-adjusted across this family of 7; values that could not be computed are absent rather than estimated",
+ "family_size": 7,
+ "rows": [
+  {
+   "id": "C1",
+   "label": "Home points vs away points (same game)",
+   "n": 136,
+   "unit": "game",
+   "r": 0.076,
+   "ci95": [
+    -0.0935,
+    0.2413
+   ],
+   "p_permutation": 0.3843078460769615,
+   "source_url": "https://www.nfl.com/scores/2026/week-1 ... /week-9 (via origination/data/games-2026-w1-w9.json)",
+   "cannot_be_used_for": "Pricing a same-game parlay leg pair. Two points totals in one game share pace and weather, so this association is not a leg dependence and does not tell you the joint probability of two overs.",
+   "kind": "pearson",
+   "p_holm": 1.0,
+   "survives_holm_0.05": false
+  },
+  {
+   "id": "C2",
+   "label": "Home margin vs game total (same game)",
+   "n": 136,
+   "unit": "game",
+   "r": -0.1608,
+   "ci95": [
+    -0.3205,
+    0.0077
+   ],
+   "p_permutation": 0.06896551724137931,
+   "source_url": "https://www.nfl.com/scores/2026/week-1 ... /week-9 (via origination/data/games-2026-w1-w9.json)",
+   "cannot_be_used_for": "Pricing a side+total same-game parlay directly. A raw correlation of realised outcomes is a descriptive property of finished games, not the conditional model needed to price a joint bet.",
+   "kind": "pearson",
+   "p_holm": 0.27586,
+   "survives_holm_0.05": false
+  },
+  {
+   "id": "C3",
+   "label": "Absolute margin vs game total (same game)",
+   "n": 136,
+   "unit": "game",
+   "r": -0.0162,
+   "ci95": [
+    -0.1841,
+    0.1525
+   ],
+   "p_permutation": 0.8570714642678661,
+   "source_url": "https://www.nfl.com/scores/2026/week-1 ... /week-9 (via origination/data/games-2026-w1-w9.json)",
+   "cannot_be_used_for": "Anything causal. This is the 'blowouts are high scoring' regularity, which is a description.",
+   "kind": "pearson",
+   "p_holm": 1.0,
+   "survives_holm_0.05": false
+  },
+  {
+   "id": "C4",
+   "label": "QB passing yards vs own team points (same team-game)",
+   "n": 146,
+   "unit": "team-game",
+   "r": 0.3852,
+   "ci95": [
+    0.2376,
+    0.5154
+   ],
+   "p_permutation": 0.0004997501249375312,
+   "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/{week} (via origination/data/raw-ngs-passing-transcription.txt)",
+   "cannot_be_used_for": "A player-prop edge. It says passing volume travels with scoring; it does not give a distribution for a single player's yardage threshold, and no official prop line exists to price against.",
+   "kind": "pearson",
+   "p_holm": 0.0035,
+   "survives_holm_0.05": true
+  },
+  {
+   "id": "C5",
+   "label": "QB passing yards vs game total (same game)",
+   "n": 146,
+   "unit": "team-game",
+   "r": 0.3488,
+   "ci95": [
+    0.1975,
+    0.4838
+   ],
+   "p_permutation": 0.0004997501249375312,
+   "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/{week} (via origination/data/raw-ngs-passing-transcription.txt)",
+   "cannot_be_used_for": "Pricing a QB-yards over against a game-total over as independent legs. They are positively associated, so treating them as independent UNDERSTATES the joint probability.",
+   "kind": "pearson",
+   "p_holm": 0.0035,
+   "survives_holm_0.05": true
+  },
+  {
+   "id": "C6",
+   "label": "QB passing yards vs opposing QB passing yards (same game)",
+   "n": 67,
+   "unit": "game",
+   "r": 0.5418,
+   "ci95": [
+    0.3467,
+    0.692
+   ],
+   "p_permutation": 0.0004997501249375312,
+   "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/{week} (via origination/data/raw-ngs-passing-transcription.txt)",
+   "cannot_be_used_for": "Independence of two QBs' props across a parlay. Game script makes them positively associated, so the product rule understates the joint probability.",
+   "kind": "pearson",
+   "p_holm": 0.0035,
+   "survives_holm_0.05": true
+  },
+  {
+   "id": "C7",
+   "label": "Week mean total vs week-to-week total spread",
+   "n": 9,
+   "unit": "week",
+   "r": 0.2473,
+   "ci95": [
+    -0.4987,
+    0.7829
+   ],
+   "p_permutation": 0.5112443778110944,
+   "source_url": "https://www.nfl.com/scores/2026/week-1 ... /week-9",
+   "cannot_be_used_for": "Weather or slate effects that would make different games in one week dependent. Nine weeks is far too few to detect a small effect; absence of evidence here is not evidence of independence.",
+   "kind": "pearson",
+   "p_holm": 1.0,
+   "survives_holm_0.05": false
+  }
+ ],
+ "not_computed": [
+  {
+   "what": "player-prop correlation for a specific yardage threshold",
+   "why": "no official prop line or prop price exists in any retrieved official source, so there is no threshold to condition on"
+  },
+  {
+   "what": "same-game-parlay joint price",
+   "why": "nfl.com publishes no same-game-parlay price; a correlation cannot manufacture one"
+  },
+  {
+   "what": "injury-adjusted correlations",
+   "why": "official pregame depth order does not exist (see depth study), so 'starter vs backup' is not a usable official variable"
+  }
+ ]
+}

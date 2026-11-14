@@ -1,0 +1,250 @@
+{
+ "checked_at": "2026-11-14",
+ "checked_by": "session 949f49b0",
+ "checks_total": 30,
+ "checks_passed": 30,
+ "checks_failed": 0,
+ "note": "every value below is compared against an official URL retrieved on 2026-11-14 by this session",
+ "checks": [
+  {
+   "id": "V01",
+   "what": "clubs in the standings capture",
+   "expected": 32,
+   "actual": 32,
+   "pass_": true,
+   "source_url": "https://www.nfl.com/standings/league/2026/REG"
+  },
+  {
+   "id": "V02",
+   "what": "fields cross-compared between the league and division views",
+   "expected": 256,
+   "actual": 256,
+   "pass_": true,
+   "source_url": "https://www.nfl.com/standings/division/2026/REG"
+  },
+  {
+   "id": "V03b",
+   "what": "post-cutoff games already played that the log does not cover",
+   "expected": 1,
+   "actual": 1,
+   "pass_": true,
+   "source_url": "https://www.nfl.com/scores/2026/week-10"
+  },
+  {
+   "id": "V03",
+   "what": "club log rows recomputed from the 136-game official log + the Week 10 result",
+   "expected": 32,
+   "actual": 32,
+   "pass_": true,
+   "source_url": "https://www.nfl.com/standings/league/2026/REG"
+  },
+  {
+   "id": "V03a",
+   "what": "LA/LAR surface alias applied inside this check only (no data changed)",
+   "expected": "LA<->LAR applied",
+   "actual": "LA<->LAR applied",
+   "pass_": true,
+   "source_url": "https://www.nfl.com/standings/league/2026/REG"
+  },
+  {
+   "id": "V04",
+   "what": "standings cells reproduced (32 clubs x W,L,T,PF,PA,NET) using the 136-game log plus the one played Week 10 game",
+   "expected": 192,
+   "actual": 192,
+   "pass_": true,
+   "source_url": "https://www.nfl.com/standings/league/2026/REG"
+  },
+  {
+   "id": "V05",
+   "what": "PF - PA = NET PTS for every club",
+   "expected": 32,
+   "actual": 32,
+   "pass_": true,
+   "source_url": "https://www.nfl.com/standings/league/2026/REG"
+  },
+  {
+   "id": "V06",
+   "what": "club-games recomputed (2 x each game in the log plus the one played Week 10 game)",
+   "expected": 256,
+   "actual": 256,
+   "pass_": true,
+   "source_url": "https://www.nfl.com/scores/2026/week-1 ... /week-9"
+  },
+  {
+   "id": "V07",
+   "what": "distinct game dates in the log",
+   "expected": 28,
+   "actual": 28,
+   "pass_": true,
+   "source_url": "https://www.nfl.com/scores/2026/week-1 ... /week-9"
+  },
+  {
+   "id": "V08",
+   "what": "Week 10 games with a published price row",
+   "expected": 14,
+   "actual": 14,
+   "pass_": true,
+   "source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season"
+  },
+  {
+   "id": "V09",
+   "what": "Week 10 markets per game",
+   "expected": 42,
+   "actual": 42,
+   "pass_": true,
+   "source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season"
+  },
+  {
+   "id": "V10",
+   "what": "Week 10 price rows with all four numbers present",
+   "expected": 14,
+   "actual": 14,
+   "pass_": true,
+   "source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season"
+  },
+  {
+   "id": "V11",
+   "what": "moneyline favourite agrees with spread favourite (14 games)",
+   "expected": 14,
+   "actual": 14,
+   "pass_": true,
+   "source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season"
+  },
+  {
+   "id": "V12-WAS-NYG",
+   "what": "two-way implied sum > 1 (book margin present)",
+   "expected": ">1",
+   "actual": 1.0407,
+   "pass_": true,
+   "source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season"
+  },
+  {
+   "id": "V12-NE-DET",
+   "what": "two-way implied sum > 1 (book margin present)",
+   "expected": ">1",
+   "actual": 1.0418,
+   "pass_": true,
+   "source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season"
+  },
+  {
+   "id": "V12-KC-ATL",
+   "what": "two-way implied sum > 1 (book margin present)",
+   "expected": ">1",
+   "actual": 1.0422,
+   "pass_": true,
+   "source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season"
+  },
+  {
+   "id": "V12-HOU-CLE",
+   "what": "two-way implied sum > 1 (book margin present)",
+   "expected": ">1",
+   "actual": 1.0415,
+   "pass_": true,
+   "source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season"
+  },
+  {
+   "id": "V12-MIN-GB",
+   "what": "two-way implied sum > 1 (book margin present)",
+   "expected": ">1",
+   "actual": 1.0414,
+   "pass_": true,
+   "source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season"
+  },
+  {
+   "id": "V12-MIA-IND",
+   "what": "two-way implied sum > 1 (book margin present)",
+   "expected": ">1",
+   "actual": 1.0397,
+   "pass_": true,
+   "source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season"
+  },
+  {
+   "id": "V12-CAR-NO",
+   "what": "two-way implied sum > 1 (book margin present)",
+   "expected": ">1",
+   "actual": 1.0407,
+   "pass_": true,
+   "source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season"
+  },
+  {
+   "id": "V12-BUF-NYJ",
+   "what": "two-way implied sum > 1 (book margin present)",
+   "expected": ">1",
+   "actual": 1.0404,
+   "pass_": true,
+   "source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season"
+  },
+  {
+   "id": "V12-JAX-TEN",
+   "what": "two-way implied sum > 1 (book margin present)",
+   "expected": ">1",
+   "actual": 1.0417,
+   "pass_": true,
+   "source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season"
+  },
+  {
+   "id": "V12-LAR-AZ",
+   "what": "two-way implied sum > 1 (book margin present)",
+   "expected": ">1",
+   "actual": 1.0422,
+   "pass_": true,
+   "source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season"
+  },
+  {
+   "id": "V12-SEA-LV",
+   "what": "two-way implied sum > 1 (book margin present)",
+   "expected": ">1",
+   "actual": 1.0421,
+   "pass_": true,
+   "source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season"
+  },
+  {
+   "id": "V12-SF-DAL",
+   "what": "two-way implied sum > 1 (book margin present)",
+   "expected": ">1",
+   "actual": 1.0397,
+   "pass_": true,
+   "source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season"
+  },
+  {
+   "id": "V12-PIT-CIN",
+   "what": "two-way implied sum > 1 (book margin present)",
+   "expected": ">1",
+   "actual": 1.0416,
+   "pass_": true,
+   "source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season"
+  },
+  {
+   "id": "V12-LAC-BAL",
+   "what": "two-way implied sum > 1 (book margin present)",
+   "expected": ">1",
+   "actual": 1.0347,
+   "pass_": true,
+   "source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season"
+  },
+  {
+   "id": "V13",
+   "what": "Week 9: priced games",
+   "expected": 15,
+   "actual": 15,
+   "pass_": true,
+   "source_url": "https://www.nfl.com/news/nfl-picks-week-9-2026-nfl-season"
+  },
+  {
+   "id": "V14",
+   "what": "Week 9: priced games that also have an official final score",
+   "expected": 15,
+   "actual": 15,
+   "pass_": true,
+   "source_url": "https://www.nfl.com/news/nfl-picks-week-9-2026-nfl-season"
+  },
+  {
+   "id": "V15",
+   "what": "graded side/total results agree with the sign of the adjusted margin",
+   "expected": 30,
+   "actual": 30,
+   "pass_": true,
+   "source_url": "market/scripts/grade.py"
+  }
+ ]
+}
