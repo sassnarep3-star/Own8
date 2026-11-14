@@ -1,0 +1,1080 @@
+{
+ "title": "Availability and deficiency register - what official sources publish, and what they do not",
+ "as_of": "2026-11-14",
+ "session": "f6e60a81",
+ "source": "https://www.nfl.com/injuries/",
+ "headline": "The requirement to know when a backup is replacing a starter is only half answerable from official sources: exactly answerable after the game from the Game Book, and not answerable before kickoff at all.",
+ "capability_matrix": [
+  {
+   "capability": "Pregame depth chart (1st/2nd/3rd string order)",
+   "url": "https://www.nfl.com/teams/kansas-city-chiefs/depth-chart",
+   "published": false,
+   "observed": "HTTP 404. The page body renders '404 - Flag on the Play.' with a Back to NFL.com link. No depth chart, no player list, no status.",
+   "checked_at": "2026-11-14",
+   "consequence": "A pregame 'this player is the 3rd-string tackle' label cannot be produced from an official source. Any such label would be inference and is therefore not published."
+  },
+  {
+   "capability": "Roster with participation status",
+   "url": "https://www.nfl.com/teams/kansas-city-chiefs/roster",
+   "published": true,
+   "observed": "Full roster table with name, jersey number, position, a status column reading ACT, height, weight, experience and college. No depth order, no starter flag, no snap count.",
+   "checked_at": "2026-11-14",
+   "consequence": "ACT confirms a player is on the active roster. It says nothing about whether he starts."
+  },
+  {
+   "capability": "Injury report: practice participation and game status",
+   "url": "https://www.nfl.com/injuries/",
+   "published": true,
+   "observed": "Weekly report, one table per club, five columns: Player, Position, Injuries, Practice Status, Game Status. All 8 rendered chunks transcribed: 345 rows for the 28 clubs playing in Week 10.",
+   "checked_at": "2026-11-14",
+   "consequence": "Answers 'who is ruled out or limited'. Does not answer 'who takes his place'."
+  },
+  {
+   "capability": "Game-day inactives",
+   "url": "https://www.nfl.com/news/nfl-week-9-inactives-players-ruled-out-sunday-2026-season",
+   "published": true,
+   "observed": "The NFL publishes an inactives article per slate. The Week 10 report page links the Week 9 pattern; the Week 10 inactives for the 13 Sunday and Monday games did not exist at capture time.",
+   "checked_at": "2026-11-14",
+   "consequence": "Final availability is knowable about 90 minutes before kickoff and is a moving target. A snapshot is stale within hours."
+  },
+  {
+   "capability": "Starters actually on the field, and the substitution list",
+   "url": "https://static.www.nfl.com/image/upload/v1793965716/gamecenter/ab380826-4feb-11f1-abca-2c54536568a9.pdf",
+   "published": true,
+   "observed": "Official NFL Game Book PDF, linked from every game page. Contains a Lineups block with the 11 offensive and 11 defensive starters per club plus their jersey numbers, a Substitutions list, a Did Not Play list and a Not Active list. For JAX at BAL it names 12 J.Fagnano in the Ravens' quarterback slot, and Lamar Jackson does not appear in the lineup or the substitution list.",
+   "checked_at": "2026-11-14",
+   "consequence": "This is the only official source that establishes who actually started. It is post-game, so it fixes attribution and grading but cannot inform a pregame line."
+  },
+  {
+   "capability": "Snap counts per player",
+   "url": "https://www.nfl.com/games/jaguars-at-ravens-2026-reg-9",
+   "published": false,
+   "observed": "The game page provides recap, stats, scoring drives and video tabs. No per-player snap count table was present in the retrieved content.",
+   "checked_at": "2026-11-14",
+   "consequence": "Snap share, the cleanest measure of 'a backup is playing', is not available from the pages retrieved here. A future session may find it on another official surface; this session did not, so it is recorded as unobserved rather than as absent in principle."
+  }
+ ],
+ "capability_summary": {
+  "published": [
+   "Roster with participation status",
+   "Injury report: practice participation and game status",
+   "Game-day inactives",
+   "Starters actually on the field, and the substitution list"
+  ],
+  "not_published": [
+   "Pregame depth chart (1st/2nd/3rd string order)",
+   "Snap counts per player"
+  ]
+ },
+ "register": [
+  {
+   "team": "IND",
+   "out_count": 6,
+   "doubtful_count": 0,
+   "questionable_count": 2,
+   "unresolved_total": 2,
+   "out_by_unit": {
+    "Receiving": 1,
+    "Defense": 3,
+    "Special teams": 1,
+    "Offensive line": 1
+   },
+   "out_players": [
+    "Mo Alie-Cox (TE)",
+    "Jaylon Carlies (LB)",
+    "Akeem Davis-Gaither (LB)",
+    "Luke Rhodes (LS)",
+    "Jerry Tillery (DT)",
+    "Jalen Travis (T)"
+   ],
+   "unresolved_players": [
+    "Arden Key (DE) - Questionable",
+    "Will Mallory (TE) - Questionable"
+   ],
+   "replacement_named": null,
+   "replacement_note": "No official source names a replacement before kickoff. Left blank by rule.",
+   "source_url": "https://www.nfl.com/injuries/"
+  },
+  {
+   "team": "DAL",
+   "out_count": 5,
+   "doubtful_count": 1,
+   "questionable_count": 5,
+   "unresolved_total": 6,
+   "out_by_unit": {
+    "Defense": 2,
+    "Receiving": 2,
+    "Backfield": 1
+   },
+   "out_players": [
+    "Donovan Ezeiruaku (LB)",
+    "Jake Ferguson (TE)",
+    "Tyler Goodson (RB)",
+    "P.J. Locke (S)",
+    "Jonathan Mingo (WR)"
+   ],
+   "unresolved_players": [
+    "Juanyeh Thomas (S) - Doubtful",
+    "DaRon Bland (CB) - Questionable",
+    "Jonathan Bullard (DT) - Questionable",
+    "Alijah Clark (S) - Questionable",
+    "Devin Moore (CB) - Questionable",
+    "Joey Porter Jr. (CB) - Questionable"
+   ],
+   "replacement_named": null,
+   "replacement_note": "No official source names a replacement before kickoff. Left blank by rule.",
+   "source_url": "https://www.nfl.com/injuries/"
+  },
+  {
+   "team": "HOU",
+   "out_count": 5,
+   "doubtful_count": 0,
+   "questionable_count": 6,
+   "unresolved_total": 6,
+   "out_by_unit": {
+    "Defense": 2,
+    "Receiving": 2,
+    "Offensive line": 1
+   },
+   "out_players": [
+    "Azeez Al-Shaair (LB)",
+    "Marvin Harrison Jr. (WR)",
+    "Danielle Hunter (DE)",
+    "Brevin Jordan (TE)",
+    "Keylan Rutledge (G)"
+   ],
+   "unresolved_players": [
+    "Will Anderson Jr. (DE) - Questionable",
+    "Trent Brown (T) - Questionable",
+    "Jacob Hummel (LB) - Questionable",
+    "David Montgomery (RB) - Questionable",
+    "Jaylin Smith (CB) - Questionable",
+    "Wyatt Teller (G) - Questionable"
+   ],
+   "replacement_named": null,
+   "replacement_note": "No official source names a replacement before kickoff. Left blank by rule.",
+   "source_url": "https://www.nfl.com/injuries/"
+  },
+  {
+   "team": "MIN",
+   "out_count": 5,
+   "doubtful_count": 0,
+   "questionable_count": 3,
+   "unresolved_total": 3,
+   "out_by_unit": {
+    "Defense": 2,
+    "Receiving": 2,
+    "Quarterback": 1
+   },
+   "out_players": [
+    "Blake Cashman (LB)",
+    "T.J. Hockenson (TE)",
+    "Tyrion Ingram-Dawkins (DT)",
+    "Jauan Jennings (WR)",
+    "Kyler Murray (QB)"
+   ],
+   "unresolved_players": [
+    "Jordan Addison (WR) - Questionable",
+    "Josh Metellus (S) - Questionable",
+    "Kyle Van Noy (LB) - Questionable"
+   ],
+   "replacement_named": null,
+   "replacement_note": "No official source names a replacement before kickoff. Left blank by rule.",
+   "source_url": "https://www.nfl.com/injuries/"
+  },
+  {
+   "team": "TEN",
+   "out_count": 5,
+   "doubtful_count": 0,
+   "questionable_count": 1,
+   "unresolved_total": 1,
+   "out_by_unit": {
+    "Defense": 2,
+    "Offensive line": 1,
+    "Receiving": 1,
+    "Special teams": 1
+   },
+   "out_players": [
+    "Cody Barton (LB)",
+    "Anthony Hill Jr. (LB)",
+    "Peter Skoronski (G)",
+    "Carnell Tate (WR)",
+    "Tommy Townsend (P)"
+   ],
+   "unresolved_players": [
+    "Tyjae Spears (RB) - Questionable"
+   ],
+   "replacement_named": null,
+   "replacement_note": "No official source names a replacement before kickoff. Left blank by rule.",
+   "source_url": "https://www.nfl.com/injuries/"
+  },
+  {
+   "team": "GB",
+   "out_count": 4,
+   "doubtful_count": 1,
+   "questionable_count": 7,
+   "unresolved_total": 8,
+   "out_by_unit": {
+    "Backfield": 1,
+    "Defense": 1,
+    "Offensive line": 1,
+    "Receiving": 1
+   },
+   "out_players": [
+    "Josh Jacobs (RB)",
+    "Micah Parsons (LB)",
+    "Sean Rhyan (C)",
+    "Josh Whyle (TE)"
+   ],
+   "unresolved_players": [
+    "Zaire Franklin (LB) - Doubtful",
+    "Chris Brooks (RB) - Questionable",
+    "Javon Bullard (S) - Questionable",
+    "Travis Glover (G) - Questionable",
+    "Xavier McKinney (S) - Questionable",
+    "Skyy Moore (WR) - Questionable",
+    "Lukas Van Ness (LB) - Questionable",
+    "Kevin Zeitler (G) - Questionable"
+   ],
+   "replacement_named": null,
+   "replacement_note": "No official source names a replacement before kickoff. Left blank by rule.",
+   "source_url": "https://www.nfl.com/injuries/"
+  },
+  {
+   "team": "NO",
+   "out_count": 4,
+   "doubtful_count": 0,
+   "questionable_count": 2,
+   "unresolved_total": 2,
+   "out_by_unit": {
+    "Backfield": 1,
+    "Offensive line": 2,
+    "Defense": 1
+   },
+   "out_players": [
+    "CJ Donaldson (RB)",
+    "Taliese Fuaga (T)",
+    "Erik McCoy (C)",
+    "Christen Miller (DT)"
+   ],
+   "unresolved_players": [
+    "Martin Emerson (CB) - Questionable",
+    "Travis Etienne (RB) - Questionable"
+   ],
+   "replacement_named": null,
+   "replacement_note": "No official source names a replacement before kickoff. Left blank by rule.",
+   "source_url": "https://www.nfl.com/injuries/"
+  },
+  {
+   "team": "SEA",
+   "out_count": 4,
+   "doubtful_count": 0,
+   "questionable_count": 0,
+   "unresolved_total": 0,
+   "out_by_unit": {
+    "Offensive line": 2,
+    "Quarterback": 1,
+    "Defense": 1
+   },
+   "out_players": [
+    "Charles Cross (T)",
+    "Sam Darnold (QB)",
+    "Quenton Nelson (G)",
+    "Leonard Williams (DT)"
+   ],
+   "unresolved_players": [],
+   "replacement_named": null,
+   "replacement_note": "No official source names a replacement before kickoff. Left blank by rule.",
+   "source_url": "https://www.nfl.com/injuries/"
+  },
+  {
+   "team": "NE",
+   "out_count": 3,
+   "doubtful_count": 0,
+   "questionable_count": 9,
+   "unresolved_total": 9,
+   "out_by_unit": {
+    "Offensive line": 1,
+    "Defense": 1,
+    "Backfield": 1
+   },
+   "out_players": [
+    "Ben Brown (C)",
+    "Carlton Davis III (CB)",
+    "TreVeyon Henderson (RB)"
+   ],
+   "unresolved_players": [
+    "A.J. Brown (WR) - Questionable",
+    "Kevin Byard (S) - Questionable",
+    "Reggie Gilliam (FB) - Questionable",
+    "Cameron Latu (TE) - Questionable",
+    "Walter Rouse (T) - Questionable",
+    "Brenden Schooler (S) - Questionable",
+    "Rhamondre Stevenson (RB) - Questionable",
+    "Greg Van Roten (G) - Questionable",
+    "Charles Woods (CB) - Questionable"
+   ],
+   "replacement_named": null,
+   "replacement_note": "No official source names a replacement before kickoff. Left blank by rule.",
+   "source_url": "https://www.nfl.com/injuries/"
+  },
+  {
+   "team": "AZ",
+   "out_count": 3,
+   "doubtful_count": 0,
+   "questionable_count": 6,
+   "unresolved_total": 6,
+   "out_by_unit": {
+    "Defense": 1,
+    "Offensive line": 2
+   },
+   "out_players": [
+    "Zachary Carter (DT)",
+    "Hjalte Froholdt (C)",
+    "Jon Gaines II (G)"
+   ],
+   "unresolved_players": [
+    "Hunter Long (TE) - Questionable",
+    "Roy Lopez (DT) - Questionable",
+    "Max Melton (CB) - Questionable",
+    "Darius Robinson (DT) - Questionable",
+    "Jayden Williams (T) - Questionable",
+    "Andrew Wingard (S) - Questionable"
+   ],
+   "replacement_named": null,
+   "replacement_note": "No official source names a replacement before kickoff. Left blank by rule.",
+   "source_url": "https://www.nfl.com/injuries/"
+  },
+  {
+   "team": "KC",
+   "out_count": 3,
+   "doubtful_count": 0,
+   "questionable_count": 3,
+   "unresolved_total": 3,
+   "out_by_unit": {
+    "Offensive line": 1,
+    "Defense": 2
+   },
+   "out_players": [
+    "Jaylon Moore (T)",
+    "Omarr Norman-Lott (DT)",
+    "Peter Woods (DT)"
+   ],
+   "unresolved_players": [
+    "Mansoor Delane (CB) - Questionable",
+    "Jaydn Ott (RB) - Questionable",
+    "Kenneth Walker III (RB) - Questionable"
+   ],
+   "replacement_named": null,
+   "replacement_note": "No official source names a replacement before kickoff. Left blank by rule.",
+   "source_url": "https://www.nfl.com/injuries/"
+  },
+  {
+   "team": "DET",
+   "out_count": 3,
+   "doubtful_count": 0,
+   "questionable_count": 2,
+   "unresolved_total": 2,
+   "out_by_unit": {
+    "Defense": 2,
+    "Offensive line": 1
+   },
+   "out_players": [
+    "Kerby Joseph (S)",
+    "Cade Mays (C)",
+    "D.J. Reed (CB)"
+   ],
+   "unresolved_players": [
+    "Amon-Ra St. Brown (WR) - Questionable",
+    "Sione Vaki (RB) - Questionable"
+   ],
+   "replacement_named": null,
+   "replacement_note": "No official source names a replacement before kickoff. Left blank by rule.",
+   "source_url": "https://www.nfl.com/injuries/"
+  },
+  {
+   "team": "JAX",
+   "out_count": 3,
+   "doubtful_count": 0,
+   "questionable_count": 1,
+   "unresolved_total": 1,
+   "out_by_unit": {
+    "Defense": 3
+   },
+   "out_players": [
+    "Jessie Bates (S)",
+    "Jordan Davis (DT)",
+    "BJ Green II (DE)"
+   ],
+   "unresolved_players": [
+    "Robert Hainsey (C) - Questionable"
+   ],
+   "replacement_named": null,
+   "replacement_note": "No official source names a replacement before kickoff. Left blank by rule.",
+   "source_url": "https://www.nfl.com/injuries/"
+  },
+  {
+   "team": "LA",
+   "out_count": 2,
+   "doubtful_count": 0,
+   "questionable_count": 5,
+   "unresolved_total": 5,
+   "out_by_unit": {
+    "Offensive line": 1,
+    "Receiving": 1
+   },
+   "out_players": [
+    "Steve Avila (G)",
+    "Terrance Ferguson (TE)"
+   ],
+   "unresolved_players": [
+    "Davis Allen (TE) - Questionable",
+    "Joe Cardona (LS) - Questionable",
+    "Kam Curl (S) - Questionable",
+    "Myles Garrett (LB) - Questionable",
+    "Trent McDuffie (CB) - Questionable"
+   ],
+   "replacement_named": null,
+   "replacement_note": "No official source names a replacement before kickoff. Left blank by rule.",
+   "source_url": "https://www.nfl.com/injuries/"
+  },
+  {
+   "team": "MIA",
+   "out_count": 2,
+   "doubtful_count": 1,
+   "questionable_count": 1,
+   "unresolved_total": 2,
+   "out_by_unit": {
+    "Offensive line": 1,
+    "Receiving": 1
+   },
+   "out_players": [
+    "Aaron Brewer (C)",
+    "Jared Wayne (WR)"
+   ],
+   "unresolved_players": [
+    "Chris Bell (WR) - Doubtful",
+    "Darrell Baker Jr. (CB) - Questionable"
+   ],
+   "replacement_named": null,
+   "replacement_note": "No official source names a replacement before kickoff. Left blank by rule.",
+   "source_url": "https://www.nfl.com/injuries/"
+  },
+  {
+   "team": "CLE",
+   "out_count": 2,
+   "doubtful_count": 0,
+   "questionable_count": 1,
+   "unresolved_total": 1,
+   "out_by_unit": {
+    "Backfield": 1,
+    "Defense": 1
+   },
+   "out_players": [
+    "Michael Burton (FB)",
+    "Ronnie Hickman Jr. (S)"
+   ],
+   "unresolved_players": [
+    "Denzel Boston (WR) - Questionable"
+   ],
+   "replacement_named": null,
+   "replacement_note": "No official source names a replacement before kickoff. Left blank by rule.",
+   "source_url": "https://www.nfl.com/injuries/"
+  },
+  {
+   "team": "WAS",
+   "out_count": 2,
+   "doubtful_count": 0,
+   "questionable_count": 0,
+   "unresolved_total": 0,
+   "out_by_unit": {
+    "Offensive line": 1,
+    "Receiving": 1
+   },
+   "out_players": [
+    "Lucas Patrick (C)",
+    "Colson Yankoff (TE)"
+   ],
+   "unresolved_players": [],
+   "replacement_named": null,
+   "replacement_note": "No official source names a replacement before kickoff. Left blank by rule.",
+   "source_url": "https://www.nfl.com/injuries/"
+  },
+  {
+   "team": "NYJ",
+   "out_count": 1,
+   "doubtful_count": 0,
+   "questionable_count": 8,
+   "unresolved_total": 8,
+   "out_by_unit": {
+    "Defense": 1
+   },
+   "out_players": [
+    "Trevin Wallace (LB)"
+   ],
+   "unresolved_players": [
+    "Jarvis Brownlee Jr. (CB) - Questionable",
+    "Omar Cooper Jr. (WR) - Questionable",
+    "Adonai Mitchell (WR) - Questionable",
+    "Joseph Ossai (DE) - Questionable",
+    "VJ Payne (S) - Questionable",
+    "Harrison Phillips (DT) - Questionable",
+    "Garrett Wilson (WR) - Questionable",
+    "Nahshon Wright (CB) - Questionable"
+   ],
+   "replacement_named": null,
+   "replacement_note": "No official source names a replacement before kickoff. Left blank by rule.",
+   "source_url": "https://www.nfl.com/injuries/"
+  },
+  {
+   "team": "SF",
+   "out_count": 1,
+   "doubtful_count": 0,
+   "questionable_count": 7,
+   "unresolved_total": 7,
+   "out_by_unit": {
+    "Receiving": 1
+   },
+   "out_players": [
+    "Mike Evans (WR)"
+   ],
+   "unresolved_players": [
+    "Renardo Green (CB) - Questionable",
+    "Dre Greenlaw (LB) - Questionable",
+    "Nate Hobbs (CB) - Questionable",
+    "Deommodore Lenoir (CB) - Questionable",
+    "Upton Stout (CB) - Questionable",
+    "C.J. West (DT) - Questionable",
+    "Trent Williams (T) - Questionable"
+   ],
+   "replacement_named": null,
+   "replacement_note": "No official source names a replacement before kickoff. Left blank by rule.",
+   "source_url": "https://www.nfl.com/injuries/"
+  },
+  {
+   "team": "CAR",
+   "out_count": 1,
+   "doubtful_count": 2,
+   "questionable_count": 4,
+   "unresolved_total": 6,
+   "out_by_unit": {
+    "Defense": 1
+   },
+   "out_players": [
+    "Bobby Okereke (LB)"
+   ],
+   "unresolved_players": [
+    "Jonathon Brooks (RB) - Doubtful",
+    "Mike Jackson (CB) - Doubtful",
+    "Brady Christensen (G) - Questionable",
+    "Will Lee III (CB) - Questionable",
+    "Xavier Legette (WR) - Questionable",
+    "Jaelan Phillips (LB) - Questionable"
+   ],
+   "replacement_named": null,
+   "replacement_note": "No official source names a replacement before kickoff. Left blank by rule.",
+   "source_url": "https://www.nfl.com/injuries/"
+  },
+  {
+   "team": "ATL",
+   "out_count": 1,
+   "doubtful_count": 1,
+   "questionable_count": 3,
+   "unresolved_total": 4,
+   "out_by_unit": {
+    "Receiving": 1
+   },
+   "out_players": [
+    "Zachariah Branch (WR)"
+   ],
+   "unresolved_players": [
+    "Divine Deablo (LB) - Doubtful",
+    "Gervon Dexter Sr. (DT) - Questionable",
+    "James Pearce Jr. (DE) - Questionable",
+    "Josh Woods (LB) - Questionable"
+   ],
+   "replacement_named": null,
+   "replacement_note": "No official source names a replacement before kickoff. Left blank by rule.",
+   "source_url": "https://www.nfl.com/injuries/"
+  },
+  {
+   "team": "CIN",
+   "out_count": 1,
+   "doubtful_count": 3,
+   "questionable_count": 0,
+   "unresolved_total": 3,
+   "out_by_unit": {
+    "Defense": 1
+   },
+   "out_players": [
+    "Kyle Dugger (S)"
+   ],
+   "unresolved_players": [
+    "Jalen Davis (CB) - Doubtful",
+    "Andrei Iosivas (WR) - Doubtful",
+    "Brian Parker II (G) - Doubtful"
+   ],
+   "replacement_named": null,
+   "replacement_note": "No official source names a replacement before kickoff. Left blank by rule.",
+   "source_url": "https://www.nfl.com/injuries/"
+  },
+  {
+   "team": "BUF",
+   "out_count": 0,
+   "doubtful_count": 1,
+   "questionable_count": 4,
+   "unresolved_total": 5,
+   "out_by_unit": {},
+   "out_players": [],
+   "unresolved_players": [
+    "Spencer Brown (T) - Doubtful",
+    "Christian Benford (CB) - Questionable",
+    "Sam Franklin Jr. (S) - Questionable",
+    "Jordan Hancock (CB) - Questionable",
+    "Tyrell Shavers (WR) - Questionable"
+   ],
+   "replacement_named": null,
+   "replacement_note": "No official source names a replacement before kickoff. Left blank by rule.",
+   "source_url": "https://www.nfl.com/injuries/"
+  },
+  {
+   "team": "LV",
+   "out_count": 0,
+   "doubtful_count": 0,
+   "questionable_count": 2,
+   "unresolved_total": 2,
+   "out_by_unit": {},
+   "out_players": [],
+   "unresolved_players": [
+    "Thomas Booker (DT) - Questionable",
+    "Dont'e Thornton Jr. (WR) - Questionable"
+   ],
+   "replacement_named": null,
+   "replacement_note": "No official source names a replacement before kickoff. Left blank by rule.",
+   "source_url": "https://www.nfl.com/injuries/"
+  },
+  {
+   "team": "NYG",
+   "out_count": 0,
+   "doubtful_count": 0,
+   "questionable_count": 1,
+   "unresolved_total": 1,
+   "out_by_unit": {},
+   "out_players": [],
+   "unresolved_players": [
+    "Malik Harrison (LB) - Questionable"
+   ],
+   "replacement_named": null,
+   "replacement_note": "No official source names a replacement before kickoff. Left blank by rule.",
+   "source_url": "https://www.nfl.com/injuries/"
+  },
+  {
+   "team": "PIT",
+   "out_count": 0,
+   "doubtful_count": 0,
+   "questionable_count": 1,
+   "unresolved_total": 1,
+   "out_by_unit": {},
+   "out_players": [],
+   "unresolved_players": [
+    "Derrick Harmon (DT) - Questionable"
+   ],
+   "replacement_named": null,
+   "replacement_note": "No official source names a replacement before kickoff. Left blank by rule.",
+   "source_url": "https://www.nfl.com/injuries/"
+  },
+  {
+   "team": "BAL",
+   "out_count": 0,
+   "doubtful_count": 0,
+   "questionable_count": 0,
+   "unresolved_total": 0,
+   "out_by_unit": {},
+   "out_players": [],
+   "unresolved_players": [],
+   "replacement_named": null,
+   "replacement_note": "No official source names a replacement before kickoff. Left blank by rule.",
+   "source_url": "https://www.nfl.com/injuries/"
+  },
+  {
+   "team": "LAC",
+   "out_count": 0,
+   "doubtful_count": 0,
+   "questionable_count": 0,
+   "unresolved_total": 0,
+   "out_by_unit": {},
+   "out_players": [],
+   "unresolved_players": [],
+   "replacement_named": null,
+   "replacement_note": "No official source names a replacement before kickoff. Left blank by rule.",
+   "source_url": "https://www.nfl.com/injuries/"
+  }
+ ],
+ "games": [
+  {
+   "away": "NE",
+   "home": "DET",
+   "game_url": "https://www.nfl.com/games/patriots-at-lions-2026-reg-10",
+   "factors": {
+    "away": {
+     "team": "NE",
+     "out_skill": 3,
+     "players": [
+      "Ben Brown (C)",
+      "Carlton Davis III (CB)",
+      "TreVeyon Henderson (RB)"
+     ],
+     "qb_out": []
+    },
+    "home": {
+     "team": "DET",
+     "out_skill": 3,
+     "players": [
+      "Kerby Joseph (S)",
+      "Cade Mays (C)",
+      "D.J. Reed (CB)"
+     ],
+     "qb_out": []
+    }
+   },
+   "line_adjusted_for_availability": false,
+   "note": "The originated number uses team scoring rates only; it is NOT adjusted for these absences. No official, non-inferred weight exists for them.",
+   "source_url": "https://www.nfl.com/injuries/"
+  },
+  {
+   "away": "KC",
+   "home": "ATL",
+   "game_url": "https://www.nfl.com/games/chiefs-at-falcons-2026-reg-10",
+   "factors": {
+    "away": {
+     "team": "KC",
+     "out_skill": 3,
+     "players": [
+      "Jaylon Moore (T)",
+      "Omarr Norman-Lott (DT)",
+      "Peter Woods (DT)"
+     ],
+     "qb_out": []
+    },
+    "home": {
+     "team": "ATL",
+     "out_skill": 1,
+     "players": [
+      "Zachariah Branch (WR)"
+     ],
+     "qb_out": []
+    }
+   },
+   "line_adjusted_for_availability": false,
+   "note": "The originated number uses team scoring rates only; it is NOT adjusted for these absences. No official, non-inferred weight exists for them.",
+   "source_url": "https://www.nfl.com/injuries/"
+  },
+  {
+   "away": "HOU",
+   "home": "CLE",
+   "game_url": "https://www.nfl.com/games/texans-at-browns-2026-reg-10",
+   "factors": {
+    "away": {
+     "team": "HOU",
+     "out_skill": 5,
+     "players": [
+      "Azeez Al-Shaair (LB)",
+      "Marvin Harrison Jr. (WR)",
+      "Danielle Hunter (DE)",
+      "Brevin Jordan (TE)",
+      "Keylan Rutledge (G)"
+     ],
+     "qb_out": []
+    },
+    "home": {
+     "team": "CLE",
+     "out_skill": 1,
+     "players": [
+      "Ronnie Hickman Jr. (S)"
+     ],
+     "qb_out": []
+    }
+   },
+   "line_adjusted_for_availability": false,
+   "note": "The originated number uses team scoring rates only; it is NOT adjusted for these absences. No official, non-inferred weight exists for them.",
+   "source_url": "https://www.nfl.com/injuries/"
+  },
+  {
+   "away": "MIN",
+   "home": "GB",
+   "game_url": "https://www.nfl.com/games/vikings-at-packers-2026-reg-10",
+   "factors": {
+    "away": {
+     "team": "MIN",
+     "out_skill": 5,
+     "players": [
+      "Blake Cashman (LB)",
+      "T.J. Hockenson (TE)",
+      "Tyrion Ingram-Dawkins (DT)",
+      "Jauan Jennings (WR)",
+      "Kyler Murray (QB)"
+     ],
+     "qb_out": [
+      "Kyler Murray"
+     ]
+    },
+    "home": {
+     "team": "GB",
+     "out_skill": 4,
+     "players": [
+      "Josh Jacobs (RB)",
+      "Micah Parsons (LB)",
+      "Sean Rhyan (C)",
+      "Josh Whyle (TE)"
+     ],
+     "qb_out": []
+    }
+   },
+   "line_adjusted_for_availability": false,
+   "note": "The originated number uses team scoring rates only; it is NOT adjusted for these absences. No official, non-inferred weight exists for them.",
+   "source_url": "https://www.nfl.com/injuries/"
+  },
+  {
+   "away": "MIA",
+   "home": "IND",
+   "game_url": "https://www.nfl.com/games/dolphins-at-colts-2026-reg-10",
+   "factors": {
+    "away": {
+     "team": "MIA",
+     "out_skill": 2,
+     "players": [
+      "Aaron Brewer (C)",
+      "Jared Wayne (WR)"
+     ],
+     "qb_out": []
+    },
+    "home": {
+     "team": "IND",
+     "out_skill": 5,
+     "players": [
+      "Mo Alie-Cox (TE)",
+      "Jaylon Carlies (LB)",
+      "Akeem Davis-Gaither (LB)",
+      "Jerry Tillery (DT)",
+      "Jalen Travis (T)"
+     ],
+     "qb_out": []
+    }
+   },
+   "line_adjusted_for_availability": false,
+   "note": "The originated number uses team scoring rates only; it is NOT adjusted for these absences. No official, non-inferred weight exists for them.",
+   "source_url": "https://www.nfl.com/injuries/"
+  },
+  {
+   "away": "CAR",
+   "home": "NO",
+   "game_url": "https://www.nfl.com/games/panthers-at-saints-2026-reg-10",
+   "factors": {
+    "away": {
+     "team": "CAR",
+     "out_skill": 1,
+     "players": [
+      "Bobby Okereke (LB)"
+     ],
+     "qb_out": []
+    },
+    "home": {
+     "team": "NO",
+     "out_skill": 4,
+     "players": [
+      "CJ Donaldson (RB)",
+      "Taliese Fuaga (T)",
+      "Erik McCoy (C)",
+      "Christen Miller (DT)"
+     ],
+     "qb_out": []
+    }
+   },
+   "line_adjusted_for_availability": false,
+   "note": "The originated number uses team scoring rates only; it is NOT adjusted for these absences. No official, non-inferred weight exists for them.",
+   "source_url": "https://www.nfl.com/injuries/"
+  },
+  {
+   "away": "BUF",
+   "home": "NYJ",
+   "game_url": "https://www.nfl.com/games/bills-at-jets-2026-reg-10",
+   "factors": {
+    "away": {
+     "team": "BUF",
+     "out_skill": 0,
+     "players": [],
+     "qb_out": []
+    },
+    "home": {
+     "team": "NYJ",
+     "out_skill": 1,
+     "players": [
+      "Trevin Wallace (LB)"
+     ],
+     "qb_out": []
+    }
+   },
+   "line_adjusted_for_availability": false,
+   "note": "The originated number uses team scoring rates only; it is NOT adjusted for these absences. No official, non-inferred weight exists for them.",
+   "source_url": "https://www.nfl.com/injuries/"
+  },
+  {
+   "away": "JAX",
+   "home": "TEN",
+   "game_url": "https://www.nfl.com/games/jaguars-at-titans-2026-reg-10",
+   "factors": {
+    "away": {
+     "team": "JAX",
+     "out_skill": 3,
+     "players": [
+      "Jessie Bates (S)",
+      "Jordan Davis (DT)",
+      "BJ Green II (DE)"
+     ],
+     "qb_out": []
+    },
+    "home": {
+     "team": "TEN",
+     "out_skill": 4,
+     "players": [
+      "Cody Barton (LB)",
+      "Anthony Hill Jr. (LB)",
+      "Peter Skoronski (G)",
+      "Carnell Tate (WR)"
+     ],
+     "qb_out": []
+    }
+   },
+   "line_adjusted_for_availability": false,
+   "note": "The originated number uses team scoring rates only; it is NOT adjusted for these absences. No official, non-inferred weight exists for them.",
+   "source_url": "https://www.nfl.com/injuries/"
+  },
+  {
+   "away": "LAR",
+   "home": "AZ",
+   "game_url": "https://www.nfl.com/games/rams-at-cardinals-2026-reg-10",
+   "factors": {
+    "home": {
+     "team": "AZ",
+     "out_skill": 3,
+     "players": [
+      "Zachary Carter (DT)",
+      "Hjalte Froholdt (C)",
+      "Jon Gaines II (G)"
+     ],
+     "qb_out": []
+    }
+   },
+   "line_adjusted_for_availability": false,
+   "note": "The originated number uses team scoring rates only; it is NOT adjusted for these absences. No official, non-inferred weight exists for them.",
+   "source_url": "https://www.nfl.com/injuries/"
+  },
+  {
+   "away": "SEA",
+   "home": "LV",
+   "game_url": "https://www.nfl.com/games/seahawks-at-raiders-2026-reg-10",
+   "factors": {
+    "away": {
+     "team": "SEA",
+     "out_skill": 4,
+     "players": [
+      "Charles Cross (T)",
+      "Sam Darnold (QB)",
+      "Quenton Nelson (G)",
+      "Leonard Williams (DT)"
+     ],
+     "qb_out": [
+      "Sam Darnold"
+     ]
+    },
+    "home": {
+     "team": "LV",
+     "out_skill": 0,
+     "players": [],
+     "qb_out": []
+    }
+   },
+   "line_adjusted_for_availability": false,
+   "note": "The originated number uses team scoring rates only; it is NOT adjusted for these absences. No official, non-inferred weight exists for them.",
+   "source_url": "https://www.nfl.com/injuries/"
+  },
+  {
+   "away": "SF",
+   "home": "DAL",
+   "game_url": "https://www.nfl.com/games/49ers-at-cowboys-2026-reg-10",
+   "factors": {
+    "away": {
+     "team": "SF",
+     "out_skill": 1,
+     "players": [
+      "Mike Evans (WR)"
+     ],
+     "qb_out": []
+    },
+    "home": {
+     "team": "DAL",
+     "out_skill": 5,
+     "players": [
+      "Donovan Ezeiruaku (LB)",
+      "Jake Ferguson (TE)",
+      "Tyler Goodson (RB)",
+      "P.J. Locke (S)",
+      "Jonathan Mingo (WR)"
+     ],
+     "qb_out": []
+    }
+   },
+   "line_adjusted_for_availability": false,
+   "note": "The originated number uses team scoring rates only; it is NOT adjusted for these absences. No official, non-inferred weight exists for them.",
+   "source_url": "https://www.nfl.com/injuries/"
+  },
+  {
+   "away": "PIT",
+   "home": "CIN",
+   "game_url": "https://www.nfl.com/games/steelers-at-bengals-2026-reg-10",
+   "factors": {
+    "away": {
+     "team": "PIT",
+     "out_skill": 0,
+     "players": [],
+     "qb_out": []
+    },
+    "home": {
+     "team": "CIN",
+     "out_skill": 1,
+     "players": [
+      "Kyle Dugger (S)"
+     ],
+     "qb_out": []
+    }
+   },
+   "line_adjusted_for_availability": false,
+   "note": "The originated number uses team scoring rates only; it is NOT adjusted for these absences. No official, non-inferred weight exists for them.",
+   "source_url": "https://www.nfl.com/injuries/"
+  },
+  {
+   "away": "LAC",
+   "home": "BAL",
+   "game_url": "https://www.nfl.com/games/chargers-at-ravens-2026-reg-10",
+   "factors": {
+    "away": {
+     "team": "LAC",
+     "out_skill": 0,
+     "players": [],
+     "qb_out": []
+    },
+    "home": {
+     "team": "BAL",
+     "out_skill": 0,
+     "players": [],
+     "qb_out": []
+    }
+   },
+   "line_adjusted_for_availability": false,
+   "note": "The originated number uses team scoring rates only; it is NOT adjusted for these absences. No official, non-inferred weight exists for them.",
+   "source_url": "https://www.nfl.com/injuries/"
+  }
+ ],
+ "what_would_close_the_gap": "A pregame starter designation would have to come from the clubs, and nfl.com does not republish one. The Game Book closes the question retroactively and is the recommended pilot (suggestion SG-03).",
+ "rules_applied": "Nobody is labelled a starter, a backup or a '2nd-stringer' anywhere in this register unless an official source says so. The register lists who is out, who is unresolved and which unit they play in, and stops there."
+}

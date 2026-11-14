@@ -1,0 +1,294 @@
+{
+ "as_of": "2026-11-14",
+ "session": "f6e60a81",
+ "how_this_works": "This is the review section. Nothing in the list is implemented except where a row explicitly says it was done inside this session and is labelled as such. Every other row is a proposal with three options, an honest cost, the risk of taking it, the evidence that would justify it, and a decision field that only the operator can change. The default is 'UNDECIDED'. Several rows are deliberately the conservative option and say so.",
+ "decision_values": [
+  "UNDECIDED",
+  "ADOPT A",
+  "ADOPT B",
+  "ADOPT C",
+  "REJECT",
+  "DEFER"
+ ],
+ "suggestions": [
+  {
+   "id": "SG-01",
+   "title": "Fix the definition of winning before any leaderboard is published",
+   "why": "The leaderboard currently cannot produce a winner because three different things could count as winning and the scoring rule does not say which. Anyone reading the site will assume a winner exists.",
+   "options": {
+    "A": "Score on point-spread MAE only, against the frozen naive baseline, ranked by the lower 95% bound.",
+    "B": "Score on a composite of spread MAE, total MAE and moneyline Brier, each standardised against its own baseline, then Holm-correct the family.",
+    "C": "Do not rank at all until 300+ settled forecasts exist; publish only per-strategy calibration tables."
+   },
+   "recommended": "C now, then B once the ledger exists. C is the only option that cannot mislead a reader today, and B is the most decision-useful once there is enough data.",
+   "cost": "C costs nothing. B needs roughly a day of engineering plus the settled data.",
+   "risk": "B risks a composite score hiding a bad component. A is the simplest but ignores the totals and moneyline work already done.",
+   "evidence_that_would_justify": "A settled forecast ledger with enough games that the lower confidence bound excludes zero for at least one strategy.",
+   "decision": "UNDECIDED",
+   "owner_if_adopted": "next integration session",
+   "source_url": "https://www.itl.nist.gov/div898/handbook/prc/section4/prc473.htm"
+  },
+  {
+   "id": "SG-02",
+   "title": "Choose one strategy registry and retire the other",
+   "why": "There are 12 strategies with 8 gates in origination/ and 8 strategies at root. The counts disagree on the landing page and a reader cannot tell which is authoritative.",
+   "options": {
+    "A": "Adopt origination/'s 12 strategies and 8 gates, since that registry has walk-forward results attached.",
+    "B": "Adopt the root 8, which are better integrated with the audit snapshot.",
+    "C": "Publish both side by side permanently with a note explaining the difference."
+   },
+   "recommended": "A, with the root registry demoted to a historical appendix. A is the only one with a reproducible out-of-sample result behind it.",
+   "cost": "About two hours of refactoring plus a link-check pass.",
+   "risk": "Retiring a registry can lose a hypothesis someone intended to test. Mitigate by keeping it in Git and in the appendix.",
+   "evidence_that_would_justify": "The 12-strategy registry continuing to be the one that produces graded results.",
+   "decision": "UNDECIDED",
+   "owner_if_adopted": "next integration session",
+   "source_url": "https://www.nfl.com/standings/league/2026/REG"
+  },
+  {
+   "id": "SG-03",
+   "title": "Build a game-book extractor so starter and backup status is official after the fact",
+   "why": "The requirement to know when a 2nd, 3rd or 4th string player is on the field cannot be met pregame from any official source, but it can be met exactly after the game. The Game Book PDF for every game lists the starting lineup, the full substitution list and the inactive list.",
+   "options": {
+    "A": "Extract starters and substitutions from every Game Book, one per game, and build a season-long participation table.",
+    "B": "Extract only the quarterback and offensive line positions first, as a pilot on four games.",
+    "C": "Do nothing and keep the limitation documented."
+   },
+   "recommended": "B. The mechanism is already shown working on JAX at BAL: the official Game Book names 12 J.Fagnano at quarterback for the Ravens and does not list Lamar Jackson anywhere in the lineup or substitutions. A four-game pilot costs an afternoon and proves or kills the approach.",
+   "cost": "One afternoon for the pilot, roughly a full day per 40 games for the full season. The PDFs are stable and machine-readable in the text layer.",
+   "risk": "The game book is published after the game, so it cannot help a pregame line. It only fixes retrospective attribution and postgame grading.",
+   "evidence_that_would_justify": "A pilot that recovers every starter for four games without a single inference.",
+   "decision": "UNDECIDED",
+   "owner_if_adopted": "next integration session",
+   "source_url": "https://www.nfl.com/games/jaguars-at-ravens-2026-reg-9"
+  },
+  {
+   "id": "SG-04",
+   "title": "Decide whether a licensed sportsbook feed is allowed as an explicitly non-official input",
+   "why": "Every edge, EV, ROI and reward in the project depends on a price, and the NFL publishes none. The project's own rule currently makes market-dependent strategies permanently ineligible.",
+   "options": {
+    "A": "Keep the rule. Publish the project as descriptive only: lines but never edges.",
+    "B": "Admit one licensed feed, labelled 'OFFICIAL: no / LICENSED FEED: yes' on every row, used only for the market comparison column.",
+    "C": "Record market prices by hand at a fixed time each week into a timestamped ledger, with the collector named."
+   },
+   "recommended": "A until the operator explicitly wants a betting product. If B is chosen it must never be blended into a column that also carries NFL data, or the verification claim collapses.",
+   "cost": "B has a licensing cost and a data-contract obligation. C costs about 20 minutes a week but is error-prone.",
+   "risk": "B is the only path to a real edge claim and also the only path that can break the 'everything traces to an official source' promise. That trade-off is the operator's to make.",
+   "evidence_that_would_justify": "An operator statement that market-outcome measurement is in scope.",
+   "decision": "UNDECIDED",
+   "owner_if_adopted": "operator",
+   "source_url": "https://www.nfl.com/scores/2026/week-9"
+  },
+  {
+   "id": "SG-05",
+   "title": "Build a player game log before spending any more effort on props",
+   "why": "Player props and prop combinations are the largest part of the request and the part with the least data. Every prop cell on the site is blank because there is no per-player, per-game outcome history.",
+   "options": {
+    "A": "Transcribe per-game player passing, rushing and receiving lines from official nfl.com game pages for the season so far.",
+    "B": "Start with the 12 highest-volume quarterbacks only, then extend.",
+    "C": "Make props explicitly out of scope for now and say so on the landing page."
+   },
+   "recommended": "B then A. A QB-only log of about 100 player-games is enough to test whether a prop line can be originated at all, and it is a bounded job.",
+   "cost": "Roughly three hours per 100 player-games by hand; the official pages are structured enough for a careful script.",
+   "risk": "A hand-built log is error-prone. Mitigate by reconciling each player's season total against the official season leaderboard, which is a strong check because both numbers come from the NFL.",
+   "evidence_that_would_justify": "A QB log whose season totals reconcile exactly to https://www.nfl.com/stats/player-stats/category/passing/2026/reg/all/passingyards/desc",
+   "decision": "UNDECIDED",
+   "owner_if_adopted": "next integration session",
+   "source_url": "https://www.nfl.com/stats/player-stats/category/passing/2026/reg/all/passingyards/desc"
+  },
+  {
+   "id": "SG-06",
+   "title": "Start a pre-kickoff forecast ledger, timestamped and append-only",
+   "why": "Without it, every future grade is retro-datable and therefore weak evidence, and the leaderboard can never award anything.",
+   "options": {
+    "A": "Commit one JSON file per week, before kickoff, containing every originated number and its inputs.",
+    "B": "A signed and hashed ledger with a hash written into the coordination board each week.",
+    "C": "Rely on git commit times alone."
+   },
+   "recommended": "B, which is A plus a hash. It costs one extra line per week and converts 'we say it was pre-kickoff' into 'here is the hash that was published before kickoff'.",
+   "cost": "Ten minutes a week.",
+   "risk": "None material. The only failure mode is forgetting a week, which leaves a gap rather than a false claim.",
+   "evidence_that_would_justify": "Nothing to justify; this is the precondition for every other skill claim.",
+   "decision": "UNDECIDED",
+   "owner_if_adopted": "operator or weekly session",
+   "source_url": "https://www.itl.nist.gov/div898/handbook/prc/section1/prc14.htm"
+  },
+  {
+   "id": "SG-07",
+   "title": "Consolidate the nine published surfaces into one site with a namespace index",
+   "why": "Root, pages/, desk/, strict/site/, evidence-lab/, docs/evidence-lab/, origination/, hub/ and archive/ all publish. A reader cannot tell which is canonical and the same numbers appear in several places at different vintages.",
+   "options": {
+    "A": "Keep the root dashboard as canonical and add a navigation index that links every namespace, with its as-of date and owner.",
+    "B": "Merge everything into the root build and delete the other surfaces.",
+    "C": "Leave as is."
+   },
+   "recommended": "A now. This session already took the first step by adding the requirements section to the root navigation instead of creating a tenth surface. B risks destroying another session's audited work.",
+   "cost": "A is one page and about an hour. B is a multi-day integration with real regression risk.",
+   "risk": "A leaves the site looking like nine products. The index page is what fixes that perception, so it has to carry the as-of date prominently.",
+   "evidence_that_would_justify": "The index page being the top result a reader lands on.",
+   "decision": "UNDECIDED",
+   "owner_if_adopted": "next integration session",
+   "source_url": "https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages"
+  },
+  {
+   "id": "SG-08",
+   "title": "Keep the project paper-only and say why in one sentence on every page",
+   "why": "The operator is in Singapore and no legal determination has been made. A site that looks like a betting tool but awards no money is in a worse position than one that is explicitly a research instrument.",
+   "options": {
+    "A": "Paper only, no stakes, no cash rewards, stated on every page footer.",
+    "B": "Paper only but add a jurisdiction-aware notice before any market feature.",
+    "C": "Pursue a betting product."
+   },
+   "recommended": "A. It is already the project's position and costs nothing to keep.",
+   "cost": "Nothing.",
+   "risk": "None. The only risk is a future session quietly adding a stake field.",
+   "evidence_that_would_justify": "Operator confirmation that no wagering is intended.",
+   "decision": "UNDECIDED",
+   "owner_if_adopted": "operator",
+   "source_url": "https://wsgc.wa.gov/responsible-gaming-self-exclusion"
+  },
+  {
+   "id": "SG-09",
+   "title": "Do not convert injury designations into probabilities unless that choice is labelled as a model assumption",
+   "why": "The NFL publishes Out, Doubtful and Questionable with no associated probability. Any number attached to them is invented, and invented numbers are exactly what this project's rule forbids being presented as verified.",
+   "options": {
+    "A": "Keep designations as text only; no model uses them.",
+    "B": "Use published empirical completion rates for each designation, citing the study, and label the column 'research input, not official'.",
+    "C": "Invent weights and label them as a model assumption."
+   },
+   "recommended": "A today, B only if a reputable published rate table can be cited. C is not acceptable under the project rule.",
+   "cost": "A is free. B needs a literature search.",
+   "risk": "Without any weighting, availability can never enter a line, so the injury work stays descriptive.",
+   "evidence_that_would_justify": "A citable empirical rate per designation from a reputable source.",
+   "decision": "UNDECIDED",
+   "owner_if_adopted": "next research session",
+   "source_url": "https://www.nfl.com/injuries/"
+  },
+  {
+   "id": "SG-10",
+   "title": "Publish a standing 'what would change our mind' line on every findings page",
+   "why": "A dashboard that only reports conclusions trains the reader to trust it. Stating the falsifier makes the site useful for decision making rather than merely informative.",
+   "options": {
+    "A": "One sentence per page: the observation that would overturn the page's headline.",
+    "B": "A dedicated page collecting every falsifier.",
+    "C": "Nothing."
+   },
+   "recommended": "A. It sits next to the claim, so it cannot be missed.",
+   "cost": "About 30 minutes across all pages.",
+   "risk": "None, other than the discipline of writing it honestly.",
+   "evidence_that_would_justify": "Not applicable; this is a communication improvement.",
+   "decision": "UNDECIDED",
+   "owner_if_adopted": "next integration session",
+   "source_url": "https://www.itl.nist.gov/div898/handbook/eda/section3/scatterp.htm"
+  },
+  {
+   "id": "SG-11",
+   "title": "Replace the fixed-sigma normal win probability with an empirically calibrated curve",
+   "why": "The current win probability is a normal CDF with one constant sigma. The graded Week 9 moneyline Brier of 0.19 is better than a coin flip but the curve has never been fitted to outcomes, so its probabilities are not calibrated by construction.",
+   "options": {
+    "A": "Fit a logistic calibration on the 137-game log and report reliability bins.",
+    "B": "Keep the normal curve but publish a reliability diagram beside it.",
+    "C": "Drop win probabilities entirely until the ledger exists."
+   },
+   "recommended": "B immediately, A when there are 300+ games. B is honest at n = 137 and takes an hour.",
+   "cost": "B is an hour; A is a day including the calibration test.",
+   "risk": "A fitted curve on 137 games will overfit. That is exactly why B comes first.",
+   "evidence_that_would_justify": "A reliability diagram showing systematic miscalibration.",
+   "decision": "UNDECIDED",
+   "owner_if_adopted": "next research session",
+   "source_url": "https://www.itl.nist.gov/div898/handbook/prc/section1/prc14.htm"
+  },
+  {
+   "id": "SG-12",
+   "title": "Add an automated staleness check that fails the build when the newest official capture is older than the current week",
+   "why": "The repository shipped for ten days with a game log that stopped at Week 8 while two more weeks had been played. Nothing failed, so nobody noticed.",
+   "options": {
+    "A": "A date check in the existing audit workflow that fails when the capture week is behind the earliest unplayed week.",
+    "B": "A badge on the site that turns red after seven days.",
+    "C": "Manual review."
+   },
+   "recommended": "A plus B. The build failure protects the data; the badge protects the reader who sees a stale deployment.",
+   "cost": "Two hours.",
+   "risk": "A date check cannot know when the NFL moves a game, so it should warn rather than block on ambiguous weeks.",
+   "evidence_that_would_justify": "The ten-day gap already observed.",
+   "decision": "UNDECIDED",
+   "owner_if_adopted": "next integration session",
+   "source_url": "https://www.nfl.com/schedules/2026/by-week/week-10"
+  },
+  {
+   "id": "SG-13",
+   "title": "Stop tracking bytecode and one-off capture files in Git",
+   "why": "Two .pyc files are tracked despite being in .gitignore, and several inherited capture files are one-off transcriptions that will never change and inflate every clone.",
+   "options": {
+    "A": "Remove the tracked .pyc files and add a pattern to .gitignore that actually matches.",
+    "B": "Move one-off captures to a Git LFS or a release asset.",
+    "C": "Leave it."
+   },
+   "recommended": "A. It is a two-minute fix with no downside.",
+   "cost": "Two minutes.",
+   "risk": "None.",
+   "evidence_that_would_justify": "Not applicable; it is housekeeping.",
+   "decision": "UNDECIDED",
+   "owner_if_adopted": "next integration session",
+   "source_url": "https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files"
+  },
+  {
+   "id": "SG-14",
+   "title": "Add a per-team 'why this number' explanation to every originated line",
+   "why": "The lines page currently gives a number and a method footnote. A reader who wants to interrogate one game has to open the JSON.",
+   "options": {
+    "A": "One expandable block per game listing the four inputs that produced it and each input's official source.",
+    "B": "A single worked example on the methodology page.",
+    "C": "Nothing."
+   },
+   "recommended": "A. It makes the model auditable game by game without a separate document.",
+   "cost": "Three hours.",
+   "risk": "None.",
+   "evidence_that_would_justify": "Not applicable; this is transparency.",
+   "decision": "UNDECIDED",
+   "owner_if_adopted": "next integration session",
+   "source_url": "https://www.nfl.com/standings/league/2026/REG"
+  },
+  {
+   "id": "SG-15",
+   "title": "Decisions already taken inside this session, recorded here so nothing was implemented invisibly",
+   "why": "The operator asked that nothing be implemented before it is reviewed. This row is the audit trail of the choices this session had to make to complete the work at all.",
+   "already_done": [
+    "Captured Week 9 scores, Week 10 schedule, Week 10 injuries (all eight chunks) and the current standings, and appended the one completed Week 10 game to the game log rather than leaving the log three weeks stale.",
+    "Graded the inherited Week 9 lines out of sample instead of leaving them ungraded.",
+    "Excluded the completed WAS at NYG game from the Week 10 prediction slate so no result predicts itself.",
+    "Published the required new sections inside requirements/** and linked them from the root navigation rather than creating a tenth top-level site.",
+    "Left hub/**, origination/**, desk/**, strict/, evidence-lab/ and archive/ unedited, and recorded findings about them as flags."
+   ],
+   "options": {
+    "A": "Accept all five as recorded.",
+    "B": "Reverse the out-of-sample grading and publish the Week 9 lines as ungraded again.",
+    "C": "Reverse the navigation change and leave the new sections unlinked from the root."
+   },
+   "recommended": "A. Each choice is reversible in one commit and none changes an inherited file.",
+   "cost": "Reversing any of them is a small revert.",
+   "risk": "The navigation change touches the root index.html, which other sessions also generate. It is regenerated by scripts/build_site.py, so a competing generator could silently drop it.",
+   "evidence_that_would_justify": "Operator preference stated on this row.",
+   "decision": "UNDECIDED",
+   "owner_if_adopted": "operator",
+   "source_url": "https://www.nfl.com/scores/2026/week-10"
+  },
+  {
+   "id": "SG-16",
+   "title": "Add a home-field advantage term that is fitted rather than assumed to be zero",
+   "why": "The current line sets venue adjustment to exactly zero by design, which is a defensible first benchmark but leaves a known, measurable effect out. The graded Week 9 result of 13 of 15 home numbers on the wrong side is consistent with a systematic bias, but 15 games cannot distinguish a bias from noise.",
+   "options": {
+    "A": "Fit a single league-wide home edge from the 137-game log and add it, keeping the neutral-site rules.",
+    "B": "Fit a per-club home edge with shrinkage.",
+    "C": "Keep zero and document it."
+   },
+   "recommended": "A as the next single change, because it is one parameter, it is testable walk-forward, and the 13-of-15 result points at a bias rather than at noise alone.",
+   "cost": "Two hours including the walk-forward re-test.",
+   "risk": "A fitted edge on one season can simply be fitting the same noise the project is trying to avoid. It must be re-tested out of sample, not just refitted.",
+   "evidence_that_would_justify": "A walk-forward improvement in spread MAE that survives the same gates.",
+   "decision": "UNDECIDED",
+   "owner_if_adopted": "next research session",
+   "source_url": "https://www.nfl.com/scores/2026/week-9"
+  }
+ ]
+}

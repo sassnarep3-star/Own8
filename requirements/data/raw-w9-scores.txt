@@ -1,0 +1,20 @@
+# Raw transcription — 2026 Week 9 scores
+# Source: https://www.nfl.com/scores/2026/week-9 (retrieved 2026-11-14, chunks 0-2)
+# Format: week | heading | away | away_score | home | home_score | winner_indicator | game_slug
+# Transcribed verbatim from the rendered page. "Final" shown for every row. No value inferred.
+9|Thursday Night Football, November 5th|JAX|33|BAL|10|JAX|jaguars-at-ravens-2026-reg-9
+9|Sunday, November 8th, International Game (Madrid)|CIN|34|ATL|17|CIN|bengals-at-falcons-2026-reg-9
+9|Sunday, November 8th|DEN|26|CAR|21|DEN|broncos-at-panthers-2026-reg-9
+9|Sunday, November 8th|DAL|27|IND|23|DAL|cowboys-at-colts-2026-reg-9
+9|Sunday, November 8th|NYJ|12|KC|35|KC|jets-at-chiefs-2026-reg-9
+9|Sunday, November 8th|DET|19|MIA|9|DET|lions-at-dolphins-2026-reg-9
+9|Sunday, November 8th|CLE|22|NO|23|NO|browns-at-saints-2026-reg-9
+9|Sunday, November 8th|NYG|19|PHI|11|NYG|giants-at-eagles-2026-reg-9
+9|Sunday, November 8th|LAR|20|WAS|13|LAR|rams-at-commanders-2026-reg-9
+9|Sunday, November 8th|HOU|44|LAC|22|HOU|texans-at-chargers-2026-reg-9
+9|Sunday, November 8th|LV|17|SF|38|SF|raiders-at-49ers-2026-reg-9
+9|Sunday, November 8th|GB|45|NE|27|GB|packers-at-patriots-2026-reg-9
+9|Sunday, November 8th|AZ|3|SEA|17|SEA|cardinals-at-seahawks-2026-reg-9
+9|Sunday Night Football, November 8th|TB|24|CHI|27|CHI|buccaneers-at-bears-2026-reg-9
+9|Monday Night Football, November 9th|BUF|23|MIN|6|BUF|bills-at-vikings-2026-reg-9
+# Teams on Bye (rendered on the same page): PIT 6-2, TEN 1-7

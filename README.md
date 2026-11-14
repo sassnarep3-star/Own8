@@ -3,10 +3,13 @@
 **Evidence before edge.** An official-source audit dashboard, transparent line-origination benchmark, and fail-closed strategy competition registry for singles, parlays and player-prop combinations.
 
 **Live:** https://sassnarep3-star.github.io/Own8/  
+**Requirements & decision review:** https://sassnarep3-star.github.io/Own8/requirements/index.html  
 **Executive brief:** https://sassnarep3-star.github.io/Own8/pages/executive-summary.html  
 **Flagged for Review:** https://sassnarep3-star.github.io/Own8/pages/flagged.html
 
-## Executive summary · 2026-11-04
+## Executive summary · 2026-11-04 snapshot
+
+> **Superseded for current numbers.** The section below describes the 04 Nov snapshot. For the current state of the data, the out-of-sample grading and the review queue, read [What changed on 2026-11-14](#what-changed-on-2026-11-14-session-f6e60a81) below and the [requirements section](https://sassnarep3-star.github.io/Own8/requirements/index.html).
 
 - Independently rechecked **32 standings core rows / 256 fields** against NFL.com; **15 Week 9 schedule entries**, **12 complete Week 8 scores**, **28 JAX/BAL practice entries**, and **two NFL news bodies**. Exact coverage: `data/sources.json` and `data/audit-snapshot.json`. Two score rows remain blank because their full source text was not observed. No claim of exhaustive external verification of all inherited files.
 - Originates **15 illustrative B0 scoring benchmarks** from audited points-for/against rates. All are **derived project calculations**, not official NFL lines, calibrated fair prices or recommendations. Home handicap = projected away score − projected home score. No fitted venue/roster adjustment; the Madrid game does not receive a home-field assumption.
@@ -15,7 +18,31 @@
 - Removes unsupported claims that luck can be eliminated, unverified odds can yield verified candidates, or conditional gates count as passes. Statistical uncertainty cannot be eliminated.
 - Catalogs **471 inherited JSON/CSV entries**, withholding unverified values; records file-level review scope, source links and review flags. Every canonical table row has an official reference or explicitly labeled verification target.
 
-## Reproduce (Python 3.11+, standard library only)
+
+## What changed on 2026-11-14 (session f6e60a81)
+
+The repository was last refreshed on 2026-11-04, when the official game log stopped at Week 8. Two weeks of football had been played since and nothing had failed, so this session re-captured the official data and, for the first time, graded the model against results it had never seen.
+
+- **Official capture refreshed.** 15 Week 9 scores, the completed Week 10 Thursday game, the 14-game Week 10 slate and all 345 Week 10 injury rows are transcribed from nfl.com with their exact URLs. The official game log now runs to **137 games**. Recomputing every club's W-L-T, PCT, PF, PA, NET, HOME and ROAD from that log matches the official standings on **352 of 352 cells**.
+- **The Week 9 lines were graded out of sample.** The 15 fair lines originated on 04 Nov were scored against the results: spread MAE **10.65**, total MAE **10.81**, home covers **5 of 15**, moneyline Brier **0.190**. At n = 15 none of that is distinguishable from a coin flip, and the site says so.
+- **Week 10 lines originated.** 13 fair numbers for the games not yet played, labelled UNVALIDATED, with no market price and no edge, because no official source publishes one.
+- **New review layer.** `requirements/` publishes a requirement register (16 rows), an open-question register (22 rows), a suggestions section (16 proposals, every decision still open), an availability and deficiencies register, a luck decomposition, a verification log and a review register (15 flags). Every table row carries an official source link and `requirements/scripts/check_req.py` fails the build if one does not.
+- **One hard limit, stated plainly.** The requirement to know when a 2nd, 3rd or 4th string player is replacing a starter is only half achievable. The nfl.com depth-chart URL returns **404**, the roster page publishes only a status code, and the only official page naming actual starters is the **NFL Game Book PDF**, which appears after the game.
+
+Start here: [executive summary](https://sassnarep3-star.github.io/Own8/requirements/pages/executive-summary.html) · [suggestions for your decision](https://sassnarep3-star.github.io/Own8/requirements/pages/suggestions.html) · [open questions](https://sassnarep3-star.github.io/Own8/requirements/pages/questions.html) · [flagged for review](https://sassnarep3-star.github.io/Own8/requirements/pages/flagged.html)
+
+### Reproduce the new work
+
+```sh
+python3 requirements/scripts/verify_capture.py      # capture checks, 352-cell reconciliation, W9 grading, W10 lines
+python3 requirements/scripts/analyze_availability.py # availability register + luck decomposition
+python3 requirements/scripts/build_checks.py         # merge every check family into one result file
+python3 requirements/scripts/build_flags.py          # review register
+python3 requirements/scripts/req_site.py             # the section pages
+python3 requirements/scripts/check_req.py            # every row sourced, every link resolves
+```
+
+## Reproduce the inherited root dashboard (Python 3.11+, standard library only)
 
 ```sh
 python3 scripts/audit_repo.py

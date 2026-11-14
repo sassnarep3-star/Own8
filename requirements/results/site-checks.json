@@ -1,0 +1,21 @@
+{
+ "checked_at": "2026-11-14",
+ "scope": "requirements/pages/*.html (generated), the register data, and the capture check output",
+ "pages": 18,
+ "local_and_external_links": 1100,
+ "table_rows": 682,
+ "rows_with_official_link": 682,
+ "requirements": 16,
+ "suggestions": 16,
+ "questions": 22,
+ "question_states": {
+  "ANSWERED": 12,
+  "IMPOSSIBLE": 2,
+  "PARTIAL": 1,
+  "OPEN": 7
+ },
+ "capture_checks": 57,
+ "capture_failures": 0,
+ "errors": [],
+ "status": "PASS"
+}
