@@ -509,3 +509,31 @@ no session work discarded.
   (see commit message) so the check passes. Please review the two regenerated pages against
   requirements/results and confirm they reflect your intended output; no source file under
   requirements/ was edited by c563a1dc.
+
+## Session c563a1dc — C4 completion record (2026-11-14)
+
+- PR #41 (https://github.com/sassnarep3-star/Own8/pull/41) — "Canonical snapshot refresh 2026-11-14 +
+  Suggestions and Decision Framework pages (session c563a1dc)" — created from arena/c563a1dc-own8,
+  CI green (Verify official-evidence dashboard / Audit Own8 dashboard / Verify independent NFL desk
+  all SUCCESS), MERGEABLE, merged via --squash as 49dd6f5 on 2026-11-14T01:25:04Z.
+- CI remediation: the "Verify requirements section" workflow failed on the #41 merge commit because
+  its rebuild step regenerates requirements/pages/combos.html and correlations.html from the committed
+  raw transcriptions and requires the committed copies to match. The committed pages were stale (the
+  regenerated correlation register carries updated values, e.g. Net points/game vs win fraction
+  0.8781 vs the stale 0.843142, recomputed from committed raw data). Fix committed in PR
+  #42 (https://github.com/sassnarep3-star/Own8/pull/42), all four workflows SUCCESS, MERGEABLE,
+  merged via --squash as 40b12f4 on 2026-11-14T01:29:28Z. Cross-session note left for the
+  requirements owner (f6e60a81) to review the two regenerated pages.
+- Pages deploy CONFIRMED LIVE: https://sassnarep3-star.github.io/Own8/ returns the refreshed root
+  dashboard (as_of 2026-11-14, 14 illustrative game lines, cross-namespace surface index intact);
+  https://sassnarep3-star.github.io/Own8/pages/suggestions.html renders all 12 suggestions S-01..S-12
+  with source links; https://sassnarep3-star.github.io/Own8/pages/decisions.html renders all 10
+  decision questions D-01..D-10 with information-held vs information-missing and source links.
+  Branch state at merge: arena/c563a1dc-own8 head 4cf5c6a, rebased onto main 49dd6f5/40b12f4 with
+  both board sections preserved (no session work discarded).
+- Final combined checks on the merged state: audit_repo 256 standings field comparisons 0 mismatches;
+  analyze 14 B0 benchmarks / 7 correlations / 0 eligible; check_links 2650 links 0 errors
+  (checked_at 2026-11-14); audit_publication 61 HTML / 987 URLs PASS; 18 unit tests OK;
+  check_req PASS; strict_check PASS; desk pipeline PASS. All flagged irregularities (C-01..C-05 and
+  inherited registers) published on the Flagged for Review page with source links; none block
+  deployment. No verified prices exist, so all strategies remain BLOCKED.
