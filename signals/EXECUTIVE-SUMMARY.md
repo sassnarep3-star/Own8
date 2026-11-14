@@ -15,8 +15,8 @@ rank cannot become a stake, and a model line cannot be compared with a market li
 stopped building and did four things instead. It measured every strategy against eight do-nothing
 rules on identical games, so "skill" now means skill over a coin rather than skill over a hand-picked
 benchmark. It computed the number that would make each signal worth exactly zero, so the price hurdle
-is now an explicit target instead of a missing column. It rebuilt the correlation register with the
-independent sample size beside the row count and a verdict on every coefficient. And it proved, on two
+is now an explicit target instead of a missing column. It rebuilt the correlation register, reproduced six of nine published
+coefficients exactly, and put the game-level sample size beside the row count. And it proved, on two
 clubs, that the depth of a replacement **is** measurable from the official Game Book — after the game
 and never before kickoff. The headline result is uncomfortable and is published anyway: **two arms
 clear the break-even rate at an assumed -110, one of them a naive five-game recency rule, and neither
@@ -32,8 +32,8 @@ is promotable.**
 | 2 | Using future games (deliberate leakage) buys only a little | 8.02 MAE, 1.38 points better | **ESTABLISHED, EXCLUDED** |
 | 3 | Break-even at an assumed -110 | 52.381% hit rate | **ARITHMETIC** |
 | 4 | Arms whose interval lower bound clears break-even | 2 of 18 (B11 53.47%, S8 52.49%) | **ESTABLISHED, NOT PROMOTED** |
-| 5 | Correlations that reproduce exactly | C1 and C2 (value and n) | **ESTABLISHED** |
-| 6 | Correlations illegitimate as published | C5–C8 (n counts QB-games, not games) | **CORRECTED** |
+| 5 | Correlations that reproduce exactly | C1, C2, C5, C6, C7, C8 | **ESTABLISHED** |
+| 6 | Correlations whose p-values are optimistic | C5–C8 report n = 204 team-games inside 105 games | **CAVEAT** |
 | 7 | Correlations that survive a Holm correction | C5, C6 — and both are tautological | **ESTABLISHED, UNUSABLE** |
 | 8 | Replacement depth is measurable from the Game Book | 3 slot changes, 1 explained, 6 unexplained absences | **METHOD PROVEN, n=2 CLUBS** |
 
@@ -62,7 +62,8 @@ awarding a rank on 104 games rewards noise. The measured answer is that a five-g
 a coin flip at p = 0.005 on the moneyline, and no registered strategy does meaningfully better.
 
 **"Each strategy must pass validation gates. Determine correlation values. Remove luck."** Gates are
-frozen in code. Correlations are recomputed with the honest n and a legitimacy verdict. **Luck is not
+frozen in code. Correlations are recomputed and six of nine reproduce exactly; every value now carries
+the game-level n beside the published row count. **Luck is not
 removable and this repository will not pretend otherwise** — what it now does is *measure* luck: every
 arm carries its interval, its exact one-sided p-value, and the number of bets needed to confirm its own
 observed edge. For the best arm that number is about 580 graded bets. The repository has zero.
@@ -110,5 +111,11 @@ Published deliberately, because a corrected error is evidence about the noise th
   by row. The books order positions differently, so that approach invented about twenty replacements.
 - **Wrong formula, replaced.** The first draft computed the break-even cushion from win probability
   instead of cover probability, and inverted a favourite's spread sign.
+- **False accusation, withdrawn.** The first draft declared four published correlations "illegitimate
+  as published" and implied their n was a mistake. It had ignored the originator's documented
+  single-passer sample rule and quietly mixed in a week-9 capture that post-dated the register. All
+  four coefficients reproduce exactly to six decimals on the correct sample. The verdict was withdrawn
+  and the only surviving finding is the milder one: the 204 rows sit inside 105 games, so the
+  p-values are optimistic.
 
 All three are on the [Flagged for review](flagged.html) page with their evidence.

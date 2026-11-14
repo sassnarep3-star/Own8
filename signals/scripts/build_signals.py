@@ -397,7 +397,8 @@ def build_correlations():
     body = kv([
         (f"{len(CORR['correlations'])}", "Correlations examined", "recomputed where possible"),
         (f"{len(s['agree_on_value_and_n'])}", "Reproduce exactly", "value and n both match"),
-        (f"{len(s['illegitimate_as_published'])}", "Illegitimate as published", "n counts rows, not games"),
+        (f"{len(s['reproduce_exactly_with_a_caveat'])}", "Reproduce exactly, with a caveat",
+         "p-values optimistic, coefficients right"),
         (f"{len(s['survive_holm_at_5pct'])}", "Survive Holm", "and both are tautological"),
     ])
     body += note("Why n is printed on every row",
@@ -809,11 +810,13 @@ def build_exec():
          f"{len(CORR['summary']['agree_on_value_and_n'])}: "
          + ", ".join(CORR["summary"]["agree_on_value_and_n"]) + " (value and n)",
          badge("ESTABLISHED", "good"), url("https://www.nfl.com/scores/2026/week-1")],
-        ["6", "Correlations illegitimate as published",
-         f"{len(CORR['summary']['illegitimate_as_published'])}: "
-         + ", ".join(CORR["summary"]["illegitimate_as_published"])
-         + " — n counts QB-games, not games",
-         badge("CORRECTED", "warn"),
+        ["6", "Correlations reproduce, but their p-values are optimistic",
+         ", ".join(CORR["summary"]["reproduce_exactly_with_a_caveat"])
+         + f" reproduce exactly on {CORR['inputs']['ngs_rows_single_passer']} single-passer team-games, "
+         + "but those rows sit inside "
+         + str(next(c["n_independent"] for c in CORR["correlations"] if c["id"] == "C5"))
+         + " games, so the effective sample for inference is smaller than the published n",
+         badge("CAVEAT", "warn"),
          url("https://nextgenstats.nfl.com/stats/passing/2026/REG/9")],
         ["7", "Correlations surviving a Holm correction",
          ", ".join(CORR["summary"]["survive_holm_at_5pct"])

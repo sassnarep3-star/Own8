@@ -1,9 +1,9 @@
 {
  "generated": "2026-11-14",
- "checks_run": 104,
- "passed": 104,
+ "checks_run": 114,
+ "passed": 114,
  "failed": 0,
- "rows_checked": 377,
+ "rows_checked": 378,
  "status": "PASS",
  "results": [
   {
@@ -294,7 +294,7 @@
   {
    "check": "table markup balanced: flagged.html",
    "pass": true,
-   "detail": "tables 1/1 rows 16/16 cells 120/120"
+   "detail": "tables 1/1 rows 17/17 cells 128/128"
   },
   {
    "check": "as-of date present: flagged.html",
@@ -359,7 +359,7 @@
   {
    "check": "every data row carries a source link",
    "pass": true,
-   "detail": "377 rows checked; unsourced: []"
+   "detail": "378 rows checked; unsourced: []"
   },
   {
    "check": "no broken local link",
@@ -414,7 +414,7 @@
   {
    "check": "flags published and own-work corrections included",
    "pass": true,
-   "detail": "total 15, own-work ['SF-04', 'SF-15', 'SF-11']"
+   "detail": "total 16, own-work ['SF-16', 'SF-04', 'SF-15', 'SF-11']"
   },
   {
    "check": "no 'verified' claim about a line/price: market.html",
@@ -523,6 +523,56 @@
   },
   {
    "check": "arm count wording matches the file: sources.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no stale correlation verdict: index.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no stale correlation verdict: executive-summary.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no stale correlation verdict: baselines.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no stale correlation verdict: market.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no stale correlation verdict: correlations.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no stale correlation verdict: availability.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no stale correlation verdict: decisions.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no stale correlation verdict: suggestions.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no stale correlation verdict: flagged.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "no stale correlation verdict: sources.html",
    "pass": true,
    "detail": ""
   }

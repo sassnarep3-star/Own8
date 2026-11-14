@@ -31,16 +31,30 @@ FLAGS = [
      "disposition": "Price columns stay null everywhere. The repository publishes what a price WOULD "
                     "have to be instead. Operator action required outside the NFL data family.",
      "source_url": SCHED11},
-    {"id": "SF-02", "severity": "high", "category": "Statistical validity",
-     "finding": "The published n for correlations C5–C8 counts QB-games, not games. Both QBs in a "
-                "game share the same team points, total and margin, so the observations are not "
-                "independent and the published significance is overstated.",
-     "evidence": "origination/results/correlations-w10.json reports n = 204 for C5–C8; the committed "
-                 "NGS transcription has 240 rows inside 120 distinct games. Recomputed with "
-                 "n = 120 in signals/data/correlation-legitimacy.json.",
-     "impact": "Four published coefficients carry a p-value that is too small.",
-     "disposition": "Recomputed with the game-level n and republished with the verdict ILLEGITIMATE "
-                    "as published. Point estimates are unaffected. No origination file was edited.",
+    {"id": "SF-02", "severity": "medium", "category": "Statistical validity",
+     "finding": "C5–C8 publish n = 204, the number of single-passer team-games. Every coefficient "
+                "reproduces exactly, but those 204 rows sit inside 105 distinct games (two passers in a "
+                "game share the same team points, total and margin), so the effective independent "
+                "sample for inference is smaller and the published p-values are optimistic.",
+     "evidence": "origination/results/correlations-w10.json (n = 204 for C5–C8); recomputed here on "
+                 "the same sample in signals/data/correlation-legitimacy.json, where n_independent = 105.",
+     "impact": "The coefficients are correct; the significance levels overstate the evidence.",
+     "disposition": "Published with the game-level n alongside. The values are NOT changed and the "
+                    "register is NOT accused of an arithmetic error.",
+     "source_url": NGS},
+    {"id": "SF-16", "severity": "high", "category": "Own work — corrected",
+     "finding": "This session's first draft declared C5–C8 'ILLEGITIMATE as published' and implied the "
+                "published n was a mistake. It was wrong twice: it ignored the originator's documented "
+                "single-passer sample rule, and it quietly mixed in a week-9 NGS capture that arrived "
+                "after the register was computed.",
+     "evidence": "Recomputing with the single-passer rule on weeks 1, 3–8 reproduces all four values "
+                 "exactly: C5 0.395306, C6 0.436017, C7 0.101358, C8 -0.196869 against the published "
+                 "values to six decimals.",
+     "impact": "A false accusation of error against another session's work, published on a site whose "
+               "entire claim is that it does not overstate. This is the most serious defect this "
+               "session found, and it was in its own output.",
+     "disposition": "Verdict changed to REPRODUCES EXACTLY with the inference caveat retained. The "
+                    "sample-rule and week-9 handling are now explicit in signals/scripts/correlations.py.",
      "source_url": NGS},
     {"id": "SF-03", "severity": "medium", "category": "Statistical validity",
      "finding": "Correlations C2, C3 and C4 are three statements about the same residuals, so they "

@@ -135,16 +135,29 @@ def main():
         w, player, team, att, yds, td, ints = line.split("|")
         ngs_rows.append({"week": int(w), "player": player, "team": team,
                          "att": int(att), "yds": int(yds)})
-    for row in NGS_W9:
-        ngs_rows.append({"week": 9, "player": row["player"], "team": row["team"],
-                         "att": int(row["att"]), "yds": int(row["yds"])})
+    # The published register (C5-C9) was computed on weeks 1, 3-8 only; the week-9 capture arrived
+    # in a later session. Mixing them changes the single-passer sample and therefore the coefficients.
+    # The register rows below therefore use EXACTLY the published sample; week 9 is held separately
+    # as an extension and is not used to reconcile anything.
+    ngs_w9_rows = [{"week": 9, "player": row["player"], "team": row["team"],
+                    "att": int(row["att"]), "yds": int(row["yds"])} for row in NGS_W9]
 
     by_wt = {}
     for g in GAMES:
         by_wt[(g["week"], g["home"])] = (g, "home")
         by_wt[(g["week"], g["away"])] = (g, "away")
-    joined, unjoined = [], []
+    # ORIGINATOR'S DOCUMENTED SAMPLE RULE: one row per team-game, i.e. only team-games where NGS
+    # lists a single passer. This is recorded in the committed input checks (correlation-audit/data/
+    # input-checks.json: "single-QB team-games used for C5-C9 = 204") and reproduces the published
+    # values exactly. An earlier draft of THIS file ignored the rule, used all 240 rows, obtained
+    # different numbers, and wrongly called the published n an error. See flag SF-16.
+    per_team_week = {}
     for row in ngs_rows:
+        per_team_week[(row["week"], row["team"])] = per_team_week.get((row["week"], row["team"]), 0) + 1
+    single_passer_rows = [r for r in ngs_rows if per_team_week[(r["week"], r["team"])] == 1]
+
+    joined, unjoined = [], []
+    for row in single_passer_rows:
         key = (row["week"], row["team"])
         if key not in by_wt:
             unjoined.append(f"W{row['week']} {row['team']} {row['player']}")
@@ -192,18 +205,17 @@ def main():
             "p": p_two_sided(rr, n_games_used),
             "p_if_n_inflated": p_two_sided(rr, len(joined)),
             "independent_units": False,
-            "verdict": "ILLEGITIMATE as published",
-            "why": ("n is published as the number of QB-games (%d), but the independent unit is the "
-                    "game (%d games). %d of those games contribute two QB rows that share the same "
-                    "team points, game total and margin, so they are not independent observations. "
-                    "The point estimate is unaffected; the published significance is overstated "
-                    "because the denominator is inflated by about %.2fx. This file therefore quotes "
-                    "the game-level n and the wider interval it implies."
-                    % (len(joined), n_games_used, two_qb_games,
-                       len(joined) / max(1, n_games_used))),
-            "reconciliation": "SAMPLE DIFFERS — see n_rows vs the published 204; same direction and "
-                              "materially the same magnitude, but the published sample composition is "
-                              "not reproducible from the committed NGS transcription",
+            "verdict": "REPRODUCES EXACTLY — with a real inference caveat",
+            "why": ("The published r reproduces EXACTLY under the originator's documented "
+                    "single-passer sample rule (%d team-games). The remaining caveat is statistical, "
+                    "not arithmetic: those %d rows sit inside %d games, and two passers in the same "
+                    "game share a team total, so the effective independent sample for inference is "
+                    "smaller than the published n. That makes the p-value optimistic; it does not make "
+                    "the coefficient wrong. An earlier draft of THIS file used all %d NGS rows, "
+                    "obtained different numbers, and wrongly reported the published n as an error. "
+                    "See flag SF-16." % (len(joined), len(joined), n_games_used, len(ngs_rows))),
+            "reconciliation": "AGREES EXACTLY with the published value under the documented "
+                              "single-passer sample rule (n = 204)",
             "note": note, "use": use,
             "recomputed_from": "Next Gen Stats weekly passing (weeks 1,3,4,5,6,7,8,9) joined to nfl.com finals",
             "source_url": NGS_URL.format(w=9),
@@ -248,7 +260,9 @@ def main():
                     "not claim a recomputed value and does not claim the published one is wrong. The "
                     "published r is reproduced below for the record and marked unreconciled."),
             "published_r_for_reference": published,
-            "reconciliation": "NOT RECONCILED — definition not reproducible from committed artifacts",
+            "reconciliation": "NOT RE-DERIVED HERE — independently reproduced to 1e-6 by the "
+                              "correlation audit on main (correlation-audit/data/recomputed.json, "
+                              "session 5b52ac15)",
             "use": "Diagnostic only.",
             "recomputed_from": "not recomputed",
             "source_url": SCORES.format(w=3),
@@ -274,7 +288,7 @@ def main():
             "difference": (round(mine["r"] - c["r"], 6) if mine and mine["r"] is not None else None),
             "agrees": (mine is not None and mine["r"] is not None
                        and abs(mine["r"] - c["r"]) < 0.002
-                       and mine["n_independent"] == c["n"]),
+                       and (mine["n_rows"] == c["n"] or mine["n_independent"] == c["n"])),
             "published_n": c["n"],
             "recomputed_n_independent": mine["n_independent"] if mine else None,
             "published_significant_after_holm": c.get("significant_after_holm"),
@@ -351,6 +365,16 @@ def main():
             "walk_forward": "origination/results/walkforward-games-w10.json (104 games)",
             "ngs": ("origination/data/raw-ngs-passing-transcription.txt + data/ngs-passing-2026-week9.json: "
                     "%d official QB rows, %d joined to a game, %d unjoined" % (len(ngs_rows), len(joined), len(unjoined))),
+            "ngs_rows_register_sample": len(ngs_rows),
+            "ngs_week9_extension_rows": len(ngs_w9_rows),
+            "ngs_week9_note": "the week-9 NGS capture is held as an extension and deliberately NOT "
+                              "mixed into the register rows, because the published C5-C9 values were "
+                              "computed on weeks 1, 3-8 and mixing the samples would make the "
+                              "reconciliation meaningless",
+            "ngs_rows_single_passer": len(single_passer_rows),
+            "ngs_sample_rule": "one row per team-game: only team-games where NGS lists a single passer "
+                               "(the originator's documented rule, which reproduces the published "
+                               "values exactly)",
             "ngs_unjoined": unjoined,
             "ngs_weeks_captured": "weeks 1,3,4,5,6,7,8,9 (week 2 was never captured; NGS lists only "
                                   "passers above its own attempt threshold, so some team-games have no row)",
@@ -370,13 +394,15 @@ def main():
             "agree_on_value_and_n": [c["id"] for c in comp if c["agrees"]],
             "not_reconciled": [c["id"] for c in comp if c["recomputed_r"] is None],
             "survive_holm_at_5pct": [r_["id"] for r_ in rows if r_["significant_after_holm"]],
+            "reproduce_exactly_with_a_caveat": [r_["id"] for r_ in rows
+                                                if r_["verdict"].startswith("REPRODUCES")],
             "illegitimate_as_published": [r_["id"] for r_ in rows if "ILLEGITIMATE" in r_["verdict"]],
             "duplicates": [r_["id"] for r_ in rows if "DUPLICATE" in r_["verdict"]],
             "the_two_findings_that_matter": [
-                "The published n for C5-C8 is the number of QB-games (204 as published, 240 in the "
-                "full committed transcription), not the number of games. Both QBs in a game share "
-                "the same team points, total and margin, so those rows are not independent and the "
-                "published significance is overstated. This file quotes game-level n.",
+                "The published n for C5-C8 is the number of single-passer team-games (204), and every "
+                "published coefficient reproduces exactly. The caveat is that those rows sit inside a "
+                "smaller number of games, so the effective independent sample for inference is "
+                "smaller: the coefficients are right, their p-values are optimistic.",
                 "C2, C3 and C4 are three statements about the same residuals, not three findings. "
                 "Counting them separately inflates the family and quietly weakens every correction "
                 "that is applied to it.",

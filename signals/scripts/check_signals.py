@@ -199,6 +199,20 @@ def main():
                      bad2.group(0) if bad2 else ""):
             ok_all = False
 
+    # 11. guard: no page may repeat the discarded "illegitimate as published" correlation verdict.
+    # The flag register is exempt because SF-16 QUOTES the discarded verdict as part of the record of
+    # the correction; that quotation is the evidence, not a surviving claim.
+    for slug in PAGES:
+        s = (S / f"{slug}.html").read_text()
+        if slug == "flagged":
+            body_wo_flags = re.sub(r"<caption>Flagged for review.*?</table>", "", s, flags=re.S)
+        else:
+            body_wo_flags = s
+        bad = re.search(r"ILLEGITIMATE as published|n counts QB-games", body_wo_flags)
+        if not check(f"no stale correlation verdict: {slug}.html", bad is None,
+                     bad.group(0) if bad else ""):
+            ok_all = False
+
     passed = sum(1 for r in results if r["pass"])
     out = {
         "generated": "2026-11-14",

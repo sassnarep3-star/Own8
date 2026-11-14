@@ -781,13 +781,31 @@ caused, worsened or fixed by this session, and neither is touched by it.
 
 ### Irregularities found in other sessions' published artifacts (reported, not edited)
 
-- **SF-02:** `origination/results/correlations-w10.json` publishes n = 204 for C5–C8, where the
-  independent unit is the game. Recomputed with game-level n in `signals/data/correlation-legitimacy.json`.
+- **SF-02 (downgraded after re-check):** `origination/results/correlations-w10.json` publishes n = 204
+  for C5–C8. Every coefficient **reproduces exactly** on that sample under the originator's documented
+  single-passer rule (see the independent audit in `correlation-audit/`, session 5b52ac15). The only
+  surviving point is that those 204 team-game rows sit inside 105 games, so the p-values are
+  optimistic. The coefficients are not wrong and this session does not claim they are.
 - **SF-10:** strategy S3, registered as a candidate, is the worst arm in the ladder (34.6% hit rate,
   −33.9% ROI). It should be reclassified as a negative control.
-- **SF-12:** correlations C3, C4 and C9 cannot be reproduced because their pair definitions are not
-  stored with the committed predictions. No substitute definition was used and no claim is made that
-  the published values are wrong.
+- **SF-12:** correlations C3, C4 and C9 were not re-derived by this session because their pair
+  definitions are not stored with the committed predictions. No substitute definition was used. Session
+  5b52ac15's audit in `correlation-audit/data/recomputed.json` reproduces them to 1e-6, so they are not
+  in dispute; this session simply could not re-derive them independently.
+
+### Rebase and conflict record (session 8ef7f6bb)
+
+- 2026-11-14 — `git pull --rebase origin main` brought in PRs #48, #49 and #51, which merged two
+  sessions' board sections (5b52ac15 correlation audit, 2f8759c5 final integration) after this branch
+  forked. The only conflict was the expected `COORDINATION.md` add/add. **Both sides are retained in
+  full**; no session's work was discarded. Everything else rebased cleanly.
+- The parallel session 5b52ac15 published an independent correlation audit while this session was
+  running. That audit is the reason defect SF-16 (below) was caught: it documents the single-passer
+  sample rule and shows all eleven published coefficients reproduce. This session's first draft had
+  declared four of them illegitimate. **Cross-checking a parallel session's work is what caught it.**
+- Because 5b52ac15's audit and this desk both cover the correlation register from different angles,
+  the integration owner may want to keep both: `correlation-audit/` proves the arithmetic,
+  `signals/correlations.html` adds the independent-sample caveat and the combination-product analysis.
 
 ### Cross-session requests from 8ef7f6bb (not performed here; shared files)
 

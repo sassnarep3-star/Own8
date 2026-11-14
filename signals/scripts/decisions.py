@@ -196,11 +196,14 @@ QUEUE = [
     {
         "id": "DQ-09", "priority": "P2", "area": "Correlations",
         "question": "Which of the published correlations may be used, and for what?",
-        "have": ("8 of 9 recomputed. C1 and C2 agree exactly with the published values. C5–C8 are "
-                 "ILLEGITIMATE as published because n counts QB-games, not games. C3 and C4 duplicate "
-                 "C2. C9 was not recomputed. After Holm on this declared family, only C5 and C6 "
-                 "survive — and both are tautological (passing yards are part of the offence that "
-                 "scores the points)."),
+        "have": ("8 of 9 recomputed. Six reproduce EXACTLY with the originator's documented sample "
+                 "rule: C1, C2, C5, C6, C7 and C8. C3 and C4 duplicate C2's residuals and their pair "
+                 "definitions are not stored, so they are not re-derived here (the independent "
+                 "correlation audit on main reproduced them to 1e-6). C9 was not recomputed. Every "
+                 "coefficient is also now published with a game-level n beside the row count, because "
+                 "the 204-team-game sample sits inside 105 games. After Holm on the declared family "
+                 "only C5 and C6 survive — and both are tautological, relating an offence's component "
+                 "to that offence's own output."),
         "missing": "Nothing. The analysis is complete; the decision is not.",
         "why_it_blocks": ("Suggestion registers keep proposing correlation-based combos. The register "
                           "currently cannot tell legitimate from tautological."),
