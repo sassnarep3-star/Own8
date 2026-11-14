@@ -1,0 +1,261 @@
+{
+ "as_of": "2026-11-14",
+ "method": "Observed values transcribed from fetch_page output; compared programmatically with committed captures.",
+ "nfl_scores_week9": {
+  "source": "https://www.nfl.com/scores/2026/week-9",
+  "observed_games": 15,
+  "rows": [
+   {
+    "check": "W9 JAX at BAL",
+    "official_page": "JAX 33, BAL 10",
+    "game_log": "JAX 33, BAL 10",
+    "match": true,
+    "source": "https://www.nfl.com/scores/2026/week-9"
+   },
+   {
+    "check": "W9 CIN at ATL",
+    "official_page": "CIN 34, ATL 17",
+    "game_log": "CIN 34, ATL 17",
+    "match": true,
+    "source": "https://www.nfl.com/scores/2026/week-9"
+   },
+   {
+    "check": "W9 DEN at CAR",
+    "official_page": "DEN 26, CAR 21",
+    "game_log": "DEN 26, CAR 21",
+    "match": true,
+    "source": "https://www.nfl.com/scores/2026/week-9"
+   },
+   {
+    "check": "W9 DAL at IND",
+    "official_page": "DAL 27, IND 23",
+    "game_log": "DAL 27, IND 23",
+    "match": true,
+    "source": "https://www.nfl.com/scores/2026/week-9"
+   },
+   {
+    "check": "W9 NYJ at KC",
+    "official_page": "NYJ 12, KC 35",
+    "game_log": "NYJ 12, KC 35",
+    "match": true,
+    "source": "https://www.nfl.com/scores/2026/week-9"
+   },
+   {
+    "check": "W9 DET at MIA",
+    "official_page": "DET 19, MIA 9",
+    "game_log": "DET 19, MIA 9",
+    "match": true,
+    "source": "https://www.nfl.com/scores/2026/week-9"
+   },
+   {
+    "check": "W9 CLE at NO",
+    "official_page": "CLE 22, NO 23",
+    "game_log": "CLE 22, NO 23",
+    "match": true,
+    "source": "https://www.nfl.com/scores/2026/week-9"
+   },
+   {
+    "check": "W9 NYG at PHI",
+    "official_page": "NYG 19, PHI 11",
+    "game_log": "NYG 19, PHI 11",
+    "match": true,
+    "source": "https://www.nfl.com/scores/2026/week-9"
+   },
+   {
+    "check": "W9 LAR at WAS",
+    "official_page": "LAR 20, WAS 13",
+    "game_log": "LAR 20, WAS 13",
+    "match": true,
+    "source": "https://www.nfl.com/scores/2026/week-9"
+   },
+   {
+    "check": "W9 HOU at LAC",
+    "official_page": "HOU 44, LAC 22",
+    "game_log": "HOU 44, LAC 22",
+    "match": true,
+    "source": "https://www.nfl.com/scores/2026/week-9"
+   },
+   {
+    "check": "W9 LV at SF",
+    "official_page": "LV 17, SF 38",
+    "game_log": "LV 17, SF 38",
+    "match": true,
+    "source": "https://www.nfl.com/scores/2026/week-9"
+   },
+   {
+    "check": "W9 GB at NE",
+    "official_page": "GB 45, NE 27",
+    "game_log": "GB 45, NE 27",
+    "match": true,
+    "source": "https://www.nfl.com/scores/2026/week-9"
+   },
+   {
+    "check": "W9 AZ at SEA",
+    "official_page": "AZ 3, SEA 17",
+    "game_log": "AZ 3, SEA 17",
+    "match": true,
+    "source": "https://www.nfl.com/scores/2026/week-9"
+   },
+   {
+    "check": "W9 TB at CHI",
+    "official_page": "TB 24, CHI 27",
+    "game_log": "TB 24, CHI 27",
+    "match": true,
+    "source": "https://www.nfl.com/scores/2026/week-9"
+   },
+   {
+    "check": "W9 BUF at MIN",
+    "official_page": "BUF 23, MIN 6",
+    "game_log": "BUF 23, MIN 6",
+    "match": true,
+    "source": "https://www.nfl.com/scores/2026/week-9"
+   }
+  ],
+  "matched": 15,
+  "log_games_not_observed": []
+ },
+ "ngs_week8": {
+  "source": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8",
+  "observed_rows": 27,
+  "committed_rows": 27,
+  "matched": 27,
+  "rows": [
+   {
+    "check": "NGS W8 Joe Burrow CIN",
+    "match": true,
+    "source": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8"
+   },
+   {
+    "check": "NGS W8 Deshaun Watson CLE",
+    "match": true,
+    "source": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8"
+   },
+   {
+    "check": "NGS W8 Patrick Mahomes KC",
+    "match": true,
+    "source": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8"
+   },
+   {
+    "check": "NGS W8 Cam Ward TEN",
+    "match": true,
+    "source": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8"
+   },
+   {
+    "check": "NGS W8 Geno Smith NYJ",
+    "match": true,
+    "source": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8"
+   },
+   {
+    "check": "NGS W8 Josh Allen BUF",
+    "match": true,
+    "source": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8"
+   },
+   {
+    "check": "NGS W8 Jordan Love GB",
+    "match": true,
+    "source": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8"
+   },
+   {
+    "check": "NGS W8 Justin Herbert LAC",
+    "match": true,
+    "source": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8"
+   },
+   {
+    "check": "NGS W8 Kirk Cousins LV",
+    "match": true,
+    "source": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8"
+   },
+   {
+    "check": "NGS W8 Caleb Williams CHI",
+    "match": true,
+    "source": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8"
+   },
+   {
+    "check": "NGS W8 Bo Nix DEN",
+    "match": true,
+    "source": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8"
+   },
+   {
+    "check": "NGS W8 Jayden Daniels WAS",
+    "match": true,
+    "source": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8"
+   },
+   {
+    "check": "NGS W8 Tanner McKee PHI",
+    "match": true,
+    "source": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8"
+   },
+   {
+    "check": "NGS W8 Malik Willis MIA",
+    "match": true,
+    "source": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8"
+   },
+   {
+    "check": "NGS W8 Kyler Murray MIN",
+    "match": true,
+    "source": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8"
+   },
+   {
+    "check": "NGS W8 Bryce Young CAR",
+    "match": true,
+    "source": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8"
+   },
+   {
+    "check": "NGS W8 Drake Maye NE",
+    "match": true,
+    "source": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8"
+   },
+   {
+    "check": "NGS W8 Dak Prescott DAL",
+    "match": true,
+    "source": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8"
+   },
+   {
+    "check": "NGS W8 Sam Darnold SEA",
+    "match": true,
+    "source": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8"
+   },
+   {
+    "check": "NGS W8 Gardner Minshew AZ",
+    "match": true,
+    "source": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8"
+   },
+   {
+    "check": "NGS W8 Jared Goff DET",
+    "match": true,
+    "source": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8"
+   },
+   {
+    "check": "NGS W8 Aaron Rodgers PIT",
+    "match": true,
+    "source": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8"
+   },
+   {
+    "check": "NGS W8 Matthew Stafford LAR",
+    "match": true,
+    "source": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8"
+   },
+   {
+    "check": "NGS W8 Daniel Jones IND",
+    "match": true,
+    "source": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8"
+   },
+   {
+    "check": "NGS W8 Michael Penix Jr. ATL",
+    "match": true,
+    "source": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8"
+   },
+   {
+    "check": "NGS W8 Jacoby Brissett AZ",
+    "match": true,
+    "source": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8"
+   },
+   {
+    "check": "NGS W8 Joe Fagnano BAL",
+    "match": true,
+    "source": "https://nextgenstats.nfl.com/stats/passing/2026/REG/8"
+   }
+  ],
+  "caveat": "The rendered table carries no explicit week label; week identity rests on the URL path and on the 27/27 agreement with the W8 capture."
+ }
+}
