@@ -432,15 +432,14 @@ for r in tour["rows"]:
         pct(lid["roi"]) if lid else "—",
         f'{lid["mean_skill"]:+.4f}' if lid else "—",
         f'<strong>{lid["lower_bound_skill"]:+.4f}</strong>' if lid else "—",
-        f'{lid["lower_bound_skill"]:.4f}' if lid else "—",
         "—" if not lid else (badge("YES", "good") if lid["ranking_eligible"] else badge("NOT ELIGIBLE", "bad")),
         badge(r["status"]) if not lid else badge(lid["verdict"]),
         a(prices9["source_url"], "prices") if lid else a(prices10["source_url"], "page checked"),
     ])
 body = (notice("Ranking is by the lower 95% bootstrap bound of per-bet skill, defined as the model's probability minus the de-vigged market probability on the "
-               "side the strategy chose. ROI is shown in the next column and is never used to set a rank. That single choice is why a +21.0% ROI sits at "
-               "rank 2 of 3 rather than rank 1.", "The ranking rule, stated before any week is scored")
-    + table(["ID", "Product", "Strategy", "Settled", "ROI (display only)", "Mean skill", "Lower 95% skill", "Same, 4dp", "Ranking eligible", "Status", "Official source"],
+               "side the strategy chose. ROI is shown in the next column and is never used to set a rank. That single choice is why S7 is ranked last "
+               "despite returning the same +21.0% as the top-ranked strategy.", "The ranking rule, stated before any week is scored")
+    + table(["ID", "Product", "Strategy", "Settled", "ROI (display only)", "Mean skill", "Lower 95% skill (rank key)", "Ranking eligible", "Status", "Official source"],
             strat_rows, f"All {len(tour['rows'])} registered strategies, Week 9 prices", tour["ranking_rule"])
     + sec("The headline: identical picks, identical profit, opposite skill")
     + f"""<div class="card"><h3>Three moneyline strategies, one set of picks</h3>
