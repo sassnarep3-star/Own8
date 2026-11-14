@@ -1,0 +1,35 @@
+{
+  "status": "PROPOSED — pending operator decision (see ledger flag LF-06). Thresholds were fixed in this file BEFORE any live window existed. Currently 0 strategies are LIVE, so 0 demotions have been triggered.",
+  "written_by": "session 6652101e",
+  "written_before_evaluation": true,
+  "scope": "Only a strategy whose status is LIVE can be demoted. PAPER and BLOCKED strategies are not touched by this gate. Re-promotion is never automatic.",
+  "applicability": {
+    "single_moneyline": ["G1", "G2", "G3", "G4", "G5", "G6", "G7", "G8"],
+    "single_spread_or_total": ["G1", "G2", "G3", "G4", "G5", "G6", "G8"],
+    "joint_probability_parlay": ["G1", "G2", "G3", "G4", "G5", "G6", "G7", "G8"],
+    "player_prop_abs_error": ["G1", "G2", "G3", "G4", "G5", "G6", "G8"],
+    "note": "G7 (calibration, expected calibration error <= 0.10) applies to every product that emits a probability: moneyline and joint-event parlays. Margin, total and prop outputs are not probabilities, so G7 is not applicable to them. A gate that is applicable but not True (including null) is a FAIL. The G7 wording is taken from origination/scripts/model_w10.py."
+  },
+  "minimum_live_window_games": {
+    "single": 80,
+    "parlay_pairs": 40,
+    "player_prop_player_games": 100,
+    "note": "Copied from the G3 sample-size gate in origination/results/validation-w10.json (>= 80 games singles, >= 40 pairs parlays, >= 100 player-games props)."
+  },
+  "rules": [
+    {"id": "D1", "name": "Provenance failure", "trigger": "G1 is not True on the live window", "action": "DEMOTE_TO_PAPER", "timing": "immediate", "threshold": "G1 == true", "source_url": "https://www.nfl.com/scores/2026/week-9", "basis": "Project rule. Only official nfl.com rows may evidence a live strategy (G1)."},
+    {"id": "D2", "name": "Market dependence", "trigger": "G8 is not True (strategy needs sportsbook prices)", "action": "DEMOTE_TO_PAPER", "timing": "immediate", "threshold": "G8 == true", "source_url": "https://www.nfl.com/schedules/2026/by-week/week-10", "basis": "No official source publishes sportsbook prices (ledger/data/price-probe.json). A market-dependent strategy cannot be settled or evidenced, so it cannot stay LIVE."},
+    {"id": "D3", "name": "Applicable gate not passed (fail-closed)", "trigger": "any gate in the product's applicable list is not True; null counts as FAIL", "action": "DEMOTE_TO_PAPER", "timing": "immediate", "threshold": "all applicable gates == true", "source_url": "https://www.itl.nist.gov/div898/handbook/prc/section4/prc473.htm", "basis": "Project rule. Family-wise error control reference: NIST e-Handbook 7.4.7.3 (Bonferroni's method). That page covers Bonferroni, not Holm; Holm is a step-down refinement of the same family-wise idea and is cited as the project's method, not as NIST's."},
+    {"id": "D4", "name": "No evidence window or too small", "trigger": "live window missing, or n below minimum_live_window_games for the product", "action": "DEMOTE_TO_PAPER", "timing": "at evaluation", "threshold": "n >= 80 singles | 40 parlay pairs | 100 prop player-games", "source_url": "https://www.itl.nist.gov/div898/handbook/prc/section1/prc14.htm", "basis": "A strategy that cannot show a sample at least as large as its G3 gate cannot stay LIVE. Confidence-interval reference: NIST e-Handbook 7.1.4 (What are confidence intervals?)."},
+    {"id": "D5", "name": "Skill lower bound below zero", "trigger": "live window skill_pct_lcb < 0", "action": "DEMOTE_TO_PAPER", "timing": "at evaluation", "threshold": "skill_pct_lcb >= 0", "source_url": "https://www.itl.nist.gov/div898/handbook/prc/section1/prc14.htm", "basis": "Project rule using the same lower-bound quantity that ranks the leaderboard."},
+    {"id": "D6", "name": "Multiplicity-adjusted significance lost", "trigger": "live window Holm-adjusted p >= 0.05", "action": "DEMOTE_TO_PAPER", "timing": "at evaluation", "threshold": "p_holm < 0.05", "source_url": "https://www.itl.nist.gov/div898/handbook/prc/section4/prc473.htm", "basis": "Same alpha as gate G5 in origination/results/validation-w10.json."},
+    {"id": "D7", "name": "Instability across halves", "trigger": "either half of the live window has mean loss difference >= 0", "action": "DEMOTE_TO_PAPER", "timing": "at evaluation", "threshold": "half1_diff < 0 AND half2_diff < 0", "source_url": "https://www.nfl.com/scores/2026/week-9", "basis": "Project rule matching gate G6 (both halves must improve)."},
+    {"id": "D8", "name": "Stale official settlement", "trigger": "more than 14 days since the last official result was added to the feed", "action": "DEMOTE_TO_PAPER", "timing": "at evaluation", "threshold": "days_since_last_official_result <= 14", "source_url": "https://www.nfl.com/scores/2026/week-10", "basis": "Project rule. A strategy whose results are not being verified cannot be shown to be current."},
+    {"id": "P1", "name": "Re-promotion (not a demotion)", "trigger": "a PAPER strategy wants to become LIVE", "action": "NO_AUTOMATIC_ACTION", "timing": "n/a", "threshold": "passes every rule above on a NEW out-of-sample window AND operator sign-off recorded in requirements/data/suggestions.json", "source_url": "https://www.itl.nist.gov/div898/handbook/prc/section1/prc14.htm", "basis": "Project rule. Prevents a single lucky window from re-promoting a demoted strategy."}
+  ],
+  "unresolved_before_adoption": [
+    "The operator has not yet approved the thresholds (D4 minimum sizes and D8 14-day window are proposals).",
+    "No official odds source exists, so D2 can only ever be applied to a licensed feed that the operator chooses (see ledger flag LF-01).",
+    "Live-window statistics are not produced by any current pipeline; the gate is therefore inert until one exists."
+  ]
+}

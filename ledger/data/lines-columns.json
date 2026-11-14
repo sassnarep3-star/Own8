@@ -1,0 +1,827 @@
+{
+  "generated": "2026-11-14",
+  "description": "Fair (no-vig) Week 10 lines with three separate columns per market: FAIR (ours), MARKET (no official value found) and DIFFERENCE (fair minus market, only when a market value exists).",
+  "difference_rule": "difference = fair - market; computed only when BOTH values are present; otherwise blank.",
+  "recompute_mismatches": [],
+  "rows": [
+    {
+      "key": "2026-W10-NE-DET",
+      "week": 10,
+      "away": "NE",
+      "home": "DET",
+      "kickoff_as_rendered": "Sunday, November 15th, 9:30 AM",
+      "neutral_site": true,
+      "order": [
+        {
+          "step": 1,
+          "market": "side",
+          "why_first": "The moneyline is a transform of the side margin (S6 = Phi(S1 margin / sigma)), so it cannot be originated before the side."
+        },
+        {
+          "step": 2,
+          "market": "total",
+          "why_first": "Independent of the side model; originated second to keep the order fixed for every game."
+        },
+        {
+          "step": 3,
+          "market": "moneyline",
+          "why_first": "Derived from the side margin, therefore last."
+        }
+      ],
+      "side": {
+        "fair_favourite_text": "DET -0.8",
+        "fair_home_margin_S1": 0.775,
+        "model": "S1 (ridge margin)",
+        "model_status": "PASS (all applicable gates)",
+        "alt_fair_home_margin_S2": 0.765,
+        "alt_model": "S2 (offence/defence ridge)",
+        "alt_model_status": "PASS (all applicable gates)",
+        "market_spread": null,
+        "difference_fair_minus_market": null
+      },
+      "total": {
+        "fair_total": 48.25,
+        "model": "S4 (offence/defence ridge)",
+        "model_status": "FAIL G4, G5, G6 (validation-w10.json) - UNVALIDATED",
+        "alt_fair_total_S5": 48.91,
+        "alt_model": "S5 (naive PF/PA averages)",
+        "alt_model_status": "FAIL G4, G5, G6 - UNVALIDATED",
+        "market_total": null,
+        "difference_fair_minus_market": null
+      },
+      "moneyline": {
+        "fair_p_home": 0.5245,
+        "fair_ml_home": -110,
+        "fair_ml_away": 110,
+        "recomputed_ml_home": -110,
+        "recomputed_ml_away": 110,
+        "model": "S6 (moneyline from S1 margin)",
+        "model_status": "PASS (all applicable gates)",
+        "market_ml_home": null,
+        "market_ml_away": null,
+        "difference_fair_minus_market": null
+      },
+      "sigma_margin_used": 12.606841,
+      "sigma_total_used": 13.715481,
+      "game_url": "https://www.nfl.com/games/patriots-at-lions-2026-reg-10",
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-10",
+      "market_status": "BLANK - no official source publishes a betting line (price-probe.json, LF-01)."
+    },
+    {
+      "key": "2026-W10-KC-ATL",
+      "week": 10,
+      "away": "KC",
+      "home": "ATL",
+      "kickoff_as_rendered": "Sunday, November 15th, 1:00 PM",
+      "neutral_site": false,
+      "order": [
+        {
+          "step": 1,
+          "market": "side",
+          "why_first": "The moneyline is a transform of the side margin (S6 = Phi(S1 margin / sigma)), so it cannot be originated before the side."
+        },
+        {
+          "step": 2,
+          "market": "total",
+          "why_first": "Independent of the side model; originated second to keep the order fixed for every game."
+        },
+        {
+          "step": 3,
+          "market": "moneyline",
+          "why_first": "Derived from the side margin, therefore last."
+        }
+      ],
+      "side": {
+        "fair_favourite_text": "KC -4.0",
+        "fair_home_margin_S1": -4.014,
+        "model": "S1 (ridge margin)",
+        "model_status": "PASS (all applicable gates)",
+        "alt_fair_home_margin_S2": -3.351,
+        "alt_model": "S2 (offence/defence ridge)",
+        "alt_model_status": "PASS (all applicable gates)",
+        "market_spread": null,
+        "difference_fair_minus_market": null
+      },
+      "total": {
+        "fair_total": 44.6,
+        "model": "S4 (offence/defence ridge)",
+        "model_status": "FAIL G4, G5, G6 (validation-w10.json) - UNVALIDATED",
+        "alt_fair_total_S5": 44.4,
+        "alt_model": "S5 (naive PF/PA averages)",
+        "alt_model_status": "FAIL G4, G5, G6 - UNVALIDATED",
+        "market_total": null,
+        "difference_fair_minus_market": null
+      },
+      "moneyline": {
+        "fair_p_home": 0.3751,
+        "fair_ml_home": 167,
+        "fair_ml_away": -167,
+        "recomputed_ml_home": 167,
+        "recomputed_ml_away": -167,
+        "model": "S6 (moneyline from S1 margin)",
+        "model_status": "PASS (all applicable gates)",
+        "market_ml_home": null,
+        "market_ml_away": null,
+        "difference_fair_minus_market": null
+      },
+      "sigma_margin_used": 12.606841,
+      "sigma_total_used": 13.715481,
+      "game_url": "https://www.nfl.com/games/chiefs-at-falcons-2026-reg-10",
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-10",
+      "market_status": "BLANK - no official source publishes a betting line (price-probe.json, LF-01)."
+    },
+    {
+      "key": "2026-W10-HOU-CLE",
+      "week": 10,
+      "away": "HOU",
+      "home": "CLE",
+      "kickoff_as_rendered": "Sunday, November 15th, 1:00 PM",
+      "neutral_site": false,
+      "order": [
+        {
+          "step": 1,
+          "market": "side",
+          "why_first": "The moneyline is a transform of the side margin (S6 = Phi(S1 margin / sigma)), so it cannot be originated before the side."
+        },
+        {
+          "step": 2,
+          "market": "total",
+          "why_first": "Independent of the side model; originated second to keep the order fixed for every game."
+        },
+        {
+          "step": 3,
+          "market": "moneyline",
+          "why_first": "Derived from the side margin, therefore last."
+        }
+      ],
+      "side": {
+        "fair_favourite_text": "HOU -2.9",
+        "fair_home_margin_S1": -2.862,
+        "model": "S1 (ridge margin)",
+        "model_status": "PASS (all applicable gates)",
+        "alt_fair_home_margin_S2": -2.207,
+        "alt_model": "S2 (offence/defence ridge)",
+        "alt_model_status": "PASS (all applicable gates)",
+        "market_spread": null,
+        "difference_fair_minus_market": null
+      },
+      "total": {
+        "fair_total": 44.76,
+        "model": "S4 (offence/defence ridge)",
+        "model_status": "FAIL G4, G5, G6 (validation-w10.json) - UNVALIDATED",
+        "alt_fair_total_S5": 44.9,
+        "alt_model": "S5 (naive PF/PA averages)",
+        "alt_model_status": "FAIL G4, G5, G6 - UNVALIDATED",
+        "market_total": null,
+        "difference_fair_minus_market": null
+      },
+      "moneyline": {
+        "fair_p_home": 0.4102,
+        "fair_ml_home": 144,
+        "fair_ml_away": -144,
+        "recomputed_ml_home": 144,
+        "recomputed_ml_away": -144,
+        "model": "S6 (moneyline from S1 margin)",
+        "model_status": "PASS (all applicable gates)",
+        "market_ml_home": null,
+        "market_ml_away": null,
+        "difference_fair_minus_market": null
+      },
+      "sigma_margin_used": 12.606841,
+      "sigma_total_used": 13.715481,
+      "game_url": "https://www.nfl.com/games/texans-at-browns-2026-reg-10",
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-10",
+      "market_status": "BLANK - no official source publishes a betting line (price-probe.json, LF-01)."
+    },
+    {
+      "key": "2026-W10-MIN-GB",
+      "week": 10,
+      "away": "MIN",
+      "home": "GB",
+      "kickoff_as_rendered": "Sunday, November 15th, 1:00 PM",
+      "neutral_site": false,
+      "order": [
+        {
+          "step": 1,
+          "market": "side",
+          "why_first": "The moneyline is a transform of the side margin (S6 = Phi(S1 margin / sigma)), so it cannot be originated before the side."
+        },
+        {
+          "step": 2,
+          "market": "total",
+          "why_first": "Independent of the side model; originated second to keep the order fixed for every game."
+        },
+        {
+          "step": 3,
+          "market": "moneyline",
+          "why_first": "Derived from the side margin, therefore last."
+        }
+      ],
+      "side": {
+        "fair_favourite_text": "MIN -0.0",
+        "fair_home_margin_S1": -0.043,
+        "model": "S1 (ridge margin)",
+        "model_status": "PASS (all applicable gates)",
+        "alt_fair_home_margin_S2": 0.065,
+        "alt_model": "S2 (offence/defence ridge)",
+        "alt_model_status": "PASS (all applicable gates)",
+        "market_spread": null,
+        "difference_fair_minus_market": null
+      },
+      "total": {
+        "fair_total": 39.99,
+        "model": "S4 (offence/defence ridge)",
+        "model_status": "FAIL G4, G5, G6 (validation-w10.json) - UNVALIDATED",
+        "alt_fair_total_S5": 38.99,
+        "alt_model": "S5 (naive PF/PA averages)",
+        "alt_model_status": "FAIL G4, G5, G6 - UNVALIDATED",
+        "market_total": null,
+        "difference_fair_minus_market": null
+      },
+      "moneyline": {
+        "fair_p_home": 0.4986,
+        "fair_ml_home": 101,
+        "fair_ml_away": -101,
+        "recomputed_ml_home": 101,
+        "recomputed_ml_away": -101,
+        "model": "S6 (moneyline from S1 margin)",
+        "model_status": "PASS (all applicable gates)",
+        "market_ml_home": null,
+        "market_ml_away": null,
+        "difference_fair_minus_market": null
+      },
+      "sigma_margin_used": 12.606841,
+      "sigma_total_used": 13.715481,
+      "game_url": "https://www.nfl.com/games/vikings-at-packers-2026-reg-10",
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-10",
+      "market_status": "BLANK - no official source publishes a betting line (price-probe.json, LF-01)."
+    },
+    {
+      "key": "2026-W10-MIA-IND",
+      "week": 10,
+      "away": "MIA",
+      "home": "IND",
+      "kickoff_as_rendered": "Sunday, November 15th, 1:00 PM",
+      "neutral_site": false,
+      "order": [
+        {
+          "step": 1,
+          "market": "side",
+          "why_first": "The moneyline is a transform of the side margin (S6 = Phi(S1 margin / sigma)), so it cannot be originated before the side."
+        },
+        {
+          "step": 2,
+          "market": "total",
+          "why_first": "Independent of the side model; originated second to keep the order fixed for every game."
+        },
+        {
+          "step": 3,
+          "market": "moneyline",
+          "why_first": "Derived from the side margin, therefore last."
+        }
+      ],
+      "side": {
+        "fair_favourite_text": "IND -0.7",
+        "fair_home_margin_S1": 0.653,
+        "model": "S1 (ridge margin)",
+        "model_status": "PASS (all applicable gates)",
+        "alt_fair_home_margin_S2": 0.665,
+        "alt_model": "S2 (offence/defence ridge)",
+        "alt_model_status": "PASS (all applicable gates)",
+        "market_spread": null,
+        "difference_fair_minus_market": null
+      },
+      "total": {
+        "fair_total": 44.86,
+        "model": "S4 (offence/defence ridge)",
+        "model_status": "FAIL G4, G5, G6 (validation-w10.json) - UNVALIDATED",
+        "alt_fair_total_S5": 44.43,
+        "alt_model": "S5 (naive PF/PA averages)",
+        "alt_model_status": "FAIL G4, G5, G6 - UNVALIDATED",
+        "market_total": null,
+        "difference_fair_minus_market": null
+      },
+      "moneyline": {
+        "fair_p_home": 0.5207,
+        "fair_ml_home": -109,
+        "fair_ml_away": 109,
+        "recomputed_ml_home": -109,
+        "recomputed_ml_away": 109,
+        "model": "S6 (moneyline from S1 margin)",
+        "model_status": "PASS (all applicable gates)",
+        "market_ml_home": null,
+        "market_ml_away": null,
+        "difference_fair_minus_market": null
+      },
+      "sigma_margin_used": 12.606841,
+      "sigma_total_used": 13.715481,
+      "game_url": "https://www.nfl.com/games/dolphins-at-colts-2026-reg-10",
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-10",
+      "market_status": "BLANK - no official source publishes a betting line (price-probe.json, LF-01)."
+    },
+    {
+      "key": "2026-W10-CAR-NO",
+      "week": 10,
+      "away": "CAR",
+      "home": "NO",
+      "kickoff_as_rendered": "Sunday, November 15th, 1:00 PM",
+      "neutral_site": false,
+      "order": [
+        {
+          "step": 1,
+          "market": "side",
+          "why_first": "The moneyline is a transform of the side margin (S6 = Phi(S1 margin / sigma)), so it cannot be originated before the side."
+        },
+        {
+          "step": 2,
+          "market": "total",
+          "why_first": "Independent of the side model; originated second to keep the order fixed for every game."
+        },
+        {
+          "step": 3,
+          "market": "moneyline",
+          "why_first": "Derived from the side margin, therefore last."
+        }
+      ],
+      "side": {
+        "fair_favourite_text": "CAR -0.7",
+        "fair_home_margin_S1": -0.729,
+        "model": "S1 (ridge margin)",
+        "model_status": "PASS (all applicable gates)",
+        "alt_fair_home_margin_S2": -0.43,
+        "alt_model": "S2 (offence/defence ridge)",
+        "alt_model_status": "PASS (all applicable gates)",
+        "market_spread": null,
+        "difference_fair_minus_market": null
+      },
+      "total": {
+        "fair_total": 50.64,
+        "model": "S4 (offence/defence ridge)",
+        "model_status": "FAIL G4, G5, G6 (validation-w10.json) - UNVALIDATED",
+        "alt_fair_total_S5": 51.19,
+        "alt_model": "S5 (naive PF/PA averages)",
+        "alt_model_status": "FAIL G4, G5, G6 - UNVALIDATED",
+        "market_total": null,
+        "difference_fair_minus_market": null
+      },
+      "moneyline": {
+        "fair_p_home": 0.4769,
+        "fair_ml_home": 110,
+        "fair_ml_away": -110,
+        "recomputed_ml_home": 110,
+        "recomputed_ml_away": -110,
+        "model": "S6 (moneyline from S1 margin)",
+        "model_status": "PASS (all applicable gates)",
+        "market_ml_home": null,
+        "market_ml_away": null,
+        "difference_fair_minus_market": null
+      },
+      "sigma_margin_used": 12.606841,
+      "sigma_total_used": 13.715481,
+      "game_url": "https://www.nfl.com/games/panthers-at-saints-2026-reg-10",
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-10",
+      "market_status": "BLANK - no official source publishes a betting line (price-probe.json, LF-01)."
+    },
+    {
+      "key": "2026-W10-BUF-NYJ",
+      "week": 10,
+      "away": "BUF",
+      "home": "NYJ",
+      "kickoff_as_rendered": "Sunday, November 15th, 1:00 PM",
+      "neutral_site": false,
+      "order": [
+        {
+          "step": 1,
+          "market": "side",
+          "why_first": "The moneyline is a transform of the side margin (S6 = Phi(S1 margin / sigma)), so it cannot be originated before the side."
+        },
+        {
+          "step": 2,
+          "market": "total",
+          "why_first": "Independent of the side model; originated second to keep the order fixed for every game."
+        },
+        {
+          "step": 3,
+          "market": "moneyline",
+          "why_first": "Derived from the side margin, therefore last."
+        }
+      ],
+      "side": {
+        "fair_favourite_text": "BUF -6.3",
+        "fair_home_margin_S1": -6.33,
+        "model": "S1 (ridge margin)",
+        "model_status": "PASS (all applicable gates)",
+        "alt_fair_home_margin_S2": -5.003,
+        "alt_model": "S2 (offence/defence ridge)",
+        "alt_model_status": "PASS (all applicable gates)",
+        "market_spread": null,
+        "difference_fair_minus_market": null
+      },
+      "total": {
+        "fair_total": 49.29,
+        "model": "S4 (offence/defence ridge)",
+        "model_status": "FAIL G4, G5, G6 (validation-w10.json) - UNVALIDATED",
+        "alt_fair_total_S5": 50.19,
+        "alt_model": "S5 (naive PF/PA averages)",
+        "alt_model_status": "FAIL G4, G5, G6 - UNVALIDATED",
+        "market_total": null,
+        "difference_fair_minus_market": null
+      },
+      "moneyline": {
+        "fair_p_home": 0.3078,
+        "fair_ml_home": 225,
+        "fair_ml_away": -225,
+        "recomputed_ml_home": 225,
+        "recomputed_ml_away": -225,
+        "model": "S6 (moneyline from S1 margin)",
+        "model_status": "PASS (all applicable gates)",
+        "market_ml_home": null,
+        "market_ml_away": null,
+        "difference_fair_minus_market": null
+      },
+      "sigma_margin_used": 12.606841,
+      "sigma_total_used": 13.715481,
+      "game_url": "https://www.nfl.com/games/bills-at-jets-2026-reg-10",
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-10",
+      "market_status": "BLANK - no official source publishes a betting line (price-probe.json, LF-01)."
+    },
+    {
+      "key": "2026-W10-JAX-TEN",
+      "week": 10,
+      "away": "JAX",
+      "home": "TEN",
+      "kickoff_as_rendered": "Sunday, November 15th, 1:00 PM",
+      "neutral_site": false,
+      "order": [
+        {
+          "step": 1,
+          "market": "side",
+          "why_first": "The moneyline is a transform of the side margin (S6 = Phi(S1 margin / sigma)), so it cannot be originated before the side."
+        },
+        {
+          "step": 2,
+          "market": "total",
+          "why_first": "Independent of the side model; originated second to keep the order fixed for every game."
+        },
+        {
+          "step": 3,
+          "market": "moneyline",
+          "why_first": "Derived from the side margin, therefore last."
+        }
+      ],
+      "side": {
+        "fair_favourite_text": "JAX -10.2",
+        "fair_home_margin_S1": -10.229,
+        "model": "S1 (ridge margin)",
+        "model_status": "PASS (all applicable gates)",
+        "alt_fair_home_margin_S2": -8.024,
+        "alt_model": "S2 (offence/defence ridge)",
+        "alt_model_status": "PASS (all applicable gates)",
+        "market_spread": null,
+        "difference_fair_minus_market": null
+      },
+      "total": {
+        "fair_total": 43.9,
+        "model": "S4 (offence/defence ridge)",
+        "model_status": "FAIL G4, G5, G6 (validation-w10.json) - UNVALIDATED",
+        "alt_fair_total_S5": 43.31,
+        "alt_model": "S5 (naive PF/PA averages)",
+        "alt_model_status": "FAIL G4, G5, G6 - UNVALIDATED",
+        "market_total": null,
+        "difference_fair_minus_market": null
+      },
+      "moneyline": {
+        "fair_p_home": 0.2086,
+        "fair_ml_home": 379,
+        "fair_ml_away": -379,
+        "recomputed_ml_home": 379,
+        "recomputed_ml_away": -379,
+        "model": "S6 (moneyline from S1 margin)",
+        "model_status": "PASS (all applicable gates)",
+        "market_ml_home": null,
+        "market_ml_away": null,
+        "difference_fair_minus_market": null
+      },
+      "sigma_margin_used": 12.606841,
+      "sigma_total_used": 13.715481,
+      "game_url": "https://www.nfl.com/games/jaguars-at-titans-2026-reg-10",
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-10",
+      "market_status": "BLANK - no official source publishes a betting line (price-probe.json, LF-01)."
+    },
+    {
+      "key": "2026-W10-LAR-AZ",
+      "week": 10,
+      "away": "LAR",
+      "home": "AZ",
+      "kickoff_as_rendered": "Sunday, November 15th, 4:05 PM",
+      "neutral_site": false,
+      "order": [
+        {
+          "step": 1,
+          "market": "side",
+          "why_first": "The moneyline is a transform of the side margin (S6 = Phi(S1 margin / sigma)), so it cannot be originated before the side."
+        },
+        {
+          "step": 2,
+          "market": "total",
+          "why_first": "Independent of the side model; originated second to keep the order fixed for every game."
+        },
+        {
+          "step": 3,
+          "market": "moneyline",
+          "why_first": "Derived from the side margin, therefore last."
+        }
+      ],
+      "side": {
+        "fair_favourite_text": "LAR -5.3",
+        "fair_home_margin_S1": -5.25,
+        "model": "S1 (ridge margin)",
+        "model_status": "PASS (all applicable gates)",
+        "alt_fair_home_margin_S2": -4.282,
+        "alt_model": "S2 (offence/defence ridge)",
+        "alt_model_status": "PASS (all applicable gates)",
+        "market_spread": null,
+        "difference_fair_minus_market": null
+      },
+      "total": {
+        "fair_total": 45.9,
+        "model": "S4 (offence/defence ridge)",
+        "model_status": "FAIL G4, G5, G6 (validation-w10.json) - UNVALIDATED",
+        "alt_fair_total_S5": 46.0,
+        "alt_model": "S5 (naive PF/PA averages)",
+        "alt_model_status": "FAIL G4, G5, G6 - UNVALIDATED",
+        "market_total": null,
+        "difference_fair_minus_market": null
+      },
+      "moneyline": {
+        "fair_p_home": 0.3385,
+        "fair_ml_home": 195,
+        "fair_ml_away": -195,
+        "recomputed_ml_home": 195,
+        "recomputed_ml_away": -195,
+        "model": "S6 (moneyline from S1 margin)",
+        "model_status": "PASS (all applicable gates)",
+        "market_ml_home": null,
+        "market_ml_away": null,
+        "difference_fair_minus_market": null
+      },
+      "sigma_margin_used": 12.606841,
+      "sigma_total_used": 13.715481,
+      "game_url": "https://www.nfl.com/games/rams-at-cardinals-2026-reg-10",
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-10",
+      "market_status": "BLANK - no official source publishes a betting line (price-probe.json, LF-01)."
+    },
+    {
+      "key": "2026-W10-SEA-LV",
+      "week": 10,
+      "away": "SEA",
+      "home": "LV",
+      "kickoff_as_rendered": "Sunday, November 15th, 4:05 PM",
+      "neutral_site": false,
+      "order": [
+        {
+          "step": 1,
+          "market": "side",
+          "why_first": "The moneyline is a transform of the side margin (S6 = Phi(S1 margin / sigma)), so it cannot be originated before the side."
+        },
+        {
+          "step": 2,
+          "market": "total",
+          "why_first": "Independent of the side model; originated second to keep the order fixed for every game."
+        },
+        {
+          "step": 3,
+          "market": "moneyline",
+          "why_first": "Derived from the side margin, therefore last."
+        }
+      ],
+      "side": {
+        "fair_favourite_text": "SEA -3.6",
+        "fair_home_margin_S1": -3.62,
+        "model": "S1 (ridge margin)",
+        "model_status": "PASS (all applicable gates)",
+        "alt_fair_home_margin_S2": -2.85,
+        "alt_model": "S2 (offence/defence ridge)",
+        "alt_model_status": "PASS (all applicable gates)",
+        "market_spread": null,
+        "difference_fair_minus_market": null
+      },
+      "total": {
+        "fair_total": 47.89,
+        "model": "S4 (offence/defence ridge)",
+        "model_status": "FAIL G4, G5, G6 (validation-w10.json) - UNVALIDATED",
+        "alt_fair_total_S5": 48.33,
+        "alt_model": "S5 (naive PF/PA averages)",
+        "alt_model_status": "FAIL G4, G5, G6 - UNVALIDATED",
+        "market_total": null,
+        "difference_fair_minus_market": null
+      },
+      "moneyline": {
+        "fair_p_home": 0.387,
+        "fair_ml_home": 158,
+        "fair_ml_away": -158,
+        "recomputed_ml_home": 158,
+        "recomputed_ml_away": -158,
+        "model": "S6 (moneyline from S1 margin)",
+        "model_status": "PASS (all applicable gates)",
+        "market_ml_home": null,
+        "market_ml_away": null,
+        "difference_fair_minus_market": null
+      },
+      "sigma_margin_used": 12.606841,
+      "sigma_total_used": 13.715481,
+      "game_url": "https://www.nfl.com/games/seahawks-at-raiders-2026-reg-10",
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-10",
+      "market_status": "BLANK - no official source publishes a betting line (price-probe.json, LF-01)."
+    },
+    {
+      "key": "2026-W10-SF-DAL",
+      "week": 10,
+      "away": "SF",
+      "home": "DAL",
+      "kickoff_as_rendered": "Sunday, November 15th, 4:25 PM",
+      "neutral_site": false,
+      "order": [
+        {
+          "step": 1,
+          "market": "side",
+          "why_first": "The moneyline is a transform of the side margin (S6 = Phi(S1 margin / sigma)), so it cannot be originated before the side."
+        },
+        {
+          "step": 2,
+          "market": "total",
+          "why_first": "Independent of the side model; originated second to keep the order fixed for every game."
+        },
+        {
+          "step": 3,
+          "market": "moneyline",
+          "why_first": "Derived from the side margin, therefore last."
+        }
+      ],
+      "side": {
+        "fair_favourite_text": "SF -4.2",
+        "fair_home_margin_S1": -4.188,
+        "model": "S1 (ridge margin)",
+        "model_status": "PASS (all applicable gates)",
+        "alt_fair_home_margin_S2": -3.21,
+        "alt_model": "S2 (offence/defence ridge)",
+        "alt_model_status": "PASS (all applicable gates)",
+        "market_spread": null,
+        "difference_fair_minus_market": null
+      },
+      "total": {
+        "fair_total": 50.49,
+        "model": "S4 (offence/defence ridge)",
+        "model_status": "FAIL G4, G5, G6 (validation-w10.json) - UNVALIDATED",
+        "alt_fair_total_S5": 51.22,
+        "alt_model": "S5 (naive PF/PA averages)",
+        "alt_model_status": "FAIL G4, G5, G6 - UNVALIDATED",
+        "market_total": null,
+        "difference_fair_minus_market": null
+      },
+      "moneyline": {
+        "fair_p_home": 0.3699,
+        "fair_ml_home": 170,
+        "fair_ml_away": -170,
+        "recomputed_ml_home": 170,
+        "recomputed_ml_away": -170,
+        "model": "S6 (moneyline from S1 margin)",
+        "model_status": "PASS (all applicable gates)",
+        "market_ml_home": null,
+        "market_ml_away": null,
+        "difference_fair_minus_market": null
+      },
+      "sigma_margin_used": 12.606841,
+      "sigma_total_used": 13.715481,
+      "game_url": "https://www.nfl.com/games/49ers-at-cowboys-2026-reg-10",
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-10",
+      "market_status": "BLANK - no official source publishes a betting line (price-probe.json, LF-01)."
+    },
+    {
+      "key": "2026-W10-PIT-CIN",
+      "week": 10,
+      "away": "PIT",
+      "home": "CIN",
+      "kickoff_as_rendered": "Sunday, November 15th, 8:20 PM",
+      "neutral_site": false,
+      "order": [
+        {
+          "step": 1,
+          "market": "side",
+          "why_first": "The moneyline is a transform of the side margin (S6 = Phi(S1 margin / sigma)), so it cannot be originated before the side."
+        },
+        {
+          "step": 2,
+          "market": "total",
+          "why_first": "Independent of the side model; originated second to keep the order fixed for every game."
+        },
+        {
+          "step": 3,
+          "market": "moneyline",
+          "why_first": "Derived from the side margin, therefore last."
+        }
+      ],
+      "side": {
+        "fair_favourite_text": "CIN -2.3",
+        "fair_home_margin_S1": 2.334,
+        "model": "S1 (ridge margin)",
+        "model_status": "PASS (all applicable gates)",
+        "alt_fair_home_margin_S2": 1.94,
+        "alt_model": "S2 (offence/defence ridge)",
+        "alt_model_status": "PASS (all applicable gates)",
+        "market_spread": null,
+        "difference_fair_minus_market": null
+      },
+      "total": {
+        "fair_total": 46.53,
+        "model": "S4 (offence/defence ridge)",
+        "model_status": "FAIL G4, G5, G6 (validation-w10.json) - UNVALIDATED",
+        "alt_fair_total_S5": 46.19,
+        "alt_model": "S5 (naive PF/PA averages)",
+        "alt_model_status": "FAIL G4, G5, G6 - UNVALIDATED",
+        "market_total": null,
+        "difference_fair_minus_market": null
+      },
+      "moneyline": {
+        "fair_p_home": 0.5734,
+        "fair_ml_home": -134,
+        "fair_ml_away": 134,
+        "recomputed_ml_home": -134,
+        "recomputed_ml_away": 134,
+        "model": "S6 (moneyline from S1 margin)",
+        "model_status": "PASS (all applicable gates)",
+        "market_ml_home": null,
+        "market_ml_away": null,
+        "difference_fair_minus_market": null
+      },
+      "sigma_margin_used": 12.606841,
+      "sigma_total_used": 13.715481,
+      "game_url": "https://www.nfl.com/games/steelers-at-bengals-2026-reg-10",
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-10",
+      "market_status": "BLANK - no official source publishes a betting line (price-probe.json, LF-01)."
+    },
+    {
+      "key": "2026-W10-LAC-BAL",
+      "week": 10,
+      "away": "LAC",
+      "home": "BAL",
+      "kickoff_as_rendered": "Monday, November 16th, 8:15 PM",
+      "neutral_site": false,
+      "order": [
+        {
+          "step": 1,
+          "market": "side",
+          "why_first": "The moneyline is a transform of the side margin (S6 = Phi(S1 margin / sigma)), so it cannot be originated before the side."
+        },
+        {
+          "step": 2,
+          "market": "total",
+          "why_first": "Independent of the side model; originated second to keep the order fixed for every game."
+        },
+        {
+          "step": 3,
+          "market": "moneyline",
+          "why_first": "Derived from the side margin, therefore last."
+        }
+      ],
+      "side": {
+        "fair_favourite_text": "BAL -3.3",
+        "fair_home_margin_S1": 3.266,
+        "model": "S1 (ridge margin)",
+        "model_status": "PASS (all applicable gates)",
+        "alt_fair_home_margin_S2": 2.738,
+        "alt_model": "S2 (offence/defence ridge)",
+        "alt_model_status": "PASS (all applicable gates)",
+        "market_spread": null,
+        "difference_fair_minus_market": null
+      },
+      "total": {
+        "fair_total": 44.49,
+        "model": "S4 (offence/defence ridge)",
+        "model_status": "FAIL G4, G5, G6 (validation-w10.json) - UNVALIDATED",
+        "alt_fair_total_S5": 44.86,
+        "alt_model": "S5 (naive PF/PA averages)",
+        "alt_model_status": "FAIL G4, G5, G6 - UNVALIDATED",
+        "market_total": null,
+        "difference_fair_minus_market": null
+      },
+      "moneyline": {
+        "fair_p_home": 0.6022,
+        "fair_ml_home": -151,
+        "fair_ml_away": 151,
+        "recomputed_ml_home": -151,
+        "recomputed_ml_away": 151,
+        "model": "S6 (moneyline from S1 margin)",
+        "model_status": "PASS (all applicable gates)",
+        "market_ml_home": null,
+        "market_ml_away": null,
+        "difference_fair_minus_market": null
+      },
+      "sigma_margin_used": 12.606841,
+      "sigma_total_used": 13.715481,
+      "game_url": "https://www.nfl.com/games/chargers-at-ravens-2026-reg-10",
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-10",
+      "market_status": "BLANK - no official source publishes a betting line (price-probe.json, LF-01)."
+    }
+  ]
+}

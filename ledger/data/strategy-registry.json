@@ -1,0 +1,612 @@
+{
+  "generated": "2026-11-14",
+  "description": "All 14 strategies from origination/results/validation-w10.json (12 scored, 2 not scored). Status is set by the fail-closed signal verdict only; no strategy is LIVE.",
+  "live_count": 0,
+  "strategies": [
+    {
+      "id": "S6",
+      "product": "Single: moneyline (Brier score)",
+      "strategy": "Win probability = Phi(S1 margin / LOO sigma)",
+      "applicability_key": "single_moneyline",
+      "sample_rule": "single",
+      "minimum_n": 80,
+      "gates": {
+        "G1": true,
+        "G2": true,
+        "G3": true,
+        "G4": true,
+        "G6": true,
+        "G8": true,
+        "G7": true,
+        "G5": true
+      },
+      "gates_failed_fail_closed": [],
+      "n": 104,
+      "skill_pct": 5.4258370301626755,
+      "skill_pct_lcb": 2.660465314394691,
+      "p_holm": 0.0011998800119988001,
+      "signal_verdict": "PASS",
+      "origination_verdict": "PASS",
+      "status": "PAPER-ELIGIBLE",
+      "live_window": null,
+      "source_urls": [
+        "https://www.nfl.com/scores/2026/week-1",
+        "https://www.nfl.com/scores/2026/week-2",
+        "https://www.nfl.com/scores/2026/week-3",
+        "https://www.nfl.com/scores/2026/week-4",
+        "https://www.nfl.com/scores/2026/week-5",
+        "https://www.nfl.com/scores/2026/week-6",
+        "https://www.nfl.com/scores/2026/week-7",
+        "https://www.nfl.com/scores/2026/week-8",
+        "https://www.nfl.com/scores/2026/week-9",
+        "https://www.nfl.com/standings/league/2026/REG"
+      ],
+      "inputs": [
+        "origination/results/validation-w10.json",
+        "origination/data/games-2026-w1-w9.json"
+      ]
+    },
+    {
+      "id": "S1",
+      "product": "Single: point spread (margin, abs error)",
+      "strategy": "Ridge margin ratings + home edge (lambda by LOO-CV)",
+      "applicability_key": "single_spread_or_total",
+      "sample_rule": "single",
+      "minimum_n": 80,
+      "gates": {
+        "G1": true,
+        "G2": true,
+        "G3": true,
+        "G4": true,
+        "G6": true,
+        "G8": true,
+        "G7": null,
+        "G5": true
+      },
+      "gates_failed_fail_closed": [],
+      "n": 104,
+      "skill_pct": 4.905424167348169,
+      "skill_pct_lcb": 2.5615903591229126,
+      "p_holm": 0.0011998800119988001,
+      "signal_verdict": "PASS",
+      "origination_verdict": "PASS",
+      "status": "PAPER-ELIGIBLE",
+      "live_window": null,
+      "source_urls": [
+        "https://www.nfl.com/scores/2026/week-1",
+        "https://www.nfl.com/scores/2026/week-2",
+        "https://www.nfl.com/scores/2026/week-3",
+        "https://www.nfl.com/scores/2026/week-4",
+        "https://www.nfl.com/scores/2026/week-5",
+        "https://www.nfl.com/scores/2026/week-6",
+        "https://www.nfl.com/scores/2026/week-7",
+        "https://www.nfl.com/scores/2026/week-8",
+        "https://www.nfl.com/scores/2026/week-9",
+        "https://www.nfl.com/standings/league/2026/REG"
+      ],
+      "inputs": [
+        "origination/results/validation-w10.json",
+        "origination/data/games-2026-w1-w9.json"
+      ]
+    },
+    {
+      "id": "S7",
+      "product": "Single: moneyline (Brier score)",
+      "strategy": "Win probability = Phi(S2 margin / sigma)",
+      "applicability_key": "single_moneyline",
+      "sample_rule": "single",
+      "minimum_n": 80,
+      "gates": {
+        "G1": true,
+        "G2": true,
+        "G3": true,
+        "G4": true,
+        "G6": true,
+        "G8": true,
+        "G7": true,
+        "G5": true
+      },
+      "gates_failed_fail_closed": [],
+      "n": 104,
+      "skill_pct": 4.163662606849684,
+      "skill_pct_lcb": 1.7300852703293808,
+      "p_holm": 0.0053994600539946005,
+      "signal_verdict": "PASS",
+      "origination_verdict": "PASS",
+      "status": "PAPER-ELIGIBLE",
+      "live_window": null,
+      "source_urls": [
+        "https://www.nfl.com/scores/2026/week-1",
+        "https://www.nfl.com/scores/2026/week-2",
+        "https://www.nfl.com/scores/2026/week-3",
+        "https://www.nfl.com/scores/2026/week-4",
+        "https://www.nfl.com/scores/2026/week-5",
+        "https://www.nfl.com/scores/2026/week-6",
+        "https://www.nfl.com/scores/2026/week-7",
+        "https://www.nfl.com/scores/2026/week-8",
+        "https://www.nfl.com/scores/2026/week-9",
+        "https://www.nfl.com/standings/league/2026/REG"
+      ],
+      "inputs": [
+        "origination/results/validation-w10.json",
+        "origination/data/games-2026-w1-w9.json"
+      ]
+    },
+    {
+      "id": "S2",
+      "product": "Single: point spread (margin, abs error)",
+      "strategy": "Offence/defence points ridge -> margin",
+      "applicability_key": "single_spread_or_total",
+      "sample_rule": "single",
+      "minimum_n": 80,
+      "gates": {
+        "G1": true,
+        "G2": true,
+        "G3": true,
+        "G4": true,
+        "G6": true,
+        "G8": true,
+        "G7": null,
+        "G5": true
+      },
+      "gates_failed_fail_closed": [],
+      "n": 104,
+      "skill_pct": 3.6475040470517075,
+      "skill_pct_lcb": 1.6973232469074464,
+      "p_holm": 0.0011998800119988001,
+      "signal_verdict": "PASS",
+      "origination_verdict": "PASS",
+      "status": "PAPER-ELIGIBLE",
+      "live_window": null,
+      "source_urls": [
+        "https://www.nfl.com/scores/2026/week-1",
+        "https://www.nfl.com/scores/2026/week-2",
+        "https://www.nfl.com/scores/2026/week-3",
+        "https://www.nfl.com/scores/2026/week-4",
+        "https://www.nfl.com/scores/2026/week-5",
+        "https://www.nfl.com/scores/2026/week-6",
+        "https://www.nfl.com/scores/2026/week-7",
+        "https://www.nfl.com/scores/2026/week-8",
+        "https://www.nfl.com/scores/2026/week-9",
+        "https://www.nfl.com/standings/league/2026/REG"
+      ],
+      "inputs": [
+        "origination/results/validation-w10.json",
+        "origination/data/games-2026-w1-w9.json"
+      ]
+    },
+    {
+      "id": "S9",
+      "product": "Parlay: 2-leg cross-game moneyline (Brier on joint event)",
+      "strategy": "Product of S6 leg probabilities (independence across games)",
+      "applicability_key": "joint_probability_parlay",
+      "sample_rule": "parlay_pairs",
+      "minimum_n": 40,
+      "gates": {
+        "G1": true,
+        "G2": true,
+        "G3": true,
+        "G4": true,
+        "G6": false,
+        "G8": true,
+        "G7": null,
+        "G5": false
+      },
+      "gates_failed_fail_closed": [
+        "G5",
+        "G6",
+        "G7"
+      ],
+      "n": 51,
+      "skill_pct": 6.3836868851329855,
+      "skill_pct_lcb": 1.274461495654124,
+      "p_holm": 0.0999900009999,
+      "signal_verdict": "FAIL G5,G6,G7",
+      "origination_verdict": null,
+      "status": "BLOCKED",
+      "live_window": null,
+      "source_urls": [
+        "https://www.nfl.com/scores/2026/week-1",
+        "https://www.nfl.com/scores/2026/week-2",
+        "https://www.nfl.com/scores/2026/week-3",
+        "https://www.nfl.com/scores/2026/week-4",
+        "https://www.nfl.com/scores/2026/week-5",
+        "https://www.nfl.com/scores/2026/week-6",
+        "https://www.nfl.com/scores/2026/week-7",
+        "https://www.nfl.com/scores/2026/week-8",
+        "https://www.nfl.com/scores/2026/week-9",
+        "https://www.nfl.com/standings/league/2026/REG"
+      ],
+      "inputs": [
+        "origination/results/validation-w10.json",
+        "origination/data/games-2026-w1-w9.json"
+      ]
+    },
+    {
+      "id": "S10",
+      "product": "Same-game parlay: side + total (Brier on joint event)",
+      "strategy": "Bivariate-normal joint probability using margin/total residual correlation from prior weeks",
+      "applicability_key": "joint_probability_parlay",
+      "sample_rule": "single",
+      "minimum_n": 80,
+      "gates": {
+        "G1": true,
+        "G2": true,
+        "G3": true,
+        "G4": false,
+        "G6": true,
+        "G8": true,
+        "G7": null,
+        "G5": false
+      },
+      "gates_failed_fail_closed": [
+        "G4",
+        "G5",
+        "G7"
+      ],
+      "n": 104,
+      "skill_pct": 0.8852541489988763,
+      "skill_pct_lcb": -0.5993078613052475,
+      "p_holm": 0.7818218178182181,
+      "signal_verdict": "FAIL G4,G5,G7",
+      "origination_verdict": null,
+      "status": "BLOCKED",
+      "live_window": null,
+      "source_urls": [
+        "https://www.nfl.com/scores/2026/week-1",
+        "https://www.nfl.com/scores/2026/week-2",
+        "https://www.nfl.com/scores/2026/week-3",
+        "https://www.nfl.com/scores/2026/week-4",
+        "https://www.nfl.com/scores/2026/week-5",
+        "https://www.nfl.com/scores/2026/week-6",
+        "https://www.nfl.com/scores/2026/week-7",
+        "https://www.nfl.com/scores/2026/week-8",
+        "https://www.nfl.com/scores/2026/week-9",
+        "https://www.nfl.com/standings/league/2026/REG"
+      ],
+      "inputs": [
+        "origination/results/validation-w10.json",
+        "origination/data/games-2026-w1-w9.json"
+      ]
+    },
+    {
+      "id": "S4",
+      "product": "Single: game total (abs error)",
+      "strategy": "Offence/defence points ridge -> total",
+      "applicability_key": "single_spread_or_total",
+      "sample_rule": "single",
+      "minimum_n": 80,
+      "gates": {
+        "G1": true,
+        "G2": true,
+        "G3": true,
+        "G4": false,
+        "G6": false,
+        "G8": true,
+        "G7": null,
+        "G5": false
+      },
+      "gates_failed_fail_closed": [
+        "G4",
+        "G5",
+        "G6"
+      ],
+      "n": 104,
+      "skill_pct": 0.0010296971742712994,
+      "skill_pct_lcb": -1.599023860248784,
+      "p_holm": 1.0,
+      "signal_verdict": "FAIL G4,G5,G6",
+      "origination_verdict": null,
+      "status": "BLOCKED",
+      "live_window": null,
+      "source_urls": [
+        "https://www.nfl.com/scores/2026/week-1",
+        "https://www.nfl.com/scores/2026/week-2",
+        "https://www.nfl.com/scores/2026/week-3",
+        "https://www.nfl.com/scores/2026/week-4",
+        "https://www.nfl.com/scores/2026/week-5",
+        "https://www.nfl.com/scores/2026/week-6",
+        "https://www.nfl.com/scores/2026/week-7",
+        "https://www.nfl.com/scores/2026/week-8",
+        "https://www.nfl.com/scores/2026/week-9",
+        "https://www.nfl.com/standings/league/2026/REG"
+      ],
+      "inputs": [
+        "origination/results/validation-w10.json",
+        "origination/data/games-2026-w1-w9.json"
+      ]
+    },
+    {
+      "id": "S11",
+      "product": "Player prop: QB passing yards (abs error)",
+      "strategy": "QB passing yards: empirical-Bayes shrunk QB average",
+      "applicability_key": "player_prop_abs_error",
+      "sample_rule": "player_prop_player_games",
+      "minimum_n": 100,
+      "gates": {
+        "G1": true,
+        "G2": true,
+        "G3": true,
+        "G4": false,
+        "G6": false,
+        "G8": true,
+        "G7": null,
+        "G5": false
+      },
+      "gates_failed_fail_closed": [
+        "G4",
+        "G5",
+        "G6"
+      ],
+      "n": 146,
+      "skill_pct": -0.17233678488188653,
+      "skill_pct_lcb": -2.6799761347806297,
+      "p_holm": 1.0,
+      "signal_verdict": "FAIL G4,G5,G6",
+      "origination_verdict": null,
+      "status": "BLOCKED",
+      "live_window": null,
+      "source_urls": [
+        "https://www.nfl.com/scores/2026/week-1",
+        "https://www.nfl.com/scores/2026/week-2",
+        "https://www.nfl.com/scores/2026/week-3",
+        "https://www.nfl.com/scores/2026/week-4",
+        "https://www.nfl.com/scores/2026/week-5",
+        "https://www.nfl.com/scores/2026/week-6",
+        "https://www.nfl.com/scores/2026/week-7",
+        "https://www.nfl.com/scores/2026/week-8",
+        "https://www.nfl.com/scores/2026/week-9",
+        "https://www.nfl.com/standings/league/2026/REG"
+      ],
+      "inputs": [
+        "origination/results/validation-w10.json",
+        "origination/data/games-2026-w1-w9.json"
+      ]
+    },
+    {
+      "id": "S12",
+      "product": "Player prop: QB passing yards (abs error)",
+      "strategy": "S11 + shrunk opponent pass-defence adjustment",
+      "applicability_key": "player_prop_abs_error",
+      "sample_rule": "player_prop_player_games",
+      "minimum_n": 100,
+      "gates": {
+        "G1": true,
+        "G2": true,
+        "G3": true,
+        "G4": false,
+        "G6": false,
+        "G8": true,
+        "G7": null,
+        "G5": false
+      },
+      "gates_failed_fail_closed": [
+        "G4",
+        "G5",
+        "G6"
+      ],
+      "n": 146,
+      "skill_pct": -0.5728906383557555,
+      "skill_pct_lcb": -3.39551739483352,
+      "p_holm": 1.0,
+      "signal_verdict": "FAIL G4,G5,G6",
+      "origination_verdict": null,
+      "status": "BLOCKED",
+      "live_window": null,
+      "source_urls": [
+        "https://www.nfl.com/scores/2026/week-1",
+        "https://www.nfl.com/scores/2026/week-2",
+        "https://www.nfl.com/scores/2026/week-3",
+        "https://www.nfl.com/scores/2026/week-4",
+        "https://www.nfl.com/scores/2026/week-5",
+        "https://www.nfl.com/scores/2026/week-6",
+        "https://www.nfl.com/scores/2026/week-7",
+        "https://www.nfl.com/scores/2026/week-8",
+        "https://www.nfl.com/scores/2026/week-9",
+        "https://www.nfl.com/standings/league/2026/REG"
+      ],
+      "inputs": [
+        "origination/results/validation-w10.json",
+        "origination/data/games-2026-w1-w9.json"
+      ]
+    },
+    {
+      "id": "S5",
+      "product": "Single: game total (abs error)",
+      "strategy": "Naive PF/PA per game averages -> total",
+      "applicability_key": "single_spread_or_total",
+      "sample_rule": "single",
+      "minimum_n": 80,
+      "gates": {
+        "G1": true,
+        "G2": true,
+        "G3": true,
+        "G4": false,
+        "G6": false,
+        "G8": true,
+        "G7": null,
+        "G5": false
+      },
+      "gates_failed_fail_closed": [
+        "G4",
+        "G5",
+        "G6"
+      ],
+      "n": 104,
+      "skill_pct": -5.501433590059814,
+      "skill_pct_lcb": -13.196970582412378,
+      "p_holm": 1.0,
+      "signal_verdict": "FAIL G4,G5,G6",
+      "origination_verdict": null,
+      "status": "BLOCKED",
+      "live_window": null,
+      "source_urls": [
+        "https://www.nfl.com/scores/2026/week-1",
+        "https://www.nfl.com/scores/2026/week-2",
+        "https://www.nfl.com/scores/2026/week-3",
+        "https://www.nfl.com/scores/2026/week-4",
+        "https://www.nfl.com/scores/2026/week-5",
+        "https://www.nfl.com/scores/2026/week-6",
+        "https://www.nfl.com/scores/2026/week-7",
+        "https://www.nfl.com/scores/2026/week-8",
+        "https://www.nfl.com/scores/2026/week-9",
+        "https://www.nfl.com/standings/league/2026/REG"
+      ],
+      "inputs": [
+        "origination/results/validation-w10.json",
+        "origination/data/games-2026-w1-w9.json"
+      ]
+    },
+    {
+      "id": "S8",
+      "product": "Single: moneyline (Brier score)",
+      "strategy": "Win probability = Phi(S3 margin / S1 sigma)",
+      "applicability_key": "single_moneyline",
+      "sample_rule": "single",
+      "minimum_n": 80,
+      "gates": {
+        "G1": true,
+        "G2": true,
+        "G3": true,
+        "G4": false,
+        "G6": false,
+        "G8": true,
+        "G7": false,
+        "G5": false
+      },
+      "gates_failed_fail_closed": [
+        "G4",
+        "G5",
+        "G6",
+        "G7"
+      ],
+      "n": 104,
+      "skill_pct": 3.4472705273317583,
+      "skill_pct_lcb": -13.999560261927064,
+      "p_holm": 1.0,
+      "signal_verdict": "FAIL G4,G5,G6,G7",
+      "origination_verdict": null,
+      "status": "BLOCKED",
+      "live_window": null,
+      "source_urls": [
+        "https://www.nfl.com/scores/2026/week-1",
+        "https://www.nfl.com/scores/2026/week-2",
+        "https://www.nfl.com/scores/2026/week-3",
+        "https://www.nfl.com/scores/2026/week-4",
+        "https://www.nfl.com/scores/2026/week-5",
+        "https://www.nfl.com/scores/2026/week-6",
+        "https://www.nfl.com/scores/2026/week-7",
+        "https://www.nfl.com/scores/2026/week-8",
+        "https://www.nfl.com/scores/2026/week-9",
+        "https://www.nfl.com/standings/league/2026/REG"
+      ],
+      "inputs": [
+        "origination/results/validation-w10.json",
+        "origination/data/games-2026-w1-w9.json"
+      ]
+    },
+    {
+      "id": "S3",
+      "product": "Single: point spread (margin, abs error)",
+      "strategy": "Naive season point differential per game (unshrunk)",
+      "applicability_key": "single_spread_or_total",
+      "sample_rule": "single",
+      "minimum_n": 80,
+      "gates": {
+        "G1": true,
+        "G2": true,
+        "G3": true,
+        "G4": false,
+        "G6": false,
+        "G8": true,
+        "G7": null,
+        "G5": false
+      },
+      "gates_failed_fail_closed": [
+        "G4",
+        "G5",
+        "G6"
+      ],
+      "n": 104,
+      "skill_pct": -9.88055948236898,
+      "skill_pct_lcb": -24.389454461217632,
+      "p_holm": 1.0,
+      "signal_verdict": "FAIL G4,G5,G6",
+      "origination_verdict": null,
+      "status": "BLOCKED",
+      "live_window": null,
+      "source_urls": [
+        "https://www.nfl.com/scores/2026/week-1",
+        "https://www.nfl.com/scores/2026/week-2",
+        "https://www.nfl.com/scores/2026/week-3",
+        "https://www.nfl.com/scores/2026/week-4",
+        "https://www.nfl.com/scores/2026/week-5",
+        "https://www.nfl.com/scores/2026/week-6",
+        "https://www.nfl.com/scores/2026/week-7",
+        "https://www.nfl.com/scores/2026/week-8",
+        "https://www.nfl.com/scores/2026/week-9",
+        "https://www.nfl.com/standings/league/2026/REG"
+      ],
+      "inputs": [
+        "origination/results/validation-w10.json",
+        "origination/data/games-2026-w1-w9.json"
+      ]
+    },
+    {
+      "id": "M1",
+      "product": "Single / parlay vs sportsbook prices",
+      "strategy": "Bet when originated line differs from the market line by a threshold",
+      "applicability_key": "single_spread_or_total",
+      "sample_rule": "single",
+      "minimum_n": 80,
+      "gates": {
+        "G8": false
+      },
+      "gates_failed_fail_closed": [
+        "G8"
+      ],
+      "n": null,
+      "skill_pct": null,
+      "skill_pct_lcb": null,
+      "p_holm": null,
+      "signal_verdict": "NOT SCORED - fails G8",
+      "origination_verdict": "NOT SCORED — fails G8: no official source publishes sportsbook prices; a licensed odds feed is required",
+      "status": "BLOCKED",
+      "live_window": null,
+      "source_urls": [
+        "https://www.nfl.com/schedules/2026/by-week/week-10"
+      ],
+      "inputs": [
+        "origination/results/validation-w10.json"
+      ]
+    },
+    {
+      "id": "M2",
+      "product": "Player-prop combos vs sportsbook prop lines",
+      "strategy": "Correlated prop combos priced against book prop lines",
+      "applicability_key": "player_prop_abs_error",
+      "sample_rule": "single",
+      "minimum_n": 80,
+      "gates": {
+        "G8": false
+      },
+      "gates_failed_fail_closed": [
+        "G8"
+      ],
+      "n": null,
+      "skill_pct": null,
+      "skill_pct_lcb": null,
+      "p_holm": null,
+      "signal_verdict": "NOT SCORED - fails G8",
+      "origination_verdict": "NOT SCORED — fails G8 (no official prop prices); correlations are still measured below",
+      "status": "BLOCKED",
+      "live_window": null,
+      "source_urls": [
+        "https://www.nfl.com/schedules/2026/by-week/week-10"
+      ],
+      "inputs": [
+        "origination/results/validation-w10.json"
+      ]
+    }
+  ]
+}

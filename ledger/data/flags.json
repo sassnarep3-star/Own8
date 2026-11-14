@@ -1,0 +1,93 @@
+{
+  "generated": "2026-11-14",
+  "description": "Irregularities and unverified items for the Flagged for Review page. Blocking: none.",
+  "flags": [
+    {
+      "id": "LF-10",
+      "kind": "DATE/HEADING MISMATCH",
+      "game_key": "2026-W01-NE-SEA",
+      "detail": "Heading 'Sunday Night Football, September 9th' names Sunday, but the recorded date 2026-09-09 is a Wednesday.",
+      "source_urls": [
+        "https://www.nfl.com/scores/2026/week-1"
+      ],
+      "treatment": "Value kept as rendered by the official page; not corrected. Already logged in origination/flagged.html (W1)."
+    },
+    {
+      "id": "LF-02",
+      "kind": "TOTAL MODEL FAILS VALIDATION",
+      "detail": "The Week 10 fair total comes from S4, which fails gates G4, G5 and G6 in origination/results/validation-w10.json (p_holm = 1.0). Every total is therefore UNVALIDATED; no total in this ledger is a validated fair line.",
+      "source_urls": [
+        "https://www.nfl.com/schedules/2026/by-week/week-10"
+      ],
+      "treatment": "Published with the failure beside it. Not used for any claim."
+    },
+    {
+      "id": "LF-03",
+      "kind": "SIGMA IS CONSTANT ACROSS GAMES",
+      "detail": "sigma_margin is 12.606841 and sigma_total is 13.715481 for every one of the 13 games. Win probabilities, and so the moneylines, assume the same spread for a rivalry game and a mismatch.",
+      "source_urls": [
+        "https://www.nfl.com/schedules/2026/by-week/week-10"
+      ],
+      "treatment": "Recorded as a model assumption. Not changed."
+    },
+    {
+      "id": "LF-01",
+      "kind": "NO OFFICIAL PRICE SOURCE",
+      "detail": "39 originated markets (13 games x side, total, moneyline) have no opening or closing value. The official game-centre page for NE at DET (the only game probed) contains no spread, total or moneyline text. The NFL's official sportsbook partners get league data through Genius Sports (secondary press report, not an official NFL price page).",
+      "source_urls": [
+        "https://www.nfl.com/games/patriots-at-lions-2026-reg-10",
+        "https://www.espn.com/nfl/story/_/id/49740505/nfl-renews-draftkings-fanduel-deals-adds-fanatics"
+      ],
+      "treatment": "All 78 opening/closing cells are blank. Nothing is inferred. Obtaining a price requires an operator decision (suggestion SG-L1 in ledger/index.html)."
+    },
+    {
+      "id": "LF-04",
+      "kind": "OFFICIAL PAGE PRINTS SCORES IN INCONSISTENT ORDER",
+      "detail": "On the nfl.com game-centre team strip for NE at DET, the New England results print the score in different orders. Compared with the scores pages: W6 prints 'Win 19-26' while the scores page gives NYJ 19, NE 26; W8 prints 'Win 24-19' with NE 24, MIA 19; W7 prints 'Loss 24-30' with NE 24, CHI 30; W9 prints 'Loss 45-27' with GB 45, NE 27. The strip sometimes lists the winner first and sometimes the loser first, so it cannot be read without checking the scores pages. The ledger does NOT take values from that strip; it uses the scores pages, which reconcile to the official standings 32/32 (origination/results/standings-reconciliation-2026-11-14.json).",
+      "source_urls": [
+        "https://www.nfl.com/games/patriots-at-lions-2026-reg-10",
+        "https://www.nfl.com/scores/2026/week-6",
+        "https://www.nfl.com/scores/2026/week-7",
+        "https://www.nfl.com/scores/2026/week-8",
+        "https://www.nfl.com/scores/2026/week-9"
+      ],
+      "treatment": "Not used as a value source. Recorded for review."
+    },
+    {
+      "id": "LF-05",
+      "kind": "PROBE IS ONE PAGE ONLY",
+      "detail": "The official price probe read one Week 10 game-centre page (NE at DET, 2 chunks). It does not prove no official page anywhere carries a line. It is scoped accordingly. A broader search of nfl.com was not performed.",
+      "source_urls": [
+        "https://www.nfl.com/games/patriots-at-lions-2026-reg-10"
+      ],
+      "treatment": "Scope stated on the price store page. Absence of a line is recorded as blank, never as proof of non-existence."
+    },
+    {
+      "id": "LF-06",
+      "kind": "THRESHOLDS NOT YET APPROVED",
+      "detail": "The demotion thresholds (sample minimums, 14-day staleness, and the rules D1-D8) are proposals written by this session. The operator has not approved them. They are written down before any live window exists so they cannot be tuned to a result.",
+      "source_urls": [
+        "https://www.itl.nist.gov/div898/handbook/prc/section1/prc14.htm"
+      ],
+      "treatment": "Presented as a decision in ledger/index.html (SG-L2). Gate is inert until approved."
+    },
+    {
+      "id": "LF-07",
+      "kind": "G7 APPLICABILITY IS INCONSISTENT",
+      "detail": "origination/scripts/model_w10.py evaluate() only computes G7 when a calibration table is passed. S9 (2-leg parlay) and S10 (same-game parlay) emit joint probabilities scored with Brier, yet G7 is recorded as null (not applicable) for both, and null is not counted as a failure by the verdict code (`v is False`). The fail-closed ledger counts null as FAIL for applicable gates. Verdicts are unchanged because S9 and S10 also fail G5/G6 and G4/G5.",
+      "source_urls": [
+        "https://www.nfl.com/scores/2026/week-9"
+      ],
+      "treatment": "Recorded; origination history is not edited."
+    },
+    {
+      "id": "LF-08",
+      "kind": "G5 AND MULTIPLE TESTING SCOPE",
+      "detail": "The Holm adjustment in origination runs across the 12 scored strategies only, while M1 and M2 (not scored) are excluded from the family. Holm across a family of 12 is the stated design; the family definition is a choice and is not reviewed here.",
+      "source_urls": [
+        "https://www.itl.nist.gov/div898/handbook/prc/section4/prc473.htm"
+      ],
+      "treatment": "Recorded for review. No change made."
+    }
+  ]
+}
