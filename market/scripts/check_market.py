@@ -46,6 +46,14 @@ def main():
             if href.startswith("http://"):
                 errors.append(f"{f.relative_to(MARKET)}: insecure external link -> {href}")
 
+    # 1b. external URLs must be real, fetchable links: no spaces, no placeholders
+    for f, text in pages.items():
+        for href in HREF.findall(text):
+            if not href.startswith("http"):
+                continue
+            if " " in href or "%20" in href or "{" in href or "}" in href or "..." in href:
+                errors.append(f"{f.relative_to(MARKET)}: malformed external link -> {href}")
+
     # 2. navigation coverage
     nav_targets = set()
     for href in HREF.findall(pages[MARKET / "index.html"]):

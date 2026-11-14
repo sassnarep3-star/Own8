@@ -546,7 +546,8 @@ body = (notice(f"{len(corr['rows'])} values, each computed only from rows that a
                f"and every value carries a sentence stating what it cannot be used for. Three survive Holm at 0.05; four do not. Values that could not be computed are "
                f"absent from the table rather than estimated.", "The rule for this page")
     + table(["ID", "Pair", "n", "Unit", "r", "95% interval", "Holm p", "Verdict", "What it cannot be used for", "Official source"],
-            c_rows, "Correlations, each with its n and its limit")
+            c_rows, "Correlations, each with its n and its limit",
+            corr["source_note"] + " Every row links one fetchable official page. A dash (—) is a value that does not exist, never an estimate.")
     + sec("The distinction that matters")
     + '<div class="card"><h3>A correlation between outcomes is not a parlay price</h3>'
       '<p>Every value above is measured on realised outcomes. A parlay needs a joint probability for two legs that have not happened yet, conditional on everything known at '
@@ -556,14 +557,14 @@ body = (notice(f"{len(corr['rows'])} values, each computed only from rows that a
       'independent <em>understates</em> the joint probability of two overs.</p></div>'
     + sec("Values deliberately not computed")
     + table(["Value", "Why it is absent", "Page checked"],
-            [[x["what"], x["why"], a(prices10["source_url"], "picks article (no prop or parlay price)")] for x in corr["not_computed"]],
+            [[x["what"], x["why"], a(x["page_checked"], "page checked")] for x in corr["not_computed"]],
             "Not computed, and why",
             "An estimated correlation would propagate directly into a parlay price. Absent is the honest state.")
     + notice("Nine weeks gives nine observations for the weekly-dependence question (C7). A confidence interval that wide is reported rather than hidden, and the absence of "
              "a significant weekly effect is not evidence that games in a week are independent. Treating unknown dependence as independence is the error this page exists to avoid.",
              "The smallest sample on the page", "warn"))
 page("correlations", "Correlations",
-     "Eight values with n on every row, Holm correction, and an explicit statement of what each one cannot price.",
+     f"{len(corr['rows'])} values with n on every row, Holm correction, and an explicit statement of what each one cannot price.",
      body)
 
 # ============================================================ availability

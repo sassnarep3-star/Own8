@@ -68,7 +68,7 @@
    "expected": 256,
    "actual": 256,
    "pass_": true,
-   "source_url": "https://www.nfl.com/scores/2026/week-1 ... /week-9"
+   "source_url": "https://www.nfl.com/scores/2026/week-9"
   },
   {
    "id": "V07",
@@ -76,7 +76,7 @@
    "expected": 28,
    "actual": 28,
    "pass_": true,
-   "source_url": "https://www.nfl.com/scores/2026/week-1 ... /week-9"
+   "source_url": "https://www.nfl.com/scores/2026/week-9"
   },
   {
    "id": "V08",
