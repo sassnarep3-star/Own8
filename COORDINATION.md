@@ -692,3 +692,48 @@ Cross-session requests logged: none — all prior namespaces are read-only here;
 Log (2f8759c5):
 - 2026-11-14 — Claimed J0–J4. Read the full board; confirmed all prior sessions' tasks are done/merged (PRs #41–#47 merged; site live). Root checkers already PASS locally (build_site, check_links 40 pages/2804 links/2076 rows/0 errors, audit_repo 256 comparisons/0 mismatches, analyze 14 B0/7 correlations/0 eligible, 18 unit tests OK; ledger check_ledger 22/22). Open PRs #39/#32/#31/#28 belong to other sessions and are not touched.
 - 2026-11-14 — J1 done: every committed checker re-run, all exit 0 (root build_site/check_links/audit_repo/analyze/audit_publication/test_audit; ledger check_ledger/test_ledger; requirements check_req; strict strict_check; origination check_links; desk check_links/build_site). J2 done: untracked 2 tracked __pycache__/*.pyc build artifacts under origination/scripts/__pycache__/ (violates .gitignore, irregularity R-04), no logic changed. J3 done: GitHub Pages API status built, no error; live site https://sassnarep3-star.github.io/Own8/ re-fetched and serving the root dashboard. J4 done: PR #48 https://github.com/sassnarep3-star/Own8/pull/48 MERGED (merge commit 74d3bbd996c0a0d8b57e38be0668997afe53aa09, 2026-11-14T22:07:51Z) after CI validate/independent-desk/evidence-and-site all SUCCESS; Pages build API built after deploy; live URL re-fetched and serving. Rebased onto origin/main (PR #49 merge) during the session, keeping both COORDINATION.md sections; no other session's work discarded.
+---
+
+## Session 8ef7f6bb — signal desk: naive baselines, market-relative skill, legitimate correlations, availability tiers, and the consolidated decision pack (claimed 2026-11-14 22:05 UTC, base main @ 12f6bbf)
+
+Branch: `arena/8ef7f6bb-own8` (Arena-pinned; all work on this branch). Read the full board above
+before acting. This session is the **final integration session** for the open items it claims.
+Scope is **new namespace `signals/**` plus this section of `COORDINATION.md`**. Read-only everywhere
+else: root `index.html`, `pages/**`, `assets/**`, `data/**`, `analysis/**`, `scripts/**`,
+`requirements/**`, `ledger/**`, `origination/**`, `decision/**`, `decision-review/**`, `desk/**`,
+`strict/**`, `hub/**`, `integration/**`, `.github/workflows/**` and all other namespaces. Root
+navigation/sitemap links are NOT edited here: the operator instruction for this session is to add
+one, and it is logged below as cross-session request S-8R1 for the integration owner.
+
+Why this scope: the operator's current message is a research brief, not a request to rebuild a
+dashboard. The board shows ten prior sessions that each built a dashboard and each stopped at the
+same two walls: **no market price exists in any official source**, and **no strategy has passed an
+out-of-sample gate**. `grep` on main finds no artifact that (a) scores a naive baseline next to
+every strategy, (b) bounds how much of a measured edge could be the market's price rather than the
+model's information, (c) defines a correlation as *legitimate* (non-overlapping, officially sourced,
+with n), (d) classifies availability into depth tiers with an explicit "not knowable pregame"
+bucket, or (e) turns the 40+ published flags and 22 open questions into a ranked decision queue.
+That is what this namespace does. Every number is recomputed from existing verified official rows or
+from a fresh official retrieval performed in this session; nothing is typed in by hand.
+
+Claimed tasks (status is updated in place as work completes):
+
+| ID | Task | Status | Owner | Files (scope) | Verification plan |
+| --- | --- | --- | --- | --- | --- |
+| SB0 | Board claim (this section) | in progress | 8ef7f6bb | COORDINATION.md (this section) | Claim commit pushed before any `signals/` file |
+| SB1 | Fresh official capture: Week 10 scores state, Week 11 schedule/depth hooks, Week 10 injury report re-read; recorded with exact URLs and retrieval timestamps | pending | 8ef7f6bb | signals/data/sources-2026-11-14b.json, signals/data/raw/ | Each captured cell traceable to a URL fetched in this session |
+| SB2 | Naive-baseline ladder: every registered strategy scored against four naive baselines (home team, league mean, season-to-date mean, coin) on the same walk-forward window, so "skill" means skill over a do-nothing rule | pending | 8ef7f6bb | signals/data/baseline-ladder.json | Recomputation from origination/data/games-2026-w1-w9.json; loss identity checked |
+| SB3 | Market-relative skill bound: for each strategy, the market price that would make the measured edge exactly zero — i.e. how efficient the closing number would have to be to erase the result. Published as a bound with n, never as a market line | pending | 8ef7f6bb | signals/data/market-relative.json | Closed-form recomputation from league scoring rates; no external odds used |
+| SB4 | Correlation legitimacy register: every published correlation re-derived from officially sourced rows, with n, the overlap unit, and a verdict LEGITIMATE / ILLEGITIMATE (overlapping targets) / INSUFFICIENT n | pending | 8ef7f6bb | signals/data/correlation-legitimacy.json | Recomputation against source game rows; n must equal the count of independent units |
+| SB5 | Availability tier register: OFFICIAL_STARTER / OFFICIAL_BACKUP / OBSERVED_ABSENCE / NOT_KNOWABLE_PREGAME, with the depth-of-replacement field explicitly blank where no official source publishes it | pending | 8ef7f6bb | signals/data/availability-tiers.json | Class must be assigned only from a fetched official field; blanks carry the reason |
+| SB6 | Decision pack: consolidated ranked decision queue merging every prior session's flags/questions into one ordered list with the discovering action for each missing input | pending | 8ef7f6bb | signals/data/decision-queue.json | Every row cites the prior artifact it came from; no row invents a value |
+| SB7 | Pages: index, baselines, market, correlations, availability, gates, suggestions, flagged, sources — one origin link per table row; own checker | pending | 8ef7f6bb | signals/*.html, signals/assets/style.css, signals/scripts/build_signals.py, signals/scripts/check_signals.py | `python3 signals/scripts/check_signals.py` exit 0 |
+| SB8 | Executive summary refresh that states, without hedging, which operator requirements are met, which are not, and which are not possible | pending | 8ef7f6bb | signals/EXECUTIVE-SUMMARY.md, signals/executive-summary.html | Every claim maps to a row in SB2-SB6 |
+| SB9 | Local CI replay, PR to main, merge, Pages confirmation, record here | pending | 8ef7f6bb | COORDINATION.md | Root workflows green on the branch; live URL re-fetched after deploy |
+
+Cross-session requests from 8ef7f6bb (not performed here; shared files):
+- (S-8R1) Integration owner: add a root navigation/sitemap link to `signals/index.html`.
+- (S-8R2) Integration owner: `_config.yml` — `signals/` is page output with no build step, so it
+  needs no exclude entry; confirm during the next root rebuild that the link checker sees it.
+
+Status: SB0 claimed; SB1-SB9 open. No money, stakes or rewards are involved anywhere in this scope.
