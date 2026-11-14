@@ -45,8 +45,22 @@
     },
     {
       "path": "COORDINATION.md",
-      "lines": 479,
-      "sha256": "982a4727dd3eee771709dac272d827783a95b57858788660b8cc7ec6ddca66e3",
+      "lines": 491,
+      "sha256": "df95570cee2d9ad1efea480e6c97d1208e2956952b0b2b6c6fe7cb229bf57169",
+      "review": "Executable/source or generated output \u2014 static checks; not official factual evidence",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "path": "COORDINATION.md",
+      "lines": 491,
+      "sha256": "df95570cee2d9ad1efea480e6c97d1208e2956952b0b2b6c6fe7cb229bf57169",
+      "review": "Executable/source or generated output \u2014 static checks; not official factual evidence",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "path": "COORDINATION.md",
+      "lines": 491,
+      "sha256": "df95570cee2d9ad1efea480e6c97d1208e2956952b0b2b6c6fe7cb229bf57169",
       "review": "Executable/source or generated output \u2014 static checks; not official factual evidence",
       "source_url": "https://www.nfl.com/standings/"
     },
@@ -128,6 +142,20 @@
       "source_url": "https://www.nfl.com/standings/"
     },
     {
+      "path": "analysis/link-check.json",
+      "lines": null,
+      "sha256": null,
+      "review": "Generated artifact \u2014 hashes/line counts omitted to avoid a self-referential audit manifest",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "path": "analysis/link-check.json",
+      "lines": null,
+      "sha256": null,
+      "review": "Generated artifact \u2014 hashes/line counts omitted to avoid a self-referential audit manifest",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
       "path": "analysis/live-official-check-2026-11-04.json",
       "lines": null,
       "sha256": null,
@@ -171,6 +199,20 @@
     },
     {
       "path": "analysis/prop-signals.json",
+      "lines": null,
+      "sha256": null,
+      "review": "Generated artifact \u2014 hashes/line counts omitted to avoid a self-referential audit manifest",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "path": "analysis/repo-audit.json",
+      "lines": null,
+      "sha256": null,
+      "review": "Generated artifact \u2014 hashes/line counts omitted to avoid a self-referential audit manifest",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "path": "analysis/repo-audit.json",
       "lines": null,
       "sha256": null,
       "review": "Generated artifact \u2014 hashes/line counts omitted to avoid a self-referential audit manifest",
@@ -3146,6 +3188,20 @@
     },
     {
       "path": "pages/prop-signals.html",
+      "lines": null,
+      "sha256": null,
+      "review": "Generated artifact \u2014 hashes/line counts omitted to avoid a self-referential audit manifest",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "path": "pages/repo-review.html",
+      "lines": null,
+      "sha256": null,
+      "review": "Generated artifact \u2014 hashes/line counts omitted to avoid a self-referential audit manifest",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "path": "pages/repo-review.html",
       "lines": null,
       "sha256": null,
       "review": "Generated artifact \u2014 hashes/line counts omitted to avoid a self-referential audit manifest",

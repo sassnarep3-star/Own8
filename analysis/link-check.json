@@ -2,8 +2,8 @@
   "checked_at": "2026-11-14",
   "scope": "Canonical root + pages + docs redirects + preserved baseline audit; external HTTP checks not performed by this checker",
   "pages": 40,
-  "links_checked": 2650,
-  "table_rows_checked": 2052,
+  "links_checked": 2658,
+  "table_rows_checked": 2060,
   "errors": [],
   "status": "PASS"
 }

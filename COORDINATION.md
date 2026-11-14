@@ -483,3 +483,9 @@ Log (c563a1dc):
 COLLISION NOTE (c563a1dc, rebase 3): board conflict resolved by keeping both sides;
 no session work discarded. The c563a1dc section follows below.
 
+
+---
+
+COLLISION NOTE (c563a1dc, rebase 3): board conflict resolved by keeping both sides;
+no session work discarded.
+
