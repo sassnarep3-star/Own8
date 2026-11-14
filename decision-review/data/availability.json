@@ -1,0 +1,104 @@
+{
+  "review_as_of": "2026-11-14",
+  "current_player_values": null,
+  "coverage_status": "NO CURRENT WEEK 11 LINEUP OR REPLACEMENT VALUES VERIFIED",
+  "schema_note": "This is a proposed Own8 data schema, not an official NFL depth-chart taxonomy. The tier names Starter/2nd/3rd/4th/Unknown are project labels and must be backed by an explicit dated team source. The rows below describe fields to collect; they do not assert current players, injuries, or depth order.",
+  "offensive_groups": [
+    {"group": "Quarterback", "project_scope": "QB", "source_ids": ["nfl-injuries-week10", "nfl-team-directory", "nfl-player-stats"]},
+    {"group": "Offensive line", "project_scope": "C/G/T and any source-listed OL position", "source_ids": ["nfl-injuries-week10", "nfl-team-directory", "nfl-player-stats"]},
+    {"group": "Running back", "project_scope": "RB/FB where source-listed", "source_ids": ["nfl-injuries-week10", "nfl-team-directory", "nfl-player-stats"]},
+    {"group": "Wide receiver", "project_scope": "WR", "source_ids": ["nfl-injuries-week10", "nfl-team-directory", "nfl-player-stats", "ngs-glossary"]},
+    {"group": "Tight end", "project_scope": "TE", "source_ids": ["nfl-injuries-week10", "nfl-team-directory", "nfl-player-stats", "ngs-glossary"]}
+  ],
+  "defensive_groups": [
+    {"group": "Defensive line / interior", "project_scope": "DT/NT and other source-listed defensive-line positions; preserve official position", "source_ids": ["nfl-injuries-week10", "nfl-team-directory", "nfl-player-stats"]},
+    {"group": "Edge / defensive end", "project_scope": "DE/EDGE only when source-listed; do not remap without an explicit rule", "source_ids": ["nfl-injuries-week10", "nfl-team-directory", "nfl-player-stats"]},
+    {"group": "Linebacker", "project_scope": "LB; preserve official position and role source", "source_ids": ["nfl-injuries-week10", "nfl-team-directory", "nfl-player-stats"]},
+    {"group": "Cornerback", "project_scope": "CB", "source_ids": ["nfl-injuries-week10", "nfl-team-directory", "nfl-player-stats"]},
+    {"group": "Safety", "project_scope": "S", "source_ids": ["nfl-injuries-week10", "nfl-team-directory", "nfl-player-stats"]}
+  ],
+  "fields": [
+    {
+      "field": "game_key / season_week",
+      "purpose": "Join schedule, injury report, lineup, outcome, and forecast to the same official NFL game.",
+      "verification_rule": "Match the official schedule/game page; retain season and week. Reject a response whose returned week does not match the requested week.",
+      "current_value": null,
+      "status": "UNKNOWN — no Week 11 injury report verified",
+      "source_ids": ["nfl-schedule-week11", "nfl-injuries-week11-request"]
+    },
+    {
+      "field": "team_id / player_id / official_position",
+      "purpose": "Stable identity to avoid name-only joins and team/position ambiguity.",
+      "verification_rule": "Use the official team/player page and preserve the exact position field from the specific official report; do not translate or infer position groups without a documented mapping.",
+      "current_value": null,
+      "status": "SCHEMA ONLY — no current player rows entered",
+      "source_ids": ["nfl-team-directory", "nfl-player-stats", "nfl-injuries-week10"]
+    },
+    {
+      "field": "unit / position_group",
+      "purpose": "Separate offensive and defensive replacement coverage and measure missing groups.",
+      "verification_rule": "Own8 taxonomy field; preserve source-listed position alongside it. Unknown mappings stay blank and flagged.",
+      "current_value": null,
+      "status": "PROPOSED TAXONOMY — no observations",
+      "source_ids": ["nfl-injuries-week10", "nfl-team-directory"]
+    },
+    {
+      "field": "source_as_of / retrieved_at / source_url",
+      "purpose": "Prove which report version was available at forecast cutoff.",
+      "verification_rule": "Store the page's stated report date/time where present and the retrieval time separately; preserve the exact URL and response week. If either is unknown, keep the cutoff status unknown.",
+      "current_value": null,
+      "status": "REQUIRED — current Week 11 value unknown",
+      "source_ids": ["nfl-injuries-week11-request", "nfl-injuries-week10"]
+    },
+    {
+      "field": "injury_description / practice_status / game_status",
+      "purpose": "Represent the official report without translating it into a model's own health judgment.",
+      "verification_rule": "Copy only the official report's displayed fields and labels. Blank stays blank; practice status is not game clearance.",
+      "current_value": null,
+      "status": "UNKNOWN FOR CURRENT WEEK — report request returned Week 10",
+      "source_ids": ["nfl-injuries-week10", "nfl-injuries-week11-request"]
+    },
+    {
+      "field": "active_inactive_confirmation",
+      "purpose": "Record a final official availability signal when an official source provides one.",
+      "verification_rule": "Use a dated official game/club source; do not infer active status from a practice designation, injury report omission, or expected starter claim.",
+      "current_value": null,
+      "status": "NOT CAPTURED — source route and current value require verification",
+      "source_ids": ["nfl-scores-week10", "nfl-team-directory", "nfl-injuries-week10"]
+    },
+    {
+      "field": "role_tier",
+      "purpose": "Represent the requested starter / 2nd / 3rd / 4th string role as an explicit relationship.",
+      "verification_rule": "Own8 labels only. Require a dated official depth chart or explicit official team lineup source that identifies the role. If the team source is absent or ambiguous, store Unknown/null; never infer from roster order or injury report ordering.",
+      "current_value": null,
+      "status": "UNVERIFIED — no depth-tier source captured",
+      "source_ids": ["nfl-team-directory", "nfl-injuries-week10"]
+    },
+    {
+      "field": "replaces_player_id / replacement_reason",
+      "purpose": "Link a replacement to the unavailable or displaced role and record the source-backed reason.",
+      "verification_rule": "Only populate when a dated official chart/announcement links the players or a verified official game source identifies the starter/replacement. Do not create the link from a model assumption.",
+      "current_value": null,
+      "status": "UNVERIFIED — no replacement mapping captured",
+      "source_ids": ["nfl-team-directory", "nfl-injuries-week10", "nfl-scores-week10"]
+    },
+    {
+      "field": "participation / workload / role metric",
+      "purpose": "Measure exposure before interpreting stats as player or unit quality.",
+      "verification_rule": "Choose a specific official NFL/NGS field and unit; collect its historical coverage and game-level alignment. If snaps/participation or an equivalent official measure cannot be verified for the feature, leave it blank.",
+      "current_value": null,
+      "status": "UNVERIFIED — no current workload data in this review",
+      "source_ids": ["nfl-player-stats", "ngs-glossary"]
+    },
+    {
+      "field": "replacement_impact_estimate / uncertainty",
+      "purpose": "Support a defensible unit-strength adjustment, not a label based only on roster tier.",
+      "verification_rule": "Pre-register outcome/metric, baseline, context, minimum evidence/precision rule, and chronological test. Store the estimate and uncertainty only after the data and method pass; otherwise null.",
+      "current_value": null,
+      "status": "BLOCKED — no estimate or uncertainty computed",
+      "source_ids": ["nfl-player-stats", "ngs-glossary", "nist-confidence-intervals", "nist-multiple-comparisons"]
+    }
+  ],
+  "tier_values": ["Starter", "2nd", "3rd", "4th", "Unknown"],
+  "tier_note": "Own8 schema labels only. Unknown is an explicit state. The labels are not presented as NFL-standard labels and no current player is assigned any tier."
+}

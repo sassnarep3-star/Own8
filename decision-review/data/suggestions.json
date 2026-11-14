@@ -1,0 +1,202 @@
+{
+  "review_as_of": "2026-11-14",
+  "decision_status": "PROPOSED — no path approved or launched",
+  "recommended_sequence": [
+    "PATH-A",
+    "PATH-B only after gates pass",
+    "PATH-C HOLD"
+  ],
+  "paths": [
+    {
+      "id": "PATH-A",
+      "title": "Evidence-first, research-only",
+      "status": "RECOMMENDED NOW — reversible",
+      "description": "Keep the existing fail-closed dashboard. Publish dated, source-linked facts and missing-data flags; no actionable picks, wager facilitation, cash prizes, or claims that luck has been removed.",
+      "benefit": "Matches the evidence currently present and does not require inventing prices, player status, depth order, or performance.",
+      "tradeoff": "No live edge, market comparison, rewards, or automatic injury adjustment is available yet.",
+      "next_action": "Build only the official-source coverage, timestamp, and error/flagging layer. Leave missing values blank.",
+      "acceptance_criteria": "Every published fact has an exact source and cutoff; stale/mismatched feeds fail closed; all strategy gates remain visible; no unverified line or reward is emitted.",
+      "source_ids": [
+        "nfl-schedule-week11",
+        "nfl-injuries-week11-request",
+        "nfl-scores-week10",
+        "github-pages-publishing"
+      ]
+    },
+    {
+      "id": "PATH-B",
+      "title": "Automated shadow competition",
+      "status": "FUTURE — gated, not ready",
+      "description": "After source coverage and forecast-history gates pass, record immutable, timestamped, non-wagering forecasts for singles, parlays, and player-prop combinations; score them against a frozen baseline on an untouched chronological test.",
+      "benefit": "Creates an auditable basis to compare strategy skill rather than short-term realized wins, with explicit uncertainty and a points-only leaderboard.",
+      "tradeoff": "Requires permitted official data collection, complete outcomes, market/settlement evidence when evaluating value, aligned joint outcomes for combinations, enough independent time periods, and a functioning paper ledger.",
+      "next_action": "Do not start forecasts until G2–G8 applicable to the strategy are PASS and the data cutoff and evaluation family are preregistered.",
+      "acceptance_criteria": "Frozen rules; logged predictions before cutoff; appropriate outcome and price evidence; calibrated proper-score improvement with dependence-aware uncertainty and family-wide adjustment; reproducible settlement; zero cash/value prizes unless separately cleared.",
+      "source_ids": [
+        "nfl-scores-week10",
+        "nfl-player-stats",
+        "ngs-glossary",
+        "nist-confidence-intervals",
+        "nist-multiple-comparisons"
+      ]
+    },
+    {
+      "id": "PATH-C",
+      "title": "Real-money wagering or rewards of value",
+      "status": "HOLD — not recommended from current evidence",
+      "description": "Any future feature that takes, facilitates, settles, or promotes wagering, or awards cash, cash-equivalent, or other value, is outside this research-only release.",
+      "benefit": "Would require a separate product, operational, and regulatory decision; it is not a necessary step to research forecast skill.",
+      "tradeoff": "The project's legal classification, users, operator, jurisdiction, controls, and any required licences/approvals have not been established. The Singapore GRA pages are official review references, not a project-specific legal opinion.",
+      "next_action": "Keep this path disabled. If considered later, obtain qualified legal advice and regulator guidance for every relevant jurisdiction before product or prize implementation.",
+      "acceptance_criteria": "Written, product-specific legal/regulatory clearance, required authorizations and controls, independent risk review, and a separate approval decision. A model backtest alone cannot satisfy these conditions.",
+      "source_ids": [
+        "gra-class-licences",
+        "gra-betting-faq",
+        "gra-remote-gambling"
+      ]
+    }
+  ],
+  "recommendations": [
+    {
+      "id": "S01",
+      "priority": "P0 — before any signal",
+      "title": "Preserve the fail-closed baseline",
+      "problem": "The canonical audit is dated 2026-11-04; no fresh operator-native quotes or current Week 11 injury statuses were confirmed in this review.",
+      "proposal": "Keep market price, edge, probability, current availability, and reward cells blank unless their required evidence is verified. Display the source cutoff prominently and abstain when it is stale or mismatched.",
+      "discovery_steps": "Add a row-level freshness check and explicitly compare requested season/week with the returned source title and canonical URL. Record a review flag on a mismatch.",
+      "acceptance_test": "A simulated missing, stale, or wrong-week source leaves the value null and blocks every affected strategy; no stale value can silently flow into line output.",
+      "status": "Recommended for immediate implementation",
+      "source_ids": [
+        "nfl-injuries-week11-request",
+        "nfl-schedule-week11",
+        "nfl-scores-week10"
+      ]
+    },
+    {
+      "id": "S02",
+      "priority": "P1 — data foundation",
+      "title": "Build a permitted, official-source capture registry",
+      "problem": "A dated static snapshot and scheduled software build are not a fresh data-ingestion service.",
+      "proposal": "Create one record per official source and field family: URL, publisher, event/week, observed-at time, source as-of time when available, coverage, checksum/version, parser checks, and failure reason. Automate refresh only where official access and terms permit; do not ask for manual rows or silently substitute non-official data.",
+      "discovery_steps": "Inventory official NFL/club/Next Gen Stats endpoints and publication timing; test a read-only capture for each field; document fields that cannot be reliably refreshed.",
+      "acceptance_test": "A clean scheduled run can report fresh/stale/failed coverage per field; a changed page or missing week is detected; unsupported fields remain null; no secrets enter the public artifact.",
+      "status": "Proposed — source-access discovery required",
+      "source_ids": [
+        "nfl-schedule-week11",
+        "nfl-injuries-week11-request",
+        "nfl-team-directory",
+        "ngs-glossary",
+        "github-pages-publishing"
+      ]
+    },
+    {
+      "id": "S03",
+      "priority": "P1 — injury and lineup coverage",
+      "title": "Add an offense-and-defense replacement ledger",
+      "problem": "The injury report identifies player/position/practice/game status but does not itself provide depth tiers or a replacement mapping; no current verified depth relationships are stored.",
+      "proposal": "For each scheduled team/game and position group, store the official player ID, listed position, official availability fields, the dated official depth/starting source, role tier (starter/2nd/3rd/4th/unknown as Own8 schema), and an explicit `replaces_player_id` when the official source supports it. Cover QB, OL, RB, WR, TE and defensive front/edge, LB, CB, safety; retain an unknown/blank state for missing sources.",
+      "discovery_steps": "Use the NFL team directory to locate a team's own official publication; verify whether each team publishes a dated depth chart or explicit lineup, and record the source. Separately reconcile late injury/inactive information and actual game participation from an official source. Do not infer rank from roster listing order.",
+      "acceptance_test": "Every non-null depth tier and replacement link has an official, dated source; every team/unit with no source displays UNKNOWN; coverage checks include both offense and defense and all requested tiers; practice status never equals clearance.",
+      "status": "Proposed — no current roster values entered",
+      "source_ids": [
+        "nfl-team-directory",
+        "nfl-injuries-week10",
+        "nfl-injuries-week11-request",
+        "nfl-player-stats"
+      ]
+    },
+    {
+      "id": "S04",
+      "priority": "P2 — model definition",
+      "title": "Separate descriptive lines from calibrated probabilities and market prices",
+      "problem": "The current B0 score mean is not a win/cover probability or a market price and has no roster or uncertainty calibration.",
+      "proposal": "Create distinct single-game models for spread, total, moneyline, and each player-prop family. Use only features available at the registered cutoff; publish the mean/distribution, calibration status, uncertainty, and abstention reason separately from any quote/edge.",
+      "discovery_steps": "Define target/outcome, eligible official features, cutoff, missing-data behavior, baseline, and uncertainty method for each market before fitting; document what source supports every input.",
+      "acceptance_test": "Each output can be reproduced from logged inputs; probability outputs are calibrated out of sample; unsupported inputs or prices remain blank; signs, pushes, ties, and line conventions are tested.",
+      "status": "Proposed — no additional probabilities generated",
+      "source_ids": [
+        "nfl-standings",
+        "nfl-scores-week10",
+        "nfl-player-stats",
+        "ngs-glossary",
+        "nist-confidence-intervals"
+      ]
+    },
+    {
+      "id": "S05",
+      "priority": "P2 — combination validation",
+      "title": "Estimate and validate event-level dependence before parlays or prop combos",
+      "problem": "Current bet-event correlation rows have null values; team-aggregate correlations do not answer a wager-leg dependence question.",
+      "proposal": "For each pair and full combination, align game/player IDs, thresholds, times, outcomes, pushes/voids, and selection rules. Estimate event-level joint probabilities and uncertainty; validate the full joint event, not just a pairwise coefficient.",
+      "discovery_steps": "Start with named families (QB pass yards × receiver yards; team total × player prop; opposite-team rush/pass; cross-game legs). Build a source-backed event matrix and measure coverage before modeling.",
+      "acceptance_test": "The exact joint distribution is tested on an untouched time-ordered sample and is priced only with an exact verified offer/settlement rule; unknown dependence remains BLOCKED, never assumed zero.",
+      "status": "Proposed — all combination signals remain blocked",
+      "source_ids": [
+        "nfl-scores-week10",
+        "nfl-player-stats",
+        "ngs-glossary",
+        "nist-association",
+        "nist-confidence-intervals"
+      ]
+    },
+    {
+      "id": "S06",
+      "priority": "P2 — skill evidence",
+      "title": "Pre-register a chronological, multiplicity-aware validation protocol",
+      "problem": "No current canonical evidence establishes predictive skill; there are multiple strategy families and many possible feature/model variants.",
+      "proposal": "Freeze hypotheses, trial count, baseline, information cutoff, development folds, untouched test, metrics, exclusion rules, and reward formula before evaluation. Compare paired proper scores and calibration with time/game dependence-aware uncertainty; disclose every tested variant.",
+      "discovery_steps": "Write the protocol into versioned files before the next experiment; preserve a final season/time block that is not used for tuning; run a software test that rejects leakage and incomplete gate status.",
+      "acceptance_test": "A reproducible, untouched, source-backed result beats the frozen baseline by a predeclared conservative interval after the family-wide adjustment; otherwise the strategy remains blocked.",
+      "status": "Proposed — no skill claim or award",
+      "source_ids": [
+        "nist-confidence-intervals",
+        "nist-multiple-comparisons",
+        "nist-association"
+      ]
+    },
+    {
+      "id": "S07",
+      "priority": "P3 — competition operations",
+      "title": "Use a prospective paper ledger and points-only leaderboard after gates pass",
+      "problem": "The current leaderboard is an eight-strategy registry; it has no eligible rank, graded forecasts, or awarded rewards.",
+      "proposal": "Record every forecast immutably before kickoff with strategy version, inputs, timestamp, probability/line, applicable quote, and settlement rule. Show unranked entries until validation and sample gates pass; only then award non-transferable project points under a frozen scoring rule.",
+      "discovery_steps": "Specify tie handling, missing entries, correlated games, withdrawals, drawdowns, audit trail, and dispute/correction rules before accepting competition entries.",
+      "acceptance_test": "A paper forecast cannot be edited after cutoff without an append-only correction record; every leaderboard value recomputes from the ledger; no reward appears for a blocked strategy.",
+      "status": "Proposed — paper-only; not implemented in this module",
+      "source_ids": [
+        "nfl-scores-week10",
+        "nist-confidence-intervals",
+        "nist-multiple-comparisons"
+      ]
+    },
+    {
+      "id": "S08",
+      "priority": "P3 — product/legal review",
+      "title": "Keep cash/value rewards and wagering out of scope until cleared",
+      "problem": "The project's legal classification and prize structure are not established; official Singapore GRA guidance describes regulated betting and prize-related activities, but does not decide this project's status.",
+      "proposal": "Maintain a research-only, non-monetary leaderboard for now. Before any real-money wagering or award of cash, cash-equivalent, or another thing of value, obtain qualified advice and regulator guidance for relevant jurisdictions.",
+      "discovery_steps": "Document operator, users, service mechanics, chance/skill elements, entry/payment, prize form, and where the service is offered; then request product-specific review.",
+      "acceptance_test": "A separate signed-off legal/regulatory and operational review exists before code for payouts, deposits, or wagering facilitation is implemented.",
+      "status": "Recommended hold — no legal conclusion",
+      "source_ids": [
+        "gra-class-licences",
+        "gra-betting-faq",
+        "gra-remote-gambling"
+      ]
+    },
+    {
+      "id": "S09",
+      "priority": "P3 — publication architecture",
+      "title": "Add a source-of-truth catalog for the separate research workspaces",
+      "problem": "The repository contains the canonical root dashboard and additional research namespaces; not every workspace has a clearly verified live route/status in the root navigation.",
+      "proposal": "Maintain one module index with URL, owner/status, as-of date, evidence scope, and whether a page is canonical, auxiliary, historical, or archived. Link the same questions/flags only once, and keep shared data/navigation changes to a documented integration step.",
+      "discovery_steps": "Check each module’s owner handoff, Pages publication scope, current deployment, source coverage, and any unresolved flags. Record an explicit status instead of assuming a Git directory is live or verified.",
+      "acceptance_test": "Every linked module opens on Pages, states its date and verification scope, has no broken internal links, and does not silently duplicate or contradict canonical values.",
+      "status": "Proposed — live routes and module ownership need review",
+      "source_ids": [
+        "github-pages-publishing",
+        "nfl-standings"
+      ]
+    }
+  ]
+}
