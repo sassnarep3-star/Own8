@@ -1,0 +1,270 @@
+{
+ "summary": {
+  "captured_at": "2026-11-14",
+  "checks_total": 50,
+  "checks_failed": 0,
+  "reconcile_cells_ok": 352,
+  "reconcile_cells_total": 352,
+  "games_in_log": 137,
+  "week9_graded": 15,
+  "spread_mae": 10.65,
+  "total_mae": 10.8073,
+  "home_covers": 5,
+  "overs": 7,
+  "brier_moneyline": 0.1899,
+  "sigma_margin": 13.1768,
+  "sigma_total": 14.2035
+ },
+ "checks": [
+  {
+   "check": "standings row count == 32",
+   "pass": true,
+   "detail": "32 clubs parsed"
+  },
+  {
+   "check": "inherited W1-W8 game count == 121",
+   "pass": true,
+   "detail": "121 games"
+  },
+  {
+   "check": "Week 9 game count == 15",
+   "pass": true,
+   "detail": "15 games"
+  },
+  {
+   "check": "Week 9 slug teams match away/home",
+   "pass": true,
+   "detail": "recorded for review"
+  },
+  {
+   "check": "total game log == 137 (121 + 15 + 1 completed Week 10 game)",
+   "pass": true,
+   "detail": "137 games"
+  },
+  {
+   "check": "reconcile BUF",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "reconcile SF",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "reconcile CHI",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "reconcile DEN",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "reconcile CIN",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "reconcile DET",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "reconcile JAX",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "reconcile KC",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "reconcile MIN",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "reconcile PIT",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "reconcile GB",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "reconcile NYG",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "reconcile CLE",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "reconcile LA",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "reconcile NE",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "reconcile SEA",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "reconcile BAL",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "reconcile DAL",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "reconcile LV",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "reconcile WAS",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "reconcile CAR",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "reconcile HOU",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "reconcile NO",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "reconcile AZ",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "reconcile ATL",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "reconcile TB",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "reconcile IND",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "reconcile NYJ",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "reconcile PHI",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "reconcile MIA",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "reconcile TEN",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "reconcile LAC",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "all 32 clubs reconcile",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "one sigma_margin across all originated rows (constant, as designed)",
+   "pass": true,
+   "detail": "[12.846892777]"
+  },
+  {
+   "check": "one sigma_total across all originated rows (constant, as designed)",
+   "pass": true,
+   "detail": "[13.789542169]"
+  },
+  {
+   "check": "all 15 originated Week 9 lines graded",
+   "pass": true,
+   "detail": "15 graded"
+  },
+  {
+   "check": "sigma_margin recomputed on all 137 logged games",
+   "pass": true,
+   "detail": "13.1768"
+  },
+  {
+   "check": "sigma_total recomputed on all 137 logged games",
+   "pass": true,
+   "detail": "14.2035"
+  },
+  {
+   "check": "Week 10 slate == 14 scheduled games",
+   "pass": true,
+   "detail": "14"
+  },
+  {
+   "check": "Week 10 slate excludes games already final in the log",
+   "pass": true,
+   "detail": "13 remaining"
+  },
+  {
+   "check": "Week 10 lines originated == 13",
+   "pass": true,
+   "detail": "13"
+  },
+  {
+   "check": "no Week 10 line carries a market price or edge",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "injury rows parsed == 345",
+   "pass": true,
+   "detail": "345"
+  },
+  {
+   "check": "every club is listed except the four on bye",
+   "pass": true,
+   "detail": "28 clubs"
+  },
+  {
+   "check": "no injury row has an inferred game status",
+   "pass": true,
+   "detail": ""
+  }
+ ]
+}

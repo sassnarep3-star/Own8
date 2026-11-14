@@ -1,0 +1,19 @@
+# Raw transcription — 2026 Week 10 schedule
+# Source: https://www.nfl.com/schedules/2026/by-week/week-10 (retrieved 2026-11-14, chunks 0-2)
+# Format: away|home|day_rendered|time_rendered|network_rendered|event_heading_rendered|game_slug|rendered_status|rendered_score
+# Empty field = not rendered. Nothing inferred.
+WAS|NYG|Thursday, November 12th|8:15 PM|Prime Video|Thursday Night Football, November 12th|commanders-at-giants-2026-reg-10|Final|Commanders 24, Giants 21
+NE|DET|Sunday, November 15th|9:30 AM|FOX|International Game, November 15th (Munich logo + Germany flag rendered)|patriots-at-lions-2026-reg-10||
+KC|ATL|Sunday, November 15th|1:00 PM|CBS|Sunday, November 15th|chiefs-at-falcons-2026-reg-10||
+HOU|CLE|Sunday, November 15th|1:00 PM|FOX|Sunday, November 15th|texans-at-browns-2026-reg-10||
+MIN|GB|Sunday, November 15th|1:00 PM|FOX|Sunday, November 15th|vikings-at-packers-2026-reg-10||
+MIA|IND|Sunday, November 15th|1:00 PM|CBS|Sunday, November 15th|dolphins-at-colts-2026-reg-10||
+CAR|NO|Sunday, November 15th|1:00 PM|FOX|Sunday, November 15th|panthers-at-saints-2026-reg-10||
+BUF|NYJ|Sunday, November 15th|1:00 PM|CBS|Sunday, November 15th|bills-at-jets-2026-reg-10||
+JAX|TEN|Sunday, November 15th|1:00 PM|FOX|Sunday, November 15th|jaguars-at-titans-2026-reg-10||
+LAR|AZ|Sunday, November 15th|4:05 PM|CBS|Sunday, November 15th|rams-at-cardinals-2026-reg-10||
+SEA|LV|Sunday, November 15th|4:05 PM|CBS|Sunday, November 15th|seahawks-at-raiders-2026-reg-10||
+SF|DAL|Sunday, November 15th|4:25 PM|FOX|Sunday, November 15th|49ers-at-cowboys-2026-reg-10||
+PIT|CIN|Sunday, November 15th|8:20 PM|NBC|Sunday Night Football, November 15th|steelers-at-bengals-2026-reg-10||
+LAC|BAL|Monday, November 16th|8:15 PM|ESPN|Monday Night Football, November 16th|chargers-at-ravens-2026-reg-10||
+# Teams on Bye (rendered on the same page): CHI 7-2, DEN 7-2, PHI 2-7, TB 3-6
