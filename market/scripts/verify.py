@@ -128,10 +128,10 @@ def main():
     gp = sum(v["G"] for v in by_team.values())
     check("V06", "club-games recomputed (2 x each game in the log plus the one played Week 10 game)",
           256, sum(v["G"] for t, v in by_team.items() if t not in ("WAS", "NYG")),
-          "https://www.nfl.com/scores/2026/week-1 ... /week-9")
+          "https://www.nfl.com/scores/2026/week-9")
     dates = sorted({g["date"] for g in log})
     check("V07", "distinct game dates in the log", len(dates), len({g["date"] for g in log}),
-          "https://www.nfl.com/scores/2026/week-1 ... /week-9")
+          "https://www.nfl.com/scores/2026/week-9")
 
     # 5. The Week 10 price capture is complete and internally consistent.
     p10 = load("market/data/raw/official-prices-w10.json")

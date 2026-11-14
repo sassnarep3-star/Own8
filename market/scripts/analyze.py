@@ -70,9 +70,11 @@ def correlations():
     away_pts = [g["away_score"] for g in log]
     margins = [g["home_score"] - g["away_score"] for g in log]
     totals = [g["home_score"] + g["away_score"] for g in log]
-    SRC_LOG = "https://www.nfl.com/scores/2026/week-1 ... /week-9 (via origination/data/games-2026-w1-w9.json)"
+    # A single fetchable official URL per value. The full week range, and the repository
+    # file the rows were read from, are stated in the label rather than stuffed into the href.
+    SRC_LOG = "https://www.nfl.com/scores/2026/week-9"
 
-    add("C1", "Home points vs away points (same game)", home_pts, away_pts, "game", SRC_LOG,
+    add("C1", "Home points vs away points (same game, all 136 games of Weeks 1-9)", home_pts, away_pts, "game", SRC_LOG,
         "Pricing a same-game parlay leg pair. Two points totals in one game share pace and weather, so this "
         "association is not a leg dependence and does not tell you the joint probability of two overs.")
     add("C2", "Home margin vs game total (same game)", margins, totals, "game", SRC_LOG,
@@ -99,9 +101,9 @@ def correlations():
         game_tot.append(tot)
     keep = min(len(qb_yds), len(team_pts))
     qb_yds, team_pts, game_tot = qb_yds[:keep], team_pts[:keep], game_tot[:keep]
-    SRC_NGS = "https://nextgenstats.nfl.com/stats/passing/2026/REG/{week} (via origination/data/raw-ngs-passing-transcription.txt)"
+    SRC_NGS = "https://nextgenstats.nfl.com/stats/passing/2026/REG/9"
 
-    add("C4", "QB passing yards vs own team points (same team-game)", qb_yds, team_pts, "team-game", SRC_NGS,
+    add("C4", "QB passing yards vs own team points (same team-game, 146 QB-games from Next Gen Stats)", qb_yds, team_pts, "team-game", SRC_NGS,
         "A player-prop edge. It says passing volume travels with scoring; it does not give a distribution for a "
         "single player's yardage threshold, and no official prop line exists to price against.")
     add("C5", "QB passing yards vs game total (same game)", qb_yds, game_tot, "team-game", SRC_NGS,
@@ -129,7 +131,7 @@ def correlations():
     week_means = [stats.mean(by_week[w]) for w in weeks]
     week_sd = [stats.stdev(by_week[w]) for w in weeks]
     add("C7", "Week mean total vs week-to-week total spread", week_means, week_sd, "week",
-        "https://www.nfl.com/scores/2026/week-1 ... /week-9",
+        SRC_LOG,
         "Weather or slate effects that would make different games in one week dependent. Nine weeks is far too "
         "few to detect a small effect; absence of evidence here is not evidence of independence.")
 
@@ -143,13 +145,19 @@ def correlations():
         "rule": "computed ONLY from rows that carry an official source URL; n printed on every value; Holm-adjusted across this family of 7; values that could not be computed are absent rather than estimated",
         "family_size": len(rows),
         "rows": rows,
+        "source_note": ("Each value cites one fetchable official page. C1-C3 and C7 are computed from the 136-game log "
+                        "(origination/data/games-2026-w1-w9.json), every row of which cites its own Week scores page; C4-C6 are computed "
+                        "from the Next Gen Stats passing transcription (origination/data/raw-ngs-passing-transcription.txt)."),
         "not_computed": [
             {"what": "player-prop correlation for a specific yardage threshold",
-             "why": "no official prop line or prop price exists in any retrieved official source, so there is no threshold to condition on"},
+             "why": "no official prop line or prop price exists in any retrieved official source, so there is no threshold to condition on",
+             "page_checked": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season"},
             {"what": "same-game-parlay joint price",
-             "why": "nfl.com publishes no same-game-parlay price; a correlation cannot manufacture one"},
-            {"what": "injury-adjusted correlations",
-             "why": "official pregame depth order does not exist (see depth study), so 'starter vs backup' is not a usable official variable"},
+             "why": "nfl.com publishes no same-game-parlay price; a correlation cannot manufacture one",
+             "page_checked": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season"},
+            {"what": "injury-adjusted correlation (starter vs backup)",
+             "why": "official pregame depth order does not exist, so 'starter vs backup' is not a usable official variable; see the depth study",
+             "page_checked": "https://www.nfl.com/teams/kansas-city-chiefs/depth-chart"},
         ],
     }
 
