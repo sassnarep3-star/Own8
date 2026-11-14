@@ -1,0 +1,31 @@
+# Raw transcription — 2026 Week 11 official schedule (nfl.com)
+# Source: https://www.nfl.com/schedules/2026/by-week/week-11
+# Retrieval: 2026-11-14 UTC, chunks 0-2 of 3. Every game row below appears in the retrieved text.
+# Format: game|away|home|date_rendered|time_rendered|network|neutral_site|game_url
+# No line, spread, total, price or odds value appears anywhere on this page, in any chunk.
+# "neutral_site" is set only where the page prints a city/event badge (Mexico City).
+meta|page_title|NFL Week 11 Schedule 2026: Games, Times, Matchups & Tickets
+meta|week_heading|WEEK 11
+meta|games_listed|14
+game|IND|HOU|Nov 19|8:15 PM|PRIME|no|https://www.nfl.com/games/colts-at-texans-2026-reg-11
+game|MIA|BUF|Nov 22|1:00 PM|CBS|no|https://www.nfl.com/games/dolphins-at-bills-2026-reg-11
+game|BAL|CAR|Nov 22|1:00 PM|FOX|no|https://www.nfl.com/games/ravens-at-panthers-2026-reg-11
+game|NO|CHI|Nov 22|1:00 PM|FOX|no|https://www.nfl.com/games/saints-at-bears-2026-reg-11
+game|TEN|DAL|Nov 22|1:00 PM|FOX|no|https://www.nfl.com/games/titans-at-cowboys-2026-reg-11
+game|TB|DET|Nov 22|1:00 PM|FOX|no|https://www.nfl.com/games/buccaneers-at-lions-2026-reg-11
+game|AZ|KC|Nov 22|1:00 PM|CBS|no|https://www.nfl.com/games/cardinals-at-chiefs-2026-reg-11
+game|PIT|PHI|Nov 22|1:00 PM|CBS|no|https://www.nfl.com/games/steelers-at-eagles-2026-reg-11
+game|NYJ|LAC|Nov 22|4:05 PM|FOX|no|https://www.nfl.com/games/jets-at-chargers-2026-reg-11
+game|JAX|NYG|Nov 22|4:25 PM|CBS|no|https://www.nfl.com/games/jaguars-at-giants-2026-reg-11
+game|LV|DEN|Nov 22|4:25 PM|CBS|no|https://www.nfl.com/games/raiders-at-broncos-2026-reg-11
+game|MIN|SF|Nov 22|8:20 PM|NBC|yes|https://www.nfl.com/games/vikings-at-49ers-2026-reg-11
+game|CIN|WAS|Nov 23|8:15 PM|ESPN|no|https://www.nfl.com/games/bengals-at-commanders-2026-reg-11
+meta|games_listed_after_chunk2|13
+# Bye clubs printed on the page: ATL, CLE, GB, LA (rendered LAR), NE, SEA — six clubs.
+# A 14-game slate + 6 byes = 32 clubs, which closes the partition.
+bye|ATL
+bye|CLE
+bye|GB
+bye|LA
+bye|NE
+bye|SEA
