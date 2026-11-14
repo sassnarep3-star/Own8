@@ -1,0 +1,66 @@
+name: Verify requirements section
+
+# Owned by the requirements/** scope (session f6e60a81). Deliberately does NOT deploy anything:
+# GitHub Pages for this repository is published from the main branch root by the legacy pipeline, so
+# adding a second deployment job here would race the existing one. This workflow only proves that the
+# registers, the official capture and every generated page are internally consistent.
+on:
+  push:
+    branches: [main, 'arena/f6e60a81-own8']
+    paths:
+      - 'requirements/**'
+      - 'scripts/build_site.py'
+      - 'scripts/check_links.py'
+      - '.github/workflows/requirements.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'requirements/**'
+      - 'scripts/build_site.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: requirements-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      # Rebuild every derived artifact from the committed raw transcriptions, so a hand-edited
+      # result file cannot pass unnoticed.
+      - name: Re-run the official capture and grading
+        run: python requirements/scripts/verify_capture.py
+      - name: Re-run the availability and luck analysis
+        run: python requirements/scripts/analyze_availability.py
+      - name: Rebuild the review flags
+        run: python requirements/scripts/build_flags.py
+      - name: Rebuild the section pages
+        run: python requirements/scripts/req_site.py
+      - name: Check every row carries an official source and every link resolves
+        run: python requirements/scripts/check_req.py
+      # The root dashboard links into this section, so the root generator must still pass too.
+      - name: Rebuild and check the root dashboard
+        run: |
+          python scripts/build_site.py
+          python scripts/check_links.py
+          python scripts/audit_publication.py
+      - name: Confirm the regenerated files match what was committed
+        run: |
+          if ! git diff --quiet; then
+            echo "::error::Derived files changed when rebuilt from the committed raw data. Commit the regenerated output."
+            git --no-pager diff --stat
+            exit 1
+          fi
+      - name: Upload the section as a preview artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: requirements-section
+          path: |
+            requirements/pages
+            requirements/index.html
+            requirements/results
