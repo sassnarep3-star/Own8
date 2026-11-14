@@ -1,0 +1,69 @@
+{
+  "session": "1052cf22",
+  "checked_at": "2026-11-14",
+  "scope": "Final-integration round 4 verification: live official re-reads vs stored root data, full cross-namespace checker replay on the integrated tree (root + requirements + ledger + origination + correlation-audit + signals + decision-review), and operator-requirement coverage confirmation. Fail-closed: any mismatch would be blanked and flagged, never inferred.",
+  "live_official_checks": [
+    {
+      "id": "V-1",
+      "what": "Week 10 Thursday final score",
+      "source_url": "https://www.nfl.com/scores/2026/week-10",
+      "stored": "data/audit-snapshot.json scores row WAS 24 - 21 NYG (2026-11-12); ledger/data/results-feed.json row",
+      "live": "COMMANDERS 24, GIANTS 21, Final (Thursday Night Football, November 12th)",
+      "result": "MATCH"
+    },
+    {
+      "id": "V-2",
+      "what": "League standings W/L/T/PCT/PF/PA/NET/STRK for 24 teams visible in the retrieved chunks",
+      "source_url": "https://www.nfl.com/standings/league/2026/REG",
+      "stored": "data/audit-snapshot.json standings (as_of 2026-11-14)",
+      "cells_checked": 191,
+      "mismatches": 0,
+      "result": "MATCH"
+    },
+    {
+      "id": "V-3",
+      "what": "Week 10 slate: 14 games, kickoff times, networks, bye clubs (CHI, DEN, PHI, TB)",
+      "source_url": "https://www.nfl.com/schedules/2026/by-week/week-10",
+      "stored": "data/audit-snapshot.json schedule (14 rows)",
+      "result": "MATCH (WAS-NYG Final first; 13 unplayed as of 2026-11-14; byes CHI 7-2, DEN 7-2, PHI 2-7, TB 3-6 agree)"
+    },
+    {
+      "id": "V-4",
+      "what": "Team records on the scores page team strips (15 teams incl. WAS 3-5-1, NYG 5-3-1 post-Thursday)",
+      "source_url": "https://www.nfl.com/scores/2026/week-10",
+      "stored": "data/audit-snapshot.json standings",
+      "result": "MATCH (15/15)"
+    }
+  ],
+  "checker_replay_integrated_tree": [
+    {"checker": "python3 scripts/audit_repo.py", "result": "PASS (256 standings comparisons, 0 mismatches; 471 inherited entries inventoried incl. signals/** and correlation-audit/**)"},
+    {"checker": "python3 scripts/analyze.py", "result": "PASS (14 B0 benchmarks; 7 correlation rows; 0 eligible strategies)"},
+    {"checker": "python3 scripts/build_site.py", "result": "PASS"},
+    {"checker": "python3 scripts/check_links.py", "result": "PASS (40 pages, 3029 links, 2185 table rows, 0 errors)"},
+    {"checker": "python3 scripts/audit_publication.py", "result": "PASS (61 active HTML files, 1233 local URLs, no excluded targets)"},
+    {"checker": "python3 -m unittest discover -s scripts -p 'test_audit.py'", "result": "PASS"},
+    {"checker": "python3 -m unittest discover -s tests", "result": "PASS (strict suite, 852 links, 406 rows, 0 errors)"},
+    {"checker": "requirements/scripts/{verify_capture,analyze_availability,build_checks,build_flags,req_site,check_req}.py replay", "result": "PASS (check_req status PASS; regenerated output byte-identical)"},
+    {"checker": "python3 ledger/scripts/check_ledger.py + test_ledger.py", "result": "PASS (22 checks, 23 unit tests)"},
+    {"checker": "python3 origination/scripts/check_links.py", "result": "PASS (15 pages, 2288 links, 967 rows, 0 failures)"},
+    {"checker": "python3 -m unittest discover -s correlation-audit/scripts -p 'test_*.py'", "result": "PASS (8 tests)"},
+    {"checker": "python3 signals/scripts/check_signals.py", "result": "PASS (115/115 checks, 378 rows)"},
+    {"checker": "python3 decision-review/check.py", "result": "PASS (7 pages, 81 rows, 15 sources)"}
+  ],
+  "requirement_coverage_artifacts": {
+    "price_snapshot_store": {"artifact": "ledger/data/price-snapshots.json + ledger/price-store.html", "verified": "39 market rows, order 1=side 2=total 3=moneyline; 0 of 78 opening/closing values carry an official source (blank, flagged LF-01)", "source_url": "https://www.nfl.com/games/patriots-at-lions-2026-reg-10"},
+    "verified_results_feed": {"artifact": "ledger/data/results-feed.json + ledger/results-feed.html", "verified": "137 rows with per-row nfl.com URLs; joins to origination log verified field-by-field (session 053940d1 F2)", "source_url": "https://www.nfl.com/scores/2026/week-10"},
+    "origination_order": {"artifact": "ledger/data/price-snapshots.json (order column)", "verified": "side -> total -> moneyline recorded per game", "source_url": "https://www.nfl.com/schedules/2026/by-week/week-10"},
+    "fair_market_difference_columns": {"artifact": "ledger/data/lines-columns.json + ledger/lines.html", "verified": "13 games; 0 recompute mismatches; market and difference blank with reason (no official price source)", "source_url": "https://www.nfl.com/schedules/2026/by-week/week-10"},
+    "signal_vs_staking": {"artifact": "ledger/results/leaderboard-split.json + ledger/leaderboard-split.html", "verified": "signal ranks match origination for 14 strategies; staking block blank and excluded from rank by test", "source_url": "https://www.nfl.com/standings/league/2026/REG"},
+    "replacement_depth": {"artifact": "requirements/pages/availability.html, integration/injuries-w10.html, signals/availability.html", "verified": "345 official Week 10 injury rows / 28 clubs; official depth-chart URLs return 404 so pregame string depth is never inferred (blank + flagged OF-16); signal desk measures depth tiers from official game books with a 'not knowable pregame' bucket", "source_url": "https://www.nfl.com/teams/kansas-city-chiefs/depth-chart"},
+    "correlations_with_n": {"artifact": "pages/correlations.html, origination/correlations.html (correlations-w10.json), correlation-audit/index.html", "verified": "n published beside every value (32 team rows; C1 n=136; residuals n=104; player rows n=204; opposing-QB n=99); independent recomputation 11/11 match; model-residual rows flagged F-01", "source_url": "https://www.nfl.com/standings/"},
+    "demotion_gate": {"artifact": "ledger/data/demotion-rules.json + ledger/demotion-gate.html", "verified": "rules D1-D8 + P1 written before any live window; 0 LIVE strategies; thresholds pending operator decision SG-L2", "source_url": "https://www.nfl.com/standings/league/2026/REG"}
+  },
+  "irregularities_found_this_pass": [],
+  "notes": [
+    "Parallel-session collision handled per protocol: session 053940d1's F3 root-nav integration (PR #52) merged first and is kept; this session dropped its duplicate nav/sitemap/README edits and re-applied only unique deltas (requirement-coverage table, review-KPI all-register count, correlation-audit + signals navigation per requests 5b52ac15 / S-8R1, audit_repo refresh per S-8R2, parallel review registers on the Flagged page). Nothing of any other session was discarded.",
+    "Stale PR #39 (session f6e60a81) closed as superseded (2026-11-14T22:04:39Z); disposition comments from both 053940d1 and 1052cf22 remain on the PR.",
+    "All coverage-table numbers were read from the committed artifacts listed above before publication; no value was inferred."
+  ]
+}

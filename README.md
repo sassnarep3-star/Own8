@@ -7,6 +7,8 @@
 **Decision ledger (price store, results feed, fair/market/difference, demotion gate, signal-vs-staking):** https://sassnarep3-star.github.io/Own8/ledger/index.html  
 **Decision review & readiness:** https://sassnarep3-star.github.io/Own8/decision-review/index.html  
 **Executive brief:** https://sassnarep3-star.github.io/Own8/pages/executive-summary.html  
+**Correlation audit (independent recomputation):** https://sassnarep3-star.github.io/Own8/correlation-audit/index.html  
+**Signal desk (baselines, depth tiers, decision queue):** https://sassnarep3-star.github.io/Own8/signals/index.html  
 **Flagged for Review:** https://sassnarep3-star.github.io/Own8/pages/flagged.html
 
 ## Executive summary · 2026-11-04 snapshot
