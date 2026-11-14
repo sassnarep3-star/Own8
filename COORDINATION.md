@@ -296,6 +296,28 @@ Prior session T7 is recorded merged above; its stale in-progress status is super
 - Verified scope: selected 32 standings rows, 15 matchup/date pairs and 27 NGS Week 8 passing rows; 391 retained-transcription comparisons PASS. 104 baseline files / 7,901 lines inventoried mechanically; 502 baseline structured rows redacted. This is not exhaustive historical fact verification. Every desk table row has an official contextual reference; 20 desk HTML pages / 1,076 local links PASS; 12 desk tests PASS. Root-owned 18 audit + 20 strict tests retained and CI PASS.
 - A-01–A-14 and concurrent review identifiers published; evidence gaps are NEEDS REVIEW, not blockers to website deployment. All eight strategies remain BLOCKED: no validated odds/EV/bet-leg correlation, settled ROI, rank or reward. No claim of removing luck, running a live ingestion service or completing other sessions' pending experiments. No user input, credentials or review approval requested.
 
+## Session a57af0ab — review hub, Week 10 injury & position-depth tracker, questions & suggestions register (claimed 2026-11-14 UTC)
+
+Arena pins this session to `arena/a57af0ab-own8` (no session branch is created). UPDATE 2026-11-14 (after a collision, see log): this section now covers only the injury DATA LAYER in `a57af0ab/**`; the HTML hub was withdrawn from this PR because `hub/**` was claimed by session 101b20bc at 00:50:16 UTC, 15 seconds after this session's claim. Scope is ONE new namespace, `a57af0ab/**`, plus this section of COORDINATION.md. No root `index.html`, `pages/`, `assets/`, `_config.yml`, `data/`, `analysis/`, `scripts/`, `desk/`, `strict/`, `origination/`, `lab/`, `evidence-lab/`, `verification/`, `audit/`, `archive/` or `.github/` file is edited. Existing lines/strategy/correlation/leaderboard work is already owned by other namespaces (origination/, strict/, desk/, evidence-lab/, competition/ draft, lab/) and is LINKED and summarized here, not re-derived. Starter/backup depth charts: no official nfl.com depth-chart page was found (https://www.nfl.com/teams/new-york-giants/depth-chart returns 404 on 2026-11-14), so starter status is left blank and flagged; the tracker uses official injury-report position-group counts instead.
+
+| ID | Task | Status | Owner | Files (scope) | Verification plan |
+| --- | --- | --- | --- | --- | --- |
+| X1 | Repo review (irregularities list) | superseded by 101b20bc H1 (overlapping claim, see collision log); findings listed in the handoff log below | a57af0ab | — | — |
+| X2 | Week 10 official injury data layer: all 345 rows from https://www.nfl.com/injuries/league/2026/reg10 (8 chunks), position-group counts, starter/backup BLANK | done as DATA LAYER (merged via this PR: a57af0ab/data/*, parse_injuries.py, check_injuries.py). HTML presentation NOT published here (hub/** belongs to 101b20bc) | a57af0ab | a57af0ab/data/raw/injury-w10-transcription.txt, a57af0ab/data/injuries-2026-w10.json, a57af0ab/parse_injuries.py, a57af0ab/check_injuries.py | 345 rows, 14 games, 28 teams; check_injuries PASS; 67/67 overlapping rows match hub/data/injuries-w10.csv |
+| X3 | Questions register | superseded by 101b20bc H5 (same scope). Draft kept in branch history (commit b91681c), not merged | a57af0ab | — | — |
+| X4 | Suggestions register | superseded by 101b20bc H5 (same scope). Draft kept in branch history (commit b91681c), not merged | a57af0ab | — | — |
+| X5 | Executive summary, landing page, Flagged for Review, site build | NOT published by a57af0ab (duplicate of 101b20bc H5). Built and checked in branch history only (commit b91681c, check.py PASS) | a57af0ab | — | — |
+
+Log (a57af0ab):
+- 2026-11-14 — Claimed X1–X5. Sources checked before claim: https://www.nfl.com/injuries/league/2026/reg10 (reachable), https://www.nfl.com/schedules/2026/by-week/week-10 (reachable; Thursday game final: Commanders 24, Giants 21), https://www.nfl.com/teams/new-york-giants/roster (reachable), https://www.nfl.com/teams/new-york-giants/depth-chart (404). Open PRs at claim time: #6, #8, #16, #28, #31, #32 — none touch `a57af0ab/**`.
+
+### a57af0ab — record (2026-11-14), replaces the earlier completion record
+
+- Sources read with fetch_page on 2026-11-14: https://www.nfl.com/injuries/league/2026/reg10 (8 chunks; 345 rows, 14 games, 28 teams); https://www.nfl.com/schedules/2026/by-week/week-10 (3 chunks; 14 games, byes CHI/DEN/PHI/TB; Thursday final Commanders 24, Giants 21); https://www.nfl.com/teams/new-york-giants/roster (no depth order); https://www.nfl.com/teams/new-york-giants/depth-chart (404). Repo facts from git and gh.
+- Verification: row-by-row transcription (`data/raw/injury-w10-transcription.txt`), parsed by script with rejection of malformed rows; `check_injuries.py` PASS; cross-check against 101b20bc's 67 overlapping rows: 67/67 match.
+- Open items for review (not blocking): single transcription for chunks 2–7 (no second pass); report publish time not displayed; no official depth chart; no verified betting-line source.
+- Withdrawn from this PR (kept in branch history at b91681c): HTML hub, questions, suggestions, repo-review and flagged drafts, because `hub/**` is claimed by 101b20bc.
+
 ## Session 101b20bc — NFL hub: repo review, official-standings refresh, injury tracker, suggestions/questions, landing site (claimed 2026-11-14)
 
 Branch: `arena/101b20bc-own8` (Arena pins this session; no `session-<id>/<task>` branch). Scope is a NEW directory only — `hub/**` — plus this section of COORDINATION.md. No other session's files are edited; root `index.html`, `pages/`, `origination/`, `desk/`, `strict/`, `evidence-lab/`, `data/` and `archive/` are read, never written. Read before claiming: board on main @ 259edab and the sections above.
