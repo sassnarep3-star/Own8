@@ -35,11 +35,11 @@ published as review items, never edits.
 | ID | Task | Status | Owner | Files (scope) | Verification plan |
 | --- | --- | --- | --- | --- | --- |
 | F5-0 | Board claim (this section) | done (claim committed + pushed before any feature edit) | fe499d4e | COORDINATION.md (this section) | Claim commit pushed first |
-| F5-1 | X3 resolution: reconcile `ledger/data/price-snapshots.json` with the verified official locked FanDuel lines (market/ `official-prices-w10.json`); add per-market `official_locked_*` fields, correct the status string, update LF-01, regenerate | in progress | fe499d4e | ledger/scripts/build_ledger.py, ledger/data/price-snapshots.json, ledger/data/flags.json, ledger/price-store.html (via build) | Every `official_locked_source_url` is nfl.com; count = 39; opening/closing stay null with reason; fresh official picks-article re-read confirms a sample |
-| F5-2 | Populate the ledger fair / market / difference columns in `lines-columns.json` from the same verified source, in one documented sign convention, with recompute checks | planned | fe499d4e | ledger/scripts/build_ledger.py, ledger/data/lines-columns.json, ledger/lines.html (via build) | difference = fair-handicap − market-handicap; every market cell carries the nfl.com URL; checker recomputes |
-| F5-3 | F-07: publish the injury-report-shape caveat in the requirements register (185/345 rows practice-only, no designation/game-status) and confirm the market availability caveat cross-links it | planned | fe499d4e | requirements/** (caveat/flag rows only), COORDINATION.md | Every caveat row cites the official injury URL; no value inferred |
-| F5-4 | Landing-page decision-readiness table: one row per requirement, the blocking gate and the number that would clear it | planned | fe499d4e | scripts/build_site.py, index.html, pages/** | check_links resolves every link; every row cites its source register |
-| F5-5 | Full checker replay on the integrated tree + fresh official spot re-reads + build + link check | planned | fe499d4e | (read-only runs; ledger/** edits per F5-1/F5-2) | Every checker exit 0; mismatches blanked + flagged, never inferred |
+| F5-1 | X3 resolution: reconcile `ledger/data/price-snapshots.json` with the verified official locked FanDuel lines (market/ `official-prices-w10.json`); add per-market `official_locked_*` fields, correct the status string, update LF-01, regenerate | done — 39/39 markets carry a verified locked line; opening/closing stay null; LF-01 reframed to "ONLY A LOCKED LINE; NO OPENING OR CLOSING" | fe499d4e | ledger/scripts/build_ledger.py, ledger/data/price-snapshots.json, ledger/data/flags.json, ledger/price-store.html (via build) | Fresh official picks-article re-read 2026-11-15 confirms NE@DET ML Patriots +128/Lions -152, Spread Lions -2.5, O/U 50.5 = the stored value; check_ledger price store 39/39 locked + 0 opening/closing |
+| F5-2 | Populate the ledger fair / market / difference columns in `lines-columns.json` from the same verified source, in one documented sign convention, with recompute checks | done — side/total/moneyline market values and differences populated for all 13 games; differences computed from the same rounded cells the checker reproduces | fe499d4e | ledger/scripts/build_ledger.py, ledger/data/lines-columns.json, ledger/lines.html (via build) | check_ledger recomputes side/total/moneyline differences from the stored cells; 0 mismatches; every market cell cites the nfl.com picks URL |
+| F5-3 | F-07: publish the injury-report-shape caveat in the requirements register (185/345 rows practice-only, no designation/game-status) | done — REQ-F-16 + "Report shape (verified 2026-11-15)" caveat on the injury tracker. Verified the shape is the REAL official report shape (Mahomes/Goff/Daniels render Full Participation with blank Injuries/Game Status), correcting the earlier "capture artefact" characterization | fe499d4e | requirements/scripts/req_site.py, requirements/scripts/build_flags.py, requirements/pages/injuries.html, requirements/results/flags.json | Fresh official re-read 2026-11-15 of nfl.com/injuries/league/2026/reg10; counts 185 practice-only / 140 Full Participation / LAC 19, SEA 11, NYG 10 reproduce; check_req PASS (683 rows, 683 sourced) |
+| F5-4 | Landing-page decision-readiness table: one row per requirement, the blocking gate and the number that would clear it | done — 16-row "Decision readiness" table on `index.html`, grounded in requirements.json + demotion threshold D4 (≥80 singles / ≥40 parlay pairs / ≥100 prop player-games) | fe499d4e | scripts/build_site.py, index.html | check_links 40 pages / 3072 links / 2204 rows / 0 errors; every row cites its source register; MET rows show gate cleared, NOT POSSIBLE rows state the impossibility rather than a number |
+| F5-5 | Full checker replay on the integrated tree + fresh official spot re-reads + build + link check | done — all checkers exit 0 (see log) | fe499d4e | (read-only runs; ledger/** edits per F5-1/F5-2) | Fresh re-reads: picks article (prices), injury report (shape). Checker replay: root audit_repo/analyze/test_audit/build_site/check_links/audit_publication, requirements check_req, ledger check_ledger + 23 tests + demotion_gate, strict_check, origination check_links, decision-review check, signals check_signals, market run_all, correlation-audit build/recompute/spotcheck, integration check_links/verify_fresh, hub check_hub, suggestions check_links — all exit 0 |
 | F5-6 | PR to main, merge without waiting, confirm GitHub Pages deploys, live re-fetch, final record | pending | fe499d4e | COORDINATION.md (this section) | CI green; `gh pr merge <n> --merge`; Pages API `built`; live pages re-fetched |
 
 Log (fe499d4e):
@@ -48,6 +48,38 @@ Log (fe499d4e):
   verified locked FanDuel line in `market/data/raw/official-prices-w10.json` (source
   `https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season`), so X3 is fully resolvable
   with no inferred values. Claim committed and pushed before any feature edit.
+- 2026-11-15 (F5-1/F5-2 done) — X3 resolved. `ledger/data/price-snapshots.json` no longer
+  claims "no official source publishes this market" on all 39 rows. Each market now carries
+  `official_locked_value` / `official_locked_numeric` / `official_locked_source_url` /
+  `official_locked_at` / `official_book` = FanDuel from the nfl.com Week 10 picks article,
+  with the status corrected to "LOCKED LINE VERIFIED … opening/closing NOT published".
+  Opening/closing remain null (no official page publishes them). `lines-columns.json` fair /
+  market / difference columns populated for all 13 games in one documented convention
+  (side difference in home-margin points, total in points, moneyline in de-vigged home-win
+  probability); differences computed from the same rounded cells the checker reproduces.
+  LF-01 reframed; checker gained locked-line + difference-recompute guards. Fresh re-read of
+  the picks article on 2026-11-15 matched the stored NE@DET and KC@ATL lines exactly.
+- 2026-11-15 (F5-3 done) — F-07 addressed and corrected. The 185 practice-only rows are NOT
+  a capture artefact: the official nfl.com Week 10 injury report genuinely lists the roster's
+  practice participation and leaves Injuries/Game Status blank where no designation exists
+  (verified: Mahomes, Goff, Daniels each render Full Participation with both other columns
+  blank). Published REQ-F-16 and a "Report shape (verified 2026-11-15)" caveat stating that a
+  blank game status means "no designation published", never "available", and that per-club
+  counts are practice-report rows, not an injury-burden ranking.
+- 2026-11-15 (F5-4 done) — Decision-readiness table added to the landing page: 16 rows, one
+  per requirement, with the blocking gate and the number that would clear it, grounded in
+  requirements.json and the documented D4 thresholds. MET rows show the gate cleared; the two
+  NOT POSSIBLE rows (RQ-10 luck, RQ-12 pregame depth) state the impossibility rather than an
+  invented number.
+- 2026-11-15 (F5-5 done) — Checker replay, all exit 0: root audit_repo / analyze /
+  test_audit (18) / build_site / check_links (40 pages, 3072 links, 2204 rows, 0 errors) /
+  audit_publication; requirements check_req (PASS, 683 rows sourced); ledger check_ledger
+  (24 checks) + 23 unit tests + demotion_gate; strict_check; origination check_links;
+  decision-review check; signals check_signals; market run_all (verify 30/30 + check_market);
+  correlation-audit build_page / recompute_correlations / spotcheck_live; integration
+  check_links / verify_fresh; hub check_hub; suggestions check_links. Pre-existing, documented,
+  out-of-scope: desk/scripts/audit.py pins missing commit 7c2f545 (shallow clone); evidence-lab
+  check.py flags broken links inside the preserved archive/. Neither affects the site build.
 
 ## Session 1052cf22 — final integration round 4: request sweep (correlation-audit + signals navigation), operator-requirement coverage, re-verification, deploy (claimed 2026-11-14 22:05 UTC; re-based onto main @ eccc9ab after parallel-merge collisions, see log)
 
