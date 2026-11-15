@@ -1339,6 +1339,13 @@
       "source_url": "https://www.nfl.com/standings/"
     },
     {
+      "path": "data/decision-readiness.json",
+      "lines": 142,
+      "sha256": "6d28fffb2c6a575bbb169af27e4a5d819dff3fee912b9e04406a158e275b28c7",
+      "review": "Source capture \u2014 only explicit audited fields promoted",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
       "path": "data/decisions.json",
       "lines": 97,
       "sha256": "822bc769766d03cf9a3209867d0eda150c17aa7868ebbb9cfc6b4125a7215bcc",
@@ -1347,8 +1354,8 @@
     },
     {
       "path": "data/flagged.json",
-      "lines": 286,
-      "sha256": "6dd0a05ad8a0c75d84699c3af10b2aa0961198a418e7e916b5c8b402107d649e",
+      "lines": 314,
+      "sha256": "614b6442235292e1a45da55313022b3880cbb128a22fb6ccef64f3567a036b5e",
       "review": "Source capture \u2014 only explicit audited fields promoted",
       "source_url": "https://www.nfl.com/standings/"
     },
@@ -1838,7 +1845,7 @@
     {
       "path": "desk/analysis/link-check.json",
       "lines": 8,
-      "sha256": "676d53f0c8c1611d2fea2b3a594960506a1dc45e6dd19d76d0c5a983505ebc4c",
+      "sha256": "de4c5731956c7f7599dba6b11117aeafc79a1017aa6500a2ff84462be4c5f9fd",
       "review": "Executable/source or generated output \u2014 static checks; not official factual evidence",
       "source_url": "https://www.nfl.com/standings/"
     },
@@ -1957,7 +1964,7 @@
     {
       "path": "desk/pages/flagged.html",
       "lines": 1,
-      "sha256": "1a210cf0823bb3c7c11744f18ca880ccd48ea7677784d0d79bc5f1a4f4615144",
+      "sha256": "0bd16d1800e4cd46ec0601dbf8bcbe22f2467075c6138ec4a9a7614368462fc6",
       "review": "Executable/source or generated output \u2014 static checks; not official factual evidence",
       "source_url": "https://www.nfl.com/standings/"
     },
