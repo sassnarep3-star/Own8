@@ -55,7 +55,7 @@ NOT edited; findings about them are published as flags, never edits.
 | P3 | desk/pages/flagged.html regeneration (053940d1 handoff: stale vs desk's own data, missing C-01..C-05 rows; deterministic `python3 desk/scripts/build_site.py`) | done — commit `2b811ad`: only desk/pages/flagged.html + its checker output change; C-01..C-05 rows restored with official references; desk check_links PASS, 12 desk tests OK | 08643438 (take-over; desk owner 566bc2e7 completed 2026-11-04) | desk/pages/flagged.html (+ any deterministic regen output) | desk checker suite passes; regenerated page shows C-01..C-05 |
 | P4 | Fresh official re-verification dated 2026-11-15: standings, Week 10 results state at read time (Sunday slate), and an F-07 shape probe of the official injury page vs the 345-row capture; evidence in session-08643438/ | done — commit `5075a19`: standings reconciliation **PASS 160/160 cells** (137-game feed + 8 new W10 Sunday finals vs 32 rows as read, 23:37Z); **F-07 RESOLVED** (185 practice-only rows are the real official report shape, verified on the live page); Lions VR-08/VR-12 superseded (all three now Out on the official page); V-01..V-04 published on the root Flagged page (V-03 freshness: 8 finals pending ingestion, W10 lines ungradeable until all 14 settle) | 08643438 | session-08643438/** | every checked value cites its official URL + fetch timestamp; mismatches blanked + flagged, never inferred |
 | P5 | Full checker replay on the integrated tree (root suite, requirements, ledger, origination, correlation-audit, signals, decision-review, desk, strict); in-scope breakage fixed, out-of-scope breakage recorded | done — commit `dab2f33`: 20 checker families green (audit_repo, analyze, test_audit 18, tests/ , build_site, check_links, audit_publication, check_req, check_ledger 22/22 + 24 tests, origination check_links, correlation-audit tests, signals check, decision-review check, decision check, market run_all (30/30 + 0 errors), desk tests 12 + check_links, strict build+check, suggestions check_links). Known pre-existing exceptions unchanged, not fixed here: evidence-lab/check.py exit 1 (IR-2d40-01, archive targets; its check-run rewrites reverted per the 053940d1 precedent), desk/scripts/audit.py exit 1 in partial clones (pins base 7c2f545) | 08643438 | COORDINATION.md | every checker exit code recorded (precedent: 053940d1 F4) |
-| P6 | PR to main, merge without waiting, GitHub Pages confirmation, live re-fetch, final record | pending | 08643438 | COORDINATION.md | CI green; `gh pr merge <n> --merge`; Pages API `built`; live pages re-fetched |
+| P6 | PR to main, merge without waiting, GitHub Pages confirmation, live re-fetch, final record | done — **PR #68** https://github.com/sassnarep3-star/Own8/pull/68 (all 4 CI checks green: validate x2, independent-desk, evidence-and-site), merged with `gh pr merge 68 --merge` at commit f3c0043; Pages build `built` for f3c0043; live re-fetch confirms the merged deploy (ledger/price-store.html serves 39/39 locked lines + 87-row snapshot history; origin/main:index.html verified to carry the corrected note + RQ-12 number - the first live fetch of index.html served a stale edge copy from the PR #66 deploy, verified against git and re-checked) | 08643438 | COORDINATION.md | CI green; `gh pr merge <n> --merge`; Pages API `built`; live pages re-fetched |
 
 Log (08643438):
 - 2026-11-15 (P0 claim) — Board read end to end (all 1075 lines); every Nov-14 claim merged;
@@ -95,6 +95,16 @@ Log (08643438):
 - 2026-11-15 (P5 done) — Checker replay 20 families green; two known pre-existing failures
   reproduced and left untouched (IR-2d40-01; desk audit base-commit). market/run_all.sh
   recount committed (deterministic; counts derive from the repo crawl).
+- 2026-11-15 (P6 done) — Pre-push `git rebase origin/main` hit the fe499d4e collision
+  (main had advanced to 296f3f0 via PR #66 while this session was in flight). Rebase aborted
+  without force-push; `git merge origin/main` used per the 949f49b0 precedent; conflicts in 20
+  files resolved WITHOUT discarding either side (record in the COLLISION NOTE above). Merge
+  commit ec3c0d8 pushed; **PR #68** opened, all 4 CI checks green, merged with `gh pr merge 68
+  --merge` (no waiting for approval). Pages build `built` for f3c0043. Live re-fetch: the
+  merged price-store page serves 39/39 verified locked lines + the 87-row dated snapshot
+  history; origin/main:index.html verified via git to carry the corrected research-boundary
+  note and the RQ-12 clearing number (the first live fetch of index.html served a stale CDN
+  edge copy from the PR #66 deploy and was re-checked; the deployed source is correct).
 - Cross-session notes from 08643438: (1) market/ owner: SG-03 is now implemented in ledger/
   (this session); market/data/decision-gate.json's SG-03 row still reads OPEN and can be
   marked implemented by a future owner of market/. (2) origination owner: V-03 — 8 Week 10
