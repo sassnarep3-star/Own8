@@ -40,7 +40,7 @@ published as review items, never edits.
 | F5-3 | F-07: publish the injury-report-shape caveat in the requirements register (185/345 rows practice-only, no designation/game-status) | done — REQ-F-16 + "Report shape (verified 2026-11-15)" caveat on the injury tracker. Verified the shape is the REAL official report shape (Mahomes/Goff/Daniels render Full Participation with blank Injuries/Game Status), correcting the earlier "capture artefact" characterization | fe499d4e | requirements/scripts/req_site.py, requirements/scripts/build_flags.py, requirements/pages/injuries.html, requirements/results/flags.json | Fresh official re-read 2026-11-15 of nfl.com/injuries/league/2026/reg10; counts 185 practice-only / 140 Full Participation / LAC 19, SEA 11, NYG 10 reproduce; check_req PASS (683 rows, 683 sourced) |
 | F5-4 | Landing-page decision-readiness table: one row per requirement, the blocking gate and the number that would clear it | done — 16-row "Decision readiness" table on `index.html`, grounded in requirements.json + demotion threshold D4 (≥80 singles / ≥40 parlay pairs / ≥100 prop player-games) | fe499d4e | scripts/build_site.py, index.html | check_links 40 pages / 3072 links / 2204 rows / 0 errors; every row cites its source register; MET rows show gate cleared, NOT POSSIBLE rows state the impossibility rather than a number |
 | F5-5 | Full checker replay on the integrated tree + fresh official spot re-reads + build + link check | done — all checkers exit 0 (see log) | fe499d4e | (read-only runs; ledger/** edits per F5-1/F5-2) | Fresh re-reads: picks article (prices), injury report (shape). Checker replay: root audit_repo/analyze/test_audit/build_site/check_links/audit_publication, requirements check_req, ledger check_ledger + 23 tests + demotion_gate, strict_check, origination check_links, decision-review check, signals check_signals, market run_all, correlation-audit build/recompute/spotcheck, integration check_links/verify_fresh, hub check_hub, suggestions check_links — all exit 0 |
-| F5-6 | PR to main, merge without waiting, confirm GitHub Pages deploys, live re-fetch, final record | pending | fe499d4e | COORDINATION.md (this section) | CI green; `gh pr merge <n> --merge`; Pages API `built`; live pages re-fetched |
+| F5-6 | PR to main, merge without waiting, confirm GitHub Pages deploys, live re-fetch, final record | done — PR #66 https://github.com/sassnarep3-star/Own8/pull/66 MERGED (merge commit `296f3f0c0cdd577efb3ae2c920f4c1be4243e4ab`, 2026-11-15T23:46:28Z); CI 4/4 green (validate ×2, independent-desk, evidence-and-site); GitHub Pages API `status: built`, `error: null`; live re-fetch confirms the ledger price store (39/39 locked lines), the landing-page decision-readiness table (16 rows) and the injury "Report shape (verified 2026-11-15)" caveat all serve | fe499d4e | COORDINATION.md (this section) | CI green; `gh pr merge 66 --merge`; Pages API `built`; live pages re-fetched via page extraction |
 
 Log (fe499d4e):
 - 2026-11-15 — Board read end to end. Confirmed X1 already resolved on main (root nav +
@@ -80,6 +80,24 @@ Log (fe499d4e):
   check_links / verify_fresh; hub check_hub; suggestions check_links. Pre-existing, documented,
   out-of-scope: desk/scripts/audit.py pins missing commit 7c2f545 (shallow clone); evidence-lab
   check.py flags broken links inside the preserved archive/. Neither affects the site build.
+- 2026-11-15 (F5-6 done) — PR **#66** opened from `arena/fe499d4e-own8` → `main`
+  (https://github.com/sassnarep3-star/Own8/pull/66), CI 4/4 green (validate ×2,
+  independent-desk, evidence-and-site), **MERGED** as `296f3f0c0cdd577efb3ae2c920f4c1be4243e4ab`
+  at 2026-11-15T23:46:28Z without waiting for review, per the standing instruction. Running the
+  checkers refreshed the generated inventory/audit outputs (repo-audit, link-check, repo-crawl,
+  market review/summary); those refreshed files were committed before the merge so the tree is
+  consistent. GitHub Pages API `status: built`, `error: null` after deploy. Live re-fetch
+  (page extraction) confirms: ledger price store serves 39/39 verified locked lines with
+  opening/closing blank; the landing page serves the 16-row decision-readiness table; the
+  requirements injury tracker serves the "Report shape (verified 2026-11-15)" caveat. PR body
+  was set via the REST API because `gh pr edit` fails on this repo's classic-Projects
+  GraphQL deprecation (projectCards); the body, title and merge all succeeded.
+
+**fe499d4e final disposition:** X3 (ledger price-store) and F-07 (injury-report shape) are
+resolved; the landing-page decision-readiness table is live; the full checker replay passes;
+PR #66 is merged and GitHub Pages is serving the updated site. Remaining open items are policy
+decisions for the operator (the 12 market/requirements suggestions, the reward rule, the
+canonical-ranking question), not code defects.
 
 ## Session 1052cf22 — final integration round 4: request sweep (correlation-audit + signals navigation), operator-requirement coverage, re-verification, deploy (claimed 2026-11-14 22:05 UTC; re-based onto main @ eccc9ab after parallel-merge collisions, see log)
 
