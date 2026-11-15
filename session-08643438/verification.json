@@ -1,0 +1,893 @@
+{
+  "session": "08643438",
+  "checked_at": "2026-11-15T23:37Z",
+  "sources": [
+    {
+      "url": "https://www.nfl.com/scores/2026/week-10",
+      "read": "Week 10 live/completed/upcoming split at read time (3 chunks)"
+    },
+    {
+      "url": "https://www.nfl.com/standings/league/2026/REG",
+      "read": "32 league standings rows, core fields (2 chunks)"
+    },
+    {
+      "url": "https://www.nfl.com/injuries/league/2026/reg10",
+      "read": "Week 10 injury report shape probe (first 2 chunks)"
+    }
+  ],
+  "method": "137 committed feed rows (ledger/data/results-feed.json: Weeks 1-9 verified log + Week 10 Thursday) plus the eight Week 10 Sunday finals transcribed above, recomputed per club, compared cell-by-cell with the standings as read. Mismatches are reported, never corrected by inference. Alias applied only inside this check and recorded: standings print LA, repo stores LAR.",
+  "games_recomputed": 145,
+  "week10_state_at_read": {
+    "final": [
+      "WAS 24 @ NYG 21 (TNF, Nov 12 \u2014 already in the feed)",
+      "NE 10 @ DET 35",
+      "KC 35 @ ATL 13",
+      "HOU 24 @ CLE 27",
+      "MIN 30 @ GB 10",
+      "MIA 22 @ IND 24",
+      "CAR 20 @ NO 17",
+      "BUF 31 @ NYJ 12",
+      "JAX 40 @ TEN 23"
+    ],
+    "live_at_read": [
+      "LAR 34 @ AZ 6 (Q4 12:15)",
+      "SEA 21 @ LV 10 (Q4 07:00)",
+      "SF 31 @ DAL 19 (Q3 06:59)"
+    ],
+    "upcoming": [
+      "PIT @ CIN (SNF, Nov 15 8:20 PM)",
+      "LAC @ BAL (MNF, Nov 16 8:15 PM)"
+    ],
+    "byes": [
+      "CHI",
+      "DEN",
+      "PHI",
+      "TB"
+    ],
+    "note": "Scores in the live list are as rendered at read time and are NOT results. The W10 line set may only be graded after all 14 games settle."
+  },
+  "reconciliation": {
+    "cells_ok": 160,
+    "cells_total": 160,
+    "mismatches": [],
+    "verdict": "PASS"
+  },
+  "per_team": {
+    "ATL": {
+      "team": "ATL",
+      "as_read": {
+        "w": 3,
+        "l": 7,
+        "t": 0,
+        "pf": 201,
+        "pa": 258
+      },
+      "recomputed": {
+        "w": 3,
+        "l": 7,
+        "t": 0,
+        "pf": 201,
+        "pa": 258
+      },
+      "cells": {
+        "w": true,
+        "l": true,
+        "t": true,
+        "pf": true,
+        "pa": true
+      }
+    },
+    "AZ": {
+      "team": "AZ",
+      "as_read": {
+        "w": 3,
+        "l": 6,
+        "t": 0,
+        "pf": 178,
+        "pa": 255
+      },
+      "recomputed": {
+        "w": 3,
+        "l": 6,
+        "t": 0,
+        "pf": 178,
+        "pa": 255
+      },
+      "cells": {
+        "w": true,
+        "l": true,
+        "t": true,
+        "pf": true,
+        "pa": true
+      }
+    },
+    "BAL": {
+      "team": "BAL",
+      "as_read": {
+        "w": 4,
+        "l": 5,
+        "t": 0,
+        "pf": 189,
+        "pa": 236
+      },
+      "recomputed": {
+        "w": 4,
+        "l": 5,
+        "t": 0,
+        "pf": 189,
+        "pa": 236
+      },
+      "cells": {
+        "w": true,
+        "l": true,
+        "t": true,
+        "pf": true,
+        "pa": true
+      }
+    },
+    "BUF": {
+      "team": "BUF",
+      "as_read": {
+        "w": 8,
+        "l": 1,
+        "t": 0,
+        "pf": 287,
+        "pa": 199
+      },
+      "recomputed": {
+        "w": 8,
+        "l": 1,
+        "t": 0,
+        "pf": 287,
+        "pa": 199
+      },
+      "cells": {
+        "w": true,
+        "l": true,
+        "t": true,
+        "pf": true,
+        "pa": true
+      }
+    },
+    "CAR": {
+      "team": "CAR",
+      "as_read": {
+        "w": 4,
+        "l": 5,
+        "t": 0,
+        "pf": 219,
+        "pa": 236
+      },
+      "recomputed": {
+        "w": 4,
+        "l": 5,
+        "t": 0,
+        "pf": 219,
+        "pa": 236
+      },
+      "cells": {
+        "w": true,
+        "l": true,
+        "t": true,
+        "pf": true,
+        "pa": true
+      }
+    },
+    "CHI": {
+      "team": "CHI",
+      "as_read": {
+        "w": 7,
+        "l": 2,
+        "t": 0,
+        "pf": 241,
+        "pa": 184
+      },
+      "recomputed": {
+        "w": 7,
+        "l": 2,
+        "t": 0,
+        "pf": 241,
+        "pa": 184
+      },
+      "cells": {
+        "w": true,
+        "l": true,
+        "t": true,
+        "pf": true,
+        "pa": true
+      }
+    },
+    "CIN": {
+      "team": "CIN",
+      "as_read": {
+        "w": 6,
+        "l": 2,
+        "t": 0,
+        "pf": 240,
+        "pa": 175
+      },
+      "recomputed": {
+        "w": 6,
+        "l": 2,
+        "t": 0,
+        "pf": 240,
+        "pa": 175
+      },
+      "cells": {
+        "w": true,
+        "l": true,
+        "t": true,
+        "pf": true,
+        "pa": true
+      }
+    },
+    "CLE": {
+      "team": "CLE",
+      "as_read": {
+        "w": 6,
+        "l": 4,
+        "t": 0,
+        "pf": 188,
+        "pa": 220
+      },
+      "recomputed": {
+        "w": 6,
+        "l": 4,
+        "t": 0,
+        "pf": 188,
+        "pa": 220
+      },
+      "cells": {
+        "w": true,
+        "l": true,
+        "t": true,
+        "pf": true,
+        "pa": true
+      }
+    },
+    "DAL": {
+      "team": "DAL",
+      "as_read": {
+        "w": 4,
+        "l": 5,
+        "t": 0,
+        "pf": 246,
+        "pa": 236
+      },
+      "recomputed": {
+        "w": 4,
+        "l": 5,
+        "t": 0,
+        "pf": 246,
+        "pa": 236
+      },
+      "cells": {
+        "w": true,
+        "l": true,
+        "t": true,
+        "pf": true,
+        "pa": true
+      }
+    },
+    "DEN": {
+      "team": "DEN",
+      "as_read": {
+        "w": 7,
+        "l": 2,
+        "t": 0,
+        "pf": 198,
+        "pa": 186
+      },
+      "recomputed": {
+        "w": 7,
+        "l": 2,
+        "t": 0,
+        "pf": 198,
+        "pa": 186
+      },
+      "cells": {
+        "w": true,
+        "l": true,
+        "t": true,
+        "pf": true,
+        "pa": true
+      }
+    },
+    "DET": {
+      "team": "DET",
+      "as_read": {
+        "w": 7,
+        "l": 2,
+        "t": 0,
+        "pf": 257,
+        "pa": 199
+      },
+      "recomputed": {
+        "w": 7,
+        "l": 2,
+        "t": 0,
+        "pf": 257,
+        "pa": 199
+      },
+      "cells": {
+        "w": true,
+        "l": true,
+        "t": true,
+        "pf": true,
+        "pa": true
+      }
+    },
+    "GB": {
+      "team": "GB",
+      "as_read": {
+        "w": 6,
+        "l": 4,
+        "t": 0,
+        "pf": 226,
+        "pa": 221
+      },
+      "recomputed": {
+        "w": 6,
+        "l": 4,
+        "t": 0,
+        "pf": 226,
+        "pa": 221
+      },
+      "cells": {
+        "w": true,
+        "l": true,
+        "t": true,
+        "pf": true,
+        "pa": true
+      }
+    },
+    "HOU": {
+      "team": "HOU",
+      "as_read": {
+        "w": 3,
+        "l": 6,
+        "t": 0,
+        "pf": 233,
+        "pa": 219
+      },
+      "recomputed": {
+        "w": 3,
+        "l": 6,
+        "t": 0,
+        "pf": 233,
+        "pa": 219
+      },
+      "cells": {
+        "w": true,
+        "l": true,
+        "t": true,
+        "pf": true,
+        "pa": true
+      }
+    },
+    "IND": {
+      "team": "IND",
+      "as_read": {
+        "w": 3,
+        "l": 7,
+        "t": 0,
+        "pf": 208,
+        "pa": 271
+      },
+      "recomputed": {
+        "w": 3,
+        "l": 7,
+        "t": 0,
+        "pf": 208,
+        "pa": 271
+      },
+      "cells": {
+        "w": true,
+        "l": true,
+        "t": true,
+        "pf": true,
+        "pa": true
+      }
+    },
+    "JAX": {
+      "team": "JAX",
+      "as_read": {
+        "w": 7,
+        "l": 2,
+        "t": 0,
+        "pf": 269,
+        "pa": 144
+      },
+      "recomputed": {
+        "w": 7,
+        "l": 2,
+        "t": 0,
+        "pf": 269,
+        "pa": 144
+      },
+      "cells": {
+        "w": true,
+        "l": true,
+        "t": true,
+        "pf": true,
+        "pa": true
+      }
+    },
+    "KC": {
+      "team": "KC",
+      "as_read": {
+        "w": 7,
+        "l": 2,
+        "t": 0,
+        "pf": 237,
+        "pa": 156
+      },
+      "recomputed": {
+        "w": 7,
+        "l": 2,
+        "t": 0,
+        "pf": 237,
+        "pa": 156
+      },
+      "cells": {
+        "w": true,
+        "l": true,
+        "t": true,
+        "pf": true,
+        "pa": true
+      }
+    },
+    "LAC": {
+      "team": "LAC",
+      "as_read": {
+        "w": 0,
+        "l": 8,
+        "t": 0,
+        "pf": 121,
+        "pa": 219
+      },
+      "recomputed": {
+        "w": 0,
+        "l": 8,
+        "t": 0,
+        "pf": 121,
+        "pa": 219
+      },
+      "cells": {
+        "w": true,
+        "l": true,
+        "t": true,
+        "pf": true,
+        "pa": true
+      }
+    },
+    "LAR": {
+      "team": "LAR",
+      "as_read": {
+        "w": 5,
+        "l": 4,
+        "t": 0,
+        "pf": 214,
+        "pa": 181
+      },
+      "recomputed": {
+        "w": 5,
+        "l": 4,
+        "t": 0,
+        "pf": 214,
+        "pa": 181
+      },
+      "cells": {
+        "w": true,
+        "l": true,
+        "t": true,
+        "pf": true,
+        "pa": true
+      }
+    },
+    "LV": {
+      "team": "LV",
+      "as_read": {
+        "w": 4,
+        "l": 5,
+        "t": 0,
+        "pf": 238,
+        "pa": 268
+      },
+      "recomputed": {
+        "w": 4,
+        "l": 5,
+        "t": 0,
+        "pf": 238,
+        "pa": 268
+      },
+      "cells": {
+        "w": true,
+        "l": true,
+        "t": true,
+        "pf": true,
+        "pa": true
+      }
+    },
+    "MIA": {
+      "team": "MIA",
+      "as_read": {
+        "w": 1,
+        "l": 8,
+        "t": 0,
+        "pf": 148,
+        "pa": 224
+      },
+      "recomputed": {
+        "w": 1,
+        "l": 8,
+        "t": 0,
+        "pf": 148,
+        "pa": 224
+      },
+      "cells": {
+        "w": true,
+        "l": true,
+        "t": true,
+        "pf": true,
+        "pa": true
+      }
+    },
+    "MIN": {
+      "team": "MIN",
+      "as_read": {
+        "w": 7,
+        "l": 2,
+        "t": 0,
+        "pf": 176,
+        "pa": 126
+      },
+      "recomputed": {
+        "w": 7,
+        "l": 2,
+        "t": 0,
+        "pf": 176,
+        "pa": 126
+      },
+      "cells": {
+        "w": true,
+        "l": true,
+        "t": true,
+        "pf": true,
+        "pa": true
+      }
+    },
+    "NE": {
+      "team": "NE",
+      "as_read": {
+        "w": 5,
+        "l": 5,
+        "t": 0,
+        "pf": 221,
+        "pa": 242
+      },
+      "recomputed": {
+        "w": 5,
+        "l": 5,
+        "t": 0,
+        "pf": 221,
+        "pa": 242
+      },
+      "cells": {
+        "w": true,
+        "l": true,
+        "t": true,
+        "pf": true,
+        "pa": true
+      }
+    },
+    "NO": {
+      "team": "NO",
+      "as_read": {
+        "w": 3,
+        "l": 6,
+        "t": 0,
+        "pf": 202,
+        "pa": 236
+      },
+      "recomputed": {
+        "w": 3,
+        "l": 6,
+        "t": 0,
+        "pf": 202,
+        "pa": 236
+      },
+      "cells": {
+        "w": true,
+        "l": true,
+        "t": true,
+        "pf": true,
+        "pa": true
+      }
+    },
+    "NYG": {
+      "team": "NYG",
+      "as_read": {
+        "w": 5,
+        "l": 3,
+        "t": 1,
+        "pf": 203,
+        "pa": 196
+      },
+      "recomputed": {
+        "w": 5,
+        "l": 3,
+        "t": 1,
+        "pf": 203,
+        "pa": 196
+      },
+      "cells": {
+        "w": true,
+        "l": true,
+        "t": true,
+        "pf": true,
+        "pa": true
+      }
+    },
+    "NYJ": {
+      "team": "NYJ",
+      "as_read": {
+        "w": 2,
+        "l": 8,
+        "t": 0,
+        "pf": 194,
+        "pa": 254
+      },
+      "recomputed": {
+        "w": 2,
+        "l": 8,
+        "t": 0,
+        "pf": 194,
+        "pa": 254
+      },
+      "cells": {
+        "w": true,
+        "l": true,
+        "t": true,
+        "pf": true,
+        "pa": true
+      }
+    },
+    "PHI": {
+      "team": "PHI",
+      "as_read": {
+        "w": 2,
+        "l": 7,
+        "t": 0,
+        "pf": 148,
+        "pa": 221
+      },
+      "recomputed": {
+        "w": 2,
+        "l": 7,
+        "t": 0,
+        "pf": 148,
+        "pa": 221
+      },
+      "cells": {
+        "w": true,
+        "l": true,
+        "t": true,
+        "pf": true,
+        "pa": true
+      }
+    },
+    "PIT": {
+      "team": "PIT",
+      "as_read": {
+        "w": 6,
+        "l": 2,
+        "t": 0,
+        "pf": 180,
+        "pa": 144
+      },
+      "recomputed": {
+        "w": 6,
+        "l": 2,
+        "t": 0,
+        "pf": 180,
+        "pa": 144
+      },
+      "cells": {
+        "w": true,
+        "l": true,
+        "t": true,
+        "pf": true,
+        "pa": true
+      }
+    },
+    "SEA": {
+      "team": "SEA",
+      "as_read": {
+        "w": 5,
+        "l": 4,
+        "t": 0,
+        "pf": 202,
+        "pa": 162
+      },
+      "recomputed": {
+        "w": 5,
+        "l": 4,
+        "t": 0,
+        "pf": 202,
+        "pa": 162
+      },
+      "cells": {
+        "w": true,
+        "l": true,
+        "t": true,
+        "pf": true,
+        "pa": true
+      }
+    },
+    "SF": {
+      "team": "SF",
+      "as_read": {
+        "w": 7,
+        "l": 1,
+        "t": 0,
+        "pf": 235,
+        "pa": 156
+      },
+      "recomputed": {
+        "w": 7,
+        "l": 1,
+        "t": 0,
+        "pf": 235,
+        "pa": 156
+      },
+      "cells": {
+        "w": true,
+        "l": true,
+        "t": true,
+        "pf": true,
+        "pa": true
+      }
+    },
+    "TB": {
+      "team": "TB",
+      "as_read": {
+        "w": 3,
+        "l": 6,
+        "t": 0,
+        "pf": 202,
+        "pa": 178
+      },
+      "recomputed": {
+        "w": 3,
+        "l": 6,
+        "t": 0,
+        "pf": 202,
+        "pa": 178
+      },
+      "cells": {
+        "w": true,
+        "l": true,
+        "t": true,
+        "pf": true,
+        "pa": true
+      }
+    },
+    "TEN": {
+      "team": "TEN",
+      "as_read": {
+        "w": 1,
+        "l": 8,
+        "t": 0,
+        "pf": 167,
+        "pa": 239
+      },
+      "recomputed": {
+        "w": 1,
+        "l": 8,
+        "t": 0,
+        "pf": 167,
+        "pa": 239
+      },
+      "cells": {
+        "w": true,
+        "l": true,
+        "t": true,
+        "pf": true,
+        "pa": true
+      }
+    },
+    "WAS": {
+      "team": "WAS",
+      "as_read": {
+        "w": 3,
+        "l": 5,
+        "t": 1,
+        "pf": 196,
+        "pa": 223
+      },
+      "recomputed": {
+        "w": 3,
+        "l": 5,
+        "t": 1,
+        "pf": 196,
+        "pa": 223
+      },
+      "cells": {
+        "w": true,
+        "l": true,
+        "t": true,
+        "pf": true,
+        "pa": true
+      }
+    }
+  },
+  "f07_shape_probe": {
+    "question": "Are the 185 practice-only rows in requirements/results/injuries-w10.json a capture artifact or the real report shape?",
+    "answer": "REAL REPORT SHAPE \u2014 not a capture artifact.",
+    "evidence_rows": [
+      {
+        "player": "John Bates",
+        "team": "WAS",
+        "position": "TE",
+        "injuries": "",
+        "practice": "Full Participation in Practice",
+        "game_status": ""
+      },
+      {
+        "player": "Treylon Burks",
+        "team": "WAS",
+        "position": "WR",
+        "injuries": "",
+        "practice": "Did Not Participate In Practice",
+        "game_status": ""
+      },
+      {
+        "player": "Hunter Henry",
+        "team": "NE",
+        "position": "TE",
+        "injuries": "",
+        "practice": "Limited Participation in Practice",
+        "game_status": ""
+      },
+      {
+        "player": "Jared Goff",
+        "team": "DET",
+        "position": "QB",
+        "injuries": "",
+        "practice": "Full Participation in Practice",
+        "game_status": ""
+      }
+    ],
+    "source_url": "https://www.nfl.com/injuries/league/2026/reg10",
+    "consequence": "The market F-07 caveat stands as worded: per-club row counts are rows on the report, not players with a disclosed injury, and must not be read as an injury-burden ranking. The requirements capture is faithful to the official page."
+  },
+  "lions_designation_check": {
+    "prior_request": "VR-08/VR-12: Kerby Joseph, Cade Mays and D.J. Reed were captured with blank game-status cells while an official article listed all three as Out.",
+    "official_page_as_read_2026_11_15": [
+      {
+        "player": "Kerby Joseph",
+        "team": "DET",
+        "injuries": "Knee",
+        "practice": "Did Not Participate In Practice",
+        "game_status": "Out"
+      },
+      {
+        "player": "Cade Mays",
+        "team": "DET",
+        "injuries": "Ankle",
+        "practice": "Did Not Participate In Practice",
+        "game_status": "Out"
+      },
+      {
+        "player": "D.J. Reed",
+        "team": "DET",
+        "injuries": "Hip",
+        "practice": "Did Not Participate In Practice",
+        "game_status": "Out"
+      }
+    ],
+    "source_url": "https://www.nfl.com/injuries/league/2026/reg10",
+    "conclusion": "All three now read Out on the official page. The earlier blank cells are consistent with the report being a daily, timestamped series (game designations land later in the week), not necessarily a transcription error. Any backtest must snapshot the report as it was known."
+  }
+}

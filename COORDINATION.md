@@ -8,6 +8,99 @@ editing it. Make small, frequent commits; `git pull --rebase` before every push.
 If a claim is >60 minutes old with no commits, another session may take it over
 and note the handoff here.
 
+**COLLISION NOTE (08643438 x fe499d4e, 2026-11-15): two parallel sessions both ran
+"final integration round 5" from base main @ 0ea18ec without seeing each other's claim.
+fe499d4e merged first (PR #66: ledger X3/F-01 price-store fix, decision-readiness table,
+requirements F-16 injury-shape caveat, inventory refresh). On the required pre-push merge
+this session found the overlap and resolved it per the merge protocol WITHOUT discarding
+either side's work: (a) for every overlapping implementation and generated file, the merged
+main version (fe499d4e's) is kept as the base -- ledger build_ledger.py/check_ledger.py
+(official_locked_* schema + recompute guards), the inline landing-page readiness table;
+(b) this session's UNIQUE deltas are re-applied on top: session-08643438/** verification
+evidence (160/160 standings reconciliation, F-07 probe, VR-08/VR-12 resolution), root flags
+V-01..V-04, desk flagged-page regeneration (C-01..C-05), board-hygiene dedupe, ledger
+suggestions SG-L1/SG-L7 factual corrections, the 87-row W9+W10 snapshot history ported into
+the price store's snapshots array, and the staking-reason correction; (c) this session's
+duplicate data/decision-readiness.json + its table rendering are DROPPED in favour of
+fe499d4e's merged table (two tables for one requirement would mislead), with its one
+documented numeric refinement (RQ-12: 6-8 game-weeks of postgame Game Books, Q-04) ported
+into that table. Both board sections are retained verbatim below. Nothing of fe499d4e's
+merged work is reverted.
+
+## Session 08643438 — final integration round 5: outstanding-request sweep (SG-03/F-01 ledger price claim, desk flagged regen, board hygiene), landing-page decision-readiness table, fresh 2026-11-15 official re-verification, deploy (claimed 2026-11-15 UTC, base main @ 0ea18ec)
+
+Branch: `arena/08643438-own8` (Arena-pinned; all work on this branch). Read the full board
+before acting. Board state read end to end on 2026-11-15: every 2026-11-14 session claim is
+merged and closed (PRs #33–#65); no active parallel claim exists. Open PRs #6/#8/#16/#28/#31/#32
+(Nov 4, superseded namespaces) remain untouched per established repo policy (A14).
+
+**Scope:** root publication surface (`scripts/build_site.py`, regenerated `index.html` +
+`pages/**`, `analysis/**` pipeline outputs, `README.md` publication lines, `_config.yml` only
+if needed), the take-over fixes named below (`ledger/data/price-snapshots.json` + regenerated
+`ledger/*.html` under the completed-claim handoff rule, `desk/pages/flagged.html` regeneration
+per 053940d1's cross-session request), new namespace `session-08643438/**` (this session's
+verification evidence), `data/flagged.json` + root flagged page rows for new findings, and this
+section of COORDINATION.md (plus the board-hygiene dedupe of the three identical
+"COLLISION NOTE (c563a1dc, rebase 3)" blocks flagged by 949f49b0). All other namespaces are
+read-only inputs. `requirements/**`, `origination/**`, `market/**`, `signals/**`,
+`correlation-audit/**`, `decision/**`, `decision-review/**`, `integration/**`, `hub/**`,
+`review/**`, `suggestions/**`, `evidence-lab/**`, `strict/**`, `audit/**`, `a57af0ab/**` are
+NOT edited; findings about them are published as flags, never edits.
+
+| ID | Task | Status | Owner | Files (scope) | Verification plan |
+| --- | --- | --- | --- | --- | --- |
+| P0 | Board claim (this section) + board hygiene (collapse 3 identical c563a1dc collision notes to 1, as 949f49b0 requested) | done (claim pushed before any other work) | 08643438 | COORDINATION.md (this section + dedupe) | Claim commit pushed first |
+| P1 | SG-03 / X3 / F-01 take-over fix: the ledger price store still asserts "no official source publishes this market" on all 39 Week 10 markets; market/ (949f49b0) verified 29 games / 87 markets of nfl.com-picks-article FanDuel lines. Correct the claim fail-closed: keep opening/closing values null (no official open/close pair exists), populate the store's `snapshots` array with the verified locked-Thursday lines + source URLs, correct every status string, regenerate ledger pages, keep check_ledger green | done — commit `332ccb6`: 87 snapshots recorded (29 games × 3 markets, Weeks 9-10, each with nfl.com picks-article URL + verbatim text), LF-01 rewritten ("no official OPEN/CLOSING series"), LF-11 records the correction + take-over, fair/market/difference now three separate columns per market (39/39 differences cross-check vs market/data/own-lines.json), SG-L1 text corrected, SG-L7 marked delivered; check_ledger 22/22, ledger tests 24 OK | 08643438 (take-over of 6652101e K1 residue; owner merged PR #46 and is inactive >60 min — handoff noted here) | ledger/data/price-snapshots.json, regenerated ledger/*.html | `python3 ledger/scripts/check_ledger.py` exit 0; every new value carries the nfl.com picks-article URL; open/close stay null |
+| P2 | Landing-page decision-readiness table: one row per requirement (RQ-01..16), the gate that blocks it, and the documented number that would clear it, every row linked to its register/source | done — commit `aea4acc`: 16-row table on the landing page; clearing numbers only from pre-registered registers (G3 ≥ 80/40/100, G7 ECE ≤ 0.10, D6 p_Holm < 0.05, Q-04 6-8 game-weeks); blank + flagged where none exists; requirement text/status copied at build time from requirements/data/requirements.json; root price phrasing corrected post-SG-03 | 08643438 | scripts/build_site.py, regenerated index.html + pages/**, data/decision-readiness.json | `python3 scripts/check_links.py` exit 0 (40 pages / 2248 rows / 0 errors); no invented numbers |
+| P3 | desk/pages/flagged.html regeneration (053940d1 handoff: stale vs desk's own data, missing C-01..C-05 rows; deterministic `python3 desk/scripts/build_site.py`) | done — commit `2b811ad`: only desk/pages/flagged.html + its checker output change; C-01..C-05 rows restored with official references; desk check_links PASS, 12 desk tests OK | 08643438 (take-over; desk owner 566bc2e7 completed 2026-11-04) | desk/pages/flagged.html (+ any deterministic regen output) | desk checker suite passes; regenerated page shows C-01..C-05 |
+| P4 | Fresh official re-verification dated 2026-11-15: standings, Week 10 results state at read time (Sunday slate), and an F-07 shape probe of the official injury page vs the 345-row capture; evidence in session-08643438/ | done — commit `5075a19`: standings reconciliation **PASS 160/160 cells** (137-game feed + 8 new W10 Sunday finals vs 32 rows as read, 23:37Z); **F-07 RESOLVED** (185 practice-only rows are the real official report shape, verified on the live page); Lions VR-08/VR-12 superseded (all three now Out on the official page); V-01..V-04 published on the root Flagged page (V-03 freshness: 8 finals pending ingestion, W10 lines ungradeable until all 14 settle) | 08643438 | session-08643438/** | every checked value cites its official URL + fetch timestamp; mismatches blanked + flagged, never inferred |
+| P5 | Full checker replay on the integrated tree (root suite, requirements, ledger, origination, correlation-audit, signals, decision-review, desk, strict); in-scope breakage fixed, out-of-scope breakage recorded | done — commit `dab2f33`: 20 checker families green (audit_repo, analyze, test_audit 18, tests/ , build_site, check_links, audit_publication, check_req, check_ledger 22/22 + 24 tests, origination check_links, correlation-audit tests, signals check, decision-review check, decision check, market run_all (30/30 + 0 errors), desk tests 12 + check_links, strict build+check, suggestions check_links). Known pre-existing exceptions unchanged, not fixed here: evidence-lab/check.py exit 1 (IR-2d40-01, archive targets; its check-run rewrites reverted per the 053940d1 precedent), desk/scripts/audit.py exit 1 in partial clones (pins base 7c2f545) | 08643438 | COORDINATION.md | every checker exit code recorded (precedent: 053940d1 F4) |
+| P6 | PR to main, merge without waiting, GitHub Pages confirmation, live re-fetch, final record | pending | 08643438 | COORDINATION.md | CI green; `gh pr merge <n> --merge`; Pages API `built`; live pages re-fetched |
+
+Log (08643438):
+- 2026-11-15 (P0 claim) — Board read end to end (all 1075 lines); every Nov-14 claim merged;
+  open PRs #6/#8/#16/#28/#31/#32 inspected and left untouched (A14 policy). Outstanding
+  requests picked up: X3/F-01 (ledger price claim), 053940d1 handoff (a) stale desk flagged
+  page, 949f49b0 board-hygiene note (duplicate collision blocks). X1 (market nav) verified
+  ALREADY DONE on main (index.html links market/index.html, landed via 1052cf22 N2) — no work
+  needed. F-07 (injury-report shape) will be probed against the official page in P4 and
+  reported, not edited (requirements/ is read-only).
+- 2026-11-15 (P0b) — Board hygiene: three identical consecutive "COLLISION NOTE (c563a1dc,
+  rebase 3)" blocks collapsed to one (949f49b0's request); content preserved and the dedupe
+  attributed in-place.
+- 2026-11-15 (P1 done) — SG-03/X3/F-01 applied as a reproducible change to build_ledger.py
+  (the JSON store is a build output, so the fix lives in the builder): snapshots[] = 87
+  verified FanDuel locked-Thursday values from market/data/raw/official-prices-w{9,10}.json
+  (949f49b0's captures; NO new transcription here — SG-09 independent re-transcription stays
+  open and is cited on the price-store page). Cross-check: all 39 fair-minus-market
+  differences equal market/data/own-lines.json's independent computation (their rounding
+  noted; units documented in lines-columns.json difference_rule). Staking block reason
+  corrected (blank because no open/close series AND no pre-registered staking rule, not
+  "no price exists").
+- 2026-11-15 (P2 done) — Decision-readiness table landed on the index page (operator
+  requirement). data/decision-readiness.json carries only the gate + clearing number per
+  RQ; RQ text/status are copied from the requirements register at build time. Root phrasing
+  that repeated the superseded "no official price" claim corrected (index note + executive
+  summary Week-10-own-lines row).
+- 2026-11-15 (P3 done) — desk/pages/flagged.html regenerated per 053940d1's handoff;
+  C-01..C-05 restored. Deterministic; nothing else in desk/ changed.
+- 2026-11-15 (P4 done) — Fresh reads 23:25-23:40Z: /scores/2026/week-10 (9 finals incl. the
+  Munich game NE 10 DET 35, 3 live, 2 upcoming, byes CHI/DEN/PHI/TB), /standings/league/2026/REG
+  (32 rows), /injuries/league/2026/reg10 (F-07 probe). Reconciliation 160/160 PASS. F-07
+  RESOLVED as genuine report shape (rows with practice status and blank injury + blank game
+  status are on the official page itself). Lions designations now Out (Knee/Ankle/Hip) —
+  consistent with the daily-series model of the report (the user requirement "treat the
+  injury report as a timestamped series" is exactly why the earlier blanks were not
+  necessarily errors).
+- 2026-11-15 (P5 done) — Checker replay 20 families green; two known pre-existing failures
+  reproduced and left untouched (IR-2d40-01; desk audit base-commit). market/run_all.sh
+  recount committed (deterministic; counts derive from the repo crawl).
+- Cross-session notes from 08643438: (1) market/ owner: SG-03 is now implemented in ledger/
+  (this session); market/data/decision-gate.json's SG-03 row still reads OPEN and can be
+  marked implemented by a future owner of market/. (2) origination owner: V-03 — 8 Week 10
+  finals are ready to ingest (list + URLs in session-08643438/verification.json); the W10
+  line set must not be graded before all 14 games settle. (3) requirements owner: F-07 is
+  resolved as a real report shape (evidence in session-08643438/); the capture needs no fix.
 ## Session fe499d4e — final integration round 5: resolve open price-store claim (X3 / F-01), populate fair/market/difference columns, address F-07 injury-report shape, add landing-page decision-readiness table, full re-verification, deploy (claimed 2026-11-15 UTC; base main @ 0ea18ec)
 
 Branch: `arena/fe499d4e-own8` (Arena-pinned; all work on this branch). Read the full
@@ -857,19 +950,9 @@ Log (c563a1dc):
 ---
 
 COLLISION NOTE (c563a1dc, rebase 3): board conflict resolved by keeping both sides;
-no session work discarded. The c563a1dc section follows below.
-
-
----
-
-COLLISION NOTE (c563a1dc, rebase 3): board conflict resolved by keeping both sides;
-no session work discarded.
-
-
----
-
-COLLISION NOTE (c563a1dc, rebase 3): board conflict resolved by keeping both sides;
-no session work discarded.
+no session work discarded. The c563a1dc section follows below. (Deduplicated 2026-11-15
+by 08643438: this block appeared three times consecutively; the 949f49b0 board-hygiene
+finding asked an integration session to collapse it to one. Content unchanged.)
 
 ## Session c563a1dc — C4 completion and CI remediation (2026-11-14)
 

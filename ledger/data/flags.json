@@ -41,6 +41,16 @@
       "treatment": "Locked line recorded verbatim with its source URL and lock statement; opening/closing left blank. Obtaining a true opening/closing series requires capturing the article repeatedly across a week (suggestion SG-L1 in ledger/index.html)."
     },
     {
+      "id": "LF-11",
+      "kind": "SNAPSHOT HISTORY + PARALLEL-COLLISION TAKE-OVER",
+      "detail": "Two parallel sessions (fe499d4e, 08643438) both fixed the F-01 price claim from the same base on 2026-11-15. fe499d4e's merged version is kept as the store schema (official_locked_* + checker recompute guards); session 08643438's unique deltas were re-applied on top: snapshots[] now retains every dated locked-line reading on file - 87 rows (Weeks 9-10, 29 games x side/total/moneyline) with the picks-article verbatim text, lock statement and source URL. None of these are opening or closing numbers. The record of the collision lives in COORDINATION.md.",
+      "source_urls": [
+        "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+        "https://www.nfl.com/news/nfl-picks-week-9-2026-nfl-season"
+      ],
+      "treatment": "Snapshots retained as dated history with source per row. Opening/closing stay blank (LF-01)."
+    },
+    {
       "id": "LF-04",
       "kind": "OFFICIAL PAGE PRINTS SCORES IN INCONSISTENT ORDER",
       "detail": "On the nfl.com game-centre team strip for NE at DET, the New England results print the score in different orders. Compared with the scores pages: W6 prints 'Win 19-26' while the scores page gives NYJ 19, NE 26; W8 prints 'Win 24-19' with NE 24, MIA 19; W7 prints 'Loss 24-30' with NE 24, CHI 30; W9 prints 'Loss 45-27' with GB 45, NE 27. The strip sometimes lists the winner first and sometimes the loser first, so it cannot be read without checking the scores pages. The ledger does NOT take values from that strip; it uses the scores pages, which reconcile to the official standings 32/32 (origination/results/standings-reconciliation-2026-11-14.json).",

@@ -40,6 +40,9 @@ RULES = os.path.join(LEDGER, "data", "demotion-rules.json")
 # (finding F-01 / request X3 / suggestion SG-03). Opening and closing values are still not
 # published by any official page, so they remain null.
 MARKET_PRICES = os.path.join(ROOT, "market", "data", "raw", "official-prices-w10.json")
+# Week 9 picks-article lines: retained as dated snapshot history (port from session 08643438,
+# collision reconciliation 2026-11-15); both files were captured 2026-11-14 by session 949f49b0.
+MARKET_PRICES_W9 = os.path.join(ROOT, "market", "data", "raw", "official-prices-w9.json")
 PICKS_W10 = "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season"
 
 
@@ -313,7 +316,7 @@ def build_leaderboard_split(reg):
                        "p_holm": s["p_holm"], "gates_failed_fail_closed": s["gates_failed_fail_closed"],
                        "verdict": s["signal_verdict"], "rank": r["rank"], "medal": r["medal"]},
             "staking": {"units_staked": None, "roi_pct": None, "closing_line_value_pct": None,
-                        "reason": "No official price exists for any market, so no stake or return can be computed (LF-01). Staking fields are not read by the ranking."},
+                        "reason": "Blank because no official OPEN/CLOSING series exists (open and close are required to settle staking; a locked-Thursday line is not enough) AND no pre-registered staking rule exists (SG-L2). Not a claim that no price exists: a locked FanDuel line is recorded for every market (LF-01). Staking fields are not read by the ranking."},
             "consistency": {"origination_rank": o["rank"] if o else None,
                             "origination_medal": (o.get("medal") or "") if o else None,
                             "matches_origination_rank": (o["rank"] if o else None) == r["rank"]},
@@ -325,8 +328,23 @@ def build_leaderboard_split(reg):
 
 
 # ---------------------------------------------------------------- prices
-def build_prices(lines_doc, probe, mkt, mkt_lock):
-    markets, flags = [], []
+def build_prices(lines_doc, probe, mkt, mkt_lock, raw_weeks=()):
+    """Price store. snapshots[] retains every dated locked-line reading on file (Weeks 9-10,
+    29 games x 3 markets) with verbatim text and its picks-article URL - ported from session
+    08643438 during the 2026-11-15 parallel-collision reconciliation."""
+    markets, flags, snapshots = [], [], []
+    for raw in raw_weeks:
+        for g in raw["games"]:
+            sbase = {"snapshot_key": "2026-W%02d-%s-%s" % (g["week"], g["away"], g["home"]),
+                     "week": g["week"], "away": g["away"], "home": g["home"]}
+            values = {"side": g["spread_home"], "total": g["total"],
+                      "moneyline": {"home_ml": g["home_ml"], "away_ml": g["away_ml"]}}
+            for order, mname in ((1, "side"), (2, "total"), (3, "moneyline")):
+                snapshots.append(dict(
+                    sbase, market_key="%s-%s" % (sbase["snapshot_key"], mname), market=mname, order=order,
+                    value=values[mname], verbatim=g["verbatim"], source_url=g["source_url"],
+                    locked_at=g["locked_at"], captured_at=raw["captured_at"], captured_by=raw["captured_by"],
+                    value_kind="published FanDuel line, locked 2 p.m. ET Thursday (dated snapshot; NOT an opening or closing number)"))
     n_locked = 0
     for r in lines_doc["rows"]:
         base = {"game_key": r["key"], "away": r["away"], "home": r["home"], "game_url": r["game_url"]}
@@ -373,13 +391,18 @@ def build_prices(lines_doc, probe, mkt, mkt_lock):
                   "detail": "Each of the 39 originated markets now carries the single locked FanDuel line that nfl.com publishes in its weekly picks article (locked 2 p.m. ET Thursday). That corrects the ledger's earlier claim that no official source publishes a market line (finding F-01, request X3, suggestion SG-03). OPENING and CLOSING values are still not published by any official page, so all 78 opening/closing cells remain blank and are not inferred. The official game-centre page probed (NE at DET) does render no line, which is why the original probe missed the picks article; the picks article is the verified source.",
                   "source_urls": [PICKS_W10, probe["url"]],
                   "treatment": "Locked line recorded verbatim with its source URL and lock statement; opening/closing left blank. Obtaining a true opening/closing series requires capturing the article repeatedly across a week (suggestion SG-L1 in ledger/index.html)."})
+    flags.append({"id": "LF-11", "kind": "SNAPSHOT HISTORY + PARALLEL-COLLISION TAKE-OVER",
+                  "detail": "Two parallel sessions (fe499d4e, 08643438) both fixed the F-01 price claim from the same base on 2026-11-15. fe499d4e's merged version is kept as the store schema (official_locked_* + checker recompute guards); session 08643438's unique deltas were re-applied on top: snapshots[] now retains every dated locked-line reading on file - 87 rows (Weeks 9-10, 29 games x side/total/moneyline) with the picks-article verbatim text, lock statement and source URL. None of these are opening or closing numbers. The record of the collision lives in COORDINATION.md.",
+                  "source_urls": [PICKS_W10, "https://www.nfl.com/news/nfl-picks-week-9-2026-nfl-season"],
+                  "treatment": "Snapshots retained as dated history with source per row. Opening/closing stay blank (LF-01)."})
     return {"generated": GENERATED,
             "description": "Price-snapshot store. One row per originated market, in origination order. Each market carries the verified locked FanDuel line from the nfl.com picks article (official_locked_*). Opening and closing values are recorded ONLY with an official source URL; no official page publishes them, so every opening/closing cell stays null.",
             "accepted_source_hosts": ["www.nfl.com", "nextgenstats.nfl.com"],
             "locked_line_source": PICKS_W10,
             "counts": {"markets": len(markets), "locked_lines_verified": n_locked,
-                       "opening_values": 0, "closing_values": 0},
-            "snapshots": [],
+                       "opening_values": 0, "closing_values": 0,
+                       "snapshot_history_rows": len(snapshots)},
+            "snapshots": snapshots,
             "markets": markets}, flags
 
 
@@ -478,6 +501,18 @@ def render_pages(feed, lines_doc, prices, reg, split, decisions, flags, probe):
         prices["counts"]["locked_lines_verified"], len(prices["markets"]), len(prices["markets"]), len(prices["markets"]),
         link(probe["url"]),
         table(["Game", "Order", "Market", "Fair value at origination (ours)", "Locked line (official)", "Locked source", "Opening value", "Opening source", "Closing value", "Closing source", "Game page", "Status"], rows))
+    snap_rows = []
+    for s in prices["snapshots"]:
+        val = s["value"] if not isinstance(s["value"], dict) else "%+d / %+d" % (s["value"]["home_ml"], s["value"]["away_ml"])
+        snap_rows.append("<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>" % (
+            esc(s["snapshot_key"]), esc(s["order"]), esc(s["market"]), esc(val),
+            link(s["source_url"], "picks article (verbatim)"), esc(s["locked_at"]),
+            esc(s["captured_at"]), esc(s["value_kind"])))
+    body += """<h2>Recorded market snapshot history</h2>
+<p class='lede'>Every dated locked-line reading on file, with verbatim text and source URL. These are published FanDuel lines locked 2 p.m. ET Thursday - dated snapshots, NOT opening or closing numbers. The Week 9 set is retained so the store carries history from the first week we originate.</p>
+%s
+<p class='note'>Snapshot rows: %d (29 games x 3 markets, Weeks 9-10). Each row carries its picks-article URL and the verbatim text it was transcribed from. Independent re-transcription of the lines (suggestion SG-09) is still open; these values were captured from market/data/raw/ (session 949f49b0).</p>""" % (
+        table(["Snapshot", "Order", "Market", "Value", "Source (verbatim in JSON)", "Locked at", "Captured at", "Value kind"], snap_rows), len(snap_rows))
     pages["price-store.html"] = page("Price store", "price-store.html", body)
 
     # results feed
@@ -557,7 +592,7 @@ def render_pages(feed, lines_doc, prices, reg, split, decisions, flags, probe):
                         esc("matches origination" if co["matches_origination_rank"] else "DIFFERS")  + " <span class='note'>(" + esc(co["origination_rank"]) + ")</span>",
                         " ".join(link(u, "W%d" % (i + 1)) for i, u in enumerate(r["source_urls"][:9])) + " " + link(STANDINGS, "standings")))
     body = """<h1>Leaderboard: signal separate from staking</h1>
-<p class='lede'>The rank is decided by the <b>signal</b> columns only. The <b>staking</b> columns (units, ROI, closing-line value) are blank because no official price exists. A future staking run cannot lift a failing signal.</p>
+<p class='lede'>The rank is decided by the <b>signal</b> columns only. The <b>staking</b> columns (units, ROI, closing-line value) are blank: no official OPEN/CLOSING series exists to settle staking against (a locked-Thursday FanDuel line is recorded but is not a close), and no pre-registered staking rule exists. A future staking run cannot lift a failing signal.</p>
 <div class='callout'><b>Ranking rule:</b> PASS under the fail-closed gates (every applicable gate must be True; null = FAIL), then skill_pct_lcb descending. Medals for ranks 1–3. <b>Result: %d PASS, %d FAIL / NOT SCORED.</b></div>
 %s
 <p class='note'>Staking block: units staked, ROI and closing-line value are blank for all rows. Applicable gates per product are declared in <code>ledger/data/demotion-rules.json</code>. Note: S9 and S10 are probability products but origination recorded G7 as not applicable (LF-07); the ledger counts that as FAIL. Verdicts are unchanged.</p>""" % (
@@ -627,10 +662,11 @@ def main():
     probe = load(PROBE)
     rules = load(RULES)
     mkt, mkt_url, mkt_lock = load_market_prices(MARKET_PRICES)
+    raw_w9, raw_w10 = load(MARKET_PRICES_W9), load(MARKET_PRICES)
 
     feed, feed_flags = build_results_feed(log, w10)
     lines_doc, line_flags = build_lines(w10, mkt)
-    prices, price_flags = build_prices(lines_doc, probe, mkt, mkt_lock)
+    prices, price_flags = build_prices(lines_doc, probe, mkt, mkt_lock, [raw_w9, raw_w10])
     reg, reg_flags = build_registry(val, rules)
     split = build_leaderboard_split(reg)
 

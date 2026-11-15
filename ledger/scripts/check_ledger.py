@@ -137,6 +137,18 @@ def check_data():
             if m.get("official_locked_numeric") is None:
                 fail("price %s %s has no locked numeric" % (m["market_key"], m["market"]))
     ok("price store: every locked line carries an accepted nfl.com source and a lock timestamp")
+    # dated snapshot history (ported 08643438): every snapshot row carries an accepted source
+    snaps = prices.get("snapshots", [])
+    if not snaps:
+        fail("price store: snapshots[] is empty - dated history missing")
+    for s in snaps:
+        if host_of(s.get("source_url") or "") not in set(prices["accepted_source_hosts"]):
+            fail("snapshot %s has no accepted official source" % s.get("snapshot_key"))
+        if not s.get("captured_at") or not s.get("locked_at"):
+            fail("snapshot %s lacks capture/lock timestamps" % s.get("snapshot_key"))
+        if s.get("value") is None:
+            fail("snapshot %s has a null value" % s.get("snapshot_key"))
+    ok("price store: %d dated snapshot rows, each with an accepted source and timestamps" % len(snaps))
 
     lines = load("data/lines-columns.json")
     if len(lines["rows"]) == 13:

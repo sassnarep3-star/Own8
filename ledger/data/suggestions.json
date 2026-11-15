@@ -1,17 +1,17 @@
 {
   "generated": "2026-11-14",
   "written_by": "session 6652101e",
-  "rule": "Nothing below is implemented. Each suggestion stays OPEN until you choose one option. A recommended path is not a decision.",
+  "rule": "Nothing below is implemented unless its state says otherwise. Each open suggestion stays OPEN until you choose one option. A recommended path is not a decision. A row marked DELIVERED was completed by a later integration session and is kept for the record.",
   "suggestions": [
     {
       "id": "SG-L1",
-      "title": "Find a source for opening and closing prices",
+      "title": "Find a source for opening and closing prices (the locked-Thursday line is already captured)",
       "blocks": [
         "LF-01",
         "Every ROI, closing-line value and staking figure",
         "M1 and M2 (market-dependent strategies)"
       ],
-      "problem": "No official NFL page publishes a betting line. 0 of 78 opening and closing values in the price store can be verified (ledger/data/price-probe.json).",
+      "problem": "CORRECTED 2026-11-15: the earlier claim 'No official NFL page publishes a betting line' is FALSE. nfl.com publishes a FanDuel line for every game in its weekly picks article, locked 2 p.m. ET Thursday (87 snapshot values now recorded in ledger/data/price-snapshots.json). What remains true: no official source publishes an OPENING or CLOSING number, so 0 of 78 opening and closing values in the price store can be verified.",
       "options": [
         {
           "id": "A",
@@ -34,7 +34,8 @@
       ],
       "evidence": [
         "https://www.nfl.com/games/patriots-at-lions-2026-reg-10",
-        "https://www.espn.com/nfl/story/_/id/49740505/nfl-renews-draftkings-fanduel-deals-adds-fanatics"
+        "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+        "https://www.nfl.com/news/nfl-picks-week-9-2026-nfl-season"
       ],
       "decision_state": "OPEN - awaiting selection",
       "selected_option": null
@@ -204,7 +205,7 @@
       "blocks": [
         "Discoverability of this section from the root dashboard"
       ],
-      "problem": "Root navigation and sitemap belong to the integration owner. This session did not edit them, per the coordination board.",
+      "problem": "Root navigation and sitemap belong to the integration owner. DELIVERED 2026-11-14 by session 1052cf22 (PR #59): the root dashboard now links ledger/index.html. Row kept for the record.",
       "options": [
         {
           "id": "A",
@@ -222,8 +223,8 @@
       "evidence": [
         "../index.html"
       ],
-      "decision_state": "OPEN - awaiting selection",
-      "selected_option": null
+      "decision_state": "DELIVERED - integration session 1052cf22 added the root navigation link (PR #59, merged 2026-11-14); no selection needed",
+      "selected_option": "A (delivered by integration)"
     }
   ]
 }

@@ -5,9 +5,9 @@
  "suggestion_registers": 6,
  "question_registers": 6,
  "scope": "every *.json under the repository root except archive/, .git/, market/ and node_modules/",
- "files_scanned": 167,
+ "files_scanned": 176,
  "files_with_unsourced_rows": 4,
- "row_like_dicts_total": 7462,
+ "row_like_dicts_total": 8298,
  "unsourced_rows_total": 1028,
  "inventory": [
   {
@@ -164,8 +164,8 @@
   },
   {
    "file": "analysis/repo-audit.json",
-   "bytes": 233455,
-   "row_like_dicts": 730,
+   "bytes": 235062,
+   "row_like_dicts": 735,
    "rows_with_no_source_url": 0,
    "top_level_keys": [
     "as_of",
@@ -324,8 +324,8 @@
   },
   {
    "file": "data/flagged.json",
-   "bytes": 15951,
-   "row_like_dicts": 40,
+   "bytes": 18081,
+   "row_like_dicts": 44,
    "rows_with_no_source_url": 0,
    "top_level_keys": [
     "as_of",
@@ -824,6 +824,100 @@
     "recommendations",
     "recommended_sequence",
     "review_as_of"
+   ]
+  },
+  {
+   "file": "desk/_site/public-data/dashboard.json",
+   "bytes": 20232,
+   "row_like_dicts": 29,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "as_of",
+    "correlations",
+    "eligible_count",
+    "lines",
+    "policy",
+    "settled_ledger_count",
+    "strategies"
+   ]
+  },
+  {
+   "file": "desk/_site/public-data/input-manifest.json",
+   "bytes": 730,
+   "row_like_dicts": 0,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "data/evidence/passing-excerpt.txt",
+    "data/evidence/schedule-excerpt.txt",
+    "data/evidence/standings-excerpt.txt",
+    "data/verified/passing.json",
+    "data/verified/schedule.json",
+    "data/verified/sources.json",
+    "data/verified/standings.json"
+   ]
+  },
+  {
+   "file": "desk/_site/public-data/passing.json",
+   "bytes": 6679,
+   "row_like_dicts": 28,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "checked_at",
+    "rows",
+    "scope",
+    "source_url"
+   ]
+  },
+  {
+   "file": "desk/_site/public-data/repository-audit.json",
+   "bytes": 220161,
+   "row_like_dicts": 606,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "baseline_commit",
+    "checked_at",
+    "files",
+    "legacy_rows",
+    "scope"
+   ]
+  },
+  {
+   "file": "desk/_site/public-data/review-findings.json",
+   "bytes": 7306,
+   "row_like_dicts": 14,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": "list[14]"
+  },
+  {
+   "file": "desk/_site/public-data/schedule.json",
+   "bytes": 6976,
+   "row_like_dicts": 16,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "checked_at",
+    "note",
+    "rows",
+    "source_url"
+   ]
+  },
+  {
+   "file": "desk/_site/public-data/sources.json",
+   "bytes": 2569,
+   "row_like_dicts": 8,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": "list[8]"
+  },
+  {
+   "file": "desk/_site/public-data/standings.json",
+   "bytes": 9305,
+   "row_like_dicts": 33,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "checked_at",
+    "method",
+    "rows",
+    "season",
+    "source_url"
    ]
   },
   {
@@ -1367,7 +1461,7 @@
   },
   {
    "file": "ledger/data/flags.json",
-   "bytes": 6123,
+   "bytes": 7082,
    "row_like_dicts": 0,
    "rows_with_no_source_url": 0,
    "top_level_keys": [
@@ -1410,8 +1504,8 @@
   },
   {
    "file": "ledger/data/price-snapshots.json",
-   "bytes": 41933,
-   "row_like_dicts": 39,
+   "bytes": 109118,
+   "row_like_dicts": 126,
    "rows_with_no_source_url": 0,
    "top_level_keys": [
     "accepted_source_hosts",
@@ -1449,7 +1543,7 @@
   },
   {
    "file": "ledger/data/suggestions.json",
-   "bytes": 8639,
+   "bytes": 9312,
    "row_like_dicts": 0,
    "rows_with_no_source_url": 0,
    "top_level_keys": [
@@ -1474,7 +1568,7 @@
   },
   {
    "file": "ledger/results/leaderboard-split.json",
-   "bytes": 19493,
+   "bytes": 22237,
    "row_like_dicts": 0,
    "rows_with_no_source_url": 0,
    "top_level_keys": [
@@ -1966,6 +2060,24 @@
    ]
   },
   {
+   "file": "session-08643438/verification.json",
+   "bytes": 16894,
+   "row_like_dicts": 6,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "checked_at",
+    "f07_shape_probe",
+    "games_recomputed",
+    "lions_designation_check",
+    "method",
+    "per_team",
+    "reconciliation",
+    "session",
+    "sources",
+    "week10_state_at_read"
+   ]
+  },
+  {
    "file": "session-1052cf22/verification.json",
    "bytes": 7272,
    "row_like_dicts": 12,
@@ -2443,7 +2555,7 @@
    "severity": "medium",
    "area": "site copy",
    "title": "root dashboard copy states no official market price exists",
-   "evidence": "scripts/build_site.py writes the line-origination page with all market columns blank and a note that no official price exists. That copy is now contradicted by the official picks article.",
+   "evidence": "no explicit contradiction found in scripts/build_site.py",
    "file": "scripts/build_site.py",
    "record": "model-lines page builder",
    "source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",

@@ -52,15 +52,29 @@
     },
     {
       "path": "COORDINATION.md",
-      "lines": 1116,
-      "sha256": "0d6c5b4bcc2f8e5243516b450d08c4f2647aef5ec12345c2bf5e538db642e501",
+      "lines": 1231,
+      "sha256": "698136231d3f89872ee6fb4426fbc5775b0e4cd84bcce6cab877f016ba5a11d1",
+      "review": "Executable/source or generated output \u2014 static checks; not official factual evidence",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "path": "COORDINATION.md",
+      "lines": 1231,
+      "sha256": "698136231d3f89872ee6fb4426fbc5775b0e4cd84bcce6cab877f016ba5a11d1",
+      "review": "Executable/source or generated output \u2014 static checks; not official factual evidence",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "path": "COORDINATION.md",
+      "lines": 1231,
+      "sha256": "698136231d3f89872ee6fb4426fbc5775b0e4cd84bcce6cab877f016ba5a11d1",
       "review": "Executable/source or generated output \u2014 static checks; not official factual evidence",
       "source_url": "https://www.nfl.com/standings/"
     },
     {
       "path": "README.md",
-      "lines": 82,
-      "sha256": "3f0dd5448eab32f57f47c0f225ee873a16cd1607d90884801dce61e2f7eac201",
+      "lines": 90,
+      "sha256": "b331b28eab813e8dd3ac7f6515cb83809a9d8618eeab9167b55c0162daa8c20b",
       "review": "Executable/source or generated output \u2014 static checks; not official factual evidence",
       "source_url": "https://www.nfl.com/standings/"
     },
@@ -1347,8 +1361,8 @@
     },
     {
       "path": "data/flagged.json",
-      "lines": 286,
-      "sha256": "6dd0a05ad8a0c75d84699c3af10b2aa0961198a418e7e916b5c8b402107d649e",
+      "lines": 314,
+      "sha256": "614b6442235292e1a45da55313022b3880cbb128a22fb6ccef64f3567a036b5e",
       "review": "Source capture \u2014 only explicit audited fields promoted",
       "source_url": "https://www.nfl.com/standings/"
     },
@@ -1838,7 +1852,7 @@
     {
       "path": "desk/analysis/link-check.json",
       "lines": 8,
-      "sha256": "676d53f0c8c1611d2fea2b3a594960506a1dc45e6dd19d76d0c5a983505ebc4c",
+      "sha256": "de4c5731956c7f7599dba6b11117aeafc79a1017aa6500a2ff84462be4c5f9fd",
       "review": "Executable/source or generated output \u2014 static checks; not official factual evidence",
       "source_url": "https://www.nfl.com/standings/"
     },
@@ -1957,7 +1971,7 @@
     {
       "path": "desk/pages/flagged.html",
       "lines": 1,
-      "sha256": "1a210cf0823bb3c7c11744f18ca880ccd48ea7677784d0d79bc5f1a4f4615144",
+      "sha256": "0bd16d1800e4cd46ec0601dbf8bcbe22f2467075c6138ec4a9a7614368462fc6",
       "review": "Executable/source or generated output \u2014 static checks; not official factual evidence",
       "source_url": "https://www.nfl.com/standings/"
     },
@@ -3062,8 +3076,8 @@
     },
     {
       "path": "ledger/data/flags.json",
-      "lines": 93,
-      "sha256": "11b19cac6e0eec0be5e3a5f50f3683a62576dfe931bb2ac6948de49d2daf2b4a",
+      "lines": 103,
+      "sha256": "93201b5ccad4061c4ba83b7e9f613d1c5cf08e6a0f7138ba619675deb21285bb",
       "review": "Executable/source or generated output \u2014 static checks; not official factual evidence",
       "source_url": "https://www.nfl.com/standings/"
     },
@@ -3083,8 +3097,8 @@
     },
     {
       "path": "ledger/data/price-snapshots.json",
-      "lines": 837,
-      "sha256": "49229a8c05df65f6697a07985316d88c545bc52089bfd718b82530ce8f10c01f",
+      "lines": 2318,
+      "sha256": "61e1eeea66f56d9685f9405c6b942a5569bc6de41430b3754e3e0d8a368ac002",
       "review": "Executable/source or generated output \u2014 static checks; not official factual evidence",
       "source_url": "https://www.nfl.com/standings/"
     },
@@ -3104,8 +3118,8 @@
     },
     {
       "path": "ledger/data/suggestions.json",
-      "lines": 229,
-      "sha256": "7d262b6e88e12d5d830e396d82c29d6adac79a5c5ca0090c4e121555fa999329",
+      "lines": 230,
+      "sha256": "6bac8c96a1a28f00d7ad96acd7fd907d9937884f8f9d4dcbf441b623be2c6384",
       "review": "Executable/source or generated output \u2014 static checks; not official factual evidence",
       "source_url": "https://www.nfl.com/standings/"
     },
@@ -3119,21 +3133,21 @@
     {
       "path": "ledger/flagged.html",
       "lines": 9,
-      "sha256": "f0ac998fc20060d2e239f051d89da994f8735de9b2c512cb411d1a7a8247c181",
+      "sha256": "6e61862bdfbdc19d877e885ab2d8ec36f1e27fc218bf5594e27beb1b99491ea3",
       "review": "Executable/source or generated output \u2014 static checks; not official factual evidence",
       "source_url": "https://www.nfl.com/standings/"
     },
     {
       "path": "ledger/index.html",
       "lines": 25,
-      "sha256": "4d5b470a70bec5ae96470533b5109aa8d1677a6c5f12d9d353ddae689ed85fd1",
+      "sha256": "abe7a37f4ad429acb15bdd892675421f8d68987d449aa2cfb321732ce4102adb",
       "review": "Executable/source or generated output \u2014 static checks; not official factual evidence",
       "source_url": "https://www.nfl.com/standings/"
     },
     {
       "path": "ledger/leaderboard-split.html",
       "lines": 11,
-      "sha256": "871918059c51e5a64d9cca828e212802616c53dc7bb01cc0ce36878a9e6d2958",
+      "sha256": "037757a9634ab6eadbdc5bdb8680a01070cfdcc99f7dce1dd7a3542230b35c78",
       "review": "Executable/source or generated output \u2014 static checks; not official factual evidence",
       "source_url": "https://www.nfl.com/standings/"
     },
@@ -3146,8 +3160,8 @@
     },
     {
       "path": "ledger/price-store.html",
-      "lines": 11,
-      "sha256": "a9141d979dbc6cd7fd5696400aef9fb65d59ed42e2503ceee68f1be6b8562cb4",
+      "lines": 14,
+      "sha256": "b3e9995bb4e5144649bf939c1215d45c5c834f92ea681568c5e170a6b63f669f",
       "review": "Executable/source or generated output \u2014 static checks; not official factual evidence",
       "source_url": "https://www.nfl.com/standings/"
     },
@@ -3168,21 +3182,21 @@
     {
       "path": "ledger/results/leaderboard-split.json",
       "lines": 558,
-      "sha256": "d5e9d7be413aff3437966cab9cdc8970868b84ccc488968a249884837635c94c",
+      "sha256": "380dba9feb03a3e3650465a4289b3bef850dc04cd521e6e735ceab0c1c7b9f01",
       "review": "Executable/source or generated output \u2014 static checks; not official factual evidence",
       "source_url": "https://www.nfl.com/standings/"
     },
     {
       "path": "ledger/scripts/build_ledger.py",
-      "lines": 686,
-      "sha256": "95dfcb814701c2eb1d6a2ed12a11ac51133c31f21f0020c7d4befac4275270a6",
+      "lines": 722,
+      "sha256": "0316db46ad65e68c3ff738ef4f1404787f06d5de5f6ea043dddd19386daf0953",
       "review": "Executable/source or generated output \u2014 static checks; not official factual evidence",
       "source_url": "https://www.nfl.com/standings/"
     },
     {
       "path": "ledger/scripts/check_ledger.py",
-      "lines": 273,
-      "sha256": "60870290216d16122cb8e6edc7af14cd4d760c0589f9fa2e29e7d9ae70345bdf",
+      "lines": 285,
+      "sha256": "03deb58d1a37b270a0c7a48b68ae7fbeeb8597ba65403bcbd1f9db05f1100707",
       "review": "Executable/source or generated output \u2014 static checks; not official factual evidence",
       "source_url": "https://www.nfl.com/standings/"
     },
@@ -3195,15 +3209,15 @@
     },
     {
       "path": "ledger/scripts/test_ledger.py",
-      "lines": 173,
-      "sha256": "dcb0c21e53a92230110736ffe3db4cc2c8ff44f95ab13e25d7810e9bc5245f69",
+      "lines": 190,
+      "sha256": "c53d2e79dc206324cf43a1e8c5eb0dac1c1f852f8ea7437ab4d307f27321166b",
       "review": "Executable/source or generated output \u2014 static checks; not official factual evidence",
       "source_url": "https://www.nfl.com/standings/"
     },
     {
       "path": "ledger/suggestions.html",
       "lines": 30,
-      "sha256": "113a9daa409e3957609b5a2f7a93c03caa7cf0807011f820453fe01032af31b5",
+      "sha256": "e347d41e2fe901997f3fc4f1fbc38e5dce81f71d38c6c0ed1cc5aea78476e6bf",
       "review": "Executable/source or generated output \u2014 static checks; not official factual evidence",
       "source_url": "https://www.nfl.com/standings/"
     },
@@ -3286,8 +3300,8 @@
     },
     {
       "path": "market/data/repo-crawl.json",
-      "lines": 2468,
-      "sha256": "440c28869b1e53be61dde4ea6c61f1cb2ca5e6ff7ea94d275f552d6dadccf8f7",
+      "lines": 2598,
+      "sha256": "e4079d8aaf21253f570e6973d7f2ed190600c9e76ead86f9bd57edbea912ddbe",
       "review": "Executable/source or generated output \u2014 static checks; not official factual evidence",
       "source_url": "https://www.nfl.com/standings/"
     },
@@ -3308,7 +3322,7 @@
     {
       "path": "market/index.html",
       "lines": 18,
-      "sha256": "3151d5478834795215a68d7c95c7ddb525a2d584c73cb76050362a5f6d603502",
+      "sha256": "25b91974dc944931c310db894132121732c45a22c83a9fbfcd1d8cf23cb84a35",
       "review": "Executable/source or generated output \u2014 static checks; not official factual evidence",
       "source_url": "https://www.nfl.com/standings/"
     },
@@ -3364,7 +3378,7 @@
     {
       "path": "market/pages/review.html",
       "lines": 25,
-      "sha256": "12edc85f494dce82654061e10a27ae44e2bc4d2260440ff3b61f1b37920cf106",
+      "sha256": "2c9dd98d25c7ab37ae00c83cc27df22d01a9e1479dd0f6a9aa19fad0a71e058f",
       "review": "Executable/source or generated output \u2014 static checks; not official factual evidence",
       "source_url": "https://www.nfl.com/standings/"
     },
@@ -3385,7 +3399,7 @@
     {
       "path": "market/pages/summary.html",
       "lines": 11,
-      "sha256": "e258cf9d034c3463d48f03dce23cc48e91ce31248a695b066a67f3c15115c226",
+      "sha256": "4134494899e85f2b707e9a3c0c1fd4cc21dfa967627faf11a1f94ca0c71e7a21",
       "review": "Executable/source or generated output \u2014 static checks; not official factual evidence",
       "source_url": "https://www.nfl.com/standings/"
     },
@@ -4407,7 +4421,7 @@
     {
       "path": "scripts/build_site.py",
       "lines": 149,
-      "sha256": "2c745c9267b5ac293ba69a82c77eaee0c4f5f73f344b775804eeec373a96db6e",
+      "sha256": "2a5298e08bfdc6591e8d5a1633031971d90bbb8ff18b720cbc0cc7127c412b8f",
       "review": "Executable/source or generated output \u2014 static checks; not official factual evidence",
       "source_url": "https://www.nfl.com/standings/"
     },
@@ -4464,6 +4478,27 @@
       "path": "scripts/verify_combined.py",
       "lines": 5,
       "sha256": "196b2ca24f763f0ecabfb7cd7fe55d2694872aec3f0cb7462f515e2ccc2c63fb",
+      "review": "Executable/source or generated output \u2014 static checks; not official factual evidence",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "path": "session-08643438/README.md",
+      "lines": 51,
+      "sha256": "3a9c28c08ca7a6ecb7bc39fa48cd276185f1a4517170dcaabe9d450b9683a5ec",
+      "review": "Executable/source or generated output \u2014 static checks; not official factual evidence",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "path": "session-08643438/reconcile.py",
+      "lines": 178,
+      "sha256": "c9b03ef0b7eceabe2d63d297110433239f2698978bff3e12aec6df380d39e5dc",
+      "review": "Executable/source or generated output \u2014 static checks; not official factual evidence",
+      "source_url": "https://www.nfl.com/standings/"
+    },
+    {
+      "path": "session-08643438/verification.json",
+      "lines": 893,
+      "sha256": "6afb697541c8d82b6c92a602ad126fa60afce442e9c1528cb8e42996205c3453",
       "review": "Executable/source or generated output \u2014 static checks; not official factual evidence",
       "source_url": "https://www.nfl.com/standings/"
     },
