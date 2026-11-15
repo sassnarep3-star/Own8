@@ -5,9 +5,9 @@
  "suggestion_registers": 6,
  "question_registers": 6,
  "scope": "every *.json under the repository root except archive/, .git/, market/ and node_modules/",
- "files_scanned": 166,
+ "files_scanned": 167,
  "files_with_unsourced_rows": 4,
- "row_like_dicts_total": 7375,
+ "row_like_dicts_total": 7462,
  "unsourced_rows_total": 1028,
  "inventory": [
   {
@@ -164,8 +164,8 @@
   },
   {
    "file": "analysis/repo-audit.json",
-   "bytes": 209420,
-   "row_like_dicts": 656,
+   "bytes": 233455,
+   "row_like_dicts": 730,
    "rows_with_no_source_url": 0,
    "top_level_keys": [
     "as_of",
@@ -1367,7 +1367,7 @@
   },
   {
    "file": "ledger/data/flags.json",
-   "bytes": 5794,
+   "bytes": 6123,
    "row_like_dicts": 0,
    "rows_with_no_source_url": 0,
    "top_level_keys": [
@@ -1378,7 +1378,7 @@
   },
   {
    "file": "ledger/data/lines-columns.json",
-   "bytes": 30764,
+   "bytes": 33563,
    "row_like_dicts": 13,
    "rows_with_no_source_url": 0,
    "top_level_keys": [
@@ -1410,13 +1410,15 @@
   },
   {
    "file": "ledger/data/price-snapshots.json",
-   "bytes": 19579,
+   "bytes": 41933,
    "row_like_dicts": 39,
    "rows_with_no_source_url": 0,
    "top_level_keys": [
     "accepted_source_hosts",
+    "counts",
     "description",
     "generated",
+    "locked_line_source",
     "markets",
     "snapshots"
    ]
@@ -1843,8 +1845,8 @@
   },
   {
    "file": "requirements/results/flags.json",
-   "bytes": 16946,
-   "row_like_dicts": 15,
+   "bytes": 18705,
+   "row_like_dicts": 16,
    "rows_with_no_source_url": 0,
    "top_level_keys": [
     "flags",
@@ -1959,6 +1961,22 @@
     "method",
     "official_sources_checked",
     "reviewed_files",
+    "scope",
+    "session"
+   ]
+  },
+  {
+   "file": "session-1052cf22/verification.json",
+   "bytes": 7272,
+   "row_like_dicts": 12,
+   "rows_with_no_source_url": 0,
+   "top_level_keys": [
+    "checked_at",
+    "checker_replay_integrated_tree",
+    "irregularities_found_this_pass",
+    "live_official_checks",
+    "notes",
+    "requirement_coverage_artifacts",
     "scope",
     "session"
    ]
