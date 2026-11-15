@@ -1,0 +1,142 @@
+{
+  "as_of": "2026-11-15",
+  "session": "08643438",
+  "purpose": "Decision-readiness table for the landing page: one row per requirement, the gate that blocks it, and the number that would clear it. Requirement text and status are copied at build time from requirements/data/requirements.json so they cannot drift; this file supplies only the gate and the clearing number. Every number here is a pre-registered project threshold quoted from an existing register (origination/results/validation-w10.json gates_doc, ledger/data/demotion-rules.json, market/data/decision-gate.json); where no pre-registered number exists the cell is null and flagged. No number is invented.",
+  "number_sources": {
+    "G3": "origination/results/validation-w10.json gates_doc: 'G3 sample size >= 80 games (singles) | >= 40 independent pairs (parlays) | >= 100 player-games (props)'",
+    "G7": "origination/results/validation-w10.json gates_doc: 'G7 calibration, probability products only: expected calibration error (5 bins) <= 0.10'",
+    "D6": "ledger/data/demotion-rules.json rule D6: demote when p_holm >= 0.05",
+    "Q-04": "market/data/decision-gate.json Q-04 discovery plan: collect postgame Game Books; 'after 6-8 weeks you have a measured backup-started event set'",
+    "Q-01": "market/data/decision-gate.json Q-01 discovery plan: 'score 60+ priced games'"
+  },
+  "rows": [
+    {
+      "id": "RQ-01",
+      "gate": "None - MET (the register itself is the deliverable)",
+      "clearing_number": null,
+      "number_source": null,
+      "note": "Self-referential requirement; no external number applies.",
+      "source_url": "https://www.nfl.com/standings/league/2026/REG"
+    },
+    {
+      "id": "RQ-02",
+      "gate": "Operator review - every suggestion row is still OPEN (market SG-01..SG-12, ledger SG-L1..SG-L7, requirements register 16 rows)",
+      "clearing_number": "16 review decisions recorded (one per requirements-register suggestion row)",
+      "number_source": "requirements/data/suggestions.json row count; the decision itself is the operator's",
+      "note": "The section exists (MET); the decisions do not. Nothing is implemented before a choice.",
+      "source_url": "https://www.nfl.com/standings/league/2026/REG"
+    },
+    {
+      "id": "RQ-03",
+      "gate": "None for the register - MET; OPEN rows wait on data no official page publishes (depth order, open/close prices)",
+      "clearing_number": null,
+      "number_source": null,
+      "note": "Answerable-now rows are answered; the rest carry explicit discovery plans (market Q-01..Q-11).",
+      "source_url": "https://www.nfl.com/standings/league/2026/REG"
+    },
+    {
+      "id": "RQ-04",
+      "gate": "G3 chronological evaluation and calibration; market comparison is now possible (ledger price store records the published FanDuel lines, 2026-11-15)",
+      "clearing_number": ">= 80 settled single-game forecasts before any calibration claim (G3 minimum)",
+      "number_source": "G3",
+      "note": "15 Week 9 lines were graded out of sample (spread MAE 10.65); n=15 cannot separate skill from luck.",
+      "source_url": "https://www.nfl.com/scores/2026/week-9"
+    },
+    {
+      "id": "RQ-05",
+      "gate": "G3 chronological train / validation / untouched holdout, frozen before evaluation",
+      "clearing_number": ">= 80 games per single-bet signal family (G3 minimum), scored with the pre-registered proper-score test",
+      "number_source": "G3",
+      "note": "Only the point-spread and total families have any out-of-sample result today (n=15).",
+      "source_url": "https://www.nfl.com/scores/2026/week-9"
+    },
+    {
+      "id": "RQ-06",
+      "gate": "G7 (calibration) and G8 (prospective ledger); plus at least one strategy passing every applicable gate",
+      "clearing_number": "1 strategy with signal PASS over >= 80 games and p_holm < 0.05 (D6 demotion threshold); ECE <= 0.10 (G7)",
+      "number_source": "G3 + G7 + D6",
+      "note": "0 of 14 registered strategies pass today; the leaderboard is empty by design, not by failure.",
+      "source_url": "https://www.nfl.com/scores/2026/week-9"
+    },
+    {
+      "id": "RQ-07",
+      "gate": "G6 joint distribution plus the operator's void/push rules; multiplying marginals is invalid under dependence (joint-evidence gate)",
+      "clearing_number": ">= 40 settled independent parlay pairs (G3 minimum) with a directly validated joint probability per combo",
+      "number_source": "G3",
+      "note": "Prop combos additionally need the >= 100 player-games player-level, event-aligned dataset, which does not exist yet.",
+      "source_url": "https://www.nfl.com/scores/2026/week-9"
+    },
+    {
+      "id": "RQ-08",
+      "gate": "None - MET (gates fail closed; missing evidence can never count as a pass)",
+      "clearing_number": null,
+      "number_source": null,
+      "note": "The gates are not failing because they are mis-specified; they fail because the evidence does not exist.",
+      "source_url": "https://www.nfl.com/standings/league/2026/REG"
+    },
+    {
+      "id": "RQ-09",
+      "gate": "Leg-level dependence data (player-level, same game, same threshold, same pregame timestamp) does not exist; two Next Gen Stats weeks are missing",
+      "clearing_number": "n >= 100 player-games per prop leg (G3 minimum) and 0 missing Next Gen Stats weeks (currently 2 missing)",
+      "number_source": "G3",
+      "note": "Team-level correlations publish n and Fisher-z intervals (independently recomputed, 11/11 match) but cannot price a combo.",
+      "source_url": "https://nextgenstats.nfl.com/stats/passing/2026/REG/9"
+    },
+    {
+      "id": "RQ-10",
+      "gate": "Finite-sample bound only - 'removal of luck' cannot be cleared as worded; luck is bounded, not removed",
+      "clearing_number": null,
+      "number_source": null,
+      "note": "No number clears this requirement as literally worded. The luck decomposition panel (60% of win-% variance attributed to luck in the 136-game log) and the anti-luck dashboard state what can be bounded: >= 80 settled games (G3) shrink the bound but never eliminate it.",
+      "source_url": "https://www.itl.nist.gov/div898/handbook/prc/section1/prc14.htm"
+    },
+    {
+      "id": "RQ-11",
+      "gate": "None - MET (official injury report captured with practice status and game status kept distinct)",
+      "clearing_number": null,
+      "number_source": null,
+      "note": "Final inactives for Sunday and Monday games are published later and are labelled pending; the report is a dated snapshot.",
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg10"
+    },
+    {
+      "id": "RQ-12",
+      "gate": "No official pregame starter designation exists - the nfl.com depth-chart URL returns 404 and the roster publishes a transaction status, not an order",
+      "clearing_number": "6-8 weeks of postgame Game Books joined to pregame injury reports (Q-04) before a measured 'backup started' event set exists",
+      "number_source": "Q-04",
+      "note": "Pregame 2nd/3rd/4th-string labelling is NOT POSSIBLE from official sources today; postgame Game Books name the 11 starters after the game. Depth is modelled from playing time, never from jersey order.",
+      "source_url": "https://www.nfl.com/teams/kansas-city-chiefs/depth-chart"
+    },
+    {
+      "id": "RQ-13",
+      "gate": "None - MET",
+      "clearing_number": null,
+      "number_source": null,
+      "note": "Executive summary readable without opening the rest of the site.",
+      "source_url": "https://www.nfl.com/standings/league/2026/REG"
+    },
+    {
+      "id": "RQ-14",
+      "gate": "None - MET (no questions, approvals or data entry required from the operator)",
+      "clearing_number": null,
+      "number_source": null,
+      "note": "The operator decisions themselves are intentionally left open; they do not block the work.",
+      "source_url": "https://www.nfl.com/standings/league/2026/REG"
+    },
+    {
+      "id": "RQ-15",
+      "gate": "None - MET (live GitHub Pages site, landing page, category subpages, table-format findings)",
+      "clearing_number": null,
+      "number_source": null,
+      "note": "Verified on every merge: link checker 0 errors, Pages build status built.",
+      "source_url": "https://www.nfl.com/standings/league/2026/REG"
+    },
+    {
+      "id": "RQ-16",
+      "gate": "Weeks 6-8 team-level reconciliation cannot be completed from the standings page alone (the inherited sample gives some clubs only four games)",
+      "clearing_number": null,
+      "number_source": null,
+      "note": "No pre-registered number exists for the re-read scope; the cell stays blank and flagged. 352 of 352 standings cells currently reconcile from the 137-game log.",
+      "source_url": "https://www.nfl.com/standings/league/2026/REG"
+    }
+  ]
+}
