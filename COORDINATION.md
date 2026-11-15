@@ -8,6 +8,45 @@ editing it. Make small, frequent commits; `git pull --rebase` before every push.
 If a claim is >60 minutes old with no commits, another session may take it over
 and note the handoff here.
 
+## Session 08643438 — final integration round 5: outstanding-request sweep (SG-03/F-01 ledger price claim, desk flagged regen, board hygiene), landing-page decision-readiness table, fresh 2026-11-15 official re-verification, deploy (claimed 2026-11-15 UTC, base main @ 0ea18ec)
+
+Branch: `arena/08643438-own8` (Arena-pinned; all work on this branch). Read the full board
+before acting. Board state read end to end on 2026-11-15: every 2026-11-14 session claim is
+merged and closed (PRs #33–#65); no active parallel claim exists. Open PRs #6/#8/#16/#28/#31/#32
+(Nov 4, superseded namespaces) remain untouched per established repo policy (A14).
+
+**Scope:** root publication surface (`scripts/build_site.py`, regenerated `index.html` +
+`pages/**`, `analysis/**` pipeline outputs, `README.md` publication lines, `_config.yml` only
+if needed), the take-over fixes named below (`ledger/data/price-snapshots.json` + regenerated
+`ledger/*.html` under the completed-claim handoff rule, `desk/pages/flagged.html` regeneration
+per 053940d1's cross-session request), new namespace `session-08643438/**` (this session's
+verification evidence), `data/flagged.json` + root flagged page rows for new findings, and this
+section of COORDINATION.md (plus the board-hygiene dedupe of the three identical
+"COLLISION NOTE (c563a1dc, rebase 3)" blocks flagged by 949f49b0). All other namespaces are
+read-only inputs. `requirements/**`, `origination/**`, `market/**`, `signals/**`,
+`correlation-audit/**`, `decision/**`, `decision-review/**`, `integration/**`, `hub/**`,
+`review/**`, `suggestions/**`, `evidence-lab/**`, `strict/**`, `audit/**`, `a57af0ab/**` are
+NOT edited; findings about them are published as flags, never edits.
+
+| ID | Task | Status | Owner | Files (scope) | Verification plan |
+| --- | --- | --- | --- | --- | --- |
+| P0 | Board claim (this section) + board hygiene (collapse 3 identical c563a1dc collision notes to 1, as 949f49b0 requested) | done (claim pushed before any other work) | 08643438 | COORDINATION.md (this section + dedupe) | Claim commit pushed first |
+| P1 | SG-03 / X3 / F-01 take-over fix: the ledger price store still asserts "no official source publishes this market" on all 39 Week 10 markets; market/ (949f49b0) verified 29 games / 87 markets of nfl.com-picks-article FanDuel lines. Correct the claim fail-closed: keep opening/closing values null (no official open/close pair exists), populate the store's `snapshots` array with the verified locked-Thursday lines + source URLs, correct every status string, regenerate ledger pages, keep check_ledger green | in progress | 08643438 (take-over of 6652101e K1 residue; owner merged PR #46 and is inactive >60 min — handoff noted here) | ledger/data/price-snapshots.json, regenerated ledger/*.html | `python3 ledger/scripts/check_ledger.py` exit 0; every new value carries the nfl.com picks-article URL; open/close stay null |
+| P2 | Landing-page decision-readiness table: one row per requirement (RQ-01..16), the gate that blocks it, and the documented number that would clear it (blank where no pre-registered number exists), every row linked to its register/source | in progress | 08643438 | scripts/build_site.py, regenerated index.html + pages/** | `python3 scripts/check_links.py` exit 0; no invented numbers — values traced to validation-gates.json, demotion-rules.json, decision-gate.json or left blank |
+| P3 | desk/pages/flagged.html regeneration (053940d1 handoff: stale vs desk's own data, missing C-01..C-05 rows; deterministic `python3 desk/scripts/build_site.py`) | in progress | 08643438 (take-over; desk owner 566bc2e7 completed 2026-11-04) | desk/pages/flagged.html (+ any deterministic regen output) | desk checker suite passes; regenerated page shows C-01..C-05 |
+| P4 | Fresh official re-verification dated 2026-11-15: standings, Week 10 results state at read time (Sunday slate), and an F-07 shape probe of the official injury page vs the 345-row capture; evidence in session-08643438/ | in progress | 08643438 | session-08643438/** | every checked value cites its official URL + fetch timestamp; mismatches blanked + flagged, never inferred |
+| P5 | Full checker replay on the integrated tree (root suite, requirements, ledger, origination, correlation-audit, signals, decision-review, desk, strict); in-scope breakage fixed, out-of-scope breakage recorded | in progress | 08643438 | COORDINATION.md | every checker exit code recorded (precedent: 053940d1 F4) |
+| P6 | PR to main, merge without waiting, GitHub Pages confirmation, live re-fetch, final record | pending | 08643438 | COORDINATION.md | CI green; `gh pr merge <n> --merge`; Pages API `built`; live pages re-fetched |
+
+Log (08643438):
+- 2026-11-15 (P0 claim) — Board read end to end (all 1075 lines); every Nov-14 claim merged;
+  open PRs #6/#8/#16/#28/#31/#32 inspected and left untouched (A14 policy). Outstanding
+  requests picked up: X3/F-01 (ledger price claim), 053940d1 handoff (a) stale desk flagged
+  page, 949f49b0 board-hygiene note (duplicate collision blocks). X1 (market nav) verified
+  ALREADY DONE on main (index.html links market/index.html, landed via 1052cf22 N2) — no work
+  needed. F-07 (injury-report shape) will be probed against the official page in P4 and
+  reported, not edited (requirements/ is read-only).
+
 ## Session 1052cf22 — final integration round 4: request sweep (correlation-audit + signals navigation), operator-requirement coverage, re-verification, deploy (claimed 2026-11-14 22:05 UTC; re-based onto main @ eccc9ab after parallel-merge collisions, see log)
 
 Branch: `arena/1052cf22-own8` (Arena-pinned; all work on this branch). Scope: root
