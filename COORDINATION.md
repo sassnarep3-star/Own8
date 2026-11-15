@@ -805,19 +805,9 @@ Log (c563a1dc):
 ---
 
 COLLISION NOTE (c563a1dc, rebase 3): board conflict resolved by keeping both sides;
-no session work discarded. The c563a1dc section follows below.
-
-
----
-
-COLLISION NOTE (c563a1dc, rebase 3): board conflict resolved by keeping both sides;
-no session work discarded.
-
-
----
-
-COLLISION NOTE (c563a1dc, rebase 3): board conflict resolved by keeping both sides;
-no session work discarded.
+no session work discarded. The c563a1dc section follows below. (Deduplicated 2026-11-15
+by 08643438: this block appeared three times consecutively; the 949f49b0 board-hygiene
+finding asked an integration session to collapse it to one. Content unchanged.)
 
 ## Session c563a1dc — C4 completion and CI remediation (2026-11-14)
 
