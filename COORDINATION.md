@@ -8,6 +8,47 @@ editing it. Make small, frequent commits; `git pull --rebase` before every push.
 If a claim is >60 minutes old with no commits, another session may take it over
 and note the handoff here.
 
+## Session fe499d4e — final integration round 5: resolve open price-store claim (X3 / F-01), populate fair/market/difference columns, address F-07 injury-report shape, add landing-page decision-readiness table, full re-verification, deploy (claimed 2026-11-15 UTC; base main @ 0ea18ec)
+
+Branch: `arena/fe499d4e-own8` (Arena-pinned; all work on this branch). Read the full
+board before acting. This session is the **final integration session** for the open items
+it claims. Board state read: main @ `0ea18ec` (merge of PR #65). Prior work merged: PRs
+#41–#65 across `ledger/**`, `origination/**`, `requirements/**`, `signals/**`, `market/**`,
+`correlation-audit/**`, `decision-review/**`, `decision/**`, `hub/**`, `review/**`,
+`suggestions/**`, `integration/**`, `desk/**`, `strict/**`, `evidence-lab/**`, root dashboard.
+X1 (root nav link to `market/`) is already resolved on main (verified in `index.html` nav +
+sitemap). Outstanding cross-session requests this session takes up: **X3** (ledger owner
+6652101e: apply SG-03 — replace the "no official source publishes this market" claim with
+the verified locked FanDuel rows) and **F-07** (requirements owner f6e60a81: injury-report
+shape caveat).
+
+Scope: **`ledger/**`** (price-store reconciliation + fair/market/difference population +
+checker), **`requirements/**`** (F-07 caveat, read-only-input notes only), root
+**`scripts/build_site.py` + regenerated `index.html` + `pages/**`** (landing-page
+decision-readiness table — integration-owner scope), **`COORDINATION.md`** (this section).
+Everything else is read-only: `market/**` (verified price capture is a read-only input),
+`origination/**`, `signals/**`, `correlation-audit/**`, `decision/**`, `decision-review/**`,
+`desk/**`, `strict/**`, `hub/**`, `review/**`, `suggestions/**`, `evidence-lab/**`,
+`data/**`, `analysis/**`, `assets/**`, `.github/**`. Findings about other namespaces are
+published as review items, never edits.
+
+| ID | Task | Status | Owner | Files (scope) | Verification plan |
+| --- | --- | --- | --- | --- | --- |
+| F5-0 | Board claim (this section) | done (claim committed + pushed before any feature edit) | fe499d4e | COORDINATION.md (this section) | Claim commit pushed first |
+| F5-1 | X3 resolution: reconcile `ledger/data/price-snapshots.json` with the verified official locked FanDuel lines (market/ `official-prices-w10.json`); add per-market `official_locked_*` fields, correct the status string, update LF-01, regenerate | in progress | fe499d4e | ledger/scripts/build_ledger.py, ledger/data/price-snapshots.json, ledger/data/flags.json, ledger/price-store.html (via build) | Every `official_locked_source_url` is nfl.com; count = 39; opening/closing stay null with reason; fresh official picks-article re-read confirms a sample |
+| F5-2 | Populate the ledger fair / market / difference columns in `lines-columns.json` from the same verified source, in one documented sign convention, with recompute checks | planned | fe499d4e | ledger/scripts/build_ledger.py, ledger/data/lines-columns.json, ledger/lines.html (via build) | difference = fair-handicap − market-handicap; every market cell carries the nfl.com URL; checker recomputes |
+| F5-3 | F-07: publish the injury-report-shape caveat in the requirements register (185/345 rows practice-only, no designation/game-status) and confirm the market availability caveat cross-links it | planned | fe499d4e | requirements/** (caveat/flag rows only), COORDINATION.md | Every caveat row cites the official injury URL; no value inferred |
+| F5-4 | Landing-page decision-readiness table: one row per requirement, the blocking gate and the number that would clear it | planned | fe499d4e | scripts/build_site.py, index.html, pages/** | check_links resolves every link; every row cites its source register |
+| F5-5 | Full checker replay on the integrated tree + fresh official spot re-reads + build + link check | planned | fe499d4e | (read-only runs; ledger/** edits per F5-1/F5-2) | Every checker exit 0; mismatches blanked + flagged, never inferred |
+| F5-6 | PR to main, merge without waiting, confirm GitHub Pages deploys, live re-fetch, final record | pending | fe499d4e | COORDINATION.md (this section) | CI green; `gh pr merge <n> --merge`; Pages API `built`; live pages re-fetched |
+
+Log (fe499d4e):
+- 2026-11-15 — Board read end to end. Confirmed X1 already resolved on main (root nav +
+  sitemap both carry `market/index.html`). Confirmed all 13 ledger Week 10 games have a
+  verified locked FanDuel line in `market/data/raw/official-prices-w10.json` (source
+  `https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season`), so X3 is fully resolvable
+  with no inferred values. Claim committed and pushed before any feature edit.
+
 ## Session 1052cf22 — final integration round 4: request sweep (correlation-audit + signals navigation), operator-requirement coverage, re-verification, deploy (claimed 2026-11-14 22:05 UTC; re-based onto main @ eccc9ab after parallel-merge collisions, see log)
 
 Branch: `arena/1052cf22-own8` (Arena-pinned; all work on this branch). Scope: root
