@@ -166,7 +166,19 @@ class Arithmetic(unittest.TestCase):
         for m in prices["markets"]:
             if m["opening_value"] is not None or m["closing_value"] is not None:
                 self.assertIsNotNone(m["opening_source_url"] or m["closing_source_url"])
-        self.assertEqual(prices["snapshots"], [])
+            self.assertIsNone(m["opening_value"])   # no official open/close series exists (LF-01)
+            self.assertIsNone(m["closing_value"])
+        # snapshots carry the published FanDuel lines (locked 2 p.m. ET Thursday) and every one
+        # must cite its official nfl.com picks-article URL (SG-03 correction, 2026-11-15)
+        self.assertEqual(len(prices["snapshots"]), 87)  # 29 games x 3 markets, Weeks 9-10
+        for s in prices["snapshots"]:
+            self.assertTrue(s["source_url"].startswith("https://www.nfl.com/news/nfl-picks-week-"))
+            self.assertIn(s["market"], ("side", "total", "moneyline"))
+            self.assertIsNotNone(s["value"])
+
+    def test_devig_p_home_normalises_two_way_american_prices(self):
+        self.assertAlmostEqual(build_ledger.devig_p_home(-152, 128), 0.5790, places=4)
+        self.assertAlmostEqual(build_ledger.devig_p_home(-110, -110), 0.5, places=6)
 
 
 if __name__ == "__main__":

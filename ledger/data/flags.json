@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-14",
+  "generated": "2026-11-15",
   "description": "Irregularities and unverified items for the Flagged for Review page. Blocking: none.",
   "flags": [
     {
@@ -32,13 +32,24 @@
     },
     {
       "id": "LF-01",
-      "kind": "NO OFFICIAL PRICE SOURCE",
-      "detail": "39 originated markets (13 games x side, total, moneyline) have no opening or closing value. The official game-centre page for NE at DET (the only game probed) contains no spread, total or moneyline text. The NFL's official sportsbook partners get league data through Genius Sports (secondary press report, not an official NFL price page).",
+      "kind": "NO OFFICIAL OPENING OR CLOSING SERIES",
+      "detail": "CORRECTED 2026-11-15 (session 08643438; SG-03 / market F-01 / board request X3). The previous claim on this flag - 'no official source publishes this market' - was FALSE. nfl.com publishes a FanDuel line for every game in its weekly picks article, locked 2 p.m. ET Thursday. 87 snapshot values (29 games x 3 markets, Weeks 9-10) are now recorded in the snapshots array with their nfl.com URLs and verbatim text (captured 2026-11-14 by session 949f49b0, market/data/raw/official-prices-w9.json and official-prices-w10.json). What is STILL true: no official source publishes a market-open or market-close number, so all 78 opening/closing cells stay blank. The official game-centre page (the only game page probed) renders no spread, total or moneyline.",
       "source_urls": [
         "https://www.nfl.com/games/patriots-at-lions-2026-reg-10",
-        "https://www.espn.com/nfl/story/_/id/49740505/nfl-renews-draftkings-fanduel-deals-adds-fanatics"
+        "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+        "https://www.nfl.com/news/nfl-picks-week-9-2026-nfl-season"
       ],
-      "treatment": "All 78 opening/closing cells are blank. Nothing is inferred. Obtaining a price requires an operator decision (suggestion SG-L1 in ledger/index.html)."
+      "treatment": "Opening/closing cells stay blank (fail-closed). The locked-Thursday FanDuel line is recorded as a dated snapshot, never as an open or a close. Remaining gaps: a twice-weekly capture schedule for a true open/close pair (SG-02) and one independent re-transcription of a price week (SG-09)."
+    },
+    {
+      "id": "LF-11",
+      "kind": "PRICE CLAIM CORRECTED (take-over record)",
+      "detail": "build_ledger.py previously asserted 'no official source publishes this market' on all 39 markets and rendered an empty snapshots array. Session 949f49b0 proved the claim false (market finding F-01) by transcribing 29 games of published FanDuel lines from the nfl.com weekly picks articles. Session 08643438 applied the correction under the coordination board's completed-claim handoff rule (owner 6652101e finished at PR #46 and is inactive). Every added value is copied from market/data/raw/official-prices-w9.json / official-prices-w10.json with its nfl.com URL; no new transcription was performed here.",
+      "source_urls": [
+        "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+        "https://www.nfl.com/news/nfl-picks-week-9-2026-nfl-season"
+      ],
+      "treatment": "Reproducible: python3 ledger/scripts/build_ledger.py rebuilds the corrected store from the raw captures. The market/ namespace's SG-03 row remains OPEN in its own register and can be marked implemented by a future owner of market/."
     },
     {
       "id": "LF-04",

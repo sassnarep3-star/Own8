@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-14",
+  "generated": "2026-11-15",
   "description": "All 14 strategies from origination/results/validation-w10.json (12 scored, 2 not scored). Status is set by the fail-closed signal verdict only; no strategy is LIVE.",
   "live_count": 0,
   "strategies": [
