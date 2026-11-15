@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-15",
+  "generated": "2026-11-14",
   "description": "Signal and staking are separate blocks. Rank uses ONLY the signal block (PASS under the fail-closed gates, then skill_pct_lcb). A staking result cannot lift a FAIL signal into a rank.",
   "ranking_rule": "rank = PASS strategies ordered by signal.skill_pct_lcb descending; medals Gold/Silver/Bronze for ranks 1-3.",
   "rows": [
@@ -21,7 +21,7 @@
         "units_staked": null,
         "roi_pct": null,
         "closing_line_value_pct": null,
-        "reason": "No official opening or closing price exists for any market, so no settled stake, ROI or closing-line value can be computed (LF-01). The locked-Thursday FanDuel lines are recorded in the price store (2026-11-15) but a pre-registered staking rule does not exist yet (SG-L2 / SG-05 open). Staking fields are not read by the ranking."
+        "reason": "Blank because no official OPEN/CLOSING series exists (open and close are required to settle staking; a locked-Thursday line is not enough) AND no pre-registered staking rule exists (SG-L2). Not a claim that no price exists: a locked FanDuel line is recorded for every market (LF-01). Staking fields are not read by the ranking."
       },
       "consistency": {
         "origination_rank": 1,
@@ -59,7 +59,7 @@
         "units_staked": null,
         "roi_pct": null,
         "closing_line_value_pct": null,
-        "reason": "No official opening or closing price exists for any market, so no settled stake, ROI or closing-line value can be computed (LF-01). The locked-Thursday FanDuel lines are recorded in the price store (2026-11-15) but a pre-registered staking rule does not exist yet (SG-L2 / SG-05 open). Staking fields are not read by the ranking."
+        "reason": "Blank because no official OPEN/CLOSING series exists (open and close are required to settle staking; a locked-Thursday line is not enough) AND no pre-registered staking rule exists (SG-L2). Not a claim that no price exists: a locked FanDuel line is recorded for every market (LF-01). Staking fields are not read by the ranking."
       },
       "consistency": {
         "origination_rank": 2,
@@ -97,7 +97,7 @@
         "units_staked": null,
         "roi_pct": null,
         "closing_line_value_pct": null,
-        "reason": "No official opening or closing price exists for any market, so no settled stake, ROI or closing-line value can be computed (LF-01). The locked-Thursday FanDuel lines are recorded in the price store (2026-11-15) but a pre-registered staking rule does not exist yet (SG-L2 / SG-05 open). Staking fields are not read by the ranking."
+        "reason": "Blank because no official OPEN/CLOSING series exists (open and close are required to settle staking; a locked-Thursday line is not enough) AND no pre-registered staking rule exists (SG-L2). Not a claim that no price exists: a locked FanDuel line is recorded for every market (LF-01). Staking fields are not read by the ranking."
       },
       "consistency": {
         "origination_rank": 3,
@@ -135,7 +135,7 @@
         "units_staked": null,
         "roi_pct": null,
         "closing_line_value_pct": null,
-        "reason": "No official opening or closing price exists for any market, so no settled stake, ROI or closing-line value can be computed (LF-01). The locked-Thursday FanDuel lines are recorded in the price store (2026-11-15) but a pre-registered staking rule does not exist yet (SG-L2 / SG-05 open). Staking fields are not read by the ranking."
+        "reason": "Blank because no official OPEN/CLOSING series exists (open and close are required to settle staking; a locked-Thursday line is not enough) AND no pre-registered staking rule exists (SG-L2). Not a claim that no price exists: a locked FanDuel line is recorded for every market (LF-01). Staking fields are not read by the ranking."
       },
       "consistency": {
         "origination_rank": 4,
@@ -177,7 +177,7 @@
         "units_staked": null,
         "roi_pct": null,
         "closing_line_value_pct": null,
-        "reason": "No official opening or closing price exists for any market, so no settled stake, ROI or closing-line value can be computed (LF-01). The locked-Thursday FanDuel lines are recorded in the price store (2026-11-15) but a pre-registered staking rule does not exist yet (SG-L2 / SG-05 open). Staking fields are not read by the ranking."
+        "reason": "Blank because no official OPEN/CLOSING series exists (open and close are required to settle staking; a locked-Thursday line is not enough) AND no pre-registered staking rule exists (SG-L2). Not a claim that no price exists: a locked FanDuel line is recorded for every market (LF-01). Staking fields are not read by the ranking."
       },
       "consistency": {
         "origination_rank": null,
@@ -219,7 +219,7 @@
         "units_staked": null,
         "roi_pct": null,
         "closing_line_value_pct": null,
-        "reason": "No official opening or closing price exists for any market, so no settled stake, ROI or closing-line value can be computed (LF-01). The locked-Thursday FanDuel lines are recorded in the price store (2026-11-15) but a pre-registered staking rule does not exist yet (SG-L2 / SG-05 open). Staking fields are not read by the ranking."
+        "reason": "Blank because no official OPEN/CLOSING series exists (open and close are required to settle staking; a locked-Thursday line is not enough) AND no pre-registered staking rule exists (SG-L2). Not a claim that no price exists: a locked FanDuel line is recorded for every market (LF-01). Staking fields are not read by the ranking."
       },
       "consistency": {
         "origination_rank": null,
@@ -261,7 +261,7 @@
         "units_staked": null,
         "roi_pct": null,
         "closing_line_value_pct": null,
-        "reason": "No official opening or closing price exists for any market, so no settled stake, ROI or closing-line value can be computed (LF-01). The locked-Thursday FanDuel lines are recorded in the price store (2026-11-15) but a pre-registered staking rule does not exist yet (SG-L2 / SG-05 open). Staking fields are not read by the ranking."
+        "reason": "Blank because no official OPEN/CLOSING series exists (open and close are required to settle staking; a locked-Thursday line is not enough) AND no pre-registered staking rule exists (SG-L2). Not a claim that no price exists: a locked FanDuel line is recorded for every market (LF-01). Staking fields are not read by the ranking."
       },
       "consistency": {
         "origination_rank": null,
@@ -303,7 +303,7 @@
         "units_staked": null,
         "roi_pct": null,
         "closing_line_value_pct": null,
-        "reason": "No official opening or closing price exists for any market, so no settled stake, ROI or closing-line value can be computed (LF-01). The locked-Thursday FanDuel lines are recorded in the price store (2026-11-15) but a pre-registered staking rule does not exist yet (SG-L2 / SG-05 open). Staking fields are not read by the ranking."
+        "reason": "Blank because no official OPEN/CLOSING series exists (open and close are required to settle staking; a locked-Thursday line is not enough) AND no pre-registered staking rule exists (SG-L2). Not a claim that no price exists: a locked FanDuel line is recorded for every market (LF-01). Staking fields are not read by the ranking."
       },
       "consistency": {
         "origination_rank": null,
@@ -345,7 +345,7 @@
         "units_staked": null,
         "roi_pct": null,
         "closing_line_value_pct": null,
-        "reason": "No official opening or closing price exists for any market, so no settled stake, ROI or closing-line value can be computed (LF-01). The locked-Thursday FanDuel lines are recorded in the price store (2026-11-15) but a pre-registered staking rule does not exist yet (SG-L2 / SG-05 open). Staking fields are not read by the ranking."
+        "reason": "Blank because no official OPEN/CLOSING series exists (open and close are required to settle staking; a locked-Thursday line is not enough) AND no pre-registered staking rule exists (SG-L2). Not a claim that no price exists: a locked FanDuel line is recorded for every market (LF-01). Staking fields are not read by the ranking."
       },
       "consistency": {
         "origination_rank": null,
@@ -387,7 +387,7 @@
         "units_staked": null,
         "roi_pct": null,
         "closing_line_value_pct": null,
-        "reason": "No official opening or closing price exists for any market, so no settled stake, ROI or closing-line value can be computed (LF-01). The locked-Thursday FanDuel lines are recorded in the price store (2026-11-15) but a pre-registered staking rule does not exist yet (SG-L2 / SG-05 open). Staking fields are not read by the ranking."
+        "reason": "Blank because no official OPEN/CLOSING series exists (open and close are required to settle staking; a locked-Thursday line is not enough) AND no pre-registered staking rule exists (SG-L2). Not a claim that no price exists: a locked FanDuel line is recorded for every market (LF-01). Staking fields are not read by the ranking."
       },
       "consistency": {
         "origination_rank": null,
@@ -430,7 +430,7 @@
         "units_staked": null,
         "roi_pct": null,
         "closing_line_value_pct": null,
-        "reason": "No official opening or closing price exists for any market, so no settled stake, ROI or closing-line value can be computed (LF-01). The locked-Thursday FanDuel lines are recorded in the price store (2026-11-15) but a pre-registered staking rule does not exist yet (SG-L2 / SG-05 open). Staking fields are not read by the ranking."
+        "reason": "Blank because no official OPEN/CLOSING series exists (open and close are required to settle staking; a locked-Thursday line is not enough) AND no pre-registered staking rule exists (SG-L2). Not a claim that no price exists: a locked FanDuel line is recorded for every market (LF-01). Staking fields are not read by the ranking."
       },
       "consistency": {
         "origination_rank": null,
@@ -472,7 +472,7 @@
         "units_staked": null,
         "roi_pct": null,
         "closing_line_value_pct": null,
-        "reason": "No official opening or closing price exists for any market, so no settled stake, ROI or closing-line value can be computed (LF-01). The locked-Thursday FanDuel lines are recorded in the price store (2026-11-15) but a pre-registered staking rule does not exist yet (SG-L2 / SG-05 open). Staking fields are not read by the ranking."
+        "reason": "Blank because no official OPEN/CLOSING series exists (open and close are required to settle staking; a locked-Thursday line is not enough) AND no pre-registered staking rule exists (SG-L2). Not a claim that no price exists: a locked FanDuel line is recorded for every market (LF-01). Staking fields are not read by the ranking."
       },
       "consistency": {
         "origination_rank": null,
@@ -512,7 +512,7 @@
         "units_staked": null,
         "roi_pct": null,
         "closing_line_value_pct": null,
-        "reason": "No official opening or closing price exists for any market, so no settled stake, ROI or closing-line value can be computed (LF-01). The locked-Thursday FanDuel lines are recorded in the price store (2026-11-15) but a pre-registered staking rule does not exist yet (SG-L2 / SG-05 open). Staking fields are not read by the ranking."
+        "reason": "Blank because no official OPEN/CLOSING series exists (open and close are required to settle staking; a locked-Thursday line is not enough) AND no pre-registered staking rule exists (SG-L2). Not a claim that no price exists: a locked FanDuel line is recorded for every market (LF-01). Staking fields are not read by the ranking."
       },
       "consistency": {
         "origination_rank": null,
@@ -543,7 +543,7 @@
         "units_staked": null,
         "roi_pct": null,
         "closing_line_value_pct": null,
-        "reason": "No official opening or closing price exists for any market, so no settled stake, ROI or closing-line value can be computed (LF-01). The locked-Thursday FanDuel lines are recorded in the price store (2026-11-15) but a pre-registered staking rule does not exist yet (SG-L2 / SG-05 open). Staking fields are not read by the ranking."
+        "reason": "Blank because no official OPEN/CLOSING series exists (open and close are required to settle staking; a locked-Thursday line is not enough) AND no pre-registered staking rule exists (SG-L2). Not a claim that no price exists: a locked FanDuel line is recorded for every market (LF-01). Staking fields are not read by the ranking."
       },
       "consistency": {
         "origination_rank": null,

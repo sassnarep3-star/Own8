@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-15",
+  "generated": "2026-11-14",
   "description": "Official final scores for every completed 2026 game in the repository (137 rows). The feed is the join key for backtests and ROI: once prices exist, join on 'key'.",
   "counts": {
     "games": 137,

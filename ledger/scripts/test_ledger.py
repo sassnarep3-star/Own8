@@ -177,8 +177,13 @@ class Arithmetic(unittest.TestCase):
             self.assertIsNotNone(s["value"])
 
     def test_devig_p_home_normalises_two_way_american_prices(self):
-        self.assertAlmostEqual(build_ledger.devig_p_home(-152, 128), 0.5790, places=4)
-        self.assertAlmostEqual(build_ledger.devig_p_home(-110, -110), 0.5, places=6)
+        def dv(h, a):
+            ph, pa = build_ledger.american_to_p(h), build_ledger.american_to_p(a)
+            return ph / (ph + pa)
+        self.assertAlmostEqual(dv(-152, 128), 0.5790, places=4)
+        self.assertAlmostEqual(dv(-110, -110), 0.5, places=6)
+        self.assertAlmostEqual(build_ledger.american_to_p(128), 100.0 / 228, places=6)
+        self.assertAlmostEqual(build_ledger.american_to_p(-152), 152.0 / 252, places=6)
 
 
 if __name__ == "__main__":

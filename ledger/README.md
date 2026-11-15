@@ -11,8 +11,8 @@ page, or to a NIST handbook page for a statistical rule. A value without an offi
 | Path | What it is |
 | --- | --- |
 | `data/results-feed.json` | 137 official final scores (136 from the verified W1-W9 log, plus the Thursday W10 game). |
-| `data/price-snapshots.json` | 39 originated markets (13 games x side, total, moneyline, in that order). Opening and closing values are null. |
-| `data/price-probe.json` | The official page probe that found no betting line, with its scope. |
+| `data/price-snapshots.json` | 39 originated markets (13 games x side, total, moneyline, in that order). Each carries the verified locked FanDuel line from the nfl.com picks article (`official_locked_*`). Opening and closing values are null — no official page publishes them. |
+| `data/price-probe.json` | The official page probe that found no line on the game-centre page, with its scope. The picks article (the verified price source) was found later; see flag LF-01 and finding F-01. |
 | `data/lines-columns.json` | 13 Week 10 games: fair, market and difference as separate columns. |
 | `data/strategy-registry.json` | 14 strategies with the gates each product must pass, and status. |
 | `data/demotion-rules.json` | Pre-registered demotion rules D1-D8 and re-promotion rule P1. |
@@ -39,7 +39,10 @@ python3 ledger/scripts/check_ledger.py
 ## Inputs (read only)
 
 `origination/data/games-2026-w1-w9.json`, `origination/results/w10-lines.json`,
-`origination/results/validation-w10.json`, `origination/results/leaderboard-w10.json`. Nothing in `origination/` is edited.
+`origination/results/validation-w10.json`, `origination/results/leaderboard-w10.json`,
+`market/data/raw/official-prices-w10.json` (the verified locked FanDuel lines from the
+nfl.com Week 10 picks article, captured by session 949f49b0). Nothing in `origination/` or
+`market/` is edited.
 
 ## What this namespace does not do
 
