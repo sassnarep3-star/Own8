@@ -52,15 +52,15 @@
     },
     {
       "path": "COORDINATION.md",
-      "lines": 1104,
-      "sha256": "1d3324c002058fb622ed18a2163f600820b9864e1b498f5f81ae2627a63de60f",
+      "lines": 1140,
+      "sha256": "807fe56b17405421d4abdf741592ee7da95ebce130c382e4fee751bc11cf81a3",
       "review": "Executable/source or generated output \u2014 static checks; not official factual evidence",
       "source_url": "https://www.nfl.com/standings/"
     },
     {
       "path": "README.md",
-      "lines": 82,
-      "sha256": "3f0dd5448eab32f57f47c0f225ee873a16cd1607d90884801dce61e2f7eac201",
+      "lines": 90,
+      "sha256": "b331b28eab813e8dd3ac7f6515cb83809a9d8618eeab9167b55c0162daa8c20b",
       "review": "Executable/source or generated output \u2014 static checks; not official factual evidence",
       "source_url": "https://www.nfl.com/standings/"
     },

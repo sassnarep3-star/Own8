@@ -14,7 +14,7 @@
 
 ## Executive summary · 2026-11-04 snapshot
 
-> **Superseded for current numbers.** The section below describes the 04 Nov snapshot. For the current state of the data, the out-of-sample grading and the review queue, read [What changed on 2026-11-14](#what-changed-on-2026-11-14-session-f6e60a81) below and the [requirements section](https://sassnarep3-star.github.io/Own8/requirements/index.html).
+> **Superseded for current numbers.** The section below describes the 04 Nov snapshot. For the current state of the data, the out-of-sample grading and the review queue, read [What changed on 2026-11-15](#what-changed-on-2026-11-15-final-integration-round-5--session-08643438) and [What changed on 2026-11-14](#what-changed-on-2026-11-14-session-f6e60a81) below and the [requirements section](https://sassnarep3-star.github.io/Own8/requirements/index.html).
 
 - Independently rechecked **32 standings core rows / 256 fields** against NFL.com; **15 Week 9 schedule entries**, **12 complete Week 8 scores**, **28 JAX/BAL practice entries**, and **two NFL news bodies**. Exact coverage: `data/sources.json` and `data/audit-snapshot.json`. Two score rows remain blank because their full source text was not observed. No claim of exhaustive external verification of all inherited files.
 - Originates **15 illustrative B0 scoring benchmarks** from audited points-for/against rates. All are **derived project calculations**, not official NFL lines, calibrated fair prices or recommendations. Home handicap = projected away score − projected home score. No fitted venue/roster adjustment; the Madrid game does not receive a home-field assumption.
@@ -22,6 +22,14 @@
 - Registers **eight research strategies**. **Zero eligible strategies, no established betting edge, no ranks or rewards.** Missing operator prices, chronological test evidence, final availability and aligned joint outcomes block promotion.
 - Removes unsupported claims that luck can be eliminated, unverified odds can yield verified candidates, or conditional gates count as passes. Statistical uncertainty cannot be eliminated.
 - Catalogs **471 inherited JSON/CSV entries**, withholding unverified values; records file-level review scope, source links and review flags. Every canonical table row has an official reference or explicitly labeled verification target.
+
+
+## What changed on 2026-11-15 (final integration round 5 · session 08643438)
+
+- **The repository's central price claim was wrong and is now corrected (SG-03 / F-01 / X3).** The decision ledger asserted "no official source publishes this market" on all 39 Week 10 markets. That was false: nfl.com publishes a FanDuel line for every game in its weekly picks article, locked 2 p.m. ET Thursday. The price store now records **87 verified snapshot values** (29 games × 3 markets, Weeks 9–10) with their nfl.com URLs and verbatim text, and publishes **fair line, market line and the difference as three separate columns** per market (differences cross-checked 39/39 against the independent market/ computation). Opening and closing values stay blank, fail-closed: no official source publishes a market-open or market-close number. See [ledger/price-store](https://sassnarep3-star.github.io/Own8/ledger/price-store.html) and flags LF-01/LF-11.
+- **The landing page now carries a decision-readiness table**: one row per requirement (RQ-01..16), the gate that blocks it, and the specific number that would clear it — every number quoted from a pre-registered register (G3 sample sizes ≥ 80/40/100, G7 ECE ≤ 0.10, D6 p_Holm < 0.05, Q-04's 6–8 game-weeks of Game Books), blank and flagged where no pre-registered number exists.
+- **Fresh official re-verification (2026-11-15):** standings recomputed from the 137-game feed plus the eight Week 10 Sunday finals match all 32 official rows — **160/160 cells PASS**. The F-07 injury-report question is resolved: the 185 practice-only rows are the *real* official report shape (verified against the live page), not a capture artifact. The three Lions game-status requests (VR-08/VR-12) are superseded — the official page now shows all three Out; the report is a daily timestamped series. Evidence: [session-08643438/verification.json](session-08643438/verification.json).
+- **Freshness flag V-03:** eight Week 10 Sunday finals are official but not yet in the game log; the Week 10 line set must not be graded until all 14 games settle. The stale desk flagged page was regenerated (C-01..C-05 restored), and the duplicated coordination-board collision notes collapsed to one.
 
 
 ## What changed on 2026-11-14 (session f6e60a81)

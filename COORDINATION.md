@@ -31,11 +31,11 @@ NOT edited; findings about them are published as flags, never edits.
 | ID | Task | Status | Owner | Files (scope) | Verification plan |
 | --- | --- | --- | --- | --- | --- |
 | P0 | Board claim (this section) + board hygiene (collapse 3 identical c563a1dc collision notes to 1, as 949f49b0 requested) | done (claim pushed before any other work) | 08643438 | COORDINATION.md (this section + dedupe) | Claim commit pushed first |
-| P1 | SG-03 / X3 / F-01 take-over fix: the ledger price store still asserts "no official source publishes this market" on all 39 Week 10 markets; market/ (949f49b0) verified 29 games / 87 markets of nfl.com-picks-article FanDuel lines. Correct the claim fail-closed: keep opening/closing values null (no official open/close pair exists), populate the store's `snapshots` array with the verified locked-Thursday lines + source URLs, correct every status string, regenerate ledger pages, keep check_ledger green | in progress | 08643438 (take-over of 6652101e K1 residue; owner merged PR #46 and is inactive >60 min — handoff noted here) | ledger/data/price-snapshots.json, regenerated ledger/*.html | `python3 ledger/scripts/check_ledger.py` exit 0; every new value carries the nfl.com picks-article URL; open/close stay null |
-| P2 | Landing-page decision-readiness table: one row per requirement (RQ-01..16), the gate that blocks it, and the documented number that would clear it (blank where no pre-registered number exists), every row linked to its register/source | in progress | 08643438 | scripts/build_site.py, regenerated index.html + pages/** | `python3 scripts/check_links.py` exit 0; no invented numbers — values traced to validation-gates.json, demotion-rules.json, decision-gate.json or left blank |
-| P3 | desk/pages/flagged.html regeneration (053940d1 handoff: stale vs desk's own data, missing C-01..C-05 rows; deterministic `python3 desk/scripts/build_site.py`) | in progress | 08643438 (take-over; desk owner 566bc2e7 completed 2026-11-04) | desk/pages/flagged.html (+ any deterministic regen output) | desk checker suite passes; regenerated page shows C-01..C-05 |
-| P4 | Fresh official re-verification dated 2026-11-15: standings, Week 10 results state at read time (Sunday slate), and an F-07 shape probe of the official injury page vs the 345-row capture; evidence in session-08643438/ | in progress | 08643438 | session-08643438/** | every checked value cites its official URL + fetch timestamp; mismatches blanked + flagged, never inferred |
-| P5 | Full checker replay on the integrated tree (root suite, requirements, ledger, origination, correlation-audit, signals, decision-review, desk, strict); in-scope breakage fixed, out-of-scope breakage recorded | in progress | 08643438 | COORDINATION.md | every checker exit code recorded (precedent: 053940d1 F4) |
+| P1 | SG-03 / X3 / F-01 take-over fix: the ledger price store still asserts "no official source publishes this market" on all 39 Week 10 markets; market/ (949f49b0) verified 29 games / 87 markets of nfl.com-picks-article FanDuel lines. Correct the claim fail-closed: keep opening/closing values null (no official open/close pair exists), populate the store's `snapshots` array with the verified locked-Thursday lines + source URLs, correct every status string, regenerate ledger pages, keep check_ledger green | done — commit `332ccb6`: 87 snapshots recorded (29 games × 3 markets, Weeks 9-10, each with nfl.com picks-article URL + verbatim text), LF-01 rewritten ("no official OPEN/CLOSING series"), LF-11 records the correction + take-over, fair/market/difference now three separate columns per market (39/39 differences cross-check vs market/data/own-lines.json), SG-L1 text corrected, SG-L7 marked delivered; check_ledger 22/22, ledger tests 24 OK | 08643438 (take-over of 6652101e K1 residue; owner merged PR #46 and is inactive >60 min — handoff noted here) | ledger/data/price-snapshots.json, regenerated ledger/*.html | `python3 ledger/scripts/check_ledger.py` exit 0; every new value carries the nfl.com picks-article URL; open/close stay null |
+| P2 | Landing-page decision-readiness table: one row per requirement (RQ-01..16), the gate that blocks it, and the documented number that would clear it, every row linked to its register/source | done — commit `aea4acc`: 16-row table on the landing page; clearing numbers only from pre-registered registers (G3 ≥ 80/40/100, G7 ECE ≤ 0.10, D6 p_Holm < 0.05, Q-04 6-8 game-weeks); blank + flagged where none exists; requirement text/status copied at build time from requirements/data/requirements.json; root price phrasing corrected post-SG-03 | 08643438 | scripts/build_site.py, regenerated index.html + pages/**, data/decision-readiness.json | `python3 scripts/check_links.py` exit 0 (40 pages / 2248 rows / 0 errors); no invented numbers |
+| P3 | desk/pages/flagged.html regeneration (053940d1 handoff: stale vs desk's own data, missing C-01..C-05 rows; deterministic `python3 desk/scripts/build_site.py`) | done — commit `2b811ad`: only desk/pages/flagged.html + its checker output change; C-01..C-05 rows restored with official references; desk check_links PASS, 12 desk tests OK | 08643438 (take-over; desk owner 566bc2e7 completed 2026-11-04) | desk/pages/flagged.html (+ any deterministic regen output) | desk checker suite passes; regenerated page shows C-01..C-05 |
+| P4 | Fresh official re-verification dated 2026-11-15: standings, Week 10 results state at read time (Sunday slate), and an F-07 shape probe of the official injury page vs the 345-row capture; evidence in session-08643438/ | done — commit `5075a19`: standings reconciliation **PASS 160/160 cells** (137-game feed + 8 new W10 Sunday finals vs 32 rows as read, 23:37Z); **F-07 RESOLVED** (185 practice-only rows are the real official report shape, verified on the live page); Lions VR-08/VR-12 superseded (all three now Out on the official page); V-01..V-04 published on the root Flagged page (V-03 freshness: 8 finals pending ingestion, W10 lines ungradeable until all 14 settle) | 08643438 | session-08643438/** | every checked value cites its official URL + fetch timestamp; mismatches blanked + flagged, never inferred |
+| P5 | Full checker replay on the integrated tree (root suite, requirements, ledger, origination, correlation-audit, signals, decision-review, desk, strict); in-scope breakage fixed, out-of-scope breakage recorded | done — commit `dab2f33`: 20 checker families green (audit_repo, analyze, test_audit 18, tests/ , build_site, check_links, audit_publication, check_req, check_ledger 22/22 + 24 tests, origination check_links, correlation-audit tests, signals check, decision-review check, decision check, market run_all (30/30 + 0 errors), desk tests 12 + check_links, strict build+check, suggestions check_links). Known pre-existing exceptions unchanged, not fixed here: evidence-lab/check.py exit 1 (IR-2d40-01, archive targets; its check-run rewrites reverted per the 053940d1 precedent), desk/scripts/audit.py exit 1 in partial clones (pins base 7c2f545) | 08643438 | COORDINATION.md | every checker exit code recorded (precedent: 053940d1 F4) |
 | P6 | PR to main, merge without waiting, GitHub Pages confirmation, live re-fetch, final record | pending | 08643438 | COORDINATION.md | CI green; `gh pr merge <n> --merge`; Pages API `built`; live pages re-fetched |
 
 Log (08643438):
@@ -46,6 +46,42 @@ Log (08643438):
   ALREADY DONE on main (index.html links market/index.html, landed via 1052cf22 N2) — no work
   needed. F-07 (injury-report shape) will be probed against the official page in P4 and
   reported, not edited (requirements/ is read-only).
+- 2026-11-15 (P0b) — Board hygiene: three identical consecutive "COLLISION NOTE (c563a1dc,
+  rebase 3)" blocks collapsed to one (949f49b0's request); content preserved and the dedupe
+  attributed in-place.
+- 2026-11-15 (P1 done) — SG-03/X3/F-01 applied as a reproducible change to build_ledger.py
+  (the JSON store is a build output, so the fix lives in the builder): snapshots[] = 87
+  verified FanDuel locked-Thursday values from market/data/raw/official-prices-w{9,10}.json
+  (949f49b0's captures; NO new transcription here — SG-09 independent re-transcription stays
+  open and is cited on the price-store page). Cross-check: all 39 fair-minus-market
+  differences equal market/data/own-lines.json's independent computation (their rounding
+  noted; units documented in lines-columns.json difference_rule). Staking block reason
+  corrected (blank because no open/close series AND no pre-registered staking rule, not
+  "no price exists").
+- 2026-11-15 (P2 done) — Decision-readiness table landed on the index page (operator
+  requirement). data/decision-readiness.json carries only the gate + clearing number per
+  RQ; RQ text/status are copied from the requirements register at build time. Root phrasing
+  that repeated the superseded "no official price" claim corrected (index note + executive
+  summary Week-10-own-lines row).
+- 2026-11-15 (P3 done) — desk/pages/flagged.html regenerated per 053940d1's handoff;
+  C-01..C-05 restored. Deterministic; nothing else in desk/ changed.
+- 2026-11-15 (P4 done) — Fresh reads 23:25-23:40Z: /scores/2026/week-10 (9 finals incl. the
+  Munich game NE 10 DET 35, 3 live, 2 upcoming, byes CHI/DEN/PHI/TB), /standings/league/2026/REG
+  (32 rows), /injuries/league/2026/reg10 (F-07 probe). Reconciliation 160/160 PASS. F-07
+  RESOLVED as genuine report shape (rows with practice status and blank injury + blank game
+  status are on the official page itself). Lions designations now Out (Knee/Ankle/Hip) —
+  consistent with the daily-series model of the report (the user requirement "treat the
+  injury report as a timestamped series" is exactly why the earlier blanks were not
+  necessarily errors).
+- 2026-11-15 (P5 done) — Checker replay 20 families green; two known pre-existing failures
+  reproduced and left untouched (IR-2d40-01; desk audit base-commit). market/run_all.sh
+  recount committed (deterministic; counts derive from the repo crawl).
+- Cross-session notes from 08643438: (1) market/ owner: SG-03 is now implemented in ledger/
+  (this session); market/data/decision-gate.json's SG-03 row still reads OPEN and can be
+  marked implemented by a future owner of market/. (2) origination owner: V-03 — 8 Week 10
+  finals are ready to ingest (list + URLs in session-08643438/verification.json); the W10
+  line set must not be graded before all 14 games settle. (3) requirements owner: F-07 is
+  resolved as a real report shape (evidence in session-08643438/); the capture needs no fix.
 
 ## Session 1052cf22 — final integration round 4: request sweep (correlation-audit + signals navigation), operator-requirement coverage, re-verification, deploy (claimed 2026-11-14 22:05 UTC; re-based onto main @ eccc9ab after parallel-merge collisions, see log)
 
