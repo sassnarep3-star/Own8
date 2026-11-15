@@ -132,6 +132,13 @@ flags = [
          not_affected="Either session's correctness. The smaller set is explicitly partial and says so.",
          disposition="hub/ left untouched. This session's larger capture is published alongside it, the difference is stated on the availability page, and no file from the other session was edited or deleted. Recorded in COORDINATION.md.",
          source_url="https://www.nfl.com/injuries/"),
+    dict(id="REQ-F-16", severity="medium", area="requirements/results/injuries-w10.json", state="needs review",
+         finding="185 of the 345 Week 10 injury rows carry a practice status but a blank injury column and a blank game-status column (140 of them 'Full Participation in Practice'). An earlier session characterised this block as 'more likely a capture artefact than a real report shape'. Re-reading the official page on 2026-11-15 shows that characterisation is wrong: it is the genuine shape of the report.",
+         evidence="https://www.nfl.com/injuries/league/2026/reg10 retrieved 2026-11-15 lists the practice participation of the roster and leaves Injuries and Game Status blank where no designation is published. Patrick Mahomes (KC, QB), Jared Goff (DET, QB) and Jayden Daniels (WAS, QB) each render 'Full Participation in Practice' with both other columns blank, exactly as transcribed. The counts (185 practice-only rows, 140 Full Participation, worst clubs LAC 19, SEA 11, NYG 10) reproduce from requirements/results/injuries-w10.json.",
+         affected="Any reader who reads a per-club row count as an injury burden, or reads a blank game status as 'available' or 'healthy'.",
+         not_affected="The designations themselves, which are official and transcribed verbatim, and the practice-status column, which is the column the report actually publishes for the whole roster.",
+         disposition="Caveat published on the injury tracker page ('Report shape (verified 2026-11-15)'): the practice-only rows are the real report shape, a blank game status means 'no designation published', and per-club counts are practice-report rows. No values changed.",
+         source_url="https://www.nfl.com/injuries/league/2026/reg10"),
 ]
 
 summary = dict(

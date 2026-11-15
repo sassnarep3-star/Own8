@@ -358,9 +358,19 @@ for i in INJURIES["items"]:
 inj_rows = [[i["team"], i["player"], i["position"], i["injury"], i["practice"], i["game_status"],
              a(i["source_url"], "Report")] for i in INJURIES["items"]]
 qb = INJURIES["qb_ruled_out"]
+SHAPE_NOTE = (
+    "185 of the %d rows carry a practice status but a blank injury column and a blank game-status column "
+    "(140 of them 'Full Participation in Practice'). This is the genuine shape of the official page, not a "
+    "capture artefact: re-read on 2026-11-15, the official report lists the practice participation of the "
+    "roster, and leaves Injuries and Game Status blank exactly where no designation is published (for example "
+    "Patrick Mahomes, Jared Goff and Jayden Daniels each show 'Full Participation in Practice' with both other "
+    "columns blank). A blank game status therefore means 'no designation published', never 'available' or "
+    "'healthy', and the per-club row counts are practice-report rows, not an injury-burden ranking. Source: "
+    "https://www.nfl.com/injuries/league/2026/reg10" % INJURIES["rows"])
 page("injuries", "Injury tracker (Week 10)",
      f"All {INJURIES['rows']} rows of the official Week 10 report, for every club playing. Practice status and game status kept separate.",
      note(INJURIES["scope_note"], "Scope") +
+     note(SHAPE_NOTE, "Report shape (verified 2026-11-15)") +
      '<div class="kpis">'
      f'<div class="kpi"><span>{INJURIES["rows"]}</span><h2>Official rows</h2><small>{INJURIES["clubs_listed"]} clubs</small></div>'
      f'<div class="kpi"><span>{sum(1 for i in INJURIES["items"] if i["game_status"] == "Out")}</span><h2>Ruled Out</h2><small>Official designation</small></div>'
