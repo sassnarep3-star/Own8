@@ -32,13 +32,13 @@
     },
     {
       "id": "LF-01",
-      "kind": "NO OFFICIAL PRICE SOURCE",
-      "detail": "39 originated markets (13 games x side, total, moneyline) have no opening or closing value. The official game-centre page for NE at DET (the only game probed) contains no spread, total or moneyline text. The NFL's official sportsbook partners get league data through Genius Sports (secondary press report, not an official NFL price page).",
+      "kind": "ONLY A LOCKED LINE; NO OPENING OR CLOSING",
+      "detail": "Each of the 39 originated markets now carries the single locked FanDuel line that nfl.com publishes in its weekly picks article (locked 2 p.m. ET Thursday). That corrects the ledger's earlier claim that no official source publishes a market line (finding F-01, request X3, suggestion SG-03). OPENING and CLOSING values are still not published by any official page, so all 78 opening/closing cells remain blank and are not inferred. The official game-centre page probed (NE at DET) does render no line, which is why the original probe missed the picks article; the picks article is the verified source.",
       "source_urls": [
-        "https://www.nfl.com/games/patriots-at-lions-2026-reg-10",
-        "https://www.espn.com/nfl/story/_/id/49740505/nfl-renews-draftkings-fanduel-deals-adds-fanatics"
+        "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+        "https://www.nfl.com/games/patriots-at-lions-2026-reg-10"
       ],
-      "treatment": "All 78 opening/closing cells are blank. Nothing is inferred. Obtaining a price requires an operator decision (suggestion SG-L1 in ledger/index.html)."
+      "treatment": "Locked line recorded verbatim with its source URL and lock statement; opening/closing left blank. Obtaining a true opening/closing series requires capturing the article repeatedly across a week (suggestion SG-L1 in ledger/index.html)."
     },
     {
       "id": "LF-04",

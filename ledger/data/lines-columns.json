@@ -1,7 +1,7 @@
 {
   "generated": "2026-11-14",
-  "description": "Fair (no-vig) Week 10 lines with three separate columns per market: FAIR (ours), MARKET (no official value found) and DIFFERENCE (fair minus market, only when a market value exists).",
-  "difference_rule": "difference = fair - market; computed only when BOTH values are present; otherwise blank.",
+  "description": "Fair (no-vig) Week 10 lines with three separate columns per market: FAIR (ours), MARKET (the verified locked FanDuel line from the nfl.com picks article) and DIFFERENCE (fair minus market).",
+  "difference_rule": "difference = fair - market, one documented unit per market: side in home-margin points (fair_home_margin_S1 - market_home_margin), total in points, moneyline in de-vigged home-win probability. Computed only when BOTH values are present; otherwise blank.",
   "recompute_mismatches": [],
   "rows": [
     {
@@ -36,8 +36,9 @@
         "alt_fair_home_margin_S2": 0.765,
         "alt_model": "S2 (offence/defence ridge)",
         "alt_model_status": "PASS (all applicable gates)",
-        "market_spread": null,
-        "difference_fair_minus_market": null
+        "market_spread": -2.5,
+        "market_spread_text": "DET -2.5",
+        "difference_fair_minus_market": -1.725
       },
       "total": {
         "fair_total": 48.25,
@@ -46,8 +47,8 @@
         "alt_fair_total_S5": 48.91,
         "alt_model": "S5 (naive PF/PA averages)",
         "alt_model_status": "FAIL G4, G5, G6 - UNVALIDATED",
-        "market_total": null,
-        "difference_fair_minus_market": null
+        "market_total": 50.5,
+        "difference_fair_minus_market": -2.25
       },
       "moneyline": {
         "fair_p_home": 0.5245,
@@ -57,15 +58,17 @@
         "recomputed_ml_away": 110,
         "model": "S6 (moneyline from S1 margin)",
         "model_status": "PASS (all applicable gates)",
-        "market_ml_home": null,
-        "market_ml_away": null,
-        "difference_fair_minus_market": null
+        "market_ml_home": -152,
+        "market_ml_away": 128,
+        "market_p_home_devig": 0.579,
+        "difference_fair_minus_market": -0.0545
       },
       "sigma_margin_used": 12.606841,
       "sigma_total_used": 13.715481,
       "game_url": "https://www.nfl.com/games/patriots-at-lions-2026-reg-10",
       "source_url": "https://www.nfl.com/schedules/2026/by-week/week-10",
-      "market_status": "BLANK - no official source publishes a betting line (price-probe.json, LF-01)."
+      "market_source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+      "market_status": "LOCKED LINE VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET; opening/closing NOT published."
     },
     {
       "key": "2026-W10-KC-ATL",
@@ -99,8 +102,9 @@
         "alt_fair_home_margin_S2": -3.351,
         "alt_model": "S2 (offence/defence ridge)",
         "alt_model_status": "PASS (all applicable gates)",
-        "market_spread": null,
-        "difference_fair_minus_market": null
+        "market_spread": 3.5,
+        "market_spread_text": "KC -3.5",
+        "difference_fair_minus_market": -0.514
       },
       "total": {
         "fair_total": 44.6,
@@ -109,8 +113,8 @@
         "alt_fair_total_S5": 44.4,
         "alt_model": "S5 (naive PF/PA averages)",
         "alt_model_status": "FAIL G4, G5, G6 - UNVALIDATED",
-        "market_total": null,
-        "difference_fair_minus_market": null
+        "market_total": 47.5,
+        "difference_fair_minus_market": -2.9
       },
       "moneyline": {
         "fair_p_home": 0.3751,
@@ -120,15 +124,17 @@
         "recomputed_ml_away": -167,
         "model": "S6 (moneyline from S1 margin)",
         "model_status": "PASS (all applicable gates)",
-        "market_ml_home": null,
-        "market_ml_away": null,
-        "difference_fair_minus_market": null
+        "market_ml_home": 144,
+        "market_ml_away": -172,
+        "market_p_home_devig": 0.3932,
+        "difference_fair_minus_market": -0.0181
       },
       "sigma_margin_used": 12.606841,
       "sigma_total_used": 13.715481,
       "game_url": "https://www.nfl.com/games/chiefs-at-falcons-2026-reg-10",
       "source_url": "https://www.nfl.com/schedules/2026/by-week/week-10",
-      "market_status": "BLANK - no official source publishes a betting line (price-probe.json, LF-01)."
+      "market_source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+      "market_status": "LOCKED LINE VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET; opening/closing NOT published."
     },
     {
       "key": "2026-W10-HOU-CLE",
@@ -162,8 +168,9 @@
         "alt_fair_home_margin_S2": -2.207,
         "alt_model": "S2 (offence/defence ridge)",
         "alt_model_status": "PASS (all applicable gates)",
-        "market_spread": null,
-        "difference_fair_minus_market": null
+        "market_spread": 4.5,
+        "market_spread_text": "HOU -4.5",
+        "difference_fair_minus_market": 1.638
       },
       "total": {
         "fair_total": 44.76,
@@ -172,8 +179,8 @@
         "alt_fair_total_S5": 44.9,
         "alt_model": "S5 (naive PF/PA averages)",
         "alt_model_status": "FAIL G4, G5, G6 - UNVALIDATED",
-        "market_total": null,
-        "difference_fair_minus_market": null
+        "market_total": 40.5,
+        "difference_fair_minus_market": 4.26
       },
       "moneyline": {
         "fair_p_home": 0.4102,
@@ -183,15 +190,17 @@
         "recomputed_ml_away": -144,
         "model": "S6 (moneyline from S1 margin)",
         "model_status": "PASS (all applicable gates)",
-        "market_ml_home": null,
-        "market_ml_away": null,
-        "difference_fair_minus_market": null
+        "market_ml_home": 198,
+        "market_ml_away": -240,
+        "market_p_home_devig": 0.3222,
+        "difference_fair_minus_market": 0.088
       },
       "sigma_margin_used": 12.606841,
       "sigma_total_used": 13.715481,
       "game_url": "https://www.nfl.com/games/texans-at-browns-2026-reg-10",
       "source_url": "https://www.nfl.com/schedules/2026/by-week/week-10",
-      "market_status": "BLANK - no official source publishes a betting line (price-probe.json, LF-01)."
+      "market_source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+      "market_status": "LOCKED LINE VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET; opening/closing NOT published."
     },
     {
       "key": "2026-W10-MIN-GB",
@@ -225,8 +234,9 @@
         "alt_fair_home_margin_S2": 0.065,
         "alt_model": "S2 (offence/defence ridge)",
         "alt_model_status": "PASS (all applicable gates)",
-        "market_spread": null,
-        "difference_fair_minus_market": null
+        "market_spread": -3.0,
+        "market_spread_text": "GB -3.0",
+        "difference_fair_minus_market": -3.043
       },
       "total": {
         "fair_total": 39.99,
@@ -235,8 +245,8 @@
         "alt_fair_total_S5": 38.99,
         "alt_model": "S5 (naive PF/PA averages)",
         "alt_model_status": "FAIL G4, G5, G6 - UNVALIDATED",
-        "market_total": null,
-        "difference_fair_minus_market": null
+        "market_total": 42.5,
+        "difference_fair_minus_market": -2.51
       },
       "moneyline": {
         "fair_p_home": 0.4986,
@@ -246,15 +256,17 @@
         "recomputed_ml_away": -101,
         "model": "S6 (moneyline from S1 margin)",
         "model_status": "PASS (all applicable gates)",
-        "market_ml_home": null,
-        "market_ml_away": null,
-        "difference_fair_minus_market": null
+        "market_ml_home": -164,
+        "market_ml_away": 138,
+        "market_p_home_devig": 0.5965,
+        "difference_fair_minus_market": -0.0979
       },
       "sigma_margin_used": 12.606841,
       "sigma_total_used": 13.715481,
       "game_url": "https://www.nfl.com/games/vikings-at-packers-2026-reg-10",
       "source_url": "https://www.nfl.com/schedules/2026/by-week/week-10",
-      "market_status": "BLANK - no official source publishes a betting line (price-probe.json, LF-01)."
+      "market_source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+      "market_status": "LOCKED LINE VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET; opening/closing NOT published."
     },
     {
       "key": "2026-W10-MIA-IND",
@@ -288,8 +300,9 @@
         "alt_fair_home_margin_S2": 0.665,
         "alt_model": "S2 (offence/defence ridge)",
         "alt_model_status": "PASS (all applicable gates)",
-        "market_spread": null,
-        "difference_fair_minus_market": null
+        "market_spread": -3.5,
+        "market_spread_text": "IND -3.5",
+        "difference_fair_minus_market": -2.847
       },
       "total": {
         "fair_total": 44.86,
@@ -298,8 +311,8 @@
         "alt_fair_total_S5": 44.43,
         "alt_model": "S5 (naive PF/PA averages)",
         "alt_model_status": "FAIL G4, G5, G6 - UNVALIDATED",
-        "market_total": null,
-        "difference_fair_minus_market": null
+        "market_total": 38.5,
+        "difference_fair_minus_market": 6.36
       },
       "moneyline": {
         "fair_p_home": 0.5207,
@@ -309,15 +322,17 @@
         "recomputed_ml_away": 109,
         "model": "S6 (moneyline from S1 margin)",
         "model_status": "PASS (all applicable gates)",
-        "market_ml_home": null,
-        "market_ml_away": null,
-        "difference_fair_minus_market": null
+        "market_ml_home": -215,
+        "market_ml_away": 180,
+        "market_p_home_devig": 0.6565,
+        "difference_fair_minus_market": -0.1358
       },
       "sigma_margin_used": 12.606841,
       "sigma_total_used": 13.715481,
       "game_url": "https://www.nfl.com/games/dolphins-at-colts-2026-reg-10",
       "source_url": "https://www.nfl.com/schedules/2026/by-week/week-10",
-      "market_status": "BLANK - no official source publishes a betting line (price-probe.json, LF-01)."
+      "market_source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+      "market_status": "LOCKED LINE VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET; opening/closing NOT published."
     },
     {
       "key": "2026-W10-CAR-NO",
@@ -351,8 +366,9 @@
         "alt_fair_home_margin_S2": -0.43,
         "alt_model": "S2 (offence/defence ridge)",
         "alt_model_status": "PASS (all applicable gates)",
-        "market_spread": null,
-        "difference_fair_minus_market": null
+        "market_spread": -2.5,
+        "market_spread_text": "NO -2.5",
+        "difference_fair_minus_market": -3.229
       },
       "total": {
         "fair_total": 50.64,
@@ -361,8 +377,8 @@
         "alt_fair_total_S5": 51.19,
         "alt_model": "S5 (naive PF/PA averages)",
         "alt_model_status": "FAIL G4, G5, G6 - UNVALIDATED",
-        "market_total": null,
-        "difference_fair_minus_market": null
+        "market_total": 48.5,
+        "difference_fair_minus_market": 2.14
       },
       "moneyline": {
         "fair_p_home": 0.4769,
@@ -372,15 +388,17 @@
         "recomputed_ml_away": -110,
         "model": "S6 (moneyline from S1 margin)",
         "model_status": "PASS (all applicable gates)",
-        "market_ml_home": null,
-        "market_ml_away": null,
-        "difference_fair_minus_market": null
+        "market_ml_home": -132,
+        "market_ml_away": 112,
+        "market_p_home_devig": 0.5467,
+        "difference_fair_minus_market": -0.0698
       },
       "sigma_margin_used": 12.606841,
       "sigma_total_used": 13.715481,
       "game_url": "https://www.nfl.com/games/panthers-at-saints-2026-reg-10",
       "source_url": "https://www.nfl.com/schedules/2026/by-week/week-10",
-      "market_status": "BLANK - no official source publishes a betting line (price-probe.json, LF-01)."
+      "market_source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+      "market_status": "LOCKED LINE VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET; opening/closing NOT published."
     },
     {
       "key": "2026-W10-BUF-NYJ",
@@ -414,8 +432,9 @@
         "alt_fair_home_margin_S2": -5.003,
         "alt_model": "S2 (offence/defence ridge)",
         "alt_model_status": "PASS (all applicable gates)",
-        "market_spread": null,
-        "difference_fair_minus_market": null
+        "market_spread": 7.5,
+        "market_spread_text": "BUF -7.5",
+        "difference_fair_minus_market": 1.17
       },
       "total": {
         "fair_total": 49.29,
@@ -424,8 +443,8 @@
         "alt_fair_total_S5": 50.19,
         "alt_model": "S5 (naive PF/PA averages)",
         "alt_model_status": "FAIL G4, G5, G6 - UNVALIDATED",
-        "market_total": null,
-        "difference_fair_minus_market": null
+        "market_total": 50.5,
+        "difference_fair_minus_market": -1.21
       },
       "moneyline": {
         "fair_p_home": 0.3078,
@@ -435,15 +454,17 @@
         "recomputed_ml_away": -225,
         "model": "S6 (moneyline from S1 margin)",
         "model_status": "PASS (all applicable gates)",
-        "market_ml_home": null,
-        "market_ml_away": null,
-        "difference_fair_minus_market": null
+        "market_ml_home": 370,
+        "market_ml_away": -480,
+        "market_p_home_devig": 0.2045,
+        "difference_fair_minus_market": 0.1033
       },
       "sigma_margin_used": 12.606841,
       "sigma_total_used": 13.715481,
       "game_url": "https://www.nfl.com/games/bills-at-jets-2026-reg-10",
       "source_url": "https://www.nfl.com/schedules/2026/by-week/week-10",
-      "market_status": "BLANK - no official source publishes a betting line (price-probe.json, LF-01)."
+      "market_source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+      "market_status": "LOCKED LINE VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET; opening/closing NOT published."
     },
     {
       "key": "2026-W10-JAX-TEN",
@@ -477,8 +498,9 @@
         "alt_fair_home_margin_S2": -8.024,
         "alt_model": "S2 (offence/defence ridge)",
         "alt_model_status": "PASS (all applicable gates)",
-        "market_spread": null,
-        "difference_fair_minus_market": null
+        "market_spread": 10.5,
+        "market_spread_text": "JAX -10.5",
+        "difference_fair_minus_market": 0.271
       },
       "total": {
         "fair_total": 43.9,
@@ -487,8 +509,8 @@
         "alt_fair_total_S5": 43.31,
         "alt_model": "S5 (naive PF/PA averages)",
         "alt_model_status": "FAIL G4, G5, G6 - UNVALIDATED",
-        "market_total": null,
-        "difference_fair_minus_market": null
+        "market_total": 46.5,
+        "difference_fair_minus_market": -2.6
       },
       "moneyline": {
         "fair_p_home": 0.2086,
@@ -498,15 +520,17 @@
         "recomputed_ml_away": -379,
         "model": "S6 (moneyline from S1 margin)",
         "model_status": "PASS (all applicable gates)",
-        "market_ml_home": null,
-        "market_ml_away": null,
-        "difference_fair_minus_market": null
+        "market_ml_home": 500,
+        "market_ml_away": -700,
+        "market_p_home_devig": 0.16,
+        "difference_fair_minus_market": 0.0486
       },
       "sigma_margin_used": 12.606841,
       "sigma_total_used": 13.715481,
       "game_url": "https://www.nfl.com/games/jaguars-at-titans-2026-reg-10",
       "source_url": "https://www.nfl.com/schedules/2026/by-week/week-10",
-      "market_status": "BLANK - no official source publishes a betting line (price-probe.json, LF-01)."
+      "market_source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+      "market_status": "LOCKED LINE VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET; opening/closing NOT published."
     },
     {
       "key": "2026-W10-LAR-AZ",
@@ -540,8 +564,9 @@
         "alt_fair_home_margin_S2": -4.282,
         "alt_model": "S2 (offence/defence ridge)",
         "alt_model_status": "PASS (all applicable gates)",
-        "market_spread": null,
-        "difference_fair_minus_market": null
+        "market_spread": 9.5,
+        "market_spread_text": "LAR -9.5",
+        "difference_fair_minus_market": 4.25
       },
       "total": {
         "fair_total": 45.9,
@@ -550,8 +575,8 @@
         "alt_fair_total_S5": 46.0,
         "alt_model": "S5 (naive PF/PA averages)",
         "alt_model_status": "FAIL G4, G5, G6 - UNVALIDATED",
-        "market_total": null,
-        "difference_fair_minus_market": null
+        "market_total": 39.5,
+        "difference_fair_minus_market": 6.4
       },
       "moneyline": {
         "fair_p_home": 0.3385,
@@ -561,15 +586,17 @@
         "recomputed_ml_away": -195,
         "model": "S6 (moneyline from S1 margin)",
         "model_status": "PASS (all applicable gates)",
-        "market_ml_home": null,
-        "market_ml_away": null,
-        "difference_fair_minus_market": null
+        "market_ml_home": 410,
+        "market_ml_away": -550,
+        "market_p_home_devig": 0.1881,
+        "difference_fair_minus_market": 0.1504
       },
       "sigma_margin_used": 12.606841,
       "sigma_total_used": 13.715481,
       "game_url": "https://www.nfl.com/games/rams-at-cardinals-2026-reg-10",
       "source_url": "https://www.nfl.com/schedules/2026/by-week/week-10",
-      "market_status": "BLANK - no official source publishes a betting line (price-probe.json, LF-01)."
+      "market_source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+      "market_status": "LOCKED LINE VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET; opening/closing NOT published."
     },
     {
       "key": "2026-W10-SEA-LV",
@@ -603,8 +630,9 @@
         "alt_fair_home_margin_S2": -2.85,
         "alt_model": "S2 (offence/defence ridge)",
         "alt_model_status": "PASS (all applicable gates)",
-        "market_spread": null,
-        "difference_fair_minus_market": null
+        "market_spread": 6.5,
+        "market_spread_text": "SEA -6.5",
+        "difference_fair_minus_market": 2.88
       },
       "total": {
         "fair_total": 47.89,
@@ -613,8 +641,8 @@
         "alt_fair_total_S5": 48.33,
         "alt_model": "S5 (naive PF/PA averages)",
         "alt_model_status": "FAIL G4, G5, G6 - UNVALIDATED",
-        "market_total": null,
-        "difference_fair_minus_market": null
+        "market_total": 40.5,
+        "difference_fair_minus_market": 7.39
       },
       "moneyline": {
         "fair_p_home": 0.387,
@@ -624,15 +652,17 @@
         "recomputed_ml_away": -158,
         "model": "S6 (moneyline from S1 margin)",
         "model_status": "PASS (all applicable gates)",
-        "market_ml_home": null,
-        "market_ml_away": null,
-        "difference_fair_minus_market": null
+        "market_ml_home": 235,
+        "market_ml_away": -290,
+        "market_p_home_devig": 0.2864,
+        "difference_fair_minus_market": 0.1006
       },
       "sigma_margin_used": 12.606841,
       "sigma_total_used": 13.715481,
       "game_url": "https://www.nfl.com/games/seahawks-at-raiders-2026-reg-10",
       "source_url": "https://www.nfl.com/schedules/2026/by-week/week-10",
-      "market_status": "BLANK - no official source publishes a betting line (price-probe.json, LF-01)."
+      "market_source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+      "market_status": "LOCKED LINE VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET; opening/closing NOT published."
     },
     {
       "key": "2026-W10-SF-DAL",
@@ -666,8 +696,9 @@
         "alt_fair_home_margin_S2": -3.21,
         "alt_model": "S2 (offence/defence ridge)",
         "alt_model_status": "PASS (all applicable gates)",
-        "market_spread": null,
-        "difference_fair_minus_market": null
+        "market_spread": 4.5,
+        "market_spread_text": "SF -4.5",
+        "difference_fair_minus_market": 0.312
       },
       "total": {
         "fair_total": 50.49,
@@ -676,8 +707,8 @@
         "alt_fair_total_S5": 51.22,
         "alt_model": "S5 (naive PF/PA averages)",
         "alt_model_status": "FAIL G4, G5, G6 - UNVALIDATED",
-        "market_total": null,
-        "difference_fair_minus_market": null
+        "market_total": 55.5,
+        "difference_fair_minus_market": -5.01
       },
       "moneyline": {
         "fair_p_home": 0.3699,
@@ -687,15 +718,17 @@
         "recomputed_ml_away": -170,
         "model": "S6 (moneyline from S1 margin)",
         "model_status": "PASS (all applicable gates)",
-        "market_ml_home": null,
-        "market_ml_away": null,
-        "difference_fair_minus_market": null
+        "market_ml_home": 176,
+        "market_ml_away": -210,
+        "market_p_home_devig": 0.3485,
+        "difference_fair_minus_market": 0.0214
       },
       "sigma_margin_used": 12.606841,
       "sigma_total_used": 13.715481,
       "game_url": "https://www.nfl.com/games/49ers-at-cowboys-2026-reg-10",
       "source_url": "https://www.nfl.com/schedules/2026/by-week/week-10",
-      "market_status": "BLANK - no official source publishes a betting line (price-probe.json, LF-01)."
+      "market_source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+      "market_status": "LOCKED LINE VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET; opening/closing NOT published."
     },
     {
       "key": "2026-W10-PIT-CIN",
@@ -729,8 +762,9 @@
         "alt_fair_home_margin_S2": 1.94,
         "alt_model": "S2 (offence/defence ridge)",
         "alt_model_status": "PASS (all applicable gates)",
-        "market_spread": null,
-        "difference_fair_minus_market": null
+        "market_spread": -3.5,
+        "market_spread_text": "CIN -3.5",
+        "difference_fair_minus_market": -1.166
       },
       "total": {
         "fair_total": 46.53,
@@ -739,8 +773,8 @@
         "alt_fair_total_S5": 46.19,
         "alt_model": "S5 (naive PF/PA averages)",
         "alt_model_status": "FAIL G4, G5, G6 - UNVALIDATED",
-        "market_total": null,
-        "difference_fair_minus_market": null
+        "market_total": 49.5,
+        "difference_fair_minus_market": -2.97
       },
       "moneyline": {
         "fair_p_home": 0.5734,
@@ -750,15 +784,17 @@
         "recomputed_ml_away": 134,
         "model": "S6 (moneyline from S1 margin)",
         "model_status": "PASS (all applicable gates)",
-        "market_ml_home": null,
-        "market_ml_away": null,
-        "difference_fair_minus_market": null
+        "market_ml_home": -184,
+        "market_ml_away": 154,
+        "market_p_home_devig": 0.622,
+        "difference_fair_minus_market": -0.0486
       },
       "sigma_margin_used": 12.606841,
       "sigma_total_used": 13.715481,
       "game_url": "https://www.nfl.com/games/steelers-at-bengals-2026-reg-10",
       "source_url": "https://www.nfl.com/schedules/2026/by-week/week-10",
-      "market_status": "BLANK - no official source publishes a betting line (price-probe.json, LF-01)."
+      "market_source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+      "market_status": "LOCKED LINE VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET; opening/closing NOT published."
     },
     {
       "key": "2026-W10-LAC-BAL",
@@ -792,8 +828,9 @@
         "alt_fair_home_margin_S2": 2.738,
         "alt_model": "S2 (offence/defence ridge)",
         "alt_model_status": "PASS (all applicable gates)",
-        "market_spread": null,
-        "difference_fair_minus_market": null
+        "market_spread": -4.5,
+        "market_spread_text": "BAL -4.5",
+        "difference_fair_minus_market": -1.234
       },
       "total": {
         "fair_total": 44.49,
@@ -802,8 +839,8 @@
         "alt_fair_total_S5": 44.86,
         "alt_model": "S5 (naive PF/PA averages)",
         "alt_model_status": "FAIL G4, G5, G6 - UNVALIDATED",
-        "market_total": null,
-        "difference_fair_minus_market": null
+        "market_total": 38.5,
+        "difference_fair_minus_market": 5.99
       },
       "moneyline": {
         "fair_p_home": 0.6022,
@@ -813,15 +850,17 @@
         "recomputed_ml_away": 151,
         "model": "S6 (moneyline from S1 margin)",
         "model_status": "PASS (all applicable gates)",
-        "market_ml_home": null,
-        "market_ml_away": null,
-        "difference_fair_minus_market": null
+        "market_ml_home": -220,
+        "market_ml_away": 188,
+        "market_p_home_devig": 0.6644,
+        "difference_fair_minus_market": -0.0622
       },
       "sigma_margin_used": 12.606841,
       "sigma_total_used": 13.715481,
       "game_url": "https://www.nfl.com/games/chargers-at-ravens-2026-reg-10",
       "source_url": "https://www.nfl.com/schedules/2026/by-week/week-10",
-      "market_status": "BLANK - no official source publishes a betting line (price-probe.json, LF-01)."
+      "market_source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+      "market_status": "LOCKED LINE VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET; opening/closing NOT published."
     }
   ]
 }

@@ -116,6 +116,28 @@ def check_data():
                     fail("price %s %s has a value without an accepted official source" % (m["market_key"], field))
     ok("price store: %d opening/closing values recorded (each must carry an official URL)" % verified)
 
+    # verified locked line (F-01 / X3 reconciliation): every market carries the locked FanDuel
+    # line from the nfl.com picks article; opening/closing intentionally remain null.
+    locked = [m for m in prices["markets"] if m.get("official_locked_value") is not None]
+    if len(locked) == 39:
+        ok("price store: 39 of 39 markets carry a verified locked line")
+    else:
+        fail("price store locked-line count %d != 39" % len(locked))
+    for m in prices["markets"]:
+        url = m.get("official_locked_source_url")
+        if m.get("official_locked_value") is not None:
+            if host_of(url or "") not in set(prices["accepted_source_hosts"]):
+                fail("price %s locked line has no accepted official source" % m["market_key"])
+            if not m.get("official_locked_at"):
+                fail("price %s locked line has no lock timestamp" % m["market_key"])
+        else:
+            if url is not None:
+                fail("price %s has a locked source with no value" % m["market_key"])
+        if m["market"] in ("side", "total"):
+            if m.get("official_locked_numeric") is None:
+                fail("price %s %s has no locked numeric" % (m["market_key"], m["market"]))
+    ok("price store: every locked line carries an accepted nfl.com source and a lock timestamp")
+
     lines = load("data/lines-columns.json")
     if len(lines["rows"]) == 13:
         ok("lines: 13 Week 10 games")
@@ -125,6 +147,24 @@ def check_data():
         for block, key in (("side", "market_spread"), ("total", "market_total")):
             if r[block]["difference_fair_minus_market"] is not None and r[block][key] is None:
                 fail("difference computed without a market value for %s" % r["key"])
+        # recompute each difference from the stored fair and market values (sign guard)
+        if r["side"]["market_spread"] is not None:
+            exp = round(r["side"]["fair_home_margin_S1"] + r["side"]["market_spread"], 3)
+            if abs(r["side"]["difference_fair_minus_market"] - exp) > 1e-6:
+                fail("side difference for %s is %s, recomputed %s" % (r["key"], r["side"]["difference_fair_minus_market"], exp))
+        if r["total"]["market_total"] is not None:
+            exp = round(r["total"]["fair_total"] - r["total"]["market_total"], 2)
+            if abs(r["total"]["difference_fair_minus_market"] - exp) > 1e-6:
+                fail("total difference for %s is %s, recomputed %s" % (r["key"], r["total"]["difference_fair_minus_market"], exp))
+        if r["moneyline"]["market_ml_home"] is not None:
+            ph = 100.0 / (100.0 + r["moneyline"]["market_ml_home"]) if r["moneyline"]["market_ml_home"] > 0 else -float(r["moneyline"]["market_ml_home"]) / (100.0 - r["moneyline"]["market_ml_home"])
+            pa = 100.0 / (100.0 + r["moneyline"]["market_ml_away"]) if r["moneyline"]["market_ml_away"] > 0 else -float(r["moneyline"]["market_ml_away"]) / (100.0 - r["moneyline"]["market_ml_away"])
+            dv = round(ph / (ph + pa), 4)
+            if abs(r["moneyline"]["market_p_home_devig"] - dv) > 1e-6:
+                fail("moneyline de-vig for %s is %s, recomputed %s" % (r["key"], r["moneyline"]["market_p_home_devig"], dv))
+            exp = round(r["moneyline"]["fair_p_home"] - dv, 4)
+            if abs(r["moneyline"]["difference_fair_minus_market"] - exp) > 1e-6:
+                fail("moneyline difference for %s is %s, recomputed %s" % (r["key"], r["moneyline"]["difference_fair_minus_market"], exp))
         if host_of(r["game_url"]) != "www.nfl.com" or host_of(r["source_url"]) != "www.nfl.com":
             fail("lines row %s lacks an nfl.com link" % r["key"])
     if not lines["recompute_mismatches"]:
