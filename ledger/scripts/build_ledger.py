@@ -34,6 +34,25 @@ VALIDATION = os.path.join(ROOT, "origination", "results", "validation-w10.json")
 LEADERBOARD = os.path.join(ROOT, "origination", "results", "leaderboard-w10.json")
 PROBE = os.path.join(LEDGER, "data", "price-probe.json")
 RULES = os.path.join(LEDGER, "data", "demotion-rules.json")
+# Verified official locked lines captured by session 949f49b0 (market/). Read-only input:
+# the nfl.com Week 10 picks article publishes one FanDuel line per market, locked Thursday
+# 2 p.m. ET. This is the source that corrects the ledger's earlier "no official price" claim
+# (finding F-01 / request X3 / suggestion SG-03). Opening and closing values are still not
+# published by any official page, so they remain null.
+MARKET_PRICES = os.path.join(ROOT, "market", "data", "raw", "official-prices-w10.json")
+PICKS_W10 = "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season"
+
+
+def load_market_prices(path):
+    """Return {(away, home): price-row} and the article-level lock statement + source URL."""
+    doc = load(path)
+    by_game = {(g["away"], g["home"]): g for g in doc["games"]}
+    return by_game, doc["source_url"], doc["lock_statement"]
+
+
+def american_to_p(odd):
+    """Implied (no-vig) probability from an American moneyline odd."""
+    return 100.0 / (100.0 + odd) if odd > 0 else -float(odd) / (100.0 - odd)
 
 GENERATED = "2026-11-14"
 SCORE_WEEKS = ["https://www.nfl.com/scores/2026/week-%d" % w for w in range(1, 10)]
@@ -119,7 +138,7 @@ def build_results_feed(log, w10):
 
 
 # ---------------------------------------------------------------- lines
-def build_lines(w10):
+def build_lines(w10, mkt):
     cols, flags, mismatches = [], [], []
     for g in w10["games"]:
         key = "2026-W10-%s-%s" % (g["away"], g["home"])
@@ -134,6 +153,32 @@ def build_lines(w10):
         if abs(ml_home - g["fair_ml_home"]) > 1 or abs(ml_away - g["fair_ml_away"]) > 1:
             mismatches.append({"game_key": key, "field": "fair_ml", "file": [g["fair_ml_home"], g["fair_ml_away"]],
                                "recomputed": [ml_home, ml_away]})
+        # ---- verified official market line (nfl.com picks article, FanDuel, locked Thu 2 p.m. ET)
+        mp = mkt.get((g["away"], g["home"]))
+        if mp is None:
+            mkt_side = mkt_total = None
+            mkt_ml_home = mkt_ml_away = None
+            diff_side = diff_total = diff_ml = None
+            market_status = "BLANK - no official locked line found for this game in the verified capture."
+        else:
+            spread_home = mp["spread_home"]
+            mkt_total = mp["total"]
+            mkt_ml_home, mkt_ml_away = mp["home_ml"], mp["away_ml"]
+            # market side in the SAME favourite/margin convention as the fair side:
+            # market_home_margin = -spread_home; favourite is the home team when that margin is positive.
+            mkt_home_margin = -spread_home
+            m_fav = g["home"] if mkt_home_margin > 0 else g["away"]
+            mkt_side = "%s -%.1f" % (m_fav, abs(mkt_home_margin)) if mkt_home_margin != 0 else "PICK"
+            # differences, one documented unit per market: fair minus market. Each is computed
+            # from the SAME rounded cells that are stored, so the checker can reproduce it.
+            diff_side = round(round(s1, 3) + round(spread_home, 3), 3)        # home-margin points
+            diff_total = round(round(g["fair_total_S4"], 2) - round(mkt_total, 2), 2)  # total points
+            mp_h = american_to_p(mkt_ml_home)
+            mp_a = american_to_p(mkt_ml_away)
+            mkt_p_home_dv = round(mp_h / (mp_h + mp_a), 4)           # de-vigged home probability (stored)
+            diff_ml = round(round(p, 4) - mkt_p_home_dv, 4)         # home-win probability
+            market_status = ("LOCKED LINE VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET; "
+                             "opening/closing NOT published.")
         cols.append({
             "key": key, "week": 10, "away": g["away"], "home": g["home"],
             "kickoff_as_rendered": g["day"] + ", " + g["time_as_rendered"],
@@ -146,21 +191,29 @@ def build_lines(w10):
                 "fair_favourite_text": g["fair_spread_favourite_text"],
                 "fair_home_margin_S1": round(s1, 3), "model": "S1 (ridge margin)", "model_status": "PASS (all applicable gates)",
                 "alt_fair_home_margin_S2": round(g["fair_home_margin_S2"], 3), "alt_model": "S2 (offence/defence ridge)", "alt_model_status": "PASS (all applicable gates)",
-                "market_spread": None, "difference_fair_minus_market": None},
+                "market_spread": (None if mkt_side is None else round(-mkt_home_margin, 3)),
+                "market_spread_text": mkt_side,
+                "difference_fair_minus_market": diff_side},
             "total": {
                 "fair_total": round(g["fair_total_S4"], 2), "model": "S4 (offence/defence ridge)",
                 "model_status": "FAIL G4, G5, G6 (validation-w10.json) - UNVALIDATED",
                 "alt_fair_total_S5": round(g["fair_total_S5"], 2), "alt_model": "S5 (naive PF/PA averages)",
                 "alt_model_status": "FAIL G4, G5, G6 - UNVALIDATED",
-                "market_total": None, "difference_fair_minus_market": None},
+                "market_total": mkt_total,
+                "difference_fair_minus_market": diff_total},
             "moneyline": {
                 "fair_p_home": round(p, 4), "fair_ml_home": g["fair_ml_home"], "fair_ml_away": g["fair_ml_away"],
                 "recomputed_ml_home": ml_home, "recomputed_ml_away": ml_away,
                 "model": "S6 (moneyline from S1 margin)", "model_status": "PASS (all applicable gates)",
-                "market_ml_home": None, "market_ml_away": None, "difference_fair_minus_market": None},
+                "market_ml_home": mkt_ml_home, "market_ml_away": mkt_ml_away,
+                "market_p_home_devig": (None if mkt_ml_home is None else
+                                        round(american_to_p(mkt_ml_home) /
+                                              (american_to_p(mkt_ml_home) + american_to_p(mkt_ml_away)), 4)),
+                "difference_fair_minus_market": diff_ml},
             "sigma_margin_used": round(g["sigma_margin"], 6), "sigma_total_used": round(g["sigma_total"], 6),
             "game_url": g["game_url"], "source_url": SCHEDULE_W10,
-            "market_status": "BLANK - no official source publishes a betting line (price-probe.json, LF-01)."})
+            "market_source_url": (None if mp is None else mp["source_url"]),
+            "market_status": market_status})
     flags.append({"id": "LF-02", "kind": "TOTAL MODEL FAILS VALIDATION",
                   "detail": "The Week 10 fair total comes from S4, which fails gates G4, G5 and G6 in origination/results/validation-w10.json (p_holm = 1.0). Every total is therefore UNVALIDATED; no total in this ledger is a validated fair line.",
                   "source_urls": [SCHEDULE_W10], "treatment": "Published with the failure beside it. Not used for any claim."})
@@ -169,8 +222,8 @@ def build_lines(w10):
                       cols[0]["sigma_margin_used"], cols[0]["sigma_total_used"]),
                   "source_urls": [SCHEDULE_W10], "treatment": "Recorded as a model assumption. Not changed."})
     return {"generated": GENERATED,
-            "description": "Fair (no-vig) Week 10 lines with three separate columns per market: FAIR (ours), MARKET (no official value found) and DIFFERENCE (fair minus market, only when a market value exists).",
-            "difference_rule": "difference = fair - market; computed only when BOTH values are present; otherwise blank.",
+            "description": "Fair (no-vig) Week 10 lines with three separate columns per market: FAIR (ours), MARKET (the verified locked FanDuel line from the nfl.com picks article) and DIFFERENCE (fair minus market).",
+            "difference_rule": "difference = fair - market, one documented unit per market: side in home-margin points (fair_home_margin_S1 - market_home_margin), total in points, moneyline in de-vigged home-win probability. Computed only when BOTH values are present; otherwise blank.",
             "recompute_mismatches": mismatches, "rows": cols}, flags
 
 
@@ -272,10 +325,12 @@ def build_leaderboard_split(reg):
 
 
 # ---------------------------------------------------------------- prices
-def build_prices(lines_doc, probe):
+def build_prices(lines_doc, probe, mkt, mkt_lock):
     markets, flags = [], []
+    n_locked = 0
     for r in lines_doc["rows"]:
         base = {"game_key": r["key"], "away": r["away"], "home": r["home"], "game_url": r["game_url"]}
+        mp = mkt.get((r["away"], r["home"]))
         for step in r["order"]:
             m = step["market"]
             if m == "side":
@@ -284,17 +339,46 @@ def build_prices(lines_doc, probe):
                 fair = r["total"]["fair_total"]
             else:
                 fair = "%+d / %+d" % (r["moneyline"]["fair_ml_home"], r["moneyline"]["fair_ml_away"])
+            if mp is None:
+                locked_value = None
+                locked_numeric = None
+                locked_source_url = None
+                locked_status = "BLANK - not in the verified official capture"
+                status = "BLANK - no official locked line found for this game in the verified capture."
+            else:
+                if m == "side":
+                    mh = -mp["spread_home"]
+                    fav = r["home"] if mh > 0 else r["away"]
+                    locked_value = ("%s -%.1f" % (fav, abs(mh))) if mh != 0 else "PICK"
+                    locked_numeric = round(mp["spread_home"], 3)
+                elif m == "total":
+                    locked_value = "%.1f" % mp["total"]
+                    locked_numeric = round(mp["total"], 2)
+                else:
+                    locked_value = "%+d / %+d" % (mp["home_ml"], mp["away_ml"])
+                    locked_numeric = None
+                locked_source_url = mp["source_url"]
+                locked_status = "VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET"
+                status = ("LOCKED LINE VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET; "
+                          "opening/closing NOT published, so those cells stay blank.")
+                n_locked += 1
             markets.append(dict(base, market_key="%s-%s" % (r["key"], m), market=m, order=step["step"],
                                 fair_at_origination=fair, opening_value=None, closing_value=None,
                                 opening_source_url=None, closing_source_url=None,
-                                status="BLANK - no official source publishes this market"))
-    flags.append({"id": "LF-01", "kind": "NO OFFICIAL PRICE SOURCE",
-                  "detail": "39 originated markets (13 games x side, total, moneyline) have no opening or closing value. The official game-centre page for NE at DET (the only game probed) contains no spread, total or moneyline text. The NFL's official sportsbook partners get league data through Genius Sports (secondary press report, not an official NFL price page).",
-                  "source_urls": [probe["url"], "https://www.espn.com/nfl/story/_/id/49740505/nfl-renews-draftkings-fanduel-deals-adds-fanatics"],
-                  "treatment": "All 78 opening/closing cells are blank. Nothing is inferred. Obtaining a price requires an operator decision (suggestion SG-L1 in ledger/index.html)."})
+                                official_locked_value=locked_value, official_locked_numeric=locked_numeric,
+                                official_locked_source_url=locked_source_url,
+                                official_locked_at=mkt_lock, official_book="FanDuel",
+                                official_locked_status=locked_status, status=status))
+    flags.append({"id": "LF-01", "kind": "ONLY A LOCKED LINE; NO OPENING OR CLOSING",
+                  "detail": "Each of the 39 originated markets now carries the single locked FanDuel line that nfl.com publishes in its weekly picks article (locked 2 p.m. ET Thursday). That corrects the ledger's earlier claim that no official source publishes a market line (finding F-01, request X3, suggestion SG-03). OPENING and CLOSING values are still not published by any official page, so all 78 opening/closing cells remain blank and are not inferred. The official game-centre page probed (NE at DET) does render no line, which is why the original probe missed the picks article; the picks article is the verified source.",
+                  "source_urls": [PICKS_W10, probe["url"]],
+                  "treatment": "Locked line recorded verbatim with its source URL and lock statement; opening/closing left blank. Obtaining a true opening/closing series requires capturing the article repeatedly across a week (suggestion SG-L1 in ledger/index.html)."})
     return {"generated": GENERATED,
-            "description": "Price-snapshot store. One row per originated market, in origination order. Opening and closing values are recorded ONLY with an official source URL; with none available, every value stays null.",
+            "description": "Price-snapshot store. One row per originated market, in origination order. Each market carries the verified locked FanDuel line from the nfl.com picks article (official_locked_*). Opening and closing values are recorded ONLY with an official source URL; no official page publishes them, so every opening/closing cell stays null.",
             "accepted_source_hosts": ["www.nfl.com", "nextgenstats.nfl.com"],
+            "locked_line_source": PICKS_W10,
+            "counts": {"markets": len(markets), "locked_lines_verified": n_locked,
+                       "opening_values": 0, "closing_values": 0},
             "snapshots": [],
             "markets": markets}, flags
 
@@ -351,6 +435,7 @@ def render_pages(feed, lines_doc, prices, reg, split, decisions, flags, probe):
         ("Official games in results feed", feed["counts"]["games"], "results-feed.html"),
         ("Arithmetic failures in feed", feed["counts"]["arithmetic_failures"], "results-feed.html"),
         ("Originated markets", len(prices["markets"]), "price-store.html"),
+        ("Locked lines verified", "%d of %d" % (prices["counts"]["locked_lines_verified"], len(prices["markets"])), "price-store.html"),
         ("Opening or closing values verified", "%d of %d" % (verified_prices, 2 * len(prices["markets"])), "price-store.html"),
         ("Strategies passing every applicable gate", "%d of %d" % (passed, len(reg["strategies"])), "leaderboard-split.html"),
         ("LIVE strategies", live, "demotion-gate.html"),
@@ -365,12 +450,12 @@ def render_pages(feed, lines_doc, prices, reg, split, decisions, flags, probe):
 <h2>What the ledger can and cannot do today</h2>
 <ul class='plain'>
 <li><b>Can:</b> record every official result (137 games), originate fair lines for the 13 unplayed Week 10 games, grade which strategies pass the pre-registered gates, and keep signal and staking apart.</li>
-<li><b>Cannot:</b> record any opening or closing price. No official NFL page we checked publishes a betting line (<a href='price-store.html'>price store</a>, flag LF-01). Therefore no ROI, no closing-line value and no stake can be computed.</li>
+<li><b>Cannot:</b> record any opening or closing price. nfl.com publishes one locked FanDuel line per market (the price store now records it, correcting the earlier "no official line" claim, F-01/X3), but no official page publishes an opening or a closing value. Therefore no ROI, no closing-line value and no stake can be computed (<a href='price-store.html'>price store</a>, flag LF-01).</li>
 <li><b>Fails today:</b> the fair total fails validation (LF-02). Its values are shown, labelled UNVALIDATED.</li>
 </ul>
 <h2>Pages</h2>
 <table class="nav"><thead><tr><th>Page</th><th>What it answers</th></tr></thead><tbody>
-<tr><td><a href='price-store.html'>Price store</a></td><td>Opening and closing numbers for every market we originate (side, total, moneyline in that order).</td></tr>
+<tr><td><a href='price-store.html'>Price store</a></td><td>The verified locked FanDuel line for every market we originate (side, total, moneyline in that order), plus the opening/closing columns that stay blank because no official page publishes them.</td></tr>
 <tr><td><a href='results-feed.html'>Results feed</a></td><td>The verified official final scores that backtests and ROI join to.</td></tr>
 <tr><td><a href='lines.html'>Fair / market / difference</a></td><td>Our fair line, the market line and the difference, as separate columns.</td></tr>
 <tr><td><a href='demotion-gate.html'>Demotion gate</a></td><td>The rule that sends a LIVE strategy back to PAPER, and its current result.</td></tr>
@@ -380,16 +465,19 @@ def render_pages(feed, lines_doc, prices, reg, split, decisions, flags, probe):
 <p class='note'>%s</p>""" % (cards, ALLOWED_LINK_NOTE)
     pages["index.html"] = page("Start", "index.html", idx)
 
-    rows = ["<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td class='blank'>blank</td><td class='blank'>blank</td><td class='blank'>blank</td><td class='blank'>blank</td><td>%s</td><td>%s</td></tr>" % (
+    rows = ["<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td class='blank'>blank</td><td class='blank'>blank</td><td class='blank'>blank</td><td class='blank'>blank</td><td>%s</td><td>%s</td></tr>" % (
         esc(m["game_key"]), esc(m["order"]), esc(m["market"]), esc(m["fair_at_origination"]),
+        ("<span class='blank'>blank</span>" if m["official_locked_value"] is None else esc(m["official_locked_value"])),
+        (link(m["official_locked_source_url"], "picks article") if m["official_locked_source_url"] else "<span class='blank'>blank</span>"),
         link(m["game_url"], "nfl.com game page"), esc(m["status"])) for m in prices["markets"]]
     body = """<h1>Price-snapshot store</h1>
-<p class='lede'>One row per market we originate, in order: side (1), total (2), moneyline (3). Opening and closing columns hold a value only when an official URL is recorded for it. None is.</p>
-<div class='callout'><b>Result: 0 of %d opening and 0 of %d closing values verified.</b> The official game-centre page probed (%s) renders no spread, total or moneyline. See <a href='flagged.html'>LF-01</a>.</div>
+<p class='lede'>One row per market we originate, in order: side (1), total (2), moneyline (3). Each market now carries the verified locked FanDuel line that nfl.com publishes in its weekly picks article. Opening and closing columns hold a value only when an official URL is recorded for it; no official page publishes them, so every opening/closing cell stays blank.</p>
+<div class='callout'><b>Result: %d of %d markets carry a verified locked line. 0 of %d opening and 0 of %d closing values are recorded.</b> The locked line is the single number nfl.com publishes, locked 2 p.m. ET Thursday; it is not an opening or a closing value. The official game-centre page probed (%s) renders no line, which is why the original probe missed the picks article. See <a href='flagged.html'>LF-01</a>.</div>
 %s
-<p class='note'>Columns: opening and closing value and their source URLs are blank for every row. Store file: <code>ledger/data/price-snapshots.json</code>. Validator: <code>ledger/scripts/check_ledger.py</code>.</p>""" % (
-        len(prices["markets"]), len(prices["markets"]), link(probe["url"]),
-        table(["Game", "Order", "Market", "Fair value at origination (ours)", "Opening value", "Opening source", "Closing value", "Closing source", "Game page", "Status"], rows))
+<p class='note'>Columns: the locked line and its source are the verified official price; opening and closing value and their source URLs are blank for every row, because no official page publishes them. Store file: <code>ledger/data/price-snapshots.json</code>. Validator: <code>ledger/scripts/check_ledger.py</code>.</p>""" % (
+        prices["counts"]["locked_lines_verified"], len(prices["markets"]), len(prices["markets"]), len(prices["markets"]),
+        link(probe["url"]),
+        table(["Game", "Order", "Market", "Fair value at origination (ours)", "Locked line (official)", "Locked source", "Opening value", "Opening source", "Closing value", "Closing source", "Game page", "Status"], rows))
     pages["price-store.html"] = page("Price store", "price-store.html", body)
 
     # results feed
@@ -410,21 +498,30 @@ def render_pages(feed, lines_doc, prices, reg, split, decisions, flags, probe):
     pages["results-feed.html"] = page("Results feed", "results-feed.html", body)
 
     # lines
+    def cell(v, fmt="%s"):
+        return "<span class='blank'>blank</span>" if v is None else esc(fmt % v)
     rows = []
     for r in lines_doc["rows"]:
-        rows.append("<tr><td>%s</td><td>%s @ %s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>" % (
+        sd = r["side"]["difference_fair_minus_market"]
+        td = r["total"]["difference_fair_minus_market"]
+        md = r["moneyline"]["difference_fair_minus_market"]
+        mkt_total = r["total"]["market_total"]
+        mkt_ml = (r["moneyline"]["market_ml_home"], r["moneyline"]["market_ml_away"])
+        rows.append("<tr><td>%s</td><td>%s @ %s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>" % (
             esc(r["key"]), esc(r["away"]), esc(r["home"]),
-            esc(r["side"]["fair_favourite_text"]), esc(r["side"]["fair_home_margin_S1"]), esc(r["side"]["model_status"]),
-            esc(r["total"]["fair_total"]), esc(r["total"]["model_status"]),
+            esc(r["side"]["fair_favourite_text"]), cell(r["side"].get("market_spread_text")), cell(sd, "%+.3f"),
+            esc(r["total"]["fair_total"]), cell(mkt_total, "%.1f"), cell(td, "%+.2f"),
+            esc(r["total"]["model_status"]),
             "%s / %s" % (esc(r["moneyline"]["fair_ml_home"]), esc(r["moneyline"]["fair_ml_away"])),
-            "<span class='blank'>blank</span>", "<span class='blank'>blank</span>", "<span class='blank'>blank</span>",
+            (("%s / %s" % (esc(mkt_ml[0]), esc(mkt_ml[1]))) if mkt_ml[0] is not None else "<span class='blank'>blank</span>"),
+            cell(md, "%+.4f"),
             link(r["game_url"], "game"), link(r["source_url"], "schedule")))
     body = """<h1>Fair, market and difference lines</h1>
-<p class='lede'>Week 10, 13 unplayed games. Three separate blocks per market: <b>fair</b> (ours), <b>market</b> (no official value found, so blank), <b>difference</b> = fair − market, computed only when a market value exists.</p>
-<div class='callout'><b>Order used:</b> side (1) → total (2) → moneyline (3). The moneyline is a transform of the side margin, so it is last.</div>
+<p class='lede'>Week 10, 13 unplayed games. Three separate blocks per market: <b>fair</b> (ours), <b>market</b> (the verified locked FanDuel line from the nfl.com picks article) and <b>difference</b> = fair − market. Each is its own column.</p>
+<div class='callout'><b>Order used:</b> side (1) → total (2) → moneyline (3). The moneyline is a transform of the side margin, so it is last. Every market value is the single locked line nfl.com publishes; no opening or closing line is published by any official page.</div>
 %s
-<p class='note'>Fair spread is written as favourite and points (home margin is positive when home is favoured). The total uses S4, which <b>fails validation</b> (LF-02). Moneylines are no-vig, rounded to whole American odds, recomputed from p_home and matched to the file. A spread shown as '-0.0' is below 0.05 points, effectively a pick'em.</p>""" % (
-        table(["Game", "Matchup (away @ home)", "Fair side (S1)", "Home margin (S1)", "Side status", "Fair total (S4)", "Total status", "Fair moneyline home / away (S6)", "Market side", "Market total", "Market moneyline", "Difference", "Game page", "Schedule"], rows))
+<p class='note'>Side difference is in home-margin points; total difference in points; moneyline difference in de-vigged home-win probability. Fair spread is written as favourite and points (home margin is positive when home is favoured). The total uses S4, which <b>fails validation</b> (LF-02). Moneylines are no-vig, rounded to whole American odds, recomputed from p_home and matched to the file. Market source: <a href='%s'>nfl.com Week 10 picks article</a>.</p>""" % (
+        table(["Game", "Matchup (away @ home)", "Fair side (S1)", "Market side", "Diff side", "Fair total (S4)", "Market total", "Diff total", "Total status", "Fair ML (home / away)", "Market ML (home / away)", "Diff ML", "Game page", "Schedule"], rows), PICKS_W10)
     pages["lines.html"] = page("Fair / market / difference", "lines.html", body)
 
     # demotion gate
@@ -529,10 +626,11 @@ def main():
     val = load(VALIDATION)
     probe = load(PROBE)
     rules = load(RULES)
+    mkt, mkt_url, mkt_lock = load_market_prices(MARKET_PRICES)
 
     feed, feed_flags = build_results_feed(log, w10)
-    lines_doc, line_flags = build_lines(w10)
-    prices, price_flags = build_prices(lines_doc, probe)
+    lines_doc, line_flags = build_lines(w10, mkt)
+    prices, price_flags = build_prices(lines_doc, probe, mkt, mkt_lock)
     reg, reg_flags = build_registry(val, rules)
     split = build_leaderboard_split(reg)
 

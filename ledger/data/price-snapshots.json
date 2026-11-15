@@ -1,10 +1,17 @@
 {
   "generated": "2026-11-14",
-  "description": "Price-snapshot store. One row per originated market, in origination order. Opening and closing values are recorded ONLY with an official source URL; with none available, every value stays null.",
+  "description": "Price-snapshot store. One row per originated market, in origination order. Each market carries the verified locked FanDuel line from the nfl.com picks article (official_locked_*). Opening and closing values are recorded ONLY with an official source URL; no official page publishes them, so every opening/closing cell stays null.",
   "accepted_source_hosts": [
     "www.nfl.com",
     "nextgenstats.nfl.com"
   ],
+  "locked_line_source": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+  "counts": {
+    "markets": 39,
+    "locked_lines_verified": 39,
+    "opening_values": 0,
+    "closing_values": 0
+  },
   "snapshots": [],
   "markets": [
     {
@@ -20,7 +27,13 @@
       "closing_value": null,
       "opening_source_url": null,
       "closing_source_url": null,
-      "status": "BLANK - no official source publishes this market"
+      "official_locked_value": "DET -2.5",
+      "official_locked_numeric": -2.5,
+      "official_locked_source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+      "official_locked_at": "2026-11-12T14:00 ET (Thursday of Week 10); article states: lines provided by FanDuel are locked as of 2 p.m. ET on Thursday, Nov. 12",
+      "official_book": "FanDuel",
+      "official_locked_status": "VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET",
+      "status": "LOCKED LINE VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET; opening/closing NOT published, so those cells stay blank."
     },
     {
       "game_key": "2026-W10-NE-DET",
@@ -35,7 +48,13 @@
       "closing_value": null,
       "opening_source_url": null,
       "closing_source_url": null,
-      "status": "BLANK - no official source publishes this market"
+      "official_locked_value": "50.5",
+      "official_locked_numeric": 50.5,
+      "official_locked_source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+      "official_locked_at": "2026-11-12T14:00 ET (Thursday of Week 10); article states: lines provided by FanDuel are locked as of 2 p.m. ET on Thursday, Nov. 12",
+      "official_book": "FanDuel",
+      "official_locked_status": "VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET",
+      "status": "LOCKED LINE VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET; opening/closing NOT published, so those cells stay blank."
     },
     {
       "game_key": "2026-W10-NE-DET",
@@ -50,7 +69,13 @@
       "closing_value": null,
       "opening_source_url": null,
       "closing_source_url": null,
-      "status": "BLANK - no official source publishes this market"
+      "official_locked_value": "-152 / +128",
+      "official_locked_numeric": null,
+      "official_locked_source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+      "official_locked_at": "2026-11-12T14:00 ET (Thursday of Week 10); article states: lines provided by FanDuel are locked as of 2 p.m. ET on Thursday, Nov. 12",
+      "official_book": "FanDuel",
+      "official_locked_status": "VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET",
+      "status": "LOCKED LINE VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET; opening/closing NOT published, so those cells stay blank."
     },
     {
       "game_key": "2026-W10-KC-ATL",
@@ -65,7 +90,13 @@
       "closing_value": null,
       "opening_source_url": null,
       "closing_source_url": null,
-      "status": "BLANK - no official source publishes this market"
+      "official_locked_value": "KC -3.5",
+      "official_locked_numeric": 3.5,
+      "official_locked_source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+      "official_locked_at": "2026-11-12T14:00 ET (Thursday of Week 10); article states: lines provided by FanDuel are locked as of 2 p.m. ET on Thursday, Nov. 12",
+      "official_book": "FanDuel",
+      "official_locked_status": "VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET",
+      "status": "LOCKED LINE VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET; opening/closing NOT published, so those cells stay blank."
     },
     {
       "game_key": "2026-W10-KC-ATL",
@@ -80,7 +111,13 @@
       "closing_value": null,
       "opening_source_url": null,
       "closing_source_url": null,
-      "status": "BLANK - no official source publishes this market"
+      "official_locked_value": "47.5",
+      "official_locked_numeric": 47.5,
+      "official_locked_source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+      "official_locked_at": "2026-11-12T14:00 ET (Thursday of Week 10); article states: lines provided by FanDuel are locked as of 2 p.m. ET on Thursday, Nov. 12",
+      "official_book": "FanDuel",
+      "official_locked_status": "VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET",
+      "status": "LOCKED LINE VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET; opening/closing NOT published, so those cells stay blank."
     },
     {
       "game_key": "2026-W10-KC-ATL",
@@ -95,7 +132,13 @@
       "closing_value": null,
       "opening_source_url": null,
       "closing_source_url": null,
-      "status": "BLANK - no official source publishes this market"
+      "official_locked_value": "+144 / -172",
+      "official_locked_numeric": null,
+      "official_locked_source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+      "official_locked_at": "2026-11-12T14:00 ET (Thursday of Week 10); article states: lines provided by FanDuel are locked as of 2 p.m. ET on Thursday, Nov. 12",
+      "official_book": "FanDuel",
+      "official_locked_status": "VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET",
+      "status": "LOCKED LINE VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET; opening/closing NOT published, so those cells stay blank."
     },
     {
       "game_key": "2026-W10-HOU-CLE",
@@ -110,7 +153,13 @@
       "closing_value": null,
       "opening_source_url": null,
       "closing_source_url": null,
-      "status": "BLANK - no official source publishes this market"
+      "official_locked_value": "HOU -4.5",
+      "official_locked_numeric": 4.5,
+      "official_locked_source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+      "official_locked_at": "2026-11-12T14:00 ET (Thursday of Week 10); article states: lines provided by FanDuel are locked as of 2 p.m. ET on Thursday, Nov. 12",
+      "official_book": "FanDuel",
+      "official_locked_status": "VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET",
+      "status": "LOCKED LINE VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET; opening/closing NOT published, so those cells stay blank."
     },
     {
       "game_key": "2026-W10-HOU-CLE",
@@ -125,7 +174,13 @@
       "closing_value": null,
       "opening_source_url": null,
       "closing_source_url": null,
-      "status": "BLANK - no official source publishes this market"
+      "official_locked_value": "40.5",
+      "official_locked_numeric": 40.5,
+      "official_locked_source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+      "official_locked_at": "2026-11-12T14:00 ET (Thursday of Week 10); article states: lines provided by FanDuel are locked as of 2 p.m. ET on Thursday, Nov. 12",
+      "official_book": "FanDuel",
+      "official_locked_status": "VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET",
+      "status": "LOCKED LINE VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET; opening/closing NOT published, so those cells stay blank."
     },
     {
       "game_key": "2026-W10-HOU-CLE",
@@ -140,7 +195,13 @@
       "closing_value": null,
       "opening_source_url": null,
       "closing_source_url": null,
-      "status": "BLANK - no official source publishes this market"
+      "official_locked_value": "+198 / -240",
+      "official_locked_numeric": null,
+      "official_locked_source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+      "official_locked_at": "2026-11-12T14:00 ET (Thursday of Week 10); article states: lines provided by FanDuel are locked as of 2 p.m. ET on Thursday, Nov. 12",
+      "official_book": "FanDuel",
+      "official_locked_status": "VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET",
+      "status": "LOCKED LINE VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET; opening/closing NOT published, so those cells stay blank."
     },
     {
       "game_key": "2026-W10-MIN-GB",
@@ -155,7 +216,13 @@
       "closing_value": null,
       "opening_source_url": null,
       "closing_source_url": null,
-      "status": "BLANK - no official source publishes this market"
+      "official_locked_value": "GB -3.0",
+      "official_locked_numeric": -3.0,
+      "official_locked_source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+      "official_locked_at": "2026-11-12T14:00 ET (Thursday of Week 10); article states: lines provided by FanDuel are locked as of 2 p.m. ET on Thursday, Nov. 12",
+      "official_book": "FanDuel",
+      "official_locked_status": "VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET",
+      "status": "LOCKED LINE VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET; opening/closing NOT published, so those cells stay blank."
     },
     {
       "game_key": "2026-W10-MIN-GB",
@@ -170,7 +237,13 @@
       "closing_value": null,
       "opening_source_url": null,
       "closing_source_url": null,
-      "status": "BLANK - no official source publishes this market"
+      "official_locked_value": "42.5",
+      "official_locked_numeric": 42.5,
+      "official_locked_source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+      "official_locked_at": "2026-11-12T14:00 ET (Thursday of Week 10); article states: lines provided by FanDuel are locked as of 2 p.m. ET on Thursday, Nov. 12",
+      "official_book": "FanDuel",
+      "official_locked_status": "VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET",
+      "status": "LOCKED LINE VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET; opening/closing NOT published, so those cells stay blank."
     },
     {
       "game_key": "2026-W10-MIN-GB",
@@ -185,7 +258,13 @@
       "closing_value": null,
       "opening_source_url": null,
       "closing_source_url": null,
-      "status": "BLANK - no official source publishes this market"
+      "official_locked_value": "-164 / +138",
+      "official_locked_numeric": null,
+      "official_locked_source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+      "official_locked_at": "2026-11-12T14:00 ET (Thursday of Week 10); article states: lines provided by FanDuel are locked as of 2 p.m. ET on Thursday, Nov. 12",
+      "official_book": "FanDuel",
+      "official_locked_status": "VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET",
+      "status": "LOCKED LINE VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET; opening/closing NOT published, so those cells stay blank."
     },
     {
       "game_key": "2026-W10-MIA-IND",
@@ -200,7 +279,13 @@
       "closing_value": null,
       "opening_source_url": null,
       "closing_source_url": null,
-      "status": "BLANK - no official source publishes this market"
+      "official_locked_value": "IND -3.5",
+      "official_locked_numeric": -3.5,
+      "official_locked_source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+      "official_locked_at": "2026-11-12T14:00 ET (Thursday of Week 10); article states: lines provided by FanDuel are locked as of 2 p.m. ET on Thursday, Nov. 12",
+      "official_book": "FanDuel",
+      "official_locked_status": "VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET",
+      "status": "LOCKED LINE VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET; opening/closing NOT published, so those cells stay blank."
     },
     {
       "game_key": "2026-W10-MIA-IND",
@@ -215,7 +300,13 @@
       "closing_value": null,
       "opening_source_url": null,
       "closing_source_url": null,
-      "status": "BLANK - no official source publishes this market"
+      "official_locked_value": "38.5",
+      "official_locked_numeric": 38.5,
+      "official_locked_source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+      "official_locked_at": "2026-11-12T14:00 ET (Thursday of Week 10); article states: lines provided by FanDuel are locked as of 2 p.m. ET on Thursday, Nov. 12",
+      "official_book": "FanDuel",
+      "official_locked_status": "VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET",
+      "status": "LOCKED LINE VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET; opening/closing NOT published, so those cells stay blank."
     },
     {
       "game_key": "2026-W10-MIA-IND",
@@ -230,7 +321,13 @@
       "closing_value": null,
       "opening_source_url": null,
       "closing_source_url": null,
-      "status": "BLANK - no official source publishes this market"
+      "official_locked_value": "-215 / +180",
+      "official_locked_numeric": null,
+      "official_locked_source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+      "official_locked_at": "2026-11-12T14:00 ET (Thursday of Week 10); article states: lines provided by FanDuel are locked as of 2 p.m. ET on Thursday, Nov. 12",
+      "official_book": "FanDuel",
+      "official_locked_status": "VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET",
+      "status": "LOCKED LINE VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET; opening/closing NOT published, so those cells stay blank."
     },
     {
       "game_key": "2026-W10-CAR-NO",
@@ -245,7 +342,13 @@
       "closing_value": null,
       "opening_source_url": null,
       "closing_source_url": null,
-      "status": "BLANK - no official source publishes this market"
+      "official_locked_value": "NO -2.5",
+      "official_locked_numeric": -2.5,
+      "official_locked_source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+      "official_locked_at": "2026-11-12T14:00 ET (Thursday of Week 10); article states: lines provided by FanDuel are locked as of 2 p.m. ET on Thursday, Nov. 12",
+      "official_book": "FanDuel",
+      "official_locked_status": "VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET",
+      "status": "LOCKED LINE VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET; opening/closing NOT published, so those cells stay blank."
     },
     {
       "game_key": "2026-W10-CAR-NO",
@@ -260,7 +363,13 @@
       "closing_value": null,
       "opening_source_url": null,
       "closing_source_url": null,
-      "status": "BLANK - no official source publishes this market"
+      "official_locked_value": "48.5",
+      "official_locked_numeric": 48.5,
+      "official_locked_source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+      "official_locked_at": "2026-11-12T14:00 ET (Thursday of Week 10); article states: lines provided by FanDuel are locked as of 2 p.m. ET on Thursday, Nov. 12",
+      "official_book": "FanDuel",
+      "official_locked_status": "VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET",
+      "status": "LOCKED LINE VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET; opening/closing NOT published, so those cells stay blank."
     },
     {
       "game_key": "2026-W10-CAR-NO",
@@ -275,7 +384,13 @@
       "closing_value": null,
       "opening_source_url": null,
       "closing_source_url": null,
-      "status": "BLANK - no official source publishes this market"
+      "official_locked_value": "-132 / +112",
+      "official_locked_numeric": null,
+      "official_locked_source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+      "official_locked_at": "2026-11-12T14:00 ET (Thursday of Week 10); article states: lines provided by FanDuel are locked as of 2 p.m. ET on Thursday, Nov. 12",
+      "official_book": "FanDuel",
+      "official_locked_status": "VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET",
+      "status": "LOCKED LINE VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET; opening/closing NOT published, so those cells stay blank."
     },
     {
       "game_key": "2026-W10-BUF-NYJ",
@@ -290,7 +405,13 @@
       "closing_value": null,
       "opening_source_url": null,
       "closing_source_url": null,
-      "status": "BLANK - no official source publishes this market"
+      "official_locked_value": "BUF -7.5",
+      "official_locked_numeric": 7.5,
+      "official_locked_source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+      "official_locked_at": "2026-11-12T14:00 ET (Thursday of Week 10); article states: lines provided by FanDuel are locked as of 2 p.m. ET on Thursday, Nov. 12",
+      "official_book": "FanDuel",
+      "official_locked_status": "VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET",
+      "status": "LOCKED LINE VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET; opening/closing NOT published, so those cells stay blank."
     },
     {
       "game_key": "2026-W10-BUF-NYJ",
@@ -305,7 +426,13 @@
       "closing_value": null,
       "opening_source_url": null,
       "closing_source_url": null,
-      "status": "BLANK - no official source publishes this market"
+      "official_locked_value": "50.5",
+      "official_locked_numeric": 50.5,
+      "official_locked_source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+      "official_locked_at": "2026-11-12T14:00 ET (Thursday of Week 10); article states: lines provided by FanDuel are locked as of 2 p.m. ET on Thursday, Nov. 12",
+      "official_book": "FanDuel",
+      "official_locked_status": "VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET",
+      "status": "LOCKED LINE VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET; opening/closing NOT published, so those cells stay blank."
     },
     {
       "game_key": "2026-W10-BUF-NYJ",
@@ -320,7 +447,13 @@
       "closing_value": null,
       "opening_source_url": null,
       "closing_source_url": null,
-      "status": "BLANK - no official source publishes this market"
+      "official_locked_value": "+370 / -480",
+      "official_locked_numeric": null,
+      "official_locked_source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+      "official_locked_at": "2026-11-12T14:00 ET (Thursday of Week 10); article states: lines provided by FanDuel are locked as of 2 p.m. ET on Thursday, Nov. 12",
+      "official_book": "FanDuel",
+      "official_locked_status": "VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET",
+      "status": "LOCKED LINE VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET; opening/closing NOT published, so those cells stay blank."
     },
     {
       "game_key": "2026-W10-JAX-TEN",
@@ -335,7 +468,13 @@
       "closing_value": null,
       "opening_source_url": null,
       "closing_source_url": null,
-      "status": "BLANK - no official source publishes this market"
+      "official_locked_value": "JAX -10.5",
+      "official_locked_numeric": 10.5,
+      "official_locked_source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+      "official_locked_at": "2026-11-12T14:00 ET (Thursday of Week 10); article states: lines provided by FanDuel are locked as of 2 p.m. ET on Thursday, Nov. 12",
+      "official_book": "FanDuel",
+      "official_locked_status": "VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET",
+      "status": "LOCKED LINE VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET; opening/closing NOT published, so those cells stay blank."
     },
     {
       "game_key": "2026-W10-JAX-TEN",
@@ -350,7 +489,13 @@
       "closing_value": null,
       "opening_source_url": null,
       "closing_source_url": null,
-      "status": "BLANK - no official source publishes this market"
+      "official_locked_value": "46.5",
+      "official_locked_numeric": 46.5,
+      "official_locked_source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+      "official_locked_at": "2026-11-12T14:00 ET (Thursday of Week 10); article states: lines provided by FanDuel are locked as of 2 p.m. ET on Thursday, Nov. 12",
+      "official_book": "FanDuel",
+      "official_locked_status": "VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET",
+      "status": "LOCKED LINE VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET; opening/closing NOT published, so those cells stay blank."
     },
     {
       "game_key": "2026-W10-JAX-TEN",
@@ -365,7 +510,13 @@
       "closing_value": null,
       "opening_source_url": null,
       "closing_source_url": null,
-      "status": "BLANK - no official source publishes this market"
+      "official_locked_value": "+500 / -700",
+      "official_locked_numeric": null,
+      "official_locked_source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+      "official_locked_at": "2026-11-12T14:00 ET (Thursday of Week 10); article states: lines provided by FanDuel are locked as of 2 p.m. ET on Thursday, Nov. 12",
+      "official_book": "FanDuel",
+      "official_locked_status": "VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET",
+      "status": "LOCKED LINE VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET; opening/closing NOT published, so those cells stay blank."
     },
     {
       "game_key": "2026-W10-LAR-AZ",
@@ -380,7 +531,13 @@
       "closing_value": null,
       "opening_source_url": null,
       "closing_source_url": null,
-      "status": "BLANK - no official source publishes this market"
+      "official_locked_value": "LAR -9.5",
+      "official_locked_numeric": 9.5,
+      "official_locked_source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+      "official_locked_at": "2026-11-12T14:00 ET (Thursday of Week 10); article states: lines provided by FanDuel are locked as of 2 p.m. ET on Thursday, Nov. 12",
+      "official_book": "FanDuel",
+      "official_locked_status": "VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET",
+      "status": "LOCKED LINE VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET; opening/closing NOT published, so those cells stay blank."
     },
     {
       "game_key": "2026-W10-LAR-AZ",
@@ -395,7 +552,13 @@
       "closing_value": null,
       "opening_source_url": null,
       "closing_source_url": null,
-      "status": "BLANK - no official source publishes this market"
+      "official_locked_value": "39.5",
+      "official_locked_numeric": 39.5,
+      "official_locked_source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+      "official_locked_at": "2026-11-12T14:00 ET (Thursday of Week 10); article states: lines provided by FanDuel are locked as of 2 p.m. ET on Thursday, Nov. 12",
+      "official_book": "FanDuel",
+      "official_locked_status": "VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET",
+      "status": "LOCKED LINE VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET; opening/closing NOT published, so those cells stay blank."
     },
     {
       "game_key": "2026-W10-LAR-AZ",
@@ -410,7 +573,13 @@
       "closing_value": null,
       "opening_source_url": null,
       "closing_source_url": null,
-      "status": "BLANK - no official source publishes this market"
+      "official_locked_value": "+410 / -550",
+      "official_locked_numeric": null,
+      "official_locked_source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+      "official_locked_at": "2026-11-12T14:00 ET (Thursday of Week 10); article states: lines provided by FanDuel are locked as of 2 p.m. ET on Thursday, Nov. 12",
+      "official_book": "FanDuel",
+      "official_locked_status": "VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET",
+      "status": "LOCKED LINE VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET; opening/closing NOT published, so those cells stay blank."
     },
     {
       "game_key": "2026-W10-SEA-LV",
@@ -425,7 +594,13 @@
       "closing_value": null,
       "opening_source_url": null,
       "closing_source_url": null,
-      "status": "BLANK - no official source publishes this market"
+      "official_locked_value": "SEA -6.5",
+      "official_locked_numeric": 6.5,
+      "official_locked_source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+      "official_locked_at": "2026-11-12T14:00 ET (Thursday of Week 10); article states: lines provided by FanDuel are locked as of 2 p.m. ET on Thursday, Nov. 12",
+      "official_book": "FanDuel",
+      "official_locked_status": "VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET",
+      "status": "LOCKED LINE VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET; opening/closing NOT published, so those cells stay blank."
     },
     {
       "game_key": "2026-W10-SEA-LV",
@@ -440,7 +615,13 @@
       "closing_value": null,
       "opening_source_url": null,
       "closing_source_url": null,
-      "status": "BLANK - no official source publishes this market"
+      "official_locked_value": "40.5",
+      "official_locked_numeric": 40.5,
+      "official_locked_source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+      "official_locked_at": "2026-11-12T14:00 ET (Thursday of Week 10); article states: lines provided by FanDuel are locked as of 2 p.m. ET on Thursday, Nov. 12",
+      "official_book": "FanDuel",
+      "official_locked_status": "VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET",
+      "status": "LOCKED LINE VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET; opening/closing NOT published, so those cells stay blank."
     },
     {
       "game_key": "2026-W10-SEA-LV",
@@ -455,7 +636,13 @@
       "closing_value": null,
       "opening_source_url": null,
       "closing_source_url": null,
-      "status": "BLANK - no official source publishes this market"
+      "official_locked_value": "+235 / -290",
+      "official_locked_numeric": null,
+      "official_locked_source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+      "official_locked_at": "2026-11-12T14:00 ET (Thursday of Week 10); article states: lines provided by FanDuel are locked as of 2 p.m. ET on Thursday, Nov. 12",
+      "official_book": "FanDuel",
+      "official_locked_status": "VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET",
+      "status": "LOCKED LINE VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET; opening/closing NOT published, so those cells stay blank."
     },
     {
       "game_key": "2026-W10-SF-DAL",
@@ -470,7 +657,13 @@
       "closing_value": null,
       "opening_source_url": null,
       "closing_source_url": null,
-      "status": "BLANK - no official source publishes this market"
+      "official_locked_value": "SF -4.5",
+      "official_locked_numeric": 4.5,
+      "official_locked_source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+      "official_locked_at": "2026-11-12T14:00 ET (Thursday of Week 10); article states: lines provided by FanDuel are locked as of 2 p.m. ET on Thursday, Nov. 12",
+      "official_book": "FanDuel",
+      "official_locked_status": "VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET",
+      "status": "LOCKED LINE VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET; opening/closing NOT published, so those cells stay blank."
     },
     {
       "game_key": "2026-W10-SF-DAL",
@@ -485,7 +678,13 @@
       "closing_value": null,
       "opening_source_url": null,
       "closing_source_url": null,
-      "status": "BLANK - no official source publishes this market"
+      "official_locked_value": "55.5",
+      "official_locked_numeric": 55.5,
+      "official_locked_source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+      "official_locked_at": "2026-11-12T14:00 ET (Thursday of Week 10); article states: lines provided by FanDuel are locked as of 2 p.m. ET on Thursday, Nov. 12",
+      "official_book": "FanDuel",
+      "official_locked_status": "VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET",
+      "status": "LOCKED LINE VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET; opening/closing NOT published, so those cells stay blank."
     },
     {
       "game_key": "2026-W10-SF-DAL",
@@ -500,7 +699,13 @@
       "closing_value": null,
       "opening_source_url": null,
       "closing_source_url": null,
-      "status": "BLANK - no official source publishes this market"
+      "official_locked_value": "+176 / -210",
+      "official_locked_numeric": null,
+      "official_locked_source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+      "official_locked_at": "2026-11-12T14:00 ET (Thursday of Week 10); article states: lines provided by FanDuel are locked as of 2 p.m. ET on Thursday, Nov. 12",
+      "official_book": "FanDuel",
+      "official_locked_status": "VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET",
+      "status": "LOCKED LINE VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET; opening/closing NOT published, so those cells stay blank."
     },
     {
       "game_key": "2026-W10-PIT-CIN",
@@ -515,7 +720,13 @@
       "closing_value": null,
       "opening_source_url": null,
       "closing_source_url": null,
-      "status": "BLANK - no official source publishes this market"
+      "official_locked_value": "CIN -3.5",
+      "official_locked_numeric": -3.5,
+      "official_locked_source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+      "official_locked_at": "2026-11-12T14:00 ET (Thursday of Week 10); article states: lines provided by FanDuel are locked as of 2 p.m. ET on Thursday, Nov. 12",
+      "official_book": "FanDuel",
+      "official_locked_status": "VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET",
+      "status": "LOCKED LINE VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET; opening/closing NOT published, so those cells stay blank."
     },
     {
       "game_key": "2026-W10-PIT-CIN",
@@ -530,7 +741,13 @@
       "closing_value": null,
       "opening_source_url": null,
       "closing_source_url": null,
-      "status": "BLANK - no official source publishes this market"
+      "official_locked_value": "49.5",
+      "official_locked_numeric": 49.5,
+      "official_locked_source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+      "official_locked_at": "2026-11-12T14:00 ET (Thursday of Week 10); article states: lines provided by FanDuel are locked as of 2 p.m. ET on Thursday, Nov. 12",
+      "official_book": "FanDuel",
+      "official_locked_status": "VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET",
+      "status": "LOCKED LINE VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET; opening/closing NOT published, so those cells stay blank."
     },
     {
       "game_key": "2026-W10-PIT-CIN",
@@ -545,7 +762,13 @@
       "closing_value": null,
       "opening_source_url": null,
       "closing_source_url": null,
-      "status": "BLANK - no official source publishes this market"
+      "official_locked_value": "-184 / +154",
+      "official_locked_numeric": null,
+      "official_locked_source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+      "official_locked_at": "2026-11-12T14:00 ET (Thursday of Week 10); article states: lines provided by FanDuel are locked as of 2 p.m. ET on Thursday, Nov. 12",
+      "official_book": "FanDuel",
+      "official_locked_status": "VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET",
+      "status": "LOCKED LINE VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET; opening/closing NOT published, so those cells stay blank."
     },
     {
       "game_key": "2026-W10-LAC-BAL",
@@ -560,7 +783,13 @@
       "closing_value": null,
       "opening_source_url": null,
       "closing_source_url": null,
-      "status": "BLANK - no official source publishes this market"
+      "official_locked_value": "BAL -4.5",
+      "official_locked_numeric": -4.5,
+      "official_locked_source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+      "official_locked_at": "2026-11-12T14:00 ET (Thursday of Week 10); article states: lines provided by FanDuel are locked as of 2 p.m. ET on Thursday, Nov. 12",
+      "official_book": "FanDuel",
+      "official_locked_status": "VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET",
+      "status": "LOCKED LINE VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET; opening/closing NOT published, so those cells stay blank."
     },
     {
       "game_key": "2026-W10-LAC-BAL",
@@ -575,7 +804,13 @@
       "closing_value": null,
       "opening_source_url": null,
       "closing_source_url": null,
-      "status": "BLANK - no official source publishes this market"
+      "official_locked_value": "38.5",
+      "official_locked_numeric": 38.5,
+      "official_locked_source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+      "official_locked_at": "2026-11-12T14:00 ET (Thursday of Week 10); article states: lines provided by FanDuel are locked as of 2 p.m. ET on Thursday, Nov. 12",
+      "official_book": "FanDuel",
+      "official_locked_status": "VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET",
+      "status": "LOCKED LINE VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET; opening/closing NOT published, so those cells stay blank."
     },
     {
       "game_key": "2026-W10-LAC-BAL",
@@ -590,7 +825,13 @@
       "closing_value": null,
       "opening_source_url": null,
       "closing_source_url": null,
-      "status": "BLANK - no official source publishes this market"
+      "official_locked_value": "-220 / +188",
+      "official_locked_numeric": null,
+      "official_locked_source_url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+      "official_locked_at": "2026-11-12T14:00 ET (Thursday of Week 10); article states: lines provided by FanDuel are locked as of 2 p.m. ET on Thursday, Nov. 12",
+      "official_book": "FanDuel",
+      "official_locked_status": "VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET",
+      "status": "LOCKED LINE VERIFIED - nfl.com picks article (FanDuel), locked Thu 2 p.m. ET; opening/closing NOT published, so those cells stay blank."
     }
   ]
 }
