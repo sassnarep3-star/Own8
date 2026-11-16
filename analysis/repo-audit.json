@@ -52,22 +52,8 @@
     },
     {
       "path": "COORDINATION.md",
-      "lines": 1231,
-      "sha256": "698136231d3f89872ee6fb4426fbc5775b0e4cd84bcce6cab877f016ba5a11d1",
-      "review": "Executable/source or generated output \u2014 static checks; not official factual evidence",
-      "source_url": "https://www.nfl.com/standings/"
-    },
-    {
-      "path": "COORDINATION.md",
-      "lines": 1231,
-      "sha256": "698136231d3f89872ee6fb4426fbc5775b0e4cd84bcce6cab877f016ba5a11d1",
-      "review": "Executable/source or generated output \u2014 static checks; not official factual evidence",
-      "source_url": "https://www.nfl.com/standings/"
-    },
-    {
-      "path": "COORDINATION.md",
-      "lines": 1231,
-      "sha256": "698136231d3f89872ee6fb4426fbc5775b0e4cd84bcce6cab877f016ba5a11d1",
+      "lines": 1241,
+      "sha256": "79a2e8ae1075955a8ba0aa2a2277b3854ba3486e38c1e244b8fe874631606344",
       "review": "Executable/source or generated output \u2014 static checks; not official factual evidence",
       "source_url": "https://www.nfl.com/standings/"
     },
