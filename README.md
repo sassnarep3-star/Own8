@@ -2,7 +2,12 @@
 
 **Evidence before edge.** An official-source audit dashboard, transparent line-origination benchmark, and fail-closed strategy competition registry for singles, parlays and player-prop combinations.
 
-**Live:** https://sassnarep3-star.github.io/Own8/  
+**Live (new category site, start here):** https://sassnarep3-star.github.io/Own8/site/index.html  
+**Executive summary:** https://sassnarep3-star.github.io/Own8/site/executive-summary.html  
+**Flagged for review:** https://sassnarep3-star.github.io/Own8/site/flagged.html  
+**Suggestions for your decision:** https://sassnarep3-star.github.io/Own8/site/suggestions.html  
+**Root URL:** redirects to the category site.  
+**Previous root dashboard (legacy):** https://sassnarep3-star.github.io/Own8/  
 **Requirements & decision review:** https://sassnarep3-star.github.io/Own8/requirements/index.html  
 **Decision ledger (price store, results feed, fair/market/difference, demotion gate, signal-vs-staking):** https://sassnarep3-star.github.io/Own8/ledger/index.html  
 **Decision review & readiness:** https://sassnarep3-star.github.io/Own8/decision-review/index.html  

@@ -1,0 +1,117 @@
+{
+ "as_of": "2026-11-17",
+ "rows": [
+  {
+   "id": "SRC-01",
+   "label": "NFL standings, 2026 regular season (league view)",
+   "url": "https://www.nfl.com/standings/league/2026/REG",
+   "read": "2026-11-17",
+   "used_for": "32-team reconciliation (R-02)",
+   "kind": "official"
+  },
+  {
+   "id": "SRC-02",
+   "label": "NFL scores, Week 10 (3 pages read)",
+   "url": "https://www.nfl.com/scores/2026/week-10",
+   "read": "2026-11-17",
+   "used_for": "Week 10 finals (R-01, R-03)",
+   "kind": "official"
+  },
+  {
+   "id": "SRC-03",
+   "label": "NFL schedule, Week 11 (3 pages read)",
+   "url": "https://www.nfl.com/schedules/2026/by-week/week-11",
+   "read": "2026-11-17",
+   "used_for": "Week 11 fixtures (R-18 to R-20)",
+   "kind": "official"
+  },
+  {
+   "id": "SRC-04",
+   "label": "NFL injury report, Week 10 (page 1 of 8 read)",
+   "url": "https://www.nfl.com/injuries/league/2026/reg10",
+   "read": "2026-11-17",
+   "used_for": "Lions designations (R-05); report shape",
+   "kind": "official"
+  },
+  {
+   "id": "SRC-05",
+   "label": "NFL injury report URL, Week 11 (probe)",
+   "url": "https://www.nfl.com/injuries/league/2026/reg11",
+   "read": "2026-11-17",
+   "used_for": "Week 11 availability (R-06)",
+   "kind": "official probe"
+  },
+  {
+   "id": "SRC-06",
+   "label": "NFL game centre, Colts at Texans, Week 11",
+   "url": "https://www.nfl.com/games/colts-at-texans-2026-reg-11",
+   "read": "2026-11-17",
+   "used_for": "Venue (R-18)",
+   "kind": "official"
+  },
+  {
+   "id": "SRC-07",
+   "label": "NFL Houston Texans depth chart (probe: 404)",
+   "url": "https://www.nfl.com/teams/houston-texans/depth-chart",
+   "read": "2026-11-17",
+   "used_for": "Depth source status (R-22, R-23)",
+   "kind": "official probe"
+  },
+  {
+   "id": "SRC-08",
+   "label": "NFL.com Week 10 picks article (FanDuel lines, locked Thu 2 PM ET)",
+   "url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+   "read": "2026-11-17",
+   "used_for": "Spot-check of two Week 10 market rows (F-12); Monday game shape (F-04); Lions 'Incorrect' labels (F-03)",
+   "kind": "official"
+  },
+  {
+   "id": "SRC-09",
+   "label": "Repo: 136-game official log W1 to W9",
+   "url": "https://github.com/sassnarep3-star/Own8/blob/main/origination/data/games-2026-w1-w9.json",
+   "read": "2026-11-17",
+   "used_for": "Reconciliation and B0 inputs",
+   "kind": "repository (inherited, reconciled)"
+  },
+  {
+   "id": "SRC-10",
+   "label": "Repo: Week 10 lines (originated 2026-11-14)",
+   "url": "https://github.com/sassnarep3-star/Own8/blob/main/requirements/results/week10-lines.json",
+   "read": "2026-11-17",
+   "used_for": "B0 check and Week 10 fair lines",
+   "kind": "repository (derived)"
+  },
+  {
+   "id": "SRC-11",
+   "label": "Repo: Week 10 market prices (captured 2026-11-14 from SRC-08)",
+   "url": "https://github.com/sassnarep3-star/Own8/blob/main/market/data/raw/official-prices-w10.json",
+   "read": "2026-11-17",
+   "used_for": "Market column (R-42, R-43)",
+   "kind": "repository (inherited)"
+  },
+  {
+   "id": "SRC-12",
+   "label": "Repo: strategy registry and validation (2026-11-14)",
+   "url": "https://github.com/sassnarep3-star/Own8/blob/main/ledger/data/strategy-registry.json",
+   "read": "2026-11-17",
+   "used_for": "Strategy status (R-52, F-01)",
+   "kind": "repository (derived)"
+  },
+  {
+   "id": "SRC-13",
+   "label": "Repo: correlations (n and CI)",
+   "url": "https://github.com/sassnarep3-star/Own8/blob/main/origination/results/correlations.json",
+   "read": "2026-11-17",
+   "used_for": "Correlations page (R-51, F-13)",
+   "kind": "repository (derived)"
+  },
+  {
+   "id": "SRC-14",
+   "label": "Repo: requirement register (16 rows, 2026-11-14)",
+   "url": "https://github.com/sassnarep3-star/Own8/blob/main/requirements/data/requirements.json",
+   "read": "2026-11-17",
+   "used_for": "Cross-check of prior statuses",
+   "kind": "repository (inherited)"
+  }
+ ]
+}

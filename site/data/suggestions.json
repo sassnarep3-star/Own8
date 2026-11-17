@@ -1,0 +1,246 @@
+{
+ "as_of": "2026-11-17",
+ "status": "ALL AWAITING OPERATOR CHOICE. Nothing below has been implemented.",
+ "rows": [
+  {
+   "id": "S-01",
+   "title": "Price-data policy (must be decided before any backtest is published)",
+   "requirement": "R-60, R-59, R-42",
+   "options": [
+    {
+     "label": "A. Official-only",
+     "text": "Keep nfl.com locked-Thursday FanDuel lines as the only market input; publish no opening or closing values; no CLV claims.",
+     "cost": "Low (already built)",
+     "risk": "Cannot measure closing-line value; grading uses one lock time."
+    },
+    {
+     "label": "B. Licensed odds feed",
+     "text": "License a feed that records opening and closing numbers for every market, with its terms reviewed first.",
+     "cost": "Recurring fee; terms review",
+     "risk": "Terms and licence need operator approval; not verifiable from this sandbox."
+    },
+    {
+     "label": "C. Hybrid",
+     "text": "Official-only for grading now; a licensed feed for CLV research only, labelled separately.",
+     "cost": "Medium",
+     "risk": "Two price series to keep consistent."
+    }
+   ],
+   "recommendation": "A now; decide B before any CLV claim is published.",
+   "decision": "Choose A, B or C."
+  },
+  {
+   "id": "S-02",
+   "title": "Leaderboard eligibility of the four backtest-gate passes (S6, S1, S7, S2)",
+   "requirement": "R-52, F-01",
+   "options": [
+    {
+     "label": "A. Keep off the leaderboard",
+     "text": "Show them as backtest-only candidates; no rank until prospective weeks settle (the operator's rule).",
+     "cost": "None",
+     "risk": "Slower; consistent with the rule."
+    },
+    {
+     "label": "B. Two-stage admission",
+     "text": "Admit the walk-forward result as stage 1 with a prospective escrow stage 2. This requires changing the operator's rule.",
+     "cost": "Operator rule change",
+     "risk": "Backtest numbers would appear on the leaderboard, which the rule forbids."
+    },
+    {
+     "label": "C. Retire",
+     "text": "Withdraw the four strategies and keep only B0 as the shadow baseline.",
+     "cost": "None",
+     "risk": "Loses the walk-forward work."
+    }
+   ],
+   "recommendation": "A.",
+   "decision": "Choose A, B or C."
+  },
+  {
+   "id": "S-03",
+   "title": "Depth-order source (route a per-club pages, route b snap counts, or a licensed structured feed)",
+   "requirement": "R-22, R-23, R-27",
+   "options": [
+    {
+     "label": "A. Verify route a club by club",
+     "text": "Probe all 32 club depth routes; keep only those that load and parse. The one probed route (Texans) returns 404.",
+     "cost": "32 probes, then parsing work",
+     "risk": "Pages may not exist for every club."
+    },
+    {
+     "label": "B. Verify route b snap counts",
+     "text": "Locate an official snap-count source for all 32 clubs; derive starter share from it.",
+     "cost": "Discovery work",
+     "risk": "No official source has been confirmed to exist."
+    },
+    {
+     "label": "C. Licensed structured feed",
+     "text": "Operator authorises a structured depth feed; no transcription by eye.",
+     "cost": "Recurring fee; authorisation",
+     "risk": "Terms and provenance need review."
+    }
+   ],
+   "recommendation": "Run the route b discovery first (cheap), then A; C only if A and B fail.",
+   "decision": "Choose the order, or choose C."
+  },
+  {
+   "id": "S-04",
+   "title": "Automated, immutable availability snapshots (Wed to kickoff) with alerts",
+   "requirement": "R-08, R-11, R-69",
+   "options": [
+    {
+     "label": "A. Scheduled GitHub Actions capture",
+     "text": "A cron job captures the injury report and any depth page daily Wed to Sat, stores raw bytes and SHA-256 hashes in git, and fails loudly on a row-count or field change.",
+     "cost": "Low; uses existing CI",
+     "risk": "Not testable from this sandbox (nfl.com unreachable by curl); may be blocked by nfl.com bot rules; needs a test run."
+    },
+    {
+     "label": "B. External durable store",
+     "text": "Same capture, stored in an external bucket outside the static site, with alert email on failure.",
+     "cost": "Storage cost; account setup",
+     "risk": "Needs an account and credentials; operator must provide."
+    },
+    {
+     "label": "C. Manual fetches",
+     "text": "Operator-run or session-run fetches on set days.",
+     "cost": "Staff time",
+     "risk": "Gaps in the series; breaks the no-manual-input rule."
+    }
+   ],
+   "recommendation": "A, with B for long-term storage.",
+   "decision": "Choose A, B or C, and name the alert channel."
+  },
+  {
+   "id": "S-05",
+   "title": "Public analysis layer vs private raw-data layer",
+   "requirement": "R-68, Q-10",
+   "options": [
+    {
+     "label": "A. Derived only until terms are read",
+     "text": "Publish indices, model output and links; keep row-level copies of nfl.com data out of the public site.",
+     "cost": "Low",
+     "risk": "Less visible raw evidence for reviewers."
+    },
+    {
+     "label": "B. Keep current publication",
+     "text": "Publish the nfl.com-derived tables as they are.",
+     "cost": "None",
+     "risk": "Possible terms conflict until the terms are read."
+    },
+    {
+     "label": "C. Hybrid",
+     "text": "Publish short extracts with links; keep full tables private.",
+     "cost": "Medium",
+     "risk": "Still needs the terms reading."
+    }
+   ],
+   "recommendation": "A until the nfl.com terms are read.",
+   "decision": "Choose A, B or C."
+  },
+  {
+   "id": "S-06",
+   "title": "Roster sweep before the team-level model is trusted",
+   "requirement": "R-35, Q-20",
+   "options": [
+    {
+     "label": "A. Run the 32-team sweep first",
+     "text": "Capture each team's roster and IR status before any team-level claim; use B0 only as a team-strength baseline until then.",
+     "cost": "32 captures",
+     "risk": "Depends on S-03 and R-08."
+    },
+    {
+     "label": "B. Accept B0 as is, labelled",
+     "text": "Keep B0 published as team-strength only, with the sweep listed as NOT RUN.",
+     "cost": "None",
+     "risk": "Readers may over-read the baseline."
+    }
+   ],
+   "recommendation": "B now, A before any injury-aware claim.",
+   "decision": "Choose A or B."
+  },
+  {
+   "id": "S-07",
+   "title": "Weekly locked-line schedule and a second total estimator",
+   "requirement": "R-42, R-45, Q-09",
+   "options": [
+    {
+     "label": "A. Lock every week, publish both totals",
+     "text": "Originate lines before each Thursday lock, publish both total estimators with the gap column, and grade after finals.",
+     "cost": "Weekly operator review",
+     "risk": "Small samples for a long time."
+    },
+    {
+     "label": "B. Lock only when a market capture exists",
+     "text": "Originate only when the nfl.com picks article is captured.",
+     "cost": "Lower",
+     "risk": "Gaps in the record."
+    }
+   ],
+   "recommendation": "A.",
+   "decision": "Choose A or B."
+  },
+  {
+   "id": "S-08",
+   "title": "Archive past-season injury reports for designation calibration",
+   "requirement": "R-15, R-16, R-17, Q-04",
+   "options": [
+    {
+     "label": "A. Probe the archive, then capture",
+     "text": "Test whether nfl.com archive pages for past weeks exist; if they do, capture a fixed window with hashes.",
+     "cost": "Probe first, then capture",
+     "risk": "Archive may be unavailable."
+    },
+    {
+     "label": "B. Use 2026 only",
+     "text": "Accept the small 2026 sample; report the calibration as not estimable.",
+     "cost": "None",
+     "risk": "No power to calibrate."
+    }
+   ],
+   "recommendation": "A (probe first).",
+   "decision": "Choose A or B."
+  },
+  {
+   "id": "S-09",
+   "title": "Definition of a reward for top strategies",
+   "requirement": "R-64, Q-11",
+   "options": [
+    {
+     "label": "A. Paper points only",
+     "text": "Points on a paper leaderboard; no money; no awards until gates pass.",
+     "cost": "None",
+     "risk": "Low motivation."
+    },
+    {
+     "label": "B. No rewards",
+     "text": "Remove the reward concept from the leaderboard.",
+     "cost": "None",
+     "risk": "Departs from the brief."
+    }
+   ],
+   "recommendation": "A.",
+   "decision": "Choose A or B (C is not offered: money-linked rewards conflict with the repo's responsible-research policy)."
+  },
+  {
+   "id": "S-10",
+   "title": "Legacy namespaces: 15 parallel dashboards and duplicate copies",
+   "requirement": "R-66, F-09",
+   "options": [
+    {
+     "label": "A. Mark superseded, keep in place",
+     "text": "Add a banner to each legacy root page pointing at this site; change nothing else.",
+     "cost": "Low",
+     "risk": "Clutter remains."
+    },
+    {
+     "label": "B. Move to archive/",
+     "text": "Move legacy namespaces under archive/ (no deletion), keep links working via redirects.",
+     "cost": "Medium",
+     "risk": "Moves can break cross-links; needs a link check."
+    }
+   ],
+   "recommendation": "A now; B after the operator approves.",
+   "decision": "Choose A or B."
+  }
+ ]
+}
