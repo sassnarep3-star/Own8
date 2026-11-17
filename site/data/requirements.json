@@ -168,7 +168,7 @@
    "group": "Schedule",
    "requirement": "Dated schedule announcement published beside the live schedule page",
    "status": "PARTIAL",
-   "exists": "The Week 11 schedule page carries nfl.com's note that Week 16 to 18 designated matchups are announced later (quoted on data-schedule.html)",
+   "exists": "nfl.com Week 11 schedule page (read 17 Nov) states that the Week 16, 17 and 18 designated matchups have TBD dates: Week 16 no later than immediately after Week 14, Week 17 no later than immediately after Week 15, Week 18 after Week 17 (quoted on data-schedule.html)",
    "gap": "No dated announcement was located on the captured pages.",
    "source": "https://www.nfl.com/schedules/2026/by-week/week-11"
   },
