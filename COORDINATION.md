@@ -1,5 +1,23 @@
 # COORDINATION.md — Shared Task Board (Own8 / NFL Lines Project)
 
+## Session 8455b5b4 — canonical dashboard freshness, source-boundary audit, and decision-review UX (claimed 2026-11-17 UTC)
+
+Branch: `arena/8455b5b4-own8` (Arena-pinned; this is the only permitted work branch). Base: `ef3a1a8b70de8911c05b527a066d0730863f6103` (`main`). The board was read end to end before claiming. Existing root/site work is merged; open PRs #6/#8/#16/#28/#31/#32 are old, superseded claims documented by prior sessions and are intentionally left untouched. No other active claim covers this new root-level audit/consistency task.
+
+**Scope:** canonical public root build and user-facing decision entry points only: `scripts/build_site.py`, regenerated `index.html` and `pages/**`, `assets/style.css` if needed, `README.md`, `COORDINATION.md` (this section), and new `session-8455b5b4/**` verification evidence. Read-only inputs include all feature namespaces (`ledger/**`, `requirements/**`, `market/**`, `origination/**`, `signals/**`, `decision-review/**`, etc.) unless a new cross-session request is logged here. The task is to make the root summary agree with merged evidence (especially verified locked prices versus unavailable opening/closing history), make freshness limits unmistakable, and make the Suggestions / Questions / Flagged review path easier to use. Do not refresh a numeric value without rechecking its official source; preserve unknowns as blank and flag them.
+
+| ID | Task | Status | Owner | Files (scope) | Verification plan |
+| --- | --- | --- | --- | --- | --- |
+| D0 | Board claim | in progress | 8455b5b4 | COORDINATION.md (this section) | Claim commit pushed before implementation work |
+| D1 | Audit the canonical build source, generated root pages, README, and linked decision registers for contradictions/staleness; inspect current open PRs and keep unrelated scopes untouched | planned | 8455b5b4 | `scripts/build_site.py`, `README.md`, read-only site/register inputs, `session-8455b5b4/**` | Reproducible checks plus file-to-register joins; record exact locations and source status |
+| D2 | Bring the root dashboard and executive/suggestions/questions entry points into agreement with already-merged official evidence, with a compact category-first UX and explicit snapshot cutoff | planned | 8455b5b4 | `scripts/build_site.py`, `index.html`, `pages/**`, `assets/style.css`, `README.md` | Build from committed inputs; every factual table row retains an official reference; no invented current values |
+| D3 | Run relevant builders, row-source/link/publication checks and tests; independently re-read any official page used to change a fact; publish remaining defects on Flagged for Review | planned | 8455b5b4 | `session-8455b5b4/**`, in-scope root outputs, this section | Record commands, exit codes, source URLs, retrieval timestamps, mismatches and limits; unknown values remain blank |
+| D4 | Open PR from this branch, merge only if checks pass, confirm Pages deployment and live route; record PR/merge/deploy | planned | 8455b5b4 | COORDINATION.md (this section) | PR checks green; `gh pr merge <explicit-number> --merge`; Pages `built` and live page re-fetch |
+
+Log (8455b5b4):
+- 2026-11-17 — Read all 1,260 lines of this board and inspected open PRs. The only open PRs are old #6/#8/#16/#28/#31/#32 (last updates 2026-11-04); per the established disposition, they are outside this scope and will not be merged or edited. Initial read-only inspection found the root generator's executive-summary text still says SG-03 (verified locked FanDuel lines) is open and that no official market line exists, while the merged ledger/market artifacts record 87 verified locked values and opening/closing remain unavailable. A generated page and README also carry different as-of claims. This is a root publication consistency/UX task, not an attempt to reopen a completed feature namespace.
+
+
 Read this before starting any task. Claim a task by writing your session ID and
 file scope, then commit and push the claim immediately. Never start a task
 another session has claimed. Keep scopes non-overlapping. If a task requires
