@@ -27,6 +27,24 @@ documented numeric refinement (RQ-12: 6-8 game-weeks of postgame Game Books, Q-0
 into that table. Both board sections are retained verbatim below. Nothing of fe499d4e's
 merged work is reverted.
 
+## Session 875583e4 — category dashboard, requirement & question registers, suggestions for decision, repo review, official re-verification, PR + merge (claimed 2026-11-17 UTC, base main @ ef3a1a8)
+
+Branch: `arena/875583e4-own8` (Arena-pinned; all work on this branch). Board read end to end on 2026-11-17: the most recent claim (08643438) is done and merged (PR #68); the only open PRs are the 2026-11-04 namespaces #6/#8/#16/#28/#31/#32 and are left untouched (A14). No task in this board is currently claimed by an active session.
+
+**Scope (this session only):** new canonical category site `site/**` (landing page, category subpages, requirement register, question register, suggestion inbox, repo review, executive summary, Flagged for Review); root `index.html` converted to a redirect to `site/index.html`; `README.md` top-link lines; this COORDINATION.md section. All other namespaces (`requirements/`, `ledger/`, `market/`, `origination/`, `decision*/`, `desk/`, `hub/`, `signals/`, `correlation-audit/`, `integration/`, `evidence-lab/`, `strict/`, `suggestions/`, `review/`, `audit/`, `a57af0ab/`, `archive/`) are read-only inputs; findings about them are published as flags, never edited.
+
+| ID | Task | Status | Owner | Files (scope) | Verification plan |
+| --- | --- | --- | --- | --- | --- |
+| S0 | Board claim (this section) | done (claim pushed before other work) | 875583e4 | COORDINATION.md (this section) | Claim commit pushed first |
+| S1 | Official re-verification 2026-11-17 via fetch_page: standings, Week 10 final scores, injury-report probe, Week 11 schedule probe, depth-page probe | in progress | 875583e4 | site/data/** | Each value cites its nfl.com URL + fetch date; mismatches blanked and flagged |
+| S2 | Full requirement register (every bullet in the operator brief, duplicates merged, each with status, evidence link, blocker) | in progress | 875583e4 | site/data/requirements.json, site/requirements.html | Every row cites a repo artifact or an official URL; NOT MET stays NOT MET |
+| S3 | Category site: landing, data, strategies, correlations, questions, suggestions, executive summary, repo review, sources, Flagged for Review | in progress | 875583e4 | site/**, index.html | `python3 site/build.py` + `python3 site/check.py` exit 0 (no broken local links, every table row has a source link or is marked unverified) |
+| S4 | Suggestions inbox (options, cost, risk, what decision is needed; nothing implemented until the operator chooses) | in progress | 875583e4 | site/data/suggestions.json, site/suggestions.html | Each suggestion lists ≥2 options and its evidence |
+| S5 | PR from arena/875583e4-own8 to main, merge without waiting, Pages deploy confirmation, final record here | pending | 875583e4 | COORDINATION.md | `gh pr merge <n> --merge`; Pages build `built`; live URL re-fetched |
+
+Log (875583e4):
+- 2026-11-17 (S0 claim) — Claim pushed before any other work. Read the full board; checked live state: main = origin/main = ef3a1a8; Pages legacy build from main `/`, status `built`; open PRs only the 2026-11-04 set (untouched).
+
 ## Session 08643438 — final integration round 5: outstanding-request sweep (SG-03/F-01 ledger price claim, desk flagged regen, board hygiene), landing-page decision-readiness table, fresh 2026-11-15 official re-verification, deploy (claimed 2026-11-15 UTC, base main @ 0ea18ec)
 
 Branch: `arena/08643438-own8` (Arena-pinned; all work on this branch). Read the full board
