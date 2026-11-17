@@ -1257,3 +1257,29 @@ Pages `built` after every merge; `/market/` and each changed page re-fetched and
 **Live:** https://sassnarep3-star.github.io/Own8/market/
 
 **Still open for their owners:** X1 (root nav link to `market/index.html`), X3 (ledger price store still asserts no official price exists — F-01), F-07 (injury-report shape, requirements owner), and every one of the 12 suggestions, which are decisions rather than code.
+
+## Session 30caea4e — official Week 10 Sunday finals capture, standings reconciliation, results-feed gap report (claimed 2026-11-17 UTC, base main @ ef3a1a8)
+
+**Scope (this session only):** `session-30caea4e/**` and this section of COORDINATION.md. Read-only inputs: `ledger/data/results-feed.json`, `requirements/**`, `market/**`. **No edits** to root `index.html`, `pages/**`, `scripts/**`, `ledger/**`, `desk/**` or any other session's namespace; needed changes are logged as requests in the log below.
+
+**Branch note:** this session works on the pinned branch `arena/30caea4e-own8`. The `session-<id>/<task>` branch form in the board protocol cannot be used because the session branch is fixed by Arena; the namespace `session-30caea4e/` is used instead.
+
+| ID | Task | Status | Owner | Files (scope) | Verification plan |
+| --- | --- | --- | --- | --- | --- |
+| S30-1 | Official Week 10 Sunday finals (12 games) + Thursday/Monday status, each row with its nfl.com game URL and the scores-page URL | in progress | 30caea4e | session-30caea4e/** | fetch_page of https://www.nfl.com/scores/2026/week-10 (3 chunks); each score printed beside its "View X game" link |
+| S30-2 | Reconcile feed (W1–W9 + Thu W10) + S30-1 against the official standings page (32 rows: W, L, T, PF, PA) | in progress | 30caea4e | session-30caea4e/** | fetch_page of https://www.nfl.com/standings/ (2 chunks); exact match required per team, mismatches flagged not edited |
+| S30-3 | Gap report for the results feed (V-03 freshness flag) and request to the integration session | in progress | 30caea4e | session-30caea4e/**, this section | Count of missing games vs feed; no change to ledger/data/results-feed.json |
+
+**Results (30caea4e, 2026-11-17 UTC)**
+
+| ID | Status | Sources | Verification performed | Irregularities |
+| --- | --- | --- | --- | --- |
+| S30-1 | done | [nfl.com/scores/2026/week-10](https://www.nfl.com/scores/2026/week-10); game links in [session-30caea4e/official-w10-finals.json](session-30caea4e/official-w10-finals.json) | 12 Sunday finals + Thursday read as "Final" with score beside the game link; away team first as printed | Monday LAC @ BAL has no printed final: **unverified**, not used |
+| S30-2 | done | [nfl.com/standings](https://www.nfl.com/standings/); [reconcile.json](session-30caea4e/reconcile.json) | Feed (137) + 12 official finals = 149 games; W, L, T, PF, PA recomputed for 32 clubs and compared; **160/160 cells, 0 mismatches**; Thursday game equal to official | Feed uses `LAR`, official uses `LA` (alias in reconcile.py only) |
+| S30-3 | done | [session-30caea4e/README.md](session-30caea4e/README.md) | Gap report written; no shared file edited | Results feed still missing the 12 finals (V-03 widened) |
+
+**Request to the integration session (not edited here):** ingest the 12 official Week 10 Sunday finals listed in `session-30caea4e/official-w10-finals.json` into `ledger/data/results-feed.json` with their nfl.com game URLs (the join key and the `LAR`/`LA` alias should be resolved in the feed). Do not grade the Week 10 lines until LAC @ BAL is confirmed final on an official page.
+
+**Log:**
+- 2026-11-17 (claim) — pushed claim `9520515` before any other work; pinned branch `arena/30caea4e-own8`; scope `session-30caea4e/**`.
+- 2026-11-17 (done) — official captures and reconciliation committed in `session-30caea4e/`; 160/160 standings cells match; Monday game left unverified; PR opened for integration review. **Not merged**: the whole request (decision-support pipeline, daily immutable capture, depth-chart register, injury series, leaderboard divisions) is not complete, and the protocol reserves the merge for the final integration session.

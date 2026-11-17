@@ -1,0 +1,661 @@
+{
+  "generated_utc": "2026-11-17",
+  "inputs": {
+    "results_feed_games": 137,
+    "official_sunday_finals_added": [
+      "2026-W10-NE-DET",
+      "2026-W10-KC-ATL",
+      "2026-W10-HOU-CLE",
+      "2026-W10-MIN-GB",
+      "2026-W10-MIA-IND",
+      "2026-W10-CAR-NO",
+      "2026-W10-BUF-NYJ",
+      "2026-W10-JAX-TEN",
+      "2026-W10-LA-AZ",
+      "2026-W10-SEA-LV",
+      "2026-W10-SF-DAL",
+      "2026-W10-PIT-CIN"
+    ],
+    "official_standings_source": "https://www.nfl.com/standings/ (Division view, 2 chunks read)"
+  },
+  "games_used": 149,
+  "thursday_already_in_feed_check": [
+    {
+      "key": "2026-W10-WAS-NYG",
+      "feed": [
+        24,
+        21
+      ],
+      "official": [
+        24,
+        21
+      ],
+      "equal": true
+    }
+  ],
+  "cells_checked": 160,
+  "cells_mismatched": 0,
+  "mismatches": [],
+  "teams": [
+    {
+      "team": "BUF",
+      "computed": [
+        8,
+        1,
+        0,
+        287,
+        199
+      ],
+      "official": [
+        8,
+        1,
+        0,
+        287,
+        199
+      ],
+      "games_in_repo_plus_official": 9,
+      "match": true
+    },
+    {
+      "team": "NE",
+      "computed": [
+        5,
+        5,
+        0,
+        221,
+        242
+      ],
+      "official": [
+        5,
+        5,
+        0,
+        221,
+        242
+      ],
+      "games_in_repo_plus_official": 10,
+      "match": true
+    },
+    {
+      "team": "NYJ",
+      "computed": [
+        2,
+        8,
+        0,
+        194,
+        254
+      ],
+      "official": [
+        2,
+        8,
+        0,
+        194,
+        254
+      ],
+      "games_in_repo_plus_official": 10,
+      "match": true
+    },
+    {
+      "team": "MIA",
+      "computed": [
+        1,
+        8,
+        0,
+        148,
+        224
+      ],
+      "official": [
+        1,
+        8,
+        0,
+        148,
+        224
+      ],
+      "games_in_repo_plus_official": 9,
+      "match": true
+    },
+    {
+      "team": "CIN",
+      "computed": [
+        7,
+        2,
+        0,
+        278,
+        193
+      ],
+      "official": [
+        7,
+        2,
+        0,
+        278,
+        193
+      ],
+      "games_in_repo_plus_official": 9,
+      "match": true
+    },
+    {
+      "team": "PIT",
+      "computed": [
+        6,
+        3,
+        0,
+        198,
+        182
+      ],
+      "official": [
+        6,
+        3,
+        0,
+        198,
+        182
+      ],
+      "games_in_repo_plus_official": 9,
+      "match": true
+    },
+    {
+      "team": "CLE",
+      "computed": [
+        6,
+        4,
+        0,
+        188,
+        220
+      ],
+      "official": [
+        6,
+        4,
+        0,
+        188,
+        220
+      ],
+      "games_in_repo_plus_official": 10,
+      "match": true
+    },
+    {
+      "team": "BAL",
+      "computed": [
+        4,
+        5,
+        0,
+        189,
+        236
+      ],
+      "official": [
+        4,
+        5,
+        0,
+        189,
+        236
+      ],
+      "games_in_repo_plus_official": 9,
+      "match": true
+    },
+    {
+      "team": "JAX",
+      "computed": [
+        7,
+        2,
+        0,
+        269,
+        144
+      ],
+      "official": [
+        7,
+        2,
+        0,
+        269,
+        144
+      ],
+      "games_in_repo_plus_official": 9,
+      "match": true
+    },
+    {
+      "team": "HOU",
+      "computed": [
+        3,
+        6,
+        0,
+        233,
+        219
+      ],
+      "official": [
+        3,
+        6,
+        0,
+        233,
+        219
+      ],
+      "games_in_repo_plus_official": 9,
+      "match": true
+    },
+    {
+      "team": "IND",
+      "computed": [
+        3,
+        7,
+        0,
+        208,
+        271
+      ],
+      "official": [
+        3,
+        7,
+        0,
+        208,
+        271
+      ],
+      "games_in_repo_plus_official": 10,
+      "match": true
+    },
+    {
+      "team": "TEN",
+      "computed": [
+        1,
+        8,
+        0,
+        167,
+        239
+      ],
+      "official": [
+        1,
+        8,
+        0,
+        167,
+        239
+      ],
+      "games_in_repo_plus_official": 9,
+      "match": true
+    },
+    {
+      "team": "KC",
+      "computed": [
+        7,
+        2,
+        0,
+        237,
+        156
+      ],
+      "official": [
+        7,
+        2,
+        0,
+        237,
+        156
+      ],
+      "games_in_repo_plus_official": 9,
+      "match": true
+    },
+    {
+      "team": "DEN",
+      "computed": [
+        7,
+        2,
+        0,
+        198,
+        186
+      ],
+      "official": [
+        7,
+        2,
+        0,
+        198,
+        186
+      ],
+      "games_in_repo_plus_official": 9,
+      "match": true
+    },
+    {
+      "team": "LV",
+      "computed": [
+        4,
+        6,
+        0,
+        251,
+        289
+      ],
+      "official": [
+        4,
+        6,
+        0,
+        251,
+        289
+      ],
+      "games_in_repo_plus_official": 10,
+      "match": true
+    },
+    {
+      "team": "LAC",
+      "computed": [
+        0,
+        8,
+        0,
+        121,
+        219
+      ],
+      "official": [
+        0,
+        8,
+        0,
+        121,
+        219
+      ],
+      "games_in_repo_plus_official": 8,
+      "match": true
+    },
+    {
+      "team": "NYG",
+      "computed": [
+        5,
+        3,
+        1,
+        203,
+        196
+      ],
+      "official": [
+        5,
+        3,
+        1,
+        203,
+        196
+      ],
+      "games_in_repo_plus_official": 9,
+      "match": true
+    },
+    {
+      "team": "DAL",
+      "computed": [
+        4,
+        6,
+        0,
+        286,
+        282
+      ],
+      "official": [
+        4,
+        6,
+        0,
+        286,
+        282
+      ],
+      "games_in_repo_plus_official": 10,
+      "match": true
+    },
+    {
+      "team": "WAS",
+      "computed": [
+        3,
+        5,
+        1,
+        196,
+        223
+      ],
+      "official": [
+        3,
+        5,
+        1,
+        196,
+        223
+      ],
+      "games_in_repo_plus_official": 9,
+      "match": true
+    },
+    {
+      "team": "PHI",
+      "computed": [
+        2,
+        7,
+        0,
+        148,
+        221
+      ],
+      "official": [
+        2,
+        7,
+        0,
+        148,
+        221
+      ],
+      "games_in_repo_plus_official": 9,
+      "match": true
+    },
+    {
+      "team": "DET",
+      "computed": [
+        7,
+        2,
+        0,
+        257,
+        199
+      ],
+      "official": [
+        7,
+        2,
+        0,
+        257,
+        199
+      ],
+      "games_in_repo_plus_official": 9,
+      "match": true
+    },
+    {
+      "team": "MIN",
+      "computed": [
+        7,
+        2,
+        0,
+        176,
+        126
+      ],
+      "official": [
+        7,
+        2,
+        0,
+        176,
+        126
+      ],
+      "games_in_repo_plus_official": 9,
+      "match": true
+    },
+    {
+      "team": "CHI",
+      "computed": [
+        7,
+        2,
+        0,
+        241,
+        184
+      ],
+      "official": [
+        7,
+        2,
+        0,
+        241,
+        184
+      ],
+      "games_in_repo_plus_official": 9,
+      "match": true
+    },
+    {
+      "team": "GB",
+      "computed": [
+        6,
+        4,
+        0,
+        226,
+        221
+      ],
+      "official": [
+        6,
+        4,
+        0,
+        226,
+        221
+      ],
+      "games_in_repo_plus_official": 10,
+      "match": true
+    },
+    {
+      "team": "CAR",
+      "computed": [
+        4,
+        5,
+        0,
+        219,
+        236
+      ],
+      "official": [
+        4,
+        5,
+        0,
+        219,
+        236
+      ],
+      "games_in_repo_plus_official": 9,
+      "match": true
+    },
+    {
+      "team": "TB",
+      "computed": [
+        3,
+        6,
+        0,
+        202,
+        178
+      ],
+      "official": [
+        3,
+        6,
+        0,
+        202,
+        178
+      ],
+      "games_in_repo_plus_official": 9,
+      "match": true
+    },
+    {
+      "team": "NO",
+      "computed": [
+        3,
+        6,
+        0,
+        202,
+        236
+      ],
+      "official": [
+        3,
+        6,
+        0,
+        202,
+        236
+      ],
+      "games_in_repo_plus_official": 9,
+      "match": true
+    },
+    {
+      "team": "ATL",
+      "computed": [
+        3,
+        7,
+        0,
+        201,
+        258
+      ],
+      "official": [
+        3,
+        7,
+        0,
+        201,
+        258
+      ],
+      "games_in_repo_plus_official": 10,
+      "match": true
+    },
+    {
+      "team": "SF",
+      "computed": [
+        8,
+        1,
+        0,
+        281,
+        196
+      ],
+      "official": [
+        8,
+        1,
+        0,
+        281,
+        196
+      ],
+      "games_in_repo_plus_official": 9,
+      "match": true
+    },
+    {
+      "team": "SEA",
+      "computed": [
+        6,
+        4,
+        0,
+        223,
+        175
+      ],
+      "official": [
+        6,
+        4,
+        0,
+        223,
+        175
+      ],
+      "games_in_repo_plus_official": 10,
+      "match": true
+    },
+    {
+      "team": "LA",
+      "computed": [
+        6,
+        4,
+        0,
+        248,
+        187
+      ],
+      "official": [
+        6,
+        4,
+        0,
+        248,
+        187
+      ],
+      "games_in_repo_plus_official": 10,
+      "match": true
+    },
+    {
+      "team": "AZ",
+      "computed": [
+        3,
+        7,
+        0,
+        184,
+        289
+      ],
+      "official": [
+        3,
+        7,
+        0,
+        184,
+        289
+      ],
+      "games_in_repo_plus_official": 10,
+      "match": true
+    }
+  ],
+  "not_final_on_read": [
+    {
+      "week": 10,
+      "date": "2026-11-16",
+      "away": "LAC",
+      "home": "BAL",
+      "game_url": "https://www.nfl.com/games/chargers-at-ravens-2026-reg-10",
+      "status_printed": "no score printed; Game Center shows 'Nov 16 8:15PM'; scores page lists it with records 0-8 and 4-5 (pre-game)",
+      "reason": "Not verifiable as final from the official pages read; left unverified"
+    }
+  ],
+  "caveat": "Reconciles the record as printed on the official standings page read on 2026-11-17. The page shows the pre-Monday state for LAC and BAL (0-8 and 4-5), so the Monday game is excluded. Matching standings do not prove each game's score independently of the scores page, because both come from nfl.com."
+}
