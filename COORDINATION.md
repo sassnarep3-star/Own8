@@ -8,6 +8,24 @@ editing it. Make small, frequent commits; `git pull --rebase` before every push.
 If a claim is >60 minutes old with no commits, another session may take it over
 and note the handoff here.
 
+## Session 454c86a3 — exhaustive brief-to-evidence traceability and final site integration (claimed 2026-11-17 UTC; base main @ ef3a1a8)
+
+Branch: `arena/454c86a3-own8` (Arena-pinned; work stays on this branch). The full board was read end to end before claiming. The latest integration record is PR #68 / main `ef3a1a8`; the only open PRs are old, superseded PRs #6/#8/#16/#28/#31/#32 already covered by the board's A14 policy. They will not be merged, closed, or edited here. No other current session claim was found.
+
+**Scope:** new `traceability/**` namespace (exhaustive transcription of the current user brief, evidence mapping, independent checks, and its pages); final root publication integration only (`scripts/build_site.py`, regenerated `index.html`, `pages/**`, and generated root inventory/link-check outputs under `analysis/**`; `README.md` link only); this section of `COORDINATION.md`. All other namespaces—including `requirements/**`, `origination/**`, `ledger/**`, `market/**`, `signals/**`, `correlation-audit/**`, `integration/**`, `decision/**`, `decision-review/**`, `suggestions/**`, `review/**`, `hub/**`, `desk/**`, `strict/**`, `evidence-lab/**`, `audit/**`, `archive/**`, and `data/**`—are read-only. No task claimed by an active session is edited. The integration is limited to linking a new, clearly scoped line-item audit; it does not rewrite or consolidate other registers.
+
+| ID | Task | Status | Owner | Files (scope) | Verification plan |
+| --- | --- | --- | --- | --- | --- |
+| T0 | Board claim (this section) | in progress — claim written; push before feature work | 454c86a3 | COORDINATION.md (this section) | Commit and push claim before editing `traceability/**` or root publication files |
+| T1 | Transcribe every distinct requirement in the current user brief into a one-row-per-requirement register; map to existing artifacts without treating repo links as proof | planned | 454c86a3 | traceability/data/requirements.json, traceability/scripts/* | Compare the register against the user's full brief; preserve wording; include artifact path and explicit status/unknowns |
+| T2 | Independently verify bounded facts against official pages available to this session; keep unverified values blank and publish conflicts, stale captures, and unsupported claims as flags | planned | 454c86a3 | traceability/data/*, traceability/evidence/* | Each checked fact records official URL, fetch date, observed value and scope; no inference; every requirement row has an official reference/context URL |
+| T3 | Publish executive summary, decision questions, missing-information discovery plan, and reviewable suggestions in a category-organized standalone subsite; integrate only its link into the root site | planned | 454c86a3 | traceability/**, scripts/build_site.py (nav/surface row only), regenerated index.html/pages/**, README.md (link only), analysis/** (pipeline outputs) | Build/check the new subsite; root links and published-surface row resolve; every table row carries an official reference and an artifact/evidence status |
+| T4 | Full in-scope verification, PR, merge and GitHub Pages deploy confirmation | planned | 454c86a3 | COORDINATION.md (this section) | Re-run relevant checkers, confirm CI, merge explicit PR number only after green checks, verify Pages deploy/live route, record results and irregularities |
+
+## Session 454c86a3 — log
+
+- 2026-11-17 — Read all 1,259 lines of `COORDINATION.md`; confirmed clean branch `arena/454c86a3-own8` at `ef3a1a8`, main at the same commit, and reviewed the existing root site and requirements register. `gh pr list` shows only the six old PRs already classified as superseded; no open PR from a current task owner. Claim scope is new `traceability/**` plus narrowly scoped final integration files. No feature files have been edited yet.
+
 **COLLISION NOTE (08643438 x fe499d4e, 2026-11-15): two parallel sessions both ran
 "final integration round 5" from base main @ 0ea18ec without seeing each other's claim.
 fe499d4e merged first (PR #66: ledger X3/F-01 price-store fix, decision-readiness table,
