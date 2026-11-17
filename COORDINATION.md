@@ -1274,7 +1274,7 @@ Branch: `arena/532b7aeb-own8` (Arena-pinned; all work on this branch). Read the 
 | V3 | Suggestions review section confirmed: a dedicated section where a reviewer can choose the best path before any change is implemented | done | 532b7aeb | pages/suggestions.html, requirements/pages/suggestions.html | 16 root suggestions (S-01..S-05 visible register) and 16 requirements suggestions (SG-01..SG-16); every row carries rationale, cost, risk, evidence path, recommended option and a decision field = UNDECIDED awaiting operator choice; none implemented without review + gate passage |
 | V4 | Questions / information held / information missing register confirmed: clear list of what must be answered before any decision | done | 532b7aeb | pages/decisions.html, requirements/pages/questions.html | 22 questions Q-01..Q-22 with states (12 ANSWERED, 2 IMPOSSIBLE, 1 PARTIAL, 7 OPEN), information held vs missing, discovery path, blocking decision, official source link each |
 | V5 | Executive summary confirmed | done | 532b7aeb | README.md, pages/executive-summary.html, requirements/pages/executive-summary.html | current snapshot as of 2026-11-14; 0 eligible strategies, no edge claimed, luck not removable; no new numbers asserted in this session |
-| V6 | PR to main, merge without waiting, GitHub Pages confirmation, live re-fetch, final record | pending | 532b7aeb | COORDINATION.md (this section) | CI green on PR; `gh pr merge <n> --merge`; Pages API `built`; live pages re-fetched |
+| V6 | PR to main, merge without waiting, GitHub Pages confirmation, live re-fetch, final record | done — PR #71 https://github.com/sassnarep3-star/Own8/pull/71 merged as `897184b` without waiting; Pages API `status: built`, `error: null`; live re-fetch of https://sassnarep3-star.github.io/Own8/ confirms the landing page serves the 16-row decision-readiness table with an official source link on every table row | 532b7aeb | COORDINATION.md (this section) | CI green on PR (audit + independent-desk jobs success); `gh pr merge 71 --merge`; Pages API `built`; live pages re-fetched |
 
 Verification results (2026-11-17, offline checkers, no nfl.com re-fetch):
 
@@ -1301,6 +1301,18 @@ Pre-existing, documented, out-of-scope exceptions (unchanged, not fixed here): `
 Log (532b7aeb):
 - 2026-11-17 (V0) — Board read end to end; all Nov-14/15 integration claims merged and closed; branch at main HEAD ef3a1a8. X1 resolved on main (root nav links market/index.html, added by 1052cf22 N2). X3 resolved on main (ledger price store now carries 39/39 verified locked FanDuel lines, opening/closing null, per P1/F5-1; remaining adoption decision is SG-03, operator-owned). F-07 resolved on main as genuine report shape (P4/F5-3), not a capture artefact.
 - 2026-11-17 (V1–V5) — Full checker replay green (results above). Suggestion register, open-question register and executive summary confirmed published: suggestions carry UNDECIDED decisions with recommended paths (SG-01..SG-16 at requirements/pages/suggestions.html; S-01.. at pages/suggestions.html); questions carry have/missing/answer/blocks/discovery (Q-01..Q-22 at requirements/pages/questions.html; D-01.. at pages/decisions.html). No file changes required — the requested suggestions-review section, Q/I/A list and executive summary already exist and are linked from the root landing page.
-- 2026-11-17 (V6 pending) — PR from arena/532b7aeb-own8 → main to follow; merge without waiting; Pages confirmation and final record to be appended here.
+- 2026-11-17 (V6 done) — PR #71 https://github.com/sassnarep3-star/Own8/pull/71 merged as `897184b` with `gh pr merge 71 --merge` (no approval waited for); CI green on the branch (audit + independent-desk success); Pages API `status: built`, `error: null`; live re-fetch of https://sassnarep3-star.github.io/Own8/ confirms the deployed landing page carries the 16-row decision-readiness table with an official source link on every table row.
 
 Cross-session notes from 532b7aeb: (1) no file owned by another session was edited; (2) the operator-facing open items remain policy decisions, not code defects: the 12 market/requirements suggestions, the reward rule, and the canonical-ranking question (round-5 log); (3) a fresh live capture of nfl.com is outside this session's network boundary and is left to the next session with network access, per the stored-capture evidence boundary in README.md.
+
+### 532b7aeb — final publication record (2026-11-17)
+
+| PR | Merge | What landed |
+| --- | --- | --- |
+| #71 | `897184b` | Session claim + verification record: full offline checker replay (20 checker families green, 0 failures), suggestions/Q&A/executive-summary sections confirmed published and linked from the root landing page, pre-existing flags unchanged and non-blocking; no feature files changed |
+
+- **PR:** https://github.com/sassnarep3-star/Own8/pull/71 — **MERGED** as `897184b` with `gh pr merge 71 --merge` (no approval waited for), per the standing instruction.
+- **CI:** `Audit Own8 dashboard` and `Verify independent NFL desk` completed success on main; the PR's `Verify official-evidence dashboard` completed success on the branch.
+- **Pages:** `gh api .../pages` → `status: built`, `error: null`; live re-fetch of https://sassnarep3-star.github.io/Own8/ confirms the deployed landing page (decision-readiness RQ-01..RQ-16, all table rows officially linked).
+- **Flagged irregularities:** published on /pages/flagged.html (data/flagged.json A01..A14 and the per-namespace registers); none block publication.
+- **Remaining operator decisions (not code):** the 12 market/requirements suggestions (all UNDECIDED with recommended paths), the reward rule, and the canonical-ranking question (round-5 log).
