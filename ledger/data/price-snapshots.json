@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-14",
+  "generated": "2026-11-17",
   "description": "Price-snapshot store. One row per originated market, in origination order. Each market carries the verified locked FanDuel line from the nfl.com picks article (official_locked_*). Opening and closing values are recorded ONLY with an official source URL; no official page publishes them, so every opening/closing cell stays null.",
   "accepted_source_hosts": [
     "www.nfl.com",

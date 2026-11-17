@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-14",
+  "generated": "2026-11-17",
   "description": "Irregularities and unverified items for the Flagged for Review page. Blocking: none.",
   "flags": [
     {
@@ -98,6 +98,26 @@
         "https://www.itl.nist.gov/div898/handbook/prc/section4/prc473.htm"
       ],
       "treatment": "Recorded for review. No change made."
+    },
+    {
+      "id": "LF-12",
+      "kind": "WEEK 10 LAC AT BAL RESULT UNRESOLVED",
+      "detail": "On the 2026-11-17 re-read, the NFL Week 10 scores page and Chargers-at-Ravens Game Center showed a Nov 16 8:15 PM kickoff but no Final label or final score; the standings page still showed LAC 0-8 and BAL 4-5. This game is not in the results feed and is excluded from the Week 10 diagnostic. Do not infer a score, postponement, cancellation, or reason from the page output.",
+      "source_urls": [
+        "https://www.nfl.com/scores/2026/week-10",
+        "https://www.nfl.com/games/chargers-at-ravens-2026-reg-10",
+        "https://www.nfl.com/standings/league/2026/REG"
+      ],
+      "treatment": "Unresolved; leave score blank until an official final result is observed."
+    },
+    {
+      "id": "LF-13",
+      "kind": "RAW SOURCE BYTES AND HASH NOT RETAINED",
+      "detail": "The Week 10 result addendum is a timestamped structured transcription from official NFL pages. The fetch tool did not retain raw HTTP response bytes, so no SHA-256 is available and this capture is not hash-verified or immutable.",
+      "source_urls": [
+        "https://www.nfl.com/scores/2026/week-10"
+      ],
+      "treatment": "Publish the limitation; implement a controlled raw-body retention and hashing mechanism before claiming immutable snapshots."
     }
   ]
 }

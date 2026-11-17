@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-14",
+  "generated": "2026-11-17",
   "description": "Signal and staking are separate blocks. Rank uses ONLY the signal block (PASS under the fail-closed gates, then skill_pct_lcb). A staking result cannot lift a FAIL signal into a rank.",
   "ranking_rule": "rank = PASS strategies ordered by signal.skill_pct_lcb descending; medals Gold/Silver/Bronze for ranks 1-3.",
   "rows": [

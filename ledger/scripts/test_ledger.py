@@ -154,11 +154,16 @@ class Arithmetic(unittest.TestCase):
         self.assertEqual(build_ledger.american_from_p(0.4), 150)
         self.assertEqual(build_ledger.american_from_p(0.5), -100)
 
-    def test_results_feed_has_137_rows_and_no_arithmetic_failure(self):
+    def test_results_feed_has_149_rows_and_no_arithmetic_failure(self):
         feed = demotion_gate.load_json(os.path.join(LEDGER, "data", "results-feed.json"))
-        self.assertEqual(len(feed["rows"]), 137)
+        self.assertEqual(len(feed["rows"]), 149)
+        self.assertEqual(feed["counts"]["added_week10_finals"], 12)
+        self.assertEqual(feed["counts"]["week10_unresolved"], 1)
         self.assertEqual(feed["counts"]["arithmetic_failures"], 0)
         self.assertEqual(sum(1 for r in feed["rows"] if r["winner"] == "NONE"), 1)
+        self.assertEqual(len({r["key"] for r in feed["rows"]}), 149)
+        self.assertEqual(len(feed["unresolved"]), 1)
+        self.assertIsNone(feed["unresolved"][0]["scores"])
 
     def test_price_store_has_no_unverified_values(self):
         prices = demotion_gate.load_json(os.path.join(LEDGER, "data", "price-snapshots.json"))

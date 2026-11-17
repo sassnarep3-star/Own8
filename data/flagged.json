@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-11-15",
+  "as_of": "2026-11-17",
   "items": [
     {
       "id": "A01",
@@ -299,16 +299,48 @@
     {
       "id": "V-03",
       "severity": "medium",
-      "item": "Freshness (2026-11-15): eight Week 10 Sunday finals (NE 10 DET 35; KC 35 ATL 13; HOU 24 CLE 27; MIN 30 GB 10; MIA 22 IND 24; CAR 20 NO 17; BUF 31 NYJ 12; JAX 40 TEN 23) are official but not yet in the 137-game feed. Three games were live and two upcoming at read time. Do NOT grade the Week 10 line set until all 14 games settle. Next origination refresh should ingest the eight rows with their game URLs.",
+      "item": "HISTORICAL SNAPSHOT — 2026-11-15: eight Week 10 Sunday finals had not yet been ingested. Superseded by the 2026-11-17 result addendum: 12 Sunday finals are now recorded from official scores + game centers; LAC at BAL remains unresolved and is excluded. See A17/A18 and the detailed audit.",
       "source_url": "https://www.nfl.com/scores/2026/week-10",
       "status": "needs review"
     },
     {
       "id": "V-04",
       "severity": "resolved",
-      "item": "Standings reconciliation (2026-11-15): W-L-T, PF and PA recomputed from the 137-game feed plus the eight new finals match all 32 standings rows as read - 160/160 cells PASS (session-08643438/verification.json). Alias LA (standings) vs LAR (repo) applied inside the check only and recorded.",
+      "item": "HISTORICAL RECONCILIATION — 2026-11-15: the 137-game feed plus eight then-observed Week 10 finals matched the 32 official standings rows on 160/160 core cells. It does not validate the later 149-result feed or current opponent-aware ratings. See A17 and the detailed audit.",
       "source_url": "https://www.nfl.com/standings/league/2026/REG",
       "status": "verified 2026-11-15"
+    },
+    {
+      "id": "A17",
+      "severity": "high",
+      "item": "Freshness gap as of 2026-11-17: 12 Week 10 Sunday games now have official Final scores and have been appended to the ledger results feed (149 final rows total). The pregame forecast and 2026-11-14 standings/ratings artifacts remain historical and have not been re-fit or reconciled to the current standings. Do not treat them as current ratings; see the dated diagnostic.",
+      "source_url": "https://www.nfl.com/standings/league/2026/REG",
+      "details_url": "../session-c38420f6/index.html",
+      "status": "needs review"
+    },
+    {
+      "id": "A18",
+      "severity": "high",
+      "item": "Week 10 LAC at BAL is unresolved in the official pages as fetched 2026-11-17: the score page and game center displayed a kickoff time but no Final label or final score, and the official standings showed LAC 0-8 / BAL 4-5. It is excluded from results and grading; no reason or score is inferred.",
+      "source_url": "https://www.nfl.com/scores/2026/week-10",
+      "details_url": "../session-c38420f6/index.html",
+      "status": "needs review"
+    },
+    {
+      "id": "A19",
+      "severity": "high",
+      "item": "Raw-source retention gap: the 2026-11-17 results update is a timestamped structured transcription with NFL URLs, but the fetch path did not retain raw HTTP response bytes or SHA-256 hashes. This is not yet an immutable, replayable source capture. Do not label it hash-verified.",
+      "source_url": "https://www.nfl.com/scores/2026/week-10",
+      "details_url": "../session-c38420f6/index.html",
+      "status": "needs review"
+    },
+    {
+      "id": "A20",
+      "severity": "high",
+      "item": "Independent market run_all.sh regression: its 2026-11-14 standings snapshot is compared by market/scripts/verify.py with the newly expanded 2026-11-17 results feed, so 99 standings/result checks fail from the mismatched capture dates. This is not evidence that the newly transcribed scores are wrong. The market workspace was not edited; its owner/integration needs a dated-feed update. The generated verification.json from the failed run was reverted.",
+      "source_url": "https://www.nfl.com/standings/league/2026/REG",
+      "details_url": "../session-c38420f6/index.html",
+      "status": "needs review"
     }
   ]
 }

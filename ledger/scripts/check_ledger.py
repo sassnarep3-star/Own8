@@ -3,7 +3,7 @@
     python3 ledger/scripts/check_ledger.py
 
 Checks:
-  1. Every data file parses and has the expected row counts (137 results, 39 markets, 13 lines, 14 strategies).
+  1. Every data file parses and has the expected row counts (149 results, 39 markets, 13 lines, 14 strategies).
   2. Every table row on every ledger page (except the navigation table) carries at least one link to an
      allowed official host, or the row is a flag whose sources are listed in its JSON record.
   3. Every internal link resolves to a file in the repository.
@@ -89,10 +89,38 @@ def host_of(url):
 def check_data():
     feed = load("data/results-feed.json")
     rows = feed["rows"]
-    if len(rows) == 137:
-        ok("results feed: 137 rows (136 verified log + 1 Thursday game)")
+    if len(rows) == 149 and feed["counts"].get("added_week10_finals") == 12:
+        ok("results feed: 149 final rows (136 verified log + 1 Thursday + 12 rechecked Sunday finals)")
     else:
-        fail("results feed row count %d != 137" % len(rows))
+        fail("results feed row count/addendum mismatch: %d rows, %s added W10 finals" % (
+            len(rows), feed["counts"].get("added_week10_finals")))
+    if len({r["key"] for r in rows}) == len(rows):
+        ok("results feed: all game keys unique")
+    else:
+        fail("results feed: duplicate game keys")
+    if len(feed.get("unresolved", [])) == 1 and feed["unresolved"][0].get("scores") is None:
+        ok("results feed: one W10 result unresolved, excluded without imputation")
+    else:
+        fail("results feed: unresolved W10 status missing or populated with an unverified score")
+    addendum = load("data/week10-results-addendum.json")
+    new_w10 = [r for r in rows if r.get("verified_at") == addendum.get("captured_at_utc")]
+    source_rows = {r["key"]: r for r in addendum.get("rows", [])}
+    addendum_ok = len(new_w10) == 12 and len(source_rows) == 12
+    for r in new_w10:
+        src = source_rows.get(r["key"])
+        if (not src or src.get("status") != "Final" or src.get("source_url") != "https://www.nfl.com/scores/2026/week-10"
+                or host_of(src.get("game_url", "")) != "www.nfl.com"
+                or r["away_score"] != src["away_score"] or r["home_score"] != src["home_score"]):
+            addendum_ok = False
+            fail("results feed: addendum/source mismatch for %s" % r["key"])
+    unresolved = addendum.get("unresolved", [])
+    if len(unresolved) != 1 or unresolved[0].get("scores") is not None:
+        addendum_ok = False
+        fail("results feed: unresolved source row missing or filled with a score")
+    if addendum_ok and all(r.get("verification_status") == "Final (official NFL score page + game center)" for r in new_w10):
+        ok("results feed: all 12 Week 10 additions match the timestamped NFL-linked Final addendum")
+    else:
+        fail("results feed: Week 10 additions missing timestamp, exact source match or final-status marker")
     bad = [r["key"] for r in rows if not r["arithmetic_ok"]]
     (ok if not bad else fail)("results feed arithmetic: %s" % ("all rows pass" if not bad else "failures %s" % bad))
     for r in rows:

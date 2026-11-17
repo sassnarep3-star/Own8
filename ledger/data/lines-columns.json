@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-14",
+  "generated": "2026-11-17",
   "description": "Fair (no-vig) Week 10 lines with three separate columns per market: FAIR (ours), MARKET (the verified locked FanDuel line from the nfl.com picks article) and DIFFERENCE (fair minus market).",
   "difference_rule": "difference = fair - market, one documented unit per market: side in home-margin points (fair_home_margin_S1 - market_home_margin), total in points, moneyline in de-vigged home-win probability. Computed only when BOTH values are present; otherwise blank.",
   "recompute_mismatches": [],

@@ -30,6 +30,7 @@ import demotion_gate  # noqa: E402
 
 W9_LOG = os.path.join(ROOT, "origination", "data", "games-2026-w1-w9.json")
 W10_LINES = os.path.join(ROOT, "origination", "results", "w10-lines.json")
+W10_RESULTS_ADDENDUM = os.path.join(LEDGER, "data", "week10-results-addendum.json")
 VALIDATION = os.path.join(ROOT, "origination", "results", "validation-w10.json")
 LEADERBOARD = os.path.join(ROOT, "origination", "results", "leaderboard-w10.json")
 PROBE = os.path.join(LEDGER, "data", "price-probe.json")
@@ -57,7 +58,7 @@ def american_to_p(odd):
     """Implied (no-vig) probability from an American moneyline odd."""
     return 100.0 / (100.0 + odd) if odd > 0 else -float(odd) / (100.0 - odd)
 
-GENERATED = "2026-11-14"
+GENERATED = "2026-11-17"
 SCORE_WEEKS = ["https://www.nfl.com/scores/2026/week-%d" % w for w in range(1, 10)]
 STANDINGS = "https://www.nfl.com/standings/league/2026/REG"
 SCHEDULE_W10 = "https://www.nfl.com/schedules/2026/by-week/week-10"
@@ -90,7 +91,7 @@ def weekday_of(iso):
 
 
 # ---------------------------------------------------------------- results feed
-def build_results_feed(log, w10):
+def build_results_feed(log, w10, addendum):
     rows, flags = [], []
     for g in log["games"]:
         key = "2026-W%02d-%s-%s" % (g["week"], g["away"], g["home"])
@@ -129,13 +130,36 @@ def build_results_feed(log, w10):
                               "winner_matches_score": True},
         "arithmetic_ok": True,
         "scope_note": "Thursday game already FINAL before origination. Re-read 2026-11-14 on %s: 'Thursday Night Football, November 12th', WAS 24 / NYG 21, 'Final'. Excluded from the 136-game log and from Week 10 lines." % SCORES_W10})
+    # Append only the Week 10 games whose score page AND game center were both re-read and
+    # explicitly showed a final score. The frozen forecast inputs remain untouched.
+    for g in addendum["rows"]:
+        # Store arithmetic from the official scores, not from a guessed outcome.
+        margin = g["home_score"] - g["away_score"]
+        total = g["away_score"] + g["home_score"]
+        winner = "NONE" if margin == 0 else (g["home"] if margin > 0 else g["away"])
+        checks = {
+            "margin_equals_score_difference": margin == g["home_score"] - g["away_score"],
+            "total_equals_score_sum": total == g["away_score"] + g["home_score"],
+            "winner_matches_score": winner == ("NONE" if margin == 0 else (g["home"] if margin > 0 else g["away"])),
+        }
+        rows.append({
+            "key": g["key"], "week": g["week"], "date": g["date"], "weekday": g["weekday"],
+            "heading_as_rendered": g["heading_as_rendered"], "away": g["away"], "home": g["home"],
+            "away_score": g["away_score"], "home_score": g["home_score"], "home_margin": margin,
+            "total": total, "winner": winner, "game_url": g["game_url"], "source_url": g["source_url"],
+            "verified_in_origination": False, "verification_status": "Final (official NFL score page + game center)",
+            "verified_at": addendum["captured_at_utc"], "arithmetic_checks": checks,
+            "arithmetic_ok": all(checks.values()),
+            "scope_note": "Week 10 final added from a fresh 2026-11-17 official scores + game-center re-read; not part of the frozen 136-game pregame log."})
     rows.sort(key=lambda r: (r["week"], r["date"], r["key"]))
     return {
         "generated": GENERATED,
-        "description": "Official final scores for every completed 2026 game in the repository (137 rows). The feed is the join key for backtests and ROI: once prices exist, join on 'key'.",
+        "description": "Official final scores in the repository: 136-game verified W1-W9 log, the completed Week 10 Thursday game, and 12 Week 10 finals individually re-read on 2026-11-17 (149 final rows total). The NFL Week 10 LAC at BAL row remained unresolved and is deliberately excluded.",
         "counts": {"games": len(rows), "from_verified_log": len(log["games"]),
-                   "added_thursday_week10": 1,
+                   "added_thursday_week10": 1, "added_week10_finals": len(addendum["rows"]),
+                   "week10_unresolved": len(addendum.get("unresolved", [])),
                    "arithmetic_failures": sum(1 for r in rows if not r["arithmetic_ok"])},
+        "unresolved": addendum.get("unresolved", []),
         "rows": rows,
     }, flags
 
@@ -472,7 +496,7 @@ def render_pages(feed, lines_doc, prices, reg, split, decisions, flags, probe):
 <div class='cards'>%s</div>
 <h2>What the ledger can and cannot do today</h2>
 <ul class='plain'>
-<li><b>Can:</b> record every official result (137 games), originate fair lines for the 13 unplayed Week 10 games, grade which strategies pass the pre-registered gates, and keep signal and staking apart.</li>
+<li><b>Can:</b> join the 149 currently recorded NFL final scores to forecasts and prices, including 12 Week 10 Sunday finals rechecked 2026-11-17; one W10 game remains unresolved and is excluded. The 13 Week 10 forecasts remain frozen pre-kickoff numbers, not live recommendations.</li>
 <li><b>Cannot:</b> record any opening or closing price. nfl.com publishes one locked FanDuel line per market (the price store now records it, correcting the earlier "no official line" claim, F-01/X3), but no official page publishes an opening or a closing value. Therefore no ROI, no closing-line value and no stake can be computed (<a href='price-store.html'>price store</a>, flag LF-01).</li>
 <li><b>Fails today:</b> the fair total fails validation (LF-02). Its values are shown, labelled UNVALIDATED.</li>
 </ul>
@@ -526,10 +550,15 @@ def render_pages(feed, lines_doc, prices, reg, split, decisions, flags, probe):
 <p class='lede'>%d official final scores. Join key: <code>key</code>. Arithmetic checks (margin, total, winner) pass on <b>%d of %d</b> rows.</p>
 <input id='q' class='search' placeholder='Filter by team, week or date' oninput='filt(this.value)'>
 %s
-<p class='note'>Score order is AWAY-HOME. Week 10 Thursday row is re-read from nfl.com on 2026-11-14 and is not in the 136-game verified log. Heading/weekday mismatch on W1 is kept as rendered and flagged.</p>
+<p class='note'>Score order is AWAY-HOME. The 136-game verified W1-W9 log and frozen pre-kickoff forecasts are unchanged. The feed appends the Week 10 Thursday final plus 12 Sunday finals checked 2026-11-17; the LAC at BAL result is unresolved and excluded, with no inferred score. Added rows are separately timestamped in <code>ledger/data/week10-results-addendum.json</code>. Heading/weekday mismatch on W1 is kept as rendered and flagged.</p>
 <script>function filt(v){v=v.toLowerCase();document.querySelectorAll('tbody tr').forEach(function(r){r.style.display=r.textContent.toLowerCase().indexOf(v)>-1?'':'none';});}</script>""" % (
         feed["counts"]["games"], feed["counts"]["games"] - feed["counts"]["arithmetic_failures"], feed["counts"]["games"],
         table(["Key", "Week", "Date", "Day", "Game", "Score (away-home)", "Home margin", "Winner", "Game page", "Source"], rows))
+    if feed.get("unresolved"):
+        for unresolved in feed["unresolved"]:
+            body += "<div class='callout'><b>Unresolved official result: %s</b><p>%s No score was imputed. Review the <a href='%s'>NFL scores page</a>, <a href='%s'>NFL game center</a>, and <a href='%s'>official standings</a>.</p></div>" % (
+                esc(unresolved["key"]), esc(unresolved["observation"]),
+                esc(unresolved["scores_page_url"]), esc(unresolved["game_url"]), esc(unresolved["standings_url"]))
     pages["results-feed.html"] = page("Results feed", "results-feed.html", body)
 
     # lines
@@ -658,13 +687,14 @@ footer{max-width:1200px;margin:24px auto;padding:0 20px;color:var(--mute);font-s
 def main():
     log = load(W9_LOG)
     w10 = load(W10_LINES)
+    w10_addendum = load(W10_RESULTS_ADDENDUM)
     val = load(VALIDATION)
     probe = load(PROBE)
     rules = load(RULES)
     mkt, mkt_url, mkt_lock = load_market_prices(MARKET_PRICES)
     raw_w9, raw_w10 = load(MARKET_PRICES_W9), load(MARKET_PRICES)
 
-    feed, feed_flags = build_results_feed(log, w10)
+    feed, feed_flags = build_results_feed(log, w10, w10_addendum)
     lines_doc, line_flags = build_lines(w10, mkt)
     prices, price_flags = build_prices(lines_doc, probe, mkt, mkt_lock, [raw_w9, raw_w10])
     reg, reg_flags = build_registry(val, rules)
@@ -697,6 +727,14 @@ def main():
          "detail": "The Holm adjustment in origination runs across the 12 scored strategies only, while M1 and M2 (not scored) are excluded from the family. Holm across a family of 12 is the stated design; the family definition is a choice and is not reviewed here.",
          "source_urls": ["https://www.itl.nist.gov/div898/handbook/prc/section4/prc473.htm"],
          "treatment": "Recorded for review. No change made."},
+        {"id": "LF-12", "kind": "WEEK 10 LAC AT BAL RESULT UNRESOLVED",
+         "detail": "On the 2026-11-17 re-read, the NFL Week 10 scores page and Chargers-at-Ravens Game Center showed a Nov 16 8:15 PM kickoff but no Final label or final score; the standings page still showed LAC 0-8 and BAL 4-5. This game is not in the results feed and is excluded from the Week 10 diagnostic. Do not infer a score, postponement, cancellation, or reason from the page output.",
+         "source_urls": ["https://www.nfl.com/scores/2026/week-10", "https://www.nfl.com/games/chargers-at-ravens-2026-reg-10", "https://www.nfl.com/standings/league/2026/REG"],
+         "treatment": "Unresolved; leave score blank until an official final result is observed."},
+        {"id": "LF-13", "kind": "RAW SOURCE BYTES AND HASH NOT RETAINED",
+         "detail": "The Week 10 result addendum is a timestamped structured transcription from official NFL pages. The fetch tool did not retain raw HTTP response bytes, so no SHA-256 is available and this capture is not hash-verified or immutable.",
+         "source_urls": ["https://www.nfl.com/scores/2026/week-10"],
+         "treatment": "Publish the limitation; implement a controlled raw-body retention and hashing mechanism before claiming immutable snapshots."},
     ]
     flags = feed_flags + line_flags + price_flags + reg_flags + fixed
     dump(os.path.join(LEDGER, "data", "flags.json"), {"generated": GENERATED,
