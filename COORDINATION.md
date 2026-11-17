@@ -1257,3 +1257,14 @@ Pages `built` after every merge; `/market/` and each changed page re-fetched and
 **Live:** https://sassnarep3-star.github.io/Own8/market/
 
 **Still open for their owners:** X1 (root nav link to `market/index.html`), X3 (ledger price store still asserts no official price exists — F-01), F-07 (injury-report shape, requirements owner), and every one of the 12 suggestions, which are decisions rather than code.
+
+## Session c38420f6 — final integration follow-up: fresh Week 10 official result reconciliation and stale-publication flags (claimed 2026-11-17 UTC)
+
+Branch: `arena/c38420f6-own8` (Arena-pinned; no alternate branch/worktree created). The board and current main history were inspected before claiming. Existing open PRs #6/#8/#16/#28/#31/#32 are unrelated legacy submissions and remain untouched. The prior integration work landed in PR #69; this claim is a new additive freshness/reconciliation pass, not a duplicate of those tasks.
+
+| ID | Task | Status | Owner | Files (scope) | Verification plan |
+| --- | --- | --- | --- | --- | --- |
+| C1 | Re-read official NFL Week 10 scoreboard and standings as of 2026-11-17; record only games whose official scoreboard explicitly says Final; preserve the still-not-final game as unresolved; reconcile / expose stale 2026-11-14 publication surfaces without changing the frozen pre-kickoff forecast inputs | in progress | c38420f6 (`arena/c38420f6-own8`) | `session-c38420f6/**`; `ledger/data/week10-results-addendum.json`; additive ledger results-feed builder/checker and regenerated `ledger/**`; root `data/flagged.json` + generated `pages/flagged.html`; `README.md`; this section only | Each score row links both the NFL Week 10 scores page and its NFL game center; exact Final status checked; no inference for the outstanding game; arithmetic and feed tests; root link/publication checks; build and GitHub Pages release QA |
+| C2 | Fresh-build and release integration; report CI/deploy and scope limitations | blocked by C1 | c38420f6 | `COORDINATION.md` only for release record | All applicable checkers green; explicit unresolved items recorded; PR/merge only if build and checks pass |
+
+Claim is limited to additive Week 10 results and freshness warnings. The pre-kickoff model, old injury report, and previous point-in-time snapshots will remain immutable; downstream claims will be labeled stale or historical unless separately refreshed from an official source. No other active owner was listed for this additive release integration. The branch name is Arena-pinned and is not changed.
