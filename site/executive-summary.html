@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Executive summary · Own8 NFL research</title>
+<link rel="stylesheet" href="assets/site.css">
+</head><body>
+<header class="top"><a class="brand" href="index.html">Own8 · NFL research</a>
+<span class="stamp">Official pages read 2026-11-17 · paper research only</span></header>
+<div class="wrap">
+<aside class="side"><div class="cat"><div class="cat-h">Overview</div><a href="index.html">Overview</a><a href="executive-summary.html" aria-current="page">Executive summary</a></div><div class="cat"><div class="cat-h">Data (official)</div><a href="data-standings.html">Standings</a><a href="data-results.html">Results</a><a href="data-schedule.html">Schedule &amp; venues</a><a href="data-injuries.html">Injuries</a><a href="data-depth.html">Depth &amp; availability</a></div><div class="cat"><div class="cat-h">Models &amp; lines</div><a href="data-lines.html">Lines vs market</a><a href="strategies.html">Strategies</a><a href="correlations.html">Correlations</a></div><div class="cat"><div class="cat-h">Decisions</div><a href="requirements.html">Requirements</a><a href="questions.html">Questions</a><a href="suggestions.html">Suggestions</a></div><div class="cat"><div class="cat-h">Review</div><a href="repo-review.html">Repo review</a><a href="sources.html">Sources</a><a href="flagged.html">Flagged for review</a></div></aside>
+<main>
+<h1>Executive summary</h1>
+
+
+<p class="lead">Status on 2026-11-17. The official data we can read reconciles. A forecasting edge is not established. The depth and availability layer cannot be built yet, because no official depth-order source is verified.</p>
+<h2>1. What is verified</h2>
+<ul>
+<li>The 32 official standings reconcile to the repo's 136-game log plus 13 Week 10 finals: 160 of 160 cells match (<a href="https://www.nfl.com/standings/league/2026/REG">nfl.com standings</a>).</li>
+<li>13 of 14 Week 10 games are final on nfl.com as read. The Monday game (Chargers at Ravens) is not, so it is excluded and flagged (F-04).</li>
+<li>Week 11 has 13 games and 6 byes. Thursday's Colts at Texans venue is Reliant Stadium, Houston (<a href="https://www.nfl.com/schedules/2026/by-week/week-11">schedule</a>; <a href="https://www.nfl.com/games/colts-at-texans-2026-reg-11?tab=overview">game centre</a>). Venues for the other 12 games are not verified.</li>
+<li>Lions designations: Kerby Joseph, Cade Mays and D.J. Reed are all Out on the Week 10 report (<a href="https://www.nfl.com/injuries/league/2026/reg10">injury report</a>, F-15).</li>
+</ul>
+<h2>2. What the model does, and how it did</h2>
+<ul>
+<li>The shadow baseline (B0) uses team strength only: points for and against per game, no injuries, no depth, no venue. Its formula reproduces all 13 stored Week 10 values (F-02).</li>
+<li>Week 10, 12 settled games: spread error 11.12 points (model) vs 11.21 (market). Total error 10.18 vs 8.83; the market is better here. Moneyline Brier 0.173 vs 0.168 (market). Every model-minus-market interval includes zero. Twelve games are not evidence in either direction.</li>
+<li>Week 11 fair lines were written in commit beca9d2 from the standings snapshot taken before Monday's game. They are <b>provisional</b>, have no market column, and will be re-originated once Monday is verified final (F-23).</li>
+</ul>
+<h2>3. Strategies and the leaderboard</h2>
+<ul>
+<li>The registry has 14 strategies. Four (S6, S1, S7, S2) pass the pre-registered gates on the W3 to W9 walk-forward backtest, which compares against naive baselines, not the market, and nothing has settled prospectively. Under your rule (no backtest numbers on the leaderboard) they are <b>not</b> ranked here. The conflict with the README's "zero eligible" is flagged (F-01); the ruling is S-02.</li>
+<li>Parlays and prop combinations stay behind the joint-evidence gate. None can be ranked: there are no official joint or prop prices (M1 and M2 not scored).</li>
+</ul>
+<h2>4. What blocks the rest</h2>
+<ul>
+<li><b>Depth order.</b> The Houston depth-chart page returns 404 today. Without an official per-club depth source or official snap counts, no starter or backup can be identified (R-22, R-23).</li>
+<li><b>Injury history.</b> Only page 1 of the Week 10 report was re-read, and earlier captures disagree on row counts. Designations cannot be treated as a time series until they are captured on a schedule (F-05).</li>
+<li><b>Price history.</b> No official opening or closing series was found. The locked Thursday lines are the only price points, and 12 of the 14 Week 10 market rows are not re-verified (F-12, Q-01).</li>
+<li><b>Rights.</b> Whether nfl.com-derived tables can be republished is unread (Q-10).</li>
+</ul>
+<h2>5. Requirement status</h2>
+<p>PARTIAL: 21, BLOCKED: 18, NOT STARTED: 17, DONE: 16, REJECTED: 2, NOT POSSIBLE AS STATED: 2, DECISION NEEDED: 2, NOT DONE: 1, PENDING: 1. Full table: <a href="requirements.html">requirements</a>.</p>
+<h2>6. Your decisions</h2>
+<p>Ten suggestions await a choice on <a href="suggestions.html">the suggestions page</a>. The most urgent are the price-data policy (S-01), the leaderboard ruling (S-02), the depth source (S-03) and the snapshot store and alerts (S-04). Nothing has been implemented from them.</p>
+<h2>7. Irregularities</h2>
+<p><a href="flagged.html">Flagged for review</a> lists every open item, including the registry conflict (F-01), the method-text mismatch (F-02), the picks-article labels (F-03), the injury-count conflict (F-05) and the provisional Week 11 lines (F-23).</p>
+
+</main></div>
+<footer>No real-money betting, stakes, or rewards. Paper research only. Model outputs are derived calculations, not official NFL data, and are labelled as such. Empty cells are unverified and are flagged. <a href="flagged.html">Flagged for review</a> lists every open item.</footer>
+<script src="assets/site.js"></script>
+</body></html>

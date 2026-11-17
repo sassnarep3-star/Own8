@@ -1,0 +1,117 @@
+{
+ "as_of": "2026-11-17",
+ "rows": [
+  {
+   "id": "RR-01",
+   "item": "Root landing page",
+   "finding": "index.html was a 14 Nov snapshot ('Snapshot \u00b7 14 NOV 2026') with links to 15 parallel namespaces.",
+   "action": "Replaced with a redirect to site/index.html (this session).",
+   "file": "index.html",
+   "flag": "F-09"
+  },
+  {
+   "id": "RR-02",
+   "item": "Conflicting leaderboard status",
+   "finding": "ledger registry: 4 PAPER-ELIGIBLE; root README: 0 eligible.",
+   "action": "Flagged; shown as NOT ELIGIBLE pending ruling.",
+   "file": "ledger/data/strategy-registry.json; README.md",
+   "flag": "F-01"
+  },
+  {
+   "id": "RR-03",
+   "item": "Method text vs formula",
+   "finding": "B0 written method has an asymmetric away projection; stored values use the symmetric form.",
+   "action": "Verified and recorded (F-02); text not yet edited (it is an inherited file).",
+   "file": "requirements/results/week10-lines.json",
+   "flag": "F-02"
+  },
+  {
+   "id": "RR-04",
+   "item": "Injury row counts",
+   "finding": "Five Week 10 captures; counts disagree.",
+   "action": "Open (F-05).",
+   "file": "see F-05",
+   "flag": "F-05"
+  },
+  {
+   "id": "RR-05",
+   "item": "Team codes",
+   "finding": "ARI/AZ and LA/LAR used inconsistently across files.",
+   "action": "Open (F-08).",
+   "file": "see F-08",
+   "flag": "F-08"
+  },
+  {
+   "id": "RR-06",
+   "item": "Correlation significance",
+   "finding": "C2 labelled significant; not Holm-significant across nine tests.",
+   "action": "Stated on correlations.html (F-13).",
+   "file": "origination/results/correlations.json",
+   "flag": "F-13"
+  },
+  {
+   "id": "RR-07",
+   "item": "CI runs a site build on each push and daily",
+   "finding": "audit.yml runs scripts/build_site.py on push and daily (cron 17 8 * * *). Whether it writes root index.html was not re-checked this session.",
+   "action": "Read the workflow before relying on root index.html staying a redirect.",
+   "file": ".github/workflows/audit.yml",
+   "flag": "\u2014"
+  },
+  {
+   "id": "RR-08",
+   "item": "Namespace count",
+   "finding": "597 files outside archive/, 204 HTML pages, 15 parallel namespaces linked from the root page.",
+   "action": "Consolidation suggested (S-10).",
+   "file": "repo tree",
+   "flag": "F-09"
+  },
+  {
+   "id": "RR-09",
+   "item": "Duplicate evidence-lab copies",
+   "finding": "evidence-lab/ and docs/evidence-lab/ both exist.",
+   "action": "Open; not compared line by line.",
+   "file": "evidence-lab/; docs/evidence-lab/",
+   "flag": "\u2014"
+  },
+  {
+   "id": "RR-10",
+   "item": "Coordination board size",
+   "finding": "COORDINATION.md is 1,270 lines and holds 28 session sections, many with stale claims.",
+   "action": "Open (F-10).",
+   "file": "COORDINATION.md",
+   "flag": "F-10"
+  },
+  {
+   "id": "RR-11",
+   "item": "Untraceable identifiers",
+   "finding": "VR-xx and VQ-xx identifiers in the brief are not in the repo.",
+   "action": "Open (F-16).",
+   "file": "repository search",
+   "flag": "F-16"
+  },
+  {
+   "id": "RR-12",
+   "item": "Picks article labels",
+   "finding": "'Incorrect pick' labels on five Lions picks contradict the scores page.",
+   "action": "Open (F-03).",
+   "file": "nfl.com picks article",
+   "flag": "F-03"
+  },
+  {
+   "id": "RR-13",
+   "item": "Pages build",
+   "finding": "Pages is built from main, root folder (legacy). Whether _config.yml excludes site/ was not checked this session.",
+   "action": "Check _config.yml before relying on site/ being published.",
+   "file": "_config.yml",
+   "flag": "\u2014"
+  },
+  {
+   "id": "RR-14",
+   "item": "Unreviewed bulk",
+   "finding": "Inherited pages and data (root pages/, docs/, desk/, hub/, market/, signals/, integration/, decision*/) not re-verified this session.",
+   "action": "Stated limit (R-66).",
+   "file": "see paths",
+   "flag": "\u2014"
+  }
+ ]
+}

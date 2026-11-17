@@ -172,6 +172,23 @@ def originate_w11(stand):
     return out
 
 
+def reconcile():
+    """Rebuild every team's W, L, T, PF, PA from the W1-W9 log + Week 10 finals; compare with standings."""
+    log = load("origination/data/games-2026-w1-w9.json")["games"]
+    fin = load("site/data/week10-results.json")["finals"]
+    st = {r["team"]: r for r in load("site/data/standings-2026-11-17.json")["rows"]}
+    rec = {t: dict(W=0, L=0, T=0, PF=0, PA=0) for t in st}
+    games = [(g["away"], g["away_score"], g["home"], g["home_score"]) for g in log + fin]
+    for a, ap, h, hp in games:
+        for t, p, o in ((a, ap, hp), (h, hp, ap)):
+            rec[t]["PF"] += p; rec[t]["PA"] += o
+            if p > o: rec[t]["W"] += 1
+            elif p < o: rec[t]["L"] += 1
+            else: rec[t]["T"] += 1
+    mism = [(t, k, rec[t][k], st[t][k]) for t in st for k in ("W", "L", "T", "PF", "PA") if rec[t][k] != st[t][k]]
+    return dict(games=len(games), cells=len(st) * 5, mismatches=mism)
+
+
 if __name__ == "__main__":
     pre = pre_w10_totals()
     bad, n = check_b0(pre)

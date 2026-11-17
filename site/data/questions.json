@@ -1,0 +1,165 @@
+{
+ "as_of": "2026-11-17",
+ "rows": [
+  {
+   "id": "Q-01",
+   "question": "Does any official source publish opening and closing prices for each market?",
+   "have": "Locked Thursday 2 PM ET nfl.com picks-article lines (FanDuel), 87 snapshots W9 to W10",
+   "lack": "No open or close series located",
+   "how_to_answer": "Check nfl.com picks articles over time; decide licensed-feed option (S-01)",
+   "blocks": "R-60, R-59"
+  },
+  {
+   "id": "Q-02",
+   "question": "Which official source gives depth order for all 32 clubs?",
+   "have": "One club's depth page probed: 404 (2026-11-17)",
+   "lack": "Any verified per-club depth page; any authorised structured feed",
+   "how_to_answer": "Probe all 32 club depth routes; ask the operator whether an authorised feed can be licensed (S-03)",
+   "blocks": "R-22, R-23, R-27"
+  },
+  {
+   "id": "Q-03",
+   "question": "Does an official snap-count source exist, for all 32 clubs?",
+   "have": "Nothing captured",
+   "lack": "Source, format and coverage unknown",
+   "how_to_answer": "Locate the official snap-count page; verify 32 clubs (route b)",
+   "blocks": "R-13, R-23, R-26"
+  },
+  {
+   "id": "Q-04",
+   "question": "Do designations change game outcomes or play rates?",
+   "have": "2026 Week 10 report only",
+   "lack": "Archived reports and inactive lists for past seasons",
+   "how_to_answer": "Feasibility probe for an archive of past weekly reports (S-08)",
+   "blocks": "R-15, R-16, R-17"
+  },
+  {
+   "id": "Q-05",
+   "question": "Is the Week 10 Monday game final?",
+   "have": "nfl.com pages as read show no score",
+   "lack": "A final score on nfl.com",
+   "how_to_answer": "Re-read the scores page after the operator confirms; this moves 12 graded games to 13 and changes W11 inputs (F-04)",
+   "blocks": "R-01, R-03"
+  },
+  {
+   "id": "Q-06",
+   "question": "What is the correct Week 10 injury row count?",
+   "have": "Five captures with different counts (F-05)",
+   "lack": "One complete 8-page capture reconciled to one count",
+   "how_to_answer": "Full re-capture of reg10 (8 pages), hashed and dated",
+   "blocks": "R-04"
+  },
+  {
+   "id": "Q-07",
+   "question": "What do the Week 11 injury designations say?",
+   "have": "Not yet published as read on 2026-11-17",
+   "lack": "Week 11 report content",
+   "how_to_answer": "Re-read Wed 18, Thu 19 and Fri 20 Nov, with fetch times",
+   "blocks": "R-06"
+  },
+  {
+   "id": "Q-08",
+   "question": "May backtest-gate passes appear on the leaderboard?",
+   "have": "Four strategies pass G1 to G8 on a walk-forward backtest (n=104 game-evaluations, W3 to W9)",
+   "lack": "Operator ruling on the rule 'backtest numbers never appear on the leaderboard'",
+   "how_to_answer": "Operator decision (S-02)",
+   "blocks": "R-52"
+  },
+  {
+   "id": "Q-09",
+   "question": "Does the model beat the market, with enough sample to say so?",
+   "have": "Week 10, 12 games: no significant difference in spread or moneyline error (site/data-lines.html)",
+   "lack": "Prospective sample of about 80 singles games (the repo's own G3 threshold)",
+   "how_to_answer": "Keep locking lines each week (S-07); no conclusion before the sample size",
+   "blocks": "R-42, R-58, R-59"
+  },
+  {
+   "id": "Q-10",
+   "question": "Can nfl.com-derived standings, scores and prices be republished?",
+   "have": "Pages are public; terms not read in this session",
+   "lack": "nfl.com terms of use reading and an operator ruling",
+   "how_to_answer": "Read nfl.com terms (operator or counsel); then decide S-05",
+   "blocks": "R-68"
+  },
+  {
+   "id": "Q-11",
+   "question": "What is the reward for a top-performing strategy?",
+   "have": "Repo policy: paper points only, none awarded",
+   "lack": "An operator-defined reward",
+   "how_to_answer": "Operator definition (S-09)",
+   "blocks": "R-64"
+  },
+  {
+   "id": "Q-12",
+   "question": "Where should immutable snapshots live, and who gets alerts?",
+   "have": "Git only (this repo)",
+   "lack": "A durable store and an alert channel",
+   "how_to_answer": "Operator choice (S-04)",
+   "blocks": "R-69, R-08"
+  },
+  {
+   "id": "Q-13",
+   "question": "Which seasons form train, validation and holdout?",
+   "have": "2026 only in the repo",
+   "lack": "Earlier seasons, archived",
+   "how_to_answer": "Archive capture decision (S-08)",
+   "blocks": "R-47"
+  },
+  {
+   "id": "Q-14",
+   "question": "Which official page defines an 'announced starter'?",
+   "have": "None identified",
+   "lack": "An official page that names starters for each game",
+   "how_to_answer": "Identify the page; capture it with a timestamp",
+   "blocks": "R-30"
+  },
+  {
+   "id": "Q-15",
+   "question": "What do the VR-xx and VQ-xx identifiers in the brief refer to?",
+   "have": "Only VR-08 and VR-12 found in earlier repo registers; the other 14 cited identifiers are not in the repo (grep, 2026-11-17)",
+   "lack": "The source document for those identifiers",
+   "how_to_answer": "Operator to supply the document or confirm they can be dropped",
+   "blocks": "R-30, R-31"
+  },
+  {
+   "id": "Q-16",
+   "question": "What are the venues of the remaining Week 11 games?",
+   "have": "1 of 13 verified (IND@HOU)",
+   "lack": "Game-centre venue for each of 12 games",
+   "how_to_answer": "Read each game-centre page (one fetch per game)",
+   "blocks": "R-18"
+  },
+  {
+   "id": "Q-17",
+   "question": "Do trades and releases change depth rows?",
+   "have": "Brief cites a Colts trade and a Ravens QB situation; not verified in this session",
+   "lack": "Official transactions records dated to each change",
+   "how_to_answer": "Capture nfl.com transactions with dates; reconcile to depth rows",
+   "blocks": "R-32, R-31"
+  },
+  {
+   "id": "Q-18",
+   "question": "Which onside-kick rule regime applies for 2026?",
+   "have": "None captured",
+   "lack": "Official rule text and any declared regime",
+   "how_to_answer": "Official rules capture (NFL rule book), dated",
+   "blocks": "R-49"
+  },
+  {
+   "id": "Q-19",
+   "question": "Does a 2-point gap between two totals estimators matter?",
+   "have": "Week 10 B0 vs repo S4/S5 estimators (origination file)",
+   "lack": "Walk-forward comparison result that picks one",
+   "how_to_answer": "Run the walk-forward comparison once more games settle",
+   "blocks": "R-45"
+  },
+  {
+   "id": "Q-20",
+   "question": "Is the B0 team-strength baseline acceptable before the 32-team sweep?",
+   "have": "B0 is team-strength only",
+   "lack": "An operator ruling and the sweep result",
+   "how_to_answer": "Operator decision after the sweep (S-06)",
+   "blocks": "R-35"
+  }
+ ]
+}
