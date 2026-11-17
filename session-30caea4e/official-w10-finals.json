@@ -1,0 +1,40 @@
+{
+  "captured_utc": "2026-11-17",
+  "method": "fetch_page of nfl.com (3 chunks) on https://www.nfl.com/scores/2026/week-10. Each score is the number printed in the team block; the game_url is the 'View X game' link printed on the same page. Away team is listed first, as on the page.",
+  "source_urls": {
+    "scores_week_10": "https://www.nfl.com/scores/2026/week-10",
+    "standings": "https://www.nfl.com/standings/"
+  },
+  "finals": [
+    {"week": 10, "date": "2026-11-12", "away": "WAS", "away_score": 24, "home": "NYG", "home_score": 21, "status_printed": "Final", "game_url": "https://www.nfl.com/games/commanders-at-giants-2026-reg-10", "note": "Thursday Night Football; already in ledger/data/results-feed.json"},
+    {"week": 10, "date": "2026-11-15", "away": "NE", "away_score": 10, "home": "DET", "home_score": 35, "status_printed": "Final", "game_url": "https://www.nfl.com/games/patriots-at-lions-2026-reg-10", "note": "International game (Munich), printed under Sunday, November 15th, International Game"},
+    {"week": 10, "date": "2026-11-15", "away": "KC", "away_score": 35, "home": "ATL", "home_score": 13, "status_printed": "Final", "game_url": "https://www.nfl.com/games/chiefs-at-falcons-2026-reg-10"},
+    {"week": 10, "date": "2026-11-15", "away": "HOU", "away_score": 24, "home": "CLE", "home_score": 27, "status_printed": "Final", "game_url": "https://www.nfl.com/games/texans-at-browns-2026-reg-10"},
+    {"week": 10, "date": "2026-11-15", "away": "MIN", "away_score": 30, "home": "GB", "home_score": 10, "status_printed": "Final", "game_url": "https://www.nfl.com/games/vikings-at-packers-2026-reg-10"},
+    {"week": 10, "date": "2026-11-15", "away": "MIA", "away_score": 22, "home": "IND", "home_score": 24, "status_printed": "Final", "game_url": "https://www.nfl.com/games/dolphins-at-colts-2026-reg-10"},
+    {"week": 10, "date": "2026-11-15", "away": "CAR", "away_score": 20, "home": "NO", "home_score": 17, "status_printed": "Final", "game_url": "https://www.nfl.com/games/panthers-at-saints-2026-reg-10"},
+    {"week": 10, "date": "2026-11-15", "away": "BUF", "away_score": 31, "home": "NYJ", "home_score": 12, "status_printed": "Final", "game_url": "https://www.nfl.com/games/bills-at-jets-2026-reg-10"},
+    {"week": 10, "date": "2026-11-15", "away": "JAX", "away_score": 40, "home": "TEN", "home_score": 23, "status_printed": "Final", "game_url": "https://www.nfl.com/games/jaguars-at-titans-2026-reg-10"},
+    {"week": 10, "date": "2026-11-15", "away": "LA", "away_score": 34, "home": "AZ", "home_score": 6, "status_printed": "Final", "game_url": "https://www.nfl.com/games/rams-at-cardinals-2026-reg-10"},
+    {"week": 10, "date": "2026-11-15", "away": "SEA", "away_score": 21, "home": "LV", "home_score": 13, "status_printed": "Final", "game_url": "https://www.nfl.com/games/seahawks-at-raiders-2026-reg-10"},
+    {"week": 10, "date": "2026-11-15", "away": "SF", "away_score": 46, "home": "DAL", "home_score": 40, "status_printed": "Final", "game_url": "https://www.nfl.com/games/49ers-at-cowboys-2026-reg-10"},
+    {"week": 10, "date": "2026-11-15", "away": "PIT", "away_score": 18, "home": "CIN", "home_score": 38, "status_printed": "Final", "game_url": "https://www.nfl.com/games/steelers-at-bengals-2026-reg-10", "note": "Sunday Night Football"}
+  ],
+  "not_final_on_read": [
+    {"week": 10, "date": "2026-11-16", "away": "LAC", "home": "BAL", "game_url": "https://www.nfl.com/games/chargers-at-ravens-2026-reg-10", "status_printed": "no score printed; Game Center shows 'Nov 16 8:15PM'; scores page lists it with records 0-8 and 4-5 (pre-game)", "reason": "Not verifiable as final from the official pages read; left unverified"}
+  ],
+  "official_standings": {
+    "source": "https://www.nfl.com/standings/ (Division view, 2 chunks read)",
+    "columns": "W, L, T, PF, PA, NET PTS",
+    "rows": {
+      "BUF": [8,1,0,287,199], "NE": [5,5,0,221,242], "NYJ": [2,8,0,194,254], "MIA": [1,8,0,148,224],
+      "CIN": [7,2,0,278,193], "PIT": [6,3,0,198,182], "CLE": [6,4,0,188,220], "BAL": [4,5,0,189,236],
+      "JAX": [7,2,0,269,144], "HOU": [3,6,0,233,219], "IND": [3,7,0,208,271], "TEN": [1,8,0,167,239],
+      "KC": [7,2,0,237,156], "DEN": [7,2,0,198,186], "LV": [4,6,0,251,289], "LAC": [0,8,0,121,219],
+      "NYG": [5,3,1,203,196], "DAL": [4,6,0,286,282], "WAS": [3,5,1,196,223], "PHI": [2,7,0,148,221],
+      "DET": [7,2,0,257,199], "MIN": [7,2,0,176,126], "CHI": [7,2,0,241,184], "GB": [6,4,0,226,221],
+      "CAR": [4,5,0,219,236], "TB": [3,6,0,202,178], "NO": [3,6,0,202,236], "ATL": [3,7,0,201,258],
+      "SF": [8,1,0,281,196], "SEA": [6,4,0,223,175], "LA": [6,4,0,248,187], "AZ": [3,7,0,184,289]
+    }
+  }
+}
