@@ -1281,3 +1281,62 @@ Pages `built` after every merge; `/market/` and each changed page re-fetched and
 **Live:** https://sassnarep3-star.github.io/Own8/market/
 
 **Still open for their owners:** X1 (root nav link to `market/index.html`), X3 (ledger price store still asserts no official price exists — F-01), F-07 (injury-report shape, requirements owner), and every one of the 12 suggestions, which are decisions rather than code.
+
+## Session 532b7aeb — final verification replay, publication-surface confirmation, and integration record (claimed 2026-11-17 UTC; base main @ ef3a1a8 = current branch HEAD)
+
+Branch: `arena/532b7aeb-own8` (Arena-pinned; all work on this branch). Read the full board before acting. Board state read end to end on 2026-11-17: every integration round through #69 (round 5, 2026-11-15) is merged to main; this branch is at main HEAD. No active parallel claim exists. Open PRs #6/#8/#16/#28/#31/#32 (Nov 4, superseded namespaces) remain untouched per policy A14.
+
+**Scope:** the root publication surface only — `scripts/build_site.py`, `scripts/check_links.py`, `scripts/audit_publication.py`, `scripts/audit_repo.py`, `scripts/analyze.py`, `index.html`, `pages/**`, `assets/**`, `data/**`, `analysis/**`, `README.md`, and this section of COORDINATION.md. Work is a verification replay plus the suggestions/questions/executive-summary confirmation described below; **no feature files are changed**. All feature namespaces (`ledger/**`, `origination/**`, `requirements/**`, `signals/**`, `market/**`, `desk/**`, `strict/**`, `hub/**`, `review/**`, `suggestions/**`, `decision/**`, `decision-review/**`, `integration/**`, `correlation-audit/**`, `audit/**`, `evidence-lab/**`, `archive/**`) are read-only inputs; findings about them are published as review items, never edits.
+
+**Network boundary for this session:** sandbox outbound network is limited to github.com, api.github.com, codeload.github.com, registry.npmjs.org, pypi.org, files.pythonhosted.org, so no live nfl.com/nextgenstats retrieval was possible today. All published values therefore trace to stored official captures (URL + fetch timestamp retained from sessions 2026-11-14/15). No new official value is asserted and nothing is inferred; anything not re-confirmable stays blank and flagged. All checkers are offline-by-design: they validate local links/anchors, per-row official references, HTTPS + approved-host policy, and internal arithmetic only.
+
+| ID | Task | Status | Owner | Files (scope) | Verification plan |
+| --- | --- | --- | --- | --- | --- |
+| V0 | Board claim (this section) + claim commit pushed before any other work | done | 532b7aeb | COORDINATION.md (this section) | Claim commit pushed first |
+| V1 | Full verification replay on the integrated tree (root suite: audit_repo, analyze, test_audit, build_site, check_links, audit_publication; requirements check_req; ledger check_ledger; origination check_links; decision-review check; desk check_links; signals check_signals; market run_all; correlation-audit build/recompute/spotcheck/tests; integration build/check/verify_fresh; hub build/check; suggestions build/check) | done — all 20 checker families green, 0 failures | 532b7aeb | COORDINATION.md (results recorded below) | every checker exit code recorded; pre-existing exceptions unchanged: evidence-lab/check.py (IR-2d40-01, archive targets), desk/scripts/audit.py pins base 7c2f545 (partial-clone limitation; CI full-clone desk workflow passed) |
+| V2 | Line-by-line review / irregularity sweep: every published table row carries an official source link; tracked-file inventory; no new irregularities introduced | done | 532b7aeb | data/flagged.json, analysis/link-check.json, analysis/repo-audit.json, analysis/audit-inventory.json | check_links 0 errors; check_req 683/683 rows officially linked; no tracked .pyc or bytecode files; no new findings |
+| V3 | Suggestions review section confirmed: a dedicated section where a reviewer can choose the best path before any change is implemented | done | 532b7aeb | pages/suggestions.html, requirements/pages/suggestions.html | 16 root suggestions (S-01..S-05 visible register) and 16 requirements suggestions (SG-01..SG-16); every row carries rationale, cost, risk, evidence path, recommended option and a decision field = UNDECIDED awaiting operator choice; none implemented without review + gate passage |
+| V4 | Questions / information held / information missing register confirmed: clear list of what must be answered before any decision | done | 532b7aeb | pages/decisions.html, requirements/pages/questions.html | 22 questions Q-01..Q-22 with states (12 ANSWERED, 2 IMPOSSIBLE, 1 PARTIAL, 7 OPEN), information held vs missing, discovery path, blocking decision, official source link each |
+| V5 | Executive summary confirmed | done | 532b7aeb | README.md, pages/executive-summary.html, requirements/pages/executive-summary.html | current snapshot as of 2026-11-14; 0 eligible strategies, no edge claimed, luck not removable; no new numbers asserted in this session |
+| V6 | PR to main, merge without waiting, GitHub Pages confirmation, live re-fetch, final record | done — PR #71 https://github.com/sassnarep3-star/Own8/pull/71 merged as `897184b` without waiting; Pages API `status: built`, `error: null`; live re-fetch of https://sassnarep3-star.github.io/Own8/ confirms the landing page serves the 16-row decision-readiness table with an official source link on every table row | 532b7aeb | COORDINATION.md (this section) | CI green on PR (audit + independent-desk jobs success); `gh pr merge 71 --merge`; Pages API `built`; live pages re-fetched |
+
+Verification results (2026-11-17, offline checkers, no nfl.com re-fetch):
+
+- `scripts/audit_repo.py`: PASS — 256 standings field comparisons, 0 mismatches; 471 inherited entries inventoried
+- `scripts/analyze.py`: PASS — 14 B0 benchmarks, 7 correlation rows, 0 eligible strategies, 0 candidates
+- `python -m unittest discover -s scripts -p 'test_audit.py'`: OK — 18 tests
+- `scripts/build_site.py`: PASS — audited root dashboard + category pages + legacy docs redirects
+- `scripts/check_links.py`: PASS — 40 pages, 3119 links, 2251 table rows, 0 errors (every table row carries an official reference; external HTTP liveness not asserted by design)
+- `scripts/audit_publication.py`: PASS — 61 active HTML files, 1257 local URLs, no excluded targets
+- `requirements/scripts/check_req.py`: PASS — 18 pages, 1101 links, 683 rows, 683/683 officially linked; 16 requirements, 16 suggestions, 22 questions; 57 capture checks, 0 failures
+- `ledger/scripts/check_ledger.py`: PASS — 25/25; price store 39 markets (13 games × side/total/moneyline), opening/closing = 0 recorded (fail-closed, each requires an official URL), 39/39 markets carry a verified locked line with nfl.com source + lock timestamp, 87 dated snapshot rows; demotion rules 9/9 with allowed source links; leaderboard split ranks match origination
+- `origination/scripts/check_links.py`: PASS — 15 pages, 2288 links, 967 rows, 0 failures
+- `decision-review/scripts/check.py`: PASS — 7 HTML pages, 81 table rows with official-source links, 15 official source records
+- `desk/scripts/check_links.py`: PASS
+- `signals/scripts/check_signals.py`: PASS — 115/115 checks, 378 table rows
+- `bash market/run_all.sh`: PASS — verify 30/30; 13 pages, 24 tables, 290 data rows, 0 errors
+- `correlation-audit/scripts`: PASS — build_page + recompute_correlations (11/11 published values match, n published with each value) + spotcheck_live (15/15 W9 games, 27/27 NGS W8 rows) + test_recompute 8 tests OK
+- `integration/scripts`: PASS — build_site + check_links (5 pages, 531 rows, 0 errors) + verify_fresh (137 games reconciled, 32 standings rows OK, 256 field comparisons, 28 schedule cross-checks, 28 injury tables, 345 injury rows)
+- `hub/scripts`: PASS — build_hub + check_hub: 12 pages, 204 table rows all with a source link, 0 broken internal links
+- `suggestions/scripts`: PASS — build_pages + check_links: 7 pages, 103 links, all external links on the official allowlist
+
+Pre-existing, documented, out-of-scope exceptions (unchanged, not fixed here): `evidence-lab/check.py` exit 1 (IR-2d40-01, archive targets; its check-run rewrites reverted per the 053940d1 precedent); `desk/scripts/audit.py` exit 1 in partial local clones (pins base 7c2f545; full-history CI desk workflow passed).
+
+Log (532b7aeb):
+- 2026-11-17 (V0) — Board read end to end; all Nov-14/15 integration claims merged and closed; branch at main HEAD ef3a1a8. X1 resolved on main (root nav links market/index.html, added by 1052cf22 N2). X3 resolved on main (ledger price store now carries 39/39 verified locked FanDuel lines, opening/closing null, per P1/F5-1; remaining adoption decision is SG-03, operator-owned). F-07 resolved on main as genuine report shape (P4/F5-3), not a capture artefact.
+- 2026-11-17 (V1–V5) — Full checker replay green (results above). Suggestion register, open-question register and executive summary confirmed published: suggestions carry UNDECIDED decisions with recommended paths (SG-01..SG-16 at requirements/pages/suggestions.html; S-01.. at pages/suggestions.html); questions carry have/missing/answer/blocks/discovery (Q-01..Q-22 at requirements/pages/questions.html; D-01.. at pages/decisions.html). No file changes required — the requested suggestions-review section, Q/I/A list and executive summary already exist and are linked from the root landing page.
+- 2026-11-17 (V6 done) — PR #71 https://github.com/sassnarep3-star/Own8/pull/71 merged as `897184b` with `gh pr merge 71 --merge` (no approval waited for); CI green on the branch (audit + independent-desk success); Pages API `status: built`, `error: null`; live re-fetch of https://sassnarep3-star.github.io/Own8/ confirms the deployed landing page carries the 16-row decision-readiness table with an official source link on every table row.
+
+Cross-session notes from 532b7aeb: (1) no file owned by another session was edited; (2) the operator-facing open items remain policy decisions, not code defects: the 12 market/requirements suggestions, the reward rule, and the canonical-ranking question (round-5 log); (3) a fresh live capture of nfl.com is outside this session's network boundary and is left to the next session with network access, per the stored-capture evidence boundary in README.md.
+
+### 532b7aeb — final publication record (2026-11-17)
+
+| PR | Merge | What landed |
+| --- | --- | --- |
+| #71 | `897184b` | Session claim + verification record: full offline checker replay (20 checker families green, 0 failures), suggestions/Q&A/executive-summary sections confirmed published and linked from the root landing page, pre-existing flags unchanged and non-blocking; no feature files changed |
+
+- **PR:** https://github.com/sassnarep3-star/Own8/pull/71 — **MERGED** as `897184b` with `gh pr merge 71 --merge` (no approval waited for), per the standing instruction.
+- **CI:** `Audit Own8 dashboard` and `Verify independent NFL desk` completed success on main; the PR's `Verify official-evidence dashboard` completed success on the branch.
+- **Pages:** `gh api .../pages` → `status: built`, `error: null`; live re-fetch of https://sassnarep3-star.github.io/Own8/ confirms the deployed landing page (decision-readiness RQ-01..RQ-16, all table rows officially linked).
+- **Flagged irregularities:** published on /pages/flagged.html (data/flagged.json A01..A14 and the per-namespace registers); none block publication.
+- **Remaining operator decisions (not code):** the 12 market/requirements suggestions (all UNDECIDED with recommended paths), the reward rule, and the canonical-ranking question (round-5 log).
