@@ -157,12 +157,16 @@ def clearing(rid, status):
     return "— (met)" if status == "DONE" else NOCLEAR
 
 
+PATH_RE = re.compile(r"[\w.\-]+(?:/[\w.\-]+)+")
+
+
 def src_cell(r):
-    src = r["source"]
-    if src:
-        return a(src, "Official source")
-    if r["exists"] and not r["exists"].startswith(("None", "Design", "Policy")):
-        return a(REPO + r["exists"].split(";")[0].split(" ")[0].strip(), "Repo artifact")
+    """Official source if the register has one; else the first repo path named in 'exists' that really exists."""
+    if r["source"]:
+        return a(r["source"], "Official source")
+    for m in PATH_RE.findall(r["exists"] or ""):
+        if os.path.exists(os.path.join(ROOT, m)):
+            return a(REPO + m, "Repo artifact")
     return '<span class="flag">UNVERIFIED: no source</span>'
 
 
@@ -527,7 +531,7 @@ def build_repo_review():
     rows = []
     for r in rr:
         first = r["file"].split(";")[0].strip()
-        if re.match(r"^[\w./-]+$", first):
+        if re.match(r"^[\w./-]+$", first) and os.path.exists(os.path.join(ROOT, first)):
             link = E(r["file"]) + " · " + a(REPO + first, "Repo")
         else:
             link = E(r["file"]) + " · " + a("flagged.html", "Flagged page")

@@ -4,6 +4,7 @@ and every page is linked from the navigation. Exit 1 on any failure. Standard li
 import glob, html.parser, os, re, sys
 
 SITE = os.path.dirname(os.path.abspath(__file__))
+ROOT_DIR = os.path.abspath(os.path.join(SITE, ".."))
 fails = []
 
 
@@ -59,6 +60,10 @@ for p in pages:
         target = os.path.normpath(os.path.join(SITE, l))
         if not os.path.exists(target):
             fails.append(f"{os.path.basename(p)}: broken internal link {l}")
+    for l in ps.links:
+        m = re.match(r"https://github\.com/sassnarep3-star/Own8/(?:blob|tree)/main/([^#?]+)$", l)
+        if m and not os.path.exists(os.path.join(ROOT_DIR, m.group(1))):
+            fails.append(f"{os.path.basename(p)}: repo link to a file that does not exist: {m.group(1)}")
     for r in ps.bad_rows:
         fails.append(f"{os.path.basename(p)}: table row without source link or UNVERIFIED mark: {r!r}")
     if os.path.basename(p).startswith("data-") and re.search(r"\bARI\b", re.sub(r"<[^>]+>", " ", src)):
