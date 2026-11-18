@@ -1450,7 +1450,7 @@ Branch: `arena/21a111a4-own8` (Arena-pinned; the `session-<id>/<task>` branch na
 | C3 | Derived per-team injury view (counts by game status for each club; starters-out and replacement fields left UNVERIFIED because no official depth source is captured) | done (site/data-team-view.html: 32 club rows + summary, counts only) | 21a111a4 | site/data-captures.html, site/scripts/build.py, site/check.py | `python3 site/scripts/build.py` + `python3 site/check.py` exit 0; every row links its official source |
 | C4 | Official probes: depth-chart page, transactions log, reserve list, Game Book | done for the probes listed (P-01..P-09); reg10 chunks 1-7 and Game Book chunks 1-6 NOT read | 21a111a4 | captures/2026-11-18/probes.json | Each probe records URL, HTTP-style result text and fetch time; no value inferred from a failed probe |
 | C5 | Flags for the new irregularities | done (F-25..F-33 in site/scripts/content.py and site/data/flags.json) | 21a111a4 | site/data/flags.json | Each flag cites the official URL |
-| C6 | Integration: PR from this branch to main, merge without waiting, Pages confirmation, record here | pending | 21a111a4 | COORDINATION.md, README.md (top-line only) | `gh pr merge <n> --merge`; `gh api repos/sassnarep3-star/Own8/pages` → `built` |
+| C6 | Integration: PR from this branch to main, merge without waiting, Pages confirmation, record here | done (PR #82 merged as `1d6fa1a` with `gh pr merge 82 --merge`; checks green; Pages `built` at 1d6fa1a; live re-fetch below) | 21a111a4 | COORDINATION.md, README.md (top-line only) | `gh pr merge <n> --merge`; `gh api repos/sassnarep3-star/Own8/pages` → `built` |
 
 Log:
 - 2026-11-18 06:28 UTC — Read the board; main moved 0e6e4ae → c76ce69 (PR #76, a COORDINATION-only change); fast-forwarded. Confirmed nfl.com is reachable only through fetch_page. Claim C0 written.
@@ -1484,4 +1484,13 @@ Irregularities (all on the site's Flagged for Review page; none block the merge)
 - The drift alarm is a checker, not a scheduler. Nothing runs it on a timer.
 
 Cross-session notes: no file owned by another session was edited except site/** (which 875583e4 owns and which this session extended; its registers were regenerated with content.py and the diffs are only the new nav link and the R-06, R-07, F-07 updates).
+
+### 21a111a4 — publication record (2026-11-18)
+
+- **PR:** https://github.com/sassnarep3-star/Own8/pull/82 — **MERGED** as `1d6fa1a` (merged 2026-11-18 06:37:47 UTC) with `gh pr merge 82 --merge`, no approval waited for. The branch first hit a rebase conflict with PR #77 (COORDINATION.md; both sections kept) and then with main's Week 10/11 refresh and PRs #78/#80 (content.py F-07/Q-07 and generated registers; resolved by keeping both sides and regenerating from `site/scripts/content.py`). The superseded claim commit 6a604b2 was recorded by an `ours` merge (no tree change), not force-pushed.
+- **CI on the PR:** `validate` (Audit Own8 dashboard), `independent-desk` and `evidence-and-site` all SUCCESS; `mergeStateStatus` CLEAN before merge.
+- **Pages:** `gh api repos/sassnarep3-star/Own8/pages/builds/latest` → `status: built`, `error: null`, commit 1d6fa1a.
+- **Live re-fetch (fetch_page, 2026-11-18):** https://sassnarep3-star.github.io/Own8/site/data-team-view.html serves the per-club table (IND 11 listed, HOU 15 listed, 24 'No Injuries Reported', 6 byes); https://sassnarep3-star.github.io/Own8/captures/manifest.json serves the manifest with both captures' hashes; https://sassnarep3-star.github.io/Own8/private-store/injury-report-2026-w11.tsv returns GitHub's 404 page, so the private-store exclusion works on the published site.
+- **Not changed by this session:** root `index.html` (the 875583e4 redirect), the strict/evidence namespaces, and every other session's section of this board.
+- **Open after this session (for the operator and the next session with the same tooling):** F-31 (where a real private store lives), F-33 (Joseph and Henderson, Game Book chunks 1 to 6), F-26 (Thursday and Friday re-reads to test whether the 24 'No Injuries Reported' clubs stay clear), F-27 (reg10 chunks 1 to 7), F-28 (roster legend), F-29 (no depth-chart or transactions source yet), F-24 (root build script still regenerates the legacy index.html).
 
