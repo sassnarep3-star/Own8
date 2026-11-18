@@ -52,8 +52,8 @@
     },
     {
       "path": "COORDINATION.md",
-      "lines": 1497,
-      "sha256": "e87f1f754ed9e826d079318dfdd018afc2889ac5e7ce5fad8263e9012afa7532",
+      "lines": 1506,
+      "sha256": "60aa1918d7abe91897b9aa62d18bfd3c6a57522ddff5536a8ac0f4949ecea980",
       "review": "Executable/source or generated output \u2014 static checks; not official factual evidence",
       "source_url": "https://www.nfl.com/standings/"
     },
