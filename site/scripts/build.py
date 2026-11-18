@@ -399,7 +399,7 @@ def build_depth():
         ["Route a: per-club official depth-chart page", "Houston Texans page returns HTTP 404 (not found)", "0 of 32 clubs", "BLOCKED", a(OFF_DEPTH, "Source")],
         ["Route b: official snap counts", "No official source located or verified in this session", "0 of 32 clubs", "BLOCKED", '<span class="flag">UNVERIFIED</span>'],
         ["Licensed structured depth feed", "Requires operator authorisation (S-03)", "0 of 32 clubs", "DECISION NEEDED", '<span class="flag">UNVERIFIED</span>'],
-        ["Official Game Books (actual starters)", "Found via the Week 10 game centre (NE at DET, 15 Nov). Page 1 of 7 read: lineups and the Not Active list, 56 rows (private-store/). One game, not a season.", "1 of 32 clubs for one game", "PARTIAL", a("https://www.nfl.com/games/patriots-at-lions-2026-reg-10", "Game centre")],
+        ["Official Game Books (actual starters)", "Two Week 10 Game Books read, page 1 of 7 or 8 each: lineups and the Not Active list. NE at DET (15 Nov, 56 rows) and LAC at BAL (16 Nov, 56 rows, Final 23–20). Rows are in private-store/; this page shows counts only. Two of 14 games, not a season.", "2 of 14 Week 10 games", "PARTIAL", a("https://www.nfl.com/games/chargers-at-ravens-2026-reg-10", "Game centre (LAC at BAL)")],
         ["Official transactions log", "None captured", "0 of 32 clubs", "BLOCKED", '<span class="flag">UNVERIFIED</span>'],
     ]
     body = f"""

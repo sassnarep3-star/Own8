@@ -10,6 +10,7 @@ ROOT = os.path.abspath(os.path.join(HERE, "..", ".."))
 META_FILES = [
     "captures/2026-11-18/injury-report-w11.meta.json",
     "captures/2026-11-18/gamebook-2026-w10-ne-at-det.meta.json",
+    "captures/2026-11-18/gamebook-2026-w10-lac-at-bal.meta.json",
 ]
 
 
