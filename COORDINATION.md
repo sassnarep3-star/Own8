@@ -1362,3 +1362,24 @@ Log:
 - 2026-11-18 — Verified the category site builds (`python3 site/scripts/build.py` → 16 pages; `python3 site/check.py` → OK, 0 errors, every table row sourced or UNVERIFIED) and is live at https://sassnarep3-star.github.io/Own8/site/index.html (GitHub Pages `built`, source branch `main`). Re-fetched official nfl.com standings, Week 10 scores and Week 11 injury report: standings page loads (32 teams); LAC@BAL Monday still not final (F-04); reg11 injury report not yet published (F-07). No feature files changed. All 24 flags and 80 requirement rows remain as published; none block the merge. R-79 (PR to main, merged, Pages deploy confirmed, record kept) is satisfied by PR #71 (merged `897184b`) and PR #73, with this session's live re-fetch confirming the deployed landing page. R-80 (no manual input) remains PARTIAL pending the operator's choices on the 10 suggestions (S-01..S-10).
 
 Cross-session notes: no file owned by another session was edited; the remaining open items are policy decisions (depth source S-03, price-data policy S-01, leaderboard ruling S-02, reward rule S-09) and data not yet published by the NFL (Week 11 injury report, Monday final), not code defects.
+
+## Session 21a111a4 — immutable official capture ledger, drift alarm, per-team injury view, depth/transactions probes (claimed 2026-11-18 UTC, base main @ c76ce69)
+
+Branch: `arena/21a111a4-own8` (Arena-pinned; the `session-<id>/<task>` branch naming in the operator brief is overridden by the session branch rule, so every task in this section lives on this one branch). Board read end to end on 2026-11-18: no other session holds an active claim (3356a4d7 and 532b7aeb are done; PR #70 / 30caea4e is an open, unclaimed Nov-17 PR and is left untouched).
+
+**Network boundary, verified this session:** `curl` to www.nfl.com fails at TLS (SSL_ERROR_SYSCALL); nfl.com is reachable only through the `fetch_page` tool. Every value captured here is therefore a transcription of a `fetch_page` result, with the fetch time and URL recorded. Hashes prove the file has not changed since capture; they do not prove byte equality with nfl.com.
+
+**Scope (this session only):** new `captures/**` (capture files, manifest, checker); new derived page `site/data-captures.html` plus its registration in `site/scripts/build.py` and `site/check.py`; a private raw store `private-store/**` excluded from the Pages build via `_config.yml`; this COORDINATION.md section. No other namespace is edited.
+
+| ID | Task | Status | Owner | Files (scope) | Verification plan |
+| --- | --- | --- | --- | --- | --- |
+| C0 | Session claim (this section) | done (pushed before other work) | 21a111a4 | COORDINATION.md | Claim commit pushed first |
+| C1 | Official capture of the Week 11 injury report (3 pages) with fetch time, URL and SHA-256 | in progress | 21a111a4 | captures/2026-11-18/**, private-store/** | Re-hash on check; row count pinned to the captured table rows |
+| C2 | Capture manifest + drift alarm (required fields, pinned row counts, hash re-check; exits non-zero on any failure) | unclaimed → in progress | 21a111a4 | captures/scripts/check_captures.py, captures/manifest.json | `python3 captures/scripts/check_captures.py` exit 0; a deliberately corrupted copy must fail (tested in scratch) |
+| C3 | Derived per-team injury view (counts by game status for each club; starters-out and replacement fields left UNVERIFIED because no official depth source is captured) | in progress | 21a111a4 | site/data-captures.html, site/scripts/build.py, site/check.py | `python3 site/scripts/build.py` + `python3 site/check.py` exit 0; every row links its official source |
+| C4 | Official probes: depth-chart page, transactions log, reserve list, Game Book | in progress | 21a111a4 | captures/2026-11-18/probes.json | Each probe records URL, HTTP-style result text and fetch time; no value inferred from a failed probe |
+| C5 | Flags for the new irregularities (reg10 page title says Week 11 while body shows Week 10; transactions URL 404; roster status codes have no captured legend) | in progress | 21a111a4 | site/data/flags.json | Each flag cites the official URL |
+| C6 | Integration: PR from this branch to main, merge without waiting, Pages confirmation, record here | pending | 21a111a4 | COORDINATION.md, README.md (top-line only) | `gh pr merge <n> --merge`; `gh api repos/sassnarep3-star/Own8/pages` → `built` |
+
+Log:
+- 2026-11-18 06:28 UTC — Read the board; main moved 0e6e4ae → c76ce69 (PR #76, a COORDINATION-only change); fast-forwarded. Confirmed nfl.com is reachable only through fetch_page. Claim C0 written.
