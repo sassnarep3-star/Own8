@@ -8,6 +8,23 @@ editing it. Make small, frequent commits; `git pull --rebase` before every push.
 If a claim is >60 minutes old with no commits, another session may take it over
 and note the handoff here.
 
+## Session 4fcbfdf8 — final integration: Week 10 official results, dashboard consistency, and release QA (claimed 2026-11-18 UTC)
+
+Branch: `arena/4fcbfdf8-own8` (Arena-pinned; work stays on this branch; no other branch/worktree is created). Read the board before acting. Existing site, ledger, and requirements tasks are marked done; PR #70 (`session-30caea4e/**`) is an unmerged completed evidence capture whose author explicitly requested final integration. Its scope is isolated to that session directory plus this board, so this claim does not edit those artifacts.
+
+**Scope:** `COORDINATION.md` (this section), `README.md`, `ledger/data/results-feed.json`, `ledger/results/**`, `ledger/*.html`, `site/data/**`, `site/scripts/**`, and generated `site/*.html`. `session-30caea4e/**` is read-only integration evidence. No other namespace is edited. This is the final integration/re-verification task for the existing Week 10 official finals capture and public dashboard: only source-verified settled results may enter canonical feeds; an unverified game remains blank and flagged; all derived metrics must be regenerated from the frozen inputs. The root redirect/navigation is read-only unless a checked test proves a defect.
+
+| ID | Task | Status | Owner | Files (scope) | Verification plan |
+| --- | --- | --- | --- | --- | --- |
+| I0 | Board claim | in progress | 4fcbfdf8 | COORDINATION.md (this section) | Commit and push claim to the Arena-pinned branch before implementation. |
+| I1 | Review and integrate the completed Week 10 official finals evidence from PR #70; do not alter its capture files | in progress | 4fcbfdf8 | ledger/data/results-feed.json, ledger/results/**, site/data/** | Review all source URLs and row-level values; verify only from official NFL pages; preserve unknowns as null and flagged. |
+| I2 | Rebuild current dashboard/summary and validate cross-page consistency | unclaimed | 4fcbfdf8 | README.md, site/data/**, site/scripts/**, site/*.html, ledger/*.html | Run the relevant deterministic builders/checkers and compare generated numbers to source datasets; every table row must have official provenance or be explicitly unverified. |
+| I3 | Release QA, PR, merge and Pages status record | unclaimed | 4fcbfdf8 | COORDINATION.md | Run integrated test suite; create PR from this branch; merge only when checks pass; confirm Pages build and record the exact outcome. |
+
+**Integration request:** PR #70 (https://github.com/sassnarep3-star/Own8/pull/70) is open and its owner marked S30-1..S30-3 complete; it contains the source-linked Week 10 Sunday finals and a 160/160 standings reconciliation, while explicitly leaving the canonical results feed and public pages unchanged for the final integrator. The stale Monday LAC@BAL result is not to be inferred; re-check official evidence before including it.
+
+**Network/data boundary:** no value will be upgraded to verified from repository assertions alone. If the live official source cannot be re-read, retain the already verified snapshot with its timestamp, or leave the row blank and flag it. Operator-owned policy decisions (wagering/rewards, raw-data retention terms, access to a durable capture service) remain unresolved and will not be guessed.
+
 **COLLISION NOTE (08643438 x fe499d4e, 2026-11-15): two parallel sessions both ran
 "final integration round 5" from base main @ 0ea18ec without seeing each other's claim.
 fe499d4e merged first (PR #66: ledger X3/F-01 price-store fix, decision-readiness table,
