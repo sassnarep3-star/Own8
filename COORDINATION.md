@@ -1362,3 +1362,15 @@ Log:
 - 2026-11-18 — Verified the category site builds (`python3 site/scripts/build.py` → 16 pages; `python3 site/check.py` → OK, 0 errors, every table row sourced or UNVERIFIED) and is live at https://sassnarep3-star.github.io/Own8/site/index.html (GitHub Pages `built`, source branch `main`). Re-fetched official nfl.com standings, Week 10 scores and Week 11 injury report: standings page loads (32 teams); LAC@BAL Monday still not final (F-04); reg11 injury report not yet published (F-07). No feature files changed. All 24 flags and 80 requirement rows remain as published; none block the merge. R-79 (PR to main, merged, Pages deploy confirmed, record kept) is satisfied by PR #71 (merged `897184b`) and PR #73, with this session's live re-fetch confirming the deployed landing page. R-80 (no manual input) remains PARTIAL pending the operator's choices on the 10 suggestions (S-01..S-10).
 
 Cross-session notes: no file owned by another session was edited; the remaining open items are policy decisions (depth source S-03, price-data policy S-01, leaderboard ruling S-02, reward rule S-09) and data not yet published by the NFL (Week 11 injury report, Monday final), not code defects.
+
+## Session 58ce6951 — independent integration verification of the published NFL research site (claimed 2026-11-18 UTC)
+
+**Branch:** `arena/58ce6951-own8` (Arena-pinned; current branch only). Read the coordination board before starting. No active task was present in the current board section; prior site's creation and deployment were already completed (PR #73, follow-up link fix, Pages `built`). This task is a non-overlapping verification pass, not a rewrite of existing site work.
+
+**Scope:** `COORDINATION.md` and generated root audit outputs `analysis/repo-audit.json`, `analysis/link-check.json`. All source/data/site namespaces are read-only. No live NFL facts will be added because this session has no permitted connection to nfl.com; stored official evidence remains dated and explicitly scoped.
+
+| ID | Task | Status | Owner | Files (scope) | Verification plan |
+| --- | --- | --- | --- | --- | --- |
+| I0 | Claim and scope | in progress | 58ce6951 | COORDINATION.md | Commit/push claim before additional work |
+| I1 | Re-run site, root, requirements and decision-ledger checks; compare generated audit inventory and link counts | in progress | 58ce6951 | analysis/repo-audit.json, analysis/link-check.json | Run each checker; record results and known limitations |
+| I2 | PR, merge and Pages confirmation only if this verification pass has a meaningful, clean patch | pending | 58ce6951 | COORDINATION.md | Do not manufacture a no-op publication; use pinned current branch |
