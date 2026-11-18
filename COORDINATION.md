@@ -18,9 +18,9 @@ Branch: `arena/e45b80e2-own8` (Arena-pinned; all work stays on this branch). Rea
 | --- | --- | --- | --- | --- | --- |
 | E0 | Board claim (pushed before other work) | done | e45b80e2 | COORDINATION.md (this section) | Claim commit pushed first; branch CI succeeded |
 | E1 | Independently replay documented offline repository and namespace checks; audit published rows/links and current site build | done with exceptions | e45b80e2 | COORDINATION.md (results only) | Static checks replayed; generated outputs restored; `decision-review/check.py` pass; legacy root builder conflict and stale cached capture dates recorded below |
-| E2 | Re-verify Week 10 finality and correct LAC@BAL from official Game Book; refresh canonical results/grade and separately version Week 11 B0 | done (local; publication pending) | e45b80e2 | site/data/week10-results.json, new site/data/b0-w11-lines-v2.json, site/data/standings-2026-11-18.json, site/data/requirements.json, site/data/flags.json, site/*.html | nfl.com Week 10 scores + official LAC@BAL Game Book PDF; standings for changed teams; model arithmetic, sources and site checks |
-| E3 | Correct stale “Week 11 report not published” claim without claiming timestamped/raw immutable snapshot | done (local; publication pending) | e45b80e2 | site/data/requirements.json, site/data/flags.json, site/*.html | Official nfl.com Week 11 injury page fetched 2026-11-18; exact clock time/raw response hash unavailable, remain explicitly unverified |
-| E4 | Check GitHub Actions and Pages deployment for current main/site; record PR/merge outcome | in progress | e45b80e2 | COORDINATION.md (results only) | GitHub API/CLI state and live Pages response |
+| E2 | Re-verify Week 10 finality and correct LAC@BAL from official Game Book; refresh canonical results/grade and separately version Week 11 B0 | done | e45b80e2 | site/data/week10-results.json, new site/data/b0-w11-lines-v2.json, site/data/standings-2026-11-18.json, site/data/requirements.json, site/data/flags.json, site/*.html | nfl.com Week 10 scores + official LAC@BAL Game Book PDF; standings for changed teams; model arithmetic, sources and site checks |
+| E3 | Correct stale “Week 11 report not published” claim without claiming timestamped/raw immutable snapshot | done | e45b80e2 | site/data/requirements.json, site/data/flags.json, site/*.html | Official nfl.com Week 11 injury page fetched 2026-11-18; exact clock time/raw response hash unavailable, remain explicitly unverified |
+| E4 | Check GitHub Actions and Pages deployment for current main/site; record PR/merge outcome | done | e45b80e2 | COORDINATION.md (results only) | GitHub API/CLI state and live Pages response |
 
 **COLLISION NOTE (08643438 x fe499d4e, 2026-11-15): two parallel sessions both ran
 "final integration round 5" from base main @ 0ea18ec without seeing each other's claim.
@@ -1394,6 +1394,16 @@ Branch: `arena/3356a4d7-own8` (base main @ `0e6e4ae`). All prior session work (8
 | V-2 | Live re-fetch of landing page | done | 3356a4d7 | https://sassnarep3-star.github.io/Own8/site/index.html | Page serves; 160/160 standings cells; 12 graded + 1 pending W10; 0 leaderboard strategies (F-01) |
 | V-3 | Official NFL sources reachable and consistent | done | 3356a4d7 | nfl.com/standings/league/2026/REG; /scores/2026/week-10; /injuries/league/2026/reg10 | Standings page loads (32 teams); Week 10 Monday LAC@BAL not final as read (F-04); Week 11 injury report not yet published (F-07) |
 | V-4 | GitHub Pages | done | 3356a4d7 | gh api repos/sassnarep3-star/Own8/pages | `status: built`, `error: null`, source branch `main` |
+| E4 | Check GitHub Actions and Pages deployment for current main/site; record PR/merge outcome | done | e45b80e2 | COORDINATION.md (results only) | PR #80 https://github.com/sassnarep3-star/Own8/pull/80 merged with `gh pr merge 80 --merge` at merge commit 4a26bfea; CI `Audit Own8 dashboard`, `Verify independent NFL desk` and `pages build and deployment` all success; Pages API `status: built`, `error: null` at https://sassnarep3-star.github.io/Own8/ |
+
+### Publication record (this session)
+
+- PR #80: https://github.com/sassnarep3-star/Own8/pull/80 — MERGED via `gh pr merge 80 --merge`, merge commit `4a26bfea`, no approval waited for.
+- CI on main after merge: Audit Own8 dashboard success; Verify independent NFL desk success; pages build and deployment success.
+- Pages: `gh api repos/sassnarep3-star/Own8/pages` → `status: built`, `error: null`; source branch `main`.
+- Records kept: Week 10 LAC@BAL final LAC 23–BAL 20 (official Game Book scoring plays; scores page marks FINAL), all 14 Week 10 games FINAL/0 pending; B0 W10 grade regenerated (13/13 graded); dated reconciliation `site/data/standings-2026-11-18.json` (17 Nov snapshot retained); separate versioned `site/data/b0-w11-lines-v2.json` (frozen v1 unchanged); Week 11 market columns blank (no verified capture); Week 11 injury report content present on official URL, exact capture time/hash explicitly unverified; no edge claim (spread MAE 10.761 vs 10.923; ML Brier 0.1876 vs 0.1888, CI includes zero).
+- Flagged irregularities remain published and non-blocking; no timestamped/raw injury-report capture is claimed.
+
 | V-5 | PR to main, merge, Pages confirm, record | done | 3356a4d7 | COORDINATION.md | PR from arena/3356a4d7-own8 to main; `gh pr merge <n> --merge`; Pages `built` |
 
 Log:
