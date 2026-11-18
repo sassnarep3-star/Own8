@@ -188,9 +188,9 @@ def build_index():
         ("Official standings reconciled", f"{REC['cells'] - len(REC['mismatches'])}/{REC['cells']} cells",
          f"The 136-game log plus {REC['games'] - 136} Week 10 finals reproduce each W, L, T, PF and PA", OFF_STANDINGS),
         ("Week 10 games graded", f"{s['n_graded']} graded · {s['n_pending']} pending",
-         "Monday Chargers at Ravens is not final on nfl.com as read (F-04)", OFF_SCORES),
+         "Chargers at Ravens is final 23–20 per the official Game Book (18 Nov), but the frozen grading excludes it (F-27)", OFF_SCORES),
         ("Week 11 fair lines", f"{len(w11['games'])} games · PROVISIONAL",
-         "Built from pre-Monday standings. Re-originate after the Monday game is verified final (F-23)", REPO + "site/data/b0-w11-lines.json"),
+         "Built from pre-Monday standings and kept frozen under the pre-registration rule. The Monday game is now verified final; a v2 is an operator decision (F-23, W5)", REPO + "site/data/b0-w11-lines.json"),
         ("Strategies on any leaderboard", "0",
          "Four backtest-gate passes are held off the leaderboard under the operator's rule (F-01)", REPO + "ledger/data/strategy-registry.json"),
     ]
@@ -206,7 +206,7 @@ def build_index():
          "CONFLICT (F-01)", REPO + "ledger/data/strategy-registry.json"],
         ["Availability (depth, snaps, Game Books)", "No official depth source verified. The Houston depth-chart page returns 404 (17 Nov). No snap counts or Game Books captured.",
          "BLOCKED", OFF_DEPTH],
-        ["Injury report", "Week 10 report: page 1 of 8 re-read; Lions designations verified. Earlier captures disagree on row counts. Week 11 report not yet published.",
+        ["Injury report", "Week 10 report: page 1 of 8 re-read; Lions designations verified. Earlier captures disagree on row counts. Week 11 report captured 18 Nov (early read: 26 listed rows, Thursday game only; F-25).",
          "PARTIAL", OFF_INJ10],
         ["Correlations", "Nine descriptive correlations with n and 95% intervals. Four survive Holm correction; C2 does not.", "DESCRIPTIVE ONLY (F-13)", REPO + "origination/results/correlations.json"],
     ]
@@ -241,7 +241,7 @@ def build_exec():
 <h2>1. What is verified</h2>
 <ul>
 <li>The 32 official standings reconcile to the repo's 136-game log plus 13 Week 10 finals: {REC['cells'] - len(REC['mismatches'])} of {REC['cells']} cells match ({a(OFF_STANDINGS, "nfl.com standings")}).</li>
-<li>13 of 14 Week 10 games are final on nfl.com as read. The Monday game (Chargers at Ravens) is not, so it is excluded and flagged (F-04).</li>
+<li>All 14 Week 10 games are final on nfl.com. The Monday game (Chargers at Ravens) finished 23–20, per the official Game Book read on 18 Nov. The frozen Week 10 grading still excludes it (F-27).</li>
 <li>Week 11 has 13 games and 6 byes. Thursday's Colts at Texans venue is Reliant Stadium, Houston ({a(OFF_SCHED, "schedule")}; {a(OFF_COLTS, "game centre")}). Venues for the other 12 games are not verified.</li>
 <li>Lions designations: Kerby Joseph, Cade Mays and D.J. Reed are all Out on the Week 10 report ({a(OFF_INJ10, "injury report")}, F-15).</li>
 </ul>
@@ -249,7 +249,7 @@ def build_exec():
 <ul>
 <li>The shadow baseline (B0) uses team strength only: points for and against per game, no injuries, no depth, no venue. Its formula reproduces all 13 stored Week 10 values (F-02).</li>
 <li>Week 10, 12 settled games: spread error {num(s['spread_mae_model'],2)} points (model) vs {num(s['spread_mae_market'],2)} (market). Total error {num(s['total_mae_model'],2)} vs {num(s['total_mae_market'],2)}; the market is better here. Moneyline Brier {num(s['ml_brier_model'],3)} vs {num(s['ml_brier_market'],3)} (market). Every model-minus-market interval includes zero. Twelve games are not evidence in either direction.</li>
-<li>Week 11 fair lines were written in commit beca9d2 from the standings snapshot taken before Monday's game. They are <b>provisional</b>, have no market column, and will be re-originated once Monday is verified final (F-23).</li>
+<li>Week 11 fair lines were written in commit beca9d2 from the standings snapshot taken before Monday's game. They are <b>provisional</b>, have no market column, and stay frozen under the pre-registration rule even though Monday is now verified final (F-23, W5).</li>
 </ul>
 <h2>3. Strategies and the leaderboard</h2>
 <ul>
@@ -296,12 +296,17 @@ def build_results():
     for g in d["finals"]:
         rows.append([E(g["day"]), E(f'{g["away"]} at {g["home"]}'), str(g["away_score"]), str(g["home_score"]),
                      E(g["status"]), a(g["game_url"], "Game"), a(d["source_url"], "Scores")])
+    gb = J("site/data/gamebook-w10-lac-bal.json")
     for g in d["pending"]:
+        if (g["away"], g["home"]) == ("LAC", "BAL"):
+            rows.append([E(g["day"]), E("Chargers at Ravens"), str(gb["final"]["visitor_score"]), str(gb["final"]["home_score"]),
+                         '<span class="badge">FINAL per Game Book, 18 Nov</span>', a(gb["game_centre_url"], "Game"), a(gb["game_book_url"], "Game Book (PDF)")])
+            continue
         rows.append([E(g["day"]), E(f'{g["away"]} at {g["home"]}'), "—", "—",
                      '<span class="badge warn">NOT FINAL as read</span>', a(g["game_url"], "Game"), a(d["source_url"], "Scores")])
     body = f"""
-<p class="meta">Source: nfl.com Week 10 scores (3 pages read {FETCH}). Away team first. Week 10 has 14 games: 13 final and 1 not final as read. Commanders at Giants (Thursday, 24–21) is in the official log and standings. It is not in the Week 10 line set, and the repo does not record why.</p>
-<p class="flag-line"><b>Open item F-04:</b> the Monday game (Chargers at Ravens) shows no final score on the scores, standings and picks pages as read. It is excluded from grading and from the Week 11 inputs until it is final on nfl.com.</p>
+<p class="meta">Source: nfl.com Week 10 scores (3 pages read {FETCH}). Away team first. Week 10 has 14 games, all final as read on 18 Nov: 13 on the scores page (17 Nov) and Chargers at Ravens on the game centre and Game Book (18 Nov). Commanders at Giants (Thursday, 24–21) is in the official log and standings. It is not in the Week 10 line set, and the repo does not record why.</p>
+<p class="flag-line"><b>Resolved F-04 (18 Nov):</b> the Monday game is Final on the game centre, and the official Game Book gives 23–20 (F-27). It remains excluded from the frozen Week 10 grading and from the Week 11 inputs.</p>
 {table(["Day", "Game (away at home)", "Away", "Home", "Status", "Game centre", "Source"], rows, filter_id="results")}
 """
     page("data-results.html", "Results", body, lead="Week 10 final scores from nfl.com. Each row links to the official game page.")
@@ -333,7 +338,7 @@ def build_lines():
                          a(st["game_url"], "Game"), a(OFF_PICKS, "Prices")])
     body = f"""
 <p class="meta">Three columns per measure: <b>fair</b> (B0 baseline, from Weeks 1–9 results only, originated 14 Nov per the stored <code>originated_at</code> field), <b>market</b> (nfl.com picks article, FanDuel prices locked Thursday 12 Nov, 2 PM ET), and <b>difference</b> (fair minus market). Spread is points added to the home team; negative means home favoured. Margins are in home-team terms.</p>
-<p class="flag-line"><b>Scope:</b> {s['n_graded']} games graded; 1 pending (Chargers at Ravens). Only 2 of the 14 market rows were re-verified against the picks article: Patriots at Lions (matches) and Chargers at Ravens (matches). The other 12 market cells are marked <span class="flag">unverified</span> (F-12).</p>
+<p class="flag-line"><b>Scope:</b> {s['n_graded']} games graded; 1 pending in the frozen grading (Chargers at Ravens: final 23–20 per the Game Book, 18 Nov; F-27). Only 2 of the 14 market rows were re-verified against the picks article: Patriots at Lions (matches) and Chargers at Ravens (matches). The other 12 market cells are marked <span class="flag">unverified</span> (F-12).</p>
 {table(["Game", "Fair spread (home)", "Market spread (home)", "Difference (fair − market spread)", "Fair total", "Market total", "Difference (total)", "Fair P(home)", "Market P(home), de-vigged", "Final (away–home)", "Model error (pts)", "Market error (pts)", "Game", "Prices"], rows, cls="dense", filter_id="lines")}
 <h2>Summary (12 settled games)</h2>
 {table(["Measure", "Model (B0)", "Market", "Difference (model − market)", "95% interval for the difference", "Reading", "Source"], [
@@ -363,7 +368,7 @@ def build_schedule():
     body = f"""
 <p class="meta">Source: nfl.com Week 11 schedule ({FETCH}; 3 pages read). 13 games; 6 teams on bye (ATL, CLE, GB, LAR, NE, SEA). Kickoffs as nfl.com renders them (ET).</p>
 <p class="ok-line"><b>Dated announcements (nfl.com note on this page, read 17 Nov):</b> "In Week 16, two of the four designated matchups will be played on Saturday at 4:30 PM ET and 8:00 PM ET on NFL Network, with the remainder to be played either on Thursday night (8:15 PM ET), Sunday afternoon (1:00 PM ET and 4:25 PM ET), Sunday night (8:20 PM ET), or Monday night (8:15 PM ET). Specific dates and start times for the designated Week 16 matchups will be determined and announced at a later date during the season, no later than immediately after Week 14." Week 17 and Week 18 dates are likewise TBD on the page: Week 17 no later than immediately after Week 15; Week 18 after the conclusion of Week 17. No dated announcement has been located yet (R-19).</p>
-<p class="flag-line"><b>Provisional Week 11 fair lines</b> (B0). They were written in commit beca9d2 on 17 Nov from the pre-Monday standings snapshot, so they will be re-originated once Chargers at Ravens is verified final (F-23). Market and difference columns are blank: no verified Week 11 market was captured (F-11).</p>
+<p class="flag-line"><b>Provisional Week 11 fair lines</b> (B0). They were written in commit beca9d2 on 17 Nov from the pre-Monday standings snapshot, and Chargers at Ravens is now verified final (23–20), but the lines stay frozen under the pre-registration rule, so they are not re-originated here (F-23, W5). Market and difference columns are blank: no verified Week 11 market was captured (F-11).</p>
 {table(["Day", "Kickoff (ET)", "Network", "Game (away at home)", "Venue", "Venue source", "Fair spread (home)", "Fair total", "Fair P(home)", "Market spread", "Difference", "Game"], rows, cls="dense", filter_id="sched")}
 <p class="meta">Venue is verified only for Indianapolis at Houston (Reliant Stadium). The other 12 stay blank until each game centre is read (Q-16).</p>
 """
@@ -371,26 +376,60 @@ def build_schedule():
 
 
 def build_injuries():
+    inj = J("site/data/injuries-w11.json")
+    man = J("site/data/captures/manifest.json")
     rows = [
         ["Kerby Joseph", "Detroit Lions", "Out", a(OFF_INJ10, "Official report")],
         ["Cade Mays", "Detroit Lions", "Out", a(OFF_INJ10, "Official report")],
         ["D.J. Reed", "Detroit Lions", "Out", a(OFF_INJ10, "Official report")],
     ]
+    w11 = []
+    for p in inj["players"]:
+        w11.append([E(p["team"]), E(p["player"]), E(p["position"]), E(p["practice_status"] or ""),
+                    '<span class="flag">UNVERIFIED: blank on page</span>', a(p["source_url"], "Official report")])
+    nir = [[E(g["game"]), E(g["kickoff_et"]), E(g["network"]), E(g["away_status"]) + " / " + E(g["home_status"]),
+            a(g["source_url"], "Official report")] for g in inj["games_no_injuries_reported"]]
+    caps = []
+    for c in man["captures"]:
+        caps.append([E(c["file"]), E(c["kind"]), E(c["retrieved_utc"]), "<code>" + c["sha256"][:16] + "…</code>", a(c["source_url"], "Source")])
     cap = [
-        ["Week 10 report, page 1 of 8", "Re-read 17 Nov", "Partial", a(OFF_INJ10, "Source")],
+        ["Week 10 report, page 1 of 8", "Re-read 17 Nov (Lions rows)", "Partial", a(OFF_INJ10, "Source")],
         ["Week 10 report, pages 2 to 8", "Not re-read", "Not captured", a(OFF_INJ10, "Source")],
-        ["Week 11 report", "Not published: the reg11 URL serves Week 10 content", "Blocked", a(OFF_INJ11, "Source")],
+        ["Week 11 report (reg11)", "Captured 18 Nov, 3 chunks read; 26 listed rows, 12 games 'No Injuries Reported'", "Early read (F-25)", a(OFF_INJ11, "Source")],
         ["Earlier Week 10 captures in repo", "Row counts disagree (F-05)", "Unresolved", a(REPO + "integration/data/injuries-2026-week10.json", "Repo")],
     ]
     body = f"""
-<p class="meta">Official NFL injury report, Week 10 (page 1 of 8 read {FETCH}). Only the designation below is confirmed; this table does not list injury types or practice status.</p>
-<h2>Lions designations (verified on the Week 10 report)</h2>
+<p class="meta">Official NFL injury report, Week 11, read 18 Nov 2026 (fetch time retained in the capture file). The page shows practice status only: the Injuries and Game Status cells are blank as read, so they are marked UNVERIFIED. Only the Thursday game lists players.</p>
+<p class="flag-line"><b>Correction (F-26):</b> the 17 Nov version of this page said the reg11 URL still served Week 10 content. On 18 Nov it serves the Week 11 report, so that statement is withdrawn.</p>
+<h2>Week 11: players listed (Thursday, IND at HOU)</h2>
+{table(["Team", "Player", "Position", "Practice status", "Game status", "Source"], w11, filter_id="w11")}
+<h2>Week 11: games showing No Injuries Reported (as read)</h2>
+<p class="meta">Twelve games show No Injuries Reported for both clubs on this read. This is an early read, so an absence here is not treated as final until a later read confirms it (F-25).</p>
+{table(["Game", "Kickoff (ET)", "Network", "Away / home status", "Source"], nir, filter_id="nir")}
+<h2>Week 10: Lions designations (verified on the Week 10 report)</h2>
 {table(["Player", "Team", "Designation", "Source"], rows, filter_id="lions")}
 <h2>Capture status</h2>
 {table(["Capture", "State", "Result", "Source"], cap)}
-<p class="flag-line"><b>Not done:</b> a time series of designations (R-07 to R-10) and daily capture from Wednesday to kickoff (R-08). The brief asks for injury surprises, never levels; that needs at least two timestamped reads per player.</p>
+<h2>Capture files and hashes</h2>
+<p class="meta">Each capture is fetch-tool text copied into a file in the repository. The SHA-256 proves the stored file has not changed; it is not a hash of nfl.com's server bytes (shell curl to nfl.com fails with a TLS error). Full hashes are in site/data/captures/manifest.json.</p>
+{table(["File", "Kind", "Retrieved (UTC)", "SHA-256 (first 16)", "Source"], caps)}
+<p class="flag-line"><b>Not done:</b> a time series of designations (R-07 to R-10) and daily reads from Wednesday to kickoff (R-08). The brief asks for injury surprises, never levels; that needs at least two timestamped reads per player. One Week 11 read exists so far.</p>
 """
-    page("data-injuries.html", "Injuries", body, lead="What the official report says, what we re-read today, and what is still missing.")
+    page("data-injuries.html", "Injuries", body, lead="The official injury report as read, with fetch times, hashes and the rows that are still blank.")
+
+
+def gamebook_block():
+    gb = J("site/data/gamebook-w10-lac-bal.json")
+    lines = [[E(x["side"]), E(x["unit"]), E(x["position"]), E(x["number"]), E(x["player"]),
+              a(gb["game_book_url"], "Game Book (PDF)")] for x in gb["lineups"]]
+    inact = [[E(x["side"]), E(x["status"]), E(x["players"]), a(gb["game_book_url"], "Game Book (PDF)")] for x in gb["inactives"]]
+    return f"""
+<h2>Official Game Book: Week 10, Chargers at Ravens (pilot, 1 of 14 games)</h2>
+<p class="meta">Final {gb["final"]["visitor_score"]}–{gb["final"]["home_score"]} (Chargers–Ravens), M&amp;T Bank Stadium, Monday 16 Nov 2026, read from the Game Book PDF on 18 Nov. The Game Book prints the lineup by position; it does not state a depth rank, and snap counts are not in this capture. The other 13 Week 10 Game Books are not captured (F-29).</p>
+{table(["Side", "Unit", "Position", "No.", "Player", "Source"], lines, filter_id="gb")}
+<h2>Did not play / not active (Game Book)</h2>
+{table(["Side", "Status", "Players", "Source"], inact)}
+"""
 
 
 def build_depth():
@@ -398,7 +437,7 @@ def build_depth():
         ["Route a: per-club official depth-chart page", "Houston Texans page returns HTTP 404 (not found)", "0 of 32 clubs", "BLOCKED", a(OFF_DEPTH, "Source")],
         ["Route b: official snap counts", "No official source located or verified in this session", "0 of 32 clubs", "BLOCKED", '<span class="flag">UNVERIFIED</span>'],
         ["Licensed structured depth feed", "Requires operator authorisation (S-03)", "0 of 32 clubs", "DECISION NEEDED", '<span class="flag">UNVERIFIED</span>'],
-        ["Official Game Books (actual starters)", "None captured. Published after kickoff; the repo estimates 6 to 8 game-weeks of postgame Game Books before a test is possible (README)", "0 of 32 clubs", "BLOCKED", a(REPO + "README.md", "Repo")],
+        ["Official Game Books (actual starters)", "1 of 14 Week 10 Game Books captured (Chargers at Ravens, lineups and inactives, 18 Nov; F-29). The rest are not captured. Books are published after kickoff; a backtest needs 6 to 8 game-weeks (README).", "1 of 14 games", "PARTIAL", a("https://www.nfl.com/games/chargers-at-ravens-2026-reg-10", "Game centre")],
         ["Official transactions log", "None captured", "0 of 32 clubs", "BLOCKED", '<span class="flag">UNVERIFIED</span>'],
     ]
     body = f"""
@@ -406,6 +445,7 @@ def build_depth():
 <p class="flag-line"><b>Blocked:</b> backup-deficiency (R-27), offence and defence matchup matrix (R-28), per-team view (R-29), announced-starter field (R-30), stale-row flags (R-31). The brief's examples (Ravens QB rows, Texans image, Packers jersey prefixes, Seattle shared slots, Washington empty slot) cannot be checked against an official page today (F-06, F-17, F-18).</p>
 {table(["Source route", "What was checked (17 Nov)", "Clubs verified", "Status", "Source"], rows, filter_id="depth")}
 """
+    body += gamebook_block()
     page("data-depth.html", "Depth & availability", body, lead="The depth layer is blocked. These are the sources tested, what each returned, and what would unblock it.")
 
 

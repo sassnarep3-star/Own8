@@ -199,5 +199,21 @@
    "source_url": "https://www.nfl.com/scores/2026/week-10",
    "fetched": "2026-11-17"
   }
- ]
+ ],
+ "verified_late_final": {
+  "week": 10,
+  "day": "Monday, November 16th",
+  "away": "LAC",
+  "home": "BAL",
+  "away_score": 23,
+  "home_score": 20,
+  "status": "FINAL",
+  "home_margin": -3,
+  "total": 43,
+  "game_url": "https://www.nfl.com/games/chargers-at-ravens-2026-reg-10",
+  "game_book_url": "https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf",
+  "fetched": "2026-11-18",
+  "flag": "F-27",
+  "note": "Added 18 Nov from the game centre and the official Game Book scoring-play log. Not added to 'finals': the frozen Week 10 grading (B0) is unchanged."
+ }
 }

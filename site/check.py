@@ -54,7 +54,7 @@ for p in pages:
     nav_links |= {l for l in ps.links if not l.startswith(("http", "#", "mailto"))}
     for l in ps.links:
         if l.startswith(("http://", "https://", "#", "mailto:")):
-            if l.startswith("http") and not re.match(r"^https://(www\.nfl\.com|github\.com|nextgenstats\.nfl\.com|wsgc\.wa\.gov|www\.itl\.nist\.gov)/", l):
+            if l.startswith("http") and not re.match(r"^https://(www\.nfl\.com|static\.www\.nfl\.com|github\.com|nextgenstats\.nfl\.com|wsgc\.wa\.gov|www\.itl\.nist\.gov)/", l):
                 fails.append(f"{os.path.basename(p)}: external link not on allowed hosts: {l}")
             continue
         target = os.path.normpath(os.path.join(SITE, l))
@@ -85,6 +85,47 @@ for j in glob.glob(os.path.join(SITE, "data", "*.json")):
         json.load(open(j, encoding="utf-8"))
     except Exception as e:  # noqa
         fails.append(f"bad json {j}: {e}")
+
+# --- capture integrity: stored captures unchanged (sha256); JSON re-parsed from captures without drift ---
+import hashlib, json as _json
+_man_path = os.path.join(SITE, "data", "captures", "manifest.json")
+if not os.path.exists(_man_path):
+    fails.append("capture manifest missing: data/captures/manifest.json")
+else:
+    _man = _json.load(open(_man_path, encoding="utf-8"))
+    for _c in _man["captures"]:
+        _p = os.path.join(ROOT_DIR, _c["file"])
+        if not os.path.exists(_p):
+            fails.append(f"capture file missing: {_c['file']}")
+            continue
+        _data = open(_p, "rb").read()
+        if hashlib.sha256(_data).hexdigest() != _c["sha256"] or len(_data) != _c["bytes"]:
+            fails.append(f"capture changed since manifest hash: {_c['file']}")
+        if not _c["source_url"].startswith("https://"):
+            fails.append(f"capture without https source: {_c['file']}")
+    sys.path.insert(0, os.path.join(SITE, "scripts"))
+    try:
+        import captures as _cap
+        _ip, _inir = _cap.parse_injuries(open(_cap.INJ_MD, encoding="utf-8").read())
+        _ipub = _json.load(open(os.path.join(SITE, "data", "injuries-w11.json"), encoding="utf-8"))
+        if _ipub["players"] != _ip or _ipub["games_no_injuries_reported"] != _inir:
+            fails.append("injuries-w11.json differs from its capture (re-run site/scripts/captures.py)")
+        if len(_ip) != 26 or len(_inir) != 12:
+            fails.append(f"Week 11 injury capture counts changed: {len(_ip)} players, {len(_inir)} NIR games (expected 26, 12)")
+        _sc, _lu, _ina, _fin = _cap.parse_gamebook(open(_cap.GB_MD, encoding="utf-8").read())
+        _gpub = _json.load(open(os.path.join(SITE, "data", "gamebook-w10-lac-bal.json"), encoding="utf-8"))
+        if _gpub["lineups"] != _lu or _gpub["scoring_plays"] != _sc or _gpub["inactives"] != _ina:
+            fails.append("gamebook-w10-lac-bal.json differs from its capture (re-run site/scripts/captures.py)")
+        if (_fin["visitor_score"], _fin["home_score"]) != (23, 20):
+            fails.append("Game Book final score is not 23-20 as recorded")
+        _wr = _json.load(open(os.path.join(SITE, "data", "week10-results.json"), encoding="utf-8"))
+        _vl = _wr.get("verified_late_final", {})
+        if (_vl.get("away_score"), _vl.get("home_score")) != (_fin["visitor_score"], _fin["home_score"]):
+            fails.append("week10-results verified_late_final disagrees with the Game Book")
+        if any(g.get("away") == "LAC" and g.get("home") == "BAL" for g in _wr.get("finals", [])):
+            fails.append("LAC@BAL was added to the frozen 'finals' list; the frozen Week 10 grading must not change")
+    except Exception as _e:  # noqa
+        fails.append(f"capture re-parse failed: {_e}")
 
 print(f"pages checked: {len(pages)}")
 if fails:

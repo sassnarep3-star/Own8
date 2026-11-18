@@ -1,5 +1,5 @@
 {
- "as_of": "2026-11-17",
+ "as_of": "2026-11-18",
  "rows": [
   {
    "id": "F-01",
@@ -27,11 +27,11 @@
   },
   {
    "id": "F-04",
-   "title": "Week 10 Monday game not final on nfl.com as read",
+   "title": "Week 10 Monday game: resolved 18 Nov",
    "detail": "LAC at BAL (Nov 16) shows 8:15 PM with no score on the scores, standings and picks pages. Excluded from grading (12 graded, 1 pending) and from the Week 11 inputs. If it is final, W11 lines change.",
    "evidence": "nfl.com scores 2026-11-17",
    "link": "https://www.nfl.com/scores/2026/week-10",
-   "status": "OPEN (Q-05)"
+   "status": "RESOLVED (score 23–20 verified; grading decision W5)"
   },
   {
    "id": "F-05",
@@ -51,11 +51,11 @@
   },
   {
    "id": "F-07",
-   "title": "Week 11 injury report not yet published",
-   "detail": "The reg11 URL serves Week 10 content on 2026-11-17; the Colts game centre says the report is not yet available.",
+   "title": "Week 11 injury report: early read published",
+   "detail": "Captured 18 Nov; Thursday game lists 26 players (practice status only). 12 games show No Injuries Reported. Series still open (F-25).",
    "evidence": "nfl.com",
    "link": "https://www.nfl.com/injuries/league/2026/reg11",
-   "status": "OPEN (Q-07)"
+   "status": "RESOLVED (captured); series OPEN (F-25)"
   },
   {
    "id": "F-08",
@@ -151,7 +151,7 @@
    "detail": "No Game Book was captured. Any starter or designation claim that depends on a Game Book is unverified.",
    "evidence": "",
    "link": "",
-   "status": "OPEN (R-14)"
+   "status": "PARTIAL: 1 of 14 Week 10 Game Books captured (LAC@BAL, F-29)"
   },
   {
    "id": "F-20",
@@ -180,10 +180,10 @@
   {
    "id": "F-23",
    "title": "Week 11 fair lines were built on pre-Monday standings (provisional)",
-   "detail": "site/data/b0-w11-lines.json was written in beca9d2 on 17 Nov from the standings snapshot taken before the Monday Chargers at Ravens game, which is not verified final. The lines are provisional and must be re-originated after that game is verified final. Frozen values stay in git history.",
+   "detail": "Frozen Week 11 B0 lines were written from the pre-Monday standings. The Monday game is now verified final (23–20, F-27); a v2 needs an operator decision.",
    "evidence": "site/data/b0-w11-lines.json; site/data/standings-2026-11-17.json",
    "link": "https://github.com/sassnarep3-star/Own8/blob/main/site/data/b0-w11-lines.json",
-   "status": "OPEN (re-originate after F-04 clears)"
+   "status": "OPEN (decision W5)"
   },
   {
    "id": "F-24",
@@ -192,6 +192,54 @@
    "evidence": "README.md; index.html; scripts/build_site.py; .github/workflows/requirements.yml",
    "link": "https://github.com/sassnarep3-star/Own8/blob/main/.github/workflows/requirements.yml",
    "status": "OPEN (owner decision: requirements session)"
+  },
+  {
+   "id": "F-25",
+   "title": "Week 11 injury report is an early read",
+   "detail": "Captured 18 Nov. The Thursday game lists 26 players with practice status; the Injuries and Game Status cells are blank as read. 12 games show No Injuries Reported. Re-read Thu 19 and Fri 20 Nov before treating any absence as final.",
+   "evidence": "site/data/injuries-w11.json; site/data/captures/nfl-injuries-reg11-2026-11-18.md",
+   "link": "https://www.nfl.com/injuries/league/2026/reg11",
+   "status": "OPEN (re-capture Thu 19 and Fri 20 Nov)"
+  },
+  {
+   "id": "F-26",
+   "title": "Stale claim: Week 11 report 'not published' withdrawn",
+   "detail": "The 17 Nov injury page said the reg11 URL still served Week 10 content. On 18 Nov it serves the Week 11 report. The claim is corrected on the Injuries page and in the requirement register.",
+   "evidence": "site/scripts/build.py (build_injuries); site/scripts/content.py (R-06, F-07)",
+   "link": "https://www.nfl.com/injuries/league/2026/reg11",
+   "status": "RESOLVED (corrected 18 Nov)"
+  },
+  {
+   "id": "F-27",
+   "title": "Chargers at Ravens final score verified: 23–20",
+   "detail": "Game centre shows Final. The Game Book scoring-play log ends Chargers 23, Ravens 20. The quarter table in the PDF text is offset by one row and is not used. The frozen Week 10 grading still excludes this game (method unchanged).",
+   "evidence": "site/data/gamebook-w10-lac-bal.json; site/data/week10-results.json (verified_late_final key)",
+   "link": "https://www.nfl.com/games/chargers-at-ravens-2026-reg-10",
+   "status": "VERIFIED (grading decision W5)"
+  },
+  {
+   "id": "F-28",
+   "title": "Capture hashes cover transcriptions, not server bytes",
+   "detail": "Shell curl to nfl.com fails with a TLS error in this sandbox. Captures are fetch-tool text copied into repository files. SHA-256 checks that stored files are unchanged since capture; it does not prove the server's bytes.",
+   "evidence": "site/data/captures/manifest.json; COORDINATION.md (2e1f91d7)",
+   "link": "https://www.nfl.com/injuries/league/2026/reg11",
+   "status": "OPEN (limitation; raw capture needs network access to nfl.com)"
+  },
+  {
+   "id": "F-29",
+   "title": "Game Books captured for 1 of 14 Week 10 games",
+   "detail": "Only Chargers at Ravens has a stored Game Book. Starters and inactives for the other 13 games are not captured, so the starter requirement is met for one game only.",
+   "evidence": "site/data/gamebook-w10-lac-bal.json",
+   "link": "https://www.nfl.com/games/chargers-at-ravens-2026-reg-10",
+   "status": "OPEN (capture 13 remaining Game Books)"
+  },
+  {
+   "id": "F-30",
+   "title": "Week 11 injury page: injury-type and game-status cells blank",
+   "detail": "On the reg11 page as read, the Injuries and Game Status columns are empty for all 26 listed rows. They are shown as UNVERIFIED, not inferred from news items.",
+   "evidence": "site/data/injuries-w11.json",
+   "link": "https://www.nfl.com/injuries/league/2026/reg11",
+   "status": "OPEN (re-check Thu 19 and Fri 20 Nov)"
   }
  ]
 }

@@ -1,0 +1,410 @@
+{
+ "source_url": "https://www.nfl.com/injuries/league/2026/reg11",
+ "retrieved_utc": "2026-11-18T06:27:14Z",
+ "capture": "data/captures/nfl-injuries-reg11-2026-11-18.md",
+ "week": 11,
+ "note": "Week 11 official injury report as read on 2026-11-18. Only the Thursday game lists players. 12 games show 'No Injuries Reported' for both clubs at read time, so the report is an early read: later reads are needed before any absence is treated as final. Injury and game-status cells are blank on the page as read.",
+ "players": [
+  {
+   "game": "IND@HOU",
+   "team": "Indianapolis Colts",
+   "player": "Jaylon Carlies",
+   "position": "LB",
+   "injury": null,
+   "practice_status": "Did Not Participate In Practice",
+   "game_status": null,
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg11",
+   "retrieved_utc": "2026-11-18T06:27:14Z"
+  },
+  {
+   "game": "IND@HOU",
+   "team": "Indianapolis Colts",
+   "player": "Sauce Gardner",
+   "position": "CB",
+   "injury": null,
+   "practice_status": "Did Not Participate In Practice",
+   "game_status": null,
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg11",
+   "retrieved_utc": "2026-11-18T06:27:14Z"
+  },
+  {
+   "game": "IND@HOU",
+   "team": "Indianapolis Colts",
+   "player": "Anthony Gould",
+   "position": "WR",
+   "injury": null,
+   "practice_status": "Limited Participation in Practice",
+   "game_status": null,
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg11",
+   "retrieved_utc": "2026-11-18T06:27:14Z"
+  },
+  {
+   "game": "IND@HOU",
+   "team": "Indianapolis Colts",
+   "player": "Charlie Heck",
+   "position": "T",
+   "injury": null,
+   "practice_status": "Did Not Participate In Practice",
+   "game_status": null,
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg11",
+   "retrieved_utc": "2026-11-18T06:27:14Z"
+  },
+  {
+   "game": "IND@HOU",
+   "team": "Indianapolis Colts",
+   "player": "Will Mallory",
+   "position": "TE",
+   "injury": null,
+   "practice_status": "Did Not Participate In Practice",
+   "game_status": null,
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg11",
+   "retrieved_utc": "2026-11-18T06:27:14Z"
+  },
+  {
+   "game": "IND@HOU",
+   "team": "Indianapolis Colts",
+   "player": "Bernhard Raimann",
+   "position": "T",
+   "injury": null,
+   "practice_status": "Did Not Participate In Practice",
+   "game_status": null,
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg11",
+   "retrieved_utc": "2026-11-18T06:27:14Z"
+  },
+  {
+   "game": "IND@HOU",
+   "team": "Indianapolis Colts",
+   "player": "Luke Rhodes",
+   "position": "LS",
+   "injury": null,
+   "practice_status": "Limited Participation in Practice",
+   "game_status": null,
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg11",
+   "retrieved_utc": "2026-11-18T06:27:14Z"
+  },
+  {
+   "game": "IND@HOU",
+   "team": "Indianapolis Colts",
+   "player": "Jerry Tillery",
+   "position": "DT",
+   "injury": null,
+   "practice_status": "Did Not Participate In Practice",
+   "game_status": null,
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg11",
+   "retrieved_utc": "2026-11-18T06:27:14Z"
+  },
+  {
+   "game": "IND@HOU",
+   "team": "Indianapolis Colts",
+   "player": "Jalen Travis",
+   "position": "T",
+   "injury": null,
+   "practice_status": "Did Not Participate In Practice",
+   "game_status": null,
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg11",
+   "retrieved_utc": "2026-11-18T06:27:14Z"
+  },
+  {
+   "game": "IND@HOU",
+   "team": "Indianapolis Colts",
+   "player": "Dalton Tucker",
+   "position": "G",
+   "injury": null,
+   "practice_status": "Full Participation in Practice",
+   "game_status": null,
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg11",
+   "retrieved_utc": "2026-11-18T06:27:14Z"
+  },
+  {
+   "game": "IND@HOU",
+   "team": "Indianapolis Colts",
+   "player": "Charvarius Ward",
+   "position": "CB",
+   "injury": null,
+   "practice_status": "Did Not Participate In Practice",
+   "game_status": null,
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg11",
+   "retrieved_utc": "2026-11-18T06:27:14Z"
+  },
+  {
+   "game": "IND@HOU",
+   "team": "Houston Texans",
+   "player": "Azeez Al-Shaair",
+   "position": "LB",
+   "injury": null,
+   "practice_status": "Did Not Participate In Practice",
+   "game_status": null,
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg11",
+   "retrieved_utc": "2026-11-18T06:27:14Z"
+  },
+  {
+   "game": "IND@HOU",
+   "team": "Houston Texans",
+   "player": "Reed Blankenship",
+   "position": "S",
+   "injury": null,
+   "practice_status": "Full Participation in Practice",
+   "game_status": null,
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg11",
+   "retrieved_utc": "2026-11-18T06:27:14Z"
+  },
+  {
+   "game": "IND@HOU",
+   "team": "Houston Texans",
+   "player": "Tank Dell",
+   "position": "WR",
+   "injury": null,
+   "practice_status": "Full Participation in Practice",
+   "game_status": null,
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg11",
+   "retrieved_utc": "2026-11-18T06:27:14Z"
+  },
+  {
+   "game": "IND@HOU",
+   "team": "Houston Texans",
+   "player": "Blake Fisher",
+   "position": "T",
+   "injury": null,
+   "practice_status": "Full Participation in Practice",
+   "game_status": null,
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg11",
+   "retrieved_utc": "2026-11-18T06:27:14Z"
+  },
+  {
+   "game": "IND@HOU",
+   "team": "Houston Texans",
+   "player": "Marvin Harrison Jr.",
+   "position": "WR",
+   "injury": null,
+   "practice_status": "Did Not Participate In Practice",
+   "game_status": null,
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg11",
+   "retrieved_utc": "2026-11-18T06:27:14Z"
+  },
+  {
+   "game": "IND@HOU",
+   "team": "Houston Texans",
+   "player": "Jacob Hummel",
+   "position": "LB",
+   "injury": null,
+   "practice_status": "Limited Participation in Practice",
+   "game_status": null,
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg11",
+   "retrieved_utc": "2026-11-18T06:27:14Z"
+  },
+  {
+   "game": "IND@HOU",
+   "team": "Houston Texans",
+   "player": "Danielle Hunter",
+   "position": "DE",
+   "injury": null,
+   "practice_status": "Did Not Participate In Practice",
+   "game_status": null,
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg11",
+   "retrieved_utc": "2026-11-18T06:27:14Z"
+  },
+  {
+   "game": "IND@HOU",
+   "team": "Houston Texans",
+   "player": "Brevin Jordan",
+   "position": "TE",
+   "injury": null,
+   "practice_status": "Did Not Participate In Practice",
+   "game_status": null,
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg11",
+   "retrieved_utc": "2026-11-18T06:27:14Z"
+  },
+  {
+   "game": "IND@HOU",
+   "team": "Houston Texans",
+   "player": "Kamari Lassiter",
+   "position": "CB",
+   "injury": null,
+   "practice_status": "Did Not Participate In Practice",
+   "game_status": null,
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg11",
+   "retrieved_utc": "2026-11-18T06:27:14Z"
+  },
+  {
+   "game": "IND@HOU",
+   "team": "Houston Texans",
+   "player": "Woody Marks",
+   "position": "RB",
+   "injury": null,
+   "practice_status": "Did Not Participate In Practice",
+   "game_status": null,
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg11",
+   "retrieved_utc": "2026-11-18T06:27:14Z"
+  },
+  {
+   "game": "IND@HOU",
+   "team": "Houston Texans",
+   "player": "David Montgomery",
+   "position": "RB",
+   "injury": null,
+   "practice_status": "Full Participation in Practice",
+   "game_status": null,
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg11",
+   "retrieved_utc": "2026-11-18T06:27:14Z"
+  },
+  {
+   "game": "IND@HOU",
+   "team": "Houston Texans",
+   "player": "Febechi Nwaiwu",
+   "position": "G",
+   "injury": null,
+   "practice_status": "Full Participation in Practice",
+   "game_status": null,
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg11",
+   "retrieved_utc": "2026-11-18T06:27:14Z"
+  },
+  {
+   "game": "IND@HOU",
+   "team": "Houston Texans",
+   "player": "Keylan Rutledge",
+   "position": "G",
+   "injury": null,
+   "practice_status": "Full Participation in Practice",
+   "game_status": null,
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg11",
+   "retrieved_utc": "2026-11-18T06:27:14Z"
+  },
+  {
+   "game": "IND@HOU",
+   "team": "Houston Texans",
+   "player": "Jaylin Smith",
+   "position": "CB",
+   "injury": null,
+   "practice_status": "Full Participation in Practice",
+   "game_status": null,
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg11",
+   "retrieved_utc": "2026-11-18T06:27:14Z"
+  },
+  {
+   "game": "IND@HOU",
+   "team": "Houston Texans",
+   "player": "Wyatt Teller",
+   "position": "G",
+   "injury": null,
+   "practice_status": "Full Participation in Practice",
+   "game_status": null,
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg11",
+   "retrieved_utc": "2026-11-18T06:27:14Z"
+  }
+ ],
+ "games_no_injuries_reported": [
+  {
+   "game": "PIT Steelers (6-3) at PHI Eagles (2-7)",
+   "kickoff_et": "Sun Nov 22, 1:00 PM",
+   "network": "CBS",
+   "away_status": "No Injuries Reported",
+   "home_status": "No Injuries Reported",
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg11",
+   "retrieved_utc": "2026-11-18T06:27:14Z"
+  },
+  {
+   "game": "AZ Cardinals (3-7) at KC Chiefs (7-2)",
+   "kickoff_et": "Sun Nov 22, 1:00 PM",
+   "network": "CBS",
+   "away_status": "No Injuries Reported",
+   "home_status": "No Injuries Reported",
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg11",
+   "retrieved_utc": "2026-11-18T06:27:14Z"
+  },
+  {
+   "game": "BAL Ravens (4-6) at CAR Panthers (4-5)",
+   "kickoff_et": "Sun Nov 22, 1:00 PM",
+   "network": "FOX",
+   "away_status": "No Injuries Reported",
+   "home_status": "No Injuries Reported",
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg11",
+   "retrieved_utc": "2026-11-18T06:27:14Z"
+  },
+  {
+   "game": "TB Buccaneers (3-6) at DET Lions (7-2)",
+   "kickoff_et": "Sun Nov 22, 1:00 PM",
+   "network": "FOX",
+   "away_status": "No Injuries Reported",
+   "home_status": "No Injuries Reported",
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg11",
+   "retrieved_utc": "2026-11-18T06:27:14Z"
+  },
+  {
+   "game": "MIA Dolphins (1-8) at BUF Bills (8-1)",
+   "kickoff_et": "Sun Nov 22, 1:00 PM",
+   "network": "CBS",
+   "away_status": "No Injuries Reported",
+   "home_status": "No Injuries Reported",
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg11",
+   "retrieved_utc": "2026-11-18T06:27:14Z"
+  },
+  {
+   "game": "TEN Titans (1-8) at DAL Cowboys (4-6)",
+   "kickoff_et": "Sun Nov 22, 1:00 PM",
+   "network": "FOX",
+   "away_status": "No Injuries Reported",
+   "home_status": "No Injuries Reported",
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg11",
+   "retrieved_utc": "2026-11-18T06:27:14Z"
+  },
+  {
+   "game": "NO Saints (3-6) at CHI Bears (7-2)",
+   "kickoff_et": "Sun Nov 22, 1:00 PM",
+   "network": "FOX",
+   "away_status": "No Injuries Reported",
+   "home_status": "No Injuries Reported",
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg11",
+   "retrieved_utc": "2026-11-18T06:27:14Z"
+  },
+  {
+   "game": "NYJ Jets (2-8) at LAC Chargers (1-8)",
+   "kickoff_et": "Sun Nov 22, 4:05 PM",
+   "network": "FOX",
+   "away_status": "No Injuries Reported",
+   "home_status": "No Injuries Reported",
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg11",
+   "retrieved_utc": "2026-11-18T06:27:14Z"
+  },
+  {
+   "game": "JAX Jaguars (7-2) at NYG Giants (5-3-1)",
+   "kickoff_et": "Sun Nov 22, 4:25 PM",
+   "network": "CBS",
+   "away_status": "No Injuries Reported",
+   "home_status": "No Injuries Reported",
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg11",
+   "retrieved_utc": "2026-11-18T06:27:14Z"
+  },
+  {
+   "game": "LV Raiders (4-6) at DEN Broncos (7-2)",
+   "kickoff_et": "Sun Nov 22, 4:25 PM",
+   "network": "CBS",
+   "away_status": "No Injuries Reported",
+   "home_status": "No Injuries Reported",
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg11",
+   "retrieved_utc": "2026-11-18T06:27:14Z"
+  },
+  {
+   "game": "MIN Vikings (7-2) at SF 49ers (8-1)",
+   "kickoff_et": "Sun Nov 22, 8:20 PM",
+   "network": "NBC, UNIVERSO",
+   "away_status": "No Injuries Reported",
+   "home_status": "No Injuries Reported",
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg11",
+   "retrieved_utc": "2026-11-18T06:27:14Z"
+  },
+  {
+   "game": "CIN Bengals (7-2) at WAS Commanders (3-5-1)",
+   "kickoff_et": "Mon Nov 23, 8:15 PM",
+   "network": "ESPN, ABC, ESPN2, ESPN DEPORTES",
+   "away_status": "No Injuries Reported",
+   "home_status": "No Injuries Reported",
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg11",
+   "retrieved_utc": "2026-11-18T06:27:14Z"
+  }
+ ],
+ "counts": {
+  "players_listed": 26,
+  "games_listed": 13,
+  "games_no_injuries": 12
+ }
+}
