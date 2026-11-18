@@ -52,10 +52,10 @@
   {
    "id": "Q-07",
    "question": "What do the Week 11 injury designations say?",
-   "have": "Not yet published as read on 2026-11-17",
-   "lack": "Week 11 report content",
-   "how_to_answer": "Re-read Wed 18, Thu 19 and Fri 20 Nov, with fetch times",
-   "blocks": "R-06"
+   "have": "Week 11 capture of 26 club rows read 18 Nov (before 06:29 UTC), 3 of 3 pages, private-store/ with hashes; Wednesday practice statuses only",
+   "lack": "Game designations (Out, Doubtful, Questionable) and injury types; any second read to show change",
+   "how_to_answer": "Re-read Thu 19 and Fri 20 Nov with fetch times (captures/scripts/build_manifest.py)",
+   "blocks": "R-06, R-07"
   },
   {
    "id": "Q-08",

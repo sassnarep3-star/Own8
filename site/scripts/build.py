@@ -61,6 +61,7 @@ NAV = [
     ("data-lines.html", "Lines vs market"),
     ("data-schedule.html", "Schedule & venues"),
     ("data-injuries.html", "Injuries"),
+    ("data-team-view.html", "Per-team injury view"),
     ("data-depth.html", "Depth & availability"),
     ("strategies.html", "Strategies"),
     ("correlations.html", "Correlations"),
@@ -73,7 +74,7 @@ NAV = [
 ]
 CATS = [
     ("Overview", ["index.html", "executive-summary.html"]),
-    ("Data (official)", ["data-standings.html", "data-results.html", "data-schedule.html", "data-injuries.html", "data-depth.html"]),
+    ("Data (official)", ["data-standings.html", "data-results.html", "data-schedule.html", "data-injuries.html", "data-team-view.html", "data-depth.html"]),
     ("Models & lines", ["data-lines.html", "strategies.html", "correlations.html"]),
     ("Decisions", ["requirements.html", "questions.html", "suggestions.html"]),
     ("Review", ["repo-review.html", "sources.html", "flagged.html"]),
@@ -379,7 +380,7 @@ def build_injuries():
     cap = [
         ["Week 10 report, page 1 of 8", "Re-read 17 Nov", "Partial", a(OFF_INJ10, "Source")],
         ["Week 10 report, pages 2 to 8", "Not re-read", "Not captured", a(OFF_INJ10, "Source")],
-        ["Week 11 report", "Not published: the reg11 URL serves Week 10 content", "Blocked", a(OFF_INJ11, "Source")],
+        ["Week 11 report, 3 pages", "Read 18 Nov 2026 (before 06:29 UTC): 13 games, 26 club rows, 2 clubs with rows. Earlier note \"not published\" is superseded (F-25). Rows held in private-store/; counts on the per-team page.", "Captured", a(OFF_INJ11, "Source")],
         ["Earlier Week 10 captures in repo", "Row counts disagree (F-05)", "Unresolved", a(REPO + "integration/data/injuries-2026-week10.json", "Repo")],
     ]
     body = f"""
@@ -398,7 +399,7 @@ def build_depth():
         ["Route a: per-club official depth-chart page", "Houston Texans page returns HTTP 404 (not found)", "0 of 32 clubs", "BLOCKED", a(OFF_DEPTH, "Source")],
         ["Route b: official snap counts", "No official source located or verified in this session", "0 of 32 clubs", "BLOCKED", '<span class="flag">UNVERIFIED</span>'],
         ["Licensed structured depth feed", "Requires operator authorisation (S-03)", "0 of 32 clubs", "DECISION NEEDED", '<span class="flag">UNVERIFIED</span>'],
-        ["Official Game Books (actual starters)", "None captured. Published after kickoff; the repo estimates 6 to 8 game-weeks of postgame Game Books before a test is possible (README)", "0 of 32 clubs", "BLOCKED", a(REPO + "README.md", "Repo")],
+        ["Official Game Books (actual starters)", "Found via the Week 10 game centre (NE at DET, 15 Nov). Page 1 of 7 read: lineups and the Not Active list, 56 rows (private-store/). One game, not a season.", "1 of 32 clubs for one game", "PARTIAL", a("https://www.nfl.com/games/patriots-at-lions-2026-reg-10", "Game centre")],
         ["Official transactions log", "None captured", "0 of 32 clubs", "BLOCKED", '<span class="flag">UNVERIFIED</span>'],
     ]
     body = f"""
@@ -615,6 +616,88 @@ document.querySelectorAll('input.filter').forEach(function(inp){
 """
 
 
+OFF_NEWS_WILLIS = "https://www.nfl.com/news/dolphins-place-qb-malik-willis-groin-on-injured-reserve-kyle-mccord-in-line-for-first-start"
+
+
+def build_team_view():
+    """Per-team view for Week 11. Reads the private row file and publishes only counts and
+    links. Player names never appear on this page. Starters out, replacements named and the
+    net injury count are UNVERIFIED: no official depth source is captured (route a 404, F-29)."""
+    meta = J("captures/2026-11-18/injury-report-w11.meta.json")
+    manifest = J("captures/manifest.json")
+    cap = manifest["captures"][0]
+    lines = open(os.path.join(ROOT, meta["rows_file"]), encoding="utf-8").read().splitlines()
+    header = lines[0].split("\t")
+    recs = [dict(zip(header, ln.split("\t"))) for ln in lines[1:] if ln.strip()]
+    names = {r["team"]: r["name"] for r in J("site/data/standings-2026-11-17.json")["rows"]}
+    games = {}
+    for g in meta["games"]:
+        games[g["away"]] = (g, "away")
+        games[g["home"]] = (g, "home")
+    no_inj = set(meta["teams_listed_no_injuries"])
+    bye = sorted(set(names) - set(games))
+    url = OFF_INJ11
+    rows = []
+    for t in sorted(names, key=lambda x: names[x]):
+        if t in games:
+            g, side = games[t]
+            opp = g["home"] if side == "away" else g["away"]
+            where = "at" if side == "away" else "vs"
+            gtxt = f"{where} {opp}, {g['day'].split(',')[0]} {g['kickoff_et']} ET"
+            mine = [r for r in recs if r["team"] == t]
+            n = len(mine)
+            dnp = sum(1 for r in mine if r["practice_status"].startswith("Did Not"))
+            lp = sum(1 for r in mine if r["practice_status"].startswith("Limited"))
+            fp = sum(1 for r in mine if r["practice_status"].startswith("Full"))
+            gs = sum(1 for r in mine if r["game_status"])
+            status = (f"{n} listed; no game designation yet" if n else "'No Injuries Reported' on page")
+            status_cell = status
+            if t in no_inj:
+                status_cell = "'No Injuries Reported' on page (not re-read; F-26)"
+        else:
+            gtxt = "Bye (not in the 13 Week 11 games)"
+            n = dnp = lp = fp = None
+            status_cell = "Bye per schedule capture"
+        cnt = (f"{n}" if n is not None else "—")
+        rows.append([
+            E(f"{names[t]} ({t})"), E(gtxt),
+            E(cnt), E(f"{dnp}" if dnp is not None else "—"), E(f"{lp}" if lp is not None else "—"), E(f"{fp}" if fp is not None else "—"),
+            E(status_cell),
+            '<span class="flag">UNVERIFIED: no official depth source</span>',
+            '<span class="flag">UNVERIFIED</span>',
+            '<span class="flag">UNVERIFIED: count not defined by any official source</span>',
+            "n/a: first read of the Week 11 series",
+            a(url, "Injury report") if t in games else a(OFF_SCHED, "Schedule"),
+        ])
+    summary = [
+        ["Games in Week 11", f"{len(meta['games'])}", a(OFF_SCHED, "Schedule")],
+        ["Clubs on the injury report", f"{len(games)}", a(url, "Injury report")],
+        ["Club rows read (all Wednesday practice statuses)", f"{len(recs)}", a(url, "Injury report")],
+        ["Clubs with rows", f"{len({r['team'] for r in recs})} (IND, HOU)", a(url, "Injury report")],
+        ["Clubs reading 'No Injuries Reported'", f"{len(no_inj)}", a(url, "Injury report")],
+        ["Byes (absent from the 13 games)", f"{len(bye)} ({', '.join(bye)})", a(OFF_SCHED, "Schedule")],
+        ["Rows with a game designation (Out / Doubtful / Questionable)", f"{sum(1 for r in recs if r['game_status'])}", a(url, "Injury report")],
+        ["Rows with an injury type listed", f"{sum(1 for r in recs if r['injuries'])}", a(url, "Injury report")],
+    ]
+    body = f"""
+<p class="meta">Official NFL injury report, Week 11 (3 pages read before {meta['retrieved_utc_upper_bound'].replace('T', ' ').replace('Z', ' UTC')}). Counts only: no player names on this page. Each club row links the official report.</p>
+<p class="flag-line"><b>Read this first.</b> Week 11 has only Wednesday practice statuses so far, and no game designations. A club reading 'No Injuries Reported' is not confirmed healthy (F-26). Starters out, replacements named and the net injury count need a verified depth source and an operator definition; none exists yet, so those cells are blank and UNVERIFIED.</p>
+<h2>Capture summary</h2>
+{table(["Measure", "Value", "Source"], summary)}
+<h2>Per club</h2>
+{table(["Club", "Week 11 game", "Listed on report", "DNP", "LP", "FP", "Read status", "Starters out", "Replacements named", "Net injury count", "Change since prior read", "Source"], rows, cls="dense", filter_id="team-view")}
+<h2>Not captured, and why</h2>
+<ul>
+<li>Depth charts: the Houston depth-chart page returns NFL's 404 page on 18 Nov (F-29). Without an official depth order, a starter cannot be named, so no starter or replacement is shown.</li>
+<li>Transactions: the official transactions URL returns 404 (F-29). Injured-reserve moves visible on nfl.com are news reports only, for example <a href="{OFF_NEWS_WILLIS}">Dolphins place QB Malik Willis on injured reserve</a> (F-30).</li>
+<li>Change since prior read: not computable until a second timestamped read of this report exists. The first read was taken before 06:29 UTC on 18 Nov.</li>
+</ul>
+<p class="flag-line"><b>Storage split.</b> Row-level player data is held in <code>private-store/</code>, which the Pages build excludes. The repository itself is public, so that exclusion does not make the file private (F-31). The manifest with hashes is in <a href="{REPO}captures/manifest.json">captures/manifest.json</a>, and the checker is <a href="{REPO}captures/scripts/check_captures.py">captures/scripts/check_captures.py</a>.</p>
+"""
+    page("data-team-view.html", "Per-team injury view", body,
+         lead="Week 11, counts per club from the official report. Starters out, replacements and the net count are not verified yet.")
+
+
 def main():
     os.makedirs(os.path.join(SITE, "assets"), exist_ok=True)
     with open(os.path.join(SITE, "assets", "site.css"), "w", encoding="utf-8") as f:
@@ -622,7 +705,7 @@ def main():
     with open(os.path.join(SITE, "assets", "site.js"), "w", encoding="utf-8") as f:
         f.write(JS)
     build_index(); build_exec(); build_standings(); build_results(); build_lines(); build_schedule()
-    build_injuries(); build_depth(); build_strategies(); build_correlations(); build_requirements()
+    build_injuries(); build_team_view(); build_depth(); build_strategies(); build_correlations(); build_requirements()
     build_questions(); build_suggestions(); build_repo_review(); build_sources(); build_flagged()
     build_readme()
     print("built", len(NAV), "pages")
