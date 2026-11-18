@@ -63,6 +63,12 @@ STANDINGS = "https://www.nfl.com/standings/league/2026/REG"
 SCHEDULE_W10 = "https://www.nfl.com/schedules/2026/by-week/week-10"
 SCORES_W10 = "https://www.nfl.com/scores/2026/week-10"
 THURSDAY_GAME = "https://www.nfl.com/games/commanders-at-giants-2026-reg-10"
+# Verified Week 10 finals (site capture, re-verified 2026-11-18). All 14 Week 10 games are
+# FINAL here: 13 from the nfl.com scores page (read 2026-11-17, reconcile 160/160 with the
+# official standings) plus Monday LAC@BAL confirmed against the official Game Book
+# (LAC 20 / BAL 23) after it showed no score on 2026-11-17. The stale 2026-11-17 pending
+# status is superseded. This is the read-only verified input that build_results_feed ingests.
+W10_RESULTS = os.path.join(ROOT, "site", "data", "week10-results.json")
 
 WEEKDAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 
@@ -90,7 +96,7 @@ def weekday_of(iso):
 
 
 # ---------------------------------------------------------------- results feed
-def build_results_feed(log, w10):
+def build_results_feed(log):
     rows, flags = [], []
     for g in log["games"]:
         key = "2026-W%02d-%s-%s" % (g["week"], g["away"], g["home"])
@@ -118,23 +124,46 @@ def build_results_feed(log, w10):
             "source_url": g["source_url"], "verified_in_origination": g["verified"],
             "arithmetic_checks": checks, "arithmetic_ok": all(v is not False for v in checks.values()),
             "scope_note": "Official score row from the W1-W9 verified log (136 games)."})
-    # Thursday game: already FINAL before the log cutoff; excluded from the log, added here as a separate row.
-    thu = w10["excluded_completed"][0]
-    rows.append({
-        "key": "2026-W10-WAS-NYG", "week": 10, "date": "2026-11-12", "weekday": weekday_of("2026-11-12"),
-        "heading_as_rendered": "Thursday Night Football, November 12th", "away": "WAS", "home": "NYG",
-        "away_score": 24, "home_score": 21, "home_margin": 21 - 24, "total": 45, "winner": "WAS",
-        "game_url": THURSDAY_GAME, "source_url": SCORES_W10, "verified_in_origination": False,
-        "arithmetic_checks": {"margin_equals_score_difference": True, "total_equals_score_sum": True,
-                              "winner_matches_score": True},
-        "arithmetic_ok": True,
-        "scope_note": "Thursday game already FINAL before origination. Re-read 2026-11-14 on %s: 'Thursday Night Football, November 12th', WAS 24 / NYG 21, 'Final'. Excluded from the 136-game log and from Week 10 lines." % SCORES_W10})
-    rows.sort(key=lambda r: (r["week"], r["date"], r["key"]))
+    # Week 10 finals from the verified site capture (site/data/week10-results.json). All 14
+    # Week 10 games are FINAL: 13 from the nfl.com scores page (read 2026-11-17, reconcile
+    # 160/160 with the official standings) plus Monday LAC@BAL confirmed against the official
+    # Game Book (LAC 20 / BAL 23) after it showed no score on 2026-11-17. The stale 2026-11-17
+    # pending status is superseded. Score order is AWAY-HOME.
+    w10r = load(W10_RESULTS)
+    W10_DATE = {
+        "Thursday, November 12th": "2026-11-12",
+        "Sunday, November 15th": "2026-11-15",
+        "Sunday, November 15th (Munich)": "2026-11-15",
+        "Sunday Night, November 15th": "2026-11-15",
+        "Monday, November 16th": "2026-11-16",
+    }
+    for g in w10r["finals"]:
+        key = "2026-W10-%s-%s" % (g["away"], g["home"])
+        date = W10_DATE.get(g["day"])
+        weekday = weekday_of(date) if date else None
+        away = int(g["away_score"]); home = int(g["home_score"])
+        winner = g["home"] if home > away else (g["away"] if away > home else "NONE")
+        scope = "Official Week 10 final from the nfl.com Week 10 scores page (read 2026-11-17). Score order AWAY-HOME."
+        if g["away"] == "LAC" and g["home"] == "BAL":
+            scope = ("Official Week 10 final. The nfl.com scores page showed no score for LAC at BAL on 2026-11-17 "
+                     "(recorded pending); confirmed FINAL 2026-11-18 against the official Game Book: LAC 20 / BAL 23, "
+                     "M&T Bank Stadium, Monday 11/16/2026. Game Book: %s" % g.get("game_book", ""))
+        rows.append({
+            "key": key, "week": 10, "date": date, "weekday": weekday,
+            "heading_as_rendered": g["day"], "away": g["away"], "home": g["home"],
+            "away_score": away, "home_score": home, "home_margin": home - away, "total": away + home,
+            "winner": winner, "game_url": g["game_url"], "source_url": g["source_url"],
+            "verified_in_origination": False,
+            "arithmetic_checks": {"margin_equals_score_difference": True, "total_equals_score_sum": True,
+                                  "winner_matches_score": True},
+            "arithmetic_ok": True,
+            "scope_note": scope})
+    rows.sort(key=lambda r: (r["week"], r["date"] or "", r["key"]))
     return {
         "generated": GENERATED,
-        "description": "Official final scores for every completed 2026 game in the repository (137 rows). The feed is the join key for backtests and ROI: once prices exist, join on 'key'.",
+        "description": "Official final scores for every completed 2026 game in the repository (150 rows: 136 verified W1-W9 log games plus all 14 Week 10 finals). The feed is the join key for backtests and ROI: once prices exist, join on 'key'.",
         "counts": {"games": len(rows), "from_verified_log": len(log["games"]),
-                   "added_thursday_week10": 1,
+                   "added_week10_finals": 14,
                    "arithmetic_failures": sum(1 for r in rows if not r["arithmetic_ok"])},
         "rows": rows,
     }, flags
@@ -664,7 +693,7 @@ def main():
     mkt, mkt_url, mkt_lock = load_market_prices(MARKET_PRICES)
     raw_w9, raw_w10 = load(MARKET_PRICES_W9), load(MARKET_PRICES)
 
-    feed, feed_flags = build_results_feed(log, w10)
+    feed, feed_flags = build_results_feed(log)
     lines_doc, line_flags = build_lines(w10, mkt)
     prices, price_flags = build_prices(lines_doc, probe, mkt, mkt_lock, [raw_w9, raw_w10])
     reg, reg_flags = build_registry(val, rules)

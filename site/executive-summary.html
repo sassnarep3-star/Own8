@@ -5,25 +5,25 @@
 <link rel="stylesheet" href="assets/site.css">
 </head><body>
 <header class="top"><a class="brand" href="index.html">Own8 · NFL research</a>
-<span class="stamp">Latest official sources re-read 2026-11-18 · older captures retain their own dates · paper research only</span></header>
+<span class="stamp">Official pages read 2026-11-17 · paper research only</span></header>
 <div class="wrap">
-<aside class="side"><div class="cat"><div class="cat-h">Overview</div><a href="index.html">Overview</a><a href="executive-summary.html" aria-current="page">Executive summary</a></div><div class="cat"><div class="cat-h">Data (official)</div><a href="data-standings.html">Standings</a><a href="data-results.html">Results</a><a href="data-schedule.html">Schedule &amp; venues</a><a href="data-injuries.html">Injuries</a><a href="data-team-view.html">Per-team injury view</a><a href="data-depth.html">Depth &amp; availability</a></div><div class="cat"><div class="cat-h">Models &amp; lines</div><a href="data-lines.html">Lines vs market</a><a href="strategies.html">Strategies</a><a href="correlations.html">Correlations</a></div><div class="cat"><div class="cat-h">Decisions</div><a href="requirements.html">Requirements</a><a href="questions.html">Questions</a><a href="suggestions.html">Suggestions</a></div><div class="cat"><div class="cat-h">Review</div><a href="repo-review.html">Repo review</a><a href="sources.html">Sources</a><a href="flagged.html">Flagged for review</a></div></aside>
+<aside class="side"><div class="cat"><div class="cat-h">Overview</div><a href="index.html">Overview</a><a href="executive-summary.html" aria-current="page">Executive summary</a></div><div class="cat"><div class="cat-h">Data (official)</div><a href="data-standings.html">Standings</a><a href="data-results.html">Results</a><a href="data-schedule.html">Schedule &amp; venues</a><a href="data-injuries.html">Injuries</a><a href="data-depth.html">Depth &amp; availability</a></div><div class="cat"><div class="cat-h">Models &amp; lines</div><a href="data-lines.html">Lines vs market</a><a href="strategies.html">Strategies</a><a href="correlations.html">Correlations</a></div><div class="cat"><div class="cat-h">Decisions</div><a href="requirements.html">Requirements</a><a href="questions.html">Questions</a><a href="suggestions.html">Suggestions</a></div><div class="cat"><div class="cat-h">Review</div><a href="repo-review.html">Repo review</a><a href="sources.html">Sources</a><a href="flagged.html">Flagged for review</a></div></aside>
 <main>
 <h1>Executive summary</h1>
 
 
-<p class="lead">Status on 2026-11-18. The official data we can read reconciles. A forecasting edge is not established. The depth and availability layer cannot be built yet, because no official depth-order source is verified.</p>
+<p class="lead">Status on 2026-11-17. The official data we can read reconciles. A forecasting edge is not established. The depth and availability layer cannot be built yet, because no official depth-order source is verified.</p>
 <h2>1. What is verified</h2>
 <ul>
-<li>The 32 official standings reconcile to the repo's 136-game log plus 13 Week 10 finals: 160 of 160 cells match (<a href="https://www.nfl.com/standings/league/2026/REG">nfl.com standings</a>).</li>
-<li>13 of 14 Week 10 games are final on nfl.com as read. The Monday game (Chargers at Ravens) is not, so it is excluded and flagged (F-04).</li>
+<li>The 32 official standings reconcile to the repo's 136-game log plus 14 Week 10 finals: 152 of 160 cells match (<a href="https://www.nfl.com/standings/league/2026/REG">nfl.com standings</a>). The remaining cells (BAL and LAC: W, L, PF, PA) differ because the standings snapshot predates Monday's verified final (LAC 20 / BAL 23, official Game Book); the live nfl.com standings page read 2026-11-18 likewise predates it. Flagged for review, not inferred.</li>
+<li>All 14 Week 10 games are final. Monday LAC@BAL showed no score on nfl.com as read 2026-11-17 (stale pending status) and was confirmed FINAL on 2026-11-18 against the official Game Book: LAC 20, BAL 23.</li>
 <li>Week 11 has 13 games and 6 byes. Thursday's Colts at Texans venue is Reliant Stadium, Houston (<a href="https://www.nfl.com/schedules/2026/by-week/week-11">schedule</a>; <a href="https://www.nfl.com/games/colts-at-texans-2026-reg-11?tab=overview">game centre</a>). Venues for the other 12 games are not verified.</li>
 <li>Lions designations: Kerby Joseph, Cade Mays and D.J. Reed are all Out on the Week 10 report (<a href="https://www.nfl.com/injuries/league/2026/reg10">injury report</a>, F-15).</li>
 </ul>
 <h2>2. What the model does, and how it did</h2>
 <ul>
 <li>The shadow baseline (B0) uses team strength only: points for and against per game, no injuries, no depth, no venue. Its formula reproduces all 13 stored Week 10 values (F-02).</li>
-<li>Week 10, 12 settled games: spread error 10.76 points (model) vs 10.92 (market). Total error 9.54 vs 8.50; the market is better here. Moneyline Brier 0.188 vs 0.189 (market). Every model-minus-market interval includes zero. Twelve games are not evidence in either direction.</li>
+<li>Week 10, 12 settled games: spread error 10.30 points (model) vs 10.46 (market). Total error 9.54 vs 8.50; the market is better here. Moneyline Brier 0.171 vs 0.164 (market). Every model-minus-market interval includes zero. Twelve games are not evidence in either direction.</li>
 <li>Week 11 fair lines were written in commit beca9d2 from the standings snapshot taken before Monday's game. They are <b>provisional</b>, have no market column, and will be re-originated once Monday is verified final (F-23).</li>
 </ul>
 <h2>3. Strategies and the leaderboard</h2>

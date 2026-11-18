@@ -8,8 +8,8 @@
  "summary": {
   "n_graded": 13,
   "n_pending": 0,
-  "spread_mae_model": 10.761,
-  "spread_mae_market": 10.923,
+  "spread_mae_model": 10.299,
+  "spread_mae_market": 10.462,
   "spread_mae_diff_ci95": [
    -1.272,
    0.96
@@ -20,15 +20,15 @@
    -1.056,
    3.11
   ],
-  "ml_brier_model": 0.1876,
-  "ml_brier_market": 0.1888,
+  "ml_brier_model": 0.1714,
+  "ml_brier_market": 0.1635,
   "ml_brier_coinflip_control": 0.25,
-  "ml_brier_skill_vs_market": 0.0066,
+  "ml_brier_skill_vs_market": -0.0482,
   "ml_brier_diff_ci95": [
-   -0.0406,
-   0.0366
+   -0.0316,
+   0.0434
   ],
-  "home_win_rate": 0.3077
+  "home_win_rate": 0.3846
  },
  "rows": [
   {
@@ -360,9 +360,9 @@
    "status": "GRADED",
    "away": "LAC",
    "home": "BAL",
-   "away_score": 23,
-   "home_score": 20,
-   "actual_margin": -3,
+   "away_score": 20,
+   "home_score": 23,
+   "actual_margin": 3,
    "actual_total": 43,
    "model_margin": 3.51,
    "market_margin": 4.5,
@@ -370,16 +370,16 @@
    "market_total": 38.5,
    "model_p_home": 0.6051,
    "market_p_home": 0.6644,
-   "home_won": 0,
-   "err_model_margin": 6.5139,
-   "err_market_margin": 7.5,
+   "home_won": 1,
+   "err_model_margin": 0.5139,
+   "err_market_margin": 1.5,
    "err_model_total": 1.8611000000000004,
    "err_market_total": 4.5,
-   "brier_model": 0.36614600999999997,
-   "brier_market": 0.44146660060357634,
+   "brier_model": 0.15594601000000002,
+   "brier_market": 0.11260754020089189,
    "brier_coinflip": 0.25,
    "diff_margin_model_minus_market": -0.99,
-   "source_final": "https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf",
+   "source_final": "https://www.nfl.com/games/chargers-at-ravens-2026-reg-10",
    "source_market": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season"
   }
  ],

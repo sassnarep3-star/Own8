@@ -3,7 +3,7 @@
     python3 ledger/scripts/check_ledger.py
 
 Checks:
-  1. Every data file parses and has the expected row counts (137 results, 39 markets, 13 lines, 14 strategies).
+  1. Every data file parses and has the expected row counts (150 results, 39 markets, 13 lines, 14 strategies).
   2. Every table row on every ledger page (except the navigation table) carries at least one link to an
      allowed official host, or the row is a flag whose sources are listed in its JSON record.
   3. Every internal link resolves to a file in the repository.
@@ -89,10 +89,10 @@ def host_of(url):
 def check_data():
     feed = load("data/results-feed.json")
     rows = feed["rows"]
-    if len(rows) == 137:
-        ok("results feed: 137 rows (136 verified log + 1 Thursday game)")
+    if len(rows) == 150:
+        ok("results feed: 150 rows (136 verified W1-W9 log games + all 14 Week 10 finals)")
     else:
-        fail("results feed row count %d != 137" % len(rows))
+        fail("results feed row count %d != 150" % len(rows))
     bad = [r["key"] for r in rows if not r["arithmetic_ok"]]
     (ok if not bad else fail)("results feed arithmetic: %s" % ("all rows pass" if not bad else "failures %s" % bad))
     for r in rows:
