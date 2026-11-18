@@ -1433,3 +1433,24 @@ Verification log (58ce6951, 2026-11-18 UTC):
 - Known verification limits / review items: (1) local link/source checks do not semantically re-verify every dynamic NFL value or guarantee external URL liveness; (2) live nfl.com retrieval is unavailable in this environment; (3) `scripts/build_site.py` conflicts with the site's root redirect (handoff H1 above), so it was not run; (4) `desk/scripts/audit.py` has the previously documented missing-base-commit issue in partial clones; (5) `evidence-lab/check.py` has the previously documented archived-link issue. Neither known issue was modified or hidden by this pass.
 - Result: build and offline consistency gates pass. The existing site still reports no strategy eligible for ranking, so no skill/reward claim is made. Market-price policy, prospective reward rule, canonical surface and source/rights choices remain operator decisions; there is no evidence-safe way for this session to decide them automatically. Irregularities remain on the site's Flagged for Review surfaces and do not block the build.
 - Rebase/conflict note: before the publication push, `git pull --rebase origin main` brought in newer main commit `c76ce69` and conflicted in this shared board file with session `3356a4d7`. Resolved by retaining that session's full live-site verification block verbatim and retaining this session's claim/verification block; no other files or session work were discarded. Rebased branch will be pushed with a lease check only if the remote is still at the claim commit originally pushed.
+
+## Session 21a111a4 — immutable official capture ledger, drift alarm, per-team injury view, depth/transactions probes (claimed 2026-11-18 UTC, base main @ c76ce69)
+
+Branch: `arena/21a111a4-own8` (Arena-pinned; the `session-<id>/<task>` branch naming in the operator brief is overridden by the session branch rule, so every task in this section lives on this one branch). Board read end to end on 2026-11-18: no other session holds an active claim (3356a4d7 and 532b7aeb are done; PR #70 / 30caea4e is an open, unclaimed Nov-17 PR and is left untouched).
+
+**Network boundary, verified this session:** `curl` to www.nfl.com fails at TLS (SSL_ERROR_SYSCALL); nfl.com is reachable only through the `fetch_page` tool. Every value captured here is therefore a transcription of a `fetch_page` result, with the fetch time and URL recorded. Hashes prove the file has not changed since capture; they do not prove byte equality with nfl.com.
+
+**Scope (this session only):** new `captures/**` (capture files, manifest, checker); new derived page `site/data-captures.html` plus its registration in `site/scripts/build.py` and `site/check.py`; a private raw store `private-store/**` excluded from the Pages build via `_config.yml`; this COORDINATION.md section. No other namespace is edited.
+
+| ID | Task | Status | Owner | Files (scope) | Verification plan |
+| --- | --- | --- | --- | --- | --- |
+| C0 | Session claim (this section) | done (pushed before other work) | 21a111a4 | COORDINATION.md | Claim commit pushed first |
+| C1 | Official capture of the Week 11 injury report (3 pages) with fetch time, URL and SHA-256 | in progress | 21a111a4 | captures/2026-11-18/**, private-store/** | Re-hash on check; row count pinned to the captured table rows |
+| C2 | Capture manifest + drift alarm (required fields, pinned row counts, hash re-check; exits non-zero on any failure) | unclaimed → in progress | 21a111a4 | captures/scripts/check_captures.py, captures/manifest.json | `python3 captures/scripts/check_captures.py` exit 0; a deliberately corrupted copy must fail (tested in scratch) |
+| C3 | Derived per-team injury view (counts by game status for each club; starters-out and replacement fields left UNVERIFIED because no official depth source is captured) | in progress | 21a111a4 | site/data-captures.html, site/scripts/build.py, site/check.py | `python3 site/scripts/build.py` + `python3 site/check.py` exit 0; every row links its official source |
+| C4 | Official probes: depth-chart page, transactions log, reserve list, Game Book | in progress | 21a111a4 | captures/2026-11-18/probes.json | Each probe records URL, HTTP-style result text and fetch time; no value inferred from a failed probe |
+| C5 | Flags for the new irregularities (reg10 page title says Week 11 while body shows Week 10; transactions URL 404; roster status codes have no captured legend) | in progress | 21a111a4 | site/data/flags.json | Each flag cites the official URL |
+| C6 | Integration: PR from this branch to main, merge without waiting, Pages confirmation, record here | pending | 21a111a4 | COORDINATION.md, README.md (top-line only) | `gh pr merge <n> --merge`; `gh api repos/sassnarep3-star/Own8/pages` → `built` |
+
+Log:
+- 2026-11-18 06:28 UTC — Read the board; main moved 0e6e4ae → c76ce69 (PR #76, a COORDINATION-only change); fast-forwarded. Confirmed nfl.com is reachable only through fetch_page. Claim C0 written.
