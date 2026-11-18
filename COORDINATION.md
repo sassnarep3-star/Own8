@@ -71,6 +71,10 @@ Irregularities (published on the Flagged for Review page; none blocks the merge)
 - Row-level data stays in `private-store/`, but the repository is public, so that folder is not private from GitHub readers (F-31 in main's register; operator decision).
 - Public-page wording drift: some main-authored lines still read "13 of 14" in places (for example the results card and the R-04 row). Left as they are; owner to reconcile.
 
+Merge record (2e1f91d7): PR #79 (https://github.com/sassnarep3-star/Own8/pull/79) merged with `gh pr merge 79 --merge` as 410ec62 at 2026-11-18T06:40:38Z after CI passed on 70fd49d (evidence-and-site, independent-desk, validate: all pass). GitHub Pages build for 410ec62: status `built`, no error. Live re-fetch of https://sassnarep3-star.github.io/Own8/site/data-depth.html shows the two-book Game Book row; the flagged page showed stale F-04 and F-19 text, corrected in the follow-up record below.
+
+Follow-up: flags F-04 (resolved: score verified) and F-19 (partial: 2 of 14 Game Books) corrected in site/data/flags.json.
+
 Cross-session requests: none pending from this session. The B0 v2 vs v1 choice for the schedule page is for the operator (not implemented here).
 
 ## Session 875583e4 — category dashboard, requirement & question registers, suggestions for decision, repo review, official re-verification, PR + merge (claimed 2026-11-17 UTC, base main @ ef3a1a8)
