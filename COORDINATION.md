@@ -1445,12 +1445,43 @@ Branch: `arena/21a111a4-own8` (Arena-pinned; the `session-<id>/<task>` branch na
 | ID | Task | Status | Owner | Files (scope) | Verification plan |
 | --- | --- | --- | --- | --- | --- |
 | C0 | Session claim (this section) | done (pushed before other work) | 21a111a4 | COORDINATION.md | Claim commit pushed first |
-| C1 | Official capture of the Week 11 injury report (3 pages) with fetch time, URL and SHA-256 | in progress | 21a111a4 | captures/2026-11-18/**, private-store/** | Re-hash on check; row count pinned to the captured table rows |
-| C2 | Capture manifest + drift alarm (required fields, pinned row counts, hash re-check; exits non-zero on any failure) | unclaimed → in progress | 21a111a4 | captures/scripts/check_captures.py, captures/manifest.json | `python3 captures/scripts/check_captures.py` exit 0; a deliberately corrupted copy must fail (tested in scratch) |
-| C3 | Derived per-team injury view (counts by game status for each club; starters-out and replacement fields left UNVERIFIED because no official depth source is captured) | in progress | 21a111a4 | site/data-captures.html, site/scripts/build.py, site/check.py | `python3 site/scripts/build.py` + `python3 site/check.py` exit 0; every row links its official source |
-| C4 | Official probes: depth-chart page, transactions log, reserve list, Game Book | in progress | 21a111a4 | captures/2026-11-18/probes.json | Each probe records URL, HTTP-style result text and fetch time; no value inferred from a failed probe |
-| C5 | Flags for the new irregularities (reg10 page title says Week 11 while body shows Week 10; transactions URL 404; roster status codes have no captured legend) | in progress | 21a111a4 | site/data/flags.json | Each flag cites the official URL |
+| C1 | Official capture of the Week 11 injury report (3 pages) with fetch time, URL and SHA-256 | done (26 rows, 13 games, 3 of 3 pages; private rows; manifest hash ff5846bb…) | 21a111a4 | captures/2026-11-18/**, private-store/** | Re-hash on check; row count pinned to the captured table rows |
+| C2 | Capture manifest + drift alarm (required fields, pinned row counts, hash re-check; exits non-zero on any failure) | done (2 captures; check passes; tamper copy fails on SHA-256 and byte count) | 21a111a4 | captures/scripts/check_captures.py, captures/manifest.json | `python3 captures/scripts/check_captures.py` exit 0; a deliberately corrupted copy must fail (tested in scratch) |
+| C3 | Derived per-team injury view (counts by game status for each club; starters-out and replacement fields left UNVERIFIED because no official depth source is captured) | done (site/data-team-view.html: 32 club rows + summary, counts only) | 21a111a4 | site/data-captures.html, site/scripts/build.py, site/check.py | `python3 site/scripts/build.py` + `python3 site/check.py` exit 0; every row links its official source |
+| C4 | Official probes: depth-chart page, transactions log, reserve list, Game Book | done for the probes listed (P-01..P-09); reg10 chunks 1-7 and Game Book chunks 1-6 NOT read | 21a111a4 | captures/2026-11-18/probes.json | Each probe records URL, HTTP-style result text and fetch time; no value inferred from a failed probe |
+| C5 | Flags for the new irregularities | done (F-25..F-33 in site/scripts/content.py and site/data/flags.json) | 21a111a4 | site/data/flags.json | Each flag cites the official URL |
 | C6 | Integration: PR from this branch to main, merge without waiting, Pages confirmation, record here | pending | 21a111a4 | COORDINATION.md, README.md (top-line only) | `gh pr merge <n> --merge`; `gh api repos/sassnarep3-star/Own8/pages` → `built` |
 
 Log:
 - 2026-11-18 06:28 UTC — Read the board; main moved 0e6e4ae → c76ce69 (PR #76, a COORDINATION-only change); fast-forwarded. Confirmed nfl.com is reachable only through fetch_page. Claim C0 written.
+- 2026-11-18 ~06:20-06:29 UTC — Captured the Week 11 injury report (reg11, chunks 0-2 of 3). Transcribed 26 club rows into private-store/injury-report-2026-w11.tsv. Probes: depth-chart URL (404), transactions URL (404), roster (status codes, no legend), reg10 (title/heading mismatch), schedule chunk 0, standings chunk 0.
+- 2026-11-18 — Found a real error during the drift check: the metadata used ARI; nfl.com and the stored schedule capture use AZ. Corrected, and the checker then passed. This is the first confirmed catch of the drift alarm.
+- 2026-11-18 — Game centre for NE at DET (Week 10) links an official Game Book PDF; fetch_page reads it (7 chunks). Read chunk 0: lineups, Not Active list, venue (Allianz Arena, Munich). Captured page 1 only (56 rows, private-store/gamebook-2026-w10-ne-at-det-p1.tsv).
+- 2026-11-18 — Site: new page data-team-view.html; data-injuries.html and the depth page's Game Book row updated; stale "Week 11 not published" text corrected (F-07 superseded by F-25). `site/check.py` allowlist extended to static.www.nfl.com, the official host serving Game Books (the only allowlist change).
+- 2026-11-18 — Root `scripts/build_site.py` regenerated index.html (the 875583e4 redirect), pages/repo-review.html and two analysis files. Reverted to committed state; the F-24 conflict is unchanged and still open.
+
+Sources (all read through fetch_page on 2026-11-18, before 06:29:20 UTC):
+- https://www.nfl.com/injuries/league/2026/reg11 (3 of 3 chunks)
+- https://www.nfl.com/injuries/league/2026/reg10 (chunk 0 of 8)
+- https://www.nfl.com/teams/houston-texans/depth-chart (404)
+- https://www.nfl.com/transactions/league/2026/reg (404)
+- https://www.nfl.com/teams/houston-texans/roster (chunk 0 of 3)
+- https://www.nfl.com/schedules/2026/by-week/week-11 (chunk 0 of 2)
+- https://www.nfl.com/standings/ (chunk 0 of 2)
+- https://www.nfl.com/games/patriots-at-lions-2026-reg-10 (Final; Game Book link; Munich venue)
+- https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf (Game Book, chunk 0 of 7)
+
+Verification performed:
+- `python3 captures/scripts/build_manifest.py` then `python3 captures/scripts/check_captures.py` → OK (2 captures, 9 probes; hashes, pinned schema, row counts, 13-game pairs equal to site/data/week11-schedule.json, 24 + 2 clubs accounted for).
+- Tamper test in a scratch copy (one changed field): checker exit 1 (SHA-256 and byte count).
+- `python3 site/scripts/content.py` → regenerated registers; `python3 site/scripts/build.py` → 17 pages; `python3 site/check.py` → OK, 0 errors.
+- Root checks: scripts/audit_repo.py PASS (256/0), analyze.py PASS (0 eligible), test_audit OK, check_links PASS, audit_publication PASS, requirements/check_req PASS, ledger/check_ledger 25/25.
+- Only transcriptions: every value traces to a fetch_page result; nothing inferred. Team names come from the stored standings capture.
+
+Irregularities (all on the site's Flagged for Review page; none block the merge):
+- F-25 superseded Week 11 statement; F-26 24 clubs read "No Injuries Reported" (not re-read); F-27 reg10 title/body mismatch; F-28 roster status codes unexplained; F-29 depth-chart and transactions 404; F-30 IR moves news-only; F-31 "private" store is in a public repository (operator decision); F-32 Week 11 Injuries column blank; F-33 Joseph and Henderson are Out on the report but absent from the page-1 Not Active list.
+- Not done in this session, stated plainly: the Week 10 reg10 eight-page re-capture (F-05 still stands); Game Book chunks 1-6 (stats, substitutions, Joseph check); daily Wed-to-kickoff scheduling (no scheduler exists in this sandbox, and captures are manual reads); any depth-order or starter inference; snap counts (no official route found); the "net injury count" definition.
+- The drift alarm is a checker, not a scheduler. Nothing runs it on a timer.
+
+Cross-session notes: no file owned by another session was edited except site/** (which 875583e4 owns and which this session extended; its registers were regenerated with content.py and the diffs are only the new nav link and the R-06, R-07, F-07 updates).
+

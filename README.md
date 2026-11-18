@@ -29,6 +29,17 @@
 - Catalogs **471 inherited JSON/CSV entries**, withholding unverified values; records file-level review scope, source links and review flags. Every canonical table row has an official reference or explicitly labeled verification target.
 
 
+## What changed on 2026-11-18 (session 21a111a4)
+
+- **Week 11 injury report captured (3 of 3 pages).** The reg11 URL now serves Week 11: 13 games, 26 club rows (IND and HOU, all with Wednesday practice statuses, no game designations, no injury types). The earlier "not published" statement is superseded (F-25). Twelve games read "No Injuries Reported"; that is not evidence of health (F-26).
+- **Immutable capture ledger.** `captures/manifest.json` records URLs, retrieval bounds, row counts and SHA-256 hashes. `python3 captures/scripts/check_captures.py` re-hashes the files and fails loudly on schema, row-count, vocabulary or schedule drift. Tamper test: a single changed field in a scratch copy fails the SHA-256 and byte-count checks.
+- **Row-level data is held in `private-store/`,** which the Pages build excludes. The repository is public, so this does not make the data private (F-31, decision needed).
+- **Per-team injury view** at [site/data-team-view.html](https://sassnarep3-star.github.io/Own8/site/data-team-view.html): counts per club. Starters out, replacements named and the net injury count are UNVERIFIED: no official depth source is reachable (F-29).
+- **First official Game Book read.** The Week 10 game centre (NE at DET, 15 Nov) links an official Game Book PDF. Page 1 of 7 gives the lineups and the Not Active list. Two players the report marked Out (Joseph, Henderson) are not on that list (F-33).
+- **Probes:** the depth-chart and transactions URLs return NFL's 404 page; the roster status codes (ACT, RES, DEV, TRD, CUT) have no captured legend (F-28); the Week 10 reg10 page title says Week 11 while its body says Week 10 (F-27).
+
+Every value above is a transcription of an official nfl.com page read through the fetch tool. bash cannot reach nfl.com from this sandbox, so hashes prove a file has not changed since capture; they do not prove byte equality with nfl.com.
+
 ## What changed on 2026-11-15 (final integration round 5 · session 08643438)
 
 - **The repository's central price claim was wrong and is now corrected (SG-03 / F-01 / X3).** The decision ledger asserted "no official source publishes this market" on all 39 Week 10 markets. That was false: nfl.com publishes a FanDuel line for every game in its weekly picks article, locked 2 p.m. ET Thursday. The price store now records **87 verified snapshot values** (29 games × 3 markets, Weeks 9–10) with their nfl.com URLs and verbatim text, and publishes **fair line, market line and the difference as three separate columns** per market (differences cross-checked 39/39 against the independent market/ computation). Opening and closing values stay blank, fail-closed: no official source publishes a market-open or market-close number. See [ledger/price-store](https://sassnarep3-star.github.io/Own8/ledger/price-store.html) and flags LF-01/LF-11.

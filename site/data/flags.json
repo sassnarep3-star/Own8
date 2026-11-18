@@ -1,198 +1,269 @@
 {
-  "as_of": "2026-11-18",
-  "rows": [
-    {
-      "id": "F-01",
-      "title": "Leaderboard status conflict",
-      "detail": "Ledger registry (ledger/data/strategy-registry.json, generated 2026-11-14) lists S6, S1, S7 and S2 as PAPER-ELIGIBLE with n=104; the root README and analysis state zero eligible strategies. The PAPER-ELIGIBLE labels rest on a walk-forward backtest (W3 to W9) against naive baselines, not against the market, with no prospective settlement. Under the operator's rule they are shown here as NOT ELIGIBLE pending Q-08.",
-      "evidence": "ledger/data/strategy-registry.json; origination/results/validation-w10.json; README.md",
-      "link": "https://github.com/sassnarep3-star/Own8/blob/main/ledger/data/strategy-registry.json",
-      "status": "OPEN"
-    },
-    {
-      "id": "F-02",
-      "title": "Method text does not match the implemented formula",
-      "detail": "requirements/results/week10-lines.json states the away projection as (away PF/G + away PA/G)/2. The stored values reproduce only with (away PF/G + HOME PA/G)/2. Verified: all 13 stored Week 10 B0 games reproduce to within 0.0006 with the symmetric form (site/scripts/model_b0.py, check_b0).",
-      "evidence": "requirements/results/week10-lines.json",
-      "link": "https://github.com/sassnarep3-star/Own8/blob/main/requirements/results/week10-lines.json",
-      "status": "OPEN (formula verified 13/13; method text not yet edited)"
-    },
-    {
-      "id": "F-03",
-      "title": "nfl.com picks article contradicts the scores page",
-      "detail": "The Week 10 picks article (read 2026-11-17) labels all five author picks 'Incorrect pick' for the Patriots at Lions game, including the four picks for Detroit. The scores page (same day) shows DET 35, NE 10. Both are nfl.com; the cause is not stated. Not used for grading: grading uses the scores page.",
-      "evidence": "nfl.com picks article; nfl.com scores",
-      "link": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
-      "status": "OPEN"
-    },
-    {
-      "id": "F-04",
-      "title": "Week 10 Monday game not final on nfl.com as read",
-      "detail": "LAC at BAL (Nov 16) shows 8:15 PM with no score on the scores, standings and picks pages. Excluded from grading (12 graded, 1 pending) and from the Week 11 inputs. If it is final, W11 lines change.",
-      "evidence": "nfl.com scores 2026-11-17",
-      "link": "https://www.nfl.com/scores/2026/week-10",
-      "status": "OPEN (Q-05)"
-    },
-    {
-      "id": "F-05",
-      "title": "Week 10 injury row counts disagree across captures",
-      "detail": "Five Week 10 captures in the repo disagree: requirements/results/injuries-w10.json (about 358 rows by a heuristic count), integration/data/injuries-2026-week10.json and a57af0ab/data/injuries-2026-w10.json (about 345), decision/data/injuries-2026-week10.json (about 114), hub/data/injuries-w10.csv (67 data rows). The live page has 8 pages; one was re-read today. Counts above are from a rough parse of each file and are not verified.",
-      "evidence": "see paths",
-      "link": "https://www.nfl.com/injuries/league/2026/reg10",
-      "status": "OPEN (Q-06)"
-    },
-    {
-      "id": "F-06",
-      "title": "Depth page for Houston returns 404",
-      "detail": "https://www.nfl.com/teams/houston-texans/depth-chart returns 404 on 2026-11-17. The Texans image-depth problem in the brief cannot be checked against an official page.",
-      "evidence": "nfl.com",
-      "link": "https://www.nfl.com/teams/houston-texans/depth-chart",
-      "status": "OPEN (S-03)"
-    },
-    {
-      "id": "F-07",
-      "title": "Week 11 report content is available; raw capture unavailable",
-      "detail": "The reg11 URL serves Week 10 content on 2026-11-17; the Colts game centre says the report is not yet available.",
-      "evidence": "nfl.com",
-      "link": "https://www.nfl.com/injuries/league/2026/reg11",
-      "status": "PARTIAL \u2014 stale publication claim corrected; snapshot evidence still missing",
-      "source": "https://www.nfl.com/injuries/league/2026/reg11"
-    },
-    {
-      "id": "F-08",
-      "title": "Team codes differ across files",
-      "detail": "ARI and AZ both appear in JSON files outside archive/ (AZ in 71 files, ARI in 5); LA and LAR both appear (LA in 40 files, LAR in 34; not every occurrence is the Rams). The repo's game log and this site use AZ and LAR (nfl.com scores text). Files still using ARI: desk/analysis/repository-audit.json, desk/public-data/repository-audit.json, docs/evidence-lab/results.json, evidence-lab/results.json, strict/results.json.",
-      "evidence": "listed files",
-      "link": "https://github.com/sassnarep3-star/Own8/blob/main/origination/data/games-2026-w1-w9.json",
-      "status": "OPEN (S-10)"
-    },
-    {
-      "id": "F-09",
-      "title": "Root landing page was stale and cluttered",
-      "detail": "Root index.html was a 14 Nov snapshot linking to 15 parallel namespaces. This session replaces it with a redirect to site/index.html. Legacy pages are not re-verified.",
-      "evidence": "index.html; scripts/build_site.py",
-      "link": "https://github.com/sassnarep3-star/Own8/blob/main/index.html",
-      "status": "RESOLVED (redirect written 17 Nov; see F-24 for the CI conflict)"
-    },
-    {
-      "id": "F-10",
-      "title": "COORDINATION.md is 1,270 lines with stale claims",
-      "detail": "Many 'in progress' claims from 14 Nov sessions are never closed; the file is 224 KB. Recorded for the operator; not edited beyond this session's section.",
-      "evidence": "COORDINATION.md",
-      "link": "https://github.com/sassnarep3-star/Own8/blob/main/COORDINATION.md",
-      "status": "OPEN"
-    },
-    {
-      "id": "F-11",
-      "title": "Week 11 market column is blank",
-      "detail": "No nfl.com picks article for Week 11 was captured this session; the Week 11 market and difference columns stay blank.",
-      "evidence": "site/data/b0-w11-lines.json",
-      "link": "https://github.com/sassnarep3-star/Own8/blob/main/site/data/b0-w11-lines.json",
-      "status": "OPEN"
-    },
-    {
-      "id": "F-12",
-      "title": "Week 10 market rows: two of 14 re-verified today",
-      "detail": "Captured 14 Nov by session 949f49b0. This session compared the Patriots at Lions and Chargers at Ravens rows with the picks article: both match. The other 12 rows are not re-verified today.",
-      "evidence": "market/data/raw/official-prices-w10.json",
-      "link": "https://github.com/sassnarep3-star/Own8/blob/main/market/data/raw/official-prices-w10.json",
-      "status": "OPEN (2 of 14 verified: NE at DET, LAC at BAL)"
-    },
-    {
-      "id": "F-13",
-      "title": "One published correlation is not significant after multiplicity correction",
-      "detail": "origination/results/correlations.json marks C2 (home margin residual vs total residual; n=89; p=0.026) as significant at 5%. Holm across the nine published correlations keeps C5, C6, C8 and C9 but not C2. Stated on correlations.html.",
-      "evidence": "origination/results/correlations.json",
-      "link": "https://github.com/sassnarep3-star/Own8/blob/main/origination/results/correlations.json",
-      "status": "OPEN"
-    },
-    {
-      "id": "F-14",
-      "title": "Sum checks on the captured standings",
-      "detail": "League PF = PA = 6,880; wins = losses = 148; ties = 2 (one tie game, NYG 27 WAS 27, Week 5 in the repo log; the tie date was not verified this session). These are checks on the transcription, not on the NFL's data.",
-      "evidence": "site/data/standings-2026-11-17.json",
-      "link": "https://www.nfl.com/standings/league/2026/REG",
-      "status": "PASS"
-    },
-    {
-      "id": "F-15",
-      "title": "Lions designations verified",
-      "detail": "Kerby Joseph (Knee), Cade Mays (Ankle) and D.J. Reed (Hip) all show Out with Did Not Participate in Practice on the Week 10 report as read on 2026-11-17.",
-      "evidence": "nfl.com injury report",
-      "link": "https://www.nfl.com/injuries/league/2026/reg10",
-      "status": "VERIFIED"
-    },
-    {
-      "id": "F-16",
-      "title": "Unverified operator references",
-      "detail": "The brief cites 16 VR- and VQ- identifiers. Only VR-08 and VR-12 appear in earlier repo registers (data/flagged.json, COORDINATION.md, session-08643438/verification.json), and they match the Lions item (R-05). The other 14 (VR-04 to VR-07, VR-17, VR-21, VR-23 to VR-26, VQ-05 to VQ-08) appear in no file in the repo outside this session's own register (grep, 2026-11-17). Items that depend only on those 14 are NOT verified here.",
-      "evidence": "repository search",
-      "link": "",
-      "status": "OPEN (Q-15)"
-    },
-    {
-      "id": "F-17",
-      "title": "Colts trade and Ravens depth claims not verified",
-      "detail": "The brief cites two Colts starting-receiver trades (Week 10 release) and Ravens depth rows for Jackson and Huntley. This session read only the picks article's statement that Jackson is on IR; no transactions page or depth row was verified.",
-      "evidence": "nfl.com picks article",
-      "link": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
-      "status": "OPEN (Q-17)"
-    },
-    {
-      "id": "F-18",
-      "title": "Shared and empty depth slots, Seattle and Washington",
-      "detail": "Not verifiable: no depth page reachable (F-06).",
-      "evidence": "",
-      "link": "",
-      "status": "OPEN (R-33)"
-    },
-    {
-      "id": "F-19",
-      "title": "Game-Book starters not captured",
-      "detail": "No Game Book was captured. Any starter or designation claim that depends on a Game Book is unverified.",
-      "evidence": "",
-      "link": "",
-      "status": "OPEN (R-14)"
-    },
-    {
-      "id": "F-20",
-      "title": "Week 11 fixture venues",
-      "detail": "Only IND@HOU venue verified (game centre). Other venues blank.",
-      "evidence": "",
-      "link": "https://www.nfl.com/games/colts-at-texans-2026-reg-11",
-      "status": "OPEN (Q-16)"
-    },
-    {
-      "id": "F-21",
-      "title": "Malik Willis reserve status",
-      "detail": "Brief says he is on injured reserve (VR-25/VQ-06). Not verified this session; the reserve list is not captured.",
-      "evidence": "",
-      "link": "",
-      "status": "OPEN (R-20)"
-    },
-    {
-      "id": "F-22",
-      "title": "'Announced starter' changes for Lock, McCord and Brissett",
-      "detail": "Brief cites VR-24, VR-25, VQ-05. Not verified. The picks article mentions a Ravens trade for Jacoby Brissett; its terms are not read.",
-      "evidence": "nfl.com picks article",
-      "link": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
-      "status": "OPEN (Q-14)"
-    },
-    {
-      "id": "F-23",
-      "title": "Week 11 fair lines were built on pre-Monday standings (provisional)",
-      "detail": "site/data/b0-w11-lines.json was written in beca9d2 on 17 Nov from the standings snapshot taken before the Monday Chargers at Ravens game, which is not verified final. The lines are provisional and must be re-originated after that game is verified final. Frozen values stay in git history.",
-      "evidence": "site/data/b0-w11-lines.json; site/data/standings-2026-11-17.json",
-      "link": "https://github.com/sassnarep3-star/Own8/blob/main/site/data/b0-w11-lines.json",
-      "status": "OPEN (re-originate after F-04 clears)"
-    },
-    {
-      "id": "F-24",
-      "title": "Root index.html now redirects; the requirements workflow will fail its clean-diff check on its next run",
-      "detail": "Root index.html was replaced with a redirect to site/index.html (17 Nov). scripts/build_site.py regenerates the legacy root index.html on every run. .github/workflows/requirements.yml runs build_site.py and then fails if git diff is not empty. Tested in a scratch copy: with the legacy index committed the regenerated file is identical; with the redirect committed the regenerated legacy dashboard differs. The workflow runs only on pushes or PRs touching requirements/**, scripts/build_site.py, scripts/check_links.py, or the workflow file, so this PR does not trigger it. The requirements session (f6e60a81) must decide the fix: stop build_site.py writing index.html, or keep the redirect and exempt it from the diff check.",
-      "evidence": "README.md; index.html; scripts/build_site.py; .github/workflows/requirements.yml",
-      "link": "https://github.com/sassnarep3-star/Own8/blob/main/.github/workflows/requirements.yml",
-      "status": "OPEN (owner decision: requirements session)"
-    }
-  ]
+ "as_of": "2026-11-17",
+ "rows": [
+  {
+   "id": "F-01",
+   "title": "Leaderboard status conflict",
+   "detail": "Ledger registry (ledger/data/strategy-registry.json, generated 2026-11-14) lists S6, S1, S7 and S2 as PAPER-ELIGIBLE with n=104; the root README and analysis state zero eligible strategies. The PAPER-ELIGIBLE labels rest on a walk-forward backtest (W3 to W9) against naive baselines, not against the market, with no prospective settlement. Under the operator's rule they are shown here as NOT ELIGIBLE pending Q-08.",
+   "evidence": "ledger/data/strategy-registry.json; origination/results/validation-w10.json; README.md",
+   "link": "https://github.com/sassnarep3-star/Own8/blob/main/ledger/data/strategy-registry.json",
+   "status": "OPEN"
+  },
+  {
+   "id": "F-02",
+   "title": "Method text does not match the implemented formula",
+   "detail": "requirements/results/week10-lines.json states the away projection as (away PF/G + away PA/G)/2. The stored values reproduce only with (away PF/G + HOME PA/G)/2. Verified: all 13 stored Week 10 B0 games reproduce to within 0.0006 with the symmetric form (site/scripts/model_b0.py, check_b0).",
+   "evidence": "requirements/results/week10-lines.json",
+   "link": "https://github.com/sassnarep3-star/Own8/blob/main/requirements/results/week10-lines.json",
+   "status": "OPEN (formula verified 13/13; method text not yet edited)"
+  },
+  {
+   "id": "F-03",
+   "title": "nfl.com picks article contradicts the scores page",
+   "detail": "The Week 10 picks article (read 2026-11-17) labels all five author picks 'Incorrect pick' for the Patriots at Lions game, including the four picks for Detroit. The scores page (same day) shows DET 35, NE 10. Both are nfl.com; the cause is not stated. Not used for grading: grading uses the scores page.",
+   "evidence": "nfl.com picks article; nfl.com scores",
+   "link": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+   "status": "OPEN"
+  },
+  {
+   "id": "F-04",
+   "title": "Week 10 Monday game not final on nfl.com as read",
+   "detail": "LAC at BAL (Nov 16) shows 8:15 PM with no score on the scores, standings and picks pages. Excluded from grading (12 graded, 1 pending) and from the Week 11 inputs. If it is final, W11 lines change.",
+   "evidence": "nfl.com scores 2026-11-17",
+   "link": "https://www.nfl.com/scores/2026/week-10",
+   "status": "OPEN (Q-05)"
+  },
+  {
+   "id": "F-05",
+   "title": "Week 10 injury row counts disagree across captures",
+   "detail": "Five Week 10 captures in the repo disagree: requirements/results/injuries-w10.json (about 358 rows by a heuristic count), integration/data/injuries-2026-week10.json and a57af0ab/data/injuries-2026-w10.json (about 345), decision/data/injuries-2026-week10.json (about 114), hub/data/injuries-w10.csv (67 data rows). The live page has 8 pages; one was re-read today. Counts above are from a rough parse of each file and are not verified.",
+   "evidence": "see paths",
+   "link": "https://www.nfl.com/injuries/league/2026/reg10",
+   "status": "OPEN (Q-06)"
+  },
+  {
+   "id": "F-06",
+   "title": "Depth page for Houston returns 404",
+   "detail": "https://www.nfl.com/teams/houston-texans/depth-chart returns 404 on 2026-11-17. The Texans image-depth problem in the brief cannot be checked against an official page.",
+   "evidence": "nfl.com",
+   "link": "https://www.nfl.com/teams/houston-texans/depth-chart",
+   "status": "OPEN (S-03)"
+  },
+  {
+   "id": "F-07",
+   "title": "Week 11 injury report not yet published (superseded)",
+   "detail": "Superseded on 18 Nov 2026: the reg11 URL serves Week 11 content (13 games, 26 club rows). Earlier notes from 17 Nov that it was not yet published are no longer current.",
+   "evidence": "captures/manifest.json; see F-25",
+   "link": "https://www.nfl.com/injuries/league/2026/reg11",
+   "status": "SUPERSEDED by F-25 (18 Nov read)"
+  },
+  {
+   "id": "F-08",
+   "title": "Team codes differ across files",
+   "detail": "ARI and AZ both appear in JSON files outside archive/ (AZ in 71 files, ARI in 5); LA and LAR both appear (LA in 40 files, LAR in 34; not every occurrence is the Rams). The repo's game log and this site use AZ and LAR (nfl.com scores text). Files still using ARI: desk/analysis/repository-audit.json, desk/public-data/repository-audit.json, docs/evidence-lab/results.json, evidence-lab/results.json, strict/results.json.",
+   "evidence": "listed files",
+   "link": "https://github.com/sassnarep3-star/Own8/blob/main/origination/data/games-2026-w1-w9.json",
+   "status": "OPEN (S-10)"
+  },
+  {
+   "id": "F-09",
+   "title": "Root landing page was stale and cluttered",
+   "detail": "Root index.html was a 14 Nov snapshot linking to 15 parallel namespaces. This session replaces it with a redirect to site/index.html. Legacy pages are not re-verified.",
+   "evidence": "index.html; scripts/build_site.py",
+   "link": "https://github.com/sassnarep3-star/Own8/blob/main/index.html",
+   "status": "RESOLVED (redirect written 17 Nov; see F-24 for the CI conflict)"
+  },
+  {
+   "id": "F-10",
+   "title": "COORDINATION.md is 1,270 lines with stale claims",
+   "detail": "Many 'in progress' claims from 14 Nov sessions are never closed; the file is 224 KB. Recorded for the operator; not edited beyond this session's section.",
+   "evidence": "COORDINATION.md",
+   "link": "https://github.com/sassnarep3-star/Own8/blob/main/COORDINATION.md",
+   "status": "OPEN"
+  },
+  {
+   "id": "F-11",
+   "title": "Week 11 market column is blank",
+   "detail": "No nfl.com picks article for Week 11 was captured this session; the Week 11 market and difference columns stay blank.",
+   "evidence": "site/data/b0-w11-lines.json",
+   "link": "https://github.com/sassnarep3-star/Own8/blob/main/site/data/b0-w11-lines.json",
+   "status": "OPEN"
+  },
+  {
+   "id": "F-12",
+   "title": "Week 10 market rows: two of 14 re-verified today",
+   "detail": "Captured 14 Nov by session 949f49b0. This session compared the Patriots at Lions and Chargers at Ravens rows with the picks article: both match. The other 12 rows are not re-verified today.",
+   "evidence": "market/data/raw/official-prices-w10.json",
+   "link": "https://github.com/sassnarep3-star/Own8/blob/main/market/data/raw/official-prices-w10.json",
+   "status": "OPEN (2 of 14 verified: NE at DET, LAC at BAL)"
+  },
+  {
+   "id": "F-13",
+   "title": "One published correlation is not significant after multiplicity correction",
+   "detail": "origination/results/correlations.json marks C2 (home margin residual vs total residual; n=89; p=0.026) as significant at 5%. Holm across the nine published correlations keeps C5, C6, C8 and C9 but not C2. Stated on correlations.html.",
+   "evidence": "origination/results/correlations.json",
+   "link": "https://github.com/sassnarep3-star/Own8/blob/main/origination/results/correlations.json",
+   "status": "OPEN"
+  },
+  {
+   "id": "F-14",
+   "title": "Sum checks on the captured standings",
+   "detail": "League PF = PA = 6,880; wins = losses = 148; ties = 2 (one tie game, NYG 27 WAS 27, Week 5 in the repo log; the tie date was not verified this session). These are checks on the transcription, not on the NFL's data.",
+   "evidence": "site/data/standings-2026-11-17.json",
+   "link": "https://www.nfl.com/standings/league/2026/REG",
+   "status": "PASS"
+  },
+  {
+   "id": "F-15",
+   "title": "Lions designations verified",
+   "detail": "Kerby Joseph (Knee), Cade Mays (Ankle) and D.J. Reed (Hip) all show Out with Did Not Participate in Practice on the Week 10 report as read on 2026-11-17.",
+   "evidence": "nfl.com injury report",
+   "link": "https://www.nfl.com/injuries/league/2026/reg10",
+   "status": "VERIFIED"
+  },
+  {
+   "id": "F-16",
+   "title": "Unverified operator references",
+   "detail": "The brief cites 16 VR- and VQ- identifiers. Only VR-08 and VR-12 appear in earlier repo registers (data/flagged.json, COORDINATION.md, session-08643438/verification.json), and they match the Lions item (R-05). The other 14 (VR-04 to VR-07, VR-17, VR-21, VR-23 to VR-26, VQ-05 to VQ-08) appear in no file in the repo outside this session's own register (grep, 2026-11-17). Items that depend only on those 14 are NOT verified here.",
+   "evidence": "repository search",
+   "link": "",
+   "status": "OPEN (Q-15)"
+  },
+  {
+   "id": "F-17",
+   "title": "Colts trade and Ravens depth claims not verified",
+   "detail": "The brief cites two Colts starting-receiver trades (Week 10 release) and Ravens depth rows for Jackson and Huntley. This session read only the picks article's statement that Jackson is on IR; no transactions page or depth row was verified.",
+   "evidence": "nfl.com picks article",
+   "link": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+   "status": "OPEN (Q-17)"
+  },
+  {
+   "id": "F-18",
+   "title": "Shared and empty depth slots, Seattle and Washington",
+   "detail": "Not verifiable: no depth page reachable (F-06).",
+   "evidence": "",
+   "link": "",
+   "status": "OPEN (R-33)"
+  },
+  {
+   "id": "F-19",
+   "title": "Game-Book starters not captured",
+   "detail": "No Game Book was captured. Any starter or designation claim that depends on a Game Book is unverified.",
+   "evidence": "",
+   "link": "",
+   "status": "OPEN (R-14)"
+  },
+  {
+   "id": "F-20",
+   "title": "Week 11 fixture venues",
+   "detail": "Only IND@HOU venue verified (game centre). Other venues blank.",
+   "evidence": "",
+   "link": "https://www.nfl.com/games/colts-at-texans-2026-reg-11",
+   "status": "OPEN (Q-16)"
+  },
+  {
+   "id": "F-21",
+   "title": "Malik Willis reserve status",
+   "detail": "Brief says he is on injured reserve (VR-25/VQ-06). Not verified this session; the reserve list is not captured.",
+   "evidence": "",
+   "link": "",
+   "status": "OPEN (R-20)"
+  },
+  {
+   "id": "F-22",
+   "title": "'Announced starter' changes for Lock, McCord and Brissett",
+   "detail": "Brief cites VR-24, VR-25, VQ-05. Not verified. The picks article mentions a Ravens trade for Jacoby Brissett; its terms are not read.",
+   "evidence": "nfl.com picks article",
+   "link": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+   "status": "OPEN (Q-14)"
+  },
+  {
+   "id": "F-23",
+   "title": "Week 11 fair lines were built on pre-Monday standings (provisional)",
+   "detail": "site/data/b0-w11-lines.json was written in beca9d2 on 17 Nov from the standings snapshot taken before the Monday Chargers at Ravens game, which is not verified final. The lines are provisional and must be re-originated after that game is verified final. Frozen values stay in git history.",
+   "evidence": "site/data/b0-w11-lines.json; site/data/standings-2026-11-17.json",
+   "link": "https://github.com/sassnarep3-star/Own8/blob/main/site/data/b0-w11-lines.json",
+   "status": "OPEN (re-originate after F-04 clears)"
+  },
+  {
+   "id": "F-24",
+   "title": "Root index.html now redirects; the requirements workflow will fail its clean-diff check on its next run",
+   "detail": "Root index.html was replaced with a redirect to site/index.html (17 Nov). scripts/build_site.py regenerates the legacy root index.html on every run. .github/workflows/requirements.yml runs build_site.py and then fails if git diff is not empty. Tested in a scratch copy: with the legacy index committed the regenerated file is identical; with the redirect committed the regenerated legacy dashboard differs. The workflow runs only on pushes or PRs touching requirements/**, scripts/build_site.py, scripts/check_links.py, or the workflow file, so this PR does not trigger it. The requirements session (f6e60a81) must decide the fix: stop build_site.py writing index.html, or keep the redirect and exempt it from the diff check.",
+   "evidence": "README.md; index.html; scripts/build_site.py; .github/workflows/requirements.yml",
+   "link": "https://github.com/sassnarep3-star/Own8/blob/main/.github/workflows/requirements.yml",
+   "status": "OPEN (owner decision: requirements session)"
+  },
+  {
+   "id": "F-25",
+   "title": "Week 11 injury report: earlier 'not published' statement superseded",
+   "detail": "The Injuries page said the reg11 URL served Week 10 content. On 18 Nov 2026 the same URL serves Week 11: 13 games, 26 club rows. The stale text is corrected; the three pages were read before 06:29 UTC on 18 Nov.",
+   "evidence": "captures/manifest.json; captures/2026-11-18/injury-report-w11.meta.json",
+   "link": "https://www.nfl.com/injuries/league/2026/reg11",
+   "status": "OPEN: corrected here; re-read Thursday and Friday"
+  },
+  {
+   "id": "F-26",
+   "title": "24 clubs read 'No Injuries Reported' on the Week 11 page",
+   "detail": "In 12 of the 13 Week 11 games both clubs read 'No Injuries Reported' (24 clubs). Only IND and HOU have rows, all with Wednesday practice statuses. That text is not evidence of health. Thursday and Friday reads are needed before any club is treated as clear.",
+   "evidence": "private-store/injury-report-2026-w11.tsv (row counts); captures/manifest.json",
+   "link": "https://www.nfl.com/injuries/league/2026/reg11",
+   "status": "OPEN"
+  },
+  {
+   "id": "F-27",
+   "title": "Week 10 injury page: title says Week 11, heading and body say Week 10",
+   "detail": "The reg10 URL's page title reads 'Official NFL Injury Report for Players - Week 11 of the 2026 Season'. Its heading reads 'Injuries - WEEK 10' and its body lists the Thursday 12 Nov games. Chunks 1 to 7 were not re-read in this session, so the Week 10 row-count conflict (F-05) stands.",
+   "evidence": "captures/manifest.json probe P-02",
+   "link": "https://www.nfl.com/injuries/league/2026/reg10",
+   "status": "OPEN"
+  },
+  {
+   "id": "F-28",
+   "title": "Roster status codes (ACT, RES, DEV, TRD, CUT) have no captured legend",
+   "detail": "The Houston roster page has a Status column with these codes. Chunk 0 of 3 has no legend. Reserve, developmental, traded and cut status are not interpreted anywhere on this site until a legend is captured.",
+   "evidence": "captures/manifest.json probe P-05",
+   "link": "https://www.nfl.com/teams/houston-texans/roster",
+   "status": "OPEN"
+  },
+  {
+   "id": "F-29",
+   "title": "Depth-chart and transactions URLs return NFL's 404 page (18 Nov)",
+   "detail": "https://www.nfl.com/teams/houston-texans/depth-chart and https://www.nfl.com/transactions/league/2026/reg both return the '404 - Flag on the Play.' page. Route a (per-club depth chart) stays blocked for all 32 clubs, and no official transactions log is reachable.",
+   "evidence": "captures/manifest.json probes P-03 and P-04",
+   "link": "https://www.nfl.com/teams/houston-texans/depth-chart",
+   "status": "BLOCKED"
+  },
+  {
+   "id": "F-30",
+   "title": "Injured-reserve moves are visible only as news reports",
+   "detail": "nfl.com news items report IR placements (for example Dolphins QB Malik Willis, Patriots RB TreVeyon Henderson, Cowboys' Malachi Lawrence). No official transactions record was reachable to confirm them, so they are listed as news reports and not treated as roster facts.",
+   "evidence": "captures/manifest.json news_reported_roster_moves",
+   "link": "https://www.nfl.com/news/dolphins-place-qb-malik-willis-groin-on-injured-reserve-kyle-mccord-in-line-for-first-start",
+   "status": "OPEN"
+  },
+  {
+   "id": "F-31",
+   "title": "The 'private' store sits in a public repository",
+   "detail": "Row-level Week 11 injury data is in private-store/. The Pages build excludes that folder (_config.yml), but the Own8 repository is public, so the file can still be read on GitHub. A real private store needs another location. This needs an operator decision; no private host is available in this sandbox.",
+   "evidence": "private-store/README.md; _config.yml",
+   "link": "https://github.com/sassnarep3-star/Own8/blob/main/_config.yml",
+   "status": "DECISION NEEDED"
+  },
+  {
+   "id": "F-32",
+   "title": "Week 11 injury rows carry no injury type",
+   "detail": "All 26 Week 11 rows have a blank Injuries column and a practice status. Injury types and game designations are therefore not in this capture. The page shows practice status only at this read.",
+   "evidence": "private-store/injury-report-2026-w11.tsv",
+   "link": "https://www.nfl.com/injuries/league/2026/reg11",
+   "status": "OPEN"
+  },
+  {
+   "id": "F-33",
+   "title": "Game Book inactives do not list two players the report had as Out",
+   "detail": "For NE at DET (15 Nov) the Week 10 report marked Kerby Joseph (DET S) and TreVeyon Henderson (NE RB) as Out. Neither appears in the Game Book Not Active list on page 1 of 7. Whether they were inactive, on injured reserve or otherwise absent is not settled by page 1; the remaining six chunks are needed.",
+   "evidence": "captures/manifest.json probe P-09; captures/2026-11-18/gamebook-2026-w10-ne-at-det.meta.json",
+   "link": "https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf",
+   "status": "OPEN"
+  }
+ ]
 }

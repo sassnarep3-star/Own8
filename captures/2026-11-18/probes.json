@@ -1,0 +1,80 @@
+{
+  "retrieved_utc_upper_bound": "2026-11-18T06:29:20Z",
+  "retrieval": "fetch_page tool only; nfl.com is not reachable from bash in this sandbox",
+  "probes": [
+    {
+      "id": "P-01",
+      "url": "https://www.nfl.com/injuries/league/2026/reg11",
+      "result": "Read 3 of 3 chunks. Heading 'Injuries - WEEK 11'. 13 games, 26 club rows.",
+      "usable_for": "Week 11 injury capture (captured)"
+    },
+    {
+      "id": "P-02",
+      "url": "https://www.nfl.com/injuries/league/2026/reg10",
+      "result": "Chunk 0 of 8 read. Heading 'Injuries - WEEK 10' but page <title> reads 'Week 11 of the 2026 Season'. Chunks 1-7 not read in this session.",
+      "usable_for": "Not captured this session; title/heading mismatch flagged (F-27)"
+    },
+    {
+      "id": "P-03",
+      "url": "https://www.nfl.com/teams/houston-texans/depth-chart",
+      "result": "Returned the NFL '404 - Flag on the Play.' page.",
+      "usable_for": "None. Depth-chart route still blocked (route a)"
+    },
+    {
+      "id": "P-04",
+      "url": "https://www.nfl.com/transactions/league/2026/reg",
+      "result": "Returned the NFL '404 - Flag on the Play.' page.",
+      "usable_for": "None. No official transactions log is reachable at this URL"
+    },
+    {
+      "id": "P-05",
+      "url": "https://www.nfl.com/teams/houston-texans/roster",
+      "result": "Read chunk 0 of 3. Table columns: Player, No, Pos, Status, Height, Weight, Experience, College. Status values seen: ACT, RES, DEV, TRD, CUT. No status legend in chunk 0.",
+      "usable_for": "Roster status is visible but its meaning is unverified until a legend is captured (F-28)"
+    },
+    {
+      "id": "P-06",
+      "url": "https://www.nfl.com/schedules/2026/by-week/week-11",
+      "result": "Chunk 0 of 2 read. Thursday game Colts at Texans, 8:15 PM ET, PRIME. Sunday games read through Steelers at Eagles. Game pairs are compared with the stored 17-Nov schedule capture by captures/scripts/check_captures.py, not asserted here.",
+      "usable_for": "Game list cross-check (performed by the checker)"
+    },
+    {
+      "id": "P-07",
+      "url": "https://www.nfl.com/standings/",
+      "result": "Chunk 0 of 2 read. Standings table renders (Texans 3-6, Lions 7-2, Chargers 1-8).",
+      "usable_for": "Not re-captured this session; site/data/standings-2026-11-17.json remains the record"
+    },
+    {
+      "id": "P-08",
+      "url": "https://www.nfl.com/games/patriots-at-lions-2026-reg-10",
+      "result": "Game centre read, Final, NE 10 at DET 35, Sun 15 Nov 2026. Game Info: LOCATION MUNICH, STADIUM FC BAYERN MUNICH STADIUM. 'Download Game Book (PDF)' link present.",
+      "usable_for": "Venue for NE at DET (Week 10) verified from the game centre; Game Book link discovered"
+    },
+    {
+      "id": "P-09",
+      "url": "https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf",
+      "result": "Game Book PDF readable through fetch_page: 7 chunks. Chunk 0 read: Lineups (11 offense and 11 defense per club), Not Active list (6 per club), final score and venue. Substitutions, stats and chunks 1 to 6 not read.",
+      "usable_for": "Actual starters and inactives for NE at DET (captured page 1 only, see captures/2026-11-18/gamebook-2026-w10-ne-at-det.meta.json)"
+    }
+  ],
+  "news_reported_roster_moves": [
+    {
+      "headline": "Dolphins place QB Malik Willis (groin) on injured reserve; Kyle McCord in line for first start",
+      "url": "https://www.nfl.com/news/dolphins-place-qb-malik-willis-groin-on-injured-reserve-kyle-mccord-in-line-for-first-start",
+      "seen_on": "nfl.com injury page news rail, Week 11 read",
+      "status": "news report; no official transactions log reachable (P-04)"
+    },
+    {
+      "headline": "NFL news roundup: Patriots place RB TreVeyon Henderson (illness) on injured reserve",
+      "url": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-nov-14",
+      "seen_on": "nfl.com injury page news rail, Week 11 read",
+      "status": "news report; no official transactions log reachable (P-04)"
+    },
+    {
+      "headline": "NFL news roundup: Cowboys place Malachi Lawrence on IR",
+      "url": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-nov-7",
+      "seen_on": "nfl.com injury page news rail, Week 11 read",
+      "status": "news report; no official transactions log reachable (P-04)"
+    }
+  ]
+}
