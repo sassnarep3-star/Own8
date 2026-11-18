@@ -1,0 +1,34 @@
+{
+  "capture_id": "gamebook-2026-w10-lac-at-bal",
+  "source_url": "https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf",
+  "linked_from": "https://www.nfl.com/games/chargers-at-ravens-2026-reg-10 ('Download Game Book (PDF)', game centre read 18 Nov 2026, status Final)",
+  "page_title_as_read": "National Football League Game Summary, Monday 11/16/2026, Los Angeles Chargers at Baltimore Ravens at M&T Bank Stadium, Baltimore, MD",
+  "retrieval": "fetch_page tool only, PDF chunk 0 of 8 read (lineups, Not Active and scoring plays are on chunk 0). fetch_page returns no clock time; retrieved before 2026-11-18T06:27:14Z.",
+  "retrieved_utc_upper_bound": "2026-11-18T06:27:14Z",
+  "chunks_read": 1,
+  "chunks_total": 8,
+  "rows_file": "private-store/gamebook-2026-w10-lac-at-bal.tsv",
+  "rows": 56,
+  "required_columns": [
+    "game",
+    "team",
+    "unit",
+    "slot",
+    "number",
+    "player"
+  ],
+  "allowed_units": [
+    "offense",
+    "defense",
+    "not_active"
+  ],
+  "scope_note": "Page 1 only: the Lineups block (11 per unit per side as printed) and the Not Active list. Did Not Play lines (QB 7 Uiagalelei, C 60 Spomer, G 73 Harkey for LAC; QB 12 Fagnano, OL 58 Neuzil for BAL), substitutions, stats and chunks 1 to 7 are not in this file. Starters are the Lineups block as printed; this is not a depth rank and not a snap count.",
+  "game_facts_as_read": {
+    "final": "LAC 23, BAL 20 (scoring-play log; the PDF quarter-table labels are offset by one row and are not used)",
+    "date": "Mon 16 Nov 2026",
+    "start_time": "8:16 PM EST",
+    "venue": "M&T Bank Stadium, Baltimore, MD",
+    "game_centre_location": "BALTIMORE, MD",
+    "game_centre_stadium": "M&T BANK STADIUM"
+  }
+}

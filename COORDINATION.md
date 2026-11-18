@@ -41,6 +41,38 @@ documented numeric refinement (RQ-12: 6-8 game-weeks of postgame Game Books, Q-0
 into that table. Both board sections are retained verbatim below. Nothing of fe499d4e's
 merged work is reverted.
 
+## Session 2e1f91d7 — Week 11 official evidence and Game Book starters: integration record (claimed 2026-11-18 UTC, base main @ 0e6e4ae; re-based onto main @ 1d6fa1a)
+
+Branch: `arena/2e1f91d7-own8` (Arena-pinned; all work on this branch; no `session-*` sub-branches are created because the session is pinned to one branch).
+
+**What happened.** This session claimed a Week 11 injury capture, the Week 10 LAC@BAL score, a Game Book starter pilot and a capture hash ledger (W0 to W6, commit e451bd9). Before this session's PR merged, other sessions completed most of the same work on main: the Week 11 injury capture, the capture manifest and drift checker, private-store, and the LAC@BAL score (`finals`, commit e741bdc, with B0 v2 lines) were all merged (PR #80, #82). The branch was therefore re-based onto main. This session's duplicate files (public row-level injury and lineup JSON, a second capture checker, and capture hash checks in site/check.py) were **withdrawn**, not merged. Reason: the operator's split between a public analysis layer and a private row-level store, which main implements in `private-store/`.
+
+| ID | Task | Status | Owner | Files (scope) | Verification plan |
+| --- | --- | --- | --- | --- | --- |
+| W0 | Board claim | done | 2e1f91d7 | COORDINATION.md | claim commit e451bd9 |
+| W1 | Week 11 injury capture | done by 21a111a4 (PR #82); this session's duplicate withdrawn | 21a111a4 | captures/**, private-store/** | main's check_captures.py |
+| W2 | Withdraw the 17 Nov "reg11 serves Week 10" claim | done by main (PR #82 text: "superseded (F-25)") | 21a111a4 | site/scripts/build.py | page text checked in build |
+| W3 | LAC@BAL final 23–20 from the game centre and Game Book | done by main (commit e741bdc, `finals`) | sassnarep3-star / arena-agent | site/data/week10-results.json | this session confirmed the Game Book scoring-play log (23–20) |
+| W4 | Game Book starter pilot, second game (LAC at BAL) | done: 56 rows (44 lineup + 12 Not Active) in private-store/gamebook-2026-w10-lac-at-bal.tsv; metadata in captures/2026-11-18/; manifest rebuilt with main's build_manifest.py (added this file to its list); check_captures.py OK (3 captures) | 2e1f91d7 | private-store/**, captures/**, site/scripts/build.py (one row) | check_captures.py exit 0; site check exit 0 |
+| W5 | Week 11 B0 v2 decision | done by main (b0-w11-lines-v2.json). OPEN: the schedule page still shows v1 while the index cites v2 (F-31, operator decision) | sassnarep3-star | site/data | not changed here |
+| W6 | PR to main, merge without waiting, Pages confirmation | in progress (PR #79, updated to this branch) | 2e1f91d7 | COORDINATION.md | CI green on the head commit, `gh pr merge --merge`, Pages status checked after merge |
+
+Verification performed this session (2026-11-18, UTC):
+- Live fetch (fetch tool; shell curl to nfl.com fails with TLS): game centre `chargers-at-ravens-2026-reg-10` (Final; M&T Bank Stadium); Game Book PDF chunk 0 of 8 (scoring plays, Lineups, Not Active); injury report reg11 chunks 0 to 2; scores week-10 chunks 0 to 1; schedule week-11 chunk 0.
+- `python3 site/scripts/build.py` and `python3 site/check.py`: exit 0 (17 pages, no broken links, every table row sourced or marked UNVERIFIED).
+- `python3 captures/scripts/build_manifest.py` and `python3 captures/scripts/check_captures.py`: OK (3 captures, 56 rows for LAC at BAL).
+- `scripts/check_links.py`, `scripts/audit_publication.py`, `requirements/scripts/check_req.py`, `scripts/audit_repo.py`, `python3 -m unittest discover -s scripts -p 'test_audit.py'`: exit 0.
+- Checkers that rewrite tracked analysis files (`analysis/link-check.json`, `analysis/repo-audit.json`) were run, then restored to main's version, not committed.
+
+Irregularities (published on the Flagged for Review page; none blocks the merge):
+- F-34 (new): second Game Book captured privately; 13 of 14 still missing (F-29).
+- F-31 (main): Week 11 fair-line version split: the index cites B0 v2; the schedule and lines pages still show v1. Operator decision.
+- Capture hashes cover fetch-tool text, not nfl.com's bytes (F-28 in main's register): shell curl to nfl.com fails with a TLS error in this sandbox.
+- Row-level data stays in `private-store/`, but the repository is public, so that folder is not private from GitHub readers (F-31 in main's register; operator decision).
+- Public-page wording drift: some main-authored lines still read "13 of 14" in places (for example the results card and the R-04 row). Left as they are; owner to reconcile.
+
+Cross-session requests: none pending from this session. The B0 v2 vs v1 choice for the schedule page is for the operator (not implemented here).
+
 ## Session 875583e4 — category dashboard, requirement & question registers, suggestions for decision, repo review, official re-verification, PR + merge (claimed 2026-11-17 UTC, base main @ ef3a1a8)
 
 Branch: `arena/875583e4-own8` (Arena-pinned; all work on this branch). Board read end to end on 2026-11-17: the most recent claim (08643438) is done and merged (PR #69, merge commit ef3a1a8); the only open PRs are the 2026-11-04 namespaces #6/#8/#16/#28/#31/#32 and are left untouched (A14). No task in this board is currently claimed by an active session.
