@@ -1,7 +1,7 @@
 {
  "source_url": "https://www.nfl.com/scores/2026/week-10",
  "fetched": "2026-11-17",
- "note": "13 of 14 Week 10 games read as FINAL. The Monday game (LAC at BAL) is shown without a score on the scores page, the standings page and the NFL.com picks article as read on 2026-11-17; it is recorded as NOT FINAL and excluded from every calculation.",
+ "note": "All 14 Week 10 games are now FINAL. 13 games read as FINAL on the nfl.com scores page as read on 2026-11-17 (and reconcile 160/160 with the official standings). The Monday game (LAC at BAL) showed no score on 2026-11-17 and was recorded pending; it was confirmed FINAL on 2026-11-18 against the official Game Book: LAC 20, BAL 23 at M&T Bank Stadium. The stale 2026-11-17 pending status is superseded. Source-linked and Game Book links are on each row.",
  "finals": [
   {
    "week": 10,
@@ -184,20 +184,23 @@
    "game_url": "https://www.nfl.com/games/steelers-at-bengals-2026-reg-10",
    "source_url": "https://www.nfl.com/scores/2026/week-10",
    "fetched": "2026-11-17"
-  }
- ],
- "pending": [
+  },
   {
    "week": 10,
    "day": "Monday, November 16th",
    "away": "LAC",
    "home": "BAL",
-   "away_score": null,
-   "home_score": null,
-   "status": "NOT FINAL in nfl.com capture (shows 8:15 PM ET, no score)",
+   "away_score": 20,
+   "home_score": 23,
+   "status": "FINAL",
+   "home_margin": 3,
+   "total": 43,
    "game_url": "https://www.nfl.com/games/chargers-at-ravens-2026-reg-10",
    "source_url": "https://www.nfl.com/scores/2026/week-10",
-   "fetched": "2026-11-17"
+   "game_book": "https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf",
+   "fetched": "2026-11-18",
+   "verified_note": "Showed no score on nfl.com as read 2026-11-17 (recorded pending). Confirmed FINAL on 2026-11-18 against the official Game Book: LAC 20, BAL 23, M&T Bank Stadium, Monday 11/16/2026. The stale 2026-11-17 pending status is superseded."
   }
- ]
+ ],
+ "pending": []
 }

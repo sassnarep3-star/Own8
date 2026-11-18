@@ -27,11 +27,11 @@
   },
   {
    "id": "F-04",
-   "title": "Week 10 Monday game not final on nfl.com as read",
-   "detail": "LAC at BAL (Nov 16) shows 8:15 PM with no score on the scores, standings and picks pages. Excluded from grading (12 graded, 1 pending) and from the Week 11 inputs. If it is final, W11 lines change.",
+   "title": "Week 10 Monday game (LAC@BAL) \u2014 stale pending status superseded",
+   "detail": "LAC at BAL (Nov 16) showed no score on nfl.com as read 2026-11-17 and was recorded pending. Confirmed FINAL on 2026-11-18 against the official Game Book: LAC 20, BAL 23 at M&T Bank Stadium (game-book PDF recorded in site/data/week10-results.json and ledger feed scope notes). Included in the results feed (150 rows) and Week 10 grading (13 graded, 0 pending). The stale 2026-11-17 pending status is superseded; not inferred.",
    "evidence": "nfl.com scores 2026-11-17",
    "link": "https://www.nfl.com/scores/2026/week-10",
-   "status": "OPEN (Q-05)"
+   "status": "RESOLVED"
   },
   {
    "id": "F-05",

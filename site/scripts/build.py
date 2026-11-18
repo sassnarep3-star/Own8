@@ -188,7 +188,7 @@ def build_index():
         ("Official standings reconciled", f"{REC['cells'] - len(REC['mismatches'])}/{REC['cells']} cells",
          f"The 136-game log plus {REC['games'] - 136} Week 10 finals reproduce each W, L, T, PF and PA", OFF_STANDINGS),
         ("Week 10 games graded", f"{s['n_graded']} graded · {s['n_pending']} pending",
-         "Monday Chargers at Ravens is not final on nfl.com as read (F-04)", OFF_SCORES),
+         "All 14 Week 10 games are final; Monday LAC@BAL confirmed via the official Game Book", OFF_SCORES),
         ("Week 11 fair lines", f"{len(w11['games'])} games · PROVISIONAL",
          "Built from pre-Monday standings. Re-originate after the Monday game is verified final (F-23)", REPO + "site/data/b0-w11-lines.json"),
         ("Strategies on any leaderboard", "0",
@@ -240,8 +240,8 @@ def build_exec():
 <p class="lead">Status on {FETCH}. The official data we can read reconciles. A forecasting edge is not established. The depth and availability layer cannot be built yet, because no official depth-order source is verified.</p>
 <h2>1. What is verified</h2>
 <ul>
-<li>The 32 official standings reconcile to the repo's 136-game log plus 13 Week 10 finals: {REC['cells'] - len(REC['mismatches'])} of {REC['cells']} cells match ({a(OFF_STANDINGS, "nfl.com standings")}).</li>
-<li>13 of 14 Week 10 games are final on nfl.com as read. The Monday game (Chargers at Ravens) is not, so it is excluded and flagged (F-04).</li>
+<li>The 32 official standings reconcile to the repo's 136-game log plus 14 Week 10 finals: {REC['cells'] - len(REC['mismatches'])} of {REC['cells']} cells match ({a(OFF_STANDINGS, "nfl.com standings")}). The remaining cells (BAL and LAC: W, L, PF, PA) differ because the standings snapshot predates Monday's verified final (LAC 20 / BAL 23, official Game Book); the live nfl.com standings page read 2026-11-18 likewise predates it. Flagged for review, not inferred.</li>
+<li>All 14 Week 10 games are final. Monday LAC@BAL showed no score on nfl.com as read 2026-11-17 (stale pending status) and was confirmed FINAL on 2026-11-18 against the official Game Book: LAC 20, BAL 23.</li>
 <li>Week 11 has 13 games and 6 byes. Thursday's Colts at Texans venue is Reliant Stadium, Houston ({a(OFF_SCHED, "schedule")}; {a(OFF_COLTS, "game centre")}). Venues for the other 12 games are not verified.</li>
 <li>Lions designations: Kerby Joseph, Cade Mays and D.J. Reed are all Out on the Week 10 report ({a(OFF_INJ10, "injury report")}, F-15).</li>
 </ul>
@@ -283,7 +283,7 @@ def build_standings():
     totPF = sum(r["PF"] for r in d["rows"]); totPA = sum(r["PA"] for r in d["rows"])
     body = f"""
 <p class="meta">Read {FETCH}. Sorted by win percentage, then net points. League totals: wins {totW}, losses {totL}, PF {totPF}, PA {totPA}. NET is PF minus PA.</p>
-<p class="ok-line"><b>Reconciliation (rebuilt on this build):</b> the {REC['games'] - 13}-game official log plus {REC['games'] - (REC['games'] - 13)} Week 10 finals reproduce {REC['cells'] - len(REC['mismatches'])} of {REC['cells']} cells (W, L, T, PF, PA). Mismatches: {len(REC['mismatches'])}. Script: <code>site/scripts/model_b0.py</code> (<code>reconcile()</code>). The Monday game is excluded.</p>
+<p class="ok-line"><b>Reconciliation (rebuilt on this build):</b> the 136-game official log plus {REC['games'] - 136} Week 10 finals reproduce {REC['cells'] - len(REC['mismatches'])} of {REC['cells']} cells (W, L, T, PF, PA). Mismatches: {len(REC['mismatches'])} — all BAL/LAC (W, L, PF, PA) because the standings snapshot predates Monday's verified final (LAC 20 / BAL 23, Game Book read 2026-11-18). Script: <code>site/scripts/model_b0.py</code> (<code>reconcile()</code>).</p>
 {table(["Team", "Name", "W", "L", "T", "PCT", "PF", "PA", "NET", "Source"], rows, filter_id="standings")}
 <p class="meta">Team codes follow nfl.com's scores text (AZ, LAR). Flag F-08 notes the mixed codes in older files.</p>
 """
@@ -300,8 +300,8 @@ def build_results():
         rows.append([E(g["day"]), E(f'{g["away"]} at {g["home"]}'), "—", "—",
                      '<span class="badge warn">NOT FINAL as read</span>', a(g["game_url"], "Game"), a(d["source_url"], "Scores")])
     body = f"""
-<p class="meta">Source: nfl.com Week 10 scores (3 pages read {FETCH}). Away team first. Week 10 has 14 games: 13 final and 1 not final as read. Commanders at Giants (Thursday, 24–21) is in the official log and standings. It is not in the Week 10 line set, and the repo does not record why.</p>
-<p class="flag-line"><b>Open item F-04:</b> the Monday game (Chargers at Ravens) shows no final score on the scores, standings and picks pages as read. It is excluded from grading and from the Week 11 inputs until it is final on nfl.com.</p>
+<p class="meta">Source: nfl.com Week 10 scores (3 pages read {FETCH}). Away team first. All 14 Week 10 games are final: 13 read as FINAL on the scores page plus Monday LAC@BAL confirmed against the official Game Book (LAC 20, BAL 23, read 2026-11-18). The stale 2026-11-17 pending status is superseded.</p>
+<p class="flag-line"><b>F-04 resolved:</b> Monday LAC@BAL showed no score on nfl.com as read 2026-11-17 (recorded pending); confirmed FINAL on 2026-11-18 against the official Game Book: LAC 20, BAL 23 at M&T Bank Stadium. Included in the results feed and grading. Game centre: {a("https://www.nfl.com/games/chargers-at-ravens-2026-reg-10", "LAC at BAL")}.</p>
 {table(["Day", "Game (away at home)", "Away", "Home", "Status", "Game centre", "Source"], rows, filter_id="results")}
 """
     page("data-results.html", "Results", body, lead="Week 10 final scores from nfl.com. Each row links to the official game page.")
