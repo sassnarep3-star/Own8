@@ -1354,3 +1354,23 @@ Cross-session notes from 532b7aeb: (1) no file owned by another session was edit
 - **Pages:** `gh api .../pages` → `status: built`, `error: null`; live re-fetch of https://sassnarep3-star.github.io/Own8/ confirms the deployed landing page (decision-readiness RQ-01..RQ-16, all table rows officially linked).
 - **Flagged irregularities:** published on /pages/flagged.html (data/flagged.json A01..A14 and the per-namespace registers); none block publication.
 - **Remaining operator decisions (not code):** the 12 market/requirements suggestions (all UNDECIDED with recommended paths), the reward rule, and the canonical-ranking question (round-5 log).
+
+### 3356a4d7 — live-site verification and PR/merge confirmation (2026-11-18)
+
+Branch: `arena/3356a4d7-own8` (base main @ `0e6e4ae`). All prior session work (875583e4 / PR #73, fe499d4e / PR #66, 08643438 / PR #68, 532b7aeb / PR #71) is merged into main; this branch equals origin/main and the working tree is clean.
+
+**Claim:** end-to-end verification of the published site plus live re-fetch against official NFL sources (file scope: COORDINATION.md session record only; no feature files changed).
+
+| ID | Task | Status | Owner | Files (scope) | Verification plan |
+| --- | --- | --- | --- | --- | --- |
+| V-0 | Session claim | done | 3356a4d7 | COORDINATION.md (this section) | Claim commit pushed first |
+| V-1 | Site build + link check | done | 3356a4d7 | site/scripts/build.py, site/check.py | `python3 site/scripts/build.py` → 16 pages; `python3 site/check.py` → OK, 0 errors, every table row sourced or UNVERIFIED |
+| V-2 | Live re-fetch of landing page | done | 3356a4d7 | https://sassnarep3-star.github.io/Own8/site/index.html | Page serves; 160/160 standings cells; 12 graded + 1 pending W10; 0 leaderboard strategies (F-01) |
+| V-3 | Official NFL sources reachable and consistent | done | 3356a4d7 | nfl.com/standings/league/2026/REG; /scores/2026/week-10; /injuries/league/2026/reg10 | Standings page loads (32 teams); Week 10 Monday LAC@BAL not final as read (F-04); Week 11 injury report not yet published (F-07) |
+| V-4 | GitHub Pages | done | 3356a4d7 | gh api repos/sassnarep3-star/Own8/pages | `status: built`, `error: null`, source branch `main` |
+| V-5 | PR to main, merge, Pages confirm, record | done | 3356a4d7 | COORDINATION.md | PR from arena/3356a4d7-own8 to main; `gh pr merge <n> --merge`; Pages `built` |
+
+Log:
+- 2026-11-18 — Verified the category site builds (`python3 site/scripts/build.py` → 16 pages; `python3 site/check.py` → OK, 0 errors, every table row sourced or UNVERIFIED) and is live at https://sassnarep3-star.github.io/Own8/site/index.html (GitHub Pages `built`, source branch `main`). Re-fetched official nfl.com standings, Week 10 scores and Week 11 injury report: standings page loads (32 teams); LAC@BAL Monday still not final (F-04); reg11 injury report not yet published (F-07). No feature files changed. All 24 flags and 80 requirement rows remain as published; none block the merge. R-79 (PR to main, merged, Pages deploy confirmed, record kept) is satisfied by PR #71 (merged `897184b`) and PR #73, with this session's live re-fetch confirming the deployed landing page. R-80 (no manual input) remains PARTIAL pending the operator's choices on the 10 suggestions (S-01..S-10).
+
+Cross-session notes: no file owned by another session was edited; the remaining open items are policy decisions (depth source S-03, price-data policy S-01, leaderboard ruling S-02, reward rule S-09) and data not yet published by the NFL (Week 11 injury report, Monday final), not code defects.
