@@ -1,0 +1,136 @@
+{
+ "as_of": "2026-11-18",
+ "source_note": "Venue transcribed from each nfl.com game-centre page, read 18 Nov 2026. One row per fixture (13 of 13). Venue only; no other fields.",
+ "rows": [
+  {
+   "game": "IND@HOU",
+   "away": "IND",
+   "home": "HOU",
+   "venue": "Reliant Stadium",
+   "city": "Houston, TX",
+   "network": "Prime Video (PRIME)",
+   "source_url": "https://www.nfl.com/games/colts-at-texans-2026-reg-11",
+   "read": "2026-11-18"
+  },
+  {
+   "game": "MIA@BUF",
+   "away": "MIA",
+   "home": "BUF",
+   "venue": "Highmark Stadium",
+   "city": "Orchard Park, NY",
+   "network": "CBS",
+   "source_url": "https://www.nfl.com/games/dolphins-at-bills-2026-reg-11",
+   "read": "2026-11-18"
+  },
+  {
+   "game": "BAL@CAR",
+   "away": "BAL",
+   "home": "CAR",
+   "venue": "Bank of America Stadium",
+   "city": "Charlotte, NC",
+   "network": "FOX",
+   "source_url": "https://www.nfl.com/games/ravens-at-panthers-2026-reg-11",
+   "read": "2026-11-18"
+  },
+  {
+   "game": "NO@CHI",
+   "away": "NO",
+   "home": "CHI",
+   "venue": "Soldier Field",
+   "city": "Chicago, IL",
+   "network": "FOX",
+   "source_url": "https://www.nfl.com/games/saints-at-bears-2026-reg-11",
+   "read": "2026-11-18"
+  },
+  {
+   "game": "TEN@DAL",
+   "away": "TEN",
+   "home": "DAL",
+   "venue": "AT&T Stadium",
+   "city": "Arlington, TX",
+   "network": "FOX",
+   "source_url": "https://www.nfl.com/games/titans-at-cowboys-2026-reg-11",
+   "read": "2026-11-18"
+  },
+  {
+   "game": "TB@DET",
+   "away": "TB",
+   "home": "DET",
+   "venue": "Ford Field",
+   "city": "Detroit, MI",
+   "network": "FOX",
+   "source_url": "https://www.nfl.com/games/buccaneers-at-lions-2026-reg-11",
+   "read": "2026-11-18"
+  },
+  {
+   "game": "AZ@KC",
+   "away": "AZ",
+   "home": "KC",
+   "venue": "Arrowhead Stadium",
+   "city": "Kansas City, MO",
+   "network": "CBS",
+   "source_url": "https://www.nfl.com/games/cardinals-at-chiefs-2026-reg-11",
+   "read": "2026-11-18"
+  },
+  {
+   "game": "PIT@PHI",
+   "away": "PIT",
+   "home": "PHI",
+   "venue": "Lincoln Financial Field",
+   "city": "Philadelphia, PA",
+   "network": "CBS",
+   "source_url": "https://www.nfl.com/games/steelers-at-eagles-2026-reg-11",
+   "read": "2026-11-18"
+  },
+  {
+   "game": "NYJ@LAC",
+   "away": "NYJ",
+   "home": "LAC",
+   "venue": "SoFi Stadium",
+   "city": "Inglewood, CA",
+   "network": "FOX",
+   "source_url": "https://www.nfl.com/games/jets-at-chargers-2026-reg-11",
+   "read": "2026-11-18"
+  },
+  {
+   "game": "JAX@NYG",
+   "away": "JAX",
+   "home": "NYG",
+   "venue": "MetLife Stadium",
+   "city": "East Rutherford, NJ",
+   "network": "CBS",
+   "source_url": "https://www.nfl.com/games/jaguars-at-giants-2026-reg-11",
+   "read": "2026-11-18"
+  },
+  {
+   "game": "LV@DEN",
+   "away": "LV",
+   "home": "DEN",
+   "venue": "Empower Field at Mile High",
+   "city": "Denver, CO",
+   "network": "CBS",
+   "source_url": "https://www.nfl.com/games/raiders-at-broncos-2026-reg-11",
+   "read": "2026-11-18"
+  },
+  {
+   "game": "MIN@SF",
+   "away": "MIN",
+   "home": "SF",
+   "venue": "Estadio Banorte",
+   "city": "Mexico City, Mexico (international)",
+   "network": "NBC",
+   "source_url": "https://www.nfl.com/games/vikings-at-49ers-2026-reg-11",
+   "read": "2026-11-18"
+  },
+  {
+   "game": "CIN@WAS",
+   "away": "CIN",
+   "home": "WAS",
+   "venue": "Northwest Stadium",
+   "city": "Landover, MD",
+   "network": "ESPN",
+   "source_url": "https://www.nfl.com/games/bengals-at-commanders-2026-reg-11",
+   "read": "2026-11-18"
+  }
+ ]
+}

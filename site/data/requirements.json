@@ -23,9 +23,9 @@
    "id": "R-03",
    "group": "Data",
    "requirement": "All 14 Week 10 games read as final",
-   "status": "PARTIAL",
-   "exists": "13 of 14 read as FINAL on nfl.com",
-   "gap": "LAC@BAL shows 8:15 PM with no score on the scores, standings and picks pages as read (F-04).",
+   "status": "DONE",
+   "exists": "nfl.com scores 2026-11-18: all 14 read as Final (LAC at BAL Final on page 2 and its game page)",
+   "gap": "Final status only. The LAC at BAL score digits did not come through in fetch text, so the score is left blank and unverified (F-04).",
    "source": "https://www.nfl.com/scores/2026/week-10"
   },
   {
@@ -50,9 +50,9 @@
    "id": "R-06",
    "group": "Injuries",
    "requirement": "Week 11 injury report captured",
-   "status": "BLOCKED",
-   "exists": "Probe 2026-11-17: the reg11 URL serves Week 10 content; the Colts game centre says the injury report is not yet available",
-   "gap": "Not published as of read. Re-check Wed 18, Thu 19, Fri 20 Nov (F-07).",
+   "status": "DONE",
+   "exists": "site/data/injuries-w11-capture.json: 3 pages read 18 Nov; Thursday rows transcribed (IND 11, HOU 15); Sunday and Monday teams show No Injuries Reported",
+   "gap": "Game Status blank for every listed player (pre-game). Re-read Thu 19 and Sun 22 Nov for game status (Q-07).",
    "source": "https://www.nfl.com/injuries/league/2026/reg11"
   },
   {
@@ -158,10 +158,10 @@
    "id": "R-18",
    "group": "Schedule",
    "requirement": "Venue of every fixture transcribed from the official game centre and published",
-   "status": "PARTIAL",
-   "exists": "1 of 13 Week 11 venues verified: IND@HOU, Reliant Stadium, Houston, TX (game centre)",
-   "gap": "12 venues blank: not transcribed this session.",
-   "source": "https://www.nfl.com/games/colts-at-texans-2026-reg-11"
+   "status": "DONE",
+   "exists": "site/data/week11-venues.json: 13 of 13 Week 11 venues read from nfl.com game-centre pages on 18 Nov",
+   "gap": "None open for venues. Re-read a game page if nfl.com changes a venue.",
+   "source": "https://www.nfl.com/schedules/2026/by-week/week-11"
   },
   {
    "id": "R-19",
