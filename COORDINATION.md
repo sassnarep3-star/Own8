@@ -27,6 +27,20 @@ documented numeric refinement (RQ-12: 6-8 game-weeks of postgame Game Books, Q-0
 into that table. Both board sections are retained verbatim below. Nothing of fe499d4e's
 merged work is reverted.
 
+## Session 450a5d13 — final audit of the integrated NFL decision site (claimed 2026-11-18 UTC, base main @ 0e6e4ae)
+
+Branch: `arena/450a5d13-own8` (Arena-pinned; stay on this branch). Board read before work; latest completed integration is session 875583e4, merged as PR #75. No active task claim is visible above this entry. This is a final integration verification claim, not permission to invent or refresh NFL facts without an official capture.
+
+**Scope:** `COORDINATION.md` only for this audit's claim, results, handoffs and publication record. Existing application/data files are read-only during review. If an issue requires a code/data change outside this scope, record the exact file, evidence and requested owner here before editing. The current canonical site and generated tables are not being rewritten merely to produce a build.
+
+| ID | Task | Status | Owner | Files (scope) | Verification plan |
+| --- | --- | --- | --- | --- | --- |
+| A0 | Board claim, committed and pushed before verification | in progress | 450a5d13 | COORDINATION.md (this section) | `git pull --rebase` before each push; use the Arena-pinned branch only |
+| A1 | Re-run the site and repository's offline verification suite; inspect scope for current source, readiness, and review-register coverage | in progress | 450a5d13 | COORDINATION.md (results only; other files read-only) | Run the canonical site checker and non-mutating repository checkers; if build scripts rewrite generated files, run in a disposable copy or restore only this audit's generated output |
+| A2 | Re-fetch official NFL pages for any new facts or current-week updates | blocked | 450a5d13 | None | No official NFL source is reachable in this environment; do not make new current-season claims. Preserve existing dates, links, nulls and flags |
+| A3 | Check GitHub Pages deployment for current `main` and record the observed status | pending | 450a5d13 | COORDINATION.md | Use GitHub API/CLI; report only the returned build status and URL |
+| A4 | Open/merge a PR only if this verification produces an auditable change; record PR/deploy result | pending | 450a5d13 | COORDINATION.md | Current branch only; explicit PR number for merge; never claim a deploy succeeded without checking it |
+
 ## Session 875583e4 — category dashboard, requirement & question registers, suggestions for decision, repo review, official re-verification, PR + merge (claimed 2026-11-17 UTC, base main @ ef3a1a8)
 
 Branch: `arena/875583e4-own8` (Arena-pinned; all work on this branch). Board read end to end on 2026-11-17: the most recent claim (08643438) is done and merged (PR #69, merge commit ef3a1a8); the only open PRs are the 2026-11-04 namespaces #6/#8/#16/#28/#31/#32 and are left untouched (A14). No task in this board is currently claimed by an active session.
