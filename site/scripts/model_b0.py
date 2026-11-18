@@ -65,7 +65,7 @@ def pre_w10_totals():
 
 
 def standings_totals():
-    rows = load("site/data/standings-2026-11-17.json")["rows"]
+    rows = load("site/data/standings-2026-11-18.json")["rows"]
     return {r["team"]: dict(G=r["G"], PF=r["PF"], PA=r["PA"]) for r in rows}
 
 
@@ -130,7 +130,7 @@ def grade_w10(pre):
             brier_market=(p_mkt - y) ** 2,
             brier_coinflip=(0.5 - y) ** 2,
             diff_margin_model_minus_market=round(g["fair_home_margin_B0"] - mkt_margin, 2),
-            source_final=f["game_url"], source_market=m["source_url"],
+            source_final=f.get("game_book_url", f["game_url"]), source_market=m["source_url"],
         ))
     graded = [r for r in rows if r["status"] == "GRADED"]
     n = len(graded)
@@ -176,7 +176,7 @@ def reconcile():
     """Rebuild every team's W, L, T, PF, PA from the W1-W9 log + Week 10 finals; compare with standings."""
     log = load("origination/data/games-2026-w1-w9.json")["games"]
     fin = load("site/data/week10-results.json")["finals"]
-    st = {r["team"]: r for r in load("site/data/standings-2026-11-17.json")["rows"]}
+    st = {r["team"]: r for r in load("site/data/standings-2026-11-18.json")["rows"]}
     rec = {t: dict(W=0, L=0, T=0, PF=0, PA=0) for t in st}
     games = [(g["away"], g["away_score"], g["home"], g["home_score"]) for g in log + fin]
     for a, ap, h, hp in games:
@@ -201,7 +201,7 @@ if __name__ == "__main__":
         pre_registered_in="requirements/results/week10-lines.json (originated_at 2026-11-14)",
         check_reproduction=dict(games_checked=n, mismatches=bad),
         summary=summ, rows=rows,
-        caveat="n is 12 settled games. Confidence intervals are bootstrap intervals on 12 games and are NOT evidence of skill or of its absence.")
+        caveat=f"n is {summ['n_graded']} settled games. Confidence intervals are bootstrap intervals on this small sample and are NOT evidence of skill or of its absence.")
     with open(P("site/data/b0-w10-grading.json"), "w", encoding="utf-8") as f:
         json.dump(out_w10, f, indent=1)
     print(json.dumps(summ, indent=1))

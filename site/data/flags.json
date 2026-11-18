@@ -51,11 +51,11 @@
   },
   {
    "id": "F-07",
-   "title": "Week 11 injury report not yet published",
-   "detail": "The reg11 URL serves Week 10 content on 2026-11-17; the Colts game centre says the report is not yet available.",
-   "evidence": "nfl.com",
+   "title": "Week 11 injury report not yet published (superseded)",
+   "detail": "Superseded on 18 Nov 2026: the reg11 URL serves Week 11 content (13 games, 26 club rows). Earlier notes from 17 Nov that it was not yet published are no longer current.",
+   "evidence": "captures/manifest.json; see F-25",
    "link": "https://www.nfl.com/injuries/league/2026/reg11",
-   "status": "OPEN (Q-07)"
+   "status": "SUPERSEDED by F-25 (18 Nov read)"
   },
   {
    "id": "F-08",
@@ -192,6 +192,86 @@
    "evidence": "README.md; index.html; scripts/build_site.py; .github/workflows/requirements.yml",
    "link": "https://github.com/sassnarep3-star/Own8/blob/main/.github/workflows/requirements.yml",
    "status": "OPEN (owner decision: requirements session)"
+  },
+  {
+   "id": "F-25",
+   "title": "Week 11 injury report: earlier 'not published' statement superseded",
+   "detail": "The Injuries page said the reg11 URL served Week 10 content. On 18 Nov 2026 the same URL serves Week 11: 13 games, 26 club rows. The stale text is corrected; the three pages were read before 06:29 UTC on 18 Nov.",
+   "evidence": "captures/manifest.json; captures/2026-11-18/injury-report-w11.meta.json",
+   "link": "https://www.nfl.com/injuries/league/2026/reg11",
+   "status": "OPEN: corrected here; re-read Thursday and Friday"
+  },
+  {
+   "id": "F-26",
+   "title": "24 clubs read 'No Injuries Reported' on the Week 11 page",
+   "detail": "In 12 of the 13 Week 11 games both clubs read 'No Injuries Reported' (24 clubs). Only IND and HOU have rows, all with Wednesday practice statuses. That text is not evidence of health. Thursday and Friday reads are needed before any club is treated as clear.",
+   "evidence": "private-store/injury-report-2026-w11.tsv (row counts); captures/manifest.json",
+   "link": "https://www.nfl.com/injuries/league/2026/reg11",
+   "status": "OPEN"
+  },
+  {
+   "id": "F-27",
+   "title": "Week 10 injury page: title says Week 11, heading and body say Week 10",
+   "detail": "The reg10 URL's page title reads 'Official NFL Injury Report for Players - Week 11 of the 2026 Season'. Its heading reads 'Injuries - WEEK 10' and its body lists the Thursday 12 Nov games. Chunks 1 to 7 were not re-read in this session, so the Week 10 row-count conflict (F-05) stands.",
+   "evidence": "captures/manifest.json probe P-02",
+   "link": "https://www.nfl.com/injuries/league/2026/reg10",
+   "status": "OPEN"
+  },
+  {
+   "id": "F-28",
+   "title": "Roster status codes (ACT, RES, DEV, TRD, CUT) have no captured legend",
+   "detail": "The Houston roster page has a Status column with these codes. Chunk 0 of 3 has no legend. Reserve, developmental, traded and cut status are not interpreted anywhere on this site until a legend is captured.",
+   "evidence": "captures/manifest.json probe P-05",
+   "link": "https://www.nfl.com/teams/houston-texans/roster",
+   "status": "OPEN"
+  },
+  {
+   "id": "F-29",
+   "title": "Depth-chart and transactions URLs return NFL's 404 page (18 Nov)",
+   "detail": "https://www.nfl.com/teams/houston-texans/depth-chart and https://www.nfl.com/transactions/league/2026/reg both return the '404 - Flag on the Play.' page. Route a (per-club depth chart) stays blocked for all 32 clubs, and no official transactions log is reachable.",
+   "evidence": "captures/manifest.json probes P-03 and P-04",
+   "link": "https://www.nfl.com/teams/houston-texans/depth-chart",
+   "status": "BLOCKED"
+  },
+  {
+   "id": "F-30",
+   "title": "Injured-reserve moves are visible only as news reports",
+   "detail": "nfl.com news items report IR placements (for example Dolphins QB Malik Willis, Patriots RB TreVeyon Henderson, Cowboys' Malachi Lawrence). No official transactions record was reachable to confirm them, so they are listed as news reports and not treated as roster facts.",
+   "evidence": "captures/manifest.json news_reported_roster_moves",
+   "link": "https://www.nfl.com/news/dolphins-place-qb-malik-willis-groin-on-injured-reserve-kyle-mccord-in-line-for-first-start",
+   "status": "OPEN"
+  },
+  {
+   "id": "F-31",
+   "title": "The 'private' store sits in a public repository",
+   "detail": "Row-level Week 11 injury data is in private-store/. The Pages build excludes that folder (_config.yml), but the Own8 repository is public, so the file can still be read on GitHub. A real private store needs another location. This needs an operator decision; no private host is available in this sandbox.",
+   "evidence": "private-store/README.md; _config.yml",
+   "link": "https://github.com/sassnarep3-star/Own8/blob/main/_config.yml",
+   "status": "DECISION NEEDED"
+  },
+  {
+   "id": "F-32",
+   "title": "Week 11 injury rows carry no injury type",
+   "detail": "All 26 Week 11 rows have a blank Injuries column and a practice status. Injury types and game designations are therefore not in this capture. The page shows practice status only at this read.",
+   "evidence": "private-store/injury-report-2026-w11.tsv",
+   "link": "https://www.nfl.com/injuries/league/2026/reg11",
+   "status": "OPEN"
+  },
+  {
+   "id": "F-33",
+   "title": "Game Book inactives do not list two players the report had as Out",
+   "detail": "For NE at DET (15 Nov) the Week 10 report marked Kerby Joseph (DET S) and TreVeyon Henderson (NE RB) as Out. Neither appears in the Game Book Not Active list on page 1 of 7. Whether they were inactive, on injured reserve or otherwise absent is not settled by page 1; the remaining six chunks are needed.",
+   "evidence": "captures/manifest.json probe P-09; captures/2026-11-18/gamebook-2026-w10-ne-at-det.meta.json",
+   "link": "https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf",
+   "status": "OPEN"
+  },
+  {
+   "id": "F-34",
+   "title": "Second Week 10 Game Book captured privately (Chargers at Ravens)",
+   "detail": "LAC at BAL Game Book page 1 read 18 Nov: Final 23–20 by the scoring-play log, Lineups and Not Active list, 56 rows in private-store/ (gamebook-2026-w10-lac-at-bal.tsv), hashed in captures/manifest.json. Did Not Play lines and chunks 1 to 7 are not captured. Thirteen of 14 Week 10 Game Books are still not captured (F-29 in the capture register).",
+   "evidence": "private-store/gamebook-2026-w10-lac-at-bal.tsv; captures/2026-11-18/gamebook-2026-w10-lac-at-bal.meta.json; captures/manifest.json",
+   "link": "https://www.nfl.com/games/chargers-at-ravens-2026-reg-10",
+   "status": "PARTIAL (2 of 14 Game Books; row-level stays private, F-31)"
   }
  ]
 }

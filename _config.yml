@@ -3,6 +3,8 @@
 encoding: utf-8
 exclude:
   - "archive"
+  - "private-store"
+  - "captures/scripts"
   - "scripts"
   - "research"
   - "COORDINATION.md"

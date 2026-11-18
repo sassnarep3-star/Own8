@@ -50,19 +50,19 @@
    "id": "R-06",
    "group": "Injuries",
    "requirement": "Week 11 injury report captured",
-   "status": "BLOCKED",
-   "exists": "Probe 2026-11-17: the reg11 URL serves Week 10 content; the Colts game centre says the injury report is not yet available",
-   "gap": "Not published as of read. Re-check Wed 18, Thu 19, Fri 20 Nov (F-07).",
+   "status": "PARTIAL",
+   "exists": "Read 18 Nov 2026 before 06:29 UTC: all 3 pages, 13 games, 26 club rows (IND and HOU only); manifest in captures/manifest.json; rows in private-store/",
+   "gap": "No game designations or injury types yet (F-32); 12 games read No Injuries Reported (F-26); Thursday and Friday re-reads needed.",
    "source": "https://www.nfl.com/injuries/league/2026/reg11"
   },
   {
    "id": "R-07",
    "group": "Injuries",
    "requirement": "Every injury-hub read stored with its clock time; publish the delta, never the level",
-   "status": "NOT STARTED",
-   "exists": "Single-time captures only",
-   "gap": "No time series exists, so no delta can be computed.",
-   "source": "https://www.nfl.com/injuries/league/2026/reg10"
+   "status": "PARTIAL",
+   "exists": "First timestamped read of the Week 11 report (upper-bound clock time in captures/manifest.json)",
+   "gap": "A delta needs a second read; none exists yet, so no change is published.",
+   "source": "https://www.nfl.com/injuries/league/2026/reg11"
   },
   {
    "id": "R-08",

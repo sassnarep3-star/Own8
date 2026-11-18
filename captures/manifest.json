@@ -1,0 +1,141 @@
+{
+  "schema": "own8-capture-manifest/2",
+  "note": "Each hash covers the file as written by the session. fetch_page returns text, not bytes, so a hash proves the file is unchanged since capture, not that it equals nfl.com's bytes.",
+  "captures": [
+    {
+      "id": "injury-report-2026-w11-r1",
+      "source_url": "https://www.nfl.com/injuries/league/2026/reg11",
+      "retrieval": "fetch_page tool (curl to www.nfl.com fails at TLS in this sandbox). fetch_page returns no clock time; retrieved before 2026-11-18T06:29:20Z (bash clock at file write).",
+      "retrieved_utc_upper_bound": "2026-11-18T06:29:20Z",
+      "chunks_read": 3,
+      "chunks_total": 3,
+      "rows": 26,
+      "clubs_with_rows": 2,
+      "meta_file": "captures/2026-11-18/injury-report-w11.meta.json",
+      "meta_sha256": "5b46f7222a8115cd401c0c1176bcc9b2824877aae25712f5ffc4e6b1ea7c41ca",
+      "private_file": "private-store/injury-report-2026-w11.tsv",
+      "private_sha256": "ff5846bbd630a0271ddeaa2e81a54a7e3ad1853122eb8e3200787fc6e66c88f6",
+      "private_bytes": 2437,
+      "public": false,
+      "public_fields": "counts, hashes and URLs only; row-level data stays in private-store/",
+      "page_title_as_read": "Official NFL Injury Report for Players - Week 11 of the 2026 Season | NFL.com",
+      "games": 13,
+      "clubs_no_injuries_reported": 24
+    },
+    {
+      "id": "gamebook-2026-w10-ne-at-det-p1",
+      "source_url": "https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf",
+      "retrieval": "fetch_page tool only, PDF chunk 0 of 7 read. fetch_page returns no clock time; retrieved before 2026-11-18T06:29:20Z.",
+      "retrieved_utc_upper_bound": "2026-11-18T06:29:20Z",
+      "chunks_read": 1,
+      "chunks_total": 7,
+      "rows": 56,
+      "clubs_with_rows": 2,
+      "meta_file": "captures/2026-11-18/gamebook-2026-w10-ne-at-det.meta.json",
+      "meta_sha256": "fdee862d20b50a9fa04ed96cf966c5ceaf9fb392f341485325a9863c6e4efc3b",
+      "private_file": "private-store/gamebook-2026-w10-ne-at-det-p1.tsv",
+      "private_sha256": "14b7d9437198db9e332f99f3881699bd4c6f06b0801cc339fa536f143b3ce88d",
+      "private_bytes": 4369,
+      "public": false,
+      "public_fields": "counts, hashes and URLs only; row-level data stays in private-store/",
+      "page_title_as_read": "National Football League Game Summary (Game Book), 11/15/2026 New England Patriots at Detroit Lions at Allianz Arena, Munich, Germany",
+      "scope_note": "Page 1 only: the Lineups block and the Not Active list. Substitutions, Did Not Play text, stats and chunks 1 to 6 were not transcribed. Starters are the Lineups block as printed; this is not a snap count."
+    },
+    {
+      "id": "gamebook-2026-w10-lac-at-bal",
+      "source_url": "https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf",
+      "retrieval": "fetch_page tool only, PDF chunk 0 of 8 read (lineups, Not Active and scoring plays are on chunk 0). fetch_page returns no clock time; retrieved before 2026-11-18T06:27:14Z.",
+      "retrieved_utc_upper_bound": "2026-11-18T06:27:14Z",
+      "chunks_read": 1,
+      "chunks_total": 8,
+      "rows": 56,
+      "clubs_with_rows": 2,
+      "meta_file": "captures/2026-11-18/gamebook-2026-w10-lac-at-bal.meta.json",
+      "meta_sha256": "d28b401f766304783e309c255e4d0d370214d2820055c8dde98ae4eedd4493c9",
+      "private_file": "private-store/gamebook-2026-w10-lac-at-bal.tsv",
+      "private_sha256": "cf83103e1a19edba8deff631725741078c63132b989f04ad6900f3a41d69f963",
+      "private_bytes": 5087,
+      "public": false,
+      "public_fields": "counts, hashes and URLs only; row-level data stays in private-store/",
+      "page_title_as_read": "National Football League Game Summary, Monday 11/16/2026, Los Angeles Chargers at Baltimore Ravens at M&T Bank Stadium, Baltimore, MD",
+      "scope_note": "Page 1 only: the Lineups block (11 per unit per side as printed) and the Not Active list. Did Not Play lines (QB 7 Uiagalelei, C 60 Spomer, G 73 Harkey for LAC; QB 12 Fagnano, OL 58 Neuzil for BAL), substitutions, stats and chunks 1 to 7 are not in this file. Starters are the Lineups block as printed; this is not a depth rank and not a snap count."
+    }
+  ],
+  "probes": [
+    {
+      "id": "P-01",
+      "url": "https://www.nfl.com/injuries/league/2026/reg11",
+      "result": "Read 3 of 3 chunks. Heading 'Injuries - WEEK 11'. 13 games, 26 club rows.",
+      "usable_for": "Week 11 injury capture (captured)"
+    },
+    {
+      "id": "P-02",
+      "url": "https://www.nfl.com/injuries/league/2026/reg10",
+      "result": "Chunk 0 of 8 read. Heading 'Injuries - WEEK 10' but page <title> reads 'Week 11 of the 2026 Season'. Chunks 1-7 not read in this session.",
+      "usable_for": "Not captured this session; title/heading mismatch flagged (F-27)"
+    },
+    {
+      "id": "P-03",
+      "url": "https://www.nfl.com/teams/houston-texans/depth-chart",
+      "result": "Returned the NFL '404 - Flag on the Play.' page.",
+      "usable_for": "None. Depth-chart route still blocked (route a)"
+    },
+    {
+      "id": "P-04",
+      "url": "https://www.nfl.com/transactions/league/2026/reg",
+      "result": "Returned the NFL '404 - Flag on the Play.' page.",
+      "usable_for": "None. No official transactions log is reachable at this URL"
+    },
+    {
+      "id": "P-05",
+      "url": "https://www.nfl.com/teams/houston-texans/roster",
+      "result": "Read chunk 0 of 3. Table columns: Player, No, Pos, Status, Height, Weight, Experience, College. Status values seen: ACT, RES, DEV, TRD, CUT. No status legend in chunk 0.",
+      "usable_for": "Roster status is visible but its meaning is unverified until a legend is captured (F-28)"
+    },
+    {
+      "id": "P-06",
+      "url": "https://www.nfl.com/schedules/2026/by-week/week-11",
+      "result": "Chunk 0 of 2 read. Thursday game Colts at Texans, 8:15 PM ET, PRIME. Sunday games read through Steelers at Eagles. Game pairs are compared with the stored 17-Nov schedule capture by captures/scripts/check_captures.py, not asserted here.",
+      "usable_for": "Game list cross-check (performed by the checker)"
+    },
+    {
+      "id": "P-07",
+      "url": "https://www.nfl.com/standings/",
+      "result": "Chunk 0 of 2 read. Standings table renders (Texans 3-6, Lions 7-2, Chargers 1-8).",
+      "usable_for": "Not re-captured this session; site/data/standings-2026-11-17.json remains the record"
+    },
+    {
+      "id": "P-08",
+      "url": "https://www.nfl.com/games/patriots-at-lions-2026-reg-10",
+      "result": "Game centre read, Final, NE 10 at DET 35, Sun 15 Nov 2026. Game Info: LOCATION MUNICH, STADIUM FC BAYERN MUNICH STADIUM. 'Download Game Book (PDF)' link present.",
+      "usable_for": "Venue for NE at DET (Week 10) verified from the game centre; Game Book link discovered"
+    },
+    {
+      "id": "P-09",
+      "url": "https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf",
+      "result": "Game Book PDF readable through fetch_page: 7 chunks. Chunk 0 read: Lineups (11 offense and 11 defense per club), Not Active list (6 per club), final score and venue. Substitutions, stats and chunks 1 to 6 not read.",
+      "usable_for": "Actual starters and inactives for NE at DET (captured page 1 only, see captures/2026-11-18/gamebook-2026-w10-ne-at-det.meta.json)"
+    }
+  ],
+  "news_reported_roster_moves": [
+    {
+      "headline": "Dolphins place QB Malik Willis (groin) on injured reserve; Kyle McCord in line for first start",
+      "url": "https://www.nfl.com/news/dolphins-place-qb-malik-willis-groin-on-injured-reserve-kyle-mccord-in-line-for-first-start",
+      "seen_on": "nfl.com injury page news rail, Week 11 read",
+      "status": "news report; no official transactions log reachable (P-04)"
+    },
+    {
+      "headline": "NFL news roundup: Patriots place RB TreVeyon Henderson (illness) on injured reserve",
+      "url": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-nov-14",
+      "seen_on": "nfl.com injury page news rail, Week 11 read",
+      "status": "news report; no official transactions log reachable (P-04)"
+    },
+    {
+      "headline": "NFL news roundup: Cowboys place Malachi Lawrence on IR",
+      "url": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-nov-7",
+      "seen_on": "nfl.com injury page news rail, Week 11 read",
+      "status": "news report; no official transactions log reachable (P-04)"
+    }
+  ],
+  "probes_retrieved_utc_upper_bound": "2026-11-18T06:29:20Z"
+}
