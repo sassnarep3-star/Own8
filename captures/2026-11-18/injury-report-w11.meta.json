@@ -1,0 +1,36 @@
+{
+  "capture_id": "injury-report-2026-w11-r1",
+  "source_url": "https://www.nfl.com/injuries/league/2026/reg11",
+  "page_title_as_read": "Official NFL Injury Report for Players - Week 11 of the 2026 Season | NFL.com",
+  "page_heading_as_read": "Injuries - WEEK 11",
+  "retrieval": "fetch_page tool (curl to www.nfl.com fails at TLS in this sandbox). fetch_page returns no clock time; retrieved before 2026-11-18T06:29:20Z (bash clock at file write).",
+  "retrieved_utc_upper_bound": "2026-11-18T06:29:20Z",
+  "chunks_read": 3,
+  "chunks_total": 3,
+  "rows_file": "private-store/injury-report-2026-w11.tsv",
+  "rows": 26,
+  "required_columns": ["section_game", "team", "player", "position", "injuries", "practice_status", "game_status"],
+  "allowed_practice_status": ["Full Participation in Practice", "Limited Participation in Practice", "Did Not Participate In Practice"],
+  "allowed_game_status": ["", "Out", "Doubtful", "Questionable"],
+  "games": [
+    {"away": "IND", "home": "HOU", "day": "Thursday, November 19", "kickoff_et": "8:15 PM", "network": "PRIME", "away_record": "3-7", "home_record": "3-6", "game_url": "https://www.nfl.com/games/colts-at-texans-2026-reg-11"},
+    {"away": "PIT", "home": "PHI", "day": "Sunday, November 22", "kickoff_et": "1:00 PM", "network": "CBS", "away_record": "6-3", "home_record": "2-7"},
+    {"away": "AZ", "home": "KC", "day": "Sunday, November 22", "kickoff_et": "1:00 PM", "network": "CBS", "away_record": "3-7", "home_record": "7-2"},
+    {"away": "BAL", "home": "CAR", "day": "Sunday, November 22", "kickoff_et": "1:00 PM", "network": "FOX", "away_record": "4-6", "home_record": "4-5"},
+    {"away": "TB", "home": "DET", "day": "Sunday, November 22", "kickoff_et": "1:00 PM", "network": "FOX", "away_record": "3-6", "home_record": "7-2"},
+    {"away": "MIA", "home": "BUF", "day": "Sunday, November 22", "kickoff_et": "1:00 PM", "network": "CBS", "away_record": "1-8", "home_record": "8-1"},
+    {"away": "TEN", "home": "DAL", "day": "Sunday, November 22", "kickoff_et": "1:00 PM", "network": "FOX", "away_record": "1-8", "home_record": "4-6"},
+    {"away": "NO", "home": "CHI", "day": "Sunday, November 22", "kickoff_et": "1:00 PM", "network": "FOX", "away_record": "3-6", "home_record": "7-2"},
+    {"away": "NYJ", "home": "LAC", "day": "Sunday, November 22", "kickoff_et": "4:05 PM", "network": "FOX", "away_record": "2-8", "home_record": "1-8"},
+    {"away": "JAX", "home": "NYG", "day": "Sunday, November 22", "kickoff_et": "4:25 PM", "network": "CBS", "away_record": "7-2", "home_record": "5-3-1"},
+    {"away": "LV", "home": "DEN", "day": "Sunday, November 22", "kickoff_et": "4:25 PM", "network": "CBS", "away_record": "4-6", "home_record": "7-2"},
+    {"away": "MIN", "home": "SF", "day": "Sunday, November 22", "kickoff_et": "8:20 PM", "network": "NBC, UNIVERSO", "away_record": "7-2", "home_record": "8-1"},
+    {"away": "CIN", "home": "WAS", "day": "Monday, November 23", "kickoff_et": "8:15 PM", "network": "ESPN, ABC, ESPN2, ESPN DEPORTES", "away_record": "7-2", "home_record": "3-5-1"}
+  ],
+  "teams_listed_no_injuries": ["PIT", "PHI", "AZ", "KC", "BAL", "CAR", "TB", "DET", "MIA", "BUF", "TEN", "DAL", "NO", "CHI", "NYJ", "LAC", "JAX", "NYG", "LV", "DEN", "MIN", "SF", "CIN", "WAS"],
+  "notes": [
+    "Every Thursday-club row carries a practice status only; the Injuries and Game Status columns are blank on this read.",
+    "Sunday and Monday clubs read 'No Injuries Reported'. That text is what the page shows; it is not evidence that the clubs are healthy, because the report has not been re-read on Thursday or Friday.",
+    "The Injuries column is blank for all 26 rows on this read; injury types are therefore not captured for Week 11."
+  ]
+}

@@ -41,36 +41,6 @@ documented numeric refinement (RQ-12: 6-8 game-weeks of postgame Game Books, Q-0
 into that table. Both board sections are retained verbatim below. Nothing of fe499d4e's
 merged work is reverted.
 
-## Session 2e1f91d7 — official capture refresh: Week 11 injury report, LAC@BAL final via Game Book, starter/inactive evidence, capture hash ledger (claimed 2026-11-18 06:27Z UTC, base main @ 0e6e4ae)
-
-Branch: `arena/2e1f91d7-own8` (Arena-pinned; all work on this branch; no `session-*` sub-branches are created because the session is pinned to one branch). Board read on 2026-11-18: no active claim blocks this work; the 875583e4 and 532b7aeb sections are done and merged.
-
-**Live network this session:** fetch tool reached nfl.com (injury report reg11, scores week-10, schedule week-11, game centre, Game Book PDF). Shell `curl` to nfl.com still fails (TLS SSL_ERROR_SYSCALL), so no raw HTTP bytes are hashed: every capture is the fetch-tool text, saved verbatim, with its SHA-256 recorded in `site/data/captures/manifest.json`. The hash proves the stored file has not changed since capture; it does not prove the bytes equal nfl.com's server bytes.
-
-**Scope:** `site/**` (data, captures, build, check) and this COORDINATION.md section only. `requirements/`, `ledger/`, `origination/`, `market/`, `desk/`, `signals/`, `hub/`, `suggestions/`, `correlation-audit/`, `integration/`, `evidence-lab/`, `strict/`, `decision*/`, `review/`, `audit/`, `a57af0ab/`, `archive/` are read-only inputs; findings about them are published as flags.
-
-| ID | Task | Status | Owner | Files (scope) | Verification plan |
-| --- | --- | --- | --- | --- | --- |
-| W0 | Board claim (this section), pushed before other work | done | 2e1f91d7 | COORDINATION.md | claim commit pushed first |
-| W1 | Capture the Week 11 official injury report (reg11, 3 chunks read 2026-11-18): 26 listed rows (IND, HOU), 12 games showing "No Injuries Reported", fetch time retained | done (capture stored; time series not yet built) | 2e1f91d7 | site/data/captures/**, site/data/injuries-w11.json | each row links nfl.com/injuries/league/2026/reg11; check.py verifies sha256 |
-| W2 | Correct stale claim on site/data-injuries.html that the reg11 URL served Week 10 content | done | 2e1f91d7 | site/scripts/build.py | text now states the verified read |
-| W3 | Verify LAC@BAL (Week 10, Monday 16 Nov) as FINAL and record its score from the official Game Book PDF scoring-play log (23 LAC, 20 BAL); venue from the game centre (M&T Bank Stadium) | done | 2e1f91d7 | site/data/week10-results.json (separate verified key; `finals` list unchanged), site/data/captures/** | game centre "Final" + Game Book scoring-play table; quarter-table labels are misaligned in the PDF text, so the scoring plays are the anchor |
-| W4 | Publish LAC@BAL starters and inactives as printed in the official Game Book (pilot: 1 of 14 Week 10 games) | done for 1 game; 13 remaining Week 10 Game Books not captured | 2e1f91d7 | site/data/captures/**, site/data-depth.html (via build.py) | each row carries the Game Book URL |
-| W5 | Decision (not implemented): Week 11 B0 lines stay frozen as originated on 17 Nov (pre-registration rule in site/data/b0-w11-lines.json); LAC@BAL is now verified, so a B0 v2 would be needed to use it | needs review (operator) | 2e1f91d7 | flags.json | none |
-| W6 | Build, check, PR to main, merge without waiting, Pages confirmation, final record | done for the PR and merge step (see Log); Pages confirmation recorded in the Log | 2e1f91d7 | COORDINATION.md, site/** | python3 site/scripts/build.py; python3 site/check.py exit 0; gh pr merge --merge; Pages API built |
-
-Log (2e1f91d7):
-- 2026-11-18 06:27Z (W0) claim pushed before any other work (commit e451bd9). Board read end to end. main had moved to c76ce69 (PR #76, another session) by the time of the PR; merged into this branch with no conflicts except an auto-merged COORDINATION.md (both sections kept).
-- 2026-11-18 (W1) Week 11 injury report (reg11) read in 3 chunks. Stored as site/data/captures/nfl-injuries-reg11-2026-11-18.md. Result: 26 listed rows (IND 11, HOU 15), all Thursday game; 12 games show "No Injuries Reported" for both clubs. Injury and Game Status cells blank as read. Early read: F-25 open. Transcription error found in my own draft (ARI typed for the page's AZ) and corrected before publishing; the checker caught it.
-- 2026-11-18 (W2) Stale claim withdrawn: the 17 Nov page said the reg11 URL served Week 10 content. It now serves Week 11 (F-26 resolved).
-- 2026-11-18 (W3) LAC@BAL: game centre shows Final, M&T Bank Stadium, Baltimore MD. Official Game Book PDF (linked from the game centre) scoring-play log ends Chargers 23, Ravens 20. The PDF quarter table is offset by one row in the text, so it was not used (F-27). week10-results.json gets a separate verified_late_final key; the frozen finals list is unchanged.
-- 2026-11-18 (W4) Game Book lineups (44 rows: 11 starters per unit per side as printed) and 4 inactive rows stored for this one game (F-29: 13 Week 10 Game Books not captured). Printed lineups only: no depth rank or snap share is inferred.
-- 2026-11-18 (W5) Decision left to the operator (not implemented): the Week 11 B0 lines were frozen under the pre-registration rule (site/data/b0-w11-lines.json). LAC@BAL is now verified, but a v2 needs a new versioned file and an operator choice (F-23, W5). Week 11 fair lines therefore stay as originated on 17 Nov.
-- 2026-11-18 (integrity) site/data/captures/manifest.json holds SHA-256 of each capture. site/check.py fails on any hash change, on a capture that no longer re-parses to the published JSON, on a Week 11 row-count change, and on any edit that would add LAC@BAL to the frozen finals list. Tamper test run: a one-byte change to a capture fails the check; restoring the file passes.
-- 2026-11-18 (checks) python3 site/scripts/build.py PASS; python3 site/check.py exit 0; scripts/check_links.py PASS; scripts/audit_publication.py PASS; requirements/scripts/check_req.py PASS. analysis/link-check.json was rewritten by check_links.py and reverted, not committed.
-- 2026-11-18 (limits, stated) Shell curl to nfl.com fails (TLS). Hashes cover fetch-tool transcriptions, not server bytes (F-28). A daily or Wednesday-to-kickoff series needs Thursday 19 and Friday 20 Nov reads; none is possible yet (F-25). No Game Book, depth chart or snap count beyond the single LAC@BAL Game Book is captured.
-- 2026-11-18 (W6) PR to main opened from arena/2e1f91d7-own8 (see the PR link in the final message). Merge, Pages status and the live check are recorded in the final message of this session.
-
 ## Session 875583e4 — category dashboard, requirement & question registers, suggestions for decision, repo review, official re-verification, PR + merge (claimed 2026-11-17 UTC, base main @ ef3a1a8)
 
 Branch: `arena/875583e4-own8` (Arena-pinned; all work on this branch). Board read end to end on 2026-11-17: the most recent claim (08643438) is done and merged (PR #69, merge commit ef3a1a8); the only open PRs are the 2026-11-04 namespaces #6/#8/#16/#28/#31/#32 and are left untouched (A14). No task in this board is currently claimed by an active session.
@@ -1463,3 +1433,55 @@ Verification log (58ce6951, 2026-11-18 UTC):
 - Known verification limits / review items: (1) local link/source checks do not semantically re-verify every dynamic NFL value or guarantee external URL liveness; (2) live nfl.com retrieval is unavailable in this environment; (3) `scripts/build_site.py` conflicts with the site's root redirect (handoff H1 above), so it was not run; (4) `desk/scripts/audit.py` has the previously documented missing-base-commit issue in partial clones; (5) `evidence-lab/check.py` has the previously documented archived-link issue. Neither known issue was modified or hidden by this pass.
 - Result: build and offline consistency gates pass. The existing site still reports no strategy eligible for ranking, so no skill/reward claim is made. Market-price policy, prospective reward rule, canonical surface and source/rights choices remain operator decisions; there is no evidence-safe way for this session to decide them automatically. Irregularities remain on the site's Flagged for Review surfaces and do not block the build.
 - Rebase/conflict note: before the publication push, `git pull --rebase origin main` brought in newer main commit `c76ce69` and conflicted in this shared board file with session `3356a4d7`. Resolved by retaining that session's full live-site verification block verbatim and retaining this session's claim/verification block; no other files or session work were discarded. Rebased branch will be pushed with a lease check only if the remote is still at the claim commit originally pushed.
+
+## Session 21a111a4 — immutable official capture ledger, drift alarm, per-team injury view, depth/transactions probes (claimed 2026-11-18 UTC, base main @ c76ce69)
+
+Branch: `arena/21a111a4-own8` (Arena-pinned; the `session-<id>/<task>` branch naming in the operator brief is overridden by the session branch rule, so every task in this section lives on this one branch). Board read end to end on 2026-11-18: no other session holds an active claim (3356a4d7 and 532b7aeb are done; PR #70 / 30caea4e is an open, unclaimed Nov-17 PR and is left untouched).
+
+**Network boundary, verified this session:** `curl` to www.nfl.com fails at TLS (SSL_ERROR_SYSCALL); nfl.com is reachable only through the `fetch_page` tool. Every value captured here is therefore a transcription of a `fetch_page` result, with the fetch time and URL recorded. Hashes prove the file has not changed since capture; they do not prove byte equality with nfl.com.
+
+**Scope (this session only):** new `captures/**` (capture files, manifest, checker); new derived page `site/data-captures.html` plus its registration in `site/scripts/build.py` and `site/check.py`; a private raw store `private-store/**` excluded from the Pages build via `_config.yml`; this COORDINATION.md section. No other namespace is edited.
+
+| ID | Task | Status | Owner | Files (scope) | Verification plan |
+| --- | --- | --- | --- | --- | --- |
+| C0 | Session claim (this section) | done (pushed before other work) | 21a111a4 | COORDINATION.md | Claim commit pushed first |
+| C1 | Official capture of the Week 11 injury report (3 pages) with fetch time, URL and SHA-256 | done (26 rows, 13 games, 3 of 3 pages; private rows; manifest hash ff5846bb…) | 21a111a4 | captures/2026-11-18/**, private-store/** | Re-hash on check; row count pinned to the captured table rows |
+| C2 | Capture manifest + drift alarm (required fields, pinned row counts, hash re-check; exits non-zero on any failure) | done (2 captures; check passes; tamper copy fails on SHA-256 and byte count) | 21a111a4 | captures/scripts/check_captures.py, captures/manifest.json | `python3 captures/scripts/check_captures.py` exit 0; a deliberately corrupted copy must fail (tested in scratch) |
+| C3 | Derived per-team injury view (counts by game status for each club; starters-out and replacement fields left UNVERIFIED because no official depth source is captured) | done (site/data-team-view.html: 32 club rows + summary, counts only) | 21a111a4 | site/data-captures.html, site/scripts/build.py, site/check.py | `python3 site/scripts/build.py` + `python3 site/check.py` exit 0; every row links its official source |
+| C4 | Official probes: depth-chart page, transactions log, reserve list, Game Book | done for the probes listed (P-01..P-09); reg10 chunks 1-7 and Game Book chunks 1-6 NOT read | 21a111a4 | captures/2026-11-18/probes.json | Each probe records URL, HTTP-style result text and fetch time; no value inferred from a failed probe |
+| C5 | Flags for the new irregularities | done (F-25..F-33 in site/scripts/content.py and site/data/flags.json) | 21a111a4 | site/data/flags.json | Each flag cites the official URL |
+| C6 | Integration: PR from this branch to main, merge without waiting, Pages confirmation, record here | pending | 21a111a4 | COORDINATION.md, README.md (top-line only) | `gh pr merge <n> --merge`; `gh api repos/sassnarep3-star/Own8/pages` → `built` |
+
+Log:
+- 2026-11-18 06:28 UTC — Read the board; main moved 0e6e4ae → c76ce69 (PR #76, a COORDINATION-only change); fast-forwarded. Confirmed nfl.com is reachable only through fetch_page. Claim C0 written.
+- 2026-11-18 ~06:20-06:29 UTC — Captured the Week 11 injury report (reg11, chunks 0-2 of 3). Transcribed 26 club rows into private-store/injury-report-2026-w11.tsv. Probes: depth-chart URL (404), transactions URL (404), roster (status codes, no legend), reg10 (title/heading mismatch), schedule chunk 0, standings chunk 0.
+- 2026-11-18 — Found a real error during the drift check: the metadata used ARI; nfl.com and the stored schedule capture use AZ. Corrected, and the checker then passed. This is the first confirmed catch of the drift alarm.
+- 2026-11-18 — Game centre for NE at DET (Week 10) links an official Game Book PDF; fetch_page reads it (7 chunks). Read chunk 0: lineups, Not Active list, venue (Allianz Arena, Munich). Captured page 1 only (56 rows, private-store/gamebook-2026-w10-ne-at-det-p1.tsv).
+- 2026-11-18 — Site: new page data-team-view.html; data-injuries.html and the depth page's Game Book row updated; stale "Week 11 not published" text corrected (F-07 superseded by F-25). `site/check.py` allowlist extended to static.www.nfl.com, the official host serving Game Books (the only allowlist change).
+- 2026-11-18 — Root `scripts/build_site.py` regenerated index.html (the 875583e4 redirect), pages/repo-review.html and two analysis files. Reverted to committed state; the F-24 conflict is unchanged and still open.
+
+Sources (all read through fetch_page on 2026-11-18, before 06:29:20 UTC):
+- https://www.nfl.com/injuries/league/2026/reg11 (3 of 3 chunks)
+- https://www.nfl.com/injuries/league/2026/reg10 (chunk 0 of 8)
+- https://www.nfl.com/teams/houston-texans/depth-chart (404)
+- https://www.nfl.com/transactions/league/2026/reg (404)
+- https://www.nfl.com/teams/houston-texans/roster (chunk 0 of 3)
+- https://www.nfl.com/schedules/2026/by-week/week-11 (chunk 0 of 2)
+- https://www.nfl.com/standings/ (chunk 0 of 2)
+- https://www.nfl.com/games/patriots-at-lions-2026-reg-10 (Final; Game Book link; Munich venue)
+- https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf (Game Book, chunk 0 of 7)
+
+Verification performed:
+- `python3 captures/scripts/build_manifest.py` then `python3 captures/scripts/check_captures.py` → OK (2 captures, 9 probes; hashes, pinned schema, row counts, 13-game pairs equal to site/data/week11-schedule.json, 24 + 2 clubs accounted for).
+- Tamper test in a scratch copy (one changed field): checker exit 1 (SHA-256 and byte count).
+- `python3 site/scripts/content.py` → regenerated registers; `python3 site/scripts/build.py` → 17 pages; `python3 site/check.py` → OK, 0 errors.
+- Root checks: scripts/audit_repo.py PASS (256/0), analyze.py PASS (0 eligible), test_audit OK, check_links PASS, audit_publication PASS, requirements/check_req PASS, ledger/check_ledger 25/25.
+- Only transcriptions: every value traces to a fetch_page result; nothing inferred. Team names come from the stored standings capture.
+
+Irregularities (all on the site's Flagged for Review page; none block the merge):
+- F-25 superseded Week 11 statement; F-26 24 clubs read "No Injuries Reported" (not re-read); F-27 reg10 title/body mismatch; F-28 roster status codes unexplained; F-29 depth-chart and transactions 404; F-30 IR moves news-only; F-31 "private" store is in a public repository (operator decision); F-32 Week 11 Injuries column blank; F-33 Joseph and Henderson are Out on the report but absent from the page-1 Not Active list.
+- Not done in this session, stated plainly: the Week 10 reg10 eight-page re-capture (F-05 still stands); Game Book chunks 1-6 (stats, substitutions, Joseph check); daily Wed-to-kickoff scheduling (no scheduler exists in this sandbox, and captures are manual reads); any depth-order or starter inference; snap counts (no official route found); the "net injury count" definition.
+- The drift alarm is a checker, not a scheduler. Nothing runs it on a timer.
+
+Cross-session notes: no file owned by another session was edited except site/** (which 875583e4 owns and which this session extended; its registers were regenerated with content.py and the diffs are only the new nav link and the R-06, R-07, F-07 updates).
+

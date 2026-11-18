@@ -1,0 +1,16 @@
+{
+  "capture_id": "gamebook-2026-w10-ne-at-det-p1",
+  "source_url": "https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf",
+  "linked_from": "https://www.nfl.com/games/patriots-at-lions-2026-reg-10 ('Download Game Book (PDF)', game centre read 18 Nov 2026)",
+  "page_title_as_read": "National Football League Game Summary (Game Book), 11/15/2026 New England Patriots at Detroit Lions at Allianz Arena, Munich, Germany",
+  "retrieval": "fetch_page tool only, PDF chunk 0 of 7 read. fetch_page returns no clock time; retrieved before 2026-11-18T06:29:20Z.",
+  "retrieved_utc_upper_bound": "2026-11-18T06:29:20Z",
+  "chunks_read": 1,
+  "chunks_total": 7,
+  "rows_file": "private-store/gamebook-2026-w10-ne-at-det-p1.tsv",
+  "rows": 56,
+  "required_columns": ["game", "team", "unit", "slot", "number", "player"],
+  "allowed_units": ["offense", "defense", "not_active"],
+  "scope_note": "Page 1 only: the Lineups block and the Not Active list. Substitutions, Did Not Play text, stats and chunks 1 to 6 were not transcribed. Starters are the Lineups block as printed; this is not a snap count.",
+  "game_facts_as_read": {"final": "NE 10, DET 35", "date": "Sun 15 Nov 2026", "start_time": "3:33 PM CET", "venue": "Allianz Arena, Munich, Germany", "game_centre_location": "MUNICH", "game_centre_stadium": "FC BAYERN MUNICH STADIUM"}
+}
