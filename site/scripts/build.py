@@ -14,7 +14,7 @@ sys.path.insert(0, HERE)
 import model_b0  # noqa: E402  (reuses the frozen B0 functions and grading)
 REC = model_b0.reconcile()
 
-FETCH = "2026-11-17"
+FETCH = "2026-11-18"
 REPO = "https://github.com/sassnarep3-star/Own8/blob/main/"
 E = html.escape
 
@@ -95,7 +95,7 @@ def page(name, title, body, lead=""):
 <link rel="stylesheet" href="assets/site.css">
 </head><body>
 <header class="top"><a class="brand" href="index.html">Own8 · NFL research</a>
-<span class="stamp">Official pages read {FETCH} · paper research only</span></header>
+<span class="stamp">Latest official sources re-read {FETCH} · older captures retain their own dates · paper research only</span></header>
 <div class="wrap">
 <aside class="side">{''.join(nav)}</aside>
 <main>
@@ -183,14 +183,14 @@ def build_index():
     from collections import Counter
     c = Counter(r["status"] for r in reqs)
     s = model_b0.load("site/data/b0-w10-grading.json")["summary"]
-    w11 = J("site/data/b0-w11-lines.json")
+    w11 = J("site/data/b0-w11-lines-v2.json")
     cards = [
         ("Official standings reconciled", f"{REC['cells'] - len(REC['mismatches'])}/{REC['cells']} cells",
          f"The 136-game log plus {REC['games'] - 136} Week 10 finals reproduce each W, L, T, PF and PA", OFF_STANDINGS),
         ("Week 10 games graded", f"{s['n_graded']} graded · {s['n_pending']} pending",
-         "Chargers at Ravens is final 23–20 per the official Game Book (18 Nov), but the frozen grading excludes it (F-27)", OFF_SCORES),
-        ("Week 11 fair lines", f"{len(w11['games'])} games · PROVISIONAL",
-         "Built from pre-Monday standings and kept frozen under the pre-registration rule. The Monday game is now verified final; a v2 is an operator decision (F-23, W5)", REPO + "site/data/b0-w11-lines.json"),
+         "All 14 Week 10 games are final; grading covers the 13 games in the pre-registered B0 line set", OFF_SCORES),
+        ("Week 11 fair lines", f"{len(w11['games'])} games · B0 v2 · pre-kickoff",
+         "Re-originated after LAC@BAL final; v1 is retained unchanged. Market columns remain blank.", REPO + "site/data/b0-w11-lines-v2.json"),
         ("Strategies on any leaderboard", "0",
          "Four backtest-gate passes are held off the leaderboard under the operator's rule (F-01)", REPO + "ledger/data/strategy-registry.json"),
     ]
@@ -199,8 +199,8 @@ def build_index():
         f'<div class="src">{a(u, "Source")}</div></div>' for k, v, n, u in cards)
     evidence = [
         ["Official standings", f"32 teams. {REC['cells'] - len(REC['mismatches'])} of {REC['cells']} cells match the repo game log plus Week 10 finals.", "VERIFIED", OFF_STANDINGS],
-        ["Week 10 test (12 settled games)",
-         f"Spread error {num(s['spread_mae_model'],2)} (model) vs {num(s['spread_mae_market'],2)} (market). Moneyline Brier {num(s['ml_brier_model'],3)} vs {num(s['ml_brier_market'],3)}. Every model-minus-market interval includes zero.",
+        [f"Week 10 test ({s['n_graded']} settled games)",
+         f"Spread error {num(s['spread_mae_model'],2)} (model) vs {num(s['spread_mae_market'],2)} (market). Moneyline Brier {num(s['ml_brier_model'],3)} vs {num(s['ml_brier_market'],3)}. The short-sample intervals include zero.",
          "NO EVIDENCE OF EDGE YET", REPO + "site/data/b0-w10-grading.json"],
         ["Strategy registry", "14 entries. Four are labelled PAPER-ELIGIBLE on a walk-forward backtest (W3 to W9) with no prospective settlement. The README says none are eligible.",
          "CONFLICT (F-01)", REPO + "ledger/data/strategy-registry.json"],
@@ -368,7 +368,7 @@ def build_schedule():
     body = f"""
 <p class="meta">Source: nfl.com Week 11 schedule ({FETCH}; 3 pages read). 13 games; 6 teams on bye (ATL, CLE, GB, LAR, NE, SEA). Kickoffs as nfl.com renders them (ET).</p>
 <p class="ok-line"><b>Dated announcements (nfl.com note on this page, read 17 Nov):</b> "In Week 16, two of the four designated matchups will be played on Saturday at 4:30 PM ET and 8:00 PM ET on NFL Network, with the remainder to be played either on Thursday night (8:15 PM ET), Sunday afternoon (1:00 PM ET and 4:25 PM ET), Sunday night (8:20 PM ET), or Monday night (8:15 PM ET). Specific dates and start times for the designated Week 16 matchups will be determined and announced at a later date during the season, no later than immediately after Week 14." Week 17 and Week 18 dates are likewise TBD on the page: Week 17 no later than immediately after Week 15; Week 18 after the conclusion of Week 17. No dated announcement has been located yet (R-19).</p>
-<p class="flag-line"><b>Provisional Week 11 fair lines</b> (B0). They were written in commit beca9d2 on 17 Nov from the pre-Monday standings snapshot, and Chargers at Ravens is now verified final (23–20), but the lines stay frozen under the pre-registration rule, so they are not re-originated here (F-23, W5). Market and difference columns are blank: no verified Week 11 market was captured (F-11).</p>
+<p class="flag-line"><b>Week 11 fair lines shown here are B0 v1</b> (commit beca9d2, 17 Nov, pre-Monday standings). A v2 set (site/data/b0-w11-lines-v2.json) was re-originated after Chargers at Ravens was verified final (23–20); the index card cites v2. This page has not been switched to v2 (F-31). Market and difference columns are blank: no verified Week 11 market was captured (F-11).</p>
 {table(["Day", "Kickoff (ET)", "Network", "Game (away at home)", "Venue", "Venue source", "Fair spread (home)", "Fair total", "Fair P(home)", "Market spread", "Difference", "Game"], rows, cls="dense", filter_id="sched")}
 <p class="meta">Venue is verified only for Indianapolis at Houston (Reliant Stadium). The other 12 stay blank until each game centre is read (Q-16).</p>
 """

@@ -27,11 +27,11 @@
   },
   {
    "id": "F-04",
-   "title": "Week 10 Monday game: resolved 18 Nov",
+   "title": "Week 10 Monday game: resolved (score 23–20 verified)",
    "detail": "LAC at BAL (Nov 16) shows 8:15 PM with no score on the scores, standings and picks pages. Excluded from grading (12 graded, 1 pending) and from the Week 11 inputs. If it is final, W11 lines change.",
    "evidence": "nfl.com scores 2026-11-17",
    "link": "https://www.nfl.com/scores/2026/week-10",
-   "status": "RESOLVED (score 23–20 verified; grading decision W5)"
+   "status": "RESOLVED (score verified via Game Book, F-27; grading decision on main)"
   },
   {
    "id": "F-05",
@@ -51,11 +51,12 @@
   },
   {
    "id": "F-07",
-   "title": "Week 11 injury report: early read published",
-   "detail": "Captured 18 Nov; Thursday game lists 26 players (practice status only). 12 games show No Injuries Reported. Series still open (F-25).",
+   "title": "Week 11 injury report: early read captured",
+   "detail": "Captured 18 Nov with fetch time and SHA-256: the Thursday game lists 26 players (practice status only, game status blank); 12 games show No Injuries Reported. Early read (F-25).",
    "evidence": "nfl.com",
    "link": "https://www.nfl.com/injuries/league/2026/reg11",
-   "status": "RESOLVED (captured); series OPEN (F-25)"
+   "status": "RESOLVED (captured); series OPEN (F-25)",
+   "source": "https://www.nfl.com/injuries/league/2026/reg11"
   },
   {
    "id": "F-08",
@@ -151,7 +152,7 @@
    "detail": "No Game Book was captured. Any starter or designation claim that depends on a Game Book is unverified.",
    "evidence": "",
    "link": "",
-   "status": "PARTIAL: 1 of 14 Week 10 Game Books captured (LAC@BAL, F-29)"
+   "status": "OPEN (R-14)"
   },
   {
    "id": "F-20",
@@ -179,11 +180,11 @@
   },
   {
    "id": "F-23",
-   "title": "Week 11 fair lines were built on pre-Monday standings (provisional)",
-   "detail": "Frozen Week 11 B0 lines were written from the pre-Monday standings. The Monday game is now verified final (23–20, F-27); a v2 needs an operator decision.",
+   "title": "Week 11 fair lines: v1 shown on schedule, v2 cited on index (split)",
+   "detail": "v1 (frozen, beca9d2) is shown on the schedule page; v2 (re-originated after LAC@BAL final, main commit e741bdc) is cited on the index card. The operator should choose which version the schedule shows.",
    "evidence": "site/data/b0-w11-lines.json; site/data/standings-2026-11-17.json",
    "link": "https://github.com/sassnarep3-star/Own8/blob/main/site/data/b0-w11-lines.json",
-   "status": "OPEN (decision W5)"
+   "status": "OPEN (F-31)"
   },
   {
    "id": "F-24",
@@ -212,10 +213,10 @@
   {
    "id": "F-27",
    "title": "Chargers at Ravens final score verified: 23–20",
-   "detail": "Game centre shows Final. The Game Book scoring-play log ends Chargers 23, Ravens 20. The quarter table in the PDF text is offset by one row and is not used. The frozen Week 10 grading still excludes this game (method unchanged).",
-   "evidence": "site/data/gamebook-w10-lac-bal.json; site/data/week10-results.json (verified_late_final key)",
+   "detail": "Game centre shows Final. The Game Book scoring-play log ends Chargers 23, Ravens 20. The quarter table in the PDF text is offset by one row and is not used. The Game Book is now also cited in week10-results.json (main).",
+   "evidence": "site/data/gamebook-w10-lac-bal.json; site/data/week10-results.json",
    "link": "https://www.nfl.com/games/chargers-at-ravens-2026-reg-10",
-   "status": "VERIFIED (grading decision W5)"
+   "status": "VERIFIED"
   },
   {
    "id": "F-28",
@@ -228,7 +229,7 @@
   {
    "id": "F-29",
    "title": "Game Books captured for 1 of 14 Week 10 games",
-   "detail": "Only Chargers at Ravens has a stored Game Book. Starters and inactives for the other 13 games are not captured, so the starter requirement is met for one game only.",
+   "detail": "Only Chargers at Ravens has a stored Game Book with lineups and inactives. Starters and inactives for the other 13 games are not captured.",
    "evidence": "site/data/gamebook-w10-lac-bal.json",
    "link": "https://www.nfl.com/games/chargers-at-ravens-2026-reg-10",
    "status": "OPEN (capture 13 remaining Game Books)"
@@ -240,6 +241,14 @@
    "evidence": "site/data/injuries-w11.json",
    "link": "https://www.nfl.com/injuries/league/2026/reg11",
    "status": "OPEN (re-check Thu 19 and Fri 20 Nov)"
+  },
+  {
+   "id": "F-31",
+   "title": "Week 11 fair-line version split between pages",
+   "detail": "The index card cites B0 v2 (site/data/b0-w11-lines-v2.json). The schedule and lines pages still read v1 (site/data/b0-w11-lines.json). Both files are kept; choosing which the schedule shows is an operator decision. No numbers were changed in this session.",
+   "evidence": "site/scripts/build.py (build_index and build_schedule); site/data/b0-w11-lines.json; site/data/b0-w11-lines-v2.json",
+   "link": "https://github.com/sassnarep3-star/Own8/blob/main/site/data/b0-w11-lines-v2.json",
+   "status": "OPEN (operator decision)"
   }
  ]
 }

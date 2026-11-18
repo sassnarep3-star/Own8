@@ -119,11 +119,11 @@ else:
         if (_fin["visitor_score"], _fin["home_score"]) != (23, 20):
             fails.append("Game Book final score is not 23-20 as recorded")
         _wr = _json.load(open(os.path.join(SITE, "data", "week10-results.json"), encoding="utf-8"))
-        _vl = _wr.get("verified_late_final", {})
-        if (_vl.get("away_score"), _vl.get("home_score")) != (_fin["visitor_score"], _fin["home_score"]):
-            fails.append("week10-results verified_late_final disagrees with the Game Book")
-        if any(g.get("away") == "LAC" and g.get("home") == "BAL" for g in _wr.get("finals", [])):
-            fails.append("LAC@BAL was added to the frozen 'finals' list; the frozen Week 10 grading must not change")
+        _lac = [g for g in _wr.get("finals", []) if g.get("away") == "LAC" and g.get("home") == "BAL"]
+        if len(_lac) != 1 or (_lac[0].get("away_score"), _lac[0].get("home_score")) != (_fin["visitor_score"], _fin["home_score"]):
+            fails.append("week10-results finals LAC@BAL score disagrees with the Game Book capture")
+        if _lac and _lac[0].get("game_book_url") != _gpub["game_book_url"]:
+            fails.append("week10-results LAC@BAL Game Book URL differs from the captured Game Book URL")
     except Exception as _e:  # noqa
         fails.append(f"capture re-parse failed: {_e}")
 

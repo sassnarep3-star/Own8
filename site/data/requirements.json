@@ -1,736 +1,736 @@
 {
- "as_of": "2026-11-17",
- "rows": [
-  {
-   "id": "R-01",
-   "group": "Data",
-   "requirement": "Official results feed so backtests and ROI can be computed",
-   "status": "PARTIAL",
-   "exists": "site/data/week10-results.json (13 finals) + origination/data/games-2026-w1-w9.json (136 games)",
-   "gap": "Week 10 Monday game (LAC@BAL) is not final on nfl.com as read; ROI needs a settled price series with stakes, which does not exist.",
-   "source": "https://www.nfl.com/scores/2026/week-10"
-  },
-  {
-   "id": "R-02",
-   "group": "Data",
-   "requirement": "Verified standings reconciled to the game log",
-   "status": "DONE",
-   "exists": "site/data/standings-2026-11-17.json: 160/160 cells (W, L, T, PF, PA) match the 136-game log plus 13 Week 10 finals",
-   "gap": "Reconciliation excludes the unfinished Monday game, as nfl.com shows it.",
-   "source": "https://www.nfl.com/standings/league/2026/REG"
-  },
-  {
-   "id": "R-03",
-   "group": "Data",
-   "requirement": "All 14 Week 10 games read as final",
-   "status": "PARTIAL",
-   "exists": "13 of 14 read as FINAL on nfl.com",
-   "gap": "LAC@BAL shows 8:15 PM with no score on the scores, standings and picks pages as read (F-04).",
-   "source": "https://www.nfl.com/scores/2026/week-10"
-  },
-  {
-   "id": "R-04",
-   "group": "Injuries",
-   "requirement": "Official NFL injury report captured and republished",
-   "status": "PARTIAL",
-   "exists": "Week 10 report page 1 of 8 re-read 2026-11-17; Lions rows verified (see R-05)",
-   "gap": "Full 8-page re-capture not completed this session; five earlier captures disagree on row counts (F-05).",
-   "source": "https://www.nfl.com/injuries/league/2026/reg10"
-  },
-  {
-   "id": "R-05",
-   "group": "Injuries",
-   "requirement": "Populate the three missing Lions game-status cells (Joseph, Mays, Reed)",
-   "status": "DONE",
-   "exists": "Verified 2026-11-17: all three show Out (Knee, Ankle, Hip; Did Not Participate)",
-   "gap": "None for these three rows.",
-   "source": "https://www.nfl.com/injuries/league/2026/reg10"
-  },
-  {
-   "id": "R-06",
-   "group": "Injuries",
-   "requirement": "Week 11 injury report captured",
-   "status": "BLOCKED",
-   "exists": "Probe 2026-11-17: the reg11 URL serves Week 10 content; the Colts game centre says the injury report is not yet available",
-   "gap": "Not published as of read. Re-check Wed 18, Thu 19, Fri 20 Nov (F-07).",
-   "source": "https://www.nfl.com/injuries/league/2026/reg11"
-  },
-  {
-   "id": "R-07",
-   "group": "Injuries",
-   "requirement": "Every injury-hub read stored with its clock time; publish the delta, never the level",
-   "status": "NOT STARTED",
-   "exists": "Single-time captures only",
-   "gap": "No time series exists, so no delta can be computed.",
-   "source": "https://www.nfl.com/injuries/league/2026/reg10"
-  },
-  {
-   "id": "R-08",
-   "group": "Injuries",
-   "requirement": "Immutable daily snapshots Wed to kickoff with raw hashes",
-   "status": "NOT STARTED",
-   "exists": "None (see S-04)",
-   "gap": "No scheduler is configured for nfl.com capture; the sandbox cannot curl nfl.com (SSL error on 2026-11-17), so captures are fetch-tool transcriptions only.",
-   "source": "https://www.nfl.com/injuries/league/2026/reg10"
-  },
-  {
-   "id": "R-09",
-   "group": "Injuries",
-   "requirement": "Treat the injury report as a timestamped series; measure DNP to LP to FP evolution",
-   "status": "NOT STARTED",
-   "exists": "None",
-   "gap": "Requires R-08.",
-   "source": "https://www.nfl.com/injuries/league/2026/reg10"
-  },
-  {
-   "id": "R-10",
-   "group": "Injuries",
-   "requirement": "Injury signal as a surprise (change), never a level",
-   "status": "BLOCKED",
-   "exists": "None",
-   "gap": "Requires R-07 to R-09 (a change needs two timestamped reads).",
-   "source": ""
-  },
-  {
-   "id": "R-11",
-   "group": "Injuries",
-   "requirement": "Immutable official availability snapshots (injury reports, depth pages, inactives) with raw hashes, timestamps and conflict flags",
-   "status": "NOT STARTED",
-   "exists": "None",
-   "gap": "Requires R-08 and a depth source (R-23).",
-   "source": ""
-  },
-  {
-   "id": "R-12",
-   "group": "Injuries",
-   "requirement": "Point-in-time ledger for injuries, depth and inactives (no lookahead)",
-   "status": "NOT STARTED",
-   "exists": "None",
-   "gap": "Requires R-11.",
-   "source": ""
-  },
-  {
-   "id": "R-13",
-   "group": "Injuries",
-   "requirement": "Official inactive lists and snap counts captured",
-   "status": "BLOCKED",
-   "exists": "None captured. No official snap-count source was located or verified in this session",
-   "gap": "Source unknown (Q-03).",
-   "source": ""
-  },
-  {
-   "id": "R-14",
-   "group": "Injuries",
-   "requirement": "Official NFL Game Books used for actual starters and game-day status (no inference)",
-   "status": "BLOCKED",
-   "exists": "None captured",
-   "gap": "Game Books publish after kickoff; the repo's own README (section 'What changed on 2026-11-15', RQ-12) estimates 6 to 8 game-weeks of postgame Game Books before a test is possible.",
-   "source": ""
-  },
-  {
-   "id": "R-15",
-   "group": "Injuries",
-   "requirement": "Archive weekly injury reports for past seasons",
-   "status": "NOT STARTED",
-   "exists": "Only 2026 Week 10 and earlier 2026 weeks in the repo",
-   "gap": "Past-season archive not captured (Q-04).",
-   "source": ""
-  },
-  {
-   "id": "R-16",
-   "group": "Injuries",
-   "requirement": "Calibrate what 'Questionable' means from play rates with confidence intervals",
-   "status": "BLOCKED",
-   "exists": "None",
-   "gap": "Requires R-14 and R-15. Official text gives no percentages.",
-   "source": ""
-  },
-  {
-   "id": "R-17",
-   "group": "Injuries",
-   "requirement": "Designation reliability scored before a designation becomes a model feature",
-   "status": "BLOCKED",
-   "exists": "None",
-   "gap": "Requires R-15 and R-13.",
-   "source": ""
-  },
-  {
-   "id": "R-18",
-   "group": "Schedule",
-   "requirement": "Venue of every fixture transcribed from the official game centre and published",
-   "status": "PARTIAL",
-   "exists": "1 of 13 Week 11 venues verified: IND@HOU, Reliant Stadium, Houston, TX (game centre)",
-   "gap": "12 venues blank: not transcribed this session.",
-   "source": "https://www.nfl.com/games/colts-at-texans-2026-reg-11"
-  },
-  {
-   "id": "R-19",
-   "group": "Schedule",
-   "requirement": "Dated schedule announcement published beside the live schedule page",
-   "status": "PARTIAL",
-   "exists": "nfl.com Week 11 schedule page (read 17 Nov) states that the Week 16, 17 and 18 designated matchups have TBD dates: Week 16 no later than immediately after Week 14, Week 17 no later than immediately after Week 15, Week 18 after Week 17 (quoted on data-schedule.html)",
-   "gap": "No dated announcement was located on the captured pages.",
-   "source": "https://www.nfl.com/schedules/2026/by-week/week-11"
-  },
-  {
-   "id": "R-20",
-   "group": "Schedule",
-   "requirement": "Fixture-context features built only from published schedule facts",
-   "status": "NOT STARTED",
-   "exists": "Schedule facts captured for Week 11 (13 games, 6 byes, kickoff times, networks)",
-   "gap": "No feature set built.",
-   "source": "https://www.nfl.com/schedules/2026/by-week/week-11"
-  },
-  {
-   "id": "R-21",
-   "group": "Schedule",
-   "requirement": "Stadium roof/surface and NWS hourly wind/precipitation overlay",
-   "status": "NOT STARTED",
-   "exists": "None",
-   "gap": "No official roof designation or NWS grid captured.",
-   "source": ""
-  },
-  {
-   "id": "R-22",
-   "group": "Depth",
-   "requirement": "Official depth-chart register with date and source per row",
-   "status": "BLOCKED",
-   "exists": "None",
-   "gap": "nfl.com team depth-chart page returns 404 (Texans probe, 2026-11-17).",
-   "source": "https://www.nfl.com/teams/houston-texans/depth-chart"
-  },
-  {
-   "id": "R-23",
-   "group": "Depth",
-   "requirement": "Depth order from per-club official pages, verified for all 32 clubs (route a) or from official snap counts (route b)",
-   "status": "BLOCKED",
-   "exists": "Route a: 404 on the one club probed. Route b: no official source verified",
-   "gap": "Neither route verified for all 32 clubs. The backup-deficiency feature cannot be built until one is (S-03).",
-   "source": "https://www.nfl.com/teams/houston-texans/depth-chart"
-  },
-  {
-   "id": "R-24",
-   "group": "Depth",
-   "requirement": "Fix the two depth-parsing failures (Texans image; Packers jersey prefixes)",
-   "status": "BLOCKED",
-   "exists": "No depth page is parsed in this repo",
-   "gap": "The Texans image needs an authorised structured source; transcription by eye is not allowed.",
-   "source": ""
-  },
-  {
-   "id": "R-25",
-   "group": "Depth",
-   "requirement": "Depth slots modelled as groups (ties, shared slots, empty slots)",
-   "status": "NOT STARTED",
-   "exists": "Design requirement only",
-   "gap": "No depth data.",
-   "source": ""
-  },
-  {
-   "id": "R-26",
-   "group": "Depth",
-   "requirement": "Depth modelled from playing time (snap share), not jersey order",
-   "status": "NOT STARTED",
-   "exists": "No snap data",
-   "gap": "Compliant so far: this session derives no depth order from jersey, experience or salary.",
-   "source": ""
-  },
-  {
-   "id": "R-27",
-   "group": "Depth",
-   "requirement": "Backup-deficiency feature (2nd to 4th string replacing starters, both sides of the ball)",
-   "status": "BLOCKED",
-   "exists": "None",
-   "gap": "Requires R-22 to R-26.",
-   "source": ""
-  },
-  {
-   "id": "R-28",
-   "group": "Depth",
-   "requirement": "Offense vs defense matchup deficiency matrix (1st to 4th string)",
-   "status": "BLOCKED",
-   "exists": "None",
-   "gap": "Requires R-22.",
-   "source": ""
-  },
-  {
-   "id": "R-29",
-   "group": "Depth",
-   "requirement": "Per-team view: starters out, replacements named, net injury count",
-   "status": "BLOCKED",
-   "exists": "Team view not built",
-   "gap": "Requires R-22 and R-06.",
-   "source": ""
-  },
-  {
-   "id": "R-30",
-   "group": "Depth",
-   "requirement": "Announced-starter evidence field (not an inferred replacement)",
-   "status": "NOT STARTED",
-   "exists": "None",
-   "gap": "The brief cites Lock, McCord and Brissett as VR-24, VR-25, VQ-05. Those identifiers are not in the repo and were not found on nfl.com (F-22).",
-   "source": ""
-  },
-  {
-   "id": "R-31",
-   "group": "Depth",
-   "requirement": "Flag stale depth rows against the official transactions log",
-   "status": "BLOCKED",
-   "exists": "None captured. The nfl.com picks article read 2026-11-17 says Lamar Jackson is on IR (quoted, not a transactions record)",
-   "gap": "No transactions capture; no depth row to test.",
-   "source": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season"
-  },
-  {
-   "id": "R-32",
-   "group": "Depth",
-   "requirement": "Roster turnover as a first-class data event (depth versioned to the last official roster event)",
-   "status": "NOT STARTED",
-   "exists": "None",
-   "gap": "Requires a transactions capture (Q-18).",
-   "source": ""
-  },
-  {
-   "id": "R-33",
-   "group": "Depth",
-   "requirement": "Shared and empty depth slots represented faithfully",
-   "status": "BLOCKED",
-   "exists": "None",
-   "gap": "Requires R-22.",
-   "source": ""
-  },
-  {
-   "id": "R-34",
-   "group": "Depth",
-   "requirement": "Reject depth order from jersey number, experience or salary",
-   "status": "REJECTED",
-   "exists": "Policy recorded here; nothing built on it",
-   "gap": "Operator's rejection honoured.",
-   "source": ""
-  },
-  {
-   "id": "R-35",
-   "group": "Depth",
-   "requirement": "Run the 32-team roster/IR sweep before any team-level model is trusted",
-   "status": "NOT STARTED",
-   "exists": "Not run. B0 is team-strength only",
-   "gap": "Gate not cleared. B0 must not be read as injury-aware.",
-   "source": ""
-  },
-  {
-   "id": "R-36",
-   "group": "Models",
-   "requirement": "Injury and personnel ablations instead of fixed penalties (with and without features, chronological holdouts)",
-   "status": "BLOCKED",
-   "exists": "None",
-   "gap": "No personnel features exist to ablate (R-22, R-13).",
-   "source": ""
-  },
-  {
-   "id": "R-37",
-   "group": "Models",
-   "requirement": "Injury and depth ablations, not fixed penalties",
-   "status": "BLOCKED",
-   "exists": "None",
-   "gap": "As R-36.",
-   "source": ""
-  },
-  {
-   "id": "R-38",
-   "group": "Models",
-   "requirement": "Ratings made opponent-aware from game-level results",
-   "status": "PARTIAL",
-   "exists": "Repo variants S1/S2 (ridge) use game-level results (origination/results/validation-w10.json). B0 uses unadjusted PF/PA averages",
-   "gap": "The published B0 baseline is NOT opponent-adjusted.",
-   "source": ""
-  },
-  {
-   "id": "R-39",
-   "group": "Models",
-   "requirement": "Singles-only shadow baseline, pre-registered, versions frozen, forecasts recorded before kickoff",
-   "status": "PARTIAL",
-   "exists": "B0 (site/scripts/model_b0.py). Week 10 lines: originated_at 2026-11-14 in requirements/results/week10-lines.json. Week 11 lines written in beca9d2 on 2026-11-17 from PRE-MONDAY standings (provisional, F-23)",
-   "gap": "Baseline is team-strength only (see R-35).",
-   "source": ""
-  },
-  {
-   "id": "R-40",
-   "group": "Models",
-   "requirement": "Store every model output as a probability plus its inputs, not only a pick",
-   "status": "DONE",
-   "exists": "B0 outputs store H, A, margin, total and p_home with their standings inputs (site/data/b0-*.json)",
-   "gap": "Repo-wide coverage is PARTIAL (older files store picks in places).",
-   "source": ""
-  },
-  {
-   "id": "R-41",
-   "group": "Models",
-   "requirement": "Originate the side first, then the total, then the moneyline",
-   "status": "DONE",
-   "exists": "B0 computes margin (side) first, then total, then p_home (site/scripts/model_b0.py)",
-   "gap": "",
-   "source": ""
-  },
-  {
-   "id": "R-42",
-   "group": "Models",
-   "requirement": "Price a line ourselves and publish the residual against the market on a schedule from day one",
-   "status": "PARTIAL",
-   "exists": "Week 10: 12 settled games graded against nfl.com prices (site/data-lines.html). Week 11: fair lines frozen, market not captured",
-   "gap": "No schedule automation. Week 11 market values are blank (F-11).",
-   "source": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season"
-  },
-  {
-   "id": "R-43",
-   "group": "Models",
-   "requirement": "Publish fair line, market line and difference as separate columns",
-   "status": "DONE",
-   "exists": "Week 10 lines page: fair, market and difference in separate columns (12 settled games). Week 11 page shows fair only",
-   "gap": "Week 11 market and difference columns blank (no verified capture).",
-   "source": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season"
-  },
-  {
-   "id": "R-44",
-   "group": "Models",
-   "requirement": "Vig-free market consensus vs originated fair-line decomposition",
-   "status": "DONE",
-   "exists": "Week 10 de-vigged market probabilities (proportional method) next to B0 probabilities, per game",
-   "gap": "Week 10 only.",
-   "source": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season"
-  },
-  {
-   "id": "R-45",
-   "group": "Models",
-   "requirement": "Publish every model total twice until one estimator wins (with a gap column)",
-   "status": "PARTIAL",
-   "exists": "Repo has two estimators for Week 10 totals (S4 and S5 in origination/results/w10-lines.json); the site shows B0 only",
-   "gap": "Second estimator not yet on the site.",
-   "source": ""
-  },
-  {
-   "id": "R-46",
-   "group": "Models",
-   "requirement": "Turn the 136-game log into the pre-registered backtest corpus",
-   "status": "PARTIAL",
-   "exists": "136-game log reconciles to the standings (R-02)",
-   "gap": "The log was not frozen before it was used, so it cannot count as pre-registered.",
-   "source": ""
-  },
-  {
-   "id": "R-47",
-   "group": "Models",
-   "requirement": "Split data into train, validation and final-holdout seasons",
-   "status": "BLOCKED",
-   "exists": "Only the 2026 season is in the repo",
-   "gap": "Requires prior seasons (Q-14).",
-   "source": ""
-  },
-  {
-   "id": "R-48",
-   "group": "Models",
-   "requirement": "Weekly 'what changed' diff (rank, rating, availability)",
-   "status": "NOT STARTED",
-   "exists": "Two snapshots exist (repo 2026-11-14 raw; this session 2026-11-17) but no diff is rendered",
-   "gap": "Requires a snapshot store (R-41).",
-   "source": ""
-  },
-  {
-   "id": "R-49",
-   "group": "Models",
-   "requirement": "Onside-kick regime priors filter for 2026 kickoffs",
-   "status": "NOT STARTED",
-   "exists": "None",
-   "gap": "No official rule or data captured.",
-   "source": ""
-  },
-  {
-   "id": "R-50",
-   "group": "Models",
-   "requirement": "Parlays and prop combos behind a joint-evidence gate",
-   "status": "DONE",
-   "exists": "Gate G7/G8 defined; combos registered as NOT SCORED (no official joint or prop prices)",
-   "gap": "No combo can be ranked.",
-   "source": ""
-  },
-  {
-   "id": "R-51",
-   "group": "Correlation",
-   "requirement": "Correlation values from officially sourced numbers only, with n published",
-   "status": "PARTIAL",
-   "exists": "Nine descriptive correlations with n and 95% CI (origination/results/correlations.json; see correlations.html)",
-   "gap": "Leg-level dependence is not published officially, so parlay correlations stay blank. C2 is not Holm-significant (F-13).",
-   "source": ""
-  },
-  {
-   "id": "R-52",
-   "group": "Leaderboard",
-   "requirement": "Pre-register every strategy; backtest numbers never appear on the leaderboard",
-   "status": "PARTIAL",
-   "exists": "Registry of 14 strategies (ledger/data/strategy-registry.json); this site shows none on a leaderboard",
-   "gap": "Four strategies carry PAPER-ELIGIBLE labels built on backtest gates (F-01). Operator ruling needed (Q-08).",
-   "source": ""
-  },
-  {
-   "id": "R-53",
-   "group": "Leaderboard",
-   "requirement": "Freeze a rule before it sees data; the commit hash is the registration",
-   "status": "DONE",
-   "exists": "B0 Week 11 at commit beca9d2 (2026-11-17), before Thu 2026-11-19 kickoff",
-   "gap": "",
-   "source": ""
-  },
-  {
-   "id": "R-54",
-   "group": "Leaderboard",
-   "requirement": "Two-sided 'what would change our mind' field on every strategy entry",
-   "status": "NOT DONE",
-   "exists": "Checked the 14 registry entries: no such field exists (key listing, ledger/data/strategy-registry.json)",
-   "gap": "Field to be added; not inferred.",
-   "source": ""
-  },
-  {
-   "id": "R-55",
-   "group": "Leaderboard",
-   "requirement": "Demotion gate that sends a live strategy back to paper",
-   "status": "DONE",
-   "exists": "ledger/data/demotion-rules.json; ledger/scripts/demotion_gate.py",
-   "gap": "No live strategy exists, so no demotion has been applied.",
-   "source": ""
-  },
-  {
-   "id": "R-56",
-   "group": "Leaderboard",
-   "requirement": "Signal separated from staking on the leaderboard",
-   "status": "PARTIAL",
-   "exists": "ledger/results/leaderboard-split.json",
-   "gap": "No staking rule is pre-registered and no staking run exists.",
-   "source": ""
-  },
-  {
-   "id": "R-57",
-   "group": "Leaderboard",
-   "requirement": "Proper-score divisions: singles, game parlays, same-game parlays, prop combos",
-   "status": "PARTIAL",
-   "exists": "Divisions defined in the ledger registry",
-   "gap": "Only singles have scored entries; the others are NOT SCORED or BLOCKED.",
-   "source": ""
-  },
-  {
-   "id": "R-58",
-   "group": "Leaderboard",
-   "requirement": "Rank by benchmark-relative Brier skill with a game-cluster lower bound and multiplicity adjustment",
-   "status": "PARTIAL",
-   "exists": "Brier skill and bootstrap CI for Week 10 B0 (site/data/b0-w10-grading.json); family-wise Holm adjustment in origination/results/validation-w10.json (family of 12)",
-   "gap": "Game-cluster lower bound not computed for the site; no leaderboard.",
-   "source": ""
-  },
-  {
-   "id": "R-59",
-   "group": "Leaderboard",
-   "requirement": "Two-stage leaderboard: proper-score qualification, then prospective CLV/ROI escrow",
-   "status": "BLOCKED",
-   "exists": "Stage 1 numbers exist for backtests only",
-   "gap": "Stage 2 needs a closing-line source (R-60).",
-   "source": ""
-  },
-  {
-   "id": "R-60",
-   "group": "Leaderboard",
-   "requirement": "Opening and closing numbers stored for every market originated",
-   "status": "PARTIAL",
-   "exists": "87 locked nfl.com FanDuel line snapshots, Weeks 9 to 10 (ledger/data/price-snapshots.json)",
-   "gap": "No official opening or closing series located (Q-01). Opening and closing cells stay blank.",
-   "source": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season"
-  },
-  {
-   "id": "R-61",
-   "group": "Leaderboard",
-   "requirement": "Control baselines (random picks; favourites only) on every leaderboard run",
-   "status": "PARTIAL",
-   "exists": "Coin-flip Brier control (0.25) for Week 10 B0 (site/data/b0-w10-grading.json)",
-   "gap": "Favourites-only and random-pick simulations not run.",
-   "source": ""
-  },
-  {
-   "id": "R-62",
-   "group": "Leaderboard",
-   "requirement": "'Removal of luck' panel on the dashboard",
-   "status": "NOT POSSIBLE AS STATED",
-   "exists": "Uncertainty intervals shown instead (correlations.html, data-lines.html)",
-   "gap": "Luck cannot be removed from a finite sample (repo register RQ-10). Re-scoped to uncertainty.",
-   "source": ""
-  },
-  {
-   "id": "R-63",
-   "group": "Leaderboard",
-   "requirement": "Strategies that are selectively skill-based (luck removed)",
-   "status": "NOT POSSIBLE AS STATED",
-   "exists": "No strategy passes against the market",
-   "gap": "As R-62. Re-scoped to pre-registered tests with uncertainty.",
-   "source": ""
-  },
-  {
-   "id": "R-64",
-   "group": "Leaderboard",
-   "requirement": "Reward top-performing strategies",
-   "status": "DECISION NEEDED",
-   "exists": "No reward rule exists; repo policy: paper points only, none awarded",
-   "gap": "Operator must define the reward (S-09).",
-   "source": ""
-  },
-  {
-   "id": "R-65",
-   "group": "Leaderboard",
-   "requirement": "Reject ranking strategies by season-long ROI",
-   "status": "REJECTED",
-   "exists": "Policy recorded; ROI is not used for ranking",
-   "gap": "Operator's rejection honoured.",
-   "source": ""
-  },
-  {
-   "id": "R-66",
-   "group": "Leaderboard",
-   "requirement": "Ratings and leaderboards use only verified data; every row has a source",
-   "status": "PARTIAL",
-   "exists": "Applied on all new pages; inherited pages (root, legacy namespaces) not re-verified",
-   "gap": "See repo-review.html and F-09.",
-   "source": ""
-  },
-  {
-   "id": "R-67",
-   "group": "Governance",
-   "requirement": "Official-source link on every table row; blank and flagged if unverified",
-   "status": "PARTIAL",
-   "exists": "Applied on the pages in this site",
-   "gap": "Derived model rows carry 'model output, not official' and link their inputs.",
-   "source": ""
-  },
-  {
-   "id": "R-68",
-   "group": "Governance",
-   "requirement": "Public analysis layer separated from a private raw-data layer until nfl.com terms are read",
-   "status": "DECISION NEEDED",
-   "exists": "Current site republishes nfl.com standings and scores in table form",
-   "gap": "Terms not read (Q-10). Options in S-05.",
-   "source": ""
-  },
-  {
-   "id": "R-69",
-   "group": "Governance",
-   "requirement": "Durable snapshot storage outside the static site; freshness monitoring; alerts on source or schema change",
-   "status": "NOT STARTED",
-   "exists": "None. Repo CI runs checks but no alerting",
-   "gap": "Store and alert channel are operator decisions (Q-13, S-04).",
-   "source": ""
-  },
-  {
-   "id": "R-70",
-   "group": "Governance",
-   "requirement": "Drift alarm on every scraper (pinned row counts and fields; fail loudly)",
-   "status": "NOT STARTED",
-   "exists": "No scrapers. Transcriptions in site/data carry explicit row-count and sum checks (site/check.py)",
-   "gap": "Automated scrapers do not exist.",
-   "source": ""
-  },
-  {
-   "id": "R-71",
-   "group": "Governance",
-   "requirement": "Suggestions section where the operator chooses the path before anything is implemented",
-   "status": "DONE",
-   "exists": "site/suggestions.html (10 items, each awaiting a choice)",
-   "gap": "",
-   "source": ""
-  },
-  {
-   "id": "R-72",
-   "group": "Governance",
-   "requirement": "Open questions register: what is known, what is missing, how to answer",
-   "status": "DONE",
-   "exists": "site/questions.html",
-   "gap": "",
-   "source": ""
-  },
-  {
-   "id": "R-73",
-   "group": "Governance",
-   "requirement": "Decision-readiness table, one row per requirement, with the gate and the number that clears it",
-   "status": "DONE",
-   "exists": "site/requirements.html (every register row carries its gate and clearing condition)",
-   "gap": "",
-   "source": ""
-  },
-  {
-   "id": "R-74",
-   "group": "Governance",
-   "requirement": "Executive summary",
-   "status": "DONE",
-   "exists": "site/executive-summary.html",
-   "gap": "",
-   "source": ""
-  },
-  {
-   "id": "R-75",
-   "group": "Governance",
-   "requirement": "GitHub Pages landing page with category subpages; tables with source links; simple to read",
-   "status": "DONE",
-   "exists": "site/index.html and category pages (see README)",
-   "gap": "Deployment confirmed only after merge (R-80).",
-   "source": ""
-  },
-  {
-   "id": "R-76",
-   "group": "Governance",
-   "requirement": "Flagged for Review page with source links for irregularities and unverified items",
-   "status": "DONE",
-   "exists": "site/flagged.html",
-   "gap": "",
-   "source": ""
-  },
-  {
-   "id": "R-77",
-   "group": "Governance",
-   "requirement": "Repo review line by line, flagging irregularities",
-   "status": "PARTIAL",
-   "exists": "site/repo-review.html covers the items the session checked; roughly 600 non-archive files were not read line by line",
-   "gap": "Stated limit.",
-   "source": ""
-  },
-  {
-   "id": "R-78",
-   "group": "Governance",
-   "requirement": "Parallel sessions coordinated through COORDINATION.md",
-   "status": "DONE",
-   "exists": "Claim and log recorded on the board (875583e4)",
-   "gap": "Pinned branch used per session rules; session-<id>/<task> names not used.",
-   "source": ""
-  },
-  {
-   "id": "R-79",
-   "group": "Governance",
-   "requirement": "Pull request to main, merged without waiting, Pages deploy confirmed, record kept",
-   "status": "PENDING",
-   "exists": "Scheduled as the last step of this session",
-   "gap": "Result is recorded on the board and on the Flagged page once it happens.",
-   "source": ""
-  },
-  {
-   "id": "R-80",
-   "group": "Governance",
-   "requirement": "No manual input from the operator needed to finish all tasks",
-   "status": "PARTIAL",
-   "exists": "Session in progress (claim 875583e4 in COORDINATION.md); not complete until the PR is merged and Pages confirmed",
-   "gap": "Ten suggestions need an operator choice; several blocked items need a source decision (Q-02, Q-03, Q-10).",
-   "source": ""
+  "as_of": "2026-11-18",
+  "rows": [
+    {
+      "id": "R-01",
+      "group": "Data",
+      "requirement": "Official results feed so backtests and ROI can be computed",
+      "status": "PARTIAL",
+      "exists": "site/data/week10-results.json (14 finals) + origination/data/games-2026-w1-w9.json (136 games)",
+      "gap": "ROI needs a settled price series with stakes, which does not exist.",
+      "source": "https://www.nfl.com/scores/2026/week-10"
+    },
+    {
+      "id": "R-02",
+      "group": "Data",
+      "requirement": "Verified standings reconciled to the game log",
+      "status": "DONE",
+      "exists": "site/data/standings-2026-11-17.json: 160/160 cells (W, L, T, PF, PA) match the 136-game log plus 13 Week 10 finals",
+      "gap": "Reconciliation excludes the unfinished Monday game, as nfl.com shows it.",
+      "source": "https://www.nfl.com/standings/league/2026/REG"
+    },
+    {
+      "id": "R-03",
+      "group": "Data",
+      "requirement": "All 14 Week 10 games read as final",
+      "status": "PARTIAL",
+      "exists": "13 of 14 read as FINAL on nfl.com",
+      "gap": "LAC@BAL shows 8:15 PM with no score on the scores, standings and picks pages as read (F-04).",
+      "source": "https://www.nfl.com/scores/2026/week-10"
+    },
+    {
+      "id": "R-04",
+      "group": "Injuries",
+      "requirement": "Official NFL injury report captured and republished",
+      "status": "PARTIAL",
+      "exists": "Week 10 report page 1 of 8 re-read 2026-11-17; Lions rows verified (see R-05)",
+      "gap": "Full 8-page re-capture not completed this session; five earlier captures disagree on row counts (F-05).",
+      "source": "https://www.nfl.com/injuries/league/2026/reg10"
+    },
+    {
+      "id": "R-05",
+      "group": "Injuries",
+      "requirement": "Populate the three missing Lions game-status cells (Joseph, Mays, Reed)",
+      "status": "DONE",
+      "exists": "Verified 2026-11-17: all three show Out (Knee, Ankle, Hip; Did Not Participate)",
+      "gap": "None for these three rows.",
+      "source": "https://www.nfl.com/injuries/league/2026/reg10"
+    },
+    {
+      "id": "R-06",
+      "group": "Injuries",
+      "requirement": "Week 11 injury report captured",
+      "status": "PARTIAL",
+      "exists": "Official Week 11 NFL injury report URL now serves Week 11 content (read 2026-11-18); not an archived raw capture.",
+      "gap": "Exact capture clock time and raw response hash unavailable; immutable history and daily series remain absent.",
+      "source": "https://www.nfl.com/injuries/league/2026/reg11"
+    },
+    {
+      "id": "R-07",
+      "group": "Injuries",
+      "requirement": "Every injury-hub read stored with its clock time; publish the delta, never the level",
+      "status": "NOT STARTED",
+      "exists": "Single-time captures only",
+      "gap": "No time series exists, so no delta can be computed.",
+      "source": "https://www.nfl.com/injuries/league/2026/reg10"
+    },
+    {
+      "id": "R-08",
+      "group": "Injuries",
+      "requirement": "Immutable daily snapshots Wed to kickoff with raw hashes",
+      "status": "NOT STARTED",
+      "exists": "None (see S-04)",
+      "gap": "No scheduler is configured for nfl.com capture; the sandbox cannot curl nfl.com (SSL error on 2026-11-17), so captures are fetch-tool transcriptions only.",
+      "source": "https://www.nfl.com/injuries/league/2026/reg10"
+    },
+    {
+      "id": "R-09",
+      "group": "Injuries",
+      "requirement": "Treat the injury report as a timestamped series; measure DNP to LP to FP evolution",
+      "status": "NOT STARTED",
+      "exists": "None",
+      "gap": "Requires R-08.",
+      "source": "https://www.nfl.com/injuries/league/2026/reg10"
+    },
+    {
+      "id": "R-10",
+      "group": "Injuries",
+      "requirement": "Injury signal as a surprise (change), never a level",
+      "status": "BLOCKED",
+      "exists": "None",
+      "gap": "Requires R-07 to R-09 (a change needs two timestamped reads).",
+      "source": ""
+    },
+    {
+      "id": "R-11",
+      "group": "Injuries",
+      "requirement": "Immutable official availability snapshots (injury reports, depth pages, inactives) with raw hashes, timestamps and conflict flags",
+      "status": "NOT STARTED",
+      "exists": "None",
+      "gap": "Requires R-08 and a depth source (R-23).",
+      "source": ""
+    },
+    {
+      "id": "R-12",
+      "group": "Injuries",
+      "requirement": "Point-in-time ledger for injuries, depth and inactives (no lookahead)",
+      "status": "NOT STARTED",
+      "exists": "None",
+      "gap": "Requires R-11.",
+      "source": ""
+    },
+    {
+      "id": "R-13",
+      "group": "Injuries",
+      "requirement": "Official inactive lists and snap counts captured",
+      "status": "BLOCKED",
+      "exists": "None captured. No official snap-count source was located or verified in this session",
+      "gap": "Source unknown (Q-03).",
+      "source": ""
+    },
+    {
+      "id": "R-14",
+      "group": "Injuries",
+      "requirement": "Official NFL Game Books used for actual starters and game-day status (no inference)",
+      "status": "BLOCKED",
+      "exists": "None captured",
+      "gap": "Game Books publish after kickoff; the repo's own README (section 'What changed on 2026-11-15', RQ-12) estimates 6 to 8 game-weeks of postgame Game Books before a test is possible.",
+      "source": ""
+    },
+    {
+      "id": "R-15",
+      "group": "Injuries",
+      "requirement": "Archive weekly injury reports for past seasons",
+      "status": "NOT STARTED",
+      "exists": "Only 2026 Week 10 and earlier 2026 weeks in the repo",
+      "gap": "Past-season archive not captured (Q-04).",
+      "source": ""
+    },
+    {
+      "id": "R-16",
+      "group": "Injuries",
+      "requirement": "Calibrate what 'Questionable' means from play rates with confidence intervals",
+      "status": "BLOCKED",
+      "exists": "None",
+      "gap": "Requires R-14 and R-15. Official text gives no percentages.",
+      "source": ""
+    },
+    {
+      "id": "R-17",
+      "group": "Injuries",
+      "requirement": "Designation reliability scored before a designation becomes a model feature",
+      "status": "BLOCKED",
+      "exists": "None",
+      "gap": "Requires R-15 and R-13.",
+      "source": ""
+    },
+    {
+      "id": "R-18",
+      "group": "Schedule",
+      "requirement": "Venue of every fixture transcribed from the official game centre and published",
+      "status": "PARTIAL",
+      "exists": "1 of 13 Week 11 venues verified: IND@HOU, Reliant Stadium, Houston, TX (game centre)",
+      "gap": "12 venues blank: not transcribed this session.",
+      "source": "https://www.nfl.com/games/colts-at-texans-2026-reg-11"
+    },
+    {
+      "id": "R-19",
+      "group": "Schedule",
+      "requirement": "Dated schedule announcement published beside the live schedule page",
+      "status": "PARTIAL",
+      "exists": "nfl.com Week 11 schedule page (read 17 Nov) states that the Week 16, 17 and 18 designated matchups have TBD dates: Week 16 no later than immediately after Week 14, Week 17 no later than immediately after Week 15, Week 18 after Week 17 (quoted on data-schedule.html)",
+      "gap": "No dated announcement was located on the captured pages.",
+      "source": "https://www.nfl.com/schedules/2026/by-week/week-11"
+    },
+    {
+      "id": "R-20",
+      "group": "Schedule",
+      "requirement": "Fixture-context features built only from published schedule facts",
+      "status": "NOT STARTED",
+      "exists": "Schedule facts captured for Week 11 (13 games, 6 byes, kickoff times, networks)",
+      "gap": "No feature set built.",
+      "source": "https://www.nfl.com/schedules/2026/by-week/week-11"
+    },
+    {
+      "id": "R-21",
+      "group": "Schedule",
+      "requirement": "Stadium roof/surface and NWS hourly wind/precipitation overlay",
+      "status": "NOT STARTED",
+      "exists": "None",
+      "gap": "No official roof designation or NWS grid captured.",
+      "source": ""
+    },
+    {
+      "id": "R-22",
+      "group": "Depth",
+      "requirement": "Official depth-chart register with date and source per row",
+      "status": "BLOCKED",
+      "exists": "None",
+      "gap": "nfl.com team depth-chart page returns 404 (Texans probe, 2026-11-17).",
+      "source": "https://www.nfl.com/teams/houston-texans/depth-chart"
+    },
+    {
+      "id": "R-23",
+      "group": "Depth",
+      "requirement": "Depth order from per-club official pages, verified for all 32 clubs (route a) or from official snap counts (route b)",
+      "status": "BLOCKED",
+      "exists": "Route a: 404 on the one club probed. Route b: no official source verified",
+      "gap": "Neither route verified for all 32 clubs. The backup-deficiency feature cannot be built until one is (S-03).",
+      "source": "https://www.nfl.com/teams/houston-texans/depth-chart"
+    },
+    {
+      "id": "R-24",
+      "group": "Depth",
+      "requirement": "Fix the two depth-parsing failures (Texans image; Packers jersey prefixes)",
+      "status": "BLOCKED",
+      "exists": "No depth page is parsed in this repo",
+      "gap": "The Texans image needs an authorised structured source; transcription by eye is not allowed.",
+      "source": ""
+    },
+    {
+      "id": "R-25",
+      "group": "Depth",
+      "requirement": "Depth slots modelled as groups (ties, shared slots, empty slots)",
+      "status": "NOT STARTED",
+      "exists": "Design requirement only",
+      "gap": "No depth data.",
+      "source": ""
+    },
+    {
+      "id": "R-26",
+      "group": "Depth",
+      "requirement": "Depth modelled from playing time (snap share), not jersey order",
+      "status": "NOT STARTED",
+      "exists": "No snap data",
+      "gap": "Compliant so far: this session derives no depth order from jersey, experience or salary.",
+      "source": ""
+    },
+    {
+      "id": "R-27",
+      "group": "Depth",
+      "requirement": "Backup-deficiency feature (2nd to 4th string replacing starters, both sides of the ball)",
+      "status": "BLOCKED",
+      "exists": "None",
+      "gap": "Requires R-22 to R-26.",
+      "source": ""
+    },
+    {
+      "id": "R-28",
+      "group": "Depth",
+      "requirement": "Offense vs defense matchup deficiency matrix (1st to 4th string)",
+      "status": "BLOCKED",
+      "exists": "None",
+      "gap": "Requires R-22.",
+      "source": ""
+    },
+    {
+      "id": "R-29",
+      "group": "Depth",
+      "requirement": "Per-team view: starters out, replacements named, net injury count",
+      "status": "BLOCKED",
+      "exists": "Team view not built",
+      "gap": "Requires R-22 and R-06.",
+      "source": ""
+    },
+    {
+      "id": "R-30",
+      "group": "Depth",
+      "requirement": "Announced-starter evidence field (not an inferred replacement)",
+      "status": "NOT STARTED",
+      "exists": "None",
+      "gap": "The brief cites Lock, McCord and Brissett as VR-24, VR-25, VQ-05. Those identifiers are not in the repo and were not found on nfl.com (F-22).",
+      "source": ""
+    },
+    {
+      "id": "R-31",
+      "group": "Depth",
+      "requirement": "Flag stale depth rows against the official transactions log",
+      "status": "BLOCKED",
+      "exists": "None captured. The nfl.com picks article read 2026-11-17 says Lamar Jackson is on IR (quoted, not a transactions record)",
+      "gap": "No transactions capture; no depth row to test.",
+      "source": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season"
+    },
+    {
+      "id": "R-32",
+      "group": "Depth",
+      "requirement": "Roster turnover as a first-class data event (depth versioned to the last official roster event)",
+      "status": "NOT STARTED",
+      "exists": "None",
+      "gap": "Requires a transactions capture (Q-18).",
+      "source": ""
+    },
+    {
+      "id": "R-33",
+      "group": "Depth",
+      "requirement": "Shared and empty depth slots represented faithfully",
+      "status": "BLOCKED",
+      "exists": "None",
+      "gap": "Requires R-22.",
+      "source": ""
+    },
+    {
+      "id": "R-34",
+      "group": "Depth",
+      "requirement": "Reject depth order from jersey number, experience or salary",
+      "status": "REJECTED",
+      "exists": "Policy recorded here; nothing built on it",
+      "gap": "Operator's rejection honoured.",
+      "source": ""
+    },
+    {
+      "id": "R-35",
+      "group": "Depth",
+      "requirement": "Run the 32-team roster/IR sweep before any team-level model is trusted",
+      "status": "NOT STARTED",
+      "exists": "Not run. B0 is team-strength only",
+      "gap": "Gate not cleared. B0 must not be read as injury-aware.",
+      "source": ""
+    },
+    {
+      "id": "R-36",
+      "group": "Models",
+      "requirement": "Injury and personnel ablations instead of fixed penalties (with and without features, chronological holdouts)",
+      "status": "BLOCKED",
+      "exists": "None",
+      "gap": "No personnel features exist to ablate (R-22, R-13).",
+      "source": ""
+    },
+    {
+      "id": "R-37",
+      "group": "Models",
+      "requirement": "Injury and depth ablations, not fixed penalties",
+      "status": "BLOCKED",
+      "exists": "None",
+      "gap": "As R-36.",
+      "source": ""
+    },
+    {
+      "id": "R-38",
+      "group": "Models",
+      "requirement": "Ratings made opponent-aware from game-level results",
+      "status": "PARTIAL",
+      "exists": "Repo variants S1/S2 (ridge) use game-level results (origination/results/validation-w10.json). B0 uses unadjusted PF/PA averages",
+      "gap": "The published B0 baseline is NOT opponent-adjusted.",
+      "source": ""
+    },
+    {
+      "id": "R-39",
+      "group": "Models",
+      "requirement": "Singles-only shadow baseline, pre-registered, versions frozen, forecasts recorded before kickoff",
+      "status": "PARTIAL",
+      "exists": "B0 (site/scripts/model_b0.py). Week 10 lines: originated_at 2026-11-14 in requirements/results/week10-lines.json. Week 11 lines written in beca9d2 on 2026-11-17 from PRE-MONDAY standings (provisional, F-23)",
+      "gap": "Baseline is team-strength only (see R-35).",
+      "source": ""
+    },
+    {
+      "id": "R-40",
+      "group": "Models",
+      "requirement": "Store every model output as a probability plus its inputs, not only a pick",
+      "status": "DONE",
+      "exists": "B0 outputs store H, A, margin, total and p_home with their standings inputs (site/data/b0-*.json)",
+      "gap": "Repo-wide coverage is PARTIAL (older files store picks in places).",
+      "source": ""
+    },
+    {
+      "id": "R-41",
+      "group": "Models",
+      "requirement": "Originate the side first, then the total, then the moneyline",
+      "status": "DONE",
+      "exists": "B0 computes margin (side) first, then total, then p_home (site/scripts/model_b0.py)",
+      "gap": "",
+      "source": ""
+    },
+    {
+      "id": "R-42",
+      "group": "Models",
+      "requirement": "Price a line ourselves and publish the residual against the market on a schedule from day one",
+      "status": "PARTIAL",
+      "exists": "Week 10: 12 settled games graded against nfl.com prices (site/data-lines.html). Week 11: fair lines frozen, market not captured",
+      "gap": "No schedule automation. Week 11 market values are blank (F-11).",
+      "source": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season"
+    },
+    {
+      "id": "R-43",
+      "group": "Models",
+      "requirement": "Publish fair line, market line and difference as separate columns",
+      "status": "DONE",
+      "exists": "Week 10 lines page: fair, market and difference in separate columns (12 settled games). Week 11 page shows fair only",
+      "gap": "Week 11 market and difference columns blank (no verified capture).",
+      "source": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season"
+    },
+    {
+      "id": "R-44",
+      "group": "Models",
+      "requirement": "Vig-free market consensus vs originated fair-line decomposition",
+      "status": "DONE",
+      "exists": "Week 10 de-vigged market probabilities (proportional method) next to B0 probabilities, per game",
+      "gap": "Week 10 only.",
+      "source": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season"
+    },
+    {
+      "id": "R-45",
+      "group": "Models",
+      "requirement": "Publish every model total twice until one estimator wins (with a gap column)",
+      "status": "PARTIAL",
+      "exists": "Repo has two estimators for Week 10 totals (S4 and S5 in origination/results/w10-lines.json); the site shows B0 only",
+      "gap": "Second estimator not yet on the site.",
+      "source": ""
+    },
+    {
+      "id": "R-46",
+      "group": "Models",
+      "requirement": "Turn the 136-game log into the pre-registered backtest corpus",
+      "status": "PARTIAL",
+      "exists": "136-game log reconciles to the standings (R-02)",
+      "gap": "The log was not frozen before it was used, so it cannot count as pre-registered.",
+      "source": ""
+    },
+    {
+      "id": "R-47",
+      "group": "Models",
+      "requirement": "Split data into train, validation and final-holdout seasons",
+      "status": "BLOCKED",
+      "exists": "Only the 2026 season is in the repo",
+      "gap": "Requires prior seasons (Q-14).",
+      "source": ""
+    },
+    {
+      "id": "R-48",
+      "group": "Models",
+      "requirement": "Weekly 'what changed' diff (rank, rating, availability)",
+      "status": "NOT STARTED",
+      "exists": "Two snapshots exist (repo 2026-11-14 raw; this session 2026-11-17) but no diff is rendered",
+      "gap": "Requires a snapshot store (R-41).",
+      "source": ""
+    },
+    {
+      "id": "R-49",
+      "group": "Models",
+      "requirement": "Onside-kick regime priors filter for 2026 kickoffs",
+      "status": "NOT STARTED",
+      "exists": "None",
+      "gap": "No official rule or data captured.",
+      "source": ""
+    },
+    {
+      "id": "R-50",
+      "group": "Models",
+      "requirement": "Parlays and prop combos behind a joint-evidence gate",
+      "status": "DONE",
+      "exists": "Gate G7/G8 defined; combos registered as NOT SCORED (no official joint or prop prices)",
+      "gap": "No combo can be ranked.",
+      "source": ""
+    },
+    {
+      "id": "R-51",
+      "group": "Correlation",
+      "requirement": "Correlation values from officially sourced numbers only, with n published",
+      "status": "PARTIAL",
+      "exists": "Nine descriptive correlations with n and 95% CI (origination/results/correlations.json; see correlations.html)",
+      "gap": "Leg-level dependence is not published officially, so parlay correlations stay blank. C2 is not Holm-significant (F-13).",
+      "source": ""
+    },
+    {
+      "id": "R-52",
+      "group": "Leaderboard",
+      "requirement": "Pre-register every strategy; backtest numbers never appear on the leaderboard",
+      "status": "PARTIAL",
+      "exists": "Registry of 14 strategies (ledger/data/strategy-registry.json); this site shows none on a leaderboard",
+      "gap": "Four strategies carry PAPER-ELIGIBLE labels built on backtest gates (F-01). Operator ruling needed (Q-08).",
+      "source": ""
+    },
+    {
+      "id": "R-53",
+      "group": "Leaderboard",
+      "requirement": "Freeze a rule before it sees data; the commit hash is the registration",
+      "status": "DONE",
+      "exists": "B0 Week 11 at commit beca9d2 (2026-11-17), before Thu 2026-11-19 kickoff",
+      "gap": "",
+      "source": ""
+    },
+    {
+      "id": "R-54",
+      "group": "Leaderboard",
+      "requirement": "Two-sided 'what would change our mind' field on every strategy entry",
+      "status": "NOT DONE",
+      "exists": "Checked the 14 registry entries: no such field exists (key listing, ledger/data/strategy-registry.json)",
+      "gap": "Field to be added; not inferred.",
+      "source": ""
+    },
+    {
+      "id": "R-55",
+      "group": "Leaderboard",
+      "requirement": "Demotion gate that sends a live strategy back to paper",
+      "status": "DONE",
+      "exists": "ledger/data/demotion-rules.json; ledger/scripts/demotion_gate.py",
+      "gap": "No live strategy exists, so no demotion has been applied.",
+      "source": ""
+    },
+    {
+      "id": "R-56",
+      "group": "Leaderboard",
+      "requirement": "Signal separated from staking on the leaderboard",
+      "status": "PARTIAL",
+      "exists": "ledger/results/leaderboard-split.json",
+      "gap": "No staking rule is pre-registered and no staking run exists.",
+      "source": ""
+    },
+    {
+      "id": "R-57",
+      "group": "Leaderboard",
+      "requirement": "Proper-score divisions: singles, game parlays, same-game parlays, prop combos",
+      "status": "PARTIAL",
+      "exists": "Divisions defined in the ledger registry",
+      "gap": "Only singles have scored entries; the others are NOT SCORED or BLOCKED.",
+      "source": ""
+    },
+    {
+      "id": "R-58",
+      "group": "Leaderboard",
+      "requirement": "Rank by benchmark-relative Brier skill with a game-cluster lower bound and multiplicity adjustment",
+      "status": "PARTIAL",
+      "exists": "Brier skill and bootstrap CI for Week 10 B0 (site/data/b0-w10-grading.json); family-wise Holm adjustment in origination/results/validation-w10.json (family of 12)",
+      "gap": "Game-cluster lower bound not computed for the site; no leaderboard.",
+      "source": ""
+    },
+    {
+      "id": "R-59",
+      "group": "Leaderboard",
+      "requirement": "Two-stage leaderboard: proper-score qualification, then prospective CLV/ROI escrow",
+      "status": "BLOCKED",
+      "exists": "Stage 1 numbers exist for backtests only",
+      "gap": "Stage 2 needs a closing-line source (R-60).",
+      "source": ""
+    },
+    {
+      "id": "R-60",
+      "group": "Leaderboard",
+      "requirement": "Opening and closing numbers stored for every market originated",
+      "status": "PARTIAL",
+      "exists": "87 locked nfl.com FanDuel line snapshots, Weeks 9 to 10 (ledger/data/price-snapshots.json)",
+      "gap": "No official opening or closing series located (Q-01). Opening and closing cells stay blank.",
+      "source": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season"
+    },
+    {
+      "id": "R-61",
+      "group": "Leaderboard",
+      "requirement": "Control baselines (random picks; favourites only) on every leaderboard run",
+      "status": "PARTIAL",
+      "exists": "Coin-flip Brier control (0.25) for Week 10 B0 (site/data/b0-w10-grading.json)",
+      "gap": "Favourites-only and random-pick simulations not run.",
+      "source": ""
+    },
+    {
+      "id": "R-62",
+      "group": "Leaderboard",
+      "requirement": "'Removal of luck' panel on the dashboard",
+      "status": "NOT POSSIBLE AS STATED",
+      "exists": "Uncertainty intervals shown instead (correlations.html, data-lines.html)",
+      "gap": "Luck cannot be removed from a finite sample (repo register RQ-10). Re-scoped to uncertainty.",
+      "source": ""
+    },
+    {
+      "id": "R-63",
+      "group": "Leaderboard",
+      "requirement": "Strategies that are selectively skill-based (luck removed)",
+      "status": "NOT POSSIBLE AS STATED",
+      "exists": "No strategy passes against the market",
+      "gap": "As R-62. Re-scoped to pre-registered tests with uncertainty.",
+      "source": ""
+    },
+    {
+      "id": "R-64",
+      "group": "Leaderboard",
+      "requirement": "Reward top-performing strategies",
+      "status": "DECISION NEEDED",
+      "exists": "No reward rule exists; repo policy: paper points only, none awarded",
+      "gap": "Operator must define the reward (S-09).",
+      "source": ""
+    },
+    {
+      "id": "R-65",
+      "group": "Leaderboard",
+      "requirement": "Reject ranking strategies by season-long ROI",
+      "status": "REJECTED",
+      "exists": "Policy recorded; ROI is not used for ranking",
+      "gap": "Operator's rejection honoured.",
+      "source": ""
+    },
+    {
+      "id": "R-66",
+      "group": "Leaderboard",
+      "requirement": "Ratings and leaderboards use only verified data; every row has a source",
+      "status": "PARTIAL",
+      "exists": "Applied on all new pages; inherited pages (root, legacy namespaces) not re-verified",
+      "gap": "See repo-review.html and F-09.",
+      "source": ""
+    },
+    {
+      "id": "R-67",
+      "group": "Governance",
+      "requirement": "Official-source link on every table row; blank and flagged if unverified",
+      "status": "PARTIAL",
+      "exists": "Applied on the pages in this site",
+      "gap": "Derived model rows carry 'model output, not official' and link their inputs.",
+      "source": ""
+    },
+    {
+      "id": "R-68",
+      "group": "Governance",
+      "requirement": "Public analysis layer separated from a private raw-data layer until nfl.com terms are read",
+      "status": "DECISION NEEDED",
+      "exists": "Current site republishes nfl.com standings and scores in table form",
+      "gap": "Terms not read (Q-10). Options in S-05.",
+      "source": ""
+    },
+    {
+      "id": "R-69",
+      "group": "Governance",
+      "requirement": "Durable snapshot storage outside the static site; freshness monitoring; alerts on source or schema change",
+      "status": "NOT STARTED",
+      "exists": "None. Repo CI runs checks but no alerting",
+      "gap": "Store and alert channel are operator decisions (Q-13, S-04).",
+      "source": ""
+    },
+    {
+      "id": "R-70",
+      "group": "Governance",
+      "requirement": "Drift alarm on every scraper (pinned row counts and fields; fail loudly)",
+      "status": "NOT STARTED",
+      "exists": "No scrapers. Transcriptions in site/data carry explicit row-count and sum checks (site/check.py)",
+      "gap": "Automated scrapers do not exist.",
+      "source": ""
+    },
+    {
+      "id": "R-71",
+      "group": "Governance",
+      "requirement": "Suggestions section where the operator chooses the path before anything is implemented",
+      "status": "DONE",
+      "exists": "site/suggestions.html (10 items, each awaiting a choice)",
+      "gap": "",
+      "source": ""
+    },
+    {
+      "id": "R-72",
+      "group": "Governance",
+      "requirement": "Open questions register: what is known, what is missing, how to answer",
+      "status": "DONE",
+      "exists": "site/questions.html",
+      "gap": "",
+      "source": ""
+    },
+    {
+      "id": "R-73",
+      "group": "Governance",
+      "requirement": "Decision-readiness table, one row per requirement, with the gate and the number that clears it",
+      "status": "DONE",
+      "exists": "site/requirements.html (every register row carries its gate and clearing condition)",
+      "gap": "",
+      "source": ""
+    },
+    {
+      "id": "R-74",
+      "group": "Governance",
+      "requirement": "Executive summary",
+      "status": "DONE",
+      "exists": "site/executive-summary.html",
+      "gap": "",
+      "source": ""
+    },
+    {
+      "id": "R-75",
+      "group": "Governance",
+      "requirement": "GitHub Pages landing page with category subpages; tables with source links; simple to read",
+      "status": "DONE",
+      "exists": "site/index.html and category pages (see README)",
+      "gap": "Deployment confirmed only after merge (R-80).",
+      "source": ""
+    },
+    {
+      "id": "R-76",
+      "group": "Governance",
+      "requirement": "Flagged for Review page with source links for irregularities and unverified items",
+      "status": "DONE",
+      "exists": "site/flagged.html",
+      "gap": "",
+      "source": ""
+    },
+    {
+      "id": "R-77",
+      "group": "Governance",
+      "requirement": "Repo review line by line, flagging irregularities",
+      "status": "PARTIAL",
+      "exists": "site/repo-review.html covers the items the session checked; roughly 600 non-archive files were not read line by line",
+      "gap": "Stated limit.",
+      "source": ""
+    },
+    {
+      "id": "R-78",
+      "group": "Governance",
+      "requirement": "Parallel sessions coordinated through COORDINATION.md",
+      "status": "DONE",
+      "exists": "Claim and log recorded on the board (875583e4)",
+      "gap": "Pinned branch used per session rules; session-<id>/<task> names not used.",
+      "source": ""
+    },
+    {
+      "id": "R-79",
+      "group": "Governance",
+      "requirement": "Pull request to main, merged without waiting, Pages deploy confirmed, record kept",
+      "status": "PENDING",
+      "exists": "Scheduled as the last step of this session",
+      "gap": "Result is recorded on the board and on the Flagged page once it happens.",
+      "source": ""
+    },
+    {
+      "id": "R-80",
+      "group": "Governance",
+      "requirement": "No manual input from the operator needed to finish all tasks",
+      "status": "PARTIAL",
+      "exists": "Session in progress (claim 875583e4 in COORDINATION.md); not complete until the PR is merged and Pages confirmed",
+      "gap": "Ten suggestions need an operator choice; several blocked items need a source decision (Q-02, Q-03, Q-10).",
+      "source": ""
+    }
+  ],
+  "status_legend": {
+    "DONE": "Built and checked for the scope stated.",
+    "PARTIAL": "Built for part of the scope; the gap is stated.",
+    "BLOCKED": "Cannot proceed until a named missing input exists.",
+    "NOT STARTED": "No work done.",
+    "NOT DONE": "Checked; the requirement is not met.",
+    "REJECTED": "The operator rejected it; policy recorded.",
+    "NOT POSSIBLE AS STATED": "Cannot be met as written; re-scoped as stated.",
+    "DECISION NEEDED": "Needs an operator choice (see suggestions).",
+    "PENDING": "Happens at the end of this session."
   }
- ],
- "status_legend": {
-  "DONE": "Built and checked for the scope stated.",
-  "PARTIAL": "Built for part of the scope; the gap is stated.",
-  "BLOCKED": "Cannot proceed until a named missing input exists.",
-  "NOT STARTED": "No work done.",
-  "NOT DONE": "Checked; the requirement is not met.",
-  "REJECTED": "The operator rejected it; policy recorded.",
-  "NOT POSSIBLE AS STATED": "Cannot be met as written; re-scoped as stated.",
-  "DECISION NEEDED": "Needs an operator choice (see suggestions).",
-  "PENDING": "Happens at the end of this session."
- }
 }
