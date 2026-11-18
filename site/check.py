@@ -54,7 +54,7 @@ for p in pages:
     nav_links |= {l for l in ps.links if not l.startswith(("http", "#", "mailto"))}
     for l in ps.links:
         if l.startswith(("http://", "https://", "#", "mailto:")):
-            if l.startswith("http") and not re.match(r"^https://(www\.nfl\.com|github\.com|nextgenstats\.nfl\.com|wsgc\.wa\.gov|www\.itl\.nist\.gov)/", l):
+            if l.startswith("http") and not re.match(r"^https://(www\.nfl\.com|static\.www\.nfl\.com|github\.com|nextgenstats\.nfl\.com|wsgc\.wa\.gov|www\.itl\.nist\.gov)/", l):
                 fails.append(f"{os.path.basename(p)}: external link not on allowed hosts: {l}")
             continue
         target = os.path.normpath(os.path.join(SITE, l))

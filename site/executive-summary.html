@@ -5,14 +5,14 @@
 <link rel="stylesheet" href="assets/site.css">
 </head><body>
 <header class="top"><a class="brand" href="index.html">Own8 · NFL research</a>
-<span class="stamp">Official pages read 2026-11-17 · paper research only</span></header>
+<span class="stamp">Latest official sources re-read 2026-11-18 · older captures retain their own dates · paper research only</span></header>
 <div class="wrap">
 <aside class="side"><div class="cat"><div class="cat-h">Overview</div><a href="index.html">Overview</a><a href="executive-summary.html" aria-current="page">Executive summary</a></div><div class="cat"><div class="cat-h">Data (official)</div><a href="data-standings.html">Standings</a><a href="data-results.html">Results</a><a href="data-schedule.html">Schedule &amp; venues</a><a href="data-injuries.html">Injuries</a><a href="data-depth.html">Depth &amp; availability</a></div><div class="cat"><div class="cat-h">Models &amp; lines</div><a href="data-lines.html">Lines vs market</a><a href="strategies.html">Strategies</a><a href="correlations.html">Correlations</a></div><div class="cat"><div class="cat-h">Decisions</div><a href="requirements.html">Requirements</a><a href="questions.html">Questions</a><a href="suggestions.html">Suggestions</a></div><div class="cat"><div class="cat-h">Review</div><a href="repo-review.html">Repo review</a><a href="sources.html">Sources</a><a href="flagged.html">Flagged for review</a></div></aside>
 <main>
 <h1>Executive summary</h1>
 
 
-<p class="lead">Status on 2026-11-17. The official data we can read reconciles. A forecasting edge is not established. The depth and availability layer cannot be built yet, because no official depth-order source is verified.</p>
+<p class="lead">Status on 2026-11-18. The official data we can read reconciles. A forecasting edge is not established. The depth and availability layer cannot be built yet, because no official depth-order source is verified.</p>
 <h2>1. What is verified</h2>
 <ul>
 <li>The 32 official standings reconcile to the repo's 136-game log plus 13 Week 10 finals: 160 of 160 cells match (<a href="https://www.nfl.com/standings/league/2026/REG">nfl.com standings</a>).</li>
@@ -23,7 +23,7 @@
 <h2>2. What the model does, and how it did</h2>
 <ul>
 <li>The shadow baseline (B0) uses team strength only: points for and against per game, no injuries, no depth, no venue. Its formula reproduces all 13 stored Week 10 values (F-02).</li>
-<li>Week 10, 12 settled games: spread error 11.12 points (model) vs 11.21 (market). Total error 10.18 vs 8.83; the market is better here. Moneyline Brier 0.173 vs 0.168 (market). Every model-minus-market interval includes zero. Twelve games are not evidence in either direction.</li>
+<li>Week 10, 12 settled games: spread error 10.76 points (model) vs 10.92 (market). Total error 9.54 vs 8.50; the market is better here. Moneyline Brier 0.188 vs 0.189 (market). Every model-minus-market interval includes zero. Twelve games are not evidence in either direction.</li>
 <li>Week 11 fair lines were written in commit beca9d2 from the standings snapshot taken before Monday's game. They are <b>provisional</b>, have no market column, and will be re-originated once Monday is verified final (F-23).</li>
 </ul>
 <h2>3. Strategies and the leaderboard</h2>
@@ -39,7 +39,7 @@
 <li><b>Rights.</b> Whether nfl.com-derived tables can be republished is unread (Q-10).</li>
 </ul>
 <h2>5. Requirement status</h2>
-<p>PARTIAL: 21, BLOCKED: 18, NOT STARTED: 17, DONE: 16, REJECTED: 2, NOT POSSIBLE AS STATED: 2, DECISION NEEDED: 2, NOT DONE: 1, PENDING: 1. Full table: <a href="requirements.html">requirements</a>.</p>
+<p>PARTIAL: 22, NOT STARTED: 17, BLOCKED: 17, DONE: 16, REJECTED: 2, NOT POSSIBLE AS STATED: 2, DECISION NEEDED: 2, NOT DONE: 1, PENDING: 1. Full table: <a href="requirements.html">requirements</a>.</p>
 <h2>6. Your decisions</h2>
 <p>Ten suggestions await a choice on <a href="suggestions.html">the suggestions page</a>. The most urgent are the price-data policy (S-01), the leaderboard ruling (S-02), the depth source (S-03) and the snapshot store and alerts (S-04). Nothing has been implemented from them.</p>
 <h2>7. Irregularities</h2>

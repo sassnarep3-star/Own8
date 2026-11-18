@@ -14,7 +14,7 @@ sys.path.insert(0, HERE)
 import model_b0  # noqa: E402  (reuses the frozen B0 functions and grading)
 REC = model_b0.reconcile()
 
-FETCH = "2026-11-17"
+FETCH = "2026-11-18"
 REPO = "https://github.com/sassnarep3-star/Own8/blob/main/"
 E = html.escape
 
@@ -95,7 +95,7 @@ def page(name, title, body, lead=""):
 <link rel="stylesheet" href="assets/site.css">
 </head><body>
 <header class="top"><a class="brand" href="index.html">Own8 · NFL research</a>
-<span class="stamp">Official pages read {FETCH} · paper research only</span></header>
+<span class="stamp">Latest official sources re-read {FETCH} · older captures retain their own dates · paper research only</span></header>
 <div class="wrap">
 <aside class="side">{''.join(nav)}</aside>
 <main>
@@ -183,14 +183,14 @@ def build_index():
     from collections import Counter
     c = Counter(r["status"] for r in reqs)
     s = model_b0.load("site/data/b0-w10-grading.json")["summary"]
-    w11 = J("site/data/b0-w11-lines.json")
+    w11 = J("site/data/b0-w11-lines-v2.json")
     cards = [
         ("Official standings reconciled", f"{REC['cells'] - len(REC['mismatches'])}/{REC['cells']} cells",
          f"The 136-game log plus {REC['games'] - 136} Week 10 finals reproduce each W, L, T, PF and PA", OFF_STANDINGS),
         ("Week 10 games graded", f"{s['n_graded']} graded · {s['n_pending']} pending",
-         "Monday Chargers at Ravens is not final on nfl.com as read (F-04)", OFF_SCORES),
-        ("Week 11 fair lines", f"{len(w11['games'])} games · PROVISIONAL",
-         "Built from pre-Monday standings. Re-originate after the Monday game is verified final (F-23)", REPO + "site/data/b0-w11-lines.json"),
+         "All 14 Week 10 games are final; grading covers the 13 games in the pre-registered B0 line set", OFF_SCORES),
+        ("Week 11 fair lines", f"{len(w11['games'])} games · B0 v2 · pre-kickoff",
+         "Re-originated after LAC@BAL final; v1 is retained unchanged. Market columns remain blank.", REPO + "site/data/b0-w11-lines-v2.json"),
         ("Strategies on any leaderboard", "0",
          "Four backtest-gate passes are held off the leaderboard under the operator's rule (F-01)", REPO + "ledger/data/strategy-registry.json"),
     ]
@@ -199,14 +199,14 @@ def build_index():
         f'<div class="src">{a(u, "Source")}</div></div>' for k, v, n, u in cards)
     evidence = [
         ["Official standings", f"32 teams. {REC['cells'] - len(REC['mismatches'])} of {REC['cells']} cells match the repo game log plus Week 10 finals.", "VERIFIED", OFF_STANDINGS],
-        ["Week 10 test (12 settled games)",
-         f"Spread error {num(s['spread_mae_model'],2)} (model) vs {num(s['spread_mae_market'],2)} (market). Moneyline Brier {num(s['ml_brier_model'],3)} vs {num(s['ml_brier_market'],3)}. Every model-minus-market interval includes zero.",
+        [f"Week 10 test ({s['n_graded']} settled games)",
+         f"Spread error {num(s['spread_mae_model'],2)} (model) vs {num(s['spread_mae_market'],2)} (market). Moneyline Brier {num(s['ml_brier_model'],3)} vs {num(s['ml_brier_market'],3)}. The short-sample intervals include zero.",
          "NO EVIDENCE OF EDGE YET", REPO + "site/data/b0-w10-grading.json"],
         ["Strategy registry", "14 entries. Four are labelled PAPER-ELIGIBLE on a walk-forward backtest (W3 to W9) with no prospective settlement. The README says none are eligible.",
          "CONFLICT (F-01)", REPO + "ledger/data/strategy-registry.json"],
         ["Availability (depth, snaps, Game Books)", "No official depth source verified. The Houston depth-chart page returns 404 (17 Nov). No snap counts or Game Books captured.",
          "BLOCKED", OFF_DEPTH],
-        ["Injury report", "Week 10 report: page 1 of 8 re-read; Lions designations verified. Earlier captures disagree on row counts. Week 11 report not yet published.",
+        ["Injury report", "Week 10 report: page 1 of 8 re-read; Lions designations verified. Earlier captures disagree on row counts. Week 11 report content is available at the official URL; no timestamped raw capture/hash was retained.",
          "PARTIAL", OFF_INJ10],
         ["Correlations", "Nine descriptive correlations with n and 95% intervals. Four survive Holm correction; C2 does not.", "DESCRIPTIVE ONLY (F-13)", REPO + "origination/results/correlations.json"],
     ]
