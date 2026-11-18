@@ -27,6 +27,21 @@ documented numeric refinement (RQ-12: 6-8 game-weeks of postgame Game Books, Q-0
 into that table. Both board sections are retained verbatim below. Nothing of fe499d4e's
 merged work is reverted.
 
+## Session acc0ec01 — live official refresh 2026-11-18: Week 10 Monday final, Week 11 injury report capture, what-changed diff, re-originated Week 11 lines, site + Flagged for Review, PR + merge (claimed 2026-11-18 UTC, base main @ 0e6e4ae)
+
+Branch: `arena/acc0ec01-own8` (Arena-pinned; all work on this branch; no `session-<id>/<task>` branch is created). Board read on 2026-11-18. Latest claim before this one: 532b7aeb (done, merged #71) and 875583e4 (done, merged #73/#75). No task on the board is currently claimed by an active session. Network: this session's fetch tool reads nfl.com live; the sandbox shell cannot (TLS EOF on www.nfl.com, verified 2026-11-18 06:27 UTC).
+
+**Scope (this session only):** `site/**` (the canonical category site, previously owned by 875583e4 and now closed), `README.md` top-link lines, and this section of COORDINATION.md. Feature namespaces (`ledger/**`, `origination/**`, `requirements/**`, `market/**`, `desk/**`, `integration/**`, `hub/**`, `decision*/**`, `correlation-audit/**`, `archive/**`, root `pages/**`, `data/**`, `analysis/**`) stay read-only; findings about them become flags.
+
+| ID | Task | Status | Owner | Files (scope) | Verification plan |
+| --- | --- | --- | --- | --- | --- |
+| X0 | Board claim (this section) | done (claim commit pushed before other work) | acc0ec01 | COORDINATION.md (this section) | claim commit pushed first |
+| X1 | Live re-read of official pages 2026-11-18 via fetch tool: Week 10 scores + Monday game centre (LAC@BAL), standings, Week 11 schedule, Week 11 injury report (first read: now published) | in progress | acc0ec01 | site/data/captures/** | each value cites its nfl.com URL + fetch date; unreadable values blank + flagged |
+| X2 | Immutable capture of the Week 11 injury report: verbatim fetch text, SHA-256, fetch timestamp, parsed rows with conflict flags | planned | acc0ec01 | site/data/captures/**, site/scripts/capture.py | sha256 re-checked by check.py; row counts pinned |
+| X3 | Week 11 B0 fair lines re-originated from the 2026-11-18 standings (LAC@BAL final) and the what-changed diff vs 2026-11-17 | planned | acc0ec01 | site/data/b0-w11-lines.json, site/whats-changed.html, site/scripts/model_b0.py | model re-run is deterministic; diff computed only from two stored official captures |
+| X4 | Site refresh: landing status for R-06 (Week 11 report now published), F-04 (Monday game final), F-07, F-23; Flagged for Review additions; executive summary; sources | planned | acc0ec01 | site/**, README.md (top links) | `python3 site/scripts/build.py` + `python3 site/check.py` exit 0 |
+| X5 | PR acc0ec01 -> main, merge without waiting, Pages deploy confirmation, live re-fetch, record here | planned | acc0ec01 | COORDINATION.md | `gh pr merge <n> --merge`; Pages `built`; live URL re-fetched |
+
 ## Session 875583e4 — category dashboard, requirement & question registers, suggestions for decision, repo review, official re-verification, PR + merge (claimed 2026-11-17 UTC, base main @ ef3a1a8)
 
 Branch: `arena/875583e4-own8` (Arena-pinned; all work on this branch). Board read end to end on 2026-11-17: the most recent claim (08643438) is done and merged (PR #69, merge commit ef3a1a8); the only open PRs are the 2026-11-04 namespaces #6/#8/#16/#28/#31/#32 and are left untouched (A14). No task in this board is currently claimed by an active session.
