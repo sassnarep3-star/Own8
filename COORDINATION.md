@@ -27,6 +27,24 @@ documented numeric refinement (RQ-12: 6-8 game-weeks of postgame Game Books, Q-0
 into that table. Both board sections are retained verbatim below. Nothing of fe499d4e's
 merged work is reverted.
 
+## Session 2e1f91d7 — official capture refresh: Week 11 injury report, LAC@BAL final via Game Book, starter/inactive evidence, capture hash ledger (claimed 2026-11-18 06:27Z UTC, base main @ 0e6e4ae)
+
+Branch: `arena/2e1f91d7-own8` (Arena-pinned; all work on this branch; no `session-*` sub-branches are created because the session is pinned to one branch). Board read on 2026-11-18: no active claim blocks this work; the 875583e4 and 532b7aeb sections are done and merged.
+
+**Live network this session:** fetch tool reached nfl.com (injury report reg11, scores week-10, schedule week-11, game centre, Game Book PDF). Shell `curl` to nfl.com still fails (TLS SSL_ERROR_SYSCALL), so no raw HTTP bytes are hashed: every capture is the fetch-tool text, saved verbatim, with its SHA-256 recorded in `site/data/captures/manifest.json`. The hash proves the stored file has not changed since capture; it does not prove the bytes equal nfl.com's server bytes.
+
+**Scope:** `site/**` (data, captures, build, check) and this COORDINATION.md section only. `requirements/`, `ledger/`, `origination/`, `market/`, `desk/`, `signals/`, `hub/`, `suggestions/`, `correlation-audit/`, `integration/`, `evidence-lab/`, `strict/`, `decision*/`, `review/`, `audit/`, `a57af0ab/`, `archive/` are read-only inputs; findings about them are published as flags.
+
+| ID | Task | Status | Owner | Files (scope) | Verification plan |
+| --- | --- | --- | --- | --- | --- |
+| W0 | Board claim (this section), pushed before other work | done | 2e1f91d7 | COORDINATION.md | claim commit pushed first |
+| W1 | Capture the Week 11 official injury report (reg11, 3 chunks read 2026-11-18): 26 listed rows (IND, HOU), 12 games showing "No Injuries Reported", fetch time retained | done (capture stored; time series not yet built) | 2e1f91d7 | site/data/captures/**, site/data/injuries-w11.json | each row links nfl.com/injuries/league/2026/reg11; check.py verifies sha256 |
+| W2 | Correct stale claim on site/data-injuries.html that the reg11 URL served Week 10 content | done | 2e1f91d7 | site/scripts/build.py | text now states the verified read |
+| W3 | Verify LAC@BAL (Week 10, Monday 16 Nov) as FINAL and record its score from the official Game Book PDF scoring-play log (23 LAC, 20 BAL); venue from the game centre (M&T Bank Stadium) | done | 2e1f91d7 | site/data/week10-results.json (separate verified key; `finals` list unchanged), site/data/captures/** | game centre "Final" + Game Book scoring-play table; quarter-table labels are misaligned in the PDF text, so the scoring plays are the anchor |
+| W4 | Publish LAC@BAL starters and inactives as printed in the official Game Book (pilot: 1 of 14 Week 10 games) | done for 1 game; 13 remaining Week 10 Game Books not captured | 2e1f91d7 | site/data/captures/**, site/data-depth.html (via build.py) | each row carries the Game Book URL |
+| W5 | Decision (not implemented): Week 11 B0 lines stay frozen as originated on 17 Nov (pre-registration rule in site/data/b0-w11-lines.json); LAC@BAL is now verified, so a B0 v2 would be needed to use it | needs review (operator) | 2e1f91d7 | flags.json | none |
+| W6 | Build, check, PR to main, merge without waiting, Pages confirmation, final record | in progress | 2e1f91d7 | COORDINATION.md, site/** | python3 site/scripts/build.py; python3 site/check.py exit 0; gh pr merge --merge; Pages API built |
+
 ## Session 875583e4 — category dashboard, requirement & question registers, suggestions for decision, repo review, official re-verification, PR + merge (claimed 2026-11-17 UTC, base main @ ef3a1a8)
 
 Branch: `arena/875583e4-own8` (Arena-pinned; all work on this branch). Board read end to end on 2026-11-17: the most recent claim (08643438) is done and merged (PR #69, merge commit ef3a1a8); the only open PRs are the 2026-11-04 namespaces #6/#8/#16/#28/#31/#32 and are left untouched (A14). No task in this board is currently claimed by an active session.
