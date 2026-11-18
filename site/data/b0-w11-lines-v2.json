@@ -1,0 +1,482 @@
+{
+  "version": "B0-v2",
+  "generated": "2026-11-18",
+  "status": "PROVISIONAL; pre-registered in this commit before Week 11 kickoff (2026-11-19 8:15 PM ET)",
+  "supersedes": "site/data/b0-w11-lines.json (B0-v1; frozen pre-Monday snapshot; retained unchanged)",
+  "method": "Same frozen B0 formula and sigma as v1; only the verified LAC@BAL Week 10 result is added to the standings inputs. It is a new version, not a post-hoc edit to v1.",
+  "sigma_margin": 13.1768,
+  "input_snapshot": "site/data/standings-2026-11-18.json",
+  "input_source": "https://www.nfl.com/standings/league/2026/REG",
+  "result_source": "https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf",
+  "registration_rule": "This file and its commit hash are the pre-kickoff registration. Do not edit after kickoff; any later correction requires a new versioned file.",
+  "games": [
+    {
+      "game": "IND@HOU",
+      "away": "IND",
+      "home": "HOU",
+      "kickoff": "8:15 PM ET",
+      "network": "Prime Video (PRIME)",
+      "H_home": 26.49,
+      "A_away": 22.57,
+      "fair_home_margin": 3.93,
+      "fair_handicap_home": -3.93,
+      "fair_total": 49.06,
+      "p_home": 0.6172,
+      "market_spread_home": null,
+      "market_total": null,
+      "market_ml_home": null,
+      "difference_column": "BLANK (no verified Week 11 market capture)",
+      "source_schedule": "https://www.nfl.com/schedules/2026/by-week/week-11",
+      "inputs": {
+        "away": {
+          "team": "IND",
+          "G": 10,
+          "PF": 208,
+          "PA": 271,
+          "source": "site/data/standings-2026-11-18.json"
+        },
+        "home": {
+          "team": "HOU",
+          "G": 9,
+          "PF": 233,
+          "PA": 219,
+          "source": "site/data/standings-2026-11-18.json"
+        },
+        "formula": "H=(home PF/G + away PA/G)/2; A=(away PF/G + home PA/G)/2; margin=H-A; total=H+A; P(home)=Phi(margin/13.1768)"
+      },
+      "source_standings": "https://www.nfl.com/standings/league/2026/REG"
+    },
+    {
+      "game": "MIA@BUF",
+      "away": "MIA",
+      "home": "BUF",
+      "kickoff": "1:00 PM ET",
+      "network": "CBS",
+      "H_home": 28.39,
+      "A_away": 19.28,
+      "fair_home_margin": 9.11,
+      "fair_handicap_home": -9.11,
+      "fair_total": 47.67,
+      "p_home": 0.7554,
+      "market_spread_home": null,
+      "market_total": null,
+      "market_ml_home": null,
+      "difference_column": "BLANK (no verified Week 11 market capture)",
+      "source_schedule": "https://www.nfl.com/schedules/2026/by-week/week-11",
+      "inputs": {
+        "away": {
+          "team": "MIA",
+          "G": 9,
+          "PF": 148,
+          "PA": 224,
+          "source": "site/data/standings-2026-11-18.json"
+        },
+        "home": {
+          "team": "BUF",
+          "G": 9,
+          "PF": 287,
+          "PA": 199,
+          "source": "site/data/standings-2026-11-18.json"
+        },
+        "formula": "H=(home PF/G + away PA/G)/2; A=(away PF/G + home PA/G)/2; margin=H-A; total=H+A; P(home)=Phi(margin/13.1768)"
+      },
+      "source_standings": "https://www.nfl.com/standings/league/2026/REG"
+    },
+    {
+      "game": "BAL@CAR",
+      "away": "BAL",
+      "home": "CAR",
+      "kickoff": "1:00 PM ET",
+      "network": "FOX",
+      "H_home": 25.12,
+      "A_away": 23.56,
+      "fair_home_margin": 1.56,
+      "fair_handicap_home": -1.56,
+      "fair_total": 48.68,
+      "p_home": 0.547,
+      "market_spread_home": null,
+      "market_total": null,
+      "market_ml_home": null,
+      "difference_column": "BLANK (no verified Week 11 market capture)",
+      "source_schedule": "https://www.nfl.com/schedules/2026/by-week/week-11",
+      "inputs": {
+        "away": {
+          "team": "BAL",
+          "G": 10,
+          "PF": 209,
+          "PA": 259,
+          "source": "site/data/standings-2026-11-18.json"
+        },
+        "home": {
+          "team": "CAR",
+          "G": 9,
+          "PF": 219,
+          "PA": 236,
+          "source": "site/data/standings-2026-11-18.json"
+        },
+        "formula": "H=(home PF/G + away PA/G)/2; A=(away PF/G + home PA/G)/2; margin=H-A; total=H+A; P(home)=Phi(margin/13.1768)"
+      },
+      "source_standings": "https://www.nfl.com/standings/league/2026/REG"
+    },
+    {
+      "game": "NO@CHI",
+      "away": "NO",
+      "home": "CHI",
+      "kickoff": "1:00 PM ET",
+      "network": "FOX",
+      "H_home": 26.5,
+      "A_away": 21.44,
+      "fair_home_margin": 5.06,
+      "fair_handicap_home": -5.06,
+      "fair_total": 47.94,
+      "p_home": 0.6494,
+      "market_spread_home": null,
+      "market_total": null,
+      "market_ml_home": null,
+      "difference_column": "BLANK (no verified Week 11 market capture)",
+      "source_schedule": "https://www.nfl.com/schedules/2026/by-week/week-11",
+      "inputs": {
+        "away": {
+          "team": "NO",
+          "G": 9,
+          "PF": 202,
+          "PA": 236,
+          "source": "site/data/standings-2026-11-18.json"
+        },
+        "home": {
+          "team": "CHI",
+          "G": 9,
+          "PF": 241,
+          "PA": 184,
+          "source": "site/data/standings-2026-11-18.json"
+        },
+        "formula": "H=(home PF/G + away PA/G)/2; A=(away PF/G + home PA/G)/2; margin=H-A; total=H+A; P(home)=Phi(margin/13.1768)"
+      },
+      "source_standings": "https://www.nfl.com/standings/league/2026/REG"
+    },
+    {
+      "game": "TEN@DAL",
+      "away": "TEN",
+      "home": "DAL",
+      "kickoff": "1:00 PM ET",
+      "network": "FOX",
+      "H_home": 27.58,
+      "A_away": 23.38,
+      "fair_home_margin": 4.2,
+      "fair_handicap_home": -4.2,
+      "fair_total": 50.96,
+      "p_home": 0.625,
+      "market_spread_home": null,
+      "market_total": null,
+      "market_ml_home": null,
+      "difference_column": "BLANK (no verified Week 11 market capture)",
+      "source_schedule": "https://www.nfl.com/schedules/2026/by-week/week-11",
+      "inputs": {
+        "away": {
+          "team": "TEN",
+          "G": 9,
+          "PF": 167,
+          "PA": 239,
+          "source": "site/data/standings-2026-11-18.json"
+        },
+        "home": {
+          "team": "DAL",
+          "G": 10,
+          "PF": 286,
+          "PA": 282,
+          "source": "site/data/standings-2026-11-18.json"
+        },
+        "formula": "H=(home PF/G + away PA/G)/2; A=(away PF/G + home PA/G)/2; margin=H-A; total=H+A; P(home)=Phi(margin/13.1768)"
+      },
+      "source_standings": "https://www.nfl.com/standings/league/2026/REG"
+    },
+    {
+      "game": "TB@DET",
+      "away": "TB",
+      "home": "DET",
+      "kickoff": "1:00 PM ET",
+      "network": "FOX",
+      "H_home": 24.17,
+      "A_away": 22.28,
+      "fair_home_margin": 1.89,
+      "fair_handicap_home": -1.89,
+      "fair_total": 46.44,
+      "p_home": 0.557,
+      "market_spread_home": null,
+      "market_total": null,
+      "market_ml_home": null,
+      "difference_column": "BLANK (no verified Week 11 market capture)",
+      "source_schedule": "https://www.nfl.com/schedules/2026/by-week/week-11",
+      "inputs": {
+        "away": {
+          "team": "TB",
+          "G": 9,
+          "PF": 202,
+          "PA": 178,
+          "source": "site/data/standings-2026-11-18.json"
+        },
+        "home": {
+          "team": "DET",
+          "G": 9,
+          "PF": 257,
+          "PA": 199,
+          "source": "site/data/standings-2026-11-18.json"
+        },
+        "formula": "H=(home PF/G + away PA/G)/2; A=(away PF/G + home PA/G)/2; margin=H-A; total=H+A; P(home)=Phi(margin/13.1768)"
+      },
+      "source_standings": "https://www.nfl.com/standings/league/2026/REG"
+    },
+    {
+      "game": "AZ@KC",
+      "away": "AZ",
+      "home": "KC",
+      "kickoff": "1:00 PM ET",
+      "network": "CBS",
+      "H_home": 27.62,
+      "A_away": 17.87,
+      "fair_home_margin": 9.75,
+      "fair_handicap_home": -9.75,
+      "fair_total": 45.48,
+      "p_home": 0.7703,
+      "market_spread_home": null,
+      "market_total": null,
+      "market_ml_home": null,
+      "difference_column": "BLANK (no verified Week 11 market capture)",
+      "source_schedule": "https://www.nfl.com/schedules/2026/by-week/week-11",
+      "inputs": {
+        "away": {
+          "team": "AZ",
+          "G": 10,
+          "PF": 184,
+          "PA": 289,
+          "source": "site/data/standings-2026-11-18.json"
+        },
+        "home": {
+          "team": "KC",
+          "G": 9,
+          "PF": 237,
+          "PA": 156,
+          "source": "site/data/standings-2026-11-18.json"
+        },
+        "formula": "H=(home PF/G + away PA/G)/2; A=(away PF/G + home PA/G)/2; margin=H-A; total=H+A; P(home)=Phi(margin/13.1768)"
+      },
+      "source_standings": "https://www.nfl.com/standings/league/2026/REG"
+    },
+    {
+      "game": "PIT@PHI",
+      "away": "PIT",
+      "home": "PHI",
+      "kickoff": "1:00 PM ET",
+      "network": "CBS",
+      "H_home": 18.33,
+      "A_away": 23.28,
+      "fair_home_margin": -4.94,
+      "fair_handicap_home": 4.94,
+      "fair_total": 41.61,
+      "p_home": 0.3537,
+      "market_spread_home": null,
+      "market_total": null,
+      "market_ml_home": null,
+      "difference_column": "BLANK (no verified Week 11 market capture)",
+      "source_schedule": "https://www.nfl.com/schedules/2026/by-week/week-11",
+      "inputs": {
+        "away": {
+          "team": "PIT",
+          "G": 9,
+          "PF": 198,
+          "PA": 182,
+          "source": "site/data/standings-2026-11-18.json"
+        },
+        "home": {
+          "team": "PHI",
+          "G": 9,
+          "PF": 148,
+          "PA": 221,
+          "source": "site/data/standings-2026-11-18.json"
+        },
+        "formula": "H=(home PF/G + away PA/G)/2; A=(away PF/G + home PA/G)/2; margin=H-A; total=H+A; P(home)=Phi(margin/13.1768)"
+      },
+      "source_standings": "https://www.nfl.com/standings/league/2026/REG"
+    },
+    {
+      "game": "NYJ@LAC",
+      "away": "NYJ",
+      "home": "LAC",
+      "kickoff": "4:05 PM ET",
+      "network": "FOX",
+      "H_home": 20.7,
+      "A_away": 22.98,
+      "fair_home_margin": -2.28,
+      "fair_handicap_home": 2.28,
+      "fair_total": 43.68,
+      "p_home": 0.4314,
+      "market_spread_home": null,
+      "market_total": null,
+      "market_ml_home": null,
+      "difference_column": "BLANK (no verified Week 11 market capture)",
+      "source_schedule": "https://www.nfl.com/schedules/2026/by-week/week-11",
+      "inputs": {
+        "away": {
+          "team": "NYJ",
+          "G": 10,
+          "PF": 194,
+          "PA": 254,
+          "source": "site/data/standings-2026-11-18.json"
+        },
+        "home": {
+          "team": "LAC",
+          "G": 9,
+          "PF": 144,
+          "PA": 239,
+          "source": "site/data/standings-2026-11-18.json"
+        },
+        "formula": "H=(home PF/G + away PA/G)/2; A=(away PF/G + home PA/G)/2; margin=H-A; total=H+A; P(home)=Phi(margin/13.1768)"
+      },
+      "source_standings": "https://www.nfl.com/standings/league/2026/REG"
+    },
+    {
+      "game": "JAX@NYG",
+      "away": "JAX",
+      "home": "NYG",
+      "kickoff": "4:25 PM ET",
+      "network": "CBS",
+      "H_home": 19.28,
+      "A_away": 25.83,
+      "fair_home_margin": -6.56,
+      "fair_handicap_home": 6.56,
+      "fair_total": 45.11,
+      "p_home": 0.3094,
+      "market_spread_home": null,
+      "market_total": null,
+      "market_ml_home": null,
+      "difference_column": "BLANK (no verified Week 11 market capture)",
+      "source_schedule": "https://www.nfl.com/schedules/2026/by-week/week-11",
+      "inputs": {
+        "away": {
+          "team": "JAX",
+          "G": 9,
+          "PF": 269,
+          "PA": 144,
+          "source": "site/data/standings-2026-11-18.json"
+        },
+        "home": {
+          "team": "NYG",
+          "G": 9,
+          "PF": 203,
+          "PA": 196,
+          "source": "site/data/standings-2026-11-18.json"
+        },
+        "formula": "H=(home PF/G + away PA/G)/2; A=(away PF/G + home PA/G)/2; margin=H-A; total=H+A; P(home)=Phi(margin/13.1768)"
+      },
+      "source_standings": "https://www.nfl.com/standings/league/2026/REG"
+    },
+    {
+      "game": "LV@DEN",
+      "away": "LV",
+      "home": "DEN",
+      "kickoff": "4:25 PM ET",
+      "network": "CBS",
+      "H_home": 25.45,
+      "A_away": 22.88,
+      "fair_home_margin": 2.57,
+      "fair_handicap_home": -2.57,
+      "fair_total": 48.33,
+      "p_home": 0.5772,
+      "market_spread_home": null,
+      "market_total": null,
+      "market_ml_home": null,
+      "difference_column": "BLANK (no verified Week 11 market capture)",
+      "source_schedule": "https://www.nfl.com/schedules/2026/by-week/week-11",
+      "inputs": {
+        "away": {
+          "team": "LV",
+          "G": 10,
+          "PF": 251,
+          "PA": 289,
+          "source": "site/data/standings-2026-11-18.json"
+        },
+        "home": {
+          "team": "DEN",
+          "G": 9,
+          "PF": 198,
+          "PA": 186,
+          "source": "site/data/standings-2026-11-18.json"
+        },
+        "formula": "H=(home PF/G + away PA/G)/2; A=(away PF/G + home PA/G)/2; margin=H-A; total=H+A; P(home)=Phi(margin/13.1768)"
+      },
+      "source_standings": "https://www.nfl.com/standings/league/2026/REG"
+    },
+    {
+      "game": "MIN@SF",
+      "away": "MIN",
+      "home": "SF",
+      "kickoff": "8:20 PM ET",
+      "network": "NBC",
+      "H_home": 22.61,
+      "A_away": 20.67,
+      "fair_home_margin": 1.94,
+      "fair_handicap_home": -1.94,
+      "fair_total": 43.28,
+      "p_home": 0.5587,
+      "market_spread_home": null,
+      "market_total": null,
+      "market_ml_home": null,
+      "difference_column": "BLANK (no verified Week 11 market capture)",
+      "source_schedule": "https://www.nfl.com/schedules/2026/by-week/week-11",
+      "inputs": {
+        "away": {
+          "team": "MIN",
+          "G": 9,
+          "PF": 176,
+          "PA": 126,
+          "source": "site/data/standings-2026-11-18.json"
+        },
+        "home": {
+          "team": "SF",
+          "G": 9,
+          "PF": 281,
+          "PA": 196,
+          "source": "site/data/standings-2026-11-18.json"
+        },
+        "formula": "H=(home PF/G + away PA/G)/2; A=(away PF/G + home PA/G)/2; margin=H-A; total=H+A; P(home)=Phi(margin/13.1768)"
+      },
+      "source_standings": "https://www.nfl.com/standings/league/2026/REG"
+    },
+    {
+      "game": "CIN@WAS",
+      "away": "CIN",
+      "home": "WAS",
+      "kickoff": "8:15 PM ET",
+      "network": "ESPN",
+      "H_home": 21.61,
+      "A_away": 27.83,
+      "fair_home_margin": -6.22,
+      "fair_handicap_home": 6.22,
+      "fair_total": 49.44,
+      "p_home": 0.3184,
+      "market_spread_home": null,
+      "market_total": null,
+      "market_ml_home": null,
+      "difference_column": "BLANK (no verified Week 11 market capture)",
+      "source_schedule": "https://www.nfl.com/schedules/2026/by-week/week-11",
+      "inputs": {
+        "away": {
+          "team": "CIN",
+          "G": 9,
+          "PF": 278,
+          "PA": 193,
+          "source": "site/data/standings-2026-11-18.json"
+        },
+        "home": {
+          "team": "WAS",
+          "G": 9,
+          "PF": 196,
+          "PA": 223,
+          "source": "site/data/standings-2026-11-18.json"
+        },
+        "formula": "H=(home PF/G + away PA/G)/2; A=(away PF/G + home PA/G)/2; margin=H-A; total=H+A; P(home)=Phi(margin/13.1768)"
+      },
+      "source_standings": "https://www.nfl.com/standings/league/2026/REG"
+    }
+  ]
+}
