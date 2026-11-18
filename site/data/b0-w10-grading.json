@@ -383,5 +383,5 @@
    "source_market": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season"
   }
  ],
- "caveat": "n is 12 settled games. Confidence intervals are bootstrap intervals on 12 games and are NOT evidence of skill or of its absence."
+ "caveat": "n is 13 settled games. Confidence intervals are bootstrap intervals on this small sample and are NOT evidence of skill or of its absence."
 }

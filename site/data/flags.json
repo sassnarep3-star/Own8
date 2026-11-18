@@ -264,14 +264,6 @@
    "evidence": "captures/manifest.json probe P-09; captures/2026-11-18/gamebook-2026-w10-ne-at-det.meta.json",
    "link": "https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf",
    "status": "OPEN"
-  },
-  {
-   "id": "F-34",
-   "title": "Second Week 10 Game Book captured privately (Chargers at Ravens)",
-   "detail": "LAC at BAL Game Book page 1 read 18 Nov: Final 23–20 by the scoring-play log, Lineups and Not Active list, 56 rows in private-store/ (gamebook-2026-w10-lac-at-bal.tsv), hashed in captures/manifest.json. Did Not Play lines and chunks 1 to 7 are not captured. Thirteen of 14 Week 10 Game Books are still not captured (F-29 in the capture register).",
-   "evidence": "private-store/gamebook-2026-w10-lac-at-bal.tsv; captures/2026-11-18/gamebook-2026-w10-lac-at-bal.meta.json; captures/manifest.json",
-   "link": "https://www.nfl.com/games/chargers-at-ravens-2026-reg-10",
-   "status": "PARTIAL (2 of 14 Game Books; row-level stays private, F-31)"
   }
  ]
 }
