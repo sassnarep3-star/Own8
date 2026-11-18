@@ -53,6 +53,30 @@ Log (875583e4):
 - 2026-11-17 (PR) — Merged main (c7cbfc5, PR #72 from session 532b7aeb) into the branch; no conflicts; build and check re-run exit 0. PR opened: https://github.com/sassnarep3-star/Own8/pull/73 (base main, head arena/875583e4-own8).
 - 2026-11-17 (open) — F-01 registry vs README conflict on paper-eligible strategies: shown as NOT on any leaderboard; ruling requested (S-02).
 
+## Session c09a32fa — full-repo review, line-by-line verification, category-site build, PR + merge (claimed 2026-11-18 UTC, base main @ 0e6e4ae)
+
+Branch: `arena/c09a32fa-own8` (Arena-pinned; all work on this branch). Board state read end to end on 2026-11-18: every integration round through #75 (2026-11-17) is merged to main; this branch is at main HEAD. No active parallel claim exists. Open PRs #6/#8/#16/#28/#31/#32 remain untouched per policy A14.
+
+**Scope:** repository-wide review and verification (read-only on feature namespaces), regeneration of the canonical category site `site/**` (landing page, category subpages, requirement register, question register, suggestion inbox, executive summary, repo review, sources, Flagged for Review), root `index.html` redirect, `README.md` top links, and this COORDINATION.md section; final PR from this branch to main, merge, and GitHub Pages confirmation. Feature namespaces (`ledger/**`, `origination/**`, `requirements/**`, `signals/**`, `market/**`, `desk/**`, `strict/**`, `hub/**`, `review/**`, `suggestions/**`, `decision/**`, `decision-review/**`, `integration/**`, `correlation-audit/**`, `audit/**`, `evidence-lab/**`, `archive/**`, `a57af0ab/**`) are read-only inputs; findings about them are published as flags, never edits.
+
+**Network boundary:** sandbox outbound is limited to github.com, api.github.com, codeload.github.com, registry.npmjs.org, pypi.org and files.pythonhosted.org; nfl.com is not reachable by curl/fetch this session. All published values therefore trace to stored official captures (URL + fetch timestamp retained). No new official value is asserted and nothing is inferred; anything not re-confirmable stays blank and flagged. All checkers are offline-by-design: local links/anchors, per-row official references, HTTPS + approved-host policy, and internal arithmetic only.
+
+| ID | Task | Status | Owner | Files (scope) | Verification plan |
+| --- | --- | --- | --- | --- | --- |
+| C0 | Board claim + claim commit pushed before any other work | in progress | c09a32fa | COORDINATION.md (this section) | Claim commit pushed first |
+| C1 | Line-by-line repo review: every published table row carries an official source link or is flagged UNVERIFIED; irregularities logged with source links | in progress | c09a32fa | site/data/*.json, site/*.html, README.md, ledger/, origination/, requirements/, market/ | `python3 site/check.py` exit 0; flags page lists every irregularity with a source link |
+| C2 | Verify from stored official captures: standings reconciliation, Week 10 results, Week 11 schedule, injury-report shape, locked lines | in progress | c09a32fa | site/data/**, site/scripts/model_b0.py | model_b0.check_b0() reproduces 13/13 stored W10 games; reconcile() yields 0 mismatches; no new value asserted |
+| C3 | Category site build: landing page + category subpages, tables, executive summary, suggestions, questions, Flagged for Review | in progress | c09a32fa | site/scripts/build.py, site/check.py, site/*.html | `python3 site/scripts/build.py` && `python3 site/check.py` exit 0; no broken links |
+| C4 | Executive summary, suggestions and questions confirmed published and linked from landing | in progress | c09a32fa | site/executive-summary.html, site/suggestions.html, site/questions.html | All three linked from site/index.html nav; 10 suggestions UNDECIDED awaiting operator choice; 22 questions with have/lack/how-to-answer/blocks |
+| C5 | Line-origination review: B0 side→total→moneyline ordering; fair/market/difference as separate columns; Week 11 provisional lines frozen pre-kickoff | in progress | c09a32fa | site/scripts/model_b0.py, site/data/b0-*.json | Read method; grading runs only against verified nfl.com finals; Week 11 market/difference blank (F-11) |
+| C6 | Open items recorded without operator-blocking decisions: H1 (root redirect vs build_site.py clean-diff check) and S-02 (leaderboard ruling on four backtest passes) | in progress | c09a32fa | COORDINATION.md | Both items logged with recommended paths, status UNDECIDED |
+| C7 | PR from arena/c09a32fa-own8 to main, merge without waiting, Pages deploy confirmation, live re-fetch, final record | pending | c09a32fa | COORDINATION.md | `gh pr merge <n> --merge`; Pages API `built`; live URL re-fetched |
+
+Log (c09a32fa):
+- 2026-11-18 (C0 claim) — Claim pushed before any other work. Read the full board; main = origin/main = 0e6e4ae; Pages legacy build from main `/`, status `built`; open PRs only the 2026-11-04 set (untouched).
+- 2026-11-18 (C1–C3) — to be appended as work completes.
+- 2026-11-18 (C7 pending) — PR to be opened and merged without waiting; Pages and live re-fetch to be confirmed.
+
 ## Session 08643438 — final integration round 5: outstanding-request sweep (SG-03/F-01 ledger price claim, desk flagged regen, board hygiene), landing-page decision-readiness table, fresh 2026-11-15 official re-verification, deploy (claimed 2026-11-15 UTC, base main @ 0ea18ec)
 
 Branch: `arena/08643438-own8` (Arena-pinned; all work on this branch). Read the full board
