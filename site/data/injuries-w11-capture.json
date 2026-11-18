@@ -1,0 +1,231 @@
+{
+ "source_url": "https://www.nfl.com/injuries/league/2026/reg11",
+ "pages_read": 3,
+ "read": "2026-11-18",
+ "capture_type": "Transcription of the rendered page text, read 18 Nov 2026. A byte hash is not recorded because fetch output is not saved to the workspace.",
+ "note": "Injury column is blank for every listed player. Game Status is blank for every listed player (pre-game). Sunday and Monday teams show 'No Injuries Reported'. Comparison only: the Week 10 report (reg10) listed injury types for some of these players (for example Danielle Hunter, Hamstring, Out); the Week 11 report lists none. nfl.com gives no reason on the page.",
+ "games": [
+  {
+   "game": "IND@HOU",
+   "day": "Thursday, November 19 (8:15 PM ET, Prime Video)",
+   "teams": {
+    "IND": [
+     {
+      "player": "Jaylon Carlies",
+      "position": "LB",
+      "injury": "",
+      "practice_status": "Did Not Participate In Practice",
+      "game_status": ""
+     },
+     {
+      "player": "Sauce Gardner",
+      "position": "CB",
+      "injury": "",
+      "practice_status": "Did Not Participate In Practice",
+      "game_status": ""
+     },
+     {
+      "player": "Anthony Gould",
+      "position": "WR",
+      "injury": "",
+      "practice_status": "Limited Participation in Practice",
+      "game_status": ""
+     },
+     {
+      "player": "Charlie Heck",
+      "position": "T",
+      "injury": "",
+      "practice_status": "Did Not Participate In Practice",
+      "game_status": ""
+     },
+     {
+      "player": "Will Mallory",
+      "position": "TE",
+      "injury": "",
+      "practice_status": "Did Not Participate In Practice",
+      "game_status": ""
+     },
+     {
+      "player": "Bernhard Raimann",
+      "position": "T",
+      "injury": "",
+      "practice_status": "Did Not Participate In Practice",
+      "game_status": ""
+     },
+     {
+      "player": "Luke Rhodes",
+      "position": "LS",
+      "injury": "",
+      "practice_status": "Limited Participation in Practice",
+      "game_status": ""
+     },
+     {
+      "player": "Jerry Tillery",
+      "position": "DT",
+      "injury": "",
+      "practice_status": "Did Not Participate In Practice",
+      "game_status": ""
+     },
+     {
+      "player": "Jalen Travis",
+      "position": "T",
+      "injury": "",
+      "practice_status": "Did Not Participate In Practice",
+      "game_status": ""
+     },
+     {
+      "player": "Dalton Tucker",
+      "position": "G",
+      "injury": "",
+      "practice_status": "Full Participation in Practice",
+      "game_status": ""
+     },
+     {
+      "player": "Charvarius Ward",
+      "position": "CB",
+      "injury": "",
+      "practice_status": "Did Not Participate In Practice",
+      "game_status": ""
+     }
+    ],
+    "HOU": [
+     {
+      "player": "Azeez Al-Shaair",
+      "position": "LB",
+      "injury": "",
+      "practice_status": "Did Not Participate In Practice",
+      "game_status": ""
+     },
+     {
+      "player": "Reed Blankenship",
+      "position": "S",
+      "injury": "",
+      "practice_status": "Full Participation in Practice",
+      "game_status": ""
+     },
+     {
+      "player": "Tank Dell",
+      "position": "WR",
+      "injury": "",
+      "practice_status": "Full Participation in Practice",
+      "game_status": ""
+     },
+     {
+      "player": "Blake Fisher",
+      "position": "T",
+      "injury": "",
+      "practice_status": "Full Participation in Practice",
+      "game_status": ""
+     },
+     {
+      "player": "Marvin Harrison Jr.",
+      "position": "WR",
+      "injury": "",
+      "practice_status": "Did Not Participate In Practice",
+      "game_status": ""
+     },
+     {
+      "player": "Jacob Hummel",
+      "position": "LB",
+      "injury": "",
+      "practice_status": "Limited Participation in Practice",
+      "game_status": ""
+     },
+     {
+      "player": "Danielle Hunter",
+      "position": "DE",
+      "injury": "",
+      "practice_status": "Did Not Participate In Practice",
+      "game_status": ""
+     },
+     {
+      "player": "Brevin Jordan",
+      "position": "TE",
+      "injury": "",
+      "practice_status": "Did Not Participate In Practice",
+      "game_status": ""
+     },
+     {
+      "player": "Kamari Lassiter",
+      "position": "CB",
+      "injury": "",
+      "practice_status": "Did Not Participate In Practice",
+      "game_status": ""
+     },
+     {
+      "player": "Woody Marks",
+      "position": "RB",
+      "injury": "",
+      "practice_status": "Did Not Participate In Practice",
+      "game_status": ""
+     },
+     {
+      "player": "David Montgomery",
+      "position": "RB",
+      "injury": "",
+      "practice_status": "Full Participation in Practice",
+      "game_status": ""
+     },
+     {
+      "player": "Febechi Nwaiwu",
+      "position": "G",
+      "injury": "",
+      "practice_status": "Full Participation in Practice",
+      "game_status": ""
+     },
+     {
+      "player": "Keylan Rutledge",
+      "position": "G",
+      "injury": "",
+      "practice_status": "Full Participation in Practice",
+      "game_status": ""
+     },
+     {
+      "player": "Jaylin Smith",
+      "position": "CB",
+      "injury": "",
+      "practice_status": "Full Participation in Practice",
+      "game_status": ""
+     },
+     {
+      "player": "Wyatt Teller",
+      "position": "G",
+      "injury": "",
+      "practice_status": "Full Participation in Practice",
+      "game_status": ""
+     }
+    ]
+   }
+  },
+  {
+   "game": "Sunday and Monday games (teams)",
+   "day": "Sunday, November 22 and Monday, November 23",
+   "teams": {
+    "PIT": "No Injuries Reported",
+    "PHI": "No Injuries Reported",
+    "AZ": "No Injuries Reported",
+    "KC": "No Injuries Reported",
+    "BAL": "No Injuries Reported",
+    "CAR": "No Injuries Reported",
+    "TB": "No Injuries Reported",
+    "DET": "No Injuries Reported",
+    "MIA": "No Injuries Reported",
+    "BUF": "No Injuries Reported",
+    "TEN": "No Injuries Reported",
+    "DAL": "No Injuries Reported",
+    "NO": "No Injuries Reported",
+    "CHI": "No Injuries Reported",
+    "NYJ": "No Injuries Reported",
+    "LAC": "No Injuries Reported",
+    "JAX": "No Injuries Reported",
+    "NYG": "No Injuries Reported",
+    "LV": "No Injuries Reported",
+    "DEN": "No Injuries Reported",
+    "MIN": "No Injuries Reported",
+    "SF": "No Injuries Reported",
+    "CIN": "No Injuries Reported",
+    "WAS": "No Injuries Reported"
+   }
+  }
+ ]
+}

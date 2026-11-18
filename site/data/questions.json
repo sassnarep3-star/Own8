@@ -52,9 +52,9 @@
   {
    "id": "Q-07",
    "question": "What do the Week 11 injury designations say?",
-   "have": "Not yet published as read on 2026-11-17",
-   "lack": "Week 11 report content",
-   "how_to_answer": "Re-read Wed 18, Thu 19 and Fri 20 Nov, with fetch times",
+   "have": "Report published on nfl.com (3 pages read 18 Nov). Thursday rows transcribed; Sunday and Monday teams show No Injuries Reported.",
+   "lack": "Game Status for each listed player (blank pre-game)",
+   "how_to_answer": "Re-read the reg11 page on Thu 19 and Sun 22 Nov, recording the fetch time",
    "blocks": "R-06"
   },
   {
@@ -124,9 +124,9 @@
   {
    "id": "Q-16",
    "question": "What are the venues of the remaining Week 11 games?",
-   "have": "1 of 13 verified (IND@HOU)",
-   "lack": "Game-centre venue for each of 12 games",
-   "how_to_answer": "Read each game-centre page (one fetch per game)",
+   "have": "13 of 13 read from game-centre pages on 18 Nov (site/data/week11-venues.json)",
+   "lack": "None open",
+   "how_to_answer": "Re-read a game page only if a venue changes",
    "blocks": "R-18"
   },
   {

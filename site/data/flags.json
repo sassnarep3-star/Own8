@@ -27,11 +27,11 @@
   },
   {
    "id": "F-04",
-   "title": "Week 10 Monday game not final on nfl.com as read",
-   "detail": "LAC at BAL (Nov 16) shows 8:15 PM with no score on the scores, standings and picks pages. Excluded from grading (12 graded, 1 pending) and from the Week 11 inputs. If it is final, W11 lines change.",
-   "evidence": "nfl.com scores 2026-11-17",
+   "title": "LAC at BAL (Week 10 Monday) final score not extracted",
+   "detail": "nfl.com shows the game Final (scores page p.2 and the game page, read 18 Nov). The score digits did not come through in fetch text on two reads of the scores and standings pages, so the score is left blank and unverified. The game stays out of grading and out of the Week 11 inputs. Do not infer the score from standings deltas.",
+   "evidence": "nfl.com scores 2026 week-10 (p.2); nfl.com games chargers-at-ravens-2026-reg-10",
    "link": "https://www.nfl.com/scores/2026/week-10",
-   "status": "OPEN (Q-05)"
+   "status": "OPEN: score digits unverified (Q-05)"
   },
   {
    "id": "F-05",
@@ -51,11 +51,11 @@
   },
   {
    "id": "F-07",
-   "title": "Week 11 injury report not yet published",
-   "detail": "The reg11 URL serves Week 10 content on 2026-11-17; the Colts game centre says the report is not yet available.",
-   "evidence": "nfl.com",
+   "title": "Week 11 injury report status (stale claim corrected)",
+   "detail": "The reg11 URL serves the Week 11 report (published; 3 pages read 18 Nov). Earlier statements on the live site and in this register that it was unpublished are stale. Game Status is blank for every listed player (pre-game). Re-read for game status on Thu 19 and Sun 22 Nov.",
+   "evidence": "nfl.com injuries 2026 reg11",
    "link": "https://www.nfl.com/injuries/league/2026/reg11",
-   "status": "OPEN (Q-07)"
+   "status": "PUBLICATION RESOLVED; game status open (Q-07)"
   },
   {
    "id": "F-08",
@@ -180,10 +180,10 @@
   {
    "id": "F-23",
    "title": "Week 11 fair lines were built on pre-Monday standings (provisional)",
-   "detail": "site/data/b0-w11-lines.json was written in beca9d2 on 17 Nov from the standings snapshot taken before the Monday Chargers at Ravens game, which is not verified final. The lines are provisional and must be re-originated after that game is verified final. Frozen values stay in git history.",
+   "detail": "site/data/b0-w11-lines.json (B0 v1) was written in beca9d2 on 17 Nov from standings that exclude the Week 10 Monday game, which is Final on nfl.com but has no verified score (F-04). B0 v1 is frozen by its own rule. A new versioned file (B0 v2) is needed after the score is verified. Nothing is re-originated in place.",
    "evidence": "site/data/b0-w11-lines.json; site/data/standings-2026-11-17.json",
    "link": "https://github.com/sassnarep3-star/Own8/blob/main/site/data/b0-w11-lines.json",
-   "status": "OPEN (re-originate after F-04 clears)"
+   "status": "OPEN (B0 v2 after F-04 score is verified)"
   },
   {
    "id": "F-24",
@@ -192,6 +192,30 @@
    "evidence": "README.md; index.html; scripts/build_site.py; .github/workflows/requirements.yml",
    "link": "https://github.com/sassnarep3-star/Own8/blob/main/.github/workflows/requirements.yml",
    "status": "OPEN (owner decision: requirements session)"
+  },
+  {
+   "id": "F-26",
+   "title": "nfl.com Week 10 injury page title says Week 11",
+   "detail": "The page at injuries/league/2026/reg10 has the title 'Official NFL Injury Report ... Week 11 of the 2026 Season', but its heading reads 'Injuries - WEEK 10' and its rows are the Week 10 games. Rows were read as Week 10 from the headings and game dates.",
+   "evidence": "nfl.com injuries 2026 reg10",
+   "link": "https://www.nfl.com/injuries/league/2026/reg10",
+   "status": "NOTED (no effect on values)"
+  },
+  {
+   "id": "F-27",
+   "title": "Houston Texans depth-chart page returns 404",
+   "detail": "nfl.com/teams/houston-texans/depth-chart returned 404 on 18 Nov. Texans 2nd to 4th string depth stays unsourced. No depth order is inferred from jersey number, experience or salary (operator rejection SG-05).",
+   "evidence": "nfl.com (404)",
+   "link": "https://www.nfl.com/teams/houston-texans/depth-chart",
+   "status": "OPEN (needs an authorised structured source)"
+  },
+  {
+   "id": "F-28",
+   "title": "Week 11 picks article URL returns 404",
+   "detail": "https://www.nfl.com/news/nfl-picks-week-11-2026-nfl-season returned 404 on 18 Nov. Week 11 lines appear only on third-party pages. Those are not official and are not used. Week 11 market columns stay blank (F-11).",
+   "evidence": "https://www.nfl.com/news/nfl-picks-week-11-2026-nfl-season (404)",
+   "link": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+   "status": "OPEN (F-11)"
   }
  ]
 }
