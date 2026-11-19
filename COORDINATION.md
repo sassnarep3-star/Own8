@@ -3005,3 +3005,11 @@ Branch: `arena/b45ee35f-own8` (Arena-pinned; the `session-<id>/<task>` naming in
 **Not done in this session, stated plainly.** Most of the operator brief is not achieved here and is not claimed as done: the Friday read; any daily or Wed-to-kickoff schedule (no scheduler exists in this sandbox); the depth-chart route (nfl.com/teams/houston-texans/depth-chart still returns 404, F-29); transactions (404, F-29); snap counts (no official source found); Game Book chunks beyond page 1; roster-status legend (F-28); the reconciliation of 253 vs 254 (F-34); the Thursday/Friday status series. No model, strategy, leaderboard or line was changed. No value was inferred. Starters out, replacements named and the net injury count are UNVERIFIED on the team view because no official depth source is reachable.
 
 **Next actions for a later session:** re-read reg11 on Fri 20 Nov (all chunks) and run `captures/scripts/diff_captures.py` against the 19 Nov TSV (the script hard-codes the 18 Nov and 19 Nov files, so a new pair needs a small change); reconcile 253 vs 254; decide F-31 (private store location) and F-24 (root index build).
+
+### b45ee35f — publication record (2026-11-19)
+
+- **PR:** https://github.com/sassnarep3-star/Own8/pull/92 — **MERGED** as `d29546f80ef1bce452f75a7a928d9a1023410e5c` (2026-11-19T12:19:54Z) with `gh pr merge 92 --merge`, after its three checks (`validate`, `evidence-and-site`, `independent-desk`) passed on the rebased branch and `mergeStateStatus` was CLEAN. No approval waited for.
+- **Rebases:** the branch conflicted twice in this shared board file and once in README.md while main moved (PRs #87, #88, #89, #90, #91). Each conflict was resolved by keeping both sides; no other session's entry was dropped. Generated outputs were regenerated from source after each rebase, and the committed state was confirmed unchanged.
+- **Pages:** `gh api repos/sassnarep3-star/Own8/pages/builds/latest` → `built`, commit `d29546f`, error empty.
+- **Live re-fetch (fetch_page, 2026-11-19):** https://sassnarep3-star.github.io/Own8/site/data-team-view.html serves the corrected 26-club table with the F-26 correction at the top.
+- **Not changed by this session:** the root `index.html` (F-24), `archive/**`, every other session's section of this board.
