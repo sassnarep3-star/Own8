@@ -2960,3 +2960,20 @@ Log (41ef2b2f):
 - **Checks:** `evidence-and-site` and `independent-desk` passed on PR #88. The merge-triggered root dashboard and independent desk checks also passed on the merge commit.
 - **Pages:** workflow 44521950832 completed successfully (Jekyll build, report status, deploy); the deployed commit is the PR #88 merge commit. GitHub Actions emitted a Node.js 20 deprecation annotation for `actions/upload-artifact@v4`, not a build failure.
 - **Feature disposition:** no duplicate work was performed. The actual executive-summary refresh, 2026-11-19 re-verification, and site QA are in session 29145302 / PR #87. Remaining open injury/depth/price-data and policy gaps stay as previously flagged; this session did not upgrade them.
+
+## Session 1d0a1688 — site publication refresh: landing page, category subpages, executive summary, flagged review page, PR + merge (claimed 2026-11-19 UTC)
+
+Branch: `arena/1d0a1688-own8` (Arena-pinned; all work on this branch). Board state read end to end: every prior session claim is merged and closed (through PR #86, merge commit fb7e0eb = current main). No active parallel claim exists. Old open PRs #6/#8/#16/#28/#31/#32 (Nov 4, superseded namespaces) remain untouched per policy A14. nfl.com is not reachable from this sandbox (TLS failure on direct curl); verification therefore replays the repo's own verified captures, recomputes derived values, and flags anything that cannot be confirmed from an official source as blank + UNVERIFIED — no values are inferred or filled in.
+
+**Scope (this session only):** `site/**` (landing page, category subpages, requirement/question/suggestion registers, executive summary, sources, Flagged for Review), root `index.html` redirect, `README.md` top-link lines, this COORDINATION.md section. All other namespaces are read-only inputs; findings about them are published as flags, never edited.
+
+| ID | Task | Status | Owner | Files (scope) | Verification plan |
+| --- | --- | --- | --- | --- | --- |
+| I0 | Board claim (this section) | in progress | 1d0a1688 | COORDINATION.md (this section) | Claim commit pushed before any other work |
+| I1 | Re-run the full publication pipeline (content.py + build.py + check.py) and repo checkers; fix in-scope breakage, record out-of-scope breakage | unclaimed | 1d0a1688 | site/**, scripts/**, with ledger/ and requirements/** as read-only inputs | `python3 site/scripts/build.py` + `python3 site/check.py` exit 0; `python3 ledger/scripts/check_ledger.py` exit 0 |
+| I2 | Refresh the executive summary to the current snapshot (verified standings/results state, grading numbers, open flags) | unclaimed | 1d0a1688 | site/executive-summary.html, README.md executive-summary lines | Every number traced to site/data/*.json or ledger data; blanks where not confirmed |
+| I3 | Confirm Flagged for Review page lists every open item with source links; Suggestions page presents options with cost/risk/decision needed | unclaimed | 1d0a1688 | site/data/flags.json, site/data/suggestions.json, site/flagged.html, site/suggestions.html | check.py exit 0; each flag row carries a source link or is marked none |
+| I4 | PR from arena/1d0a1688-own8 to main, merge without waiting, confirm GitHub Pages `built`, live re-fetch, final record here | unclaimed | 1d0a1688 | COORDINATION.md | `gh pr merge <n> --merge`; Pages API `built`; live URL re-fetched |
+
+Log (1d0a1688):
+- 2026-11-19 (I0 claim) — this section appended; committing and pushing the claim now, before any implementation work.
