@@ -25,6 +25,7 @@ Branch: `arena/3e702796-own8` (Arena-pinned; current branch only), advanced from
 Log (3e702796):
 - 2026-11-19 — Initial board read and claim. Existing category landing page advertised 152/160 standings cells, pre-final Week 11 lines and stale injury/depth observations.
 - 2026-11-19 — Official correction discovered by direct re-read: nfl.com Game Center, scores page and Game Book agree LAC 23–20 BAL (visitor/home). Canonical W10 results and at least the dependent ledger/model rows currently store the reverse. Official standings chunk 0/1 include BAL 4-6 PF 209 PA 259 and LAC 1-8 PF 144 PA 239, matching the 2026-11-18 snapshot; the PR #87 note that the live standings predate Monday was not supported by the current chunked read. Updating scope to include the result ledger and its generated pages. No new numbers will be published until the full correction/rebuild checks pass.
+- Branch-sync note: a push after main advanced to PR #90 was rejected non-fast-forward. Pulled/rebased from the remote pinned session branch; the already-pushed claim was recognized/skipped as duplicate, and both the remote claim and PR #90 coordination record were preserved. No force push; the scope update is now ahead of the remote branch.
 
 ## Session 4fcbfdf8 — final integration: Week 10 official results, dashboard consistency, and release QA (claimed 2026-11-18 UTC)
 
