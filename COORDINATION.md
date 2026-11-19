@@ -8,6 +8,23 @@ editing it. Make small, frequent commits; `git pull --rebase` before every push.
 If a claim is >60 minutes old with no commits, another session may take it over
 and note the handoff here.
 
+## Session 3e702796 — canonical site freshness, source consistency and release integration (claimed 2026-11-19 UTC)
+
+Branch: `arena/3e702796-own8` (Arena-pinned; current branch only), advanced from the requested base `fb7e0eb83949662fdb4246229f0162f43361f93c` to `4b5ee0086f9d173f77524205714241d21974ef0c` with `git pull --rebase origin main` before the claim push. I read the current board, inspected the published-site builder/checker, the latest official-result data, the Pages build, and open PRs before claiming. PR #86 merged the Week 10 result integration; PR #87 then re-verified standings, scores and part of the schedule on 2026-11-19 and updated the executive summary/sources, but the canonical landing/data pages still contain stale Week 10/11 text that contradicts merged inputs. Open PRs #81 (last updated 2026-11-18 06:37 UTC) and #85 (last updated 2026-11-18 06:42 UTC) have had no commits for over 60 minutes; under the board's handoff rule, this session takes over their unmerged site-publication integration scope. Their source/capture evidence will be preserved, not silently overwritten. PR #70's Week 10 results evidence is already integrated by PR #86.
+
+**Scope:** this section of `COORDINATION.md`; `site/data/**`, `site/scripts/**`, generated `site/*.html`; `README.md` only if the public entry-point documentation is proven stale. No other namespace or branch will be edited. This is a final integration pass: re-read official NFL pages where accessible; keep unconfirmed fields blank and flagged; align rendered copy to the checked canonical inputs; don't treat a successful build as evidence validation.
+
+| ID | Task | Status | Owner | Files (scope) | Verification plan |
+| --- | --- | --- | --- | --- | --- |
+| I0 | Board read, claim and stale-PR handoff | in progress | 3e702796 | COORDINATION.md (this section) | Commit and push this claim before changing implementation files; do not switch branches. |
+| I1 | Reconcile source/capture state from merged main and stale PR #81/#85; re-fetch official URLs before adopting new factual claims | in progress | 3e702796 | site/data/**, COORDINATION.md | Official nfl.com pages/Game Books, captured timestamps and hashes; leave any inaccessible or ambiguous value unverified. |
+| I2 | Fix stale/conflicting site generation and status text without weakening row-source checks | unclaimed | 3e702796 | site/scripts/**, site/*.html | Rebuild from canonical inputs; add regression assertions for current final count, line version and linked rows; `site/check.py`. |
+| I3 | Run repository and site test suite; verify navigation/local links and publication exclusions | unclaimed | 3e702796 | site/**, COORDINATION.md | Run site and relevant ledger/capture/audit checks; all errors must be fixed or explicitly flagged. |
+| I4 | PR, merge, Pages build and live-site confirmation | unclaimed | 3e702796 | COORDINATION.md | Push only this branch; create PR to main, wait for checks (not user review), merge using explicit PR number if clean; confirm Pages `built` and record URL/result. |
+
+Log (3e702796):
+- 2026-11-19 — Initial board read and scope claim. The current deployed category page advertises 152/160 standings cells, a pre-final Week 11 line version, and stale injury/depth observations despite the merged Week 10 result feed and B0-v2 artifacts. The discrepancy is a reproducible site-consistency defect; no new NFL values have yet been adopted.
+
 ## Session 4fcbfdf8 — final integration: Week 10 official results, dashboard consistency, and release QA (claimed 2026-11-18 UTC)
 
 Branch: `arena/4fcbfdf8-own8` (Arena-pinned; work stays on this branch; no other branch/worktree is created). Read the board before acting. Existing site, ledger, and requirements tasks are marked done; PR #70 (`session-30caea4e/**`) is an unmerged completed evidence capture whose author explicitly requested final integration. Its scope is isolated to that session directory plus this board, so this claim does not edit those artifacts.
