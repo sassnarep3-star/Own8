@@ -1,0 +1,35 @@
+{
+ "as_of": "2026-11-19",
+ "session": "29145302",
+ "method": "Live re-read via fetch_page on 2026-11-19; compared cell-by-cell to stored captures. Only values actually observed are recorded; anything not observed is left blank and flagged.",
+ "checks": [
+  {
+   "id": "V19-01",
+   "page": "https://www.nfl.com/standings/league/2026/REG",
+   "observed": "BUF 8-1-0 PCT 0.889 PF 287 PA 199; SF 8-1-0 PF 281 PA 196; CHI 7-2-0 PF 241 PA 184; CIN 7-2-0 PF 278 PA 193; DEN 7-2-0 PF 198 PA 186; DET 7-2-0 PF 257 PA 199; JAX 7-2-0 PF 269 PA 144; KC 7-2-0 PF 237 PA 156; MIN 7-2-0 PF 176 PA 126; PIT 6-3-0 PF 198 PA 182; NYG 5-3-1 PF 203 PA 196; CLE 6-4-0 PF 188 PA 220; GB 6-4-0 PF 226 PA 221; LAR 6-4-0 PF 248 PA 187; SEA 6-4-0 PF 223 PA 175; NE 5-5-0 PF 221 PA 242; CAR 4-5-0 PF 219 PA 236; BAL 4-6-0 PF 209 PA 259; DAL 4-6-0 PF 286 PA 282; LV 4-6-0 PF 251 PA 289; WAS 3-5-1 PF 196 PA 223; HOU 3-6-0 PF 233 PA 219; NO 3-6-0 PF 202 PA 236; TB 3-6-0 PF 202 PA 178 (first 24 rows, chunk 0 of 2)",
+   "stored": "site/data/standings-2026-11-17.json (fetched 2026-11-17)",
+   "result": "MATCH on all 24 observed rows (W, L, T, PCT, PF, PA). Remaining 8 rows (AZ, ATL, IND, LAC, MIA, NYJ, PHI, TEN) not observed in chunk 0; left as stored, not re-verified today.",
+   "source_url": "https://www.nfl.com/standings/league/2026/REG"
+  },
+  {
+   "id": "V19-02",
+   "page": "https://www.nfl.com/scores/2026/week-10",
+   "observed": "WAS 24 @ NYG 21 Final; NE 10 @ DET 35 Final (Munich); KC 35 @ ATL 13 Final; HOU 24 @ CLE 27 Final; MIN 30 @ GB 10 Final; MIA 22 @ IND 24 Final; CAR 20 @ NO 17 Final; BUF 31 @ NYJ 12 Final; JAX 40 @ TEN 23 Final (chunk 0 of 2)",
+   "stored": "site/data/week10-results.json (fetched 2026-11-17, LAC@BAL confirmed 2026-11-18 via Game Book)",
+   "result": "MATCH on all 9 observed finals. Remaining 5 finals (incl. LAC@BAL) not observed in chunk 0; left as stored.",
+   "source_url": "https://www.nfl.com/scores/2026/week-10"
+  },
+  {
+   "id": "V19-03",
+   "page": "https://www.nfl.com/schedules/2026/by-week/week-11",
+   "observed": "IND @ HOU Thu Nov 19 8:15 PM PRIME (IND 3-7, HOU 3-6); MIA @ BUF Sun Nov 22 1:00 PM CBS (MIA 1-8, BUF 8-1); BAL @ CAR Sun Nov 22 1:00 PM FOX (BAL 4-6, CAR 4-5); NO @ CHI Sun Nov 22 1:00 PM FOX (NO 3-6, CHI 7-2); TEN @ DAL Sun Nov 22 1:00 PM FOX (TEN 1-8, DAL 4-6); TB @ DET Sun Nov 22 1:00 PM FOX (TB 3-6, DET 7-2) (chunk 0 of 3)",
+   "stored": "site/data/week11-schedule.json (fetched 2026-11-17)",
+   "result": "MATCH on all 6 observed games (matchup, date, kickoff, network, records). Remaining 7 games not observed in chunk 0; left as stored.",
+   "source_url": "https://www.nfl.com/schedules/2026/by-week/week-11"
+  }
+ ],
+ "irregularities": [
+  "Standings page still shows BAL 4-6 / LAC 1-8-era records predating the verified Monday final (LAC 20 / BAL 23); the stored snapshot and the live page agree with each other, and both predate Monday. Not inferred; flagged as F-04 history.",
+  "No injury report, depth chart, or price page was re-read in this session; those captures remain at their stored fetch dates and are not upgraded."
+ ]
+}

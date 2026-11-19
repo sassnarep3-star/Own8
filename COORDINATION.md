@@ -2914,3 +2914,26 @@ Cross-session notes: no file owned by another session was edited except site/** 
 - PR: https://github.com/sassnarep3-star/Own8/pull/77 — **MERGED** on 2026-11-18T06:32:17Z. PR checks (`validate`, `evidence-and-site`, `independent-desk`) all passed.
 - Pages: the first deployment for the merge commit was superseded during concurrent main updates. The latest deployment was for `d0c752b5ccf3d9fa5db2495681e156f3a1bada9f` (PR #83); Pages workflow run 44252998044 passed Jekyll build, report and deploy, and the Pages API reports `built`, `error: null`. The deployed tree includes PR #77's audit refresh plus subsequent merged work. Direct NFL source liveness was not checked in this session.
 - No new official NFL values were introduced. Remaining data/policy unknowns and irregularities are already listed on the site's Flagged for Review and decision pages; no strategy is eligible for ranking.
+
+## Session 29145302 — executive summary, questions/suggestions registers, official re-verification, site QA and release (claimed 2026-11-19 UTC)
+
+Branch: `arena/29145302-own8` (Arena-pinned; work stays on this branch). Read the board before acting. Prior integration (4fcbfdf8, PR #86 merged fb7e0eb) is done; open PRs #85/#81/#70 are older evidence branches, left untouched.
+
+**Scope:** `COORDINATION.md` (this section), `README.md`, `site/data/**`, `site/scripts/**`, `site/*.html`, `site/assets/**`. No other namespace is edited. If a change is needed outside this scope, it will be logged here as a request instead of edited.
+
+| ID | Task | Status | Owner | Files (scope) | Verification plan |
+| --- | --- | --- | --- | --- | --- |
+| T0 | Board claim | in progress | 29145302 | COORDINATION.md (this section) | Commit and push claim before other work. |
+| T1 | Official re-verification (standings, W11 schedule, W10 scores, W11 injuries) | unclaimed | 29145302 | site/data/** | fetch_page each official URL; compare to stored JSON; leave blank + flag if unconfirmed. |
+| T2 | Executive summary + questions/information/answers register + suggestions section on category site | unclaimed | 29145302 | site/data/**, site/scripts/**, site/*.html | Every row has official source link or UNVERIFIED; site/check.py passes. |
+| T3 | Site QA (links, checks, build) | unclaimed | 29145302 | site/** | site/check.py, ledger check, model check all pass; no broken links. |
+| T4 | PR, merge, Pages confirm | unclaimed | 29145302 | COORDINATION.md | gh pr merge --merge; Pages built; record PR link here. |
+
+Log (29145302):
+- 2026-11-19 (T0) — Claim written; pushing before implementation.
+
+Log (29145302) continued:
+- 2026-11-19 (T1) — Live re-verification via fetch_page: standings (24 rows observed, all match stored W/L/T/PCT/PF/PA), Week 10 scores (9 finals observed, all match), Week 11 schedule (6 games observed, all match). Unobserved rows left as stored. Record: site/data/verification-2026-11-19.json. Irregularity: live standings still predate the verified Monday final (BAL/LAC); stored and live agree, flagged not inferred. No injury/depth/price page re-read; those captures not upgraded.
+- 2026-11-19 (T2) — Executive summary fixed to live graded count (13 graded, 0 pending; was stale "12 settled games"); Sources page now renders the 2026-11-19 re-verification table. Questions (20 rows), suggestions (10 rows), requirements (80 rows) registers regenerated via content.py; no new decisions implemented.
+- 2026-11-19 (T3) — QA green: content.py + build.py (16 pages), site/check.py OK (17 pages, links resolve, every row sourced/UNVERIFIED), ledger check 25/25, model_b0 check reproduces grading. README "What changed 2026-11-19" added.
+- 2026-11-19 (T4 in progress) — Creating PR from arena/29145302-own8 to main; will merge with gh pr merge --merge and confirm Pages built.

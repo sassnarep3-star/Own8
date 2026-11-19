@@ -248,7 +248,8 @@ def build_exec():
 <h2>2. What the model does, and how it did</h2>
 <ul>
 <li>The shadow baseline (B0) uses team strength only: points for and against per game, no injuries, no depth, no venue. Its formula reproduces all 13 stored Week 10 values (F-02).</li>
-<li>Week 10, 12 settled games: spread error {num(s['spread_mae_model'],2)} points (model) vs {num(s['spread_mae_market'],2)} (market). Total error {num(s['total_mae_model'],2)} vs {num(s['total_mae_market'],2)}; the market is better here. Moneyline Brier {num(s['ml_brier_model'],3)} vs {num(s['ml_brier_market'],3)} (market). Every model-minus-market interval includes zero. Twelve games are not evidence in either direction.</li>
+<li>Week 10, {s['n_graded']} graded games ({s['n_pending']} pending): spread error {num(s['spread_mae_model'],2)} points (model) vs {num(s['spread_mae_market'],2)} (market). Total error {num(s['total_mae_model'],2)} vs {num(s['total_mae_market'],2)}; the market is better here. Moneyline Brier {num(s['ml_brier_model'],3)} vs {num(s['ml_brier_market'],3)} (market). Every model-minus-market interval includes zero. {s['n_graded']} games are not evidence in either direction.</li>
+<li>Re-verified live on 2026-11-19 (session 29145302): the nfl.com standings, Week 10 scores and Week 11 schedule pages were re-read and match the stored captures on every observed row (24 standings rows, 9 Week 10 finals, 6 Week 11 games; see <a href="sources.html">Sources</a>). Unobserved rows were left as stored, not upgraded.</li>
 <li>Week 11 fair lines were written in commit beca9d2 from the standings snapshot taken before Monday's game. They are <b>provisional</b>, have no market column, and will be re-originated once Monday is verified final (F-23).</li>
 </ul>
 <h2>3. Strategies and the leaderboard</h2>
@@ -462,9 +463,15 @@ def build_sources():
     rows = []
     for s in J("site/data/sources.json")["rows"]:
         rows.append([E(s["id"]), E(s["label"]), E(s["kind"]), E(s["read"]), E(s["used_for"]), a(s["url"], "Open")])
+    vrows = []
+    for v in J("site/data/verification-2026-11-19.json")["checks"]:
+        vrows.append([E(v["id"]), E(v["observed"]), E(v["stored"]), E(v["result"]), a(v["source_url"], "Open")])
     body = f"""
 <p class="meta">Every source behind a value on this site. Official pages were read with the page-fetch tool on {FETCH}. A direct download from nfl.com failed from the sandbox with a TLS error, so each capture is the page text as the fetch tool returned it, not a raw HTTP capture.</p>
 {table(["ID", "Source", "Kind", "Read", "Used for", "Link"], rows, cls="dense", filter_id="src")}
+<h2>Live re-verification on 2026-11-19 (session 29145302)</h2>
+<p class="meta">Three official pages were re-read live and compared to the stored captures. Only observed rows are recorded; unobserved rows were left as stored. Full record: <code>site/data/verification-2026-11-19.json</code>.</p>
+{table(["ID", "Observed live", "Stored capture", "Result", "Link"], vrows, cls="dense", filter_id="v19")}
 <h2>Method references (not re-read today)</h2>
 <p>The repo README cites statistical references (NIST pages on confidence intervals and multiplicity). They were not re-read here, and citing them does not endorse the model.</p>
 """

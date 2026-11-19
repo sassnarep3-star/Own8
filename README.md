@@ -29,6 +29,11 @@
 - Catalogs **471 inherited JSON/CSV entries**, withholding unverified values; records file-level review scope, source links and review flags. Every canonical table row has an official reference or explicitly labeled verification target.
 
 
+## What changed on 2026-11-19 (session 29145302)
+
+- **Live re-verification.** The nfl.com standings, Week 10 scores and Week 11 schedule pages were re-read live on 2026-11-19 and match the stored captures on every observed row (24 standings rows, 9 Week 10 finals, 6 Week 11 games). Unobserved rows were left as stored, not upgraded. Record: `site/data/verification-2026-11-19.json`, rendered on the [Sources page](https://sassnarep3-star.github.io/Own8/site/sources.html).
+- **Executive summary corrected.** The Week 10 grading line now uses the live graded count (13 graded, 0 pending) instead of the stale "12 settled games" text; every model-minus-market interval still includes zero, so no edge is claimed.
+
 ## What changed on 2026-11-18 (session 21a111a4)
 
 - **Week 11 injury report captured (3 of 3 pages).** The reg11 URL now serves Week 11: 13 games, 26 club rows (IND and HOU, all with Wednesday practice statuses, no game designations, no injury types). The earlier "not published" statement is superseded (F-25). Twelve games read "No Injuries Reported"; that is not evidence of health (F-26).
