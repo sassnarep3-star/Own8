@@ -34,6 +34,13 @@
 - **Live re-verification.** The nfl.com standings, Week 10 scores and Week 11 schedule pages were re-read live on 2026-11-19 and match the stored captures on every observed row (24 standings rows, 9 Week 10 finals, 6 Week 11 games). Unobserved rows were left as stored, not upgraded. Record: `site/data/verification-2026-11-19.json`, rendered on the [Sources page](https://sassnarep3-star.github.io/Own8/site/sources.html).
 - **Executive summary corrected.** The Week 10 grading line now uses the live graded count (13 graded, 0 pending) instead of the stale "12 settled games" text; every model-minus-market interval still includes zero, so no edge is claimed.
 
+## What changed on 2026-11-19 (session b45ee35f)
+
+- **The 18 Nov injury-report claim is contradicted (F-26 / F-34).** A full read of the Week 11 report on 19 Nov (all 7 chunks; 253 player rows; 24 clubs with rows) shows that 22 of the 24 clubs the 18 Nov read marked "No Injuries Reported" now list player rows. Only CIN and WAS still read that way. The 18 Nov read also left Injuries and Game Status blank for all 26 rows it held; the 19 Nov read fills them for the Thursday game (16 designations). Which read was right at the time cannot be settled from two reads.
+- **Dated capture and counts-only delta.** `captures/2026-11-19/` holds the transcription, the pipe-delimited source, the converter and the metadata. The delta is in `captures/2026-11-19/delta-w11-r1-to-r2.json` (counts only). Row-level data stays in `private-store/`, which is public in this repository (F-31).
+- **Team view regenerated from the new read.** `site/data-team-view.html` now lists 26 clubs with counts only. Starters out, replacements named and the net injury count stay UNVERIFIED.
+- **Open:** the brief says 254 report rows, this read gives 253 (F-34). Friday's report is needed for Sunday and Monday designations.
+
 ## What changed on 2026-11-18 (session 21a111a4)
 
 - **Week 11 injury report captured (3 of 3 pages).** The reg11 URL now serves Week 11: 13 games, 26 club rows (IND and HOU, all with Wednesday practice statuses, no game designations, no injury types). The earlier "not published" statement is superseded (F-25). Twelve games read "No Injuries Reported"; that is not evidence of health (F-26).

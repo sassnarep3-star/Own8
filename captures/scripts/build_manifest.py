@@ -11,7 +11,12 @@ META_FILES = [
     "captures/2026-11-18/injury-report-w11.meta.json",
     "captures/2026-11-18/gamebook-2026-w10-ne-at-det.meta.json",
     "captures/2026-11-18/gamebook-2026-w10-lac-at-bal.meta.json",
+    "captures/2026-11-19/injury-report-w11-r2.meta.json",
 ]
+# Earlier captures stay byte-identical; a status note is added here, not in their files.
+SUPERSEDED = {
+    "injury-report-2026-w11-r1": "Superseded for the record by injury-report-2026-w11-r2 (19 Nov, all 7 chunks). The 18 Nov read held IND and HOU rows only; its 'No Injuries Reported' claim for 24 clubs is contradicted (F-26, F-34).",
+}
 
 
 def sha256(path):
@@ -56,6 +61,10 @@ for meta_rel in META_FILES:
         cap["clubs_no_injuries_reported"] = len(meta["teams_listed_no_injuries"])
     if "scope_note" in meta:
         cap["scope_note"] = meta["scope_note"]
+    if meta["capture_id"] in SUPERSEDED:
+        cap["status"] = SUPERSEDED[meta["capture_id"]]
+    else:
+        cap["status"] = "current"
     captures.append(cap)
 
 probes = load("captures/2026-11-18/probes.json")

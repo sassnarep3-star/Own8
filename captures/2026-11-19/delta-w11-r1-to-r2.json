@@ -1,0 +1,28 @@
+{
+  "schema": "own8-capture-delta/1",
+  "what": "Delta between two reads of the Week 11 injury report. Counts only; player names stay in private-store/.",
+  "earlier_capture": {
+    "id": "injury-report-2026-w11-r1",
+    "private_sha256": "ff5846bbd630a0271ddeaa2e81a54a7e3ad1853122eb8e3200787fc6e66c88f6",
+    "rows": 26,
+    "retrieved_utc_upper_bound": "2026-11-18T06:29:20Z",
+    "clubs_with_rows": 2
+  },
+  "later_capture": {
+    "id": "injury-report-2026-w11-r2",
+    "private_sha256": "a6b6a75baf82ecd49394a5b282dcaa55fad39c6030bc7effe913bd5a4c0d4ccc",
+    "rows": 253,
+    "retrieved_utc_upper_bound": null,
+    "clubs_with_rows": 24
+  },
+  "rows_in_both_reads": 26,
+  "rows_only_in_later_read": 227,
+  "rows_only_in_earlier_read": 0,
+  "practice_status_changed": 3,
+  "injury_text_changed_or_filled": 16,
+  "game_status_changed_or_filled": 16,
+  "clubs_read_no_injuries_on_earlier_read": 24,
+  "clubs_read_no_injuries_on_later_read": 2,
+  "clubs_with_rows_in_later_read_that_earlier_read_marked_no_injuries": 22,
+  "interpretation": "The earlier read held only the IND at HOU rows (26). Of the 24 clubs it marked 'No Injuries Reported', 22 now list player rows; CIN and WAS still read 'No Injuries Reported'. The earlier read's Injuries and Game Status cells were blank for all 26 rows; the later read fills them for IND and HOU. Which change is real and which is a capture artefact cannot be settled from two reads."
+}
