@@ -261,7 +261,7 @@ def build_exec():
 <ul>
 <li><b>Depth order.</b> The Houston depth-chart page returns 404 today. Without an official per-club depth source or official snap counts, no starter or backup can be identified (R-22, R-23).</li>
 <li><b>Injury history.</b> Only page 1 of the Week 10 report was re-read, and earlier captures disagree on row counts. Designations cannot be treated as a time series until they are captured on a schedule (F-05).</li>
-<li><b>Price history.</b> No official opening or closing series was found. The locked Thursday lines are the only price points, and 12 of the 14 Week 10 market rows are not re-verified (F-12, Q-01).</li>
+<li><b>Price history.</b> The <a href="{OFF_PICKS}">official Week 10 picks article</a> publishes FanDuel lines locked Thursday at 2 p.m. ET; it is not an opening/closing series. The <a href="../ledger/price-store.html">price ledger</a> records 39 locked market rows (side, total and moneyline for each of 13 originated Week 10 games) and no opening or closing values. F-12's "12 of 14" refers to the separate 17 Nov freshness re-read (2 of 14 game rows re-read), not missing locked-price values. These snapshots do not provide closing-line value (Q-01).</li>
 <li><b>Rights.</b> Whether nfl.com-derived tables can be republished is unread (Q-10).</li>
 </ul>
 <h2>5. Requirement status</h2>
