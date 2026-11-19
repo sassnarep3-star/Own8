@@ -707,9 +707,9 @@
    "id": "R-79",
    "group": "Governance",
    "requirement": "Pull request to main, merged without waiting, Pages deploy confirmed, record kept",
-   "status": "PENDING",
-   "exists": "Scheduled as the last step of this session",
-   "gap": "Result is recorded on the board and on the Flagged page once it happens.",
+   "status": "DONE",
+   "exists": "PR #89 https://github.com/sassnarep3-star/Own8/pull/89 merged as d1289d86 via `gh pr merge 89 --merge`; Pages build `built`, error null, for d29546f80e (which contains d1289d86); live re-fetch of site/index.html serves the decision-readiness table; record kept on this board.",
+   "gap": "— (met)",
    "source": ""
   },
   {
