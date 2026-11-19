@@ -272,6 +272,30 @@
    "evidence": "captures/2026-11-19/injury-report-w11-r2.meta.json; captures/2026-11-19/delta-w11-r1-to-r2.json; private-store/injury-report-2026-w11-r2.tsv",
    "link": "https://www.nfl.com/injuries/league/2026/reg11",
    "status": "OPEN: reconcile 253 vs 254; re-read Friday"
+  },
+  {
+   "id": "F-35",
+   "title": "A receiver listed under DEN on the 19 Nov read cannot be cross-checked against a transaction record",
+   "detail": "One WR in the Denver table of the 19 Nov read (Full Participation in Practice; the row is in private-store/injury-report-2026-w11-r2.tsv, team DEN, position WR) is listed on the report only. No official transactions record is reachable to confirm his club (F-29, F-30), so the listing is taken as printed and not verified as a roster fact. This is the roster-turnover case the brief asks the site to version (club and date of the last official roster event).",
+   "evidence": "private-store/injury-report-2026-w11-r2.tsv (row only; name not published here)",
+   "link": "https://www.nfl.com/injuries/league/2026/reg11",
+   "status": "OPEN (roster move not verified)"
+  },
+  {
+   "id": "F-36",
+   "title": "Operator decision: delta view or level view on the per-team page",
+   "detail": "The brief asks to publish the delta, never the level, for injury status, and also asks for a per-team view with starters out, replacements named and a net injury count. The site publishes change counts per club only. Starters out and replacements need an official depth source that is not reachable (F-29). The net injury count has no definition in the brief. Choosing between a level and a delta view, and defining the net count, is the operator's decision.",
+   "evidence": "site/data-team-view.html; site/scripts/content.py (R-07, R-29)",
+   "link": "https://www.nfl.com/injuries/league/2026/reg11",
+   "status": "DECISION NEEDED"
+  },
+  {
+   "id": "F-37",
+   "title": "A second transcription of the 19 Nov read matches the stored file row for row",
+   "detail": "A second transcription of the seven fetch_page chunks, made separately in session de30e06c, matches the stored 253-row file: same header, identical row sets, sorted-row SHA-256 30c98b80...ffcda7. Both come from the same fetch_page text, so this shows the transcription is consistent, not that it equals nfl.com's bytes. It does not settle F-34: the 254 figure in the brief remains unreconciled. One unverified hypothesis is that 254 counts the TSV header line as well as the 253 rows.",
+   "evidence": "captures/2026-11-19/verification-second-transcription.json",
+   "link": "https://www.nfl.com/injuries/league/2026/reg11",
+   "status": "RECORDED (consistency check; F-34 stays open)"
   }
  ]
 }

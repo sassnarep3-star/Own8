@@ -3032,3 +3032,37 @@ Log (41ef2b2f follow-up):
 - 2026-11-19 — During the required rebase, PR #92 (session b45ee35f) merged and its COORDINATION.md section conflicted with this appended claim. Resolved by preserving the full b45ee35f record and this session's full claim; no files from PR #92 were discarded or edited.
 - 2026-11-19 — A second board conflict arrived during rebase when PR #94 (session b45ee35f publication record) merged. Both the new release record and this follow-up claim are retained; site/data changes remain in their owners' scopes.
 - 2026-11-19 — Rebuilt only the executive-summary page by importing `site/scripts/build.py` and calling `build_exec()` (avoids touching files owned by the live injury-report PR #92). `python3 site/check.py`: 17 pages, all links resolve, every table row has source/UNVERIFIED. `python3 ledger/scripts/check_ledger.py`: 25/25 pass, including 39/39 locked prices, 0 opening/closing values, 13 Week 10 games and 87 snapshots. The updated paragraph calls 2/14 a re-read freshness count and 39/39 the stored locked-price coverage; no opening/closing values or CLV are claimed.
+
+## Session de30e06c — Thursday re-read of the Week 11 official injury report, delta check, stale-claim corrections, PR + merge (claimed 2026-11-19 UTC, base main @ fb7e0eb; re-based onto main @ d29546f)
+
+Branch: `arena/de30e06c-own8` (Arena-pinned; all work on this branch; the `session-<id>/<task>` naming in the operator brief is overridden by the session branch rule).
+
+**Collision record (read first).** This session claimed the Week 11 Thursday re-read in acb8e5f (pushed to this branch before other work) and built a full capture, delta and site update in 4292b88. While integrating, `origin/main` was found to contain session **b45ee35f**'s merged PR #92 (commit 375fd60, 2026-11-19 12:15:48 UTC), which did the same full seven-chunk read, the same 253-row file, a counts-only delta, a regenerated team view and register updates. Its claim was not visible on `main` when this session read the board. Resolution, per the merge protocol (nothing of another session's work was discarded):
+
+- b45ee35f's merged work is the base. Its capture (`captures/2026-11-19/`), `private-store/injury-report-2026-w11-r2.tsv`, `captures/scripts/build_team_view.py`, `diff_captures.py` and `site/data-team-view.html` are kept unchanged.
+- This session's duplicate capture, delta script and team-view generator (4292b88 and acb8e5f, saved as patch files in this session's workspace) were **dropped** in favour of b45ee35f's versions. Its delta matches this session's independent computation exactly (see D2).
+- This session's **unique** deltas were re-applied on top of main: (a) a second, separately made transcription of the same seven chunks, recorded as hashes and counts only, with a checker; (b) the live Injuries page, whose builder still said "Week 11 ... Not published: the reg11 URL serves Week 10 content" (a wrong statement on the public site), rebuilt from the delta; (c) the landing-page injury row, which still said "Week 11 report not yet published"; (d) register rows R-07, R-10 and R-29 that still said "none" or "not built"; (e) flags F-35 to F-37 (numbering continues after b45ee35f's F-34); (f) one executive-summary bullet; (g) a nav entry for the per-team view.
+- Branch history: the remote branch tip was this session's claim commit acb8e5f. The branch is re-based onto main and pushed with `--force-with-lease` against acb8e5f (this session's own branch, no other branch touched). Commits acb8e5f and 4292b88 remain in the GitHub reflog and are named here for audit.
+
+| ID | Task | Status | Owner | Files | Verification |
+| --- | --- | --- | --- | --- | --- |
+| D0 | Claim and collision record | done | de30e06c | COORDINATION.md | claim pushed as acb8e5f before work; collision found on integration (above) |
+| D1 | Thursday full re-read of reg11 | done by b45ee35f (PR #92, 375fd60); independently re-transcribed here and matched | de30e06c (check) / b45ee35f (capture) | captures/2026-11-19/, private-store/ | Second transcription: same header, 253 rows, identical row sets; sorted-row SHA-256 `30c98b80…ffcda7` in both (captures/2026-11-19/verification-second-transcription.json). `check_captures.py` OK. |
+| D2 | Counts-only delta, checked independently | done | de30e06c (check) / b45ee35f (delta) | captures/scripts/check_delta_independent.py | Recomputed from the private reads: 26 rows in both, 227 only on read 2, 0 only on read 1, 3 practice changes, 16 injury texts filled, 16 designations filled; all equal the published delta. No player name, designation or injury text appears in any public capture file. |
+| D3 | Live Injuries page and landing page: remove the superseded 18 Nov statements; per-team view linked | done | de30e06c | site/scripts/build.py, site/data-injuries.html, site/index.html, site/data-team-view.html (generator unchanged) | `build.py` + `check.py` OK (17 pages); no "not yet published" text on any page except the superseded F-07 title; `build_team_view.py` regenerates the committed page byte-for-byte |
+| D4 | Register rows and flags | done | de30e06c | site/scripts/content.py, site/data/*.json | R-07, R-10, R-29 corrected; F-35 (roster listing not cross-checkable), F-36 (operator decision: level vs delta), F-37 (second transcription matches) added |
+| D5 | Integration: PR, CI, merge, Pages | in progress | de30e06c | COORDINATION.md | see the record below |
+
+Sources (all `fetch_page` reads of the official URL, 2026-11-19; the page returns no clock time, so bounds are bash-clock upper bounds): https://www.nfl.com/injuries/league/2026/reg11 (7 of 7 chunks). Schedule and Game Book sources as recorded in the earlier sections of this board.
+
+Verification record (2026-11-19):
+- `python3 captures/scripts/check_captures.py` → OK (4 captures; hashes, pinned schema, row counts, 26 clubs, 13 game pairs equal to the stored schedule).
+- `python3 captures/scripts/check_delta_independent.py` → OK (see D2).
+- `python3 captures/scripts/build_team_view.py` → regenerates the committed `site/data-team-view.html` with no diff.
+- `python3 site/scripts/content.py`, `python3 site/scripts/build.py`, `python3 site/check.py` → OK (17 pages; links resolve; every row has a source or UNVERIFIED mark; no orphan pages).
+- Root `scripts/check_links.py` OK; `scripts/audit_publication.py` OK; `requirements/scripts/check_req.py` OK; `signals/scripts/check_signals.py` 115/115 OK.
+
+Irregularities (all on the Flagged for Review page; none blocks the merge): F-34 (253 vs 254, unresolved; F-37 records the consistency check); F-35 (one DEN receiver's roster status not cross-checkable); F-36 (operator decision on level vs delta); F-31 (private-store is in a public repository); F-24 (root build script regenerates the legacy index.html, reverted here).
+
+Not done, stated plainly: the Friday 20 Nov and Saturday 21 Nov reads (not yet possible on 19 Nov, so Q-07 and F-35 stay open); daily or Wednesday-to-kickoff scheduling (no scheduler in this sandbox); depth-chart and transactions routes (404, F-29); snap counts (no official route found); the reconciliation of 253 vs 254 (F-34); any model, strategy, leaderboard or line change. No value was inferred from a failed probe.
+
