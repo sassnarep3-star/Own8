@@ -1,0 +1,16 @@
+{
+  "schema": "own8-second-transcription/1",
+  "what": "Record of a second, separately made transcription of the Week 11 injury report read on 2026-11-19. Hashes and counts only: no player names are published here.",
+  "source_url": "https://www.nfl.com/injuries/league/2026/reg11",
+  "primary_capture": "injury-report-2026-w11-r2",
+  "primary_rows_file": "private-store/injury-report-2026-w11-r2.tsv",
+  "primary_rows_file_sha256": "a6b6a75baf82ecd49394a5b282dcaa55fad39c6030bc7effe913bd5a4c0d4ccc",
+  "primary_rows": 253,
+  "second_transcription_rows": 253,
+  "header_identical": true,
+  "row_sets_identical": true,
+  "sorted_rows_sha256": "30c98b804fc342b0f3e7f527f2892d8c126b140abb5336e141ee0e7505ffcda7",
+  "method": "The seven fetch_page chunks (chunkIndex 0 to 6) were transcribed a second time by session de30e06c, then compared row for row against the primary file (same header, same 253 rows, identical sets). The sorted-row SHA-256 is computed over the data lines, sorted, joined by newlines, UTF-8.",
+  "limit": "Both transcriptions come from the same fetch_page text. This shows the transcription is consistent, not that it equals nfl.com's bytes. The second transcription file is not kept, so this hash cannot be re-derived from the repository alone.",
+  "unresolved": "The brief's 254-row figure is not reconciled (F-34). One possible explanation is that the TSV has 254 lines including its header; this is a hypothesis, not verified."
+}

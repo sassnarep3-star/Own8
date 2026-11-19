@@ -61,6 +61,7 @@ NAV = [
     ("data-lines.html", "Lines vs market"),
     ("data-schedule.html", "Schedule & venues"),
     ("data-injuries.html", "Injuries"),
+    ("data-team-view.html", "Per-team view"),
     ("data-depth.html", "Depth & availability"),
     ("strategies.html", "Strategies"),
     ("correlations.html", "Correlations"),
@@ -73,7 +74,7 @@ NAV = [
 ]
 CATS = [
     ("Overview", ["index.html", "executive-summary.html"]),
-    ("Data (official)", ["data-standings.html", "data-results.html", "data-schedule.html", "data-injuries.html", "data-depth.html"]),
+    ("Data (official)", ["data-standings.html", "data-results.html", "data-schedule.html", "data-injuries.html", "data-team-view.html", "data-depth.html"]),
     ("Models & lines", ["data-lines.html", "strategies.html", "correlations.html"]),
     ("Decisions", ["requirements.html", "questions.html", "suggestions.html"]),
     ("Review", ["repo-review.html", "sources.html", "flagged.html"]),
@@ -206,7 +207,7 @@ def build_index():
          "CONFLICT (F-01)", REPO + "ledger/data/strategy-registry.json"],
         ["Availability (depth, snaps, Game Books)", "No official depth source verified. The Houston depth-chart page returns 404 (17 Nov). No snap counts or Game Books captured.",
          "BLOCKED", OFF_DEPTH],
-        ["Injury report", "Week 10 report: page 1 of 8 re-read; Lions designations verified. Earlier captures disagree on row counts. Week 11 report not yet published.",
+        ["Injury report", "Week 10 report: page 1 of 8 re-read; Lions designations verified. Earlier captures disagree on row counts. Week 11 report read twice (18 and 19 Nov); change counts on the Injuries page.",
          "PARTIAL", OFF_INJ10],
         ["Correlations", "Nine descriptive correlations with n and 95% intervals. Four survive Holm correction; C2 does not.", "DESCRIPTIVE ONLY (F-13)", REPO + "origination/results/correlations.json"],
     ]
@@ -244,6 +245,7 @@ def build_exec():
 <li>All 14 Week 10 games are final. Monday LAC@BAL showed no score on nfl.com as read 2026-11-17 (stale pending status) and was confirmed FINAL on 2026-11-18 against the official Game Book: LAC 20, BAL 23.</li>
 <li>Week 11 has 13 games and 6 byes. Thursday's Colts at Texans venue is Reliant Stadium, Houston ({a(OFF_SCHED, "schedule")}; {a(OFF_COLTS, "game centre")}). Venues for the other 12 games are not verified.</li>
 <li>Lions designations: Kerby Joseph, Cade Mays and D.J. Reed are all Out on the Week 10 report ({a(OFF_INJ10, "injury report")}, F-15).</li>
+<li>Week 11 injury report read twice (18 and 19 Nov). Between the reads, 22 clubs moved from "No Injuries Reported" to listed rows and 16 game designations were filled, all on the Thursday game (IND at HOU). Only change counts are published ({a(OFF_INJ11, "official report")}; <a href="data-injuries.html">Injuries</a>, F-34).</li>
 </ul>
 <h2>2. What the model does, and how it did</h2>
 <ul>
@@ -371,27 +373,55 @@ def build_schedule():
     page("data-schedule.html", "Schedule & venues", body, lead="Week 11 fixtures, provisional fair lines, and venues (only where the game centre has been read).")
 
 
+DELTA_PUB = os.path.join(ROOT, "captures", "2026-11-19", "delta-w11-r1-to-r2.json")
+MANIFEST_PUB = os.path.join(ROOT, "captures", "manifest.json")
+
+
 def build_injuries():
-    rows = [
+    with open(DELTA_PUB, encoding="utf-8") as f:
+        d = json.load(f)
+    with open(MANIFEST_PUB, encoding="utf-8") as f:
+        man = {c["id"]: c for c in json.load(f)["captures"]}
+    e_bound = man["injury-report-2026-w11-r1"]["retrieved_utc_upper_bound"]
+    l_bound = man["injury-report-2026-w11-r2"]["retrieved_utc_upper_bound"]
+    reads = [
+        ["Read 1 (Week 11 report, 3 of 3 chunks)", e_bound + " (upper bound)", "13 games; rows for 2 clubs (IND, HOU); 24 clubs 'No Injuries Reported'", str(d["earlier_capture"]["rows"]), a(OFF_INJ11, "Official report")],
+        ["Read 2 (Week 11 report, 7 of 7 chunks)", l_bound + " (upper bound)", "13 games; rows for 24 clubs; 2 clubs 'No Injuries Reported' (CIN, WAS)", str(d["later_capture"]["rows"]), a(OFF_INJ11, "Official report")],
+    ]
+    changes = [
+        ["Clubs that moved from 'No Injuries Reported' to listed rows", str(d["clubs_with_rows_in_later_read_that_earlier_read_marked_no_injuries"]), a(OFF_INJ11, "Official report")],
+        ["Players on read 2 not on read 1", str(d["rows_only_in_later_read"]), a(OFF_INJ11, "Official report")],
+        ["Players on read 1 not on read 2", str(d["rows_only_in_earlier_read"]), a(OFF_INJ11, "Official report")],
+        ["Practice status changed (same player, same club)", str(d["practice_status_changed"]), a(OFF_INJ11, "Official report")],
+        ["Injury text filled (blank on read 1)", str(d["injury_text_changed_or_filled"]), a(OFF_INJ11, "Official report")],
+        ["Game designation filled (blank on read 1)", str(d["game_status_changed_or_filled"]), a(OFF_INJ11, "Official report")],
+    ]
+    lions = [
         ["Kerby Joseph", "Detroit Lions", "Out", a(OFF_INJ10, "Official report")],
         ["Cade Mays", "Detroit Lions", "Out", a(OFF_INJ10, "Official report")],
         ["D.J. Reed", "Detroit Lions", "Out", a(OFF_INJ10, "Official report")],
     ]
-    cap = [
-        ["Week 10 report, page 1 of 8", "Re-read 17 Nov", "Partial", a(OFF_INJ10, "Source")],
-        ["Week 10 report, pages 2 to 8", "Not re-read", "Not captured", a(OFF_INJ10, "Source")],
-        ["Week 11 report", "Not published: the reg11 URL serves Week 10 content", "Blocked", a(OFF_INJ11, "Source")],
-        ["Earlier Week 10 captures in repo", "Row counts disagree (F-05)", "Unresolved", a(REPO + "integration/data/injuries-2026-week10.json", "Repo")],
-    ]
     body = f"""
-<p class="meta">Official NFL injury report, Week 10 (page 1 of 8 read {FETCH}). Only the designation below is confirmed; this table does not list injury types or practice status.</p>
-<h2>Lions designations (verified on the Week 10 report)</h2>
-{table(["Player", "Team", "Designation", "Source"], rows, filter_id="lions")}
-<h2>Capture status</h2>
-{table(["Capture", "State", "Result", "Source"], cap)}
-<p class="flag-line"><b>Not done:</b> a time series of designations (R-07 to R-10) and daily capture from Wednesday to kickoff (R-08). The brief asks for injury surprises, never levels; that needs at least two timestamped reads per player.</p>
+<p class="meta">Official NFL injury report, Week 11. Two timestamped reads of the same URL. Only change counts are published here; player rows stay in <code>private-store/</code> (F-31).</p>
+<p class="flag-line"><b>Read this first.</b> The 18 Nov read showed 24 clubs as 'No Injuries Reported'. The 19 Nov read lists rows for 24 of the 26 clubs. The 18 Nov statement is superseded (F-26) and is not a current status for any club. A clean read is not evidence of health.</p>
+<h2>Reads (clock time is an upper bound; fetch_page returns no clock time)</h2>
+{table(["Read", "Retrieved (UTC)", "Content", "Player rows", "Source"], reads)}
+<h2>What changed between the two reads (counts only)</h2>
+{table(["Change", "Count", "Source"], changes)}
+<p class="meta">{E(d["interpretation"])}</p>
+<p class="meta">Per-club view: <a href="data-team-view.html">per-team view</a>. Delta: <a href="https://github.com/sassnarep3-star/Own8/blob/main/captures/2026-11-19/delta-w11-r1-to-r2.json">captures/2026-11-19/delta-w11-r1-to-r2.json</a>; independent check: <a href="https://github.com/sassnarep3-star/Own8/blob/main/captures/scripts/check_delta_independent.py">captures/scripts/check_delta_independent.py</a>.</p>
+<h2>Lions designations (Week 10 report, verified 17 Nov; not changed by the Week 11 reads)</h2>
+{table(["Player", "Team", "Designation", "Source"], lions, filter_id="lions")}
+<h2>Still missing</h2>
+<ul>
+<li><b>Friday 20 Nov and Saturday 21 Nov reads.</b> Two reads show a change between 18 and 19 Nov only (Q-07, F-35).</li>
+<li><b>Practice trend (DNP to LP to FP).</b> Needs at least three reads on different days (R-09). Not yet measurable.</li>
+<li><b>Daily capture from Wednesday to kickoff (R-08).</b> No scheduler captures nfl.com; each read is a manual fetch.</li>
+<li><b>Week 10 pages 2 to 8 (F-05).</b> The Week 10 row count is still unreconciled.</li>
+<li><b>Decision needed (F-36):</b> level view or delta view for the per-team page, and a definition of the net injury count.</li>
+</ul>
 """
-    page("data-injuries.html", "Injuries", body, lead="What the official report says, what we re-read today, and what is still missing.")
+    page("data-injuries.html", "Injuries", body, lead="Two official reads of the Week 11 report, the change between them, and what is still missing.")
 
 
 def build_depth():
