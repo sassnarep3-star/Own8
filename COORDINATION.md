@@ -2956,3 +2956,10 @@ Log (41ef2b2f):
 
 Log (29145302) final:
 - 2026-11-19 (T4 done) — PR https://github.com/sassnarep3-star/Own8/pull/87 MERGED as 4b5ee0086f9d173f77524205714241d21974ef0c (2026-11-19T12:12:58Z) with gh pr merge --merge; checks validate/evidence-and-site/independent-desk all pass, mergeStateStatus CLEAN. GitHub Pages latest build: status built, error null (commit 2196844c, which includes PR #88 from session 41ef2b2f merged concurrently after #87; no conflict with this session's scope). Live site: https://sassnarep3-star.github.io/Own8/site/index.html ; Sources page renders the 2026-11-19 re-verification table. Flagged irregularities published on Flagged for Review page; none blocked the merge.
+
+### 41ef2b2f — publication record (2026-11-19)
+
+- **PR #88:** https://github.com/sassnarep3-star/Own8/pull/88 — **MERGED** as `2196844c4dbc33139d9760c8ee500bdc2f8bf8e8` at 2026-11-19T12:13:52Z. This PR only records the cross-session duplicate-claim handoff; no site/data files changed.
+- **Checks:** `evidence-and-site` and `independent-desk` passed on PR #88. The merge-triggered root dashboard and independent desk checks also passed on the merge commit.
+- **Pages:** workflow 44521950832 completed successfully (Jekyll build, report status, deploy); the deployed commit is the PR #88 merge commit. GitHub Actions emitted a Node.js 20 deprecation annotation for `actions/upload-artifact@v4`, not a build failure.
+- **Feature disposition:** no duplicate work was performed. The actual executive-summary refresh, 2026-11-19 re-verification, and site QA are in session 29145302 / PR #87. Remaining open injury/depth/price-data and policy gaps stay as previously flagged; this session did not upgrade them.
