@@ -23,7 +23,8 @@
 <h2>2. What the model does, and how it did</h2>
 <ul>
 <li>The shadow baseline (B0) uses team strength only: points for and against per game, no injuries, no depth, no venue. Its formula reproduces all 13 stored Week 10 values (F-02).</li>
-<li>Week 10, 12 settled games: spread error 10.30 points (model) vs 10.46 (market). Total error 9.54 vs 8.50; the market is better here. Moneyline Brier 0.171 vs 0.164 (market). Every model-minus-market interval includes zero. Twelve games are not evidence in either direction.</li>
+<li>Week 10, 13 graded games (0 pending): spread error 10.30 points (model) vs 10.46 (market). Total error 9.54 vs 8.50; the market is better here. Moneyline Brier 0.171 vs 0.164 (market). Every model-minus-market interval includes zero. 13 games are not evidence in either direction.</li>
+<li>Re-verified live on 2026-11-19 (session 29145302): the nfl.com standings, Week 10 scores and Week 11 schedule pages were re-read and match the stored captures on every observed row (24 standings rows, 9 Week 10 finals, 6 Week 11 games; see <a href="sources.html">Sources</a>). Unobserved rows were left as stored, not upgraded.</li>
 <li>Week 11 fair lines were written in commit beca9d2 from the standings snapshot taken before Monday's game. They are <b>provisional</b>, have no market column, and will be re-originated once Monday is verified final (F-23).</li>
 </ul>
 <h2>3. Strategies and the leaderboard</h2>

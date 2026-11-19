@@ -2931,3 +2931,9 @@ Branch: `arena/29145302-own8` (Arena-pinned; work stays on this branch). Read th
 
 Log (29145302):
 - 2026-11-19 (T0) — Claim written; pushing before implementation.
+
+Log (29145302) continued:
+- 2026-11-19 (T1) — Live re-verification via fetch_page: standings (24 rows observed, all match stored W/L/T/PCT/PF/PA), Week 10 scores (9 finals observed, all match), Week 11 schedule (6 games observed, all match). Unobserved rows left as stored. Record: site/data/verification-2026-11-19.json. Irregularity: live standings still predate the verified Monday final (BAL/LAC); stored and live agree, flagged not inferred. No injury/depth/price page re-read; those captures not upgraded.
+- 2026-11-19 (T2) — Executive summary fixed to live graded count (13 graded, 0 pending; was stale "12 settled games"); Sources page now renders the 2026-11-19 re-verification table. Questions (20 rows), suggestions (10 rows), requirements (80 rows) registers regenerated via content.py; no new decisions implemented.
+- 2026-11-19 (T3) — QA green: content.py + build.py (16 pages), site/check.py OK (17 pages, links resolve, every row sourced/UNVERIFIED), ledger check 25/25, model_b0 check reproduces grading. README "What changed 2026-11-19" added.
+- 2026-11-19 (T4 in progress) — Creating PR from arena/29145302-own8 to main; will merge with gh pr merge --merge and confirm Pages built.
