@@ -8,6 +8,18 @@ editing it. Make small, frequent commits; `git pull --rebase` before every push.
 If a claim is >60 minutes old with no commits, another session may take it over
 and note the handoff here.
 
+## Session ccf863a6 — decision guide: actionable unknowns, answers, and reviewable suggestions (claimed 2026-11-19 UTC)
+
+Branch: `arena/ccf863a6-own8` (Arena-pinned; work remains on this branch). Read the task board before starting: prior category-site and integration sessions are complete; the current landing page and question registers are date-stale relative to the latest integrated results. This task is a scoped add-on, not a rewrite of captured data or another source verification pass.
+
+| ID | Task | Status | Owner | Files (scope) | Verification plan |
+| --- | --- | --- | --- | --- | --- |
+| CCF-0 | Board claim | in progress | ccf863a6 | COORDINATION.md (this section) | Commit and push claim before implementation. |
+| CCF-1 | Add decision guide: answer / known evidence / missing evidence / gate / safe next step, with clearly separated operator-only choices | in progress | ccf863a6 | site/scripts/build.py, site/decision-guide.html | Build deterministically; every row includes an official source or explicit UNVERIFIED marker; run site/check.py and inspect generated diff. |
+| CCF-2 | Refresh scope/status record and PR/deploy QA | unclaimed | ccf863a6 | COORDINATION.md | Run relevant repository checks; create PR from this branch; merge only with passing checks and record Pages result. |
+
+**Scope note:** no new NFL statistic, result, injury designation, odds policy, licensing conclusion or reward decision will be invented. This guide will state when evidence comes from a dated repository artifact rather than a fresh official read. No other session's data, source captures, registry, or shared outputs are edited.
+
 ## Session 4fcbfdf8 — final integration: Week 10 official results, dashboard consistency, and release QA (claimed 2026-11-18 UTC)
 
 Branch: `arena/4fcbfdf8-own8` (Arena-pinned; work stays on this branch; no other branch/worktree is created). Read the board before acting. Existing site, ledger, and requirements tasks are marked done; PR #70 (`session-30caea4e/**`) is an unmerged completed evidence capture whose author explicitly requested final integration. Its scope is isolated to that session directory plus this board, so this claim does not edit those artifacts.
