@@ -156,7 +156,7 @@ class Arithmetic(unittest.TestCase):
 
     def test_results_feed_has_137_rows_and_no_arithmetic_failure(self):
         feed = demotion_gate.load_json(os.path.join(LEDGER, "data", "results-feed.json"))
-        self.assertEqual(len(feed["rows"]), 137)
+        self.assertEqual(len(feed["rows"]), 150)  # 136 verified-log games + 14 Week 10 finals (session 4fcbfdf8 I2)
         self.assertEqual(feed["counts"]["arithmetic_failures"], 0)
         self.assertEqual(sum(1 for r in feed["rows"] if r["winner"] == "NONE"), 1)
 
