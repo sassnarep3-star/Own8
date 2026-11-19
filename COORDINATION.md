@@ -3024,7 +3024,7 @@ This is a separate, narrow follow-up after the original executive-summary scope 
 | --- | --- | --- | --- | --- | --- |
 | S41-3a | Claim distinct summary wording correction | done | 41ef2b2f | COORDINATION.md (this subsection) | Claim commit 2570364 pushed before summary edits. |
 | S41-3b | Clarify fresh-read count vs stored locked-line coverage | done | 41ef2b2f | site/scripts/build.py, site/executive-summary.html | Targeted `build_exec()` regeneration; `site/check.py` PASS (17 pages); `ledger/scripts/check_ledger.py` PASS (25/25): 39 markets / 13 games, 39 locked verified, 0 opening and 0 closing values, 87 snapshot rows. New text distinguishes F-12 freshness from stored price coverage and links the nfl.com article + price ledger. |
-| S41-3c | Record tests, PR, merge, Pages deployment | in progress | 41ef2b2f | COORDINATION.md (this subsection) | Site/ledger checks pass; PR and Pages publication pending. |
+| S41-3c | Record tests, PR, merge, Pages deployment | done | 41ef2b2f | COORDINATION.md (this subsection) | PR #93 merged; checks passed; Pages built and live executive-summary re-fetch confirms the new paragraph. |
 
 Log (41ef2b2f follow-up):
 - 2026-11-19 — Published-page spot check found the price paragraph still says "12 of the 14 Week 10 market rows are not re-verified," next to a separate ledger that records 39 locked values over 13 games. This is a terminology/freshness distinction, not evidence of missing official opening/closing values. Exact wording will be corrected without altering F-12 or claiming a fresh NFL fetch.
@@ -3066,3 +3066,11 @@ Irregularities (all on the Flagged for Review page; none blocks the merge): F-34
 
 Not done, stated plainly: the Friday 20 Nov and Saturday 21 Nov reads (not yet possible on 19 Nov, so Q-07 and F-35 stay open); daily or Wednesday-to-kickoff scheduling (no scheduler in this sandbox); depth-chart and transactions routes (404, F-29); snap counts (no official route found); the reconciliation of 253 vs 254 (F-34); any model, strategy, leaderboard or line change. No value was inferred from a failed probe.
 
+
+### 41ef2b2f follow-up — publication record (2026-11-19)
+
+- **PR #93:** https://github.com/sassnarep3-star/Own8/pull/93 — **MERGED** as `5a2a0a16271cdd11be3a30a410cfc8fee5f5f28c` at 2026-11-19T12:23:07Z.
+- **Checks:** `validate`, `evidence-and-site`, `independent-desk` all passed on the final rebased PR head. PR #92 from b45ee35f merged during rebasing; the COORDINATION.md conflicts were resolved by preserving both task records and all of PR #92's changes.
+- **Pages:** workflow 44523385213 succeeded; Pages API returned `built`, no error, for commit `5a2a0a1`. Live re-fetch of https://sassnarep3-star.github.io/Own8/site/executive-summary.html (cache-busted) shows the corrected price-history paragraph and links to the official picks article and price ledger.
+- **Scope:** only the summary wording and its generator changed for this follow-up. No new source values were introduced; no changes to injuries, depth, other price rows, or strategy eligibility.
+- 2026-11-19 — The final PR-record commit conflicted with session de30e06c after its PR #95 merged. Kept the complete de30e06c entry and this follow-up's publication record; no capture, injury, or site changes from that session were removed.
