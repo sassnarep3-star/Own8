@@ -2954,6 +2954,9 @@ Log (41ef2b2f):
 - 2026-11-19 — Before the claim could be pushed, `git pull --rebase origin main` fetched commit 4b5ee00 (PR #87), including session 29145302's exact overlapping site-summary scope and its recorded fix. Per the no-duplicate rule, stopped implementation; retained their entire section and this session's board record only. No site, data, or summary files were edited. Initial tests before the rebase exposed the stale 12-vs-13 line; the merged 29145302 log records its correction and QA.
 - 2026-11-19 — Rebase conflict in COORDINATION.md resolved by preserving both session records; this session is marked superseded/needs review rather than claiming duplicate work. The original claim commit 9ad7cb0 was not pushed before the other session landed.
 
+Log (29145302) final:
+- 2026-11-19 (T4 done) — PR https://github.com/sassnarep3-star/Own8/pull/87 MERGED as 4b5ee0086f9d173f77524205714241d21974ef0c (2026-11-19T12:12:58Z) with gh pr merge --merge; checks validate/evidence-and-site/independent-desk all pass, mergeStateStatus CLEAN. GitHub Pages latest build: status built, error null (commit 2196844c, which includes PR #88 from session 41ef2b2f merged concurrently after #87; no conflict with this session's scope). Live site: https://sassnarep3-star.github.io/Own8/site/index.html ; Sources page renders the 2026-11-19 re-verification table. Flagged irregularities published on Flagged for Review page; none blocked the merge.
+
 ### 41ef2b2f — publication record (2026-11-19)
 
 - **PR #88:** https://github.com/sassnarep3-star/Own8/pull/88 — **MERGED** as `2196844c4dbc33139d9760c8ee500bdc2f8bf8e8` at 2026-11-19T12:13:52Z. This PR only records the cross-session duplicate-claim handoff; no site/data files changed.
