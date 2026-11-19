@@ -8,6 +8,31 @@ editing it. Make small, frequent commits; `git pull --rebase` before every push.
 If a claim is >60 minutes old with no commits, another session may take it over
 and note the handoff here.
 
+## Session ccf863a6 — decision guide: actionable unknowns, answers, and reviewable suggestions (claimed 2026-11-19 UTC)
+
+Branch: `arena/ccf863a6-own8` (Arena-pinned; work remains on this branch). Read the task board before starting: prior category-site and integration sessions are complete; the current landing page and question registers are date-stale relative to the latest integrated results. This task is a scoped add-on, not a rewrite of captured data or another source verification pass.
+
+| ID | Task | Status | Owner | Files (scope) | Verification plan |
+| --- | --- | --- | --- | --- | --- |
+| CCF-0 | Board claim | done (claim pushed as a899cbc) | ccf863a6 | COORDINATION.md (this section) | Claim commit pushed before implementation. |
+| CCF-1 | Add decision guide and refresh demonstrably stale result/injury/policy status | done | ccf863a6 | site/scripts/build.py, site/scripts/content.py, site/check.py, site/data/{requirements,questions,flags,sources,suggestions}.json, site/data/verification-ccf863a6-2026-11-19.json, generated site/*.html, COORDINATION.md | Official pages re-read on 19 Nov; registers regenerated; every decision/question/correlation/strategy table row has an official NFL link or explicit UNVERIFIED marker; build/check and repository gates pass. |
+| CCF-2 | Refresh scope/status record and PR/deploy QA | in progress | ccf863a6 | COORDINATION.md | Create PR from this branch; wait for checks, merge without waiting for human review per request, confirm Pages deployment and record result. |
+
+**Scope note:** no new NFL statistic, result, injury designation, odds policy, licensing conclusion or reward decision was invented. The guide distinguishes current source reads from dated repository artifacts. No other session's raw capture or strategy registry was edited.
+
+**CCF-1 source reads (2026-11-19; links also appear on the Sources page):**
+- https://www.nfl.com/injuries/league/2026/reg11 — official Week 11 page, first returned chunk of 7 only; identified Thursday report/status columns; not transcribed as a complete dataset and no raw hash was retained for this live read.
+- https://www.nfl.com/teams/houston-texans/depth-chart — official 404 page; one club only, not evidence about all 32 clubs.
+- https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season — first returned chunk of 7; article states FanDuel lines locked Thursday 2 p.m. ET and visible Week 10 game lines; no opening/closing series inferred.
+- https://www.nfl.com/legal/terms/ — first returned chunk of 9; visible terms updated 16 May 2024 and state individual/non-commercial/informational use plus restrictions on copying/systematic retrieval absent express prior written consent. This is not legal advice or a project-specific rights determination.
+- https://nextgenstats.nfl.com/stats/passing — official review target for passing-stat inputs; historical weekly values used by existing correlations were not re-transcribed in this pass.
+- Prior 19 Nov live rechecks of standings, scores and schedule (session 29145302) were retained as partial: 24 standings rows, 9 Week 10 finals and 6 Week 11 games observed; other rows not upgraded.
+- During `git pull --rebase origin main`, main advanced to `6f32776` with session de30e06c's complete 7-chunk Week 11 capture and updated delta/team-view. Conflicts were resolved by preserving those newer captured artifacts and their count caveats, while applying the decision-guide/register changes; no upstream capture was overwritten. The repository capture reports 253 rows, while the brief says 254; F-34/F-37 remain open.
+
+**Verification performed:** `python3 site/scripts/content.py` generated 80 requirement rows, 20 questions, 10 suggestions, 33 flags and 23 source entries; `python3 site/scripts/build.py` generated 18 pages; `python3 site/check.py` PASS (all links resolve, all table rows sourced or UNVERIFIED, and decision/question/correlation/strategy tables require official links or an UNVERIFIED mark). Also PASS: root audit (256 comparisons, 0 mismatches), root analysis (0 eligible strategies / 0 candidates), 18 unit tests, root link check (3023 links), publication audit (61 active HTML files), requirements check, and ledger check (25/25).
+
+**Limits / irregularities:** the 19 Nov NFL injury read is partial and unhashed; it proves a live report version, not a player-level delta. No 32-club depth source, official snap-count route, licensed market feed, private store, terms authorization, or reward decision was established. The older per-team injury table remains an 18 Nov snapshot and is now prominently labelled stale. No opening/closing prices or CLV are fabricated. The standings full-feed reconciliation remains 152/160 cells, and only 24 live standings rows were rechecked.
+
 ## Session 4fcbfdf8 — final integration: Week 10 official results, dashboard consistency, and release QA (claimed 2026-11-18 UTC)
 
 Branch: `arena/4fcbfdf8-own8` (Arena-pinned; work stays on this branch; no other branch/worktree is created). Read the board before acting. Existing site, ledger, and requirements tasks are marked done; PR #70 (`session-30caea4e/**`) is an unmerged completed evidence capture whose author explicitly requested final integration. Its scope is isolated to that session directory plus this board, so this claim does not edit those artifacts.

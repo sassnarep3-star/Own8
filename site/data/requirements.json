@@ -1,31 +1,32 @@
 {
  "as_of": "2026-11-17",
+ "reviewed_at": "2026-11-19",
  "rows": [
   {
    "id": "R-01",
    "group": "Data",
    "requirement": "Official results feed so backtests and ROI can be computed",
    "status": "PARTIAL",
-   "exists": "site/data/week10-results.json (13 finals) + origination/data/games-2026-w1-w9.json (136 games)",
-   "gap": "Week 10 Monday game (LAC@BAL) is not final on nfl.com as read; ROI needs a settled price series with stakes, which does not exist.",
+   "exists": "site/data/week10-results.json has 14 finals + origination/data/games-2026-w1-w9.json has 136 games (150 results total)",
+   "gap": "Results are settled, but ROI still needs point-in-time market prices, stakes and settlement rules; those are not present for a complete prospective record.",
    "source": "https://www.nfl.com/scores/2026/week-10"
   },
   {
    "id": "R-02",
    "group": "Data",
    "requirement": "Verified standings reconciled to the game log",
-   "status": "DONE",
-   "exists": "site/data/standings-2026-11-17.json: 160/160 cells (W, L, T, PF, PA) match the 136-game log plus 13 Week 10 finals",
-   "gap": "Reconciliation excludes the unfinished Monday game, as nfl.com shows it.",
+   "status": "PARTIAL",
+   "exists": "The stored standings snapshot has 160 team cells; the 19 Nov live re-read matched 24 observed rows, while 8 rows were not in the fetched chunk",
+   "gap": "The stored snapshot predates the verified LAC@BAL final; reconciliation against the 150-result feed is 152/160 cells. Re-read all 32 current rows and reconcile before marking done.",
    "source": "https://www.nfl.com/standings/league/2026/REG"
   },
   {
    "id": "R-03",
    "group": "Data",
    "requirement": "All 14 Week 10 games read as final",
-   "status": "PARTIAL",
-   "exists": "13 of 14 read as FINAL on nfl.com",
-   "gap": "LAC@BAL shows 8:15 PM with no score on the scores, standings and picks pages as read (F-04).",
+   "status": "DONE",
+   "exists": "14 of 14 results stored as final; LAC@BAL 20\u201323 was confirmed against the official Game Book on 18 Nov",
+   "gap": "No remaining Week 10 final is pending. Keep the dated source evidence with each result.",
    "source": "https://www.nfl.com/scores/2026/week-10"
   },
   {
@@ -348,9 +349,9 @@
    "group": "Models",
    "requirement": "Singles-only shadow baseline, pre-registered, versions frozen, forecasts recorded before kickoff",
    "status": "PARTIAL",
-   "exists": "B0 (site/scripts/model_b0.py). Week 10 lines: originated_at 2026-11-14 in requirements/results/week10-lines.json. Week 11 lines written in beca9d2 on 2026-11-17 from PRE-MONDAY standings (provisional, F-23)",
-   "gap": "Baseline is team-strength only (see R-35).",
-   "source": ""
+   "exists": "B0 (site/scripts/model_b0.py). Week 10 lines originated 2026-11-14; Week 11 B0-v2 was registered 2026-11-18 after verified LAC@BAL final. Earlier B0-v1 remains frozen.",
+   "gap": "Baseline is team-strength only; no venue/personnel features, and no prospective validation is complete (see R-35).",
+   "source": "https://www.nfl.com/standings/league/2026/REG"
   },
   {
    "id": "R-40",
@@ -555,18 +556,18 @@
    "group": "Leaderboard",
    "requirement": "'Removal of luck' panel on the dashboard",
    "status": "NOT POSSIBLE AS STATED",
-   "exists": "Uncertainty intervals shown instead (correlations.html, data-lines.html)",
-   "gap": "Luck cannot be removed from a finite sample (repo register RQ-10). Re-scoped to uncertainty.",
-   "source": ""
+   "exists": "site/index.html#luck-panel compares model and market errors on 13 settled Week 10 games with paired 95% intervals; all include zero",
+   "gap": "Luck cannot be removed from a finite sample. The dashboard re-scopes this to a descriptive uncertainty panel; it does not establish skill or remove randomness.",
+   "source": "https://www.nfl.com/scores/2026/week-10"
   },
   {
    "id": "R-63",
    "group": "Leaderboard",
    "requirement": "Strategies that are selectively skill-based (luck removed)",
    "status": "NOT POSSIBLE AS STATED",
-   "exists": "No strategy passes against the market",
-   "gap": "As R-62. Re-scoped to pre-registered tests with uncertainty.",
-   "source": ""
+   "exists": "No strategy is prospectively qualified; the dashboard uses pre-registered tests and uncertainty limits",
+   "gap": "Luck cannot be removed. Use chronological holdouts, proper scores, controls, uncertainty, calibration and multiplicity adjustment; residual uncertainty remains.",
+   "source": "https://www.nfl.com/scores/2026/week-10"
   },
   {
    "id": "R-64",
@@ -607,11 +608,11 @@
   {
    "id": "R-68",
    "group": "Governance",
-   "requirement": "Public analysis layer separated from a private raw-data layer until nfl.com terms are read",
+   "requirement": "Public analysis layer separated from a private raw-data layer until NFL.com terms and rights are reviewed",
    "status": "DECISION NEEDED",
-   "exists": "Current site republishes nfl.com standings and scores in table form",
-   "gap": "Terms not read (Q-10). Options in S-05.",
-   "source": ""
+   "exists": "NFL Terms were read 19 Nov; raw captures remain in the public Git repository even where the Pages build excludes them",
+   "gap": "Terms indicate restrictions on systematic retrieval/copying absent express prior written consent; project-specific legal review, authorization and genuinely private storage are unresolved (Q-10, F-31).",
+   "source": "https://www.nfl.com/legal/terms/"
   },
   {
    "id": "R-69",

@@ -13,6 +13,7 @@ class P(html.parser.HTMLParser):
         super().__init__()
         self.links, self.tables, self.in_tbody, self.row, self.row_has = [], [], False, None, False
         self.row_links, self.bad_rows, self.depth_tbody = [], [], 0
+        self.row_has_official, self.row_checks = False, []
         self.text_buf = []
 
     def handle_starttag(self, tag, attrs):
@@ -21,11 +22,14 @@ class P(html.parser.HTMLParser):
             self.links.append(d["href"])
             if self.row is not None:
                 self.row_has = True
+                if d["href"].startswith(("https://www.nfl.com/", "https://static.www.nfl.com/", "https://nextgenstats.nfl.com/")):
+                    self.row_has_official = True
         if tag == "tbody":
             self.in_tbody = True
         if tag == "tr" and self.in_tbody:
             self.row = True
             self.row_has = False
+            self.row_has_official = False
             self.text_buf = []
         if tag == "table":
             self.tables.append(d.get("class", ""))
@@ -37,6 +41,7 @@ class P(html.parser.HTMLParser):
             txt = "".join(self.text_buf)
             if not self.row_has and "UNVERIFIED" not in txt and "NOT FINAL" not in txt and "NOT GRADED" not in txt:
                 self.bad_rows.append(txt[:80])
+            self.row_checks.append((self.row_has_official, "UNVERIFIED" in txt))
             self.row = None
 
     def handle_data(self, data):
@@ -66,6 +71,10 @@ for p in pages:
             fails.append(f"{os.path.basename(p)}: repo link to a file that does not exist: {m.group(1)}")
     for r in ps.bad_rows:
         fails.append(f"{os.path.basename(p)}: table row without source link or UNVERIFIED mark: {r!r}")
+    if os.path.basename(p) in ("decision-guide.html", "questions.html", "correlations.html", "strategies.html"):
+        for i, (has_official, explicitly_unverified) in enumerate(ps.row_checks, 1):
+            if not has_official and not explicitly_unverified:
+                fails.append(f"{os.path.basename(p)}: table row {i} has neither an official NFL link nor an UNVERIFIED marker")
     if os.path.basename(p).startswith("data-") and re.search(r"\bARI\b", re.sub(r"<[^>]+>", " ", src)):
         fails.append(f"{os.path.basename(p)}: legacy team code ARI in visible text")
 

@@ -1,15 +1,17 @@
 #!/usr/bin/env python3
 """Writes the register content (requirements, questions, suggestions, flags, sources, repo review).
 
-Every row is either (a) an official nfl.com URL that was read on 2026-11-17, (b) a repository
-artifact (a derived calculation or an inherited artifact, labelled as such), or (c) a statement
-that no source exists (status BLOCKED / NOT STARTED). Nothing here is inferred from memory.
+Source dates are recorded per row. Most inherited checks date to 2026-11-17; only the specific
+standings/results/schedule, injury, depth, picks and terms checks listed SRC-15..21 were read
+again on 2026-11-19. A repository artifact is labelled as such; an unlocated source stays blank
+and flagged. Nothing here is inferred from memory.
 """
 import json, os
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 D = os.path.join(ROOT, "site", "data")
 FETCH = "2026-11-17"
+REVIEWED = "2026-11-19"
 REPO = "https://github.com/sassnarep3-star/Own8/blob/main/"
 OFF = dict(
     standings="https://www.nfl.com/standings/league/2026/REG",
@@ -27,9 +29,9 @@ OFF = dict(
 # status vocabulary: DONE | PARTIAL | BLOCKED | NOT STARTED | NOT DONE | REJECTED | NOT POSSIBLE AS STATED | DECISION NEEDED
 REQ = [
  # id, group, requirement (operator brief, short), status, what exists (repo path or URL), gap / blocker, source
- ("R-01","Data","Official results feed so backtests and ROI can be computed","PARTIAL","site/data/week10-results.json (13 finals) + origination/data/games-2026-w1-w9.json (136 games)","Week 10 Monday game (LAC@BAL) is not final on nfl.com as read; ROI needs a settled price series with stakes, which does not exist.",OFF["scores"]),
- ("R-02","Data","Verified standings reconciled to the game log","DONE","site/data/standings-2026-11-17.json: 160/160 cells (W, L, T, PF, PA) match the 136-game log plus 13 Week 10 finals","Reconciliation excludes the unfinished Monday game, as nfl.com shows it.",OFF["standings"]),
- ("R-03","Data","All 14 Week 10 games read as final","PARTIAL","13 of 14 read as FINAL on nfl.com","LAC@BAL shows 8:15 PM with no score on the scores, standings and picks pages as read (F-04).",OFF["scores"]),
+ ("R-01","Data","Official results feed so backtests and ROI can be computed","PARTIAL","site/data/week10-results.json has 14 finals + origination/data/games-2026-w1-w9.json has 136 games (150 results total)","Results are settled, but ROI still needs point-in-time market prices, stakes and settlement rules; those are not present for a complete prospective record.",OFF["scores"]),
+ ("R-02","Data","Verified standings reconciled to the game log","PARTIAL","The stored standings snapshot has 160 team cells; the 19 Nov live re-read matched 24 observed rows, while 8 rows were not in the fetched chunk","The stored snapshot predates the verified LAC@BAL final; reconciliation against the 150-result feed is 152/160 cells. Re-read all 32 current rows and reconcile before marking done.",OFF["standings"]),
+ ("R-03","Data","All 14 Week 10 games read as final","DONE","14 of 14 results stored as final; LAC@BAL 20–23 was confirmed against the official Game Book on 18 Nov","No remaining Week 10 final is pending. Keep the dated source evidence with each result.",OFF["scores"]),
  ("R-04","Injuries","Official NFL injury report captured and republished","PARTIAL","Week 10 report page 1 of 8 re-read 2026-11-17; Lions rows verified (see R-05)","Full 8-page re-capture not completed this session; five earlier captures disagree on row counts (F-05).",OFF["inj10"]),
  ("R-05","Injuries","Populate the three missing Lions game-status cells (Joseph, Mays, Reed)","DONE","Verified 2026-11-17: all three show Out (Knee, Ankle, Hip; Did Not Participate)","None for these three rows.",OFF["inj10"]),
  ("R-06","Injuries","Week 11 injury report captured (two reads, 18 and 19 Nov)","PARTIAL","Read 19 Nov 2026: all 7 chunks, 13 games, 253 player rows, 24 clubs with rows (CIN and WAS read 'No Injuries Reported'). Earlier 18 Nov read: 26 rows, IND and HOU only. Manifest in captures/manifest.json; rows in private-store/; delta in captures/2026-11-19/delta-w11-r1-to-r2.json","Game designations exist only for the Thursday game (16 cells). Sunday and Monday game-status cells blank until the Friday report (F-34: 253 transcribed vs 254 in the brief, unreconciled).",OFF["inj11"]),
@@ -65,7 +67,7 @@ REQ = [
  ("R-36","Models","Injury and personnel ablations instead of fixed penalties (with and without features, chronological holdouts)","BLOCKED","None","No personnel features exist to ablate (R-22, R-13).",""),
  ("R-37","Models","Injury and depth ablations, not fixed penalties","BLOCKED","None","As R-36.",""),
  ("R-38","Models","Ratings made opponent-aware from game-level results","PARTIAL","Repo variants S1/S2 (ridge) use game-level results (origination/results/validation-w10.json). B0 uses unadjusted PF/PA averages","The published B0 baseline is NOT opponent-adjusted.",""),
- ("R-39","Models","Singles-only shadow baseline, pre-registered, versions frozen, forecasts recorded before kickoff","PARTIAL","B0 (site/scripts/model_b0.py). Week 10 lines: originated_at 2026-11-14 in requirements/results/week10-lines.json. Week 11 lines written in beca9d2 on 2026-11-17 from PRE-MONDAY standings (provisional, F-23)","Baseline is team-strength only (see R-35).",""),
+ ("R-39","Models","Singles-only shadow baseline, pre-registered, versions frozen, forecasts recorded before kickoff","PARTIAL","B0 (site/scripts/model_b0.py). Week 10 lines originated 2026-11-14; Week 11 B0-v2 was registered 2026-11-18 after verified LAC@BAL final. Earlier B0-v1 remains frozen.","Baseline is team-strength only; no venue/personnel features, and no prospective validation is complete (see R-35).","https://www.nfl.com/standings/league/2026/REG"),
  ("R-40","Models","Store every model output as a probability plus its inputs, not only a pick","DONE","B0 outputs store H, A, margin, total and p_home with their standings inputs (site/data/b0-*.json)","Repo-wide coverage is PARTIAL (older files store picks in places).",""),
  ("R-41","Models","Originate the side first, then the total, then the moneyline","DONE","B0 computes margin (side) first, then total, then p_home (site/scripts/model_b0.py)","","" ),
  ("R-42","Models","Price a line ourselves and publish the residual against the market on a schedule from day one","PARTIAL","Week 10: 12 settled games graded against nfl.com prices (site/data-lines.html). Week 11: fair lines frozen, market not captured","No schedule automation. Week 11 market values are blank (F-11).",OFF["picks10"]),
@@ -88,13 +90,13 @@ REQ = [
  ("R-59","Leaderboard","Two-stage leaderboard: proper-score qualification, then prospective CLV/ROI escrow","BLOCKED","Stage 1 numbers exist for backtests only","Stage 2 needs a closing-line source (R-60).",""),
  ("R-60","Leaderboard","Opening and closing numbers stored for every market originated","PARTIAL","87 locked nfl.com FanDuel line snapshots, Weeks 9 to 10 (ledger/data/price-snapshots.json)","No official opening or closing series located (Q-01). Opening and closing cells stay blank.",OFF["picks10"]),
  ("R-61","Leaderboard","Control baselines (random picks; favourites only) on every leaderboard run","PARTIAL","Coin-flip Brier control (0.25) for Week 10 B0 (site/data/b0-w10-grading.json)","Favourites-only and random-pick simulations not run.",""),
- ("R-62","Leaderboard","'Removal of luck' panel on the dashboard","NOT POSSIBLE AS STATED","Uncertainty intervals shown instead (correlations.html, data-lines.html)","Luck cannot be removed from a finite sample (repo register RQ-10). Re-scoped to uncertainty.",""),
- ("R-63","Leaderboard","Strategies that are selectively skill-based (luck removed)","NOT POSSIBLE AS STATED","No strategy passes against the market","As R-62. Re-scoped to pre-registered tests with uncertainty.",""),
+ ("R-62","Leaderboard","'Removal of luck' panel on the dashboard","NOT POSSIBLE AS STATED","site/index.html#luck-panel compares model and market errors on 13 settled Week 10 games with paired 95% intervals; all include zero","Luck cannot be removed from a finite sample. The dashboard re-scopes this to a descriptive uncertainty panel; it does not establish skill or remove randomness.",OFF["scores"]),
+ ("R-63","Leaderboard","Strategies that are selectively skill-based (luck removed)","NOT POSSIBLE AS STATED","No strategy is prospectively qualified; the dashboard uses pre-registered tests and uncertainty limits","Luck cannot be removed. Use chronological holdouts, proper scores, controls, uncertainty, calibration and multiplicity adjustment; residual uncertainty remains.",OFF["scores"]),
  ("R-64","Leaderboard","Reward top-performing strategies","DECISION NEEDED","No reward rule exists; repo policy: paper points only, none awarded","Operator must define the reward (S-09).",""),
  ("R-65","Leaderboard","Reject ranking strategies by season-long ROI","REJECTED","Policy recorded; ROI is not used for ranking","Operator's rejection honoured.",""),
  ("R-66","Leaderboard","Ratings and leaderboards use only verified data; every row has a source","PARTIAL","Applied on all new pages; inherited pages (root, legacy namespaces) not re-verified","See repo-review.html and F-09.",""),
  ("R-67","Governance","Official-source link on every table row; blank and flagged if unverified","PARTIAL","Applied on the pages in this site","Derived model rows carry 'model output, not official' and link their inputs.",""),
- ("R-68","Governance","Public analysis layer separated from a private raw-data layer until nfl.com terms are read","DECISION NEEDED","Current site republishes nfl.com standings and scores in table form","Terms not read (Q-10). Options in S-05.",""),
+ ("R-68","Governance","Public analysis layer separated from a private raw-data layer until NFL.com terms and rights are reviewed","DECISION NEEDED","NFL Terms were read 19 Nov; raw captures remain in the public Git repository even where the Pages build excludes them","Terms indicate restrictions on systematic retrieval/copying absent express prior written consent; project-specific legal review, authorization and genuinely private storage are unresolved (Q-10, F-31).", "https://www.nfl.com/legal/terms/"),
  ("R-69","Governance","Durable snapshot storage outside the static site; freshness monitoring; alerts on source or schema change","NOT STARTED","None. Repo CI runs checks but no alerting","Store and alert channel are operator decisions (Q-13, S-04).",""),
  ("R-70","Governance","Drift alarm on every scraper (pinned row counts and fields; fail loudly)","NOT STARTED","No scrapers. Transcriptions in site/data carry explicit row-count and sum checks (site/check.py)","Automated scrapers do not exist.",""),
  ("R-71","Governance","Suggestions section where the operator chooses the path before anything is implemented","DONE","site/suggestions.html (10 items, each awaiting a choice)","","" ),
@@ -115,12 +117,12 @@ QUESTIONS = [
  ("Q-02","Which official source gives depth order for all 32 clubs?","One club's depth page probed: 404 (2026-11-17)","Any verified per-club depth page; any authorised structured feed","Probe all 32 club depth routes; ask the operator whether an authorised feed can be licensed (S-03)","R-22, R-23, R-27"),
  ("Q-03","Does an official snap-count source exist, for all 32 clubs?","Nothing captured","Source, format and coverage unknown","Locate the official snap-count page; verify 32 clubs (route b)","R-13, R-23, R-26"),
  ("Q-04","Do designations change game outcomes or play rates?","2026 Week 10 report only","Archived reports and inactive lists for past seasons","Feasibility probe for an archive of past weekly reports (S-08)","R-15, R-16, R-17"),
- ("Q-05","Is the Week 10 Monday game final?","nfl.com pages as read show no score","A final score on nfl.com","Re-read the scores page after the operator confirms; this moves 12 graded games to 13 and changes W11 inputs (F-04)","R-01, R-03"),
+ ("Q-05","Are the stored standings current after the Week 10 Monday final?","The 14-game Week 10 results feed includes LAC 20–BAL 23 from the official Game Book; the 19 Nov live standings read matched 24 observed rows","A complete current 32-row standings re-read and a full reconciliation against the 150-result feed","Read all standings chunks, recompute W/L/T/PF/PA from the official results feed, and record every mismatch before upgrading R-02","R-02"),
  ("Q-06","What is the correct Week 10 injury row count?","Five captures with different counts (F-05)","One complete 8-page capture reconciled to one count","Full re-capture of reg10 (8 pages), hashed and dated","R-04"),
  ("Q-07","What do the Week 11 injury designations say?","Full Week 11 report read 19 Nov (all 7 chunks, 253 player rows, 24 clubs with rows; 16 game designations, all in the Thursday game IND at HOU). Earlier 18 Nov read: 26 rows, IND and HOU only, no designations.","Sunday and Monday game designations (Friday report); the 253 vs 254 row-count reconciliation (F-34); a Friday read with a fetch time","Re-read Fri 20 Nov, then compare with captures/2026-11-19/delta-w11-r1-to-r2.json (captures/scripts/diff_captures.py)","R-06, R-07"),
  ("Q-08","May backtest-gate passes appear on the leaderboard?","Four strategies pass G1 to G8 on a walk-forward backtest (n=104 game-evaluations, W3 to W9)","Operator ruling on the rule 'backtest numbers never appear on the leaderboard'","Operator decision (S-02)","R-52"),
- ("Q-09","Does the model beat the market, with enough sample to say so?","Week 10, 12 games: no significant difference in spread or moneyline error (site/data-lines.html)","Prospective sample of about 80 singles games (the repo's own G3 threshold)","Keep locking lines each week (S-07); no conclusion before the sample size","R-42, R-58, R-59"),
- ("Q-10","Can nfl.com-derived standings, scores and prices be republished?","Pages are public; terms not read in this session","nfl.com terms of use reading and an operator ruling","Read nfl.com terms (operator or counsel); then decide S-05","R-68"),
+ ("Q-09","Does the model beat the market, with enough sample to say so?","Week 10 has 13 graded games; spread, total and moneyline paired 95% intervals include zero","At least 80 prospective singles under the repository's pre-registered G3 gate, plus the other qualification gates","Continue frozen shadow forecasts; do not conclude from this 13-game sample or promote a strategy before the holdout and uncertainty gates pass","R-42, R-58, R-59"),
+ ("Q-10","What does NFL.com permit for systematic retrieval and republication?","NFL Terms and Conditions were read 19 Nov 2026; they describe individual, non-commercial informational use and restrict copying/systematic retrieval absent express prior written consent","Project-specific legal review and any required written permission/licence; the page is not a legal determination","Have the operator/counsel review the current terms and secure written authorization before systematic capture or redistribution; keep raw rows out of public deployment meanwhile","R-68"),
  ("Q-11","What is the reward for a top-performing strategy?","Repo policy: paper points only, none awarded","An operator-defined reward","Operator definition (S-09)","R-64"),
  ("Q-12","Where should immutable snapshots live, and who gets alerts?","Git only (this repo)","A durable store and an alert channel","Operator choice (S-04)","R-69, R-08"),
  ("Q-13","Which seasons form train, validation and holdout?","2026 only in the repo","Earlier seasons, archived","Archive capture decision (S-08)","R-47"),
@@ -155,16 +157,16 @@ SUGGESTIONS = [
   ], recommendation="Run the route b discovery first (cheap), then A; C only if A and B fail.", decision="Choose the order, or choose C."),
  dict(id="S-04", title="Automated, immutable availability snapshots (Wed to kickoff) with alerts", requirement="R-08, R-11, R-69",
   options=[
-   dict(label="A. Scheduled GitHub Actions capture", text="A cron job captures the injury report and any depth page daily Wed to Sat, stores raw bytes and SHA-256 hashes in git, and fails loudly on a row-count or field change.", cost="Low; uses existing CI", risk="Not testable from this sandbox (nfl.com unreachable by curl); may be blocked by nfl.com bot rules; needs a test run."),
+   dict(label="A. Scheduled GitHub Actions capture (only after rights approval)", text="If written authorization permits automated retrieval, run a cron job for the injury report and verified depth source, store raw bytes and SHA-256 hashes, and fail loudly on row-count or schema drift. Do not commit sensitive/raw records to the public repository.", cost="CI plus approved private storage", risk="Permission and source terms are unresolved; no authorized all-32 depth route or private destination is configured."),
    dict(label="B. External durable store", text="Same capture, stored in an external bucket outside the static site, with alert email on failure.", cost="Storage cost; account setup", risk="Needs an account and credentials; operator must provide."),
    dict(label="C. Manual fetches", text="Operator-run or session-run fetches on set days.", cost="Staff time", risk="Gaps in the series; breaks the no-manual-input rule."),
   ], recommendation="A, with B for long-term storage.", decision="Choose A, B or C, and name the alert channel."),
  dict(id="S-05", title="Public analysis layer vs private raw-data layer", requirement="R-68, Q-10",
   options=[
-   dict(label="A. Derived only until terms are read", text="Publish indices, model output and links; keep row-level copies of nfl.com data out of the public site.", cost="Low", risk="Less visible raw evidence for reviewers."),
-   dict(label="B. Keep current publication", text="Publish the nfl.com-derived tables as they are.", cost="None", risk="Possible terms conflict until the terms are read."),
-   dict(label="C. Hybrid", text="Publish short extracts with links; keep full tables private.", cost="Medium", risk="Still needs the terms reading."),
-  ], recommendation="A until the nfl.com terms are read.", decision="Choose A, B or C."),
+   dict(label="A. Derived-only pending rights review", text="Publish only derived analysis and source links; stop adding raw row-level captures to public Git or Pages until the terms and any required written consent are reviewed.", cost="Low to moderate; private store must be provisioned", risk="Raw evidence is not visible to public reviewers."),
+   dict(label="B. Keep current publication", text="Continue publishing the nfl.com-derived tables.", cost="None", risk="The terms restrict systematic retrieval/copying absent express prior written consent; project-specific permission is unresolved."),
+   dict(label="C. Authorized hybrid", text="After legal review and written authorization, publish only permitted extracts/derived analysis with source links; store permitted raw records privately.", cost="Legal review and private storage", risk="Authorization scope, retention and permitted extracts must be confirmed."),
+  ], recommendation="A now; move raw rows to a genuinely private store and obtain rights review before any additional collection or redistribution.", decision="Choose A, B or C after rights review."),
  dict(id="S-06", title="Roster sweep before the team-level model is trusted", requirement="R-35, Q-20",
   options=[
    dict(label="A. Run the 32-team sweep first", text="Capture each team's roster and IR status before any team-level claim; use B0 only as a team-strength baseline until then.", cost="32 captures", risk="Depends on S-03 and R-08."),
@@ -216,7 +218,7 @@ FLAGS = [
  ("F-20","Week 11 fixture venues","Only IND@HOU venue verified (game centre). Other venues blank.", "", OFF["colts_game"], "OPEN (Q-16)"),
  ("F-21","Malik Willis reserve status","Brief says he is on injured reserve (VR-25/VQ-06). Not verified this session; the reserve list is not captured.", "", "", "OPEN (R-20)"),
  ("F-22","'Announced starter' changes for Lock, McCord and Brissett","Brief cites VR-24, VR-25, VQ-05. Not verified. The picks article mentions a Ravens trade for Jacoby Brissett; its terms are not read.", "nfl.com picks article", OFF["picks10"], "OPEN (Q-14)"),
- ("F-23","Week 11 fair lines were built on pre-Monday standings (provisional)","site/data/b0-w11-lines.json was written in beca9d2 on 17 Nov from the standings snapshot taken before the Monday Chargers at Ravens game, which is not verified final. The lines are provisional and must be re-originated after that game is verified final. Frozen values stay in git history.","site/data/b0-w11-lines.json; site/data/standings-2026-11-17.json","https://github.com/sassnarep3-star/Own8/blob/main/site/data/b0-w11-lines.json","OPEN (re-originate after F-04 clears)"),
+ ("F-23","Week 11 B0-v1 pre-Monday lines superseded by a frozen v2","B0-v1 used a standings snapshot taken before LAC@BAL was final. After the official Game Book confirmed LAC 20–BAL 23, B0-v2 was registered on 18 Nov with the updated standings input; v1 remains frozen as history. No Week 11 market line was captured, so market/residual cells remain blank.","site/data/b0-w11-lines.json; site/data/b0-w11-lines-v2.json; site/data/standings-2026-11-18.json","https://github.com/sassnarep3-star/Own8/blob/main/site/data/b0-w11-lines-v2.json","RESOLVED (v2 registered; no market price)"),
  ("F-24","Root index.html now redirects; the requirements workflow will fail its clean-diff check on its next run","Root index.html was replaced with a redirect to site/index.html (17 Nov). scripts/build_site.py regenerates the legacy root index.html on every run. .github/workflows/requirements.yml runs build_site.py and then fails if git diff is not empty. Tested in a scratch copy: with the legacy index committed the regenerated file is identical; with the redirect committed the regenerated legacy dashboard differs. The workflow runs only on pushes or PRs touching requirements/**, scripts/build_site.py, scripts/check_links.py, or the workflow file, so this PR does not trigger it. The requirements session (f6e60a81) must decide the fix: stop build_site.py writing index.html, or keep the redirect and exempt it from the diff check.","README.md; index.html; scripts/build_site.py; .github/workflows/requirements.yml","https://github.com/sassnarep3-star/Own8/blob/main/.github/workflows/requirements.yml","OPEN (owner decision: requirements session)"),
  ("F-25", "Week 11 injury report: earlier 'not published' statement superseded", "The Injuries page said the reg11 URL served Week 10 content. On 18 Nov 2026 the same URL serves Week 11: 13 games, 26 club rows. The stale text is corrected; the three pages were read before 06:29 UTC on 18 Nov.", "captures/manifest.json; captures/2026-11-18/injury-report-w11.meta.json", "https://www.nfl.com/injuries/league/2026/reg11", "OPEN: corrected here; re-read Thursday and Friday"),
  ("F-26", "24 clubs read 'No Injuries Reported' on the Week 11 page (18 Nov read)", "The 18 Nov read marked 24 clubs 'No Injuries Reported'. The full report read on 19 Nov lists player rows for 22 of those 24 clubs; only CIN and WAS still read 'No Injuries Reported'. The 18 Nov claim is contradicted and must not be used for any club.", "captures/2026-11-19/delta-w11-r1-to-r2.json; captures/manifest.json", "https://www.nfl.com/injuries/league/2026/reg11", "CONTRADICTED by the 19 Nov read (see F-34)"),
@@ -266,12 +268,21 @@ SOURCES = [
  dict(id="SRC-12", label="Repo: strategy registry and validation (2026-11-14)", url=REPO+"ledger/data/strategy-registry.json", read=FETCH, used_for="Strategy status (R-52, F-01)", kind="repository (derived)"),
  dict(id="SRC-13", label="Repo: correlations (n and CI)", url=REPO+"origination/results/correlations.json", read=FETCH, used_for="Correlations page (R-51, F-13)", kind="repository (derived)"),
  dict(id="SRC-14", label="Repo: requirement register (16 rows, 2026-11-14)", url=REPO+"requirements/data/requirements.json", read=FETCH, used_for="Cross-check of prior statuses", kind="repository (inherited)"),
+ dict(id="SRC-15", label="NFL standings live re-read (first 24 rows only)", url=OFF["standings"], read="2026-11-19", used_for="Spot-check against stored standings; eight rows not re-read", kind="official (partial live re-check)"),
+ dict(id="SRC-16", label="NFL Week 10 scores live re-read (first 9 finals only)", url=OFF["scores"], read="2026-11-19", used_for="Spot-check against stored official results; remaining five not re-read in this chunk", kind="official (partial live re-check)"),
+ dict(id="SRC-17", label="NFL Week 11 schedule live re-read (first 6 games only)", url=OFF["sched11"], read="2026-11-19", used_for="Spot-check against stored schedule; remaining seven games not re-read in this chunk", kind="official (partial live re-check)"),
+ dict(id="SRC-18", label="NFL Week 11 injury report (first returned chunk of 7)", url=OFF["inj11"], read="2026-11-19", used_for="Confirms current report version; not a full capture or player-level delta", kind="official (partial read)"),
+ dict(id="SRC-19", label="NFL Texans depth-chart route (404 probe)", url=OFF["depthTEX"], read="2026-11-19", used_for="One-club route probe only; does not establish all-32 source availability", kind="official probe"),
+ dict(id="SRC-20", label="NFL Week 10 picks article (FanDuel lines and lock-time statement)", url=OFF["picks10"], read="2026-11-19", used_for="Reference-time price; not an opening/closing series", kind="official"),
+ dict(id="SRC-21", label="NFL.com Terms and Conditions", url="https://www.nfl.com/legal/terms/", read="2026-11-19", used_for="Data-rights review flag; not legal advice or permission", kind="official terms"),
+ dict(id="SRC-22", label="Repo: this session's official-source verification limits", url=REPO+"site/data/verification-ccf863a6-2026-11-19.json", read="2026-11-19", used_for="Read dates, chunk limits and evidence scope for CCF-V01 to CCF-V05", kind="repository (verification record)"),
+ dict(id="SRC-23", label="NFL Next Gen Stats, Passing", url="https://nextgenstats.nfl.com/stats/passing", read="2026-11-19", used_for="Official review target for passing inputs; historical week values were not re-transcribed in this pass", kind="official (source route checked)"),
 ]
 
 def main():
     os.makedirs(D, exist_ok=True)
     reqs = [dict(id=a, group=b, requirement=c, status=d, exists=e, gap=f, source=g) for a, b, c, d, e, f, g in REQ]
-    json.dump(dict(as_of=FETCH, rows=reqs, status_legend={
+    json.dump(dict(as_of=FETCH, reviewed_at=REVIEWED, rows=reqs, status_legend={
         "DONE": "Built and checked for the scope stated.",
         "PARTIAL": "Built for part of the scope; the gap is stated.",
         "BLOCKED": "Cannot proceed until a named missing input exists.",
@@ -280,7 +291,7 @@ def main():
         "NOT POSSIBLE AS STATED": "Cannot be met as written; re-scoped as stated.",
         "DECISION NEEDED": "Needs an operator choice (see suggestions).",
         "PENDING": "Happens at the end of this session."}), open(os.path.join(D, "requirements.json"), "w"), indent=1)
-    json.dump(dict(as_of=FETCH, rows=[dict(id=a, question=b, have=c, lack=d, how_to_answer=e, blocks=f) for a, b, c, d, e, f in QUESTIONS]),
+    json.dump(dict(as_of=FETCH, reviewed_at=REVIEWED, rows=[dict(id=a, question=b, have=c, lack=d, how_to_answer=e, blocks=f) for a, b, c, d, e, f in QUESTIONS]),
               open(os.path.join(D, "questions.json"), "w"), indent=1)
     json.dump(dict(as_of=FETCH, status="ALL AWAITING OPERATOR CHOICE. Nothing below has been implemented.", rows=SUGGESTIONS),
               open(os.path.join(D, "suggestions.json"), "w"), indent=1)

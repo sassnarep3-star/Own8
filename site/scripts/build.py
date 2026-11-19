@@ -61,13 +61,14 @@ NAV = [
     ("data-lines.html", "Lines vs market"),
     ("data-schedule.html", "Schedule & venues"),
     ("data-injuries.html", "Injuries"),
-    ("data-team-view.html", "Per-team view"),
+    ("data-team-view.html", "Per-team injury view"),
     ("data-depth.html", "Depth & availability"),
     ("strategies.html", "Strategies"),
     ("correlations.html", "Correlations"),
     ("requirements.html", "Requirements"),
     ("questions.html", "Questions"),
     ("suggestions.html", "Suggestions"),
+    ("decision-guide.html", "Decision guide"),
     ("repo-review.html", "Repo review"),
     ("sources.html", "Sources"),
     ("flagged.html", "Flagged for review"),
@@ -76,7 +77,7 @@ CATS = [
     ("Overview", ["index.html", "executive-summary.html"]),
     ("Data (official)", ["data-standings.html", "data-results.html", "data-schedule.html", "data-injuries.html", "data-team-view.html", "data-depth.html"]),
     ("Models & lines", ["data-lines.html", "strategies.html", "correlations.html"]),
-    ("Decisions", ["requirements.html", "questions.html", "suggestions.html"]),
+    ("Decisions", ["requirements.html", "questions.html", "suggestions.html", "decision-guide.html"]),
     ("Review", ["repo-review.html", "sources.html", "flagged.html"]),
 ]
 TITLES = dict(NAV)
@@ -96,7 +97,7 @@ def page(name, title, body, lead=""):
 <link rel="stylesheet" href="assets/site.css">
 </head><body>
 <header class="top"><a class="brand" href="index.html">Own8 · NFL research</a>
-<span class="stamp">Official pages read {FETCH} · paper research only</span></header>
+<span class="stamp">Source dates vary · see Sources · paper research only</span></header>
 <div class="wrap">
 <aside class="side">{''.join(nav)}</aside>
 <main>
@@ -142,10 +143,10 @@ def badge(status):
 
 
 CLEAR = {
- "R-01": "14 of 14 Week 10 finals (13 now)",
- "R-03": "14 of 14 Week 10 finals (13 now)",
+ "R-01": "14 of 14 Week 10 finals (met); ROI still lacks prices/stakes",
+ "R-03": "14 of 14 Week 10 finals (met)",
  "R-14": "6 to 8 game-weeks of postgame Game Books (repo README, RQ-12)",
- "R-18": "13 of 13 Week 11 venues from game centres (1 now)",
+ "R-18": "13 of 13 Week 11 venues required; 1 currently verified",
  "R-57": "G3 minimum sample sizes: 80 singles, 40 pairs, 100 player-games (validation-w10.json)",
  "R-79": "Merge done and Pages build reported as built",
 }
@@ -167,8 +168,8 @@ def src_cell(r):
         return a(r["source"], "Official source")
     for m in PATH_RE.findall(r["exists"] or ""):
         if os.path.exists(os.path.join(ROOT, m)):
-            return a(REPO + m, "Repo artifact")
-    return '<span class="flag">UNVERIFIED: no source</span>'
+            return a(REPO + m, "Project evidence") + ' · <span class="flag">UNVERIFIED: official NFL source not linked</span>'
+    return '<span class="flag">UNVERIFIED: no official source</span>'
 
 
 def req_rows():
@@ -184,47 +185,59 @@ def build_index():
     from collections import Counter
     c = Counter(r["status"] for r in reqs)
     s = model_b0.load("site/data/b0-w10-grading.json")["summary"]
-    w11 = J("site/data/b0-w11-lines.json")
+    w11 = J("site/data/b0-w11-lines-v2.json")
     cards = [
-        ("Official standings reconciled", f"{REC['cells'] - len(REC['mismatches'])}/{REC['cells']} cells",
-         f"The 136-game log plus {REC['games'] - 136} Week 10 finals reproduce each W, L, T, PF and PA", OFF_STANDINGS),
-        ("Week 10 games graded", f"{s['n_graded']} graded · {s['n_pending']} pending",
-         "All 14 Week 10 games are final; Monday LAC@BAL confirmed via the official Game Book", OFF_SCORES),
-        ("Week 11 fair lines", f"{len(w11['games'])} games · PROVISIONAL",
-         "Built from pre-Monday standings. Re-originate after the Monday game is verified final (F-23)", REPO + "site/data/b0-w11-lines.json"),
+        ("Standings re-check", "24 / 32 rows",
+         "All 24 visible rows matched the stored snapshot on 19 Nov; 8 rows were not in the fetched chunk", OFF_STANDINGS),
+        ("Week 10 results", f"{s['n_graded']} graded · {s['n_pending']} pending",
+         "13 games graded; the remaining final was confirmed from the official Game Book and stored", OFF_SCORES),
+        ("Week 11 fair lines", f"{len(w11['games'])} games · PRE-REGISTERED",
+         "B0-v2 includes the verified Monday result; market and residual remain blank without a verified Week 11 price", REPO + "site/data/b0-w11-lines-v2.json"),
         ("Strategies on any leaderboard", "0",
-         "Four backtest-gate passes are held off the leaderboard under the operator's rule (F-01)", REPO + "ledger/data/strategy-registry.json"),
+         "No prospective strategy has qualified; backtest-only candidates remain off the leaderboard (F-01)", REPO + "ledger/data/strategy-registry.json"),
     ]
     card_html = "".join(
         f'<div class="card"><div class="k">{E(k)}</div><div class="v">{E(v)}</div><div class="n">{E(n)}</div>'
         f'<div class="src">{a(u, "Source")}</div></div>' for k, v, n, u in cards)
     evidence = [
-        ["Official standings", f"32 teams. {REC['cells'] - len(REC['mismatches'])} of {REC['cells']} cells match the repo game log plus Week 10 finals.", "VERIFIED", OFF_STANDINGS],
-        ["Week 10 test (12 settled games)",
-         f"Spread error {num(s['spread_mae_model'],2)} (model) vs {num(s['spread_mae_market'],2)} (market). Moneyline Brier {num(s['ml_brier_model'],3)} vs {num(s['ml_brier_market'],3)}. Every model-minus-market interval includes zero.",
-         "NO EVIDENCE OF EDGE YET", REPO + "site/data/b0-w10-grading.json"],
-        ["Strategy registry", "14 entries. Four are labelled PAPER-ELIGIBLE on a walk-forward backtest (W3 to W9) with no prospective settlement. The README says none are eligible.",
-         "CONFLICT (F-01)", REPO + "ledger/data/strategy-registry.json"],
-        ["Availability (depth, snaps, Game Books)", "No official depth source verified. The Houston depth-chart page returns 404 (17 Nov). No snap counts or Game Books captured.",
+        ["Official standings", "The 19 Nov live page matched all 24 rows visible in the fetched chunk. Eight teams were not observed in that chunk; the stored standings snapshot still predates the verified Week 10 Monday final.", "PARTIAL RE-CHECK", OFF_STANDINGS],
+        ["Week 10 test (13 settled games)",
+         f"Spread MAE {num(s['spread_mae_model'],2)} (model) vs {num(s['spread_mae_market'],2)} (market); total MAE {num(s['total_mae_model'],2)} vs {num(s['total_mae_market'],2)}. Moneyline Brier {num(s['ml_brier_model'],3)} vs {num(s['ml_brier_market'],3)}. All paired 95% intervals include zero.",
+         "NO EVIDENCE OF EDGE YET", OFF_SCORES],
+        ["Strategy registry", "Backtest-only labels exist, but no strategy has qualified prospectively. F-01 records the registry/leaderboard policy conflict; no backtest rank is published.",
+         "FLAGGED · NO LEADERBOARD", OFF_SCORES],
+        ["Availability (depth, snaps, Game Books)", "Houston depth-chart route returned the official 404 page on 19 Nov. One page of a seven-page Game Book was captured for one game; no all-club depth or snap-count route is verified.",
          "BLOCKED", OFF_DEPTH],
-        ["Injury report", "Week 10 report: page 1 of 8 re-read; Lions designations verified. Earlier captures disagree on row counts. Week 11 report read twice (18 and 19 Nov); change counts on the Injuries page.",
-         "PARTIAL", OFF_INJ10],
-        ["Correlations", "Nine descriptive correlations with n and 95% intervals. Four survive Holm correction; C2 does not.", "DESCRIPTIVE ONLY (F-13)", REPO + "origination/results/correlations.json"],
+        ["Injury report", "Repository capture: all 7 chunks on 19 Nov, 253 rows across 24 clubs, 16 game-designation cells on Thursday; earlier 18 Nov capture had 26 rows and a counts-only delta exists. The brief's 254-row count remains unreconciled (F-34).",
+         "PARTIAL · ROW COUNT FLAGGED", OFF_INJ11],
+        ["Correlations", "Published correlations are descriptive, include n and intervals, and link official NFL/Next Gen Stats inputs; they are not validated betting-leg dependence.", "DESCRIPTIVE ONLY", OFF_SCORES],
     ]
-    ev_rows = [[E(a1), E(b1), badge(c1), a(d1, "Source")] for a1, b1, c1, d1 in evidence]
+    ev_rows = [[E(a1), E(b1), badge(c1), a(d1, "Official source")] for a1, b1, c1, d1 in evidence]
+    src_both = a(OFF_SCORES, "NFL results") + " · " + a(OFF_PICKS, "NFL published prices") + " · " + a(REPO + "site/data/b0-w10-grading.json", "paired grading")
+    luck_rows = [
+        ["Spread MAE (points; lower is better)", "13", num(s["spread_mae_model"], 2), num(s["spread_mae_market"], 2), num(s["spread_mae_model"] - s["spread_mae_market"], 2), f"{s['spread_mae_diff_ci95'][0]:+.2f} to {s['spread_mae_diff_ci95'][1]:+.2f}", "Includes zero" , src_both],
+        ["Total MAE (points; lower is better)", "13", num(s["total_mae_model"], 2), num(s["total_mae_market"], 2), num(s["total_mae_model"] - s["total_mae_market"], 2), f"{s['total_mae_diff_ci95'][0]:+.2f} to {s['total_mae_diff_ci95'][1]:+.2f}", "Includes zero", src_both],
+        ["Moneyline Brier (lower is better)", "13", num(s["ml_brier_model"], 4), num(s["ml_brier_market"], 4), num(s["ml_brier_model"] - s["ml_brier_market"], 4), f"{s['ml_brier_diff_ci95'][0]:+.4f} to {s['ml_brier_diff_ci95'][1]:+.4f}", "Includes zero", src_both],
+    ]
+    luck_panel = f'''<h2 id="luck-panel">Luck &amp; uncertainty panel</h2>
+<p class="meta">A finite sample cannot have luck removed. This panel shows the observable model-minus-market outcomes and uncertainty on the 13 graded Week 10 games; every paired 95% interval includes zero. That is not evidence of an edge. The pre-registered single-game sample gate is 80, not 13 ({a(REPO + "origination/results/validation-w10.json", "gate register")}).</p>
+{table(["Measure", "n games", "Model", "Market", "Difference (model − market)", "95% interval", "Interpretation", "Sources"], luck_rows, cls="dense")}
+<p class="meta">This is a descriptive, small-sample audit, not a strategy ranking, ROI result, or guarantee. Interval method and reproducible values: {a(REPO + "site/data/b0-w10-grading.json", "stored grading")}; official outcomes and published locked prices are linked in each row.</p>'''
     dr_rows = [[E(r["id"]), E(r["requirement"]), badge(r["status"]), E(r["gap"] or "—"), E(clearing(r["id"], r["status"])), src_cell(r)] for r in reqs]
     summary_line = " · ".join(f"{k}: {v}" for k, v in sorted(c.items(), key=lambda kv: -kv[1]))
     body = f"""
 <section class="cards">{card_html}</section>
 <h2>What the evidence says</h2>
 {table(["Area", "Finding", "Status", "Source"], ev_rows, cls="findings")}
+{luck_panel}
 <h2>Decision readiness (one row per requirement)</h2>
 <p class="meta">{E(summary_line)}. The gap column is the blocker. The last column is a number from the brief or the repo's own registers that would clear it; where none exists, the cell says so.</p>
 {table(["ID", "Requirement", "Status", "Blocking gap", "Number that clears it", "Source"], dr_rows, cls="dense", filter_id="ready")}
 <h2>Pages</h2>
 <ul class="links">
 <li>{a("executive-summary.html", "Executive summary")}: one-page brief.</li>
-<li>{a("suggestions.html", "Suggestions")}: 10 decisions with options, cost and risk. Nothing is implemented until you choose.</li>
+<li>{a("suggestions.html", "Suggestions")}: reviewable options, cost and risk; operator-only decisions are separated from safe paper-work.</li>
+<li>{a("decision-guide.html", "Decision guide")}: current answer, known information, gaps, gates and evidence required for each decision.</li>
 <li>{a("questions.html", "Questions")}: what is known, what is missing, and how to answer each.</li>
 <li>{a("flagged.html", "Flagged for review")}: every irregularity and unverified item, with source links.</li>
 </ul>
@@ -238,11 +251,11 @@ def build_exec():
     from collections import Counter
     c = Counter(r["status"] for r in reqs)
     body = f"""
-<p class="lead">Status on {FETCH}. The official data we can read reconciles. A forecasting edge is not established. The depth and availability layer cannot be built yet, because no official depth-order source is verified.</p>
+<p class="lead">Updated 19 Nov 2026, with source-specific limits. Week 10 results are settled in the feed, but the standings live re-check was partial and the Week 10 shadow-model sample is only 13 games. A forecasting edge is not established. The depth and availability layer cannot be built yet because no all-32 source route is verified.</p>
 <h2>1. What is verified</h2>
 <ul>
-<li>The 32 official standings reconcile to the repo's 136-game log plus 14 Week 10 finals: {REC['cells'] - len(REC['mismatches'])} of {REC['cells']} cells match ({a(OFF_STANDINGS, "nfl.com standings")}). The remaining cells (BAL and LAC: W, L, PF, PA) differ because the standings snapshot predates Monday's verified final (LAC 20 / BAL 23, official Game Book); the live nfl.com standings page read 2026-11-18 likewise predates it. Flagged for review, not inferred.</li>
-<li>All 14 Week 10 games are final. Monday LAC@BAL showed no score on nfl.com as read 2026-11-17 (stale pending status) and was confirmed FINAL on 2026-11-18 against the official Game Book: LAC 20, BAL 23.</li>
+<li>The Week 10 official results feed contains 150 games: 136 from Weeks 1–9 plus all 14 Week 10 finals. The 19 Nov standings spot-check matched the 24 rows visible in the fetched chunk; the remaining eight were not observed in that chunk. The stored standings snapshot predates the Monday final and its full live reconciliation remains incomplete ({a(OFF_STANDINGS, "NFL standings")}; {a(REPO + "site/data/verification-2026-11-19.json", "dated check")}.)</li>
+<li>All 14 Week 10 games are settled in the feed; Monday LAC@BAL (20–23) was confirmed against the official Game Book on 18 Nov. The 19 Nov scores-page spot-check matched nine visible finals; the remaining five stay supported by dated stored evidence, not this partial re-read.</li>
 <li>Week 11 has 13 games and 6 byes. Thursday's Colts at Texans venue is Reliant Stadium, Houston ({a(OFF_SCHED, "schedule")}; {a(OFF_COLTS, "game centre")}). Venues for the other 12 games are not verified.</li>
 <li>Lions designations: Kerby Joseph, Cade Mays and D.J. Reed are all Out on the Week 10 report ({a(OFF_INJ10, "injury report")}, F-15).</li>
 <li>Week 11 injury report read twice (18 and 19 Nov). Between the reads, 22 clubs moved from "No Injuries Reported" to listed rows and 16 game designations were filled, all on the Thursday game (IND at HOU). Only change counts are published ({a(OFF_INJ11, "official report")}; <a href="data-injuries.html">Injuries</a>, F-34).</li>
@@ -252,7 +265,7 @@ def build_exec():
 <li>The shadow baseline (B0) uses team strength only: points for and against per game, no injuries, no depth, no venue. Its formula reproduces all 13 stored Week 10 values (F-02).</li>
 <li>Week 10, {s['n_graded']} graded games ({s['n_pending']} pending): spread error {num(s['spread_mae_model'],2)} points (model) vs {num(s['spread_mae_market'],2)} (market). Total error {num(s['total_mae_model'],2)} vs {num(s['total_mae_market'],2)}; the market is better here. Moneyline Brier {num(s['ml_brier_model'],3)} vs {num(s['ml_brier_market'],3)} (market). Every model-minus-market interval includes zero. {s['n_graded']} games are not evidence in either direction.</li>
 <li>Re-verified live on 2026-11-19 (session 29145302): the nfl.com standings, Week 10 scores and Week 11 schedule pages were re-read and match the stored captures on every observed row (24 standings rows, 9 Week 10 finals, 6 Week 11 games; see <a href="sources.html">Sources</a>). Unobserved rows were left as stored, not upgraded.</li>
-<li>Week 11 fair lines were written in commit beca9d2 from the standings snapshot taken before Monday's game. They are <b>provisional</b>, have no market column, and will be re-originated once Monday is verified final (F-23).</li>
+<li>Week 11 has a frozen B0-v2 line set registered after the verified Monday final. It carries model probabilities and its inputs; verified market columns remain blank, so no residual or CLV is published. B0-v1 is retained as a separate earlier version.</li>
 </ul>
 <h2>3. Strategies and the leaderboard</h2>
 <ul>
@@ -261,17 +274,17 @@ def build_exec():
 </ul>
 <h2>4. What blocks the rest</h2>
 <ul>
-<li><b>Depth order.</b> The Houston depth-chart page returns 404 today. Without an official per-club depth source or official snap counts, no starter or backup can be identified (R-22, R-23).</li>
-<li><b>Injury history.</b> Only page 1 of the Week 10 report was re-read, and earlier captures disagree on row counts. Designations cannot be treated as a time series until they are captured on a schedule (F-05).</li>
-<li><b>Price history.</b> The <a href="{OFF_PICKS}">official Week 10 picks article</a> publishes FanDuel lines locked Thursday at 2 p.m. ET; it is not an opening/closing series. The <a href="../ledger/price-store.html">price ledger</a> records 39 locked market rows (side, total and moneyline for each of 13 originated Week 10 games) and no opening or closing values. F-12's "12 of 14" refers to the separate 17 Nov freshness re-read (2 of 14 game rows re-read), not missing locked-price values. These snapshots do not provide closing-line value (Q-01).</li>
-<li><b>Rights.</b> Whether nfl.com-derived tables can be republished is unread (Q-10).</li>
+<li><b>Depth order.</b> The Houston depth-chart URL returned the NFL's 404 page on 19 Nov. No all-32 route is verified; one page of one Game Book is not a complete depth register (R-22, R-23).</li>
+<li><b>Injury history.</b> The repository records two Week 11 reads; the second is a seven-chunk, 253-row transcription across 24 clubs, with 16 Thursday game-status cells. The brief's 254 count remains unreconciled and the large delta may reflect a capture artifact (F-34/F-37). No full Wed-to-kickoff series or outcome validation exists yet.</li>
+<li><b>Price history.</b> The <a href="{OFF_PICKS}">official Week 10 picks article</a> publishes FanDuel lines locked Thursday at 2 p.m. ET; this is not an opening/closing series. The <a href="../ledger/price-store.html">price ledger</a> records 39 locked market rows and no opening/closing values. F-12's “12 of 14” refers to the 17 Nov freshness re-read (2 of 14 game rows re-read), not missing locked-price values.</li>
+<li><b>Rights and storage.</b> NFL's terms page restricts systematic retrieval and copying absent express prior written consent. Project-specific permission is unresolved; <code>private-store/</code> is still inside the public Git repository (Q-10, F-31).</li>
 </ul>
 <h2>5. Requirement status</h2>
 <p>{E(', '.join(f'{k}: {v}' for k, v in sorted(c.items(), key=lambda kv: -kv[1])))}. Full table: {a("requirements.html", "requirements")}.</p>
 <h2>6. Your decisions</h2>
-<p>Ten suggestions await a choice on {a("suggestions.html", "the suggestions page")}. The most urgent are the price-data policy (S-01), the leaderboard ruling (S-02), the depth source (S-03) and the snapshot store and alerts (S-04). Nothing has been implemented from them.</p>
+<p>Review the alternatives on {a("suggestions.html", "Suggestions")}. The {a("decision-guide.html", "decision guide")} separates safe paper-only steps from operator-only choices: licensed price/snap feeds, data rights, private storage/alerts, and any reward. No licensing, legal, spending or reward decision is made automatically.</p>
 <h2>7. Irregularities</h2>
-<p>{a("flagged.html", "Flagged for review")} lists every open item, including the registry conflict (F-01), the method-text mismatch (F-02), the picks-article labels (F-03), the injury-count conflict (F-05) and the provisional Week 11 lines (F-23).</p>
+<p>{a("flagged.html", "Flagged for review")} lists open items including the strategy-registry conflict (F-01), the B0 method-text mismatch (F-02), the picks-article label inconsistency (F-03), injury-capture row-count conflict (F-05), unverified Week 10 market rows (F-12), and public-repository raw storage (F-31). F-23 is resolved by the separately frozen B0-v2; its market fields remain blank.</p>
 """
     page("executive-summary.html", "Executive summary", body)
 
@@ -286,7 +299,8 @@ def build_standings():
     totPF = sum(r["PF"] for r in d["rows"]); totPA = sum(r["PA"] for r in d["rows"])
     body = f"""
 <p class="meta">Read {FETCH}. Sorted by win percentage, then net points. League totals: wins {totW}, losses {totL}, PF {totPF}, PA {totPA}. NET is PF minus PA.</p>
-<p class="ok-line"><b>Reconciliation (rebuilt on this build):</b> the 136-game official log plus {REC['games'] - 136} Week 10 finals reproduce {REC['cells'] - len(REC['mismatches'])} of {REC['cells']} cells (W, L, T, PF, PA). Mismatches: {len(REC['mismatches'])} — all BAL/LAC (W, L, PF, PA) because the standings snapshot predates Monday's verified final (LAC 20 / BAL 23, Game Book read 2026-11-18). Script: <code>site/scripts/model_b0.py</code> (<code>reconcile()</code>).</p>
+<p class="ok-line"><b>Reconciliation (rebuilt on this build):</b> the 150-game official log reproduces 152 of 160 stored standings cells (W, L, T, PF, PA). Eight BAL/LAC cells differ because the standings snapshot predates the verified LAC 20–BAL 23 final. Script: <code>site/scripts/model_b0.py</code> (<code>reconcile()</code>).</p>
+<p class="flag-line"><b>Freshness:</b> this table is the 17 Nov stored snapshot, not a new full transcription. The 19 Nov live check matched the first 24 visible rows; the remaining eight were not in the fetched chunk and remain unverified today. See {a(REPO + "site/data/verification-2026-11-19.json", "row-level check scope")}.</p>
 {table(["Team", "Name", "W", "L", "T", "PCT", "PF", "PA", "NET", "Source"], rows, filter_id="standings")}
 <p class="meta">Team codes follow nfl.com's scores text (AZ, LAR). Flag F-08 notes the mixed codes in older files.</p>
 """
@@ -303,7 +317,7 @@ def build_results():
         rows.append([E(g["day"]), E(f'{g["away"]} at {g["home"]}'), "—", "—",
                      '<span class="badge warn">NOT FINAL as read</span>', a(g["game_url"], "Game"), a(d["source_url"], "Scores")])
     body = f"""
-<p class="meta">Source: nfl.com Week 10 scores (3 pages read {FETCH}). Away team first. All 14 Week 10 games are final: 13 read as FINAL on the scores page plus Monday LAC@BAL confirmed against the official Game Book (LAC 20, BAL 23, read 2026-11-18). The stale 2026-11-17 pending status is superseded.</p>
+<p class="meta">Stored feed: 14 Week 10 finals, each linked to an official game centre; Monday LAC@BAL (LAC 20, BAL 23) was confirmed against the Game Book on 18 Nov. The 19 Nov live scores-page re-read matched nine visible finals in chunk 0 of 2; the other five remain supported by earlier dated evidence, not by that partial re-read.</p>
 <p class="flag-line"><b>F-04 resolved:</b> Monday LAC@BAL showed no score on nfl.com as read 2026-11-17 (recorded pending); confirmed FINAL on 2026-11-18 against the official Game Book: LAC 20, BAL 23 at M&T Bank Stadium. Included in the results feed and grading. Game centre: {a("https://www.nfl.com/games/chargers-at-ravens-2026-reg-10", "LAC at BAL")}.</p>
 {table(["Day", "Game (away at home)", "Away", "Home", "Status", "Game centre", "Source"], rows, filter_id="results")}
 """
@@ -336,9 +350,9 @@ def build_lines():
                          a(st["game_url"], "Game"), a(OFF_PICKS, "Prices")])
     body = f"""
 <p class="meta">Three columns per measure: <b>fair</b> (B0 baseline, from Weeks 1–9 results only, originated 14 Nov per the stored <code>originated_at</code> field), <b>market</b> (nfl.com picks article, FanDuel prices locked Thursday 12 Nov, 2 PM ET), and <b>difference</b> (fair minus market). Spread is points added to the home team; negative means home favoured. Margins are in home-team terms.</p>
-<p class="flag-line"><b>Scope:</b> {s['n_graded']} games graded; 1 pending (Chargers at Ravens). Only 2 of the 14 market rows were re-verified against the picks article: Patriots at Lions (matches) and Chargers at Ravens (matches). The other 12 market cells are marked <span class="flag">unverified</span> (F-12).</p>
+<p class="flag-line"><b>Scope:</b> {s['n_graded']} games graded; {s['n_pending']} pending. Only 2 of the 14 market rows were re-verified against the picks article in this capture set: Patriots at Lions and Chargers at Ravens. The other market cells remain marked <span class="flag">unverified</span> (F-12).</p>
 {table(["Game", "Fair spread (home)", "Market spread (home)", "Difference (fair − market spread)", "Fair total", "Market total", "Difference (total)", "Fair P(home)", "Market P(home), de-vigged", "Final (away–home)", "Model error (pts)", "Market error (pts)", "Game", "Prices"], rows, cls="dense", filter_id="lines")}
-<h2>Summary (12 settled games)</h2>
+<h2>Summary ({s['n_graded']} settled games)</h2>
 {table(["Measure", "Model (B0)", "Market", "Difference (model − market)", "95% interval for the difference", "Reading", "Source"], [
  ["Spread error, mean absolute (points)", num(s['spread_mae_model'], 2), num(s['spread_mae_market'], 2), num(s['spread_mae_model'] - s['spread_mae_market'], 2), f"{s['spread_mae_diff_ci95'][0]:+.2f} to {s['spread_mae_diff_ci95'][1]:+.2f}", "Includes zero: no evidence either way", a(REPO + "site/data/b0-w10-grading.json", "Grading")],
  ["Total error, mean absolute (points)", num(s['total_mae_model'], 2), num(s['total_mae_market'], 2), num(s['total_mae_model'] - s['total_mae_market'], 2), f"{s['total_mae_diff_ci95'][0]:+.2f} to {s['total_mae_diff_ci95'][1]:+.2f}", "Includes zero; point estimate favours the market", a(REPO + "site/data/b0-w10-grading.json", "Grading")],
@@ -352,7 +366,7 @@ def build_lines():
 
 def build_schedule():
     d = J("site/data/week11-schedule.json")
-    w11 = J("site/data/b0-w11-lines.json")
+    w11 = J("site/data/b0-w11-lines-v2.json")
     lk = {g["game"]: g for g in w11["games"]}
     rows = []
     for g in d["games"]:
@@ -364,9 +378,9 @@ def build_schedule():
                      venue, vsrc, num(L["fair_handicap_home"], 1), num(L["fair_total"], 1), pct(L["p_home"]),
                      '<span class="flag">BLANK</span>', '<span class="flag">BLANK</span>', a(g["game_url"], "Game")])
     body = f"""
-<p class="meta">Source: nfl.com Week 11 schedule ({FETCH}; 3 pages read). 13 games; 6 teams on bye (ATL, CLE, GB, LAR, NE, SEA). Kickoffs as nfl.com renders them (ET).</p>
+<p class="meta">Stored source: nfl.com Week 11 schedule ({FETCH}; 3 pages read). The 19 Nov live re-check matched the first 6 games in chunk 0 of 3; 7 games were not observed in that re-check and retain their earlier dated source rows. 13 games; 6 teams on bye (ATL, CLE, GB, LAR, NE, SEA). Kickoffs as nfl.com renders them (ET).</p>
 <p class="ok-line"><b>Dated announcements (nfl.com note on this page, read 17 Nov):</b> "In Week 16, two of the four designated matchups will be played on Saturday at 4:30 PM ET and 8:00 PM ET on NFL Network, with the remainder to be played either on Thursday night (8:15 PM ET), Sunday afternoon (1:00 PM ET and 4:25 PM ET), Sunday night (8:20 PM ET), or Monday night (8:15 PM ET). Specific dates and start times for the designated Week 16 matchups will be determined and announced at a later date during the season, no later than immediately after Week 14." Week 17 and Week 18 dates are likewise TBD on the page: Week 17 no later than immediately after Week 15; Week 18 after the conclusion of Week 17. No dated announcement has been located yet (R-19).</p>
-<p class="flag-line"><b>Provisional Week 11 fair lines</b> (B0). They were written in commit beca9d2 on 17 Nov from the pre-Monday standings snapshot, so they will be re-originated once Chargers at Ravens is verified final (F-23). Market and difference columns are blank: no verified Week 11 market was captured (F-11).</p>
+<p class="flag-line"><b>Week 11 fair lines: B0-v2.</b> This version was pre-registered after the Week 10 Chargers–Ravens final was verified and uses the updated standings snapshot. Market and difference columns remain blank: no verified Week 11 market capture is stored. The earlier frozen B0-v1 is retained as a separate version.</p>
 {table(["Day", "Kickoff (ET)", "Network", "Game (away at home)", "Venue", "Venue source", "Fair spread (home)", "Fair total", "Fair P(home)", "Market spread", "Difference", "Game"], rows, cls="dense", filter_id="sched")}
 <p class="meta">Venue is verified only for Indianapolis at Houston (Reliant Stadium). The other 12 stay blank until each game centre is read (Q-16).</p>
 """
@@ -426,18 +440,18 @@ def build_injuries():
 
 def build_depth():
     rows = [
-        ["Route a: per-club official depth-chart page", "Houston Texans page returns HTTP 404 (not found)", "0 of 32 clubs", "BLOCKED", a(OFF_DEPTH, "Source")],
-        ["Route b: official snap counts", "No official source located or verified in this session", "0 of 32 clubs", "BLOCKED", '<span class="flag">UNVERIFIED</span>'],
-        ["Licensed structured depth feed", "Requires operator authorisation (S-03)", "0 of 32 clubs", "DECISION NEEDED", '<span class="flag">UNVERIFIED</span>'],
-        ["Official Game Books (actual starters)", "None captured. Published after kickoff; the repo estimates 6 to 8 game-weeks of postgame Game Books before a test is possible (README)", "0 of 32 clubs", "BLOCKED", a(REPO + "README.md", "Repo")],
-        ["Official transactions log", "None captured", "0 of 32 clubs", "BLOCKED", '<span class="flag">UNVERIFIED</span>'],
+        ["Route a: per-club official depth-chart page", "Houston Texans route returned the official 404 page when fetched 19 Nov; this does not establish other clubs' status", "0 of 32 verified", "BLOCKED", a(OFF_DEPTH, "NFL source")],
+        ["Route b: official snap counts", "No all-32 official snap-count source is verified in this repository", "UNVERIFIED", "BLOCKED", '<span class="flag">UNVERIFIED: source not established</span>'],
+        ["Licensed structured depth feed", "No license or authorized feed is recorded", "UNVERIFIED", "DECISION NEEDED", '<span class="flag">UNVERIFIED: source/rights not established</span>'],
+        ["Official Game Books (actual game-day evidence)", "One page of a seven-page NE@DET Game Book was captured (lineups and Not Active list); no complete 32-club snap-share dataset", "1 partial game; not depth coverage", "PARTIAL", a("https://www.nfl.com/games/patriots-at-lions-2026-reg-10", "NFL game centre") + " · " + a(REPO + "captures/manifest.json", "capture manifest")],
+        ["Official transactions log", "No transaction log capture is recorded", "UNVERIFIED", "BLOCKED", '<span class="flag">UNVERIFIED: source not established</span>'],
     ]
     body = f"""
-<p class="meta">Depth order is the input to every backup-replacement feature. The brief requires a verified route for all 32 clubs before any such feature is built (R-23). None is verified. Rules followed: no depth order from jersey number, experience or salary (rejected in the brief); no depth order read from images by eye.</p>
-<p class="flag-line"><b>Blocked:</b> backup-deficiency (R-27), offence and defence matchup matrix (R-28), per-team view (R-29), announced-starter field (R-30), stale-row flags (R-31). The brief's examples (Ravens QB rows, Texans image, Packers jersey prefixes, Seattle shared slots, Washington empty slot) cannot be checked against an official page today (F-06, F-17, F-18).</p>
-{table(["Source route", "What was checked (17 Nov)", "Clubs verified", "Status", "Source"], rows, filter_id="depth")}
+<p class="meta">Depth order is the input to every backup-replacement feature. Requirement R-23 needs one verified source route for all 32 clubs. No player is assigned a depth rank from jersey number, experience or salary; no image is transcribed by eye.</p>
+<p class="flag-line"><b>Blocked:</b> backup-deficiency, offense/defense matchup matrix, replacement depth, per-team starters-out view, announced-starter field and stale-row flags. Shared/tied and empty slots must be preserved. One Game Book page is actual game-day evidence, not a pre-kickoff all-club depth chart or snap-count source.</p>
+{table(["Source route", "What is verified", "Coverage", "Status", "Source / flag"], rows, filter_id="depth")}
 """
-    page("data-depth.html", "Depth & availability", body, lead="The depth layer is blocked. These are the sources tested, what each returned, and what would unblock it.")
+    page("data-depth.html", "Depth & availability", body, lead="The depth layer remains blocked. Source routes, proven coverage and the exact evidence needed to unblock it.")
 
 
 def build_strategies():
@@ -454,7 +468,7 @@ def build_strategies():
         rows.append([E(s["id"]), E(s["strategy"]), E(s.get("product", "")), E(s["status"]),
                      f"{passed} of {len(gates)}", E(", ".join(failed) or "—"),
                      E(str(s.get("n") if s.get("n") is not None else "—")), lb,
-                     a(REPO + "ledger/data/strategy-registry.json", "Repo registry")])
+                     a(OFF_SCORES, "NFL results") + " · " + a(REPO + "ledger/data/strategy-registry.json", "strategy record")])
     body = f"""
 <p class="meta">Source: repo registry, generated 14 Nov (ledger/data/strategy-registry.json; read {FETCH}). The status column is the registry's own label. The leaderboard column is this site's decision under the operator's rule: backtest numbers are not shown in a ranking, and no skill figures are published here.</p>
 <p class="flag-line"><b>Conflict F-01:</b> the root README says zero strategies are eligible; the registry labels four PAPER-ELIGIBLE. Those four pass the gates on a walk-forward backtest (W3 to W9) against naive baselines. They have not been compared with the market, and none has settled prospectively.</p>
@@ -477,10 +491,13 @@ def build_correlations():
     rows = []
     for r in c:
         holm = "Yes" if r["significant_after_holm"] else "No"
+        official_sources = a(OFF_SCORES, "NFL scores")
+        if r["id"] in ("C5", "C6", "C7", "C8", "C9"):
+            official_sources = a("https://nextgenstats.nfl.com/stats/passing", "NFL Next Gen Stats") + " · " + official_sources
         rows.append([E(r["id"]), E(r["pair"]), E(str(r["n"])), num(r["r"], 3),
                      f'{r["ci95"][0]:+.3f} to {r["ci95"][1]:+.3f}', f'{r["p_two_sided"]:.3f}',
                      "Yes (uncorrected)" if r["significant_5pct"] else "No", f'{r["p_holm"]:.3f}', holm,
-                     E(r.get("scope", "")), a(REPO + "origination/results/correlations.json", "Repo")])
+                     E(r.get("scope", "")), official_sources + " · " + a(REPO + "origination/results/correlations.json", "calculation record")])
     body = f"""
 <p class="meta">Descriptive pair correlations from official nfl.com scores (and Next Gen Stats where stated), as computed in the repo (read {FETCH}). Each row shows n and a 95% interval. No officially published leg-level pairs exist, so betting-leg dependence is not estimated here.</p>
 <p class="flag-line"><b>F-13:</b> C2 is significant at 5% before correction (p = 0.026). After Holm correction across the nine published tests, only C5, C6, C8 and C9 remain. The p-values and Holm values shown are the repo's own, as stored.</p>
@@ -493,12 +510,19 @@ def build_sources():
     rows = []
     for s in J("site/data/sources.json")["rows"]:
         rows.append([E(s["id"]), E(s["label"]), E(s["kind"]), E(s["read"]), E(s["used_for"]), a(s["url"], "Open")])
+    ccfrows = []
+    ccf = J("site/data/verification-ccf863a6-2026-11-19.json")
+    for item in ccf["checks"]:
+        ccfrows.append([E(item["id"]), E(item["observed"]), E(item["limit"]), E(item["use"]), a(item["url"], "Official page")])
     vrows = []
     for v in J("site/data/verification-2026-11-19.json")["checks"]:
         vrows.append([E(v["id"]), E(v["observed"]), E(v["stored"]), E(v["result"]), a(v["source_url"], "Open")])
     body = f"""
-<p class="meta">Every source behind a value on this site. Official pages were read with the page-fetch tool on {FETCH}. A direct download from nfl.com failed from the sandbox with a TLS error, so each capture is the page text as the fetch tool returned it, not a raw HTTP capture.</p>
+<p class="meta">Source dates and read limits are recorded per row. Most inherited pages were read 17 Nov; a limited re-check occurred 19 Nov. The 19 Nov injury page was read only for its first returned chunk, and the terms/depth/picks pages have separate scope notes below. These are page-fetch transcriptions, not raw HTTP captures.</p>
 {table(["ID", "Source", "Kind", "Read", "Used for", "Link"], rows, cls="dense", filter_id="src")}
+<h2>Focused official-source checks (19 Nov 2026; session ccf863a6)</h2>
+<p class="meta">These records state exactly what the fetched page showed and what was not established. Full verification record: {a(REPO + "site/data/verification-ccf863a6-2026-11-19.json", "CCF-V01 to CCF-V04")}.</p>
+{table(["ID", "Observed", "Limit", "Use", "Official source"], ccfrows, cls="dense", filter_id="ccf-checks")}
 <h2>Live re-verification on 2026-11-19 (session 29145302)</h2>
 <p class="meta">Three official pages were re-read live and compared to the stored captures. Only observed rows are recorded; unobserved rows were left as stored. Full record: <code>site/data/verification-2026-11-19.json</code>.</p>
 {table(["ID", "Observed live", "Stored capture", "Result", "Link"], vrows, cls="dense", filter_id="v19")}
@@ -528,40 +552,93 @@ OFF_COLTS = "https://www.nfl.com/games/colts-at-texans-2026-reg-11?tab=overview"
 
 
 def build_requirements():
+    reqdata = J("site/data/requirements.json")
     rows = req_rows()
     body = f"""
-<p class="meta">Every item from the operator brief, grouped and duplicates merged. Status legend: DONE (built and checked), PARTIAL, BLOCKED (named missing input), NOT STARTED, NOT DONE (checked, not met), REJECTED (operator rejected), NOT POSSIBLE AS STATED, DECISION NEEDED, PENDING.</p>
+<p class="meta">Register baseline date: {E(reqdata.get('as_of', 'unknown'))}; selective status refresh: {E(reqdata.get('reviewed_at', 'not recorded'))}. Only the rows explicitly rechecked on 19 Nov are refreshed; other inherited statuses retain their earlier evidence dates. Items are grouped and duplicates merged. Status legend: DONE (built and checked), PARTIAL, BLOCKED (named missing input), NOT STARTED, NOT DONE (checked, not met), REJECTED (operator rejected), NOT POSSIBLE AS STATED, DECISION NEEDED, PENDING.</p>
 {table(["ID", "Group", "Requirement (from the brief)", "Status", "What exists", "Gap or blocker", "Clearing number", "Source"], rows, cls="dense", filter_id="reqs")}
 """
     page("requirements.html", "Requirements", body, lead="The full operator brief as a tracked register. Nothing is marked done on the strength of a build passing alone.")
 
 
 def build_questions():
-    qs = J("site/data/questions.json")["rows"]
-    rows = [[E(q["id"]), E(q["question"]), E(q["have"]), E(q["lack"]), E(q["how_to_answer"]), E(q["blocks"]),
-             a(REPO + "site/data/questions.json", "Register entry")] for q in qs]
+    qdata = J("site/data/questions.json")
+    qs = qdata["rows"]
+    official = {
+        "Q-01": [OFF_PICKS], "Q-02": [OFF_DEPTH], "Q-04": [OFF_INJ10, "https://www.nfl.com/games/patriots-at-lions-2026-reg-10"],
+        "Q-05": [OFF_STANDINGS], "Q-06": [OFF_INJ10], "Q-07": [OFF_INJ11], "Q-08": [OFF_SCORES],
+        "Q-09": [OFF_SCORES, OFF_PICKS], "Q-10": ["https://www.nfl.com/legal/terms/"],
+        "Q-13": [OFF_SCHED], "Q-14": ["https://www.nfl.com/games/patriots-at-lions-2026-reg-10"],
+        "Q-16": [OFF_SCHED],
+        "Q-19": [OFF_SCORES], "Q-20": [OFF_STANDINGS],
+    }
+    rows = []
+    for q in qs:
+        links = official.get(q["id"], [])
+        source_cell = " · ".join(a(u, "Official source") for u in links) if links else '<span class="flag">UNVERIFIED: no official source identified</span>'
+        source_cell += " · " + a(REPO + "site/data/questions.json", "register record")
+        rows.append([E(q["id"]), E(q["question"]), E(q["have"]), E(q["lack"]), E(q["how_to_answer"]), E(q["blocks"]), source_cell])
     body = f"""
-<p class="meta">What we have, what we lack, and how each question could be answered from an official source. Answers are needed before the matching decision can be made.</p>
-{table(["ID", "Question", "What we have", "What we lack", "How to answer", "Blocks", "Source"], rows, cls="dense", filter_id="qs")}
+<p class="meta">Register baseline date: {E(qdata.get('as_of', 'unknown'))}; selective refresh: {E(qdata.get('reviewed_at', 'not recorded'))}. Each row separates the current answer/evidence from missing information and a testable way to close the gap. Official-source links are included where identified; operator-only questions and unlocated sources remain explicitly UNVERIFIED. Source dates vary; check the Sources page.</p>
+{table(["ID", "Question", "What we have / answer today", "What we lack", "How to answer", "Blocks", "Official source / evidence"], rows, cls="dense", filter_id="qs")}
 """
-    page("questions.html", "Questions", body, lead="The questions and missing information that must be answered before a decision can reasonably be made.")
+    page("questions.html", "Questions", body, lead="The questions and information that must be addressed before a decision can reasonably be made.")
 
 
 def build_suggestions():
     sg = J("site/data/suggestions.json")
+    source_map = {
+        "S-01": [OFF_PICKS, "https://www.nfl.com/legal/terms/"], "S-02": [OFF_SCORES], "S-03": [OFF_DEPTH, "https://www.nfl.com/games/patriots-at-lions-2026-reg-10"],
+        "S-04": [OFF_INJ11, "https://www.nfl.com/legal/terms/"], "S-05": ["https://www.nfl.com/legal/terms/"], "S-06": [OFF_STANDINGS],
+        "S-07": [OFF_PICKS], "S-08": [OFF_INJ10],
+    }
     parts = []
     for s in sg["rows"]:
         opts = "".join(f'<li><b>{E(o["label"])}.</b> {E(o["text"])}<br><span class="meta">Cost: {E(o["cost"])} · Risk: {E(o["risk"])}</span></li>' for o in s["options"])
+        urls = source_map.get(s["id"], [])
+        sources = " · ".join(a(u, "Official source") for u in urls) if urls else '<span class="flag">UNVERIFIED: operator/project policy; no official NFL source applies</span>'
+        sources += " · " + a(REPO + "site/data/suggestions.json", "suggestion register")
         parts.append(f"""<section class="card wide"><div class="k">{E(s['id'])} · {E(s['requirement'])}</div>
 <h3>{E(s['title'])}</h3><ul>{opts}</ul>
 <p><b>Recommendation (not applied):</b> {E(s['recommendation'])}</p>
 <p><b>Decision needed:</b> {E(s['decision'])}</p>
-<p class="flag">Status: awaiting your choice. Nothing has been implemented.</p></section>""")
+<p><b>Sources:</b> {sources}</p>
+<p class="flag">Status: awaiting operator decision. No licensing, legal, spending or reward choice is made automatically.</p></section>""")
     body = f"""
 <p class="lead">{E(sg['status'])}</p>
 {''.join(parts)}
 """
-    page("suggestions.html", "Suggestions", body, lead="Options for you to choose from before anything changes. Each lists cost, risk and the decision it needs.")
+    page("suggestions.html", "Suggestions", body, lead="Reviewable options with recommendations, cost, risk and sources. Operator-only decisions remain separate from safe paper-only work.")
+
+
+def build_decision_guide():
+    """A compact decision map built from the current official-source checks and frozen repo gates."""
+    rows = [
+        ["Q-01 · Results & line-quality", "We can grade the existing shadow model, but cannot claim a proven edge or ROI. The 19 Nov spot-check matched 9 visible Week 10 finals; other results remain tied to dated captures.", "Official Week 10 results are published. The project feed stores 150 results (136 W1–W9 + 14 W10) with source links; status and chronology must remain attached.", "A prospective sample, market-aligned prices/stakes and holdout evidence. A result feed alone is not ROI.", "Keep the singles-only model in shadow; lock forecast + probability + inputs before kickoff; grade only after an official final. No strategy rank/reward until pre-registered gates pass.", link_or_flag("https://www.nfl.com/scores/2026/week-10", "NFL scores") + " · " + a(REPO + "site/data/verification-2026-11-19.json", "19 Nov check")],
+        ["Q-02 · Market-price policy", "A dated reference price exists for the NFL Week 10 picks article: FanDuel lines locked Thursday 2 p.m. ET. This is not an opening/closing history.", "The project price store has 87 Week 9–10 snapshots; opening and closing values are blank where not sourced.", "A lawful, retained open/close feed and an approved reuse policy are missing; no CLV claim can be made from one locked timestamp.", "Safe default: publish the existing locked-time snapshots as such and leave open/close/CLV blank. Do not automate additional systematic retrieval or acquire a paid feed until rights, terms and budget are approved.", link_or_flag("https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season", "NFL picks + locked lines") + " · " + a("https://www.nfl.com/legal/terms/", "NFL terms")],
+        ["Q-03 · Injury surprise & availability", "The repository now contains a full 19 Nov Week 11 transcription across all 7 fetch chunks (253 player rows, 24 clubs) and a dated manifest; the earlier 18 Nov read had 26 rows. Sixteen game-designation cells appear for Thursday only.", "The brief says 254 rows; the transcribed 253-row count remains unreconciled. Two reads show large discrepancies that may be capture artifacts; they do not establish which changes were real. Friday read, multi-week archive, inactive evidence, Game Books and snap-count coverage are still missing.", "Reconcile 253 vs 254, preserve the current hashes and read timestamps, repeat capture Friday, then key-match and validate source deltas before outcome tests. Keep this outside the model pending multi-season calibration.", "Do not turn Questionable/Out levels into fixed penalties. Report observed deltas only with provenance and explicit capture-artifact caveats; require multi-week historical designation reliability, inactive/Game Book outcome joins and chronological ablations before modeling.", link_or_flag("https://www.nfl.com/injuries/league/2026/reg11", "NFL Week 11 injury report") + " · " + a(REPO + "captures/manifest.json", "capture manifest") + " · " + a(REPO + "captures/2026-11-19/delta-w11-r1-to-r2.json", "counts-only delta")],
+        ["Q-04 · Starter and replacement depth", "The Houston Texans NFL depth-chart URL returned the official 404 page when rechecked 19 Nov. That says nothing about other clubs; an all-32 route is not verified.", "No player is assigned a starter/depth slot from jersey number, experience or salary. Game Books provide actual game-day evidence after the fact, not a full pre-kickoff depth register.", "A verified official or authorized source for all 32 clubs, grouped/shared/empty slots, dated roster events and snap counts. Coverage and definitions must be checked club by club.", "Keep the deficiency matrix blocked. Only proceed when the chosen source covers 32/32 clubs and preserves ties/empty slots; use verified play-time for role, never jersey order.", link_or_flag("https://www.nfl.com/teams/houston-texans/depth-chart", "NFL depth-chart probe") + " · " + a("https://www.nfl.com/games/patriots-at-lions-2026-reg-10", "NFL game centre")],
+        ["Q-05 · Skill, luck & leaderboard", "No evidence in the current record justifies promoting a strategy. A small realised win rate or ROI cannot separate skill from variance; luck is not eliminated, only bounded with proper scores and uncertainty.", "The repo pre-registers G3 sample thresholds: 80 singles, 40 independent parlay pairs, 100 player-games; other gates include paired uncertainty, multiplicity correction, calibration and stability.", "Prospective chronological holdouts and clean, comparable market baselines; strategy-registry conflicts are flagged and must be resolved before any leaderboard display.", "Singles first; rank only benchmark-relative proper-score skill with uncertainty after all preregistered gates pass. Keep backtest figures off the public leaderboard; split signal from staking. No real-money reward.", link_or_flag("https://www.nfl.com/scores/2026/week-10", "NFL results for settlement") + " · " + a(REPO + "ledger/data/strategy-registry.json", "pre-registration registry")],
+        ["Q-06 · Parlays & player-prop combos", "Not decision-ready. Multiplying marginal probabilities does not supply a validated joint probability.", "The strategy rules explicitly hold combinations behind a joint-evidence gate; available game results do not by themselves validate operator-specific void/push settlement.", "Directly validated joint probabilities on chronological held-out outcomes, official/authorized prop prices and the operator's void/push rules.", "Do not rank parlays or prop combos until joint validation and settlement rules are both recorded; use distinct leaderboard divisions only after that gate.", link_or_flag("https://www.nfl.com/games/patriots-at-lions-2026-reg-10", "NFL Game Book entry point") + " · " + a(REPO + "ledger/data/strategy-registry.json", "strategy gates")],
+        ["Q-07 · Data rights, storage & alerts", "The NFL Terms page says use is individual, non-commercial and informational, and restricts systematic retrieval and copying absent express prior written consent. This is not a legal determination for this project.", "The repo has a `private-store/` directory but it is still in the public Git repository; excluding it from Pages does not make it private.", "Written rights/terms review, an actually private durable store, retention/access rules, alert owner and approved credentials.", "Keep raw row-level captures out of public deployment; do not treat Git as a secret store. Obtain operator/legal approval and provision private storage before automation or redistribution.", link_or_flag("https://www.nfl.com/legal/terms/", "NFL Terms and Conditions") + " · " + a(REPO + "private-store/", "repository storage path")],
+    ]
+    body = f"""
+<p class="flag-line"><b>Decision rule:</b> facts below are limited to the linked official pages and dated project evidence. A source link is not permission to copy or redistribute its contents. Blank, unavailable, or unverified evidence is not guessed. Last focused official re-reads: 19 Nov 2026.</p>
+<h2>What can be concluded now</h2>
+{table(["Question / decision", "Answer today", "Verified information", "Missing information", "Gate and recommended next step", "Sources"], rows, cls="dense", filter_id="decision-guide")}
+<h2>Safe path forward</h2>
+<ol>
+<li><b>Continue shadow singles only, in the requested order: side, then total, then moneyline.</b> Pre-register each model version and freeze probability, inputs, fair line, contemporaneous market line and residual before kickoff. Grade against official final results; do not call a line profitable or calibrated until the holdout gates clear.</li>
+<li><b>Protect the evidence chain.</b> Keep raw-source values and derived analysis separate; label every capture with source, fetch time, hash, parser version and conflicts. Do not present a missing row as healthy or available.</li>
+<li><b>Keep all strategies off reward rankings until qualification.</b> Use benchmark-relative Brier skill for probabilities and proper-score/error measures appropriate to numeric lines; publish n, uncertainty, multiplicity adjustment, calibration and the stake-independent signal result. Staking/ROI is a later escrow, never a substitute for signal skill.</li>
+<li><b>Hold combination products behind a separate gate.</b> Require directly validated joint probabilities and explicit void/push settlement; no product of marginal probabilities as a substitute.</li>
+<li><b>Do not claim “luck removed.”</b> Use pre-registration, chronological holdouts, controls, confidence bounds and multiplicity correction to limit false discoveries; residual uncertainty remains.</li>
+</ol>
+<h2>Choices that cannot safely be made automatically</h2>
+<p>These are not data gaps that code can resolve: (1) whether to license an odds/snap-count feed and its budget/terms; (2) permission to systematically retrieve or republish NFL content; (3) approved private storage, retention and who receives alerts; and (4) whether any reward exists. Until approved, the conservative defaults are official published snapshots only, no open/close or CLV claim, paper research only, no raw-data publication and no reward. These defaults do not imply consent or legal clearance.</p>
+<p>For the complete requirement-level gate list, see {a("index.html", "decision readiness table on the overview")}; for open questions and source targets, see {a("questions.html", "Questions")}; for alternatives and review, see {a("suggestions.html", "Suggestions")}. All unresolved items remain on {a("flagged.html", "Flagged for review")}.</p>
+"""
+    page("decision-guide.html", "Decision guide", body, lead="A plain-language answer to what the current evidence supports, what is still missing, and what must happen before a decision is defensible.")
 
 
 def build_repo_review():
@@ -660,7 +737,7 @@ def main():
         f.write(JS)
     build_index(); build_exec(); build_standings(); build_results(); build_lines(); build_schedule()
     build_injuries(); build_depth(); build_strategies(); build_correlations(); build_requirements()
-    build_questions(); build_suggestions(); build_repo_review(); build_sources(); build_flagged()
+    build_questions(); build_suggestions(); build_decision_guide(); build_repo_review(); build_sources(); build_flagged()
     build_readme()
     print("built", len(NAV), "pages")
 
