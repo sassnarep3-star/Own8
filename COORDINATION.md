@@ -8,6 +8,24 @@ editing it. Make small, frequent commits; `git pull --rebase` before every push.
 If a claim is >60 minutes old with no commits, another session may take it over
 and note the handoff here.
 
+## Session 79ad21e0 — source recheck, Week 10 result-integrity repair, and dashboard QA (claimed 2026-11-19 UTC)
+
+Branch: `arena/79ad21e0-own8` (Arena-pinned; this session stays on the current branch and creates no other branch/worktree).
+
+**Scope:** this session's section in `COORDINATION.md`; the canonical Week 10 result input and dependent grading/feed outputs; `site/scripts/{build.py,content.py,model_b0.py}`, `site/check.py`, `site/data/{week10-results.json,flags.json,requirements.json,questions.json,b0-w10-grading.json}`, generated `site/*.html`, `ledger/data/results-feed.json`, `ledger/scripts/check_ledger.py`, and the relevant README correction. Existing captures and all unrelated namespaces are read-only. Do not edit the correct 2026-11-18 standings snapshot unless a fresh official source contradicts it.
+
+**Handoff:** open PR #81 (`acc0ec01`, last updated 2026-11-18 06:37 UTC) and PR #85 (`2e1f91d7`, last updated 2026-11-18 06:42 UTC) both touch the site scope and have no newer commits; each is older than the board's 60-minute takeover threshold. This session takes over only the overlapping current-score/site-correction work, independently re-verifies it, and preserves their non-conflicting capture evidence. PR #70's evidence remains read-only; its former pending result was superseded by merged PR #86.
+
+| ID | Task | Status | Owner | Files (scope) | Verification plan |
+| --- | --- | --- | --- | --- | --- |
+| I0 | Board claim and stale-scope handoff | in progress | 79ad21e0 | COORDINATION.md (this section) | Commit and push claim before implementation; log stale PRs and takeover. |
+| I1 | Independently verify Week 10 LAC@BAL's official final and reconcile all canonical records | in progress | 79ad21e0 | site/data/week10-results.json, ledger/data/results-feed.json, site/data/standings-2026-11-18.json (read-only) | Re-read nfl.com scores, game centre, official Game Book, and current standings; retain source URLs/read time; leave blank if authoritative sources conflict. |
+| I2 | Regenerate affected grading/summary/site views and correct stale statements | pending | 79ad21e0 | site/scripts/** (listed files only), site/data/** (listed files only), site/*.html, README.md | Rebuild from frozen inputs; check feed, grading, score summaries and statuses against the verified result. |
+| I3 | Add a fail-closed consistency guard for the official result, its standings update and the published feed | pending | 79ad21e0 | ledger/scripts/check_ledger.py, site/check.py, tests under the same namespaces | Demonstrate the current mismatch fails a test, then corrected data passes all relevant checkers. |
+| I4 | Full release QA, PR, merge and Pages confirmation | pending | 79ad21e0 | COORDINATION.md (this section) | Run site/ledger/root checks; create PR from this branch; merge only after all required checks pass; confirm Pages `built`; record the PR and merge. |
+
+**Initial discrepancy observed before implementation:** current official nfl.com Week 10 scores and the Chargers–Ravens game centre show LAC 23, BAL 20 (fetched 2026-11-19 UTC); the checked-in results and grading files currently claim LAC 20, BAL 23, while `site/data/standings-2026-11-18.json` records LAC 23, BAL 20. Recheck the official sources before changing any value. No numeric result is treated as settled by arithmetic alone.
+
 ## Session 4fcbfdf8 — final integration: Week 10 official results, dashboard consistency, and release QA (claimed 2026-11-18 UTC)
 
 Branch: `arena/4fcbfdf8-own8` (Arena-pinned; work stays on this branch; no other branch/worktree is created). Read the board before acting. Existing site, ledger, and requirements tasks are marked done; PR #70 (`session-30caea4e/**`) is an unmerged completed evidence capture whose author explicitly requested final integration. Its scope is isolated to that session directory plus this board, so this claim does not edit those artifacts.
