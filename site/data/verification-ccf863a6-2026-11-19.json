@@ -1,0 +1,42 @@
+{
+  "as_of": "2026-11-19",
+  "session": "ccf863a6",
+  "method": "Official pages fetched directly with the page-fetch tool on 2026-11-19. Only the returned content is recorded; no full-page claim is made where the response was chunked.",
+  "checks": [
+    {
+      "id": "CCF-V01",
+      "url": "https://www.nfl.com/injuries/league/2026/reg11",
+      "observed": "Page title identifies the official 2026 Week 11 injury report. The first returned chunk (of 7) shows Thursday, 19 November game sections and Player, Position, Injuries, Practice Status, and Game Status columns.",
+      "limit": "Only chunk 0 was read; not an exhaustive report transcription, not a full new capture, and no raw response hash was retained in this turn.",
+      "use": "Establishes that the live report has advanced beyond the 18 Nov partial archive; it does not establish a player-level delta or complete club coverage."
+    },
+    {
+      "id": "CCF-V02",
+      "url": "https://www.nfl.com/teams/houston-texans/depth-chart",
+      "observed": "NFL page returned a 404 - Flag on the Play page on 19 November 2026.",
+      "limit": "One club route only. This does not establish the status of any other club or prove that no authorized structured source exists.",
+      "use": "Supports keeping the all-32 depth-route gate blocked; no depth order was inferred."
+    },
+    {
+      "id": "CCF-V03",
+      "url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+      "observed": "The article states that FanDuel lines are locked as of 2 p.m. ET Thursday, Nov. 12. It publishes Week 10 spread, total and moneyline lines, including Chargers at Ravens and Patriots at Lions.",
+      "limit": "Only the first returned chunk (of 7) was read. A locked reference-time price is not an opening/closing time series and is not a license to republish or systematically retrieve data.",
+      "use": "Supports the distinction between a dated published market line and unavailable opening/closing snapshots."
+    },
+    {
+      "id": "CCF-V04",
+      "url": "https://www.nfl.com/legal/terms/",
+      "observed": "Terms page says updated May 16, 2024; the text limits use to individual, non-commercial informational purposes and restricts systematic retrieval and copying absent express prior written consent.",
+      "limit": "Only the first returned chunk (of 9) was read. This is a transcription of visible terms, not legal advice or a determination of the project's rights. No permission or license was identified.",
+      "use": "Requires review by the operator/counsel before systematic capture or redistribution; raw data is not made private merely by excluding it from Pages."
+    },
+    {
+      "id": "CCF-V05",
+      "url": "https://nextgenstats.nfl.com/stats/passing",
+      "observed": "Official Next Gen Stats Passing page is live and exposes its season/week selectors and passing-stat columns, including attempts and passing yards.",
+      "limit": "This did not re-transcribe or re-verify the historical weekly values used in the existing correlation analysis; those remain tied to the repository's dated capture and method record.",
+      "use": "Provides an official review target for the NGS inputs; the published correlations remain descriptive, with n, and are not joint-probability validation."
+    }
+  ]
+}

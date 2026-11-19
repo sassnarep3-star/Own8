@@ -112,6 +112,78 @@
    "read": "2026-11-17",
    "used_for": "Cross-check of prior statuses",
    "kind": "repository (inherited)"
+  },
+  {
+   "id": "SRC-15",
+   "label": "NFL standings live re-read (first 24 rows only)",
+   "url": "https://www.nfl.com/standings/league/2026/REG",
+   "read": "2026-11-19",
+   "used_for": "Spot-check against stored standings; eight rows not re-read",
+   "kind": "official (partial live re-check)"
+  },
+  {
+   "id": "SRC-16",
+   "label": "NFL Week 10 scores live re-read (first 9 finals only)",
+   "url": "https://www.nfl.com/scores/2026/week-10",
+   "read": "2026-11-19",
+   "used_for": "Spot-check against stored official results; remaining five not re-read in this chunk",
+   "kind": "official (partial live re-check)"
+  },
+  {
+   "id": "SRC-17",
+   "label": "NFL Week 11 schedule live re-read (first 6 games only)",
+   "url": "https://www.nfl.com/schedules/2026/by-week/week-11",
+   "read": "2026-11-19",
+   "used_for": "Spot-check against stored schedule; remaining seven games not re-read in this chunk",
+   "kind": "official (partial live re-check)"
+  },
+  {
+   "id": "SRC-18",
+   "label": "NFL Week 11 injury report (first returned chunk of 7)",
+   "url": "https://www.nfl.com/injuries/league/2026/reg11",
+   "read": "2026-11-19",
+   "used_for": "Confirms current report version; not a full capture or player-level delta",
+   "kind": "official (partial read)"
+  },
+  {
+   "id": "SRC-19",
+   "label": "NFL Texans depth-chart route (404 probe)",
+   "url": "https://www.nfl.com/teams/houston-texans/depth-chart",
+   "read": "2026-11-19",
+   "used_for": "One-club route probe only; does not establish all-32 source availability",
+   "kind": "official probe"
+  },
+  {
+   "id": "SRC-20",
+   "label": "NFL Week 10 picks article (FanDuel lines and lock-time statement)",
+   "url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season",
+   "read": "2026-11-19",
+   "used_for": "Reference-time price; not an opening/closing series",
+   "kind": "official"
+  },
+  {
+   "id": "SRC-21",
+   "label": "NFL.com Terms and Conditions",
+   "url": "https://www.nfl.com/legal/terms/",
+   "read": "2026-11-19",
+   "used_for": "Data-rights review flag; not legal advice or permission",
+   "kind": "official terms"
+  },
+  {
+   "id": "SRC-22",
+   "label": "Repo: this session's official-source verification limits",
+   "url": "https://github.com/sassnarep3-star/Own8/blob/main/site/data/verification-ccf863a6-2026-11-19.json",
+   "read": "2026-11-19",
+   "used_for": "Read dates, chunk limits and evidence scope for CCF-V01 to CCF-V05",
+   "kind": "repository (verification record)"
+  },
+  {
+   "id": "SRC-23",
+   "label": "NFL Next Gen Stats, Passing",
+   "url": "https://nextgenstats.nfl.com/stats/passing",
+   "read": "2026-11-19",
+   "used_for": "Official review target for passing inputs; historical week values were not re-transcribed in this pass",
+   "kind": "official (source route checked)"
   }
  ]
 }

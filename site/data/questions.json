@@ -1,5 +1,6 @@
 {
  "as_of": "2026-11-17",
+ "reviewed_at": "2026-11-19",
  "rows": [
   {
    "id": "Q-01",
@@ -35,11 +36,11 @@
   },
   {
    "id": "Q-05",
-   "question": "Is the Week 10 Monday game final?",
-   "have": "nfl.com pages as read show no score",
-   "lack": "A final score on nfl.com",
-   "how_to_answer": "Re-read the scores page after the operator confirms; this moves 12 graded games to 13 and changes W11 inputs (F-04)",
-   "blocks": "R-01, R-03"
+   "question": "Are the stored standings current after the Week 10 Monday final?",
+   "have": "The 14-game Week 10 results feed includes LAC 20\u2013BAL 23 from the official Game Book; the 19 Nov live standings read matched 24 observed rows",
+   "lack": "A complete current 32-row standings re-read and a full reconciliation against the 150-result feed",
+   "how_to_answer": "Read all standings chunks, recompute W/L/T/PF/PA from the official results feed, and record every mismatch before upgrading R-02",
+   "blocks": "R-02"
   },
   {
    "id": "Q-06",
@@ -68,17 +69,17 @@
   {
    "id": "Q-09",
    "question": "Does the model beat the market, with enough sample to say so?",
-   "have": "Week 10, 12 games: no significant difference in spread or moneyline error (site/data-lines.html)",
-   "lack": "Prospective sample of about 80 singles games (the repo's own G3 threshold)",
-   "how_to_answer": "Keep locking lines each week (S-07); no conclusion before the sample size",
+   "have": "Week 10 has 13 graded games; spread, total and moneyline paired 95% intervals include zero",
+   "lack": "At least 80 prospective singles under the repository's pre-registered G3 gate, plus the other qualification gates",
+   "how_to_answer": "Continue frozen shadow forecasts; do not conclude from this 13-game sample or promote a strategy before the holdout and uncertainty gates pass",
    "blocks": "R-42, R-58, R-59"
   },
   {
    "id": "Q-10",
-   "question": "Can nfl.com-derived standings, scores and prices be republished?",
-   "have": "Pages are public; terms not read in this session",
-   "lack": "nfl.com terms of use reading and an operator ruling",
-   "how_to_answer": "Read nfl.com terms (operator or counsel); then decide S-05",
+   "question": "What does NFL.com permit for systematic retrieval and republication?",
+   "have": "NFL Terms and Conditions were read 19 Nov 2026; they describe individual, non-commercial informational use and restrict copying/systematic retrieval absent express prior written consent",
+   "lack": "Project-specific legal review and any required written permission/licence; the page is not a legal determination",
+   "how_to_answer": "Have the operator/counsel review the current terms and secure written authorization before systematic capture or redistribution; keep raw rows out of public deployment meanwhile",
    "blocks": "R-68"
   },
   {

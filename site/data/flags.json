@@ -179,11 +179,11 @@
   },
   {
    "id": "F-23",
-   "title": "Week 11 fair lines were built on pre-Monday standings (provisional)",
-   "detail": "site/data/b0-w11-lines.json was written in beca9d2 on 17 Nov from the standings snapshot taken before the Monday Chargers at Ravens game, which is not verified final. The lines are provisional and must be re-originated after that game is verified final. Frozen values stay in git history.",
-   "evidence": "site/data/b0-w11-lines.json; site/data/standings-2026-11-17.json",
-   "link": "https://github.com/sassnarep3-star/Own8/blob/main/site/data/b0-w11-lines.json",
-   "status": "OPEN (re-originate after F-04 clears)"
+   "title": "Week 11 B0-v1 pre-Monday lines superseded by a frozen v2",
+   "detail": "B0-v1 used a standings snapshot taken before LAC@BAL was final. After the official Game Book confirmed LAC 20\u2013BAL 23, B0-v2 was registered on 18 Nov with the updated standings input; v1 remains frozen as history. No Week 11 market line was captured, so market/residual cells remain blank.",
+   "evidence": "site/data/b0-w11-lines.json; site/data/b0-w11-lines-v2.json; site/data/standings-2026-11-18.json",
+   "link": "https://github.com/sassnarep3-star/Own8/blob/main/site/data/b0-w11-lines-v2.json",
+   "status": "RESOLVED (v2 registered; no market price)"
   },
   {
    "id": "F-24",
