@@ -3013,3 +3013,22 @@ Branch: `arena/b45ee35f-own8` (Arena-pinned; the `session-<id>/<task>` naming in
 - **Pages:** `gh api repos/sassnarep3-star/Own8/pages/builds/latest` → `built`, commit `d29546f`, error empty.
 - **Live re-fetch (fetch_page, 2026-11-19):** https://sassnarep3-star.github.io/Own8/site/data-team-view.html serves the corrected 26-club table with the F-26 correction at the top.
 - **Not changed by this session:** the root `index.html` (F-24), `archive/**`, every other session's section of this board.
+
+## Session 41ef2b2f — follow-up clarification of market-price coverage in the executive brief (claimed 2026-11-19 UTC)
+
+This is a separate, narrow follow-up after the original executive-summary scope was superseded by PR #87. The currently deployed summary still describes the 12/14 Week 10 fresh-read count in a way that can be misread as missing price coverage. This follow-up will clarify the distinction using the already captured price ledger only; it will not change the source data, strategy status, or open/closing policy.
+
+**Scope:** this subsection of `COORDINATION.md`, `site/scripts/build.py`, and generated `site/executive-summary.html` only. Do not edit `site/data/**`, `site/scripts/content.py`, any injury/team-view pages, or shared navigation. Session b45ee35f PR #92 has overlapping ownership of the flags/index/questions/requirements files; those remain untouched. No new official source values will be asserted.
+
+| ID | Task | Status | Owner | Files (scope) | Verification plan |
+| --- | --- | --- | --- | --- | --- |
+| S41-3a | Claim distinct summary wording correction | done | 41ef2b2f | COORDINATION.md (this subsection) | Claim commit 2570364 pushed before summary edits. |
+| S41-3b | Clarify fresh-read count vs stored locked-line coverage | done | 41ef2b2f | site/scripts/build.py, site/executive-summary.html | Targeted `build_exec()` regeneration; `site/check.py` PASS (17 pages); `ledger/scripts/check_ledger.py` PASS (25/25): 39 markets / 13 games, 39 locked verified, 0 opening and 0 closing values, 87 snapshot rows. New text distinguishes F-12 freshness from stored price coverage and links the nfl.com article + price ledger. |
+| S41-3c | Record tests, PR, merge, Pages deployment | in progress | 41ef2b2f | COORDINATION.md (this subsection) | Site/ledger checks pass; PR and Pages publication pending. |
+
+Log (41ef2b2f follow-up):
+- 2026-11-19 — Published-page spot check found the price paragraph still says "12 of the 14 Week 10 market rows are not re-verified," next to a separate ledger that records 39 locked values over 13 games. This is a terminology/freshness distinction, not evidence of missing official opening/closing values. Exact wording will be corrected without altering F-12 or claiming a fresh NFL fetch.
+
+- 2026-11-19 — During the required rebase, PR #92 (session b45ee35f) merged and its COORDINATION.md section conflicted with this appended claim. Resolved by preserving the full b45ee35f record and this session's full claim; no files from PR #92 were discarded or edited.
+- 2026-11-19 — A second board conflict arrived during rebase when PR #94 (session b45ee35f publication record) merged. Both the new release record and this follow-up claim are retained; site/data changes remain in their owners' scopes.
+- 2026-11-19 — Rebuilt only the executive-summary page by importing `site/scripts/build.py` and calling `build_exec()` (avoids touching files owned by the live injury-report PR #92). `python3 site/check.py`: 17 pages, all links resolve, every table row has source/UNVERIFIED. `python3 ledger/scripts/check_ledger.py`: 25/25 pass, including 39/39 locked prices, 0 opening/closing values, 13 Week 10 games and 87 snapshots. The updated paragraph calls 2/14 a re-read freshness count and 39/39 the stored locked-price coverage; no opening/closing values or CLV are claimed.
