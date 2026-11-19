@@ -49,10 +49,10 @@
   {
    "id": "R-06",
    "group": "Injuries",
-   "requirement": "Week 11 injury report captured",
+   "requirement": "Week 11 injury report captured (two reads, 18 and 19 Nov)",
    "status": "PARTIAL",
-   "exists": "Read 18 Nov 2026 before 06:29 UTC: all 3 pages, 13 games, 26 club rows (IND and HOU only); manifest in captures/manifest.json; rows in private-store/",
-   "gap": "No game designations or injury types yet (F-32); 12 games read No Injuries Reported (F-26); Thursday and Friday re-reads needed.",
+   "exists": "Read 19 Nov 2026: all 7 chunks, 13 games, 253 player rows, 24 clubs with rows (CIN and WAS read 'No Injuries Reported'). Earlier 18 Nov read: 26 rows, IND and HOU only. Manifest in captures/manifest.json; rows in private-store/; delta in captures/2026-11-19/delta-w11-r1-to-r2.json",
+   "gap": "Game designations exist only for the Thursday game (16 cells). Sunday and Monday game-status cells blank until the Friday report (F-34: 253 transcribed vs 254 in the brief, unreconciled).",
    "source": "https://www.nfl.com/injuries/league/2026/reg11"
   },
   {

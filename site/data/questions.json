@@ -52,9 +52,9 @@
   {
    "id": "Q-07",
    "question": "What do the Week 11 injury designations say?",
-   "have": "Week 11 capture of 26 club rows read 18 Nov (before 06:29 UTC), 3 of 3 pages, private-store/ with hashes; Wednesday practice statuses only",
-   "lack": "Game designations (Out, Doubtful, Questionable) and injury types; any second read to show change",
-   "how_to_answer": "Re-read Thu 19 and Fri 20 Nov with fetch times (captures/scripts/build_manifest.py)",
+   "have": "Full Week 11 report read 19 Nov (all 7 chunks, 253 player rows, 24 clubs with rows; 16 game designations, all in the Thursday game IND at HOU). Earlier 18 Nov read: 26 rows, IND and HOU only, no designations.",
+   "lack": "Sunday and Monday game designations (Friday report); the 253 vs 254 row-count reconciliation (F-34); a Friday read with a fetch time",
+   "how_to_answer": "Re-read Fri 20 Nov, then compare with captures/2026-11-19/delta-w11-r1-to-r2.json (captures/scripts/diff_captures.py)",
    "blocks": "R-06, R-07"
   },
   {

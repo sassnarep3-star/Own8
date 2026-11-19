@@ -203,11 +203,11 @@
   },
   {
    "id": "F-26",
-   "title": "24 clubs read 'No Injuries Reported' on the Week 11 page",
-   "detail": "In 12 of the 13 Week 11 games both clubs read 'No Injuries Reported' (24 clubs). Only IND and HOU have rows, all with Wednesday practice statuses. That text is not evidence of health. Thursday and Friday reads are needed before any club is treated as clear.",
-   "evidence": "private-store/injury-report-2026-w11.tsv (row counts); captures/manifest.json",
+   "title": "24 clubs read 'No Injuries Reported' on the Week 11 page (18 Nov read)",
+   "detail": "The 18 Nov read marked 24 clubs 'No Injuries Reported'. The full report read on 19 Nov lists player rows for 22 of those 24 clubs; only CIN and WAS still read 'No Injuries Reported'. The 18 Nov claim is contradicted and must not be used for any club.",
+   "evidence": "captures/2026-11-19/delta-w11-r1-to-r2.json; captures/manifest.json",
    "link": "https://www.nfl.com/injuries/league/2026/reg11",
-   "status": "OPEN"
+   "status": "CONTRADICTED by the 19 Nov read (see F-34)"
   },
   {
    "id": "F-27",
@@ -251,11 +251,11 @@
   },
   {
    "id": "F-32",
-   "title": "Week 11 injury rows carry no injury type",
-   "detail": "All 26 Week 11 rows have a blank Injuries column and a practice status. Injury types and game designations are therefore not in this capture. The page shows practice status only at this read.",
-   "evidence": "private-store/injury-report-2026-w11.tsv",
+   "title": "Week 11 injury rows carry no injury type or game designation (18 Nov read)",
+   "detail": "The 18 Nov read left the Injuries and Game Status columns blank for all 26 rows. The 19 Nov read fills both for the Thursday game (IND and HOU: 16 injury texts, 16 designations). Sunday and Monday designations are still blank, consistent with no Friday report yet.",
+   "evidence": "private-store/injury-report-2026-w11.tsv; private-store/injury-report-2026-w11-r2.tsv",
    "link": "https://www.nfl.com/injuries/league/2026/reg11",
-   "status": "OPEN"
+   "status": "PARTLY SUPERSEDED (19 Nov read); Sunday and Monday designations OPEN"
   },
   {
    "id": "F-33",
@@ -264,6 +264,14 @@
    "evidence": "captures/manifest.json probe P-09; captures/2026-11-18/gamebook-2026-w10-ne-at-det.meta.json",
    "link": "https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf",
    "status": "OPEN"
+  },
+  {
+   "id": "F-34",
+   "title": "Week 11 report: row count and the 18 Nov 'No Injuries Reported' claim",
+   "detail": "The 19 Nov read has 253 transcribed player rows across 24 clubs. The project brief quotes 254; the difference is not reconciled and may be a transcription error or a brief error. Both reads cannot be right about the same clubs: the 18 Nov read marked 24 clubs 'No Injuries Reported' and the 19 Nov read lists rows for 22 of them. Which read was correct at the time is not settled by two reads. Thursday and Friday reads are needed.",
+   "evidence": "captures/2026-11-19/injury-report-w11-r2.meta.json; captures/2026-11-19/delta-w11-r1-to-r2.json; private-store/injury-report-2026-w11-r2.tsv",
+   "link": "https://www.nfl.com/injuries/league/2026/reg11",
+   "status": "OPEN: reconcile 253 vs 254; re-read Friday"
   }
  ]
 }
