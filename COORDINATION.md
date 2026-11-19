@@ -2937,3 +2937,19 @@ Log (29145302) continued:
 - 2026-11-19 (T2) — Executive summary fixed to live graded count (13 graded, 0 pending; was stale "12 settled games"); Sources page now renders the 2026-11-19 re-verification table. Questions (20 rows), suggestions (10 rows), requirements (80 rows) registers regenerated via content.py; no new decisions implemented.
 - 2026-11-19 (T3) — QA green: content.py + build.py (16 pages), site/check.py OK (17 pages, links resolve, every row sourced/UNVERIFIED), ledger check 25/25, model_b0 check reproduces grading. README "What changed 2026-11-19" added.
 - 2026-11-19 (T4 in progress) — Creating PR from arena/29145302-own8 to main; will merge with gh pr merge --merge and confirm Pages built.
+
+## Session 41ef2b2f — stale executive-summary audit and correction (claimed 2026-11-19 UTC)
+
+Branch: `arena/41ef2b2f-own8` (Arena-pinned; all work stays on this branch). Read the shared board and current published-site generators before claiming. No active claim in this scope was listed. Earlier sessions' site work is treated as completed, read-only baseline; this claim is a narrow post-integration correction based only on already captured and source-linked inputs.
+
+**Scope:** `COORDINATION.md` (this section), `site/scripts/content.py`, `site/data/flags.json` (generated), `site/scripts/build.py`, `site/executive-summary.html`, and `site/flagged.html` (generated). Do not edit shared root navigation, requirement registers, private row-level data, or other session namespaces. No new NFL facts will be asserted without a captured official source; use the already checked Week 10 grading/price ledger and its official links only.
+
+| ID | Task | Status | Owner | Files (scope) | Verification plan |
+| --- | --- | --- | --- | --- | --- |
+| S41-0 | Review task-board collision and avoid duplicate implementation | done (no feature edits) | 41ef2b2f | COORDINATION.md (this section) | Kept 29145302 work intact; confirmed its merged scope supersedes this duplicate claim. |
+| S41-1 | Do not duplicate executive-summary refresh | needs review (superseded by 29145302) | 41ef2b2f | No feature files | The same summary refresh and live re-verification are recorded in the 29145302 section above; no duplicate edits made. |
+| S41-2 | Record coordination collision and verify inherited changes | done | 41ef2b2f | COORDINATION.md (this section) | Existing main commit 4b5ee00 contains the other session’s integration; no independent feature verification claimed. |
+
+Log (41ef2b2f):
+- 2026-11-19 — Before the claim could be pushed, `git pull --rebase origin main` fetched commit 4b5ee00 (PR #87), including session 29145302's exact overlapping site-summary scope and its recorded fix. Per the no-duplicate rule, stopped implementation; retained their entire section and this session's board record only. No site, data, or summary files were edited. Initial tests before the rebase exposed the stale 12-vs-13 line; the merged 29145302 log records its correction and QA.
+- 2026-11-19 — Rebase conflict in COORDINATION.md resolved by preserving both session records; this session is marked superseded/needs review rather than claiming duplicate work. The original claim commit 9ad7cb0 was not pushed before the other session landed.
